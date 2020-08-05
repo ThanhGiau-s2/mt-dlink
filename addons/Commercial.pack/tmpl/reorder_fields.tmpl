@@ -1,0 +1,37 @@
+<mt:loop name="field_loop" setvar="custom_fields"><mt:unless name="system_field"><mt:unless name="lock_field">1</mt:unless></mt:unless></mt:loop>
+<mt:if name="custom_fields">
+    <mt:setvarblock name="html_head" append="1">
+    <script type="text/javascript" src="<mt:var name="static_uri">addons/Commercial.pack/js/dbx.js?v=<mt:var name="mt_version_id" escape="URL">"></script>
+    </mt:setvarblock>
+    <mt:setvarblock name="related_content" append="1">
+    <__trans_section component="commercial">
+    <script type="text/javascript">
+    /* <![CDATA[ */
+    TC.attachLoadEvent( function() {
+        var manager = new dbxManager('<mt:var name="magic_token" escape="js">');     //session ID [/-_a-zA-Z0-9/]
+        // returning false here since we're maintaining the state ourselves and don't
+        // need dbx setting a cookie to preserve state.
+        manager.onstatechange = function() { setCustomFields({ 'order': this.state.replace(/[^0-9,]/g, '').split(/,/) }); return false; };
+        //create new docking boxes group
+        var reorder = new dbxGroup(
+            'entry-pref-field-list', // container ID [/-_a-zA-Z0-9/] 
+            'vertical',     // orientation ['vertical'|'horizontal']
+            '5',            // drag threshold ['n' pixels]
+            'yes',          // restrict drag movement to container axis ['yes'|'no']
+            '3',            // animate re-ordering ['n' frames per transition]
+            'no',           // include open/close toggle buttons ['yes'|'no']
+            'open',         // default state ['open'|'closed']
+            '<__trans phrase="open" escape="js">',         // word for "open", as in "open this box"
+            '<__trans phrase="close" escape="js">',        // word for "close", as in "close this box"
+            '<__trans phrase="click-down and drag to move this field" escape="js">', // sentence for "move this box" by mouse
+            '<__trans phrase="click to %toggle% this box" escape="js">', // pattern-match sentence for "(open|close) this box" by mouse
+            '<__trans phrase="use the arrow keys to move this box" escape="js">', // sentence for "move this box" by keyboard
+            '<__trans phrase=", or press the enter key to %toggle% it" escape="js">', // pattern-match sentence-fragment for "(open|close) this box" by keyboard
+            '%mytitle%  [%dbxtitle%]' // pattern-match syntax for title-attribute conflicts
+        );
+    });
+    /* ]]> */
+    </script>
+    </__trans_section>
+    </mt:setvarblock>
+</mt:if>

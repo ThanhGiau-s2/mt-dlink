@@ -1,0 +1,32 @@
+<mt:Ignore>
+========================================
+Template Name : script
+Template Type : Script Template
+Template Note : スクリプト用モジュール（global and local）
+========================================
+</mt:Ignore>
+
+<mt:Ignore>** 表示部分 **</mt:Ignore>
+<mt:Ignore>** グローバルのScript **</mt:Ignore>
+<script src="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/js/jquery.min.js"></script>
+<script src="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/js/ofi.min.js"></script>
+<script src="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/js/app.min.js" defer></script>
+<script src="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/js/slick.min.js"></script>
+<script src="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/js/top.min.js" defer></script>
+<mt:Ignore>** ページ固有のScript **</mt:Ignore>
+<script>
+(function(w, d, s, l, i) {
+w[l] = w[l] || [];
+w[l].push({
+'gtm.start': new Date().getTime(),
+event: 'gtm.js'
+});
+var f = d.getElementsByTagName(s)[0],
+j = d.createElement(s),
+dl = l != 'dataLayer' ? '&l=' + l : '';
+j.async = true;
+j.src =
+'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+f.parentNode.insertBefore(j, f);
+})(window, document, 'script', 'dataLayer', 'GTM-NFP8D7L');
+</script>

@@ -1,0 +1,36 @@
+<mtapp:setting
+    id="facbook_app_redirect_url"
+    label="<__trans phrase="OAuth Redirect URL of Facebook Login">"
+    hint='<__trans phrase='Please set this URL to "Valid OAuth redirect URIs" field of Facebook Login.'>'
+    show_hint="1">
+    <div id="fb_app_redirect_url"><mt:var name="fb_app_redirect_url"></div>
+</mtapp:setting>
+
+<mtapp:setting
+    id="facebook_app_key"
+    label="<__trans phrase="Facebook App ID">"
+    hint="<__trans phrase="The key for the Facebook application associated with your blog.">"
+    show_hint="1">
+    <input type="text" name="facebook_app_key" id="facebook_app_key" class="form-control" value="<mt:var name="facebook_app_key" escape="html">" size="40" />
+    <mt:if name="facebook_app_key"><a href="https://developers.facebook.com/apps/<mt:var name="facebook_app_key" escape="url">" target="_blank"><__trans phrase="Edit Facebook App"></a><mt:else><a href="https://developers.facebook.com/apps" target="__blank"><__trans phrase="Create Facebook App"></a></mt:if>
+</mtapp:setting>
+
+<mtapp:setting
+    id="facebook_app_secret"
+    label="<__trans phrase="Facebook Application Secret">"
+    hint="<__trans phrase="The secret for the Facebook application associated with your blog.">"
+    show_hint="1">
+    <input type="text" name="facebook_app_secret" id="facebook_app_secret" class="form-control" value="<mt:var name="facebook_app_secret" escape="html">" size="40" />
+</mtapp:setting>
+
+<script type="text/javascript">
+jQuery(function($) {
+    var redirectUrl = $('#fb_app_redirect_url').text();
+    if (! redirectUrl.match(/^https?:\/\//)) {
+        redirectUrl =
+            redirectUrl.replace(/^\/?/, location.protocol + '//' + location.host + '/');
+        $('#fb_app_redirect_url').text(redirectUrl);
+    }
+});
+</script>
+

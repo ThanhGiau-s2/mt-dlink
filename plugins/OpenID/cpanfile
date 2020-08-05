@@ -1,0 +1,12 @@
+requires 'Crypt::DH', '0.05';
+requires 'Digest::SHA1';
+requires 'HTTP::Request';
+requires 'HTTP::Status';
+requires 'LWP::UserAgent';
+requires 'URI';
+requires 'XML::Simple';
+recommends 'Image::Size';
+recommends 'XML::XPath';
+suggests 'Cache::File';
+suggests 'Compress::Zlib';
+suggests 'Crypt::SSLeay';

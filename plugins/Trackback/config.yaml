@@ -1,0 +1,346 @@
+name: Trackback
+id: Trackback
+key: Trackback
+description: <MT_TRANS phrase="Provides Trackback.">
+author_name: 'Six Apart Ltd.'
+author_link: https://www.movabletype.org/
+l10n_class: Trackback::L10
+version: 1.02
+
+init: '$Trackback::Trackback::init'
+
+applications:
+    tb:
+        handler: MT::App::Trackback
+        script: '$Trackback::MT::App::Trackback::script_name'
+    cms:
+        methods:
+            ping: '$Trackback::Trackback::CMS::Entry::send_pings'
+            approve_ping: '$Trackback::Trackback::CMS::Comment::approve_item'
+            unapprove_ping: '$Trackback::Trackback::CMS::Comment::unapprove_item'
+            empty_junk: '$Trackback::Trackback::CMS::Comment::empty_junk'
+            handle_junk: '$Trackback::Trackback::CMS::Comment::handle_junk'
+            not_junk: '$Trackback::Trackback::CMS::Comment::not_junk'
+        callbacks:
+            cms_view_permission_filter.ping: '$Trackback::MT::CMS::TrackBack::can_view'
+            cms_pre_load_filtered_list.ping: '$Trackback::MT::CMS::TrackBack::cms_pre_load_filtered_list'
+            cms_edit.ping: '$Trackback::MT::CMS::TrackBack::edit'
+            cms_save_permission_filter.ping: '$Trackback::MT::CMS::TrackBack::can_save'
+            cms_delete_permission_filter.ping: '$Trackback::MT::CMS::TrackBack::can_delete'
+            cms_pre_save.ping: '$Trackback::MT::CMS::TrackBack::pre_save'
+            cms_post_save.ping: '$Trackback::MT::CMS::TrackBack::post_save'
+            cms_post_delete.ping: '$Trackback::MT::CMS::TrackBack::post_delete'
+        content_actions:
+            ping: '$Trackback::Trackback::App::CMS::content_actions'
+        list_actions:
+            ping:
+                spam:
+                    label: Mark as Spam
+                    order: 110
+                    code: '$Trackback::Trackback::CMS::Comment::handle_junk'
+                    permit_action:
+                        permit_action: edit_all_trackbacks,edit_own_entry_trackback_status
+                        include_all: 1
+                    condition: '$Trackback::Trackback::App::CMS::mode_is_not_view'
+                not_spam:
+                    label: Remove Spam status
+                    order: 120
+                    code: '$Trackback::Trackback::CMS::Comment::not_junk'
+                    permit_action:
+                        permit_action: edit_all_trackbacks,edit_own_entry_trackback_status
+                        include_all: 1
+                    condition: '$Trackback::Trackback::App::CMS::mode_is_not_view'
+                unapprove_ping:
+                    label: Unpublish TrackBack(s)
+                    order: 100
+                    code: '$Trackback::Trackback::CMS::Comment::unapprove_item'
+                    permit_action:
+                        include_all: 1
+                        permit_action: unapprove_trackbacks_via_list
+                    condition: '$Trackback::Trackback::App::CMS::mode_is_not_view'
+                publish:
+                    label: Publish
+                    code: '$Trackback::Trackback::CMS::Comment::approve_item'
+                    mode: approve_ping
+                    order: 100
+                    js_message: publish
+                    button: 1
+                    permit_action:
+                        include_all: 1
+                        permit_action: approve_trackback_via_list
+                    condition: '$Trackback::Trackback::App::CMS::mode_is_not_view'
+                delete:
+                    label: Delete
+                    code: '$Core::MT::CMS::Common::delete'
+                    mode: delete
+                    order: 110
+                    js_message: delete
+                    button: 1
+                    condition: '$Trackback::Trackback::App::CMS::delete_ping_condition'
+        menus:
+            'feedback:ping':
+                label: Trackbacks
+                order: 200
+                mode: list
+                args:
+                    _type: ping
+                view:
+                    - blog
+                    - website
+                condition: '$Trackback::Trackback::App::CMS::feedback_ping_condition'
+        search_apis: '$Trackback::Trackback::CMS::Search::search_apis'
+        enable_object_methods:
+            ping:
+                delete: 1
+                edit: 1
+                save: 1
+    data_api:
+        resources:
+            blog:
+                -
+                    version: 2
+                    fields: '$Trackback::Trackback::DataAPI::Resource::v2::Blog::fields'
+                    updatable_fields: '$Trackback::Trackback::DataAPI::Resource::v2::Blog::updatable_fields'
+            website:
+                -
+                    version: 2
+                    fields: '$Trackback::Trackback::DataAPI::Resource::v2::Blog::fields'
+                    updatable_fields: '$Trackback::Trackback::DataAPI::Resource::v2::Blog::updatable_fields'
+            entry:
+                -
+                    fields: '$Trackback::Trackback::DataAPI::Resource::Entry::fields'
+                    updatable_fields: '$Trackback::Trackback::DataAPI::Resource::Entry::updatable_fields'
+            trackback:
+                -
+                    version: 1
+                    fields: '$Trackback::MT::DataAPI::Resource::Trackback::fields'
+                    updatable_fields: '$Trackback::MT::DataAPI::Resource::Trackback::updatable_fields'
+                -
+                    version: 2
+                    fields: '$Trackback::MT::DataAPI::Resource::v2::Trackback::fields'
+                    updatable_fields: '$Trackback::MT::DataAPI::Resource::v2::Trackback::updatable_fields'
+            tbping: trackback
+        endpoints:
+            -
+                id: list_trackbacks
+                route: /sites/:site_id/trackbacks
+                verb: GET
+                version: 1
+                handler: '$Trackback::MT::DataAPI::Endpoint::Trackback::list'
+                default_params:
+                    limit: 10
+                    offset: 0
+                    sortBy: id
+                    sortOrder: descend
+                    searchFields: title,excerpt,blogName
+                    filterKeys: status
+                error_codes:
+                    403: Do not have permission to retrieve the list of trackbacks.
+                requires_login: 0
+            -
+                id: list_trackbacks_for_entry
+                route: /sites/:site_id/entries/:entry_id/trackbacks
+                verb: GET
+                version: 1
+                handler: '$Trackback::MT::DataAPI::Endpoint::Trackback::list_for_entry'
+                default_params:
+                    limit: 10
+                    offset: 0
+                    sortBy: id
+                    sortOrder: descend
+                    searchFields: title,excerpt,blogName
+                    filterKeys: status
+                error_codes:
+                    403: Do not have permission to retrieve the list of trackbacks.
+                requires_login: 0
+            -
+                id: get_trackback
+                route: /sites/:site_id/trackbacks/:ping_id
+                version: 1
+                handler: '$Trackback::MT::DataAPI::Endpoint::Trackback::get'
+                error_codes:
+                    403: Do not have permission to retrieve the requested trackback.
+                requires_login: 0
+            -
+                id: update_trackback
+                route: /sites/:site_id/trackbacks/:ping_id
+                resources:
+                    - trackback
+                verb: PUT
+                version: 1
+                handler: '$Trackback::MT::DataAPI::Endpoint::Trackback::update'
+                error_codes:
+                    403: Do not have permission to update a trackback.
+            -
+                id: delete_trackback
+                route: /sites/:site_id/trackbacks/:ping_id
+                verb: DELETE
+                version: 1
+                handler: '$Trackback::MT::DataAPI::Endpoint::Trackback::delete'
+                error_codes:
+                    403: Do not have permission to delete a trackback.
+            -
+                id: list_trackbacks_for_page
+                route: /sites/:site_id/pages/:page_id/trackbacks
+                verb: GET
+                version: 2
+                handler: '$Trackback::MT::DataAPI::Endpoint::Trackback::list_for_entry'
+                default_params:
+                    limit: 10
+                    offset: 0
+                    sortBy: id
+                    sortOrder: descend
+                    searchFields: title,excerpt,blogName
+                    filterKeys: status
+                error_codes:
+                    403: Do not have permission to retrieve the list of trackbacks.
+                requires_login: 0
+        callbacks:
+            data_api_view_permission_filter.ping: '$Trackback::MT::DataAPI::Callback::Trackback::can_view'
+            data_api_pre_load_filtered_list.ping: '$Trackback::MT::DataAPI::Callback::Trackback::cms_pre_load_filtered_list'
+            data_api_edit.ping: '$Trackback::MT::CMS::TrackBack::edit'
+            data_api_save_permission_filter.ping: '$Trackback::MT::CMS::TrackBack::can_save'
+            data_api_delete_permission_filter.ping: '$Trackback::MT::CMS::TrackBack::can_delete'
+            data_api_pre_save.ping: '$Trackback::MT::CMS::TrackBack::pre_save'
+            data_api_post_save.ping: '$Trackback::MT::CMS::TrackBack::post_save'
+            data_api_post_delete.ping: '$Trackback::MT::CMS::TrackBack::post_delete'
+    feeds:
+        callbacks:
+            ActivityFeed.ping: '$Trackback::Trackback::App::ActivityFeed::_feed_ping'
+            ActivityFeed.filter_object.ping: '$Trackback::Trackback::App::ActivityFeed::_filter_ping'
+
+listing_screens:
+    ping:
+        primary: excerpt
+        object_label: Trackback
+        default_sort_key: created_on
+        data_api_scope_mode: this
+        permission: access_to_trackback_list
+        data_api_permission: ~
+        feed_link: '$Trackback::Trackback::listing_screens_ping_feed_link'
+        view:
+          - website
+          - blog
+
+permissions:
+    blog.create_post:
+        permitted_action:
+            access_to_trackback_list: 1
+            delete_own_entry_unpublished_trackback: 1
+            edit_own_entry_trackback_without_status: 1
+            open_own_entry_trackback_edit_screen: 1
+            view_own_entry_trackback: 1
+            get_trackback_feed: 1
+    blog.edit_all_posts:
+        permitted_action:
+            edit_trackback_status: 1
+            open_all_trackback_edit_screen: 1
+            send_update_pings_entry: 1
+    blog.edit_categories:
+        permitted_action:
+            bulk_edit_category_trackbacks: 1
+            delete_category_trackback: 1
+            handle_junk_for_category_trackback: 1
+            open_category_trackback_edit_screen: 1
+            save_category_trackback: 1
+            search_category_trackbacks: 1
+    blog.manage_feedback:
+        permitted_action:
+            access_to_trackback_list: 1
+            approve_all_trackback: 1
+            bulk_edit_all_entry_trackbacks: 1
+            delete_all_trackbacks: 1
+            edit_all_trackbacks: 1
+            edit_trackback_status: 1
+            edit_trackback_status_via_notify_mail: 1
+            get_trackback_feed: 1
+            handle_junk_for_all_trackbacks: 1
+            open_all_trackback_edit_screen: 1
+            publish_trackback: 1
+            save_all_trackback: 1
+            unapprove_trackbacks_via_list: 1
+            approve_trackback_via_list: 1
+            view_all_trackbacks: 1
+    blog.manage_content_data:
+        permitted_action:
+            edit_trackback_status: 1
+            open_all_trackback_edit_screen: 1
+            send_update_pings_content_data: 1
+    blog.manage_pages:
+        permitted_action:
+            send_update_pings_page: 1
+    blog.publish_post:
+        permitted_action:
+            approve_own_entry_trackback: 1
+            bulk_edit_own_entry_trackbacks: 1
+            delete_own_entry_trackback: 1
+            edit_own_entry_trackback: 1
+            edit_own_entry_trackback_status: 1
+            edit_trackback_status: 1
+            edit_trackback_status_via_notify_mail: 1
+            handle_junk_for_own_entry_trackback: 1
+            publish_own_entry_trackback: 1
+            unapprove_trackbacks_via_list: 1
+            approve_trackback_via_list: 1
+            send_update_pings_entry: 1
+    system.manage_content_data:
+        permitted_action:
+            edit_trackback_status: 1
+            open_all_trackback_edit_screen: 1
+            send_update_pings_content_data: 1
+
+tags:
+    block:
+        Pings: '$Trackback::MT::Template::Tags::Ping::_hdlr_pings'
+        PingsHeader: '$Core::MT::Template::Context::slurp'
+        PingsFooter: '$Core::MT::Template::Context::slurp'
+        PingsSent: '$Trackback::MT::Template::Tags::Ping::_hdlr_pings_sent'
+        PingEntry: '$Trackback::MT::Template::Tags::Ping::_hdlr_ping_entry'
+        IfPingsAllowed?: '$Trackback::MT::Template::Tags::Ping::_hdlr_if_pings_allowed'
+        IfPingsAccepted?: '$Trackback::MT::Template::Tags::Ping::_hdlr_if_pings_accepted'
+        IfPingsActive?: '$Trackback::MT::Template::Tags::Ping::_hdlr_if_pings_active'
+        IfPingsModerated?: '$Trackback::MT::Template::Tags::Ping::_hdlr_if_pings_moderated'
+        EntryIfAllowPings?: '$Trackback::MT::Template::Tags::Ping::_hdlr_entry_if_allow_pings'
+        CategoryIfAllowPings?: '$Trackback::MT::Template::Tags::Ping::_hdlr_category_allow_pings'
+    function:
+        SitePingCount: '$Trackback::MT::Template::Tags::Ping::_hdlr_blog_ping_count'
+        PingsSentURL: '$Trackback::MT::Template::Tags::Ping::_hdlr_pings_sent_url'
+        PingTitle: '$Trackback::MT::Template::Tags::Ping::_hdlr_ping_title'
+        PingID: '$Trackback::MT::Template::Tags::Ping::_hdlr_ping_id'
+        PingURL: '$Trackback::MT::Template::Tags::Ping::_hdlr_ping_url'
+        PingExcerpt: '$Trackback::MT::Template::Tags::Ping::_hdlr_ping_excerpt'
+        PingBlogName: '$Trackback::MT::Template::Tags::Ping::_hdlr_ping_blog_name'
+        PingIP: '$Trackback::MT::Template::Tags::Ping::_hdlr_ping_ip'
+        PingDate: '$Trackback::MT::Template::Tags::Ping::_hdlr_ping_date'
+        BlogPingCount: '$Trackback::MT::Template::Tags::Ping::_hdlr_blog_ping_count'
+        WebsitePingCount: '$Trackback::MT::Template::Tags::Ping::_hdlr_blog_ping_count'
+        EntryTrackbackCount: '$Trackback::MT::Template::Tags::Ping::_hdlr_entry_ping_count'
+        EntryTrackbackLink: '$Trackback::MT::Template::Tags::Ping::_hdlr_entry_tb_link'
+        EntryTrackbackData: '$Trackback::MT::Template::Tags::Ping::_hdlr_entry_tb_data'
+        EntryTrackbackID: '$Trackback::MT::Template::Tags::Ping::_hdlr_entry_tb_id'
+        CategoryTrackbackLink: '$Trackback::MT::Template::Tags::Ping::_hdlr_category_tb_link'
+        CategoryTrackbackCount: '$Trackback::MT::Template::Tags::Ping::_hdlr_category_tb_count'
+        ## Score
+        PingScore: '$Trackback::Trackback::Tags::Score::_hdlr_ping_score'
+        PingScoreHigh: '$Trackback::Trackback::Tags::Score::_hdlr_ping_score_high'
+        PingScoreLow: '$Trackback::Trackback::Tags::Score::_hdlr_ping_score_low'
+        PingScoreAvg: '$Trackback::Trackback::Tags::Score::_hdlr_ping_score_avg'
+        PingScoreCount: '$Trackback::Trackback::Tags::Score::_hdlr_ping_score_count'
+        PingRank: '$Trackback::Trackback::Tags::Score::_hdlr_ping_rank'
+
+list_properties:
+    entry: '$Trackback::Trackback::list_props_entry'
+    page: '$Trackback::Trackback::list_props_page'
+    ping: '$Trackback::Trackback::list_props_ping'
+
+system_filters:
+    ping: '$Trackback::Trackback::system_filters_ping'
+
+default_templates:
+    base_path: default_templates
+    module:
+        trackbacks:
+            label: Trackbacks
+    'global:email':
+        new-ping:
+            label: New Ping

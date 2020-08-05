@@ -1,0 +1,74 @@
+---
+author_link: 
+author_name: yoyager
+class: website
+description: Theme of D-Link website
+thumbnail_file: 'thumb.png'
+thumbnail_file_medium: 'thumb-medium.png'
+thumbnail_file_small: 'thumb-small.png'
+elements:
+  template_set:
+    component: ~
+    data:
+      base_path: templates
+      label: 'exported_template set'
+      templates:
+        archive:
+          category_entry_listing:
+              label: Category Entry Listing
+              mappings:
+                  category:
+                      archive_type: Category
+          monthly_entry_listing:
+              label: Monthly Entry Listing
+              mappings:
+                  monthly:
+                      archive_type: Monthly
+        index:
+          main_index:
+            label: 'index.html'
+            outfile: index.html
+            rebuild_me: '1'
+          _format_template:
+            label: '_format_template.html'
+            outfile: _format_template.html
+            rebuild_me: '1'
+            build_type: '0'
+        individual:
+          entry:
+            label: Entry
+            mappings:
+                entry_archive:
+                    archive_type: Individual
+        module:
+          template_config:
+            label: 'config'
+          template_component:
+            label: 'component'
+          template_html_head:
+            label: 'html_head'
+          template_html_foot:
+            label: 'html_foot'
+          template_script:
+            label: 'script'
+          template_style:
+            label: 'style'
+          template_footer:
+            label: 'footer'
+          template_navigation:
+            label: 'navigation'
+          template_header:
+            label: 'header'
+          template_debug:
+            label: 'debug'
+        page:
+          page:
+            label: Page
+            mappings:
+                page_archive:
+                    archive_type: Page
+    importer: template_set
+id: d-link
+label: d-link
+name: d-link
+version: '1.0'

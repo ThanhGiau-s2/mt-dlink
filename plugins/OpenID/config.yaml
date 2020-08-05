@@ -1,0 +1,64 @@
+name: OpenID
+id: OpenID
+key: OpenID
+description: <MT_TRANS phrase="Provides OpenID authentication.">
+author_name: 'Six Apart Ltd.'
+author_link: https://www.movabletype.org/
+l10n_class: OpenID::L10
+version: 1.01
+
+commenter_authenticators:
+    OpenID:
+        class: MT::Auth::OpenID
+        login_form: comment/auth_openid.tmpl
+        login_form_params: '$OpenID::MT::Auth::OpenID::commenter_auth_params'
+        condition: '$OpenID::MT::Auth::OpenID::openid_commenter_condition'
+        disable: 0
+    LiveJournal:
+        class: MT::Auth::LiveJournal
+        login_form: comment/auth_livejournal.tmpl
+        login_form_params: '$OpenID::MT::Auth::OpenID::commenter_auth_params'
+        condition: '$OpenID::MT::Auth::OpenID::openid_commenter_condition'
+        disable: 0
+    Google:
+        class: MT::Auth::GoogleOpenId
+        login_form: comment/auth_googleopenid.tmpl
+        condition: '$OpenID::MT::Auth::GoogleOpenId::condition'
+        login_form_params: '$OpenID::MT::Auth::OpenID::commenter_auth_params'
+        disable: 1
+    Yahoo:
+        class: MT::Auth::Yahoo
+        login_form_params: '$OpenID::MT::Auth::OpenID::commenter_auth_params'
+        condition: '$OpenID::MT::Auth::OpenID::openid_commenter_condition'
+        login_form: comment/auth_yahoo.tmpl
+        disable: 0
+    AIM:
+        class: MT::Auth::AIM
+        login_form_params: '$OpenID::MT::Auth::OpenID::commenter_auth_params'
+        condition: '$OpenID::MT::Auth::OpenID::openid_commenter_condition'
+        login_form: comment/auth_aim.tmpl
+        disable: 1
+    WordPress:
+        class: MT::Auth::WordPress
+        login_form_params: '$OpenID::MT::Auth::OpenID::commenter_auth_params'
+        condition: '$OpenID::MT::Auth::OpenID::openid_commenter_condition'
+        login_form: comment/auth_wordpress.tmpl
+        disable: 1
+    YahooJP:
+        class: MT::Auth::Yahoo
+        login_form_params: '$OpenID::MT::Auth::OpenID::commenter_auth_params'
+        condition: '$OpenID::MT::Auth::OpenID::openid_commenter_condition'
+        login_form: comment/auth_yahoojapan.tmpl
+        disable: 1
+    livedoor:
+        class: MT::Auth::OpenID
+        login_form_params: '$OpenID::MT::Auth::OpenID::commenter_auth_params'
+        condition: '$OpenID::MT::Auth::OpenID::openid_commenter_condition'
+        login_form: comment/auth_livedoor.tmpl
+        disable: 0
+    Hatena:
+        class: MT::Auth::Hatena
+        login_form: comment/auth_hatena.tmpl
+        login_form_params: '$OpenID::MT::Auth::OpenID::commenter_auth_params'
+        condition: '$OpenID::MT::Auth::OpenID::openid_commenter_condition'
+        disable: 0
