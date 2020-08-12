@@ -15,15 +15,15 @@ elements:
       templates:
         archive:
           category_entry_listing:
-              label: Category Entry Listing
-              mappings:
-                  category:
-                      archive_type: Category
+            label: Category Entry Listing
+            mappings:
+              category:
+                archive_type: Category
           monthly_entry_listing:
-              label: Monthly Entry Listing
-              mappings:
-                  monthly:
-                      archive_type: Monthly
+            label: Monthly Entry Listing
+            mappings:
+              monthly:
+                archive_type: Monthly
         index:
           main_index:
             label: 'index.html'
@@ -43,8 +43,6 @@ elements:
         module:
           template_config:
             label: 'config'
-          template_component:
-            label: 'component'
           template_html_head:
             label: 'html_head'
           template_html_foot:
@@ -55,8 +53,6 @@ elements:
             label: 'style'
           template_footer:
             label: 'footer'
-          template_navigation:
-            label: 'navigation'
           template_header:
             label: 'header'
           template_debug:
@@ -65,8 +61,8 @@ elements:
           page:
             label: Page
             mappings:
-                page_archive:
-                    archive_type: Page
+              page_archive:
+                archive_type: Page
     importer: template_set
 id: d-link
 label: d-link

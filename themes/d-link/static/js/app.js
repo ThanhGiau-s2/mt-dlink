@@ -73,6 +73,39 @@ function btnVisible($e, s, h) {
 }
 btnVisible($pagetopBtn, $window.scrollTop(), $window.outerHeight());
 
+// ヘッダーのカレント表示
+var pageURL = location.pathname;
+var pageURLArr = pageURL.split('/');
+var pageURLArrCategory = pageURLArr[1];
+var pageURLArrSubCategory = pageURLArr[2];
+
+$('.js-nav_current a').each(function (i, e) {
+  var $self = $(e);
+  var selfhref = $self.attr('href');
+  var hrefArr = selfhref.split('/');
+  var hrefArrCategory = hrefArr[1];
+
+  //パスの第1階層とhref属性の第1階層を比較して同じ値であればcurrentを付与する
+  if (pageURLArrCategory === hrefArrCategory) {
+    $self.addClass('is-current');
+  }
+});
+
+// ローカルナビの自動カレント表示
+if ($('.js-local_nav_current')[0]) {
+  $('.js-local_nav_current a').each(function (i, e) {
+    var $self = $(e);
+    var selfhref = $self.attr('href');
+    var hrefArr = selfhref.split('/');
+    var hrefArrCategory = hrefArr[1];
+    var hrefArrSubCategory = hrefArr[2];
+
+    if (pageURLArrCategory === hrefArrCategory && pageURLArrSubCategory === hrefArrSubCategory) {
+      $self.addClass('is-current');
+    }
+  });
+}
+
 // フッターの外部リンクのアイコンをマウスオンで切り替える
 $('.js-toggle_png').hover(
   function () {
@@ -87,12 +120,34 @@ $('.js-toggle_png').hover(
   }
 );
 
+// ハンバーガーメニューを閉じる動作
+function close_hamburger() {
+  $('.js-menu_open').removeClass('is-active');
+  $('.js-hamburger').stop().slideUp();
+}
+
+// メガメニューを閉じる動作
+function close_megamenu() {
+  $('.js-menu').removeClass('is-active');
+  $('.js-megamenu_overlay').hide();
+  $('.js-megamenu').slideUp();
+}
+
+// 検索モジュールを閉じる動作
+function close_search() {
+  $('.js-search_close').hide();
+  $('.js-search_button').show();
+  $('.js-search_overlay').hide();
+  $('#header_search').stop().slideUp();
+}
+
 // SPのハンバーガーメニューを表示する
 $('.js-menu_open').on('click', function (e) {
   e.preventDefault();
   var $this = $(this);
   $this.toggleClass('is-active');
   if ($this.hasClass('is-active')) {
+    close_search();
     $('.js-hamburger').stop().slideDown();
   }
   else {
@@ -103,8 +158,7 @@ $('.js-menu_open').on('click', function (e) {
 // ハンバーガーメニュー内の閉じるボタン
 $('.js-hamburger_close').on('click', function (e) {
   e.preventDefault();
-  $('.js-menu_open').removeClass('is-active');
-  $('.js-hamburger').stop().slideUp();
+  close_hamburger();
 });
 
 // ハンバーガーメニューの子要素の表示を切り替える
@@ -123,39 +177,39 @@ $('.js-hamburger_child').on('click', function (e) {
 // メガメニューを表示するグローバルナビはクリックしても何もしない
 $('.js-menu').on('click', function (e) {
   e.preventDefault();
+  var $this = $(this);
+  var id = $this.attr('href');
+  if ($(id).is(':visible')) {
+    close_megamenu();
+  }
 });
 
-var current_megamenu; //表示中のメガメニューを記憶させる
 // メガメニューを表示するグローバルナビにマウスオンしたらメガメニューを表示する
 $('.js-menu').on('mouseenter', function (e) {
   var $this = $(this);
   var id = $this.attr('href');
-  current_megamenu = $this;
-  $this.addClass('is-active');
-  $('.js-megamenu_overlay').show();
-  $(id).stop().slideDown();
+  close_search();
+  if ($(id).is(':hidden')) {
+    $('.js-megamenu').hide();
+    $this.addClass('is-active');
+    $('.js-megamenu_overlay').show();
+    $(id).stop().slideDown();
+  }
+});
 
-  // メガメニューからカーソルが外れたら非表示にする
-  $(id).on('mouseleave', function (e) {
-    var $self = $(this);
-    $('.js-megamenu_overlay').hide();
-    $self.stop().slideUp(function () {
-      $self.off('mouseleave');
-    });
-    $this.removeClass('is-active');
-  });
+// 他のグローバルナビにマウスオンしたときに、メガメニューを非表示にする
+$('.js-megamenu_close').on('mouseenter', function () {
+  close_megamenu();
+});
+
+// メガメニューのオーバーレイをクリックしたらメガメニューを閉じる
+$('.js-megamenu_overlay').on('click', function () {
+  close_megamenu();
 });
 
 // メガメニュー内の閉じるボタンをクリックしたら閉じる
 $('.js-menu_close').on('click', function () {
-  var $this = $(this);
-  var id = $this.data('target');
-  $('.js-megamenu_overlay').hide();
-  $(id).stop().slideUp(function () {
-    $(id).off('mouseleave');
-  });
-  current_megamenu.removeClass('is-active');
-  current_megamenu = null;
+  close_megamenu();
 });
 
 // サイト内検索モジュール
@@ -163,9 +217,12 @@ var $search_button = $('.js-search_button');
 var $search_close = $('.js-search_close');
 var $search_overlay = $('.js-search_overlay');
 var $header_search = $('#header_search');
+
 //検索モジュールの表示
 $search_button.on('click', function (e) {
   e.preventDefault();
+  close_megamenu();
+  close_hamburger();
   $search_button.hide();
   $search_close.show();
   $search_overlay.show();
@@ -175,10 +232,12 @@ $search_button.on('click', function (e) {
 //検索モジュールの非表示
 $search_close.on('click', function (e) {
   e.preventDefault();
-  $search_close.hide();
-  $search_button.show();
-  $search_overlay.hide();
-  $header_search.stop().slideUp();
+  close_search();
+});
+
+//検索モジュールのオーバーレイをクリックしたら非表示にする
+$search_overlay.on('click', function () {
+  close_search();
 });
 
 //ニュースのタブ切り替え
@@ -216,4 +275,12 @@ if ($('.js-news_tab')[0]) {
       $id.show();
     }
   }
+}
+
+//ニュースの分類選択
+if ($('.js-select_show')[0] && $('.js-select_menu')[0] && $('.js-select_list')[0]) {
+  $('.js-select_show').on('click', function () {
+    $('.js-select_menu').toggleClass('is-active');
+    $('.js-select_list').stop().slideToggle();
+  });
 }

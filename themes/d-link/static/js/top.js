@@ -1,6 +1,6 @@
 if ($('.js-mv_slider')[0]) {
   var option = {
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 4000,
     speed: 800,
     dotsClass: 'p-mv__dots',
