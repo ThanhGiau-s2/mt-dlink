@@ -24,6 +24,11 @@ elements:
             mappings:
               monthly:
                 archive_type: Monthly
+          category_yearly_entry_listing:
+            label: Category Yearly Entry Listing
+            mappings:
+              entry_archive:
+                archive_type: Category-Yearly
         index:
           main_index:
             label: 'index.html'
@@ -56,6 +61,12 @@ elements:
             label: 'header'
           template_debug:
             label: 'debug'
+          category_news:
+            label: 'category_news'
+          category_yearly_news:
+            label: 'category_yearly_news'
+          single_news:
+            label: 'single_news'
         page:
           page:
             label: Page

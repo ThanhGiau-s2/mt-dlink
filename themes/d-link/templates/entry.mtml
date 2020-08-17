@@ -1,0 +1,9 @@
+<mt:IfArchiveTypeEnabled archive_type="Category">
+    <mt:If tag="EntryCategories">
+        <mt:EntryPrimaryCategory>
+            <mt:If tag="CategoryBasename" eq="news">
+                <mt:Include module="single_news" parent="1" />
+            </mt:If>
+        </mt:EntryPrimaryCategory>
+    </mt:If>
+</mt:IfArchiveTypeEnabled>
