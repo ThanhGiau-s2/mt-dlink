@@ -38,8 +38,9 @@ elements:
           entry:
             label: Entry
             mappings:
-                entry_archive:
-                    archive_type: Individual
+              entry_archive:
+                archive_type: Individual
+                file_template: %c/%f
         module:
           template_config:
             label: 'config'
@@ -47,8 +48,6 @@ elements:
             label: 'html_head'
           template_html_foot:
             label: 'html_foot'
-          template_script:
-            label: 'script'
           template_style:
             label: 'style'
           template_footer:

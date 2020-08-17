@@ -21,7 +21,7 @@ Template Note : トップページ出力用
 <!-- /.p-search__input -->
 <div class="p-search__submit">
 <button type="submit">
-<img src="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/img/common/icon_search_02.png" alt="検索する">
+<img src="/asset/img/common/icon_search_02.png" alt="検索する">
 </button>
 </div>
 <!-- /.p-search__submit -->
@@ -45,7 +45,7 @@ Template Note : トップページ出力用
 <div class="p-megamenu__header">
 <p class="p-megamenu__top"><a href="/product/">製品情報トップ</a></p>
 <div class="p-megamenu__close">
-<button class="js-menu_close"><img src="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/img/common/icon_close_01.png" alt="閉じる"></button>
+<button class="js-menu_close"><img src="/asset/img/common/icon_close_01.png" alt="閉じる"></button>
 </div>
 </div>
 <ul class="p-megamenu__list">
@@ -119,7 +119,7 @@ Template Note : トップページ出力用
 </ul>
 <div class="p-hamburger__close">
 <button class="js-hamburger_close js-toggle_png">
-<img src="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/img/common/icon_close_02.png" alt="">閉じる
+<img src="/asset/img/common/icon_close_02.png" alt="">閉じる
 </button>
 </div>
 <!-- /.p-hamburger__close -->
@@ -136,8 +136,8 @@ Template Note : トップページ出力用
 <div class="p-mv__item">
 <a href="">
 <picture>
-<source srcset="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/img/top/top_mv_01_sp.jpg" media="(max-width: 768px)">
-<img src="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/img/top/top_mv_01.jpg" alt="有線・無線LAN統合管理ソリューション クラウドでネットワークをもっと簡単に nuclias cloud">
+<source srcset="/asset/img/top/top_mv_01_sp.jpg" media="(max-width: 768px)">
+<img src="/asset/img/top/top_mv_01.jpg" alt="有線・無線LAN統合管理ソリューション クラウドでネットワークをもっと簡単に nuclias cloud">
 </picture>
 </a>
 </div>
@@ -145,8 +145,8 @@ Template Note : トップページ出力用
 <div class="p-mv__item">
 <a href="">
 <picture>
-<source srcset="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/img/top/top_mv_02_sp.png" media="(max-width: 768px)">
-<img src="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/img/top/top_mv_02.png" alt="次世代高速Wi-Fi規格 Wi-Fi6 効率性、柔軟性、拡張性が強化され、新規および既存のネットワークで、次世代アプリケーションに対応可能な高速化と要領を実現します。">
+<source srcset="/asset/img/top/top_mv_02_sp.png" media="(max-width: 768px)">
+<img src="/asset/img/top/top_mv_02.png" alt="次世代高速Wi-Fi規格 Wi-Fi6 効率性、柔軟性、拡張性が強化され、新規および既存のネットワークで、次世代アプリケーションに対応可能な高速化と要領を実現します。">
 </picture>
 </a>
 </div>
@@ -154,8 +154,8 @@ Template Note : トップページ出力用
 <div class="p-mv__item">
 <a href="">
 <picture>
-<source srcset="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/img/top/top_mv_03_sp.png" media="(max-width: 768px)">
-<img src="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/img/top/top_mv_03.png" alt="無線LANの電波環境改善への処方箋 D-Link スマートアンテナ技術">
+<source srcset="/asset/img/top/top_mv_03_sp.png" media="(max-width: 768px)">
+<img src="/asset/img/top/top_mv_03.png" alt="無線LANの電波環境改善への処方箋 D-Link スマートアンテナ技術">
 </picture>
 </a>
 </div>
@@ -166,15 +166,15 @@ Template Note : トップページ出力用
 <div class="p-emergency">
 <div class="p-emergency__inner">
 <div class="p-emergency__content">
-<h2 class="p-emergency__heading"><img src="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/img/common/icon_emergency_01.png" alt="">重要なお知らせ</h2>
+<h2 class="p-emergency__heading"><img src="/asset/img/common/icon_emergency_01.png" alt="">重要なお知らせ</h2>
 <ul class="p-emergency__list">
 <mt:Ignore>** 重要なお知らせ **</mt:Ignore>
-<mt:Entries category="お知らせ" lastn="2">
+<mt:Entries category="ニュース" lastn="2">
     <mt:If tag="EntryDataImportantTag" eq="はい">
         <li>
             <a href="<$mt:EntryLink$>">
                 <div class="p-emergency__body">
-                    <p class="p-emergency__time"><$mt:EntryDate format="%Y/%m/%e"$></p>
+                    <p class="p-emergency__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
                     <p class="p-emergency__title"><$mt:EntryTitle$></p>
                 </div>
             </a>
@@ -211,8 +211,8 @@ Template Note : トップページ出力用
 <!-- /.p-product_category__info -->
 <div class="p-product_category__image">
 <picture>
-<source srcset="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/img/top/category_img_01_sp.png" media="(max-width: 768px)">
-<img src="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/img/top/category_img_01_pc.png" alt="スイッチ">
+<source srcset="/asset/img/top/category_img_01_sp.png" media="(max-width: 768px)">
+<img src="/asset/img/top/category_img_01_pc.png" alt="スイッチ">
 </picture>
 </div>
 <!-- /.p-product_category__image -->
@@ -234,8 +234,8 @@ Template Note : トップページ出力用
 <!-- /.p-product_category__info -->
 <div class="p-product_category__image">
 <picture>
-<source srcset="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/img/top/category_img_02_sp.png" media="(max-width: 768px)">
-<img src="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/img/top/category_img_02_pc.png" alt="無線LAN">
+<source srcset="/asset/img/top/category_img_02_sp.png" media="(max-width: 768px)">
+<img src="/asset/img/top/category_img_02_pc.png" alt="無線LAN">
 </picture>
 </div>
 <!-- /.p-product_category__image -->
@@ -257,8 +257,8 @@ Template Note : トップページ出力用
 <!-- /.p-product_category__info--small -->
 <div class="p-product_category__image--small">
 <picture>
-<source srcset="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/img/top/category_img_03_sp.png" media="(max-width: 768px)">
-<img src="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/img/top/category_img_03_pc.png" alt="ルータ / ファイアーウォール">
+<source srcset="/asset/img/top/category_img_03_sp.png" media="(max-width: 768px)">
+<img src="/asset/img/top/category_img_03_pc.png" alt="ルータ / ファイアーウォール">
 </picture>
 </div>
 <!-- /.p-product_category__thumbnail -->
@@ -276,8 +276,8 @@ Template Note : トップページ出力用
 <!-- /.p-product_category__info--small -->
 <div class="p-product_category__image--small">
 <picture>
-<source srcset="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/img/top/category_img_04_sp.png" media="(max-width: 768px)">
-<img src="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/img/top/category_img_04_pc.png" alt="メディアコンバータ">
+<source srcset="/asset/img/top/category_img_04_sp.png" media="(max-width: 768px)">
+<img src="/asset/img/top/category_img_04_pc.png" alt="メディアコンバータ">
 </picture>
 </div>
 <!-- /.p-product_category__thumbnail -->
@@ -295,8 +295,8 @@ Template Note : トップページ出力用
 <!-- /.p-product_category__info--small -->
 <div class="p-product_category__image--small">
 <picture>
-<source srcset="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/img/top/category_img_05_sp.png" media="(max-width: 768px)">
-<img src="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/img/top/category_img_05_pc.png" alt="ネットワークカメラ">
+<source srcset="/asset/img/top/category_img_05_sp.png" media="(max-width: 768px)">
+<img src="/asset/img/top/category_img_05_pc.png" alt="ネットワークカメラ">
 </picture>
 </div>
 <!-- /.p-product_category__thumbnail -->
@@ -314,8 +314,8 @@ Template Note : トップページ出力用
 <!-- /.p-product_category__info--small -->
 <div class="p-product_category__image--small">
 <picture>
-<source srcset="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/img/top/category_img_06_sp.png" media="(max-width: 768px)">
-<img src="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/img/top/category_img_06_pc.png" alt="ソフトウェア">
+<source srcset="/asset/img/top/category_img_06_sp.png" media="(max-width: 768px)">
+<img src="/asset/img/top/category_img_06_pc.png" alt="ソフトウェア">
 </picture>
 </div>
 <!-- /.p-product_category__thumbnail -->
@@ -333,8 +333,8 @@ Template Note : トップページ出力用
 <!-- /.p-product_category__info--small -->
 <div class="p-product_category__image--small">
 <picture>
-<source srcset="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/img/top/category_img_07_sp.png" media="(max-width: 768px)">
-<img src="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/img/top/category_img_07_pc.png" alt="光モジュール / ケーブル">
+<source srcset="/asset/img/top/category_img_07_sp.png" media="(max-width: 768px)">
+<img src="/asset/img/top/category_img_07_pc.png" alt="光モジュール / ケーブル">
 </picture>
 </div>
 <!-- /.p-product_category__thumbnail -->
@@ -352,8 +352,8 @@ Template Note : トップページ出力用
 <!-- /.p-product_category__info--small -->
 <div class="p-product_category__image--small">
 <picture>
-<source srcset="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/img/top/category_img_08_sp.png" media="(max-width: 768px)">
-<img src="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/img/top/category_img_08_pc.png" alt="リダンダント電源">
+<source srcset="/asset/img/top/category_img_08_sp.png" media="(max-width: 768px)">
+<img src="/asset/img/top/category_img_08_pc.png" alt="リダンダント電源">
 </picture>
 </div>
 <!-- /.p-product_category__thumbnail -->
@@ -371,8 +371,8 @@ Template Note : トップページ出力用
 <!-- /.p-product_category__info--small -->
 <div class="p-product_category__image--small">
 <picture>
-<source srcset="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/img/top/category_img_09_sp.png" media="(max-width: 768px)">
-<img src="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/img/top/category_img_09_pc.png" alt="PoE / アクセサリアダプタ">
+<source srcset="/asset/img/top/category_img_09_sp.png" media="(max-width: 768px)">
+<img src="/asset/img/top/category_img_09_pc.png" alt="PoE / アクセサリアダプタ">
 </picture>
 </div>
 <!-- /.p-product_category__thumbnail -->
@@ -386,7 +386,7 @@ Template Note : トップページ出力用
 <div class="p-product_category__row--other">
 <div class="p-product_category__comparison">
 <div class="p-product_category__icon">
-<img src="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/img/top/category_icon_01.png" alt="">
+<img src="/asset/img/top/category_icon_01.png" alt="">
 </div>
 <!-- /.p-product_category__icon -->
 <p class="p-product_category__name--other">製品を比較する</p>
@@ -412,7 +412,7 @@ Template Note : トップページ出力用
         <li>
             <a href="<$mt:EntryPermalink$>" rel="bookmark">
                 <div class="p-emergency__body">
-                    <p class="p-emergency__time"><$mt:EntryDate format="%Y/%m/%e"$></p>
+                    <p class="p-emergency__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
                     <p class="p-emergency__title"><$mt:EntryTitle$></p>
                 </div>
             </a>
@@ -544,7 +544,7 @@ Template Note : トップページ出力用
             <a href="<$mt:EntryPermalink$>" rel="bookmark">
                 <div class="p-archive__detail">
                     <div class="p-archive__header">
-                        <p class="p-archive__category--solution">
+                        <p class="p-archive__category--case">
                             <mt:EntryAdditionalCategories glue="," setvar="sub_cats">
                                 <$mt:CategoryLabel$>
                             </mt:EntryAdditionalCategories>
@@ -590,7 +590,7 @@ Template Note : トップページ出力用
 <a href="/support/" class="js-toggle_png">
 <div class="p-tile__box">
 <div class="p-tile__icon">
-<img src="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/img/top/support_icon_01.png" alt="">
+<img src="/asset/img/top/support_icon_01.png" alt="">
 </div>
 <!-- /.p-tile__icon -->
 <div class="p-tile__name">
@@ -605,7 +605,7 @@ Template Note : トップページ出力用
 <a href="/support/award-certification/" class="js-toggle_png">
 <div class="p-tile__box">
 <div class="p-tile__icon">
-<img src="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/img/top/support_icon_02.png" alt="">
+<img src="/asset/img/top/support_icon_02.png" alt="">
 </div>
 <!-- /.p-tile__icon -->
 <div class="p-tile__name">
@@ -620,7 +620,7 @@ Template Note : トップページ出力用
 <a href="/support/info/" class="js-toggle_png">
 <div class="p-tile__box">
 <div class="p-tile__icon">
-<img src="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/img/top/support_icon_03.png" alt="">
+<img src="/asset/img/top/support_icon_03.png" alt="">
 </div>
 <!-- /.p-tile__icon -->
 <div class="p-tile__name">
@@ -635,7 +635,7 @@ Template Note : トップページ出力用
 <a href="/contact/repair-form/" class="js-toggle_png">
 <div class="p-tile__box">
 <div class="p-tile__icon">
-<img src="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/img/top/support_icon_04.png" alt="">
+<img src="/asset/img/top/support_icon_04.png" alt="">
 </div>
 <!-- /.p-tile__icon -->
 <div class="p-tile__name">
@@ -650,7 +650,7 @@ Template Note : トップページ出力用
 <a href="/support/support-services/" class="js-toggle_png">
 <div class="p-tile__box">
 <div class="p-tile__icon">
-<img src="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/img/top/support_icon_05.png" alt="">
+<img src="/asset/img/top/support_icon_05.png" alt="">
 </div>
 <!-- /.p-tile__icon -->
 <div class="p-tile__name">
@@ -665,7 +665,7 @@ Template Note : トップページ出力用
 <a href="/support/faq/" class="js-toggle_png">
 <div class="p-tile__box">
 <div class="p-tile__icon">
-<img src="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/img/top/support_icon_06.png" alt="">
+<img src="/asset/img/top/support_icon_06.png" alt="">
 </div>
 <!-- /.p-tile__icon -->
 <div class="p-tile__name">
@@ -709,7 +709,7 @@ Template Note : トップページ出力用
         <div class="p-news__item">
             <a href="<$mt:EntryLink$>">
                 <div class="p-news__box">
-                    <p class="p-news__time"><$mt:EntryDate format="%Y/%m/%e"$></p>
+                    <p class="p-news__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
                     <mt:EntryAdditionalCategories glue="," setvar="sub_cats">
                             <$mt:CategoryLabel$>
                     </mt:EntryAdditionalCategories>
@@ -744,7 +744,7 @@ Template Note : トップページ出力用
         <div class="p-news__item">
             <a href="<$mt:EntryLink$>">
                 <div class="p-news__box">
-                    <p class="p-news__time"><$mt:EntryDate format="%Y/%m/%e"$></p>
+                    <p class="p-news__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
                     <mt:EntryAdditionalCategories setvar="sub_cats">
                         <$mt:CategoryLabel$>
                     </mt:EntryAdditionalCategories>
@@ -786,7 +786,7 @@ Template Note : トップページ出力用
         <div class="p-news__item">
             <a href="<$mt:EntryLink$>">
                 <div class="p-news__box">
-                    <p class="p-news__time"><$mt:EntryDate format="%Y/%m/%e"$></p>
+                    <p class="p-news__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
                     <mt:EntryAdditionalCategories setvar="sub_cats">
                         <$mt:CategoryLabel$>
                     </mt:EntryAdditionalCategories>
@@ -849,7 +849,7 @@ Template Note : トップページ出力用
 <a href="" target="_blank" rel="noopener" class="js-toggle_png">
 <div class="p-aside__body">
 <div class="p-aside__image">
-<img src="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/img/common/icon_mail_01.png" alt="">
+<img src="/asset/img/common/icon_mail_01.png" alt="">
 </div>
 <!-- /.p-aside__image -->
 <div class="p-aside__content">
@@ -869,7 +869,7 @@ Template Note : トップページ出力用
 <a href="/catalog/" target="_blank" rel="noopener" class="js-toggle_png">
 <div class="p-aside__body">
 <div class="p-aside__image">
-<img src="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/img/common/icon_pdf_01.png" alt="">
+<img src="/asset/img/common/icon_pdf_01.png" alt="">
 </div>
 <!-- /.p-aside__image -->
 <div class="p-aside__content">
@@ -889,7 +889,7 @@ Template Note : トップページ出力用
 <a href="https://www.youtube.com/c/DLinkglobal/" target="_blank" rel="noopener" class="js-toggle_png">
 <div class="p-aside__body">
 <div class="p-aside__image">
-<img src="<$mt:SupportDirectoryURL encode_html="1"$>theme_static/d-link/img/common/icon_youtube_01.png" alt="">
+<img src="/asset/img/common/icon_youtube_01.png" alt="">
 </div>
 <!-- /.p-aside__image -->
 <div class="p-aside__content">
