@@ -47,14 +47,10 @@ elements:
                 archive_type: Individual
                 file_template: %c/%f
         module:
-          template_config:
-            label: 'config'
           template_html_head:
             label: 'html_head'
           template_html_foot:
             label: 'html_foot'
-          template_style:
-            label: 'style'
           template_footer:
             label: 'footer'
           template_header:
@@ -67,6 +63,8 @@ elements:
             label: 'category_yearly_news'
           single_news:
             label: 'single_news'
+          page_form:
+            label: 'page_form'
         page:
           page:
             label: Page
