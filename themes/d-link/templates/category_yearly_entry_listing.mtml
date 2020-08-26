@@ -1,7 +1,8 @@
-<mt:ParentCategory setvar="parent_category"><$mt:CategoryBasename$></mt:ParentCategory>
-<mt:If name="parent_category" eq="news">
+<mt:ParentCategories setvar="list_cate"><mt:CategoryBasename></mt:ParentCategories>
+<mt:If name="list_cate" like="news">
     <mt:Include module="category_yearly_news" parent="1" />
+<mt:Else>
+    <mt:If name="list_cate" eq="supportrelease">
+        <mt:Include module="category_yearly_support_release" parent="1" />
+    </mt:If>
 </mt:If>
-<mt:IfCategory name="ニュース">
-    <mt:Include module="category_yearly_news" parent="1" />
-</mt:IfCategory>

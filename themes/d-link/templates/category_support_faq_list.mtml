@@ -1,0 +1,125 @@
+<mt:Ignore>
+========================================
+Template Name : category.html
+Template Type : Category Template
+Template Note : カテゴリ
+========================================
+</mt:Ignore>
+<mt:SetVars>
+    base_description=ディスクリプション
+    og_title=<$mt:CategoryLabel$> | よくあるご質問 | サポート | D-Link Japan
+    og_url=<$mt:CategoryArchiveLink$>
+    og_type=article
+</mt:SetVars>
+<mt:SetVarTemplate name="file_javascript">
+<script src="/asset/js/category.js" defer></script>
+</mt:SetVarTemplate>
+<mt:Ignore>** 表示部分 **</mt:Ignore>
+<mt:Include module="html_head" parent="1" />
+<mt:Include module="header" parent="1" />
+<!-- ここからコンテンツ -->
+<main class="p-main">
+    <div class="c-breadcrumb">
+        <ul class="c-breadcrumb__list">
+            <li><a href="/">HOME</a></li>
+            <li><a href="/support/">サポート</a></li>
+            <li><a href="/support/faq/">よくあるご質問</a></li>
+            <li><span><$mt:CategoryLabel$></span></li>
+        </ul>
+    </div>
+    <!-- /.c-breadcrumb -->
+
+<section class="l-outer--lower">
+<div class="l-inner">
+
+    <div class="c-title">
+        <h1 class="c-title__text">よくあるご質問一覧</h1>
+    </div>
+    <!-- /.c-title -->
+
+    <div class="c-content_heading">
+        <h2 class="c-content_heading__text"><mt:ParentCategory><$mt:CategoryLabel$></mt:ParentCategory>：<$mt:CategoryLabel$></h2>
+    </div>
+    <!-- /.c-content_heading -->
+
+<ul class="p-accordion_detail">
+    <mt:PageContents count="20">
+        <mt:SetVars>totalEntry=<$mt:BlogEntryCount$></mt:SetVars>
+        <mt:Entries sort_by="modified_on" lastn="$totalEntry">
+            <li>
+                <button class="p-accordion_detail__header js-accordion_detail_toggle">
+                    <ul class="p-accordion_detail__tag">
+                    <mt:Tags>
+                        <li><mt:TagName></li>
+                    </mt:Tags>
+                    </ul>
+                    <div class="p-accordion_detail__question">
+                        <$mt:EntryTitle$>
+                    </div>
+                    <!-- /.p-accordion_detail__question -->
+                </button>
+                <!-- /.p-accordion_detail__header -->
+
+                <div class="p-accordion_detail__body js-accordion_detail_body">
+                    <div class="p-accordion_detail__answer">
+                    <$mt:EntryBody$>
+                    </div>
+                    <!-- /.p-accordion_detail__answer -->
+                </div>
+                <!-- /.p-accordion_detail__body -->
+            </li>
+            <$mt:PageSeparator$>
+        </mt:Entries>
+    </mt:PageContents>
+</ul>
+
+<ul class="c-pager">
+    <mt:Ignore>** 表示部分 **</mt:Ignore>
+    <mt:Pagination>
+        <mt:PaginationHeader>
+            <mt:ifPaginationPrev>
+                <li class="c-pager__prev"><a href="<mt:PaginationPrev>">&lt;前へ</a></li>
+            </mt:ifPaginationPrev>
+        </mt:PaginationHeader>
+        <mt:ifPaginationCurrent>
+            <li class="c-pager__number"><span><mt:PaginationLink element="number"></span></li>
+        <mt:Else>
+            <li class="c-pager__number"><a href="<mt:PaginationLink>"><mt:PaginationLink element="number"></a></li>
+        </mt:ifPaginationCurrent>
+        <mt:PaginationFooter>
+            <mt:ifPaginationNext>
+                <li class="c-pager__next"><a href="<mt:PaginationNext>">次へ</a></li>
+            </mt:ifPaginationNext>
+        </mt:PaginationFooter>
+    </mt:Pagination>
+</ul>
+
+</div>
+<!-- /.l-inner -->
+</section>
+
+</main>
+
+<div class="p-local_nav">
+<div class="p-local_nav__inner">
+<p class="p-local_nav__heading">サポート</p>
+<ul class="p-local_nav__list js-local_nav_current">
+<li><a href="/support/">サポートTOP</a></li>
+<li><a href="/support/release/">サポート情報一覧</a></li>
+<li><a href="/support/award-certification/">D-linkの品質保証</a></li>
+<li><a href="">サポート体制について</a></li>
+<li><a href="/support/info/">無償保証について</a></li>
+<li><a href="/support/info/product-assurance-provision.html">製品保証規定</a></li>
+<li><a href="/support/info/target.html">保証対象製品と保証期間</a></li>
+<li><a href="/support/faq/category/product-warranty.html">製品保証のQ&amp;A</a></li>
+<li><a href="/contact/repair-form/">故障・修理申し込み</a></li>
+<li><a href="/support/support-services/">有償保守サービスについて</a></li>
+<li><a href="/support/support-services/support-info.html">約款 / 仕様 / お申し込み方法</a></li>
+<li><a href="/support/faq/">よくあるご質問</a></li>
+</ul>
+</div>
+<!-- /.p-local_nav__inner -->
+</div>
+<!-- /.p-local_nav -->
+<mt:Include module="footer" parent="1" />
+<mt:Include module="html_foot" parent="1" />

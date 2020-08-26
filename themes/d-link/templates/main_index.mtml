@@ -296,7 +296,7 @@ Template Note : トップページ出力用
                         <ul class="p-emergency__list">
                             <mt:Ignore>** 製品に関する重要なお知らせ **</mt:Ignore>
                             <mt:Entries category="サポート情報" lastn="2">
-                                <mt:If tag="EntryDataImportantTag" eq="はい">
+                                <mt:If tag="EntryDataImportantTagSupport" eq="はい">
                                     <li>
                                         <a href="<$mt:EntryPermalink$>" rel="bookmark">
                                             <div class="p-emergency__body">
@@ -670,19 +670,25 @@ Template Note : トップページ出力用
                         <p class="p-news__category--maintenance">メンテナンス情報</p>
                         <p class="p-news__category--failure">障害情報</p>
                         -->
-                        <mt:Entries category="サポート情報" lastn="5">
+                        <mt:Entries category="サポート情報/リリース" lastn="5">
                             <div class="p-news__item">
                                 <a href="<$mt:EntryLink$>">
                                     <div class="p-news__box">
                                         <p class="p-news__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
-                                        <mt:EntryAdditionalCategories setvar="sub_cats">
-                                            <$mt:CategoryLabel$>
+                                        <mt:EntryAdditionalCategories>
+                                            <mt:If tag="CategoryBasename" ne="release">
+                                                <$mt:CategoryBasename setvar="cate_name"$>
+                                                <$mt:CategoryLabel setvar="cate_label"$>
+                                            </mt:If>
                                         </mt:EntryAdditionalCategories>
-                                        <mt:EntryAdditionalCategories setvar="cate_name"><$mt:CategoryBasename$></mt:EntryAdditionalCategories>
-                                        <mt:If name="cate_name" eq="support-info">
-                                            <p class="p-news__category--support"><$mt:GetVar name="sub_cats"$></p>
+                                        <mt:If name="cate_name" eq="info">
+                                            <p class="p-news__category--support"><$mt:GetVar name="cate_label"$></p>
                                         <mt:Else>
-                                            <p class="p-news__category--<$mt:GetVar name="cate_name"$>"><$mt:GetVar name="sub_cats"$></p> 
+                                            <mt:If name="cate_name" eq="fault">
+                                                <p class="p-news__category--failure"><$mt:GetVar name="cate_label"$></p>
+                                            <mt:Else>
+                                                <p class="p-news__category--<$mt:GetVar name="cate_name"$>"><$mt:GetVar name="cate_label"$></p>
+                                            </mt:If> 
                                         </mt:If>
                                         <div class="p-news__body">
                                             <p class="p-news__title"><$mt:EntryTitle$></p>

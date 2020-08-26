@@ -19,6 +19,7 @@ elements:
             mappings:
               category:
                 archive_type: Category
+                file_template: <mt:Include module="permalink_category">
           monthly_entry_listing:
             label: Monthly Entry Listing
             mappings:
@@ -45,7 +46,7 @@ elements:
             mappings:
               entry_archive:
                 archive_type: Individual
-                file_template: %c/%f
+                file_template: <mt:Include module="permalink">
         module:
           template_html_head:
             label: 'html_head'
@@ -63,8 +64,22 @@ elements:
             label: 'category_yearly_news'
           single_news:
             label: 'single_news'
+          single_support_release:
+            label: 'single_support_release'
           page_form:
             label: 'page_form'
+          category_support_release:
+            label: 'category_support_release'
+          category_support_faq_list:
+            label: 'category_support_faq_list'
+          category_support_faq:
+            label: 'category_support_faq'
+          category_yearly_support_release:
+            label: 'category_yearly_support_release'
+          permalink:
+            label: permalink
+          permalink_category:
+            label: permalink_category
         page:
           page:
             label: Page

@@ -7,7 +7,7 @@ Template Note : カテゴリ
 </mt:Ignore>
 <mt:SetVars>
     base_description=ディスクリプション
-    og_title=<mt:ArchiveDate format="%Y">年 | 最新ニュース | D-Link Japan
+    og_title=<mt:ArchiveDate format="%Y">年 | サポート情報 | サポート | D-Link Japan
     og_url=<$mt:ArchiveLink encode_html="1"$>
     og_type=article
 </mt:SetVars>
@@ -18,11 +18,13 @@ Template Note : カテゴリ
 <mt:Include module="html_head" parent="1" />
 <mt:Include module="header" parent="1" />
 <!-- ここからコンテンツ -->
+
 <main class="p-main">
 <div class="c-breadcrumb">
 <ul class="c-breadcrumb__list">
 <li><a href="/">HOME</a></li>
-<li><a href="/news/">ニュース</a></li>
+<li><a href="/support/">サポート</a></li>
+<li><a href="/support/release/">サポート情報</a></li>
 <li><span>2020年</span></li>
 </ul>
 </div>
@@ -32,14 +34,14 @@ Template Note : カテゴリ
 <div class="l-inner">
 
 <div class="c-title">
-<p class="c-title__text">ニュース</p>
+<p class="c-title__text">サポート情報</p>
 </div>
 <!-- /.c-title -->
 
 <div class="p-news">
 <ul class="p-news__tab--short">
-<li><a href="/news/" class="p-news__toggle">分類別表示</a></li>
-<li><a href="/news/<mt:Date format="%Y">" class="p-news__toggle is-active" data-name="<mt:Date format="%Y">">年別表示</a></li>
+<li><a href="/support/release/" class="p-news__toggle">分類別表示</a></li>
+<li><a href="/support/release/<mt:Date format="%Y">" class="p-news__toggle is-active" data-name="<mt:Date format="%Y">">年別表示</a></li>
 </ul>
 
 <ul class="p-news__type">
@@ -71,8 +73,11 @@ Template Note : カテゴリ
 <div class="p-news__block--show">
 <!--
 # カテゴリHTML
-<p class="p-news__category--news">お知らせ</p>
-<p class="p-news__category--product">製品ニュース</p>
+<p class="p-news__category--support">お知らせ</p>
+<p class="p-news__category--firmware">ファームウェア</p>
+<p class="p-news__category--security">セキュリティ情報</p>
+<p class="p-news__category--maintenance">メンテナンス情報</p>
+<p class="p-news__category--failure">障害情報</p>
 -->
 <mt:PageContents count="20">
     <mt:SetVars>totalEntry=<$mt:BlogEntryCount$></mt:SetVars>
@@ -83,14 +88,20 @@ Template Note : カテゴリ
                     <a href="<$mt:EntryLink$>">
                         <div class="p-news__box">
                             <p class="p-news__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
-                            <mt:EntryAdditionalCategories glue="," setvar="sub_cats">
-                                <$mt:CategoryLabel$>
+                            <mt:EntryAdditionalCategories>
+                                <mt:If tag="CategoryBasename" ne="release">
+                                    <$mt:CategoryBasename setvar="cate_name"$>
+                                    <$mt:CategoryLabel setvar="cate_label"$>
+                                </mt:If>
                             </mt:EntryAdditionalCategories>
-                            <mt:EntryAdditionalCategories setvar="cate_name"><$mt:CategoryBasename$></mt:EntryAdditionalCategories>
                             <mt:If name="cate_name" eq="info">
-                                <p class="p-news__category--news"><$mt:GetVar name="sub_cats"$></p>
+                                <p class="p-news__category--support"><$mt:GetVar name="cate_label"$></p>
                             <mt:Else>
-                                <p class="p-news__category--product"><$mt:GetVar name="sub_cats"$></p> 
+                                <mt:If name="cate_name" eq="fault">
+                                    <p class="p-news__category--failure"><$mt:GetVar name="cate_label"$></p>
+                                <mt:Else>
+                                    <p class="p-news__category--<$mt:GetVar name="cate_name"$>"><$mt:GetVar name="cate_label"$></p>
+                                </mt:If> 
                             </mt:If>
                             <p class="p-news__title"><$mt:EntryTitle$></p>
                         </div>
@@ -104,8 +115,6 @@ Template Note : カテゴリ
     </mt:Entries>
 </mt:PageContents>
 <ul class="c-pager">
-<!-- <li class="c-pager__prev"><a href="/news/2020.html">前へ</a></li> -->
-<!-- <li class="c-pager__next"><span>次へ</span></li> -->
     <mt:Pagination>
         <mt:PaginationHeader>
             <mt:ifPaginationPrev>

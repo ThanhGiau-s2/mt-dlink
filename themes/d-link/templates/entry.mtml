@@ -5,5 +5,10 @@
                 <mt:Include module="single_news" parent="1" />
             </mt:If>
         </mt:EntryPrimaryCategory>
+        <mt:EntryAdditionalCategories>
+            <mt:If tag="CategoryBasename" eq="release">
+                <mt:Include module="single_support_release" parent="1" />
+            </mt:If>
+        </mt:EntryAdditionalCategories>
     </mt:If>
 </mt:IfArchiveTypeEnabled>
