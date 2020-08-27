@@ -60,10 +60,16 @@ elements:
             label: 'debug'
           category_news:
             label: 'category_news'
+          category_event:
+            label: 'category_event'
           category_yearly_news:
             label: 'category_yearly_news'
+          category_yearly_event:
+            label: 'category_yearly_event'
           single_news:
             label: 'single_news'
+          single_event:
+            label: 'single_event'
           single_support_release:
             label: 'single_support_release'
           page_form:

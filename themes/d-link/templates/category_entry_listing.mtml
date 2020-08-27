@@ -2,13 +2,17 @@
 <mt:If name="list_cate" like="news">
     <mt:Include module="category_news" parent="1" />
 <mt:Else>
-    <mt:If name="list_cate" like="supportrelease">
-        <mt:Include module="category_support_release" parent="1" />
+    <mt:If name="list_cate" like="event">
+        <mt:Include module="category_event" parent="1" />
     <mt:Else>
-        <mt:If name="list_cate" eq="supportfaq">
-            <mt:Include module="category_support_faq" parent="1" />
+        <mt:If name="list_cate" like="supportrelease">
+            <mt:Include module="category_support_release" parent="1" />
         <mt:Else>
-            <mt:Include module="category_support_faq_list" parent="1" />
+            <mt:If name="list_cate" eq="supportfaq">
+                <mt:Include module="category_support_faq" parent="1" />
+            <mt:Else>
+                <mt:Include module="category_support_faq_list" parent="1" />
+            </mt:If>
         </mt:If>
     </mt:If>
 </mt:If>

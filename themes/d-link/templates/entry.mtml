@@ -3,6 +3,10 @@
         <mt:EntryPrimaryCategory>
             <mt:If tag="CategoryBasename" eq="news">
                 <mt:Include module="single_news" parent="1" />
+            <mt:Else>
+                <mt:If tag="CategoryBasename" eq="event">
+                    <mt:Include module="single_event" parent="1" />
+                </mt:If>
             </mt:If>
         </mt:EntryPrimaryCategory>
         <mt:EntryAdditionalCategories>
