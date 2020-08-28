@@ -57,7 +57,7 @@ Template Note : トップページ出力用
                 <ul class="p-emergency__list">
                     <mt:Ignore>** 重要なお知らせ **</mt:Ignore>
                     <mt:Entries category="ニュース" lastn="2">
-                        <mt:If tag="EntryDataImportantTag" eq="はい">
+                        <mt:If tag="EntryDataImportantTag" eq="1">
                             <li>
                                 <a href="<$mt:EntryLink$>">
                                     <div class="p-emergency__body">
@@ -296,7 +296,7 @@ Template Note : トップページ出力用
                         <ul class="p-emergency__list">
                             <mt:Ignore>** 製品に関する重要なお知らせ **</mt:Ignore>
                             <mt:Entries category="サポート情報" lastn="2">
-                                <mt:If tag="EntryDataImportantTagSupport" eq="はい">
+                                <mt:If tag="EntryDataImportantTagSupport" eq="1">
                                     <li>
                                         <a href="<$mt:EntryPermalink$>" rel="bookmark">
                                             <div class="p-emergency__body">
