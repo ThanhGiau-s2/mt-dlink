@@ -33,7 +33,13 @@
                 <p>ディーリンクジャパンでは、弊社の認定パートナー様経由で販売させて頂いた製品のみサポートを行っております。海外からの並行輸入品については、サポートの対象外となります。日本国以外から購入されたD-Link製品は、購入された国の保証規定により、保証責任を履行いたします。購入された国のD-Link Webサイトをご確認下さい。</p>
             </div>
             <!-- /.c-content_box -->
-            <form action="" method="POST" enctype="multipart/form-data">
+            <form enctype="multipart/form-data" name="aform-form-1" id="aform-form-1" method="post" action="/cgi-bin/mt/plugins/AForm/aform_engine.cgi" novalidate="novalidate">
+                <input type="hidden" name="blog_id" value="<$mt:BlogID$>" />
+                <input type="hidden" name="id" value="1" />
+                <input type="hidden" name="run_mode" value="confirm" />
+                <input type="hidden" name="aform_url" value="<$mt:PagePermalink$>" />
+                <input type="hidden" name="aform_path" value="<$mt:PagePermalink$>" />
+                <input type="hidden" name="entry_id" value="<$mt:PageID$>" />
                 <div id="form_app" class="p-form_content">
                     <div class="p-form_content__block">
                         <p class="p-form_content__time">お問い合わせ日：2020/07/20</p>
