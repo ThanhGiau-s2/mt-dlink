@@ -19,57 +19,64 @@ Template Note : カテゴリ
 <mt:Include module="header" parent="1" />
 <!-- ここからコンテンツ -->
 <main class="p-main">
-    <div class="c-breadcrumb">
-        <ul class="c-breadcrumb__list">
-            <li><a href="/">HOME</a></li>
-            <li><a href="/support/">サポート</a></li>
-            <li><span>サポート情報</span></li>
-        </ul>
-    </div>
-    <!-- /.c-breadcrumb -->
+<div class="c-breadcrumb">
+<ul class="c-breadcrumb__list">
+<li><a href="/">HOME</a></li>
+<li><a href="/support/">サポート</a></li>
+<li><span>サポート情報</span></li>
+</ul>
+</div>
+<!-- /.c-breadcrumb -->
 
 <section class="l-outer--lower">
 <div class="l-inner">
 
-    <div class="c-title">
-        <h1 class="c-title__text">サポート情報</h1>
-    </div>
-    <!-- /.c-title -->
+<div class="c-title">
+<h1 class="c-title__text">サポート情報</h1>
+</div>
+<!-- /.c-title -->
 
 <div class="p-news">
-    <ul class="p-news__tab--short">
-        <li><a href="/support/release/" class="p-news__toggle is-active">分類別表示</a></li>
-        <li><a href="/support/release/<mt:Date format="%Y">" class="p-news__toggle">年別表示</a></li>
-    </ul>
+<ul class="p-news__tab--short">
+<li><a href="/support/release/" class="p-news__toggle is-active">分類別表示</a></li>
+<li><a href="/support/release/2020.html" class="p-news__toggle">年別表示</a></li>
+</ul>
 
-    <ul class="p-news__type">
-        <li><a href="/support/release/" data-name="release">すべて</a></li>
-        <mt:SubCategories category="リリース">
-            <li><a href="<$mt:CategoryArchiveLink$>index.html" data-name="<$mt:CategoryBasename$>"><$MTCategoryLabel$></a></li>
-        </mt:SubCategories>
-    </ul>
+<ul class="p-news__type">
+<li><a href="/support/release/" class="is-active">すべて</a></li>
 
-    <button class="p-news__menu js-select_show">
-        <div class="p-news__selected">すべて</div>
-        <div class="p-news__arrow"></div>
-    </button>
+<li><a href="/support/release/info.html">お知らせ</a></li>
 
-    <div class="p-news__select js-select_menu">
-        <ul class="p-news__select_list js-select_list">
-            <li><a href="/support/release/">すべて</a></li>
+<li><a href="/support/release/firmware.html">ファームフェア</a></li>
 
-            <li><a href="/support/release/info.html">お知らせ</a></li>
+<li><a href="/support/release/maintenance.html">メンテナンス情報</a></li>
 
-            <li><a href="/support/release/firmware.html">ファームフェア</a></li>
+<li><a href="/support/release/fault.html">障害情報</a></li>
 
-            <li><a href="/support/release/maintenance.html">メンテナンス情報</a></li>
+<li><a href="/support/release/security.html">セキュリティ情報</a></li>
+</ul>
 
-            <li><a href="/support/release/fault.html">障害情報</a></li>
+<button class="p-news__menu js-select_show">
+<div class="p-news__selected">すべて</div>
+<div class="p-news__arrow"></div>
+</button>
 
-            <li><a href="/support/release/security.html">セキュリティ情報</a></li>
-        </ul>
-    </div>
-    <!-- /.p-news__select -->
+<div class="p-news__select js-select_menu">
+<ul class="p-news__select_list js-select_list">
+<li><a href="/support/release/" class="is-active">すべて</a></li>
+
+<li><a href="/support/release/info.html">お知らせ</a></li>
+
+<li><a href="/support/release/firmware.html">ファームフェア</a></li>
+
+<li><a href="/support/release/maintenance.html">メンテナンス情報</a></li>
+
+<li><a href="/support/release/fault.html">障害情報</a></li>
+
+<li><a href="/support/release/security.html">セキュリティ情報</a></li>
+</ul>
+</div>
+<!-- /.p-news__select -->
 
 <div class="p-news__content">
 <div class="p-news__block--show">
@@ -81,57 +88,155 @@ Template Note : カテゴリ
 <p class="p-news__category--maintenance">メンテナンス情報</p>
 <p class="p-news__category--failure">障害情報</p>
 -->
-<mt:Ignore>** 表示部分 **</mt:Ignore>
-    <mt:PageContents count="20">
-        <mt:SetVars>totalEntry=<$mt:BlogEntryCount$></mt:SetVars>
-        <mt:Entries sort_by="modified_on" lastn="$totalEntry">
-            <div class="p-news__item">
-                <a href="<$mt:EntryPermalink$>">
-                    <div class="p-news__box">
-                        <p class="p-news__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
-                        <mt:EntryAdditionalCategories>
-                            <mt:If tag="CategoryBasename" ne="release">
-                                <$mt:CategoryBasename setvar="cate_name"$>
-                                <$mt:CategoryLabel setvar="cate_label"$>
-                            </mt:If>
-                        </mt:EntryAdditionalCategories>
-                        <mt:If name="cate_name" eq="info">
-                            <p class="p-news__category--support"><$mt:GetVar name="cate_label"$></p>
-                        <mt:Else>
-                            <mt:If name="cate_name" eq="fault">
-                                <p class="p-news__category--failure"><$mt:GetVar name="cate_label"$></p>
-                            <mt:Else>
-                                <p class="p-news__category--<$mt:GetVar name="cate_name"$>"><$mt:GetVar name="cate_label"$></p>
-                            </mt:If> 
-                        </mt:If>
-                        <p class="p-news__title"><$mt:EntryTitle$></p>
-                    </div>
-                    <!-- /.p-news__box -->
-                </a>
-            </div>
-            <!-- /.p-news__item -->
-            <$mt:PageSeparator$>
-        </mt:Entries>
-    </mt:PageContents>
+<div class="p-news__item">
+<a href="/support/release/single.html">
+<div class="p-news__box">
+<p class="p-news__time">2020/07/10</p>
+<p class="p-news__category--support">お知らせ</p>
+<div class="p-news__body">
+<p class="p-news__title">DGS-1510シリーズ ファームウェア R1.70.B015 リリースのご案内</p>
+</div>
+<!-- /.p-news__body -->
+</div>
+<!-- /.p-news__box -->
+</a>
+</div>
+<!-- /.p-news__item -->
+<div class="p-news__item">
+<a href="/support/release/single.html">
+<div class="p-news__box">
+<p class="p-news__time">2020/06/24</p>
+<p class="p-news__category--failure">障害情報</p>
+<div class="p-news__body">
+<p class="p-news__title">JVNVU#94736763　Treck 製 IP スタックに複数の脆弱性</p>
+</div>
+<!-- /.p-news__body -->
+</div>
+<!-- /.p-news__box -->
+</a>
+</div>
+<!-- /.p-news__item -->
+<div class="p-news__item">
+<a href="/support/release/single.html">
+<div class="p-news__box">
+<p class="p-news__time">2020/06/17</p>
+<p class="p-news__category--firmware">ファームウェア</p>
+<div class="p-news__body">
+<p class="p-news__title">DWL-7620AP ファームウェア R4.7.2.9B003Cリリースのご案内</p>
+</div>
+<!-- /.p-news__body -->
+</div>
+<!-- /.p-news__box -->
+</a>
+</div>
+<!-- /.p-news__item -->
+<div class="p-news__item">
+<a href="/support/release/single.html">
+<div class="p-news__box">
+<p class="p-news__time">2020/06/15</p>
+<p class="p-news__category--support">お知らせ</p>
+<div class="p-news__body">
+<p class="p-news__title">DMS-1100シリーズ ファームウェア R1.10.017リリースのご案内</p>
+</div>
+<!-- /.p-news__body -->
+</div>
+<!-- /.p-news__box -->
+</a>
+</div>
+<!-- /.p-news__item -->
+<div class="p-news__item">
+<a href="/support/release/single.html">
+<div class="p-news__box">
+<p class="p-news__time">2020/06/08</p>
+<p class="p-news__category--security">セキュリティ情報</p>
+<div class="p-news__body">
+<p class="p-news__title">DGS-1100-24V2 ファームウェア R1.00.B013リリースのご案内</p>
+</div>
+<!-- /.p-news__body -->
+</div>
+<!-- /.p-news__box -->
+</a>
+</div>
+<!-- /.p-news__item -->
+<div class="p-news__item">
+<a href="/support/release/single.html">
+<div class="p-news__box">
+<p class="p-news__time">2019/11/07</p>
+<p class="p-news__category--support">お知らせ</p>
+<div class="p-news__body">
+<p class="p-news__title">DCS-4703Eに関する品番変更のお知らせ </p>
+</div>
+<!-- /.p-news__body -->
+</div>
+<!-- /.p-news__box -->
+</a>
+</div>
+<!-- /.p-news__item -->
+<div class="p-news__item">
+<a href="/support/release/single.html">
+<div class="p-news__box">
+<p class="p-news__time">2019/10/16</p>
+<p class="p-news__category--maintenance">メンテナンス情報</p>
+<div class="p-news__body">
+<p class="p-news__title">令和元年台風第19号に伴う災害にかかる特例対応についてのご案内</p>
+</div>
+<!-- /.p-news__body -->
+</div>
+<!-- /.p-news__box -->
+</a>
+</div>
+<!-- /.p-news__item -->
+<div class="p-news__item">
+<a href="/support/release/single.html">
+<div class="p-news__box">
+<p class="p-news__time">2019/10/10</p>
+<p class="p-news__category--support">お知らせ</p>
+<div class="p-news__body">
+<p class="p-news__title">DWC-2000 ファームウェア R4.7.2.1B106C リリースのご案内</p>
+</div>
+<!-- /.p-news__body -->
+</div>
+<!-- /.p-news__box -->
+</a>
+</div>
+<!-- /.p-news__item -->
+<div class="p-news__item">
+<a href="/support/release/single.html">
+<div class="p-news__box">
+<p class="p-news__time">2019/10/04</p>
+<p class="p-news__category--support">お知らせ</p>
+<div class="p-news__body">
+<p class="p-news__title">DBA-1510P ファームウェア R1.70b010 リリースのご案内</p>
+</div>
+<!-- /.p-news__body -->
+</div>
+<!-- /.p-news__box -->
+</a>
+</div>
+<!-- /.p-news__item -->
+<div class="p-news__item">
+<a href="/support/release/single.html">
+<div class="p-news__box">
+<p class="p-news__time">2019/10/01</p>
+<p class="p-news__category--support">お知らせ</p>
+<div class="p-news__body">
+<p class="p-news__title">有償保守サービス約款改定のお知らせ</p>
+</div>
+<!-- /.p-news__body -->
+</div>
+<!-- /.p-news__box -->
+</a>
+</div>
+<!-- /.p-news__item -->
+
 <ul class="c-pager">
-    <mt:Ignore>** 表示部分 **</mt:Ignore>
-    <mt:Pagination>
-        <mt:PaginationHeader>
-            <mt:ifPaginationPrev>
-                <li class="c-pager__prev"><a href="<mt:PaginationPrev>">&lt;前へ</a></li>
-            </mt:ifPaginationPrev>
-        </mt:PaginationHeader>
-        <mt:ifPaginationCurrent>
-            <li class="c-pager__number"><span><mt:PaginationLink element="number"></span></li>
-        <mt:Else>
-            <li class="c-pager__number"><a href="<mt:PaginationLink>"><mt:PaginationLink element="number"></a></li>
-        </mt:ifPaginationCurrent>
-        <mt:PaginationFooter>
-            <mt:ifPaginationNext>
-                <li class="c-pager__next"><a href="<mt:PaginationNext>">次へ</a></li>
-            </mt:ifPaginationNext>
-        </mt:PaginationFooter>
-    </mt:Pagination>
+<!-- <li class="c-pager__prev"><a href="/support/release/">前へ</a></li> -->
+<li class="c-pager__prev"><span>前へ</span></li>
+<li class="c-pager__number"><span>1</span></li>
+<li class="c-pager__number"><a href="/support/release/?p=2">2</a></li>
+<li class="c-pager__number"><a href="/support/release/?p=3">3</a></li>
+<!-- <li class="c-pager__next"><span>次へ</span></li> -->
+<li class="c-pager__next"><a href="/support/release/?p=2">次へ</a></li>
 </ul>
 
 </div>

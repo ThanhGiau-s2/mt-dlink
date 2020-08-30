@@ -39,13 +39,19 @@ Template Note : カテゴリ
 <div class="p-news">
 <ul class="p-news__tab--short">
 <li><a href="/news/" class="p-news__toggle">分類別表示</a></li>
-<li><a href="/news/<mt:Date format="%Y">" class="p-news__toggle is-active" data-name="<mt:Date format="%Y">">年別表示</a></li>
+<li><a href="/news/2020.html" class="p-news__toggle is-active">年別表示</a></li>
 </ul>
 
 <ul class="p-news__type">
-    <mt:ArchiveList archive_type="Category-Yearly"> 
-        <li class="widget-list-item"><a href="<$mt:ArchiveLink encode_html="1"$>" data-name="<mt:ArchiveDate format="%Y">"><$mt:ArchiveTitle$></a></li>
-    </mt:ArchiveList>
+<li><a href="/news/2020.html" class="is-active">2020年</a></li>
+
+<li><a href="/news/2019.html">2019年</a></li>
+
+<li><a href="/news/2018.html">2018年</a></li>
+
+<li><a href="/news/2017.html">2017年</a></li>
+
+<li><a href="/news/2016.html">2016年</a></li>
 </ul>
 
 <button class="p-news__menu js-select_show">
@@ -55,15 +61,21 @@ Template Note : カテゴリ
 
 <div class="p-news__select js-select_menu">
 <ul class="p-news__select_list js-select_list">
-    <mt:ArchiveList archive_type="Category-Yearly">
-        <li class="widget-list-item"><a href="<$mt:ArchiveLink encode_html="1"$>"><$mt:ArchiveTitle$></a></li>
-    </mt:ArchiveList>
+<li><a href="/news/2020.html" class="is-active">2020年</a></li>
+
+<li><a href="/news/2019.html">2019年</a></li>
+
+<li><a href="/news/2018.html">2018年</a></li>
+
+<li><a href="/news/2017.html">2017年</a></li>
+
+<li><a href="/news/2016.html">2016年</a></li>
 </ul>
 </div>
 <!-- /.p-news__select -->
 
 <div class="c-content_heading">
-<h1 class="c-content_heading__text"><$mt:ArchiveDate format="%Y"$>年</h1>
+<h1 class="c-content_heading__text">2020年</h1>
 </div>
 <!-- /.c-content_heading -->
 
@@ -74,53 +86,155 @@ Template Note : カテゴリ
 <p class="p-news__category--news">お知らせ</p>
 <p class="p-news__category--product">製品ニュース</p>
 -->
-<mt:PageContents count="20">
-    <mt:SetVars>totalEntry=<$mt:BlogEntryCount$></mt:SetVars>
-    <mt:Entries sort_by="modified_on" lastn="$totalEntry">
-        <mt:EntryPrimaryCategory>
-            <mt:HasNoParentCategory>
-                <div class="p-news__item">
-                    <a href="<$mt:EntryLink$>">
-                        <div class="p-news__box">
-                            <p class="p-news__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
-                            <mt:EntryAdditionalCategories glue="," setvar="sub_cats">
-                                <$mt:CategoryLabel$>
-                            </mt:EntryAdditionalCategories>
-                            <mt:EntryAdditionalCategories setvar="cate_name"><$mt:CategoryBasename$></mt:EntryAdditionalCategories>
-                            <mt:If name="cate_name" eq="info">
-                                <p class="p-news__category--news"><$mt:GetVar name="sub_cats"$></p>
-                            <mt:Else>
-                                <p class="p-news__category--product"><$mt:GetVar name="sub_cats"$></p> 
-                            </mt:If>
-                            <p class="p-news__title"><$mt:EntryTitle$></p>
-                        </div>
-                        <!-- /.p-news__box -->
-                    </a>
-                </div>
-                <!-- /.p-news__item -->
-            </mt:HasNoParentCategory>
-        </mt:EntryPrimaryCategory>
-        <$mt:PageSeparator$>
-    </mt:Entries>
-</mt:PageContents>
+<div class="p-news__item">
+<a href="/news/single.html">
+<div class="p-news__box">
+<p class="p-news__time">2020/06/01</p>
+<p class="p-news__category--product">製品ニュース</p>
+<div class="p-news__body">
+<p class="p-news__title">D-Link無線アクセスポイント用ユニバーサルアダプタを販売開始</p>
+</div>
+<!-- /.p-news__body -->
+</div>
+<!-- /.p-news__box -->
+</a>
+</div>
+<!-- /.p-news__item -->
+<div class="p-news__item">
+<a href="/news/single.html">
+<div class="p-news__box">
+<p class="p-news__time">2020/05/28</p>
+<p class="p-news__category--news">お知らせ</p>
+<div class="p-news__body">
+<p class="p-news__title">「緊急事態宣言解除」に伴う当社対応について</p>
+</div>
+<!-- /.p-news__body -->
+</div>
+<!-- /.p-news__box -->
+</a>
+</div>
+<!-- /.p-news__item -->
+<div class="p-news__item">
+<a href="/news/single.html">
+<div class="p-news__box">
+<p class="p-news__time">2020/05/22</p>
+<p class="p-news__category--product">製品ニュース</p>
+<div class="p-news__body">
+<p class="p-news__title">10ギガアップリンクを6ポート搭載した レイヤ2＋ギガビットスイッチ『DGS-3130シリーズ』の受注を開始</p>
+</div>
+<!-- /.p-news__body -->
+</div>
+<!-- /.p-news__box -->
+</a>
+</div>
+<!-- /.p-news__item -->
+<div class="p-news__item">
+<a href="/news/single.html">
+<div class="p-news__box">
+<p class="p-news__time">2020/05/15</p>
+<p class="p-news__category--product">製品ニュース</p>
+<div class="p-news__body">
+<p class="p-news__title">DGS-1100-24V2販売開始のお知らせ</p>
+</div>
+<!-- /.p-news__body -->
+</div>
+<!-- /.p-news__box -->
+</a>
+</div>
+<!-- /.p-news__item -->
+<div class="p-news__item">
+<a href="/news/single.html">
+<div class="p-news__box">
+<p class="p-news__time">2020/04/08</p>
+<p class="p-news__category--news">お知らせ</p>
+<div class="p-news__body">
+<p class="p-news__title">新型コロナウイルス感染拡大予防措置のためのテレワーク実施のお知らせ、 および運用・保守サービスの対応状況について</p>
+</div>
+<!-- /.p-news__body -->
+</div>
+<!-- /.p-news__box -->
+</a>
+</div>
+<!-- /.p-news__item -->
+<div class="p-news__item">
+<a href="/news/single.html">
+<div class="p-news__box">
+<p class="p-news__time">2020/03/27</p>
+<p class="p-news__category--product">製品ニュース</p>
+<div class="p-news__body">
+<p class="p-news__title">DCS-4703Eに関する品番変更のお知らせ </p>
+</div>
+<!-- /.p-news__body -->
+</div>
+<!-- /.p-news__box -->
+</a>
+</div>
+<!-- /.p-news__item -->
+<div class="p-news__item">
+<a href="/news/single.html">
+<div class="p-news__box">
+<p class="p-news__time">2020/02/28</p>
+<p class="p-news__category--news">お知らせ</p>
+<div class="p-news__body">
+<p class="p-news__title">世界初集合住宅向けISP新サービス「PWINS」を新たに開発 未来の集合住宅へ向けたインターネット環境を提供 </p>
+</div>
+<!-- /.p-news__body -->
+</div>
+<!-- /.p-news__box -->
+</a>
+</div>
+<!-- /.p-news__item -->
+<div class="p-news__item">
+<a href="/news/single.html">
+<div class="p-news__box">
+<p class="p-news__time">2020/02/14</p>
+<p class="p-news__category--news">お知らせ</p>
+<div class="p-news__body">
+<p class="p-news__title">DCS-4703Eに関する品番変更のお知らせ</p>
+</div>
+<!-- /.p-news__body -->
+</div>
+<!-- /.p-news__box -->
+</a>
+</div>
+<!-- /.p-news__item -->
+<div class="p-news__item">
+<a href="/news/single.html">
+<div class="p-news__box">
+<p class="p-news__time">2020/02/13</p>
+<p class="p-news__category--product">製品ニュース</p>
+<div class="p-news__body">
+<p class="p-news__title">クラウド型ネットワーク機器管理『Nuclias』対応 11ac wave2無線アクセスポイント『DBA-2820P』販売開始のお知らせ</p>
+</div>
+<!-- /.p-news__body -->
+</div>
+<!-- /.p-news__box -->
+</a>
+</div>
+<!-- /.p-news__item -->
+<div class="p-news__item">
+<a href="/news/single.html">
+<div class="p-news__box">
+<p class="p-news__time">2020/01/08</p>
+<p class="p-news__category--product">製品ニュース</p>
+<div class="p-news__body">
+<p class="p-news__title">DGS-3630-28SCに関する品番変更のお知らせ</p>
+</div>
+<!-- /.p-news__body -->
+</div>
+<!-- /.p-news__box -->
+</a>
+</div>
+<!-- /.p-news__item -->
+
 <ul class="c-pager">
-    <mt:Pagination>
-        <mt:PaginationHeader>
-            <mt:ifPaginationPrev>
-                <li class="c-pager__prev"><a href="<mt:PaginationPrev>">&lt;前へ</a></li>
-            </mt:ifPaginationPrev>
-        </mt:PaginationHeader>
-        <mt:ifPaginationCurrent>
-            <li class="c-pager__number"><span><mt:PaginationLink element="number"></span></li>
-        <mt:Else>
-            <li class="c-pager__number"><a href="<mt:PaginationLink>"><mt:PaginationLink element="number"></a></li>
-        </mt:ifPaginationCurrent>
-        <mt:PaginationFooter>
-            <mt:ifPaginationNext>
-                <li class="c-pager__next"><a href="<mt:PaginationNext>">次へ</a></li>
-            </mt:ifPaginationNext>
-        </mt:PaginationFooter>
-    </mt:Pagination>
+<!-- <li class="c-pager__prev"><a href="/news/2020.html">前へ</a></li> -->
+<li class="c-pager__prev"><span>前へ</span></li>
+<li class="c-pager__number"><span>1</span></li>
+<li class="c-pager__number"><a href="/news/2020.html?p=2">2</a></li>
+<li class="c-pager__number"><a href="/news/2020.html?p=3">3</a></li>
+<!-- <li class="c-pager__next"><span>次へ</span></li> -->
+<li class="c-pager__next"><a href="/news/2020.html?p=2">次へ</a></li>
 </ul>
 
 </div>

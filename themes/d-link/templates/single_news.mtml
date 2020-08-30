@@ -16,62 +16,60 @@ Template Note : カテゴリ
 <mt:Include module="header" parent="1" />
 <!-- ここからコンテンツ -->
 <main class="p-main">
-    <div class="c-breadcrumb">
-        <ul class="c-breadcrumb__list">
-            <li><a href="/">HOME</a></li>
-            <li><a href="/news/">ニュース</a></li>
-            <li><span><$mt:EntryTitle$></span></li>
-        </ul>
-    </div>
-    <!-- /.c-breadcrumb -->
+<div class="c-breadcrumb">
+<ul class="c-breadcrumb__list">
+<li><a href="/">HOME</a></li>
+<li><a href="/news/">ニュース</a></li>
+<li><span>D-Link無線アクセスポイント用ユニバーサルアダプタを販売開始</span></li>
+</ul>
+</div>
+<!-- /.c-breadcrumb -->
 
-    <section class="l-outer--lower">
-        <div class="l-inner">
+<section class="l-outer--lower">
+<div class="l-inner">
 
-            <div class="c-title">
-                <h1 class="c-title__text"><$mt:EntryTitle$></h1>
-            </div>
-            <!-- /.c-title -->
+<div class="c-title">
+<h1 class="c-title__text">D-Link無線アクセスポイント用ユニバーサルアダプタを販売開始</h1>
+</div>
+<!-- /.c-title -->
 
-            <div class="p-news_header">
-                <!--
-                # カテゴリHTML
-                <p class="p-news_header__category--news">お知らせ</p>
-                <p class="p-news_header__category--product">製品ニュース</p>
-                -->
-                <mt:EntryAdditionalCategories glue="," setvar="sub_cats">
-                    <$mt:CategoryLabel$>
-                </mt:EntryAdditionalCategories>
-                <mt:EntryAdditionalCategories setvar="cate_name"><$mt:CategoryBasename$></mt:EntryAdditionalCategories>
-                <mt:If name="cate_name" eq="info">
-                    <p class="p-news_header__category--news"><$mt:GetVar name="sub_cats"$></p>
-                <mt:Else>
-                    <p class="p-news_header__category--product"><$mt:GetVar name="sub_cats"$></p> 
-                </mt:If>
-                <p class="p-news_header__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
-            </div>
-            <!-- /.p-news_header -->
+<div class="p-news_header">
+<!--
+# カテゴリHTML
+<p class="p-news_header__category--news">お知らせ</p>
+<p class="p-news_header__category--product">製品ニュース</p>
+-->
+<p class="p-news_header__category--product">製品ニュース</p>
+<p class="p-news_header__time">2020/06/01</p>
+</div>
+<!-- /.p-news_header -->
 
-            <!-- /.c-content_heading -->
+<div class="c-content_box">
+<p>ディーリンクジャパン株式会社（本社：東京都品川区 代表取締役社長：廖 晋新（マーティ・リャオ）、以下：D-Link）は、D-Linkの多くの無線アクセスポイントで使用可能なユニバーサルタイプのAC電源アダプタを、2020年6月1日からパートナー各社を通じて販売を開始いたします。</p>
+<figure>
+<picture>
+<source srcset="/asset/img/news/img_01_l.jpg" media="(min-width: 1200px)">
+<source srcset="/asset/img/news/img_01_m.jpg" media="(min-width: 600px)">
+<img src="/asset/img/news/img_01_s.jpg" alt="製品名/品番：PSE-M12V25A-I">
+</picture>
+<figcaption>キャプションテキスト14px行間1.4#666666</figcaption>
+</figure>
+<p>製品名/品番：PSE-M12V25A-I<br>標準価格（税別）：3,000円<br>製品概要：ユニバーサルAC電源アダプタ　定格入力電圧100-240VAC（50/60Hz）<br>適応製品（品番）：DAP-2610/A1, DAP-2680/A1 ,DBA-1510P, DBA-1210P/A1, DBA-2820P/A1, DBA-2520P/A1,DWL-6620APS/A1<br>※順次対応無線アクセスポイントは増加予定です。<br>製品URL：<a href="https://www.dlink-jp.com/series/pse-m12v25a-i" target="_blank">https://www.dlink-jp.com/series/pse-m12v25a-i</a></p>
+<p>以上</p>
+</div>
 
-            <div class="c-content_box">
-                <$mt:EntryBody$>
-            </div>
+<ul class="c-pager">
+<li class="c-pager__prev"><a href="/news/single.html">前へ</a></li>
+<!-- <li class="c-pager__prev"><span>前へ</span></li> -->
+<li class="c-pager__text"><a href="/news/">ニュース一覧</a></li>
+<!-- <li class="c-pager__next"><span>次へ</span></li> -->
+<li class="c-pager__next"><a href="/news/single.html">次へ</a></li>
+</ul>
 
-            <ul class="c-pager">
-                <mt:EntryPrevious by_category="1">
-                    <li class="c-pager__prev"><a href="<mt:EntryPermalink>">前へ</a></li>
-                </mt:EntryPrevious>
-                <li class="c-pager__text"><a href="<$mt:CategoryArchiveLink$>">ニュース一覧</a></li>
-                <mt:EntryNext by_category="1">
-                    <li class="c-pager__next"><a href="<mt:EntryPermalink>">次へ</a></li>
-                </mt:EntryNext>
-            </ul>
+</div>
+<!-- /.l-inner -->
+</section>
 
-        </div>
-        <!-- /.l-inner -->
-    </section>
-    <!-- /.l-outer--lower -->
 </main>
 <!-- /.p-main -->
 <mt:Include module="footer" parent="1" />

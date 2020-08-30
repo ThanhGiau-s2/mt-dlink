@@ -19,178 +19,308 @@ Template Note : カテゴリ
 <mt:Include module="header" parent="1" />
 <!-- ここからコンテンツ -->
 <main class="p-main">
-    <div class="c-breadcrumb">
-        <ul class="c-breadcrumb__list">
-            <li><a href="/">HOME</a></li>
-            <li><a href="/support/">サポート</a></li>
-            <li><span>よくあるご質問</span></li>
-        </ul>
-    </div>
-    <!-- /.c-breadcrumb -->
+<div class="c-breadcrumb">
+<ul class="c-breadcrumb__list">
+<li><a href="/">HOME</a></li>
+<li><a href="/support/">サポート</a></li>
+<li><span>よくあるご質問</span></li>
+</ul>
+</div>
+<!-- /.c-breadcrumb -->
 
-    <section class="l-outer--lower">
-        <div class="l-inner">
+<section class="l-outer--lower">
+<div class="l-inner">
 
-            <div class="c-title">
-                <h1 class="c-title__text">よくあるご質問</h1>
-            </div>
-            <!-- /.c-title -->
+<div class="c-title">
+<h1 class="c-title__text">よくあるご質問</h1>
+</div>
+<!-- /.c-title -->
 
-            <div class="l-container">
-                <div class="l-container__block">
-                    <div class="c-content_heading">
-                        <h2 class="c-content_heading__text">目的から探す</h2>
-                    </div>
-                    <!-- /.c-content_heading -->
+<div class="l-container">
+<div class="l-container__block">
+<div class="c-content_heading">
+<h2 class="c-content_heading__text">目的から探す</h2>
+</div>
+<!-- /.c-content_heading -->
 
-                    <div class="p-purpose">
-                        <ul class="p-purpose__list">
-                            <mt:SubCategories category="目的別">
-                                <li><a href="<$mt:CategoryArchiveLink$>" data-name="<$mt:CategoryBasename$>"><$MTCategoryLabel$></a></li>
-                            </mt:SubCategories>
-                        </ul>
-                    </div>
-                    <!-- /.p-purpose -->
-                </div>
-                <!-- /.l-container__block -->
+<div class="p-purpose">
+<ul class="p-purpose__list">
+<li><a href="/support/faq/category/setting.html">設定方法</a></li>
+<li><a href="/support/faq/category/feature.html">仕様／機能</a></li>
+<li><a href="/support/faq/category/grade.html">規格</a></li>
+<li><a href="/support/faq/category/option.html">使用可能オプション品</a></li>
+<li><a href="/support/faq/category/product-warranty.html">製品保証について</a></li>
+<li><a href="/support/faq/category/license.html">ライセンスについて</a></li>
+<li><a href="/support/faq/category/other.html">その他</a></li>
+</ul>
+</div>
+<!-- /.p-purpose -->
+</div>
+<!-- /.l-container__block -->
 
-                <div class="l-container__block">
-                    <div class="c-content_heading">
-                        <h2 class="c-content_heading__text">製品カテゴリーから探す</h2>
-                    </div>
-                    <!-- /.c-content_heading -->
+<div class="l-container__block">
+<div class="c-content_heading">
+<h2 class="c-content_heading__text">製品カテゴリーから探す</h2>
+</div>
+<!-- /.c-content_heading -->
 
-                    <ul class="p-accordion_list">
-                        <li>
-                            <button class="js-accordion_list_toggle">スイッチ</button>
-                            <div class="p-accordion_list__child js-accordion_list_child">
-                                <ul class="p-accordion_list__items">
-                                    <mt:SubCategories category="スイッチ">
-                                        <li><a href="<$mt:CategoryArchiveLink$>" data-name="<$mt:CategoryBasename$>"><$MTCategoryLabel$></a></li>
-                                    </mt:SubCategories>
-                                </ul>
-                            </div>
-                            <!-- /.p-accordion_list__child -->
-                        </li>
-                        <li>
-                            <button class="js-accordion_list_toggle">無線LAN</button>
-                            <div class="p-accordion_list__child js-accordion_list_child">
-                                <ul class="p-accordion_list__items">
-                                    <mt:SubCategories category="無線LAN">
-                                        <li><a href="<$mt:CategoryArchiveLink$>" data-name="<$mt:CategoryBasename$>"><$MTCategoryLabel$></a></li>
-                                    </mt:SubCategories>
-                                </ul>
-                            </div>
-                            <!-- /.p-accordion_list__child -->
-                        </li>
-                        <li>
-                            <button class="js-accordion_list_toggle">ルータ / ファイアウォール</button>
-                            <div class="p-accordion_list__child js-accordion_list_child">
-                                <ul class="p-accordion_list__items">
-                                    <mt:SubCategories category="ルータ / ファイアウォール">
-                                        <li><a href="<$mt:CategoryArchiveLink$>" data-name="<$mt:CategoryBasename$>"><$MTCategoryLabel$></a></li>
-                                    </mt:SubCategories>
-                                </ul>
-                            </div>
-                            <!-- /.p-accordion_list__child -->
-                        </li>
-                        <li>
-                            <button class="js-accordion_list_toggle">メディアコンバータ</button>
-                            <div class="p-accordion_list__child js-accordion_list_child">
-                                <ul class="p-accordion_list__items">
-                                    <mt:SubCategories category="ルータ / ファイアウォール">
-                                        <li><a href="<$mt:CategoryArchiveLink$>" data-name="<$mt:CategoryBasename$>"><$MTCategoryLabel$></a></li>
-                                    </mt:SubCategories>
-                                </ul>
-                            </div>
-                            <!-- /.p-accordion_list__child -->
-                        </li>
-                        <li>
-                            <button class="js-accordion_list_toggle">ネットワークカメラ</button>
-                            <div class="p-accordion_list__child js-accordion_list_child">
-                                <ul class="p-accordion_list__items">
-                                    <mt:SubCategories category="ネットワークカメラ">
-                                        <li><a href="<$mt:CategoryArchiveLink$>" data-name="<$mt:CategoryBasename$>"><$MTCategoryLabel$></a></li>
-                                    </mt:SubCategories>
-                                </ul>
-                            </div>
-                            <!-- /.p-accordion_list__child -->
-                        </li>
-                        <li>
-                            <button class="js-accordion_list_toggle">ソフトウェア</button>
-                            <div class="p-accordion_list__child js-accordion_list_child">
-                                <ul class="p-accordion_list__items">
-                                    <mt:SubCategories category="ソフトウェア">
-                                        <li><a href="<$mt:CategoryArchiveLink$>" data-name="<$mt:CategoryBasename$>"><$MTCategoryLabel$></a></li>
-                                    </mt:SubCategories>
-                                </ul>
-                            </div>
-                            <!-- /.p-accordion_list__child -->
-                        </li>
-                        <li>
-                            <button class="js-accordion_list_toggle">光モジュール / ケーブル</button>
-                            <div class="p-accordion_list__child js-accordion_list_child">
-                                <ul class="p-accordion_list__items">
-                                    <mt:SubCategories category="光モジュール / ケーブル">
-                                        <li><a href="<$mt:CategoryArchiveLink$>" data-name="<$mt:CategoryBasename$>"><$MTCategoryLabel$></a></li>
-                                    </mt:SubCategories>
-                                </ul>
-                            </div>
-                            <!-- /.p-accordion_list__child -->
-                        </li>
-                        <li>
-                            <button class="js-accordion_list_toggle">リダンダント電源</button>
-                            <div class="p-accordion_list__child js-accordion_list_child">
-                                <ul class="p-accordion_list__items">
-                                    <mt:SubCategories category="リダンダント電源">
-                                        <li><a href="<$mt:CategoryArchiveLink$>" data-name="<$mt:CategoryBasename$>"><$MTCategoryLabel$></a></li>
-                                    </mt:SubCategories>
-                                </ul>
-                            </div>
-                            <!-- /.p-accordion_list__child -->
-                        </li>
-                        <li>
-                            <button class="js-accordion_list_toggle">PoE / アクセサリアダプタ</button>
-                            <div class="p-accordion_list__child js-accordion_list_child">
-                                <ul class="p-accordion_list__items">
-                                    <mt:SubCategories category="PoE / アクセサリアダプタ">
-                                        <li><a href="<$mt:CategoryArchiveLink$>" data-name="<$mt:CategoryBasename$>"><$MTCategoryLabel$></a></li>
-                                    </mt:SubCategories>
-                                </ul>
-                            </div>
-                            <!-- /.p-accordion_list__child -->
-                        </li>
-                    </ul>
-                </div>
-                <!-- /.l-container__block -->
-            </div>
-            <!-- /.l-container -->
+<ul class="p-accordion_list">
+<li>
+<button class="js-accordion_list_toggle">スイッチ</button>
+<div class="p-accordion_list__child js-accordion_list_child">
+<ul class="p-accordion_list__items">
+<li><a href="/support/faq/switch/single.html">DGS-1210シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">S-6600シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DXS-3600シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DXS-3400シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3620シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3420シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DES-3810シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3600シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3630シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3120シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3200シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DES-3528/52シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DES-3500シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DES-3800シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3024/48シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3100シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3120シリーズ</a></li>
+</ul>
+</div>
+<!-- /.p-accordion_list__child -->
+</li>
+<li>
+<button class="js-accordion_list_toggle">無線LAN</button>
+<div class="p-accordion_list__child js-accordion_list_child">
+<ul class="p-accordion_list__items">
+<li><a href="/support/faq/switch/single.html">DGS-1210シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">S-6600シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DXS-3600シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DXS-3400シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3620シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3420シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DES-3810シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3600シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3630シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3120シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3200シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DES-3528/52シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DES-3500シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DES-3800シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3024/48シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3100シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3120シリーズ</a></li>
+</ul>
+</div>
+<!-- /.p-accordion_list__child -->
+</li>
+<li>
+<button class="js-accordion_list_toggle">ルータ / ファイアウォール</button>
+<div class="p-accordion_list__child js-accordion_list_child">
+<ul class="p-accordion_list__items">
+<li><a href="/support/faq/switch/single.html">DGS-1210シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">S-6600シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DXS-3600シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DXS-3400シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3620シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3420シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DES-3810シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3600シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3630シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3120シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3200シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DES-3528/52シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DES-3500シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DES-3800シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3024/48シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3100シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3120シリーズ</a></li>
+</ul>
+</div>
+<!-- /.p-accordion_list__child -->
+</li>
+<li>
+<button class="js-accordion_list_toggle">メディアコンバータ</button>
+<div class="p-accordion_list__child js-accordion_list_child">
+<ul class="p-accordion_list__items">
+<li><a href="/support/faq/switch/single.html">DGS-1210シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">S-6600シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DXS-3600シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DXS-3400シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3620シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3420シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DES-3810シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3600シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3630シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3120シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3200シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DES-3528/52シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DES-3500シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DES-3800シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3024/48シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3100シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3120シリーズ</a></li>
+</ul>
+</div>
+<!-- /.p-accordion_list__child -->
+</li>
+<li>
+<button class="js-accordion_list_toggle">ネットワークカメラ</button>
+<div class="p-accordion_list__child js-accordion_list_child">
+<ul class="p-accordion_list__items">
+<li><a href="/support/faq/switch/single.html">DGS-1210シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">S-6600シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DXS-3600シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DXS-3400シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3620シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3420シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DES-3810シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3600シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3630シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3120シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3200シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DES-3528/52シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DES-3500シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DES-3800シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3024/48シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3100シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3120シリーズ</a></li>
+</ul>
+</div>
+<!-- /.p-accordion_list__child -->
+</li>
+<li>
+<button class="js-accordion_list_toggle">ソフトウェア</button>
+<div class="p-accordion_list__child js-accordion_list_child">
+<ul class="p-accordion_list__items">
+<li><a href="/support/faq/switch/single.html">DGS-1210シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">S-6600シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DXS-3600シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DXS-3400シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3620シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3420シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DES-3810シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3600シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3630シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3120シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3200シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DES-3528/52シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DES-3500シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DES-3800シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3024/48シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3100シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3120シリーズ</a></li>
+</ul>
+</div>
+<!-- /.p-accordion_list__child -->
+</li>
+<li>
+<button class="js-accordion_list_toggle">光モジュール / ケーブル</button>
+<div class="p-accordion_list__child js-accordion_list_child">
+<ul class="p-accordion_list__items">
+<li><a href="/support/faq/switch/single.html">DGS-1210シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">S-6600シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DXS-3600シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DXS-3400シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3620シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3420シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DES-3810シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3600シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3630シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3120シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3200シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DES-3528/52シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DES-3500シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DES-3800シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3024/48シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3100シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3120シリーズ</a></li>
+</ul>
+</div>
+<!-- /.p-accordion_list__child -->
+</li>
+<li>
+<button class="js-accordion_list_toggle">リダンダント電源</button>
+<div class="p-accordion_list__child js-accordion_list_child">
+<ul class="p-accordion_list__items">
+<li><a href="/support/faq/switch/single.html">DGS-1210シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">S-6600シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DXS-3600シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DXS-3400シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3620シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3420シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DES-3810シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3600シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3630シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3120シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3200シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DES-3528/52シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DES-3500シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DES-3800シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3024/48シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3100シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3120シリーズ</a></li>
+</ul>
+</div>
+<!-- /.p-accordion_list__child -->
+</li>
+<li>
+<button class="js-accordion_list_toggle">PoE / アクセサリアダプタ</button>
+<div class="p-accordion_list__child js-accordion_list_child">
+<ul class="p-accordion_list__items">
+<li><a href="/support/faq/switch/single.html">DGS-1210シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">S-6600シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DXS-3600シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DXS-3400シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3620シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3420シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DES-3810シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3600シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3630シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3120シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3200シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DES-3528/52シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DES-3500シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DES-3800シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3024/48シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3100シリーズ</a></li>
+<li><a href="/support/faq/switch/single.html">DGS-3120シリーズ</a></li>
+</ul>
+</div>
+<!-- /.p-accordion_list__child -->
+</li>
+</ul>
+</div>
+<!-- /.l-container__block -->
+</div>
+<!-- /.l-container -->
 
-        </div>
-        <!-- /.l-inner -->
-    </section>
+</div>
+<!-- /.l-inner -->
+</section>
 
 </main>
 
 <div class="p-local_nav">
-    <div class="p-local_nav__inner">
-        <p class="p-local_nav__heading">サポート</p>
-        <ul class="p-local_nav__list js-local_nav_current">
-            <li><a href="/support/">サポートTOP</a></li>
-            <li><a href="/support/release/">サポート情報一覧</a></li>
-            <li><a href="/support/award-certification/">D-linkの品質保証</a></li>
-            <li><a href="">サポート体制について</a></li>
-            <li><a href="/support/info/">無償保証について</a></li>
-            <li><a href="/support/info/product-assurance-provision.html">製品保証規定</a></li>
-            <li><a href="/support/info/target.html">保証対象製品と保証期間</a></li>
-            <li><a href="/support/faq/category/product-warranty.html">製品保証のQ&amp;A</a></li>
-            <li><a href="/contact/repair-form/">故障・修理申し込み</a></li>
-            <li><a href="/support/support-services/">有償保守サービスについて</a></li>
-            <li><a href="/support/support-services/support-info.html">約款 / 仕様 / お申し込み方法</a></li>
-            <li><a href="/support/faq/">よくあるご質問</a></li>
-        </ul>
-    </div>
-    <!-- /.p-local_nav__inner -->
+<div class="p-local_nav__inner">
+<p class="p-local_nav__heading">サポート</p>
+<ul class="p-local_nav__list js-local_nav_current">
+<li><a href="/support/">サポートTOP</a></li>
+<li><a href="/support/release/">サポート情報一覧</a></li>
+<li><a href="/support/award-certification/">D-linkの品質保証</a></li>
+<li><a href="">サポート体制について</a></li>
+<li><a href="/support/info/">無償保証について</a></li>
+<li><a href="/support/info/product-assurance-provision.html">製品保証規定</a></li>
+<li><a href="/support/info/target.html">保証対象製品と保証期間</a></li>
+<li><a href="/support/faq/category/product-warranty.html">製品保証のQ&amp;A</a></li>
+<li><a href="/contact/repair-form/">故障・修理申し込み</a></li>
+<li><a href="/support/support-services/">有償保守サービスについて</a></li>
+<li><a href="/support/support-services/support-info.html">約款 / 仕様 / お申し込み方法</a></li>
+<li><a href="/support/faq/">よくあるご質問</a></li>
+</ul>
+</div>
+<!-- /.p-local_nav__inner -->
 </div>
 <!-- /.p-local_nav -->
 <mt:Include module="footer" parent="1" />

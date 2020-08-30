@@ -45,9 +45,15 @@ Template Note : カテゴリ
 <ul class="p-news__type">
 
 <li><a href="/event/">すべて</a></li>
-<mt:ArchiveList archive_type="Category-Yearly"> 
-    <li><a href="<$mt:ArchiveLink encode_html="1"$>" data-name="<mt:ArchiveDate format="%Y">"><$mt:ArchiveTitle$></a></li>
-</mt:ArchiveList>
+<li><a href="/event/2020.html" class="is-active">2020年</a></li>
+
+<li><a href="/event/2019.html">2019年</a></li>
+
+<li><a href="/event/2018.html">2018年</a></li>
+
+<li><a href="/event/2017.html">2017年</a></li>
+
+<li><a href="/event/2016.html">2016年</a></li>
 </ul>
 
 <button class="p-news__menu js-select_show">
@@ -94,82 +100,111 @@ Template Note : カテゴリ
 <p class="p-card__status--end">開催は終了しました</p>
 </div>
 -->
-<mt:Ignore>** 表示部分 **</mt:Ignore>
-<mt:PageContents count="20">
-    <mt:SetVars>totalEntry=<$mt:BlogEntryCount$></mt:SetVars>
-    <mt:Entries sort_by="modified_on" lastn="$totalEntry">
-        <div class="p-card__item">
-            <a href="<$mt:EntryPermalink$>">
-                <div class="p-card__top">
-                    <mt:EntryAdditionalCategories setvar="sub_cat"><$mt:CategoryLabel$></mt:EntryAdditionalCategories>
-                    <mt:EntryAdditionalCategories setvar="cate_name"><$mt:CategoryBasename$></mt:EntryAdditionalCategories>
-                    <mt:If name="cate_name" eq="event-info">
-                        <p class="p-card__category--event"><$mt:GetVar name="sub_cat"$></p>
-                    <mt:Else>
-                        <p class="p-card__category--<$mt:GetVar name="cate_name"$>"><$mt:GetVar name="sub_cat"$></p> 
-                    </mt:If>
-                    <h2 class="p-card__title"><$mt:EntryTitle$></h2>
-                    <dl class="p-card__info">
-                        <div class="p-card__table">
-                            <dt>【日程】</dt>
-                            <dd><$mt:EntryDataEventDate format="%Y/%m/%e"$>(<$mt:EntryDataEventDate format="%a"$>)</dd>
-                            </div>
-                            <div class="p-card__table">
-                            <dt>【会場】</dt>
-                            <dd><$mt:EntryDataEventHall$></dd>
-                        </div>
-                    </dl>
-                </div>
-                <!-- /.p-card__top -->
-                <div class="p-card__bottom">
-                    <mt:If tag="EntryDataEventStatus" eq="申込受付中">
-                        <p class="p-card__status--accept">申込受付中</p>
-                    <mt:Else>
-                        <mt:If tag="EntryDataEventStatus" eq="満員御礼">
-                            <p class="p-card__status--full">満員御礼</p>
-                        <mt:Else>
-                            <mt:If tag="EntryDataEventStatus" eq="満員御礼">
-                                <p class="p-card__status--end">開催は終了しました</p>
-                            <mt:Else>
-                                <$mt:EntryDataEndDateEvent format="%Y%m%d%H%M%S" setvar="exp_date"$>
-                                <$mt:Date format="%Y%m%d%H%M%S" setvar="current_date"$>
-                                <mt:If name="exp_date" lt="$current_date">
-                                    <p class="p-card__status--end">開催は終了しました</p>
-                                </mt:If>
-                            </mt:If>
-                        </mt:If>
-                    </mt:If>
-                </div>
-                <!-- /.p-card__bottom -->
-            </a>
-        </div>
-        <!-- /.p-card__item -->
-        <$mt:PageSeparator$>
-    </mt:Entries>
-</mt:PageContents>
+<div class="p-card__item">
+<a href="/event/single.html">
+<div class="p-card__top">
+<p class="p-card__category--seminar">セミナー</p>
+<h2 class="p-card__title">D-Link製品で実現する『GIGAスクール構想の実現』D-Link文教ソリューションセミナー</h2>
+<dl class="p-card__info">
+<div class="p-card__table">
+<dt>【日程】</dt>
+<dd>2020年 2月 21日(金)</dd>
+</div>
+<div class="p-card__table">
+<dt>【会場】</dt>
+<dd>ディーリンクジャパン株式会社 東京本社</dd>
+</div>
+</dl>
+</div>
+<!-- /.p-card__top -->
+<div class="p-card__bottom">
+<p class="p-card__status--accept">申込受付中</p>
+</div>
+<!-- /.p-card__bottom -->
+</a>
+</div>
+<!-- /.p-card__item -->
+<div class="p-card__item">
+<a href="/event/single.html">
+<div class="p-card__top">
+<p class="p-card__category--event">イベント</p>
+<h2 class="p-card__title">DIS ICT EXPO 2020 in 名古屋　出展のお知らせ</h2>
+<dl class="p-card__info">
+<div class="p-card__table">
+<dt>【日程】</dt>
+<dd>2020年 2月14日(金)</dd>
+</div>
+<div class="p-card__table">
+<dt>【会場】</dt>
+<dd>ウインクあいち(愛知県産業労働センター) 7階</dd>
+</div>
+</dl>
+</div>
+<!-- /.p-card__top -->
+<div class="p-card__bottom">
+<p class="p-card__status--full">満員御礼</p>
+</div>
+<!-- /.p-card__bottom -->
+</a>
+</div>
+<!-- /.p-card__item -->
+<div class="p-card__item">
+<a href="/event/single.html">
+<div class="p-card__top">
+<p class="p-card__category--event">イベント</p>
+<h2 class="p-card__title">JANOG45 Meeting in Sapporo　出展のお知らせ</h2>
+<dl class="p-card__info">
+<div class="p-card__table">
+<dt>【日程】</dt>
+<dd>2020年 1月 22日(水) ～ 24日(金)</dd>
+</div>
+<div class="p-card__table">
+<dt>【会場】</dt>
+<dd>札幌プリンスホテル 国際館パミール (北海道札幌市)</dd>
+</div>
+</dl>
+</div>
+<!-- /.p-card__top -->
+</a>
+</div>
+<!-- /.p-card__item -->
+<div class="p-card__item">
+<a href="/event/single.html">
+<div class="p-card__top">
+<p class="p-card__category--event">イベント</p>
+<h2 class="p-card__title">DIS ICT EXPO 2020 in 関西　出展のお知らせ</h2>
+<dl class="p-card__info">
+<div class="p-card__table">
+<dt>【日程】</dt>
+<dd>2020年 1月29日(水) 10:00 ～ 17:30</dd>
+</div>
+<div class="p-card__table">
+<dt>【会場】</dt>
+<dd>ナレッジキャピタルコングレコンベンションセンター (グランフロント大阪)</dd>
+</div>
+</dl>
+</div>
+<!-- /.p-card__top -->
+<div class="p-card__bottom">
+<p class="p-card__status--end">開催は終了しました</p>
+</div>
+<!-- /.p-card__bottom -->
+</a>
+</div>
+<!-- /.p-card__item -->
 </div>
 <!-- /.p-card -->
 </div>
 <!-- /.p-news__card -->
 
 <ul class="c-pager">
-<mt:Pagination>
-    <mt:PaginationHeader>
-        <mt:ifPaginationPrev>
-            <li class="c-pager__prev"><a href="<mt:PaginationPrev>">&lt;前へ</a></li>
-        </mt:ifPaginationPrev>
-    </mt:PaginationHeader>
-    <mt:ifPaginationCurrent>
-        <li class="c-pager__number"><span><mt:PaginationLink element="number"></span></li>
-    <mt:Else>
-        <li class="c-pager__number"><a href="<mt:PaginationLink>"><mt:PaginationLink element="number"></a></li>
-    </mt:ifPaginationCurrent>
-    <mt:PaginationFooter>
-        <mt:ifPaginationNext>
-            <li class="c-pager__next"><a href="<mt:PaginationNext>">次へ</a></li>
-        </mt:ifPaginationNext>
-    </mt:PaginationFooter>
-</mt:Pagination>
+<!-- <li class="c-pager__prev"><a href="/event/2020.html">前へ</a></li> -->
+<li class="c-pager__prev"><span>前へ</span></li>
+<li class="c-pager__number"><span>1</span></li>
+<li class="c-pager__number"><a href="/event/2020.html?p=2">2</a></li>
+<li class="c-pager__number"><a href="/event/2020.html?p=3">3</a></li>
+<!-- <li class="c-pager__next"><span>次へ</span></li> -->
+<li class="c-pager__next"><a href="/event/2020.html?p=2">次へ</a></li>
 </ul>
 
 <div class="p-entry">

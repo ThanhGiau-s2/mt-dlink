@@ -19,79 +19,201 @@ Template Note : カテゴリ
 <mt:Include module="header" parent="1" />
 <!-- ここからコンテンツ -->
 <main class="p-main">
-    <div class="c-breadcrumb">
-        <ul class="c-breadcrumb__list">
-            <li><a href="/">HOME</a></li>
-            <li><a href="/support/">サポート</a></li>
-            <li><a href="/support/faq/">よくあるご質問</a></li>
-            <li><span><$mt:CategoryLabel$></span></li>
-        </ul>
-    </div>
-    <!-- /.c-breadcrumb -->
+<div class="c-breadcrumb">
+<ul class="c-breadcrumb__list">
+<li><a href="/">HOME</a></li>
+<li><a href="/support/">サポート</a></li>
+<li><a href="/support/faq/">よくあるご質問</a></li>
+<li><span>設定方法</span></li>
+</ul>
+</div>
+<!-- /.c-breadcrumb -->
 
 <section class="l-outer--lower">
 <div class="l-inner">
 
-    <div class="c-title">
-        <h1 class="c-title__text">よくあるご質問一覧</h1>
-    </div>
-    <!-- /.c-title -->
+<div class="c-title">
+<h1 class="c-title__text">よくあるご質問一覧</h1>
+</div>
+<!-- /.c-title -->
 
-    <div class="c-content_heading">
-        <h2 class="c-content_heading__text"><mt:ParentCategory><$mt:CategoryLabel$></mt:ParentCategory>：<$mt:CategoryLabel$></h2>
-    </div>
-    <!-- /.c-content_heading -->
+<div class="c-content_heading">
+<h2 class="c-content_heading__text">目的別：設定方法</h2>
+</div>
+<!-- /.c-content_heading -->
 
 <ul class="p-accordion_detail">
-    <mt:PageContents count="20">
-        <mt:SetVars>totalEntry=<$mt:BlogEntryCount$></mt:SetVars>
-        <mt:Entries sort_by="modified_on" lastn="$totalEntry">
-            <li>
-                <button class="p-accordion_detail__header js-accordion_detail_toggle">
-                    <ul class="p-accordion_detail__tag">
-                    <mt:Tags>
-                        <li><mt:TagName></li>
-                    </mt:Tags>
-                    </ul>
-                    <div class="p-accordion_detail__question">
-                        <$mt:EntryTitle$>
-                    </div>
-                    <!-- /.p-accordion_detail__question -->
-                </button>
-                <!-- /.p-accordion_detail__header -->
+<li>
+<button class="p-accordion_detail__header js-accordion_detail_toggle">
+<ul class="p-accordion_detail__tag">
+<li>DGS-3420シリーズ</li>
+<li>DGS-3620シリーズ</li>
+<li>設定方法</li>
+<li>仕様／機能</li>
+</ul>
+<div class="p-accordion_detail__question">
+<p>スタック構成したいと考えておりますが、スタックPortはどれを使用すればよいでしょうか。</p>
+</div>
+<!-- /.p-accordion_detail__question -->
+</button>
+<!-- /.p-accordion_detail__header -->
 
-                <div class="p-accordion_detail__body js-accordion_detail_body">
-                    <div class="p-accordion_detail__answer">
-                    <$mt:EntryBody$>
-                    </div>
-                    <!-- /.p-accordion_detail__answer -->
-                </div>
-                <!-- /.p-accordion_detail__body -->
-            </li>
-            <$mt:PageSeparator$>
-        </mt:Entries>
-    </mt:PageContents>
+<div class="p-accordion_detail__body js-accordion_detail_body">
+<div class="p-accordion_detail__answer">
+<p>老番2ポートの10G SFP+ Portにダイレクトアタッチケーブルもしくは光ケーブルを接続し、ご使用ください。</p>
+</div>
+<!-- /.p-accordion_detail__answer -->
+</div>
+<!-- /.p-accordion_detail__body -->
+</li>
+<li>
+<button class="p-accordion_detail__header js-accordion_detail_toggle">
+<ul class="p-accordion_detail__tag">
+<li>DCS-6004L</li>
+<li>DCS-5222L</li>
+<li>設定方法</li>
+<li>仕様／機能</li>
+</ul>
+<div class="p-accordion_detail__question">
+<p>1つのカメラを複数のmydlinkサイトへ登録できますか？テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+</div>
+<!-- /.p-accordion_detail__question -->
+</button>
+<!-- /.p-accordion_detail__header -->
+
+<div class="p-accordion_detail__body js-accordion_detail_body">
+<div class="p-accordion_detail__answer">
+<p>老番2ポートの10G SFP+ Portにダイレクトアタッチケーブルもしくは光ケーブルを接続し、ご使用ください。テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+</div>
+<!-- /.p-accordion_detail__answer -->
+</div>
+<!-- /.p-accordion_detail__body -->
+</li>
+<li>
+<button class="p-accordion_detail__header js-accordion_detail_toggle">
+<ul class="p-accordion_detail__tag">
+<li>DCS-6004L</li>
+<li>DCS-5222L</li>
+<li>設定方法</li>
+<li>仕様／機能</li>
+</ul>
+<div class="p-accordion_detail__question">
+<p>1つのカメラを複数のmydlinkサイトへ登録できますか？</p>
+</div>
+<!-- /.p-accordion_detail__question -->
+</button>
+<!-- /.p-accordion_detail__header -->
+
+<div class="p-accordion_detail__body js-accordion_detail_body">
+<div class="p-accordion_detail__answer">
+<p>老番2ポートの10G SFP+ Portにダイレクトアタッチケーブルもしくは光ケーブルを接続し、ご使用ください。</p>
+</div>
+<!-- /.p-accordion_detail__answer -->
+</div>
+<!-- /.p-accordion_detail__body -->
+</li>
+<li>
+<button class="p-accordion_detail__header js-accordion_detail_toggle">
+<ul class="p-accordion_detail__tag">
+<li>DCS-6004L</li>
+<li>DCS-5222L</li>
+<li>設定方法</li>
+<li>仕様／機能</li>
+</ul>
+<div class="p-accordion_detail__question">
+<p>ライセンスが消費されるタイミングはいつですか？</p>
+</div>
+<!-- /.p-accordion_detail__question -->
+</button>
+<!-- /.p-accordion_detail__header -->
+
+<div class="p-accordion_detail__body js-accordion_detail_body">
+<div class="p-accordion_detail__answer">
+<p>老番2ポートの10G SFP+ Portにダイレクトアタッチケーブルもしくは光ケーブルを接続し、ご使用ください。</p>
+</div>
+<!-- /.p-accordion_detail__answer -->
+</div>
+<!-- /.p-accordion_detail__body -->
+</li>
+<li>
+<button class="p-accordion_detail__header js-accordion_detail_toggle">
+<ul class="p-accordion_detail__tag">
+<li>DGS-3420シリーズ</li>
+<li>DGS-3620シリーズ</li>
+<li>設定方法</li>
+<li>仕様／機能</li>
+</ul>
+<div class="p-accordion_detail__question">
+<p>スタック構成したいと考えておりますが、スタックPortはどれを使用すればよいでしょうか。</p>
+</div>
+<!-- /.p-accordion_detail__question -->
+</button>
+<!-- /.p-accordion_detail__header -->
+
+<div class="p-accordion_detail__body js-accordion_detail_body">
+<div class="p-accordion_detail__answer">
+<p>老番2ポートの10G SFP+ Portにダイレクトアタッチケーブルもしくは光ケーブルを接続し、ご使用ください。</p>
+</div>
+<!-- /.p-accordion_detail__answer -->
+</div>
+<!-- /.p-accordion_detail__body -->
+</li>
+<li>
+<button class="p-accordion_detail__header js-accordion_detail_toggle">
+<ul class="p-accordion_detail__tag">
+<li>DCS-6004L</li>
+<li>DCS-5222L</li>
+<li>設定方法</li>
+<li>仕様／機能</li>
+</ul>
+<div class="p-accordion_detail__question">
+<p>1つのカメラを複数のmydlinkサイトへ登録できますか？</p>
+</div>
+<!-- /.p-accordion_detail__question -->
+</button>
+<!-- /.p-accordion_detail__header -->
+
+<div class="p-accordion_detail__body js-accordion_detail_body">
+<div class="p-accordion_detail__answer">
+<p>老番2ポートの10G SFP+ Portにダイレクトアタッチケーブルもしくは光ケーブルを接続し、ご使用ください。</p>
+</div>
+<!-- /.p-accordion_detail__answer -->
+</div>
+<!-- /.p-accordion_detail__body -->
+</li>
+<li>
+<button class="p-accordion_detail__header js-accordion_detail_toggle">
+<ul class="p-accordion_detail__tag">
+<li>DCS-6004L</li>
+<li>DCS-5222L</li>
+<li>設定方法</li>
+<li>仕様／機能</li>
+</ul>
+<div class="p-accordion_detail__question">
+<p>ライセンスが消費されるタイミングはいつですか？</p>
+</div>
+<!-- /.p-accordion_detail__question -->
+</button>
+<!-- /.p-accordion_detail__header -->
+
+<div class="p-accordion_detail__body js-accordion_detail_body">
+<div class="p-accordion_detail__answer">
+<p>老番2ポートの10G SFP+ Portにダイレクトアタッチケーブルもしくは光ケーブルを接続し、ご使用ください。</p>
+</div>
+<!-- /.p-accordion_detail__answer -->
+</div>
+<!-- /.p-accordion_detail__body -->
+</li>
 </ul>
 
 <ul class="c-pager">
-    <mt:Ignore>** 表示部分 **</mt:Ignore>
-    <mt:Pagination>
-        <mt:PaginationHeader>
-            <mt:ifPaginationPrev>
-                <li class="c-pager__prev"><a href="<mt:PaginationPrev>">&lt;前へ</a></li>
-            </mt:ifPaginationPrev>
-        </mt:PaginationHeader>
-        <mt:ifPaginationCurrent>
-            <li class="c-pager__number"><span><mt:PaginationLink element="number"></span></li>
-        <mt:Else>
-            <li class="c-pager__number"><a href="<mt:PaginationLink>"><mt:PaginationLink element="number"></a></li>
-        </mt:ifPaginationCurrent>
-        <mt:PaginationFooter>
-            <mt:ifPaginationNext>
-                <li class="c-pager__next"><a href="<mt:PaginationNext>">次へ</a></li>
-            </mt:ifPaginationNext>
-        </mt:PaginationFooter>
-    </mt:Pagination>
+<!-- <li class="c-pager__prev"><a href="/support/faq/category/setting.html">前へ</a></li> -->
+<li class="c-pager__prev"><span>前へ</span></li>
+<li class="c-pager__number"><span>1</span></li>
+<li class="c-pager__number"><a href="/support/faq/category/setting.html?p=2">2</a></li>
+<li class="c-pager__number"><a href="/support/faq/category/setting.html?p=3">3</a></li>
+<!-- <li class="c-pager__next"><span>次へ</span></li> -->
+<li class="c-pager__next"><a href="/support/faq/category/setting.html?p=2">次へ</a></li>
 </ul>
 
 </div>
