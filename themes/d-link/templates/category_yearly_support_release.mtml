@@ -20,133 +20,153 @@ Template Note : カテゴリ
 <!-- ここからコンテンツ -->
 
 <main class="p-main">
-<div class="c-breadcrumb">
-<ul class="c-breadcrumb__list">
-<li><a href="/">HOME</a></li>
-<li><a href="/support/">サポート</a></li>
-<li><a href="/support/release/">サポート情報</a></li>
-<li><span>2020年</span></li>
-</ul>
-</div>
-<!-- /.c-breadcrumb -->
+    <div class="c-breadcrumb">
+        <ul class="c-breadcrumb__list">
+            <li><a href="/">HOME</a></li>
+            <li><a href="/support/">サポート</a></li>
+            <li><a href="/support/release/">サポート情報</a></li>
+            <li><span>2020年</span></li>
+        </ul>
+    </div>
+    <!-- /.c-breadcrumb -->
 
-<section class="l-outer--lower">
-<div class="l-inner">
+    <section class="l-outer--lower">
+        <div class="l-inner">
 
-<div class="c-title">
-<p class="c-title__text">サポート情報</p>
-</div>
-<!-- /.c-title -->
+            <div class="c-title">
+                <p class="c-title__text">サポート情報</p>
+            </div>
+            <!-- /.c-title -->
 
-<div class="p-news">
-<ul class="p-news__tab--short">
-<li><a href="/support/release/" class="p-news__toggle">分類別表示</a></li>
-<li><a href="/support/release/<mt:Date format="%Y">" class="p-news__toggle is-active" data-name="<mt:Date format="%Y">">年別表示</a></li>
-</ul>
+            <div class="p-news">
+                <ul class="p-news__tab--short">
+                    <li><a href="/support/release/" class="p-news__toggle">分類別表示</a></li>
+                    <li><a href="/support/release/<mt:Date format="%Y">" class="p-news__toggle is-active" data-name="<mt:Date format="%Y">">年別表示</a></li>
+                </ul>
 
-<ul class="p-news__type">
-    <mt:ArchiveList archive_type="Category-Yearly"> 
-        <li class="widget-list-item"><a href="<$mt:ArchiveLink encode_html="1"$>" data-name="<mt:ArchiveDate format="%Y">"><$mt:ArchiveTitle$></a></li>
-    </mt:ArchiveList>
-</ul>
+                <ul class="p-news__type">
+                    <mt:ArchiveList archive_type="Category-Yearly"> 
+                        <li class="widget-list-item"><a href="<$mt:ArchiveLink encode_html="1"$>" data-name="<mt:ArchiveDate format="%Y">"><$mt:ArchiveTitle$></a></li>
+                    </mt:ArchiveList>
+                </ul>
 
-<button class="p-news__menu js-select_show">
-<div class="p-news__selected">2020年</div>
-<div class="p-news__arrow"></div>
-</button>
+                <button class="p-news__menu js-select_show">
+                    <div class="p-news__selected">2020年</div>
+                    <div class="p-news__arrow"></div>
+                </button>
 
-<div class="p-news__select js-select_menu">
-<ul class="p-news__select_list js-select_list">
-    <mt:ArchiveList archive_type="Category-Yearly">
-        <li class="widget-list-item"><a href="<$mt:ArchiveLink encode_html="1"$>"><$mt:ArchiveTitle$></a></li>
-    </mt:ArchiveList>
-</ul>
-</div>
-<!-- /.p-news__select -->
-
-<div class="c-content_heading">
-<h1 class="c-content_heading__text"><$mt:ArchiveDate format="%Y"$>年</h1>
-</div>
-<!-- /.c-content_heading -->
-
-<div class="p-news__content">
-<div class="p-news__block--show">
-<!--
-# カテゴリHTML
-<p class="p-news__category--support">お知らせ</p>
-<p class="p-news__category--firmware">ファームウェア</p>
-<p class="p-news__category--security">セキュリティ情報</p>
-<p class="p-news__category--maintenance">メンテナンス情報</p>
-<p class="p-news__category--failure">障害情報</p>
--->
-<mt:PageContents count="20">
-    <mt:SetVars>totalEntry=<$mt:BlogEntryCount$></mt:SetVars>
-    <mt:Entries sort_by="modified_on" lastn="$totalEntry">
-        <mt:EntryPrimaryCategory>
-            <mt:HasNoParentCategory>
-                <div class="p-news__item">
-                    <a href="<$mt:EntryLink$>">
-                        <div class="p-news__box">
-                            <p class="p-news__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
-                            <mt:EntryAdditionalCategories>
-                                <mt:If tag="CategoryBasename" ne="release">
-                                    <$mt:CategoryBasename setvar="cate_name"$>
-                                    <$mt:CategoryLabel setvar="cate_label"$>
-                                </mt:If>
-                            </mt:EntryAdditionalCategories>
-                            <mt:If name="cate_name" eq="info">
-                                <p class="p-news__category--support"><$mt:GetVar name="cate_label"$></p>
-                            <mt:Else>
-                                <mt:If name="cate_name" eq="fault">
-                                    <p class="p-news__category--failure"><$mt:GetVar name="cate_label"$></p>
-                                <mt:Else>
-                                    <p class="p-news__category--<$mt:GetVar name="cate_name"$>"><$mt:GetVar name="cate_label"$></p>
-                                </mt:If> 
-                            </mt:If>
-                            <p class="p-news__title"><$mt:EntryTitle$></p>
-                        </div>
-                        <!-- /.p-news__box -->
-                    </a>
+                <div class="p-news__select js-select_menu">
+                    <ul class="p-news__select_list js-select_list">
+                        <mt:ArchiveList archive_type="Category-Yearly">
+                            <li class="widget-list-item"><a href="<$mt:ArchiveLink encode_html="1"$>"><$mt:ArchiveTitle$></a></li>
+                        </mt:ArchiveList>
+                    </ul>
                 </div>
-                <!-- /.p-news__item -->
-            </mt:HasNoParentCategory>
-        </mt:EntryPrimaryCategory>
-        <$mt:PageSeparator$>
-    </mt:Entries>
-</mt:PageContents>
-<ul class="c-pager">
-    <mt:Pagination>
-        <mt:PaginationHeader>
-            <mt:ifPaginationPrev>
-                <li class="c-pager__prev"><a href="<mt:PaginationPrev>">&lt;前へ</a></li>
-            </mt:ifPaginationPrev>
-        </mt:PaginationHeader>
-        <mt:ifPaginationCurrent>
-            <li class="c-pager__number"><span><mt:PaginationLink element="number"></span></li>
-        <mt:Else>
-            <li class="c-pager__number"><a href="<mt:PaginationLink>"><mt:PaginationLink element="number"></a></li>
-        </mt:ifPaginationCurrent>
-        <mt:PaginationFooter>
-            <mt:ifPaginationNext>
-                <li class="c-pager__next"><a href="<mt:PaginationNext>">次へ</a></li>
-            </mt:ifPaginationNext>
-        </mt:PaginationFooter>
-    </mt:Pagination>
-</ul>
+                <!-- /.p-news__select -->
 
-</div>
-<!-- /.p-news__block -->
+                <div class="c-content_heading">
+                    <h1 class="c-content_heading__text"><$mt:ArchiveDate format="%Y"$>年</h1>
+                </div>
+                <!-- /.c-content_heading -->
 
-</div>
-<!-- /.p-news__content -->
+                <div class="p-news__content">
+                    <div class="p-news__block--show">
+                        <!--
+                        # カテゴリHTML
+                        <p class="p-news__category--support">お知らせ</p>
+                        <p class="p-news__category--firmware">ファームウェア</p>
+                        <p class="p-news__category--security">セキュリティ情報</p>
+                        <p class="p-news__category--maintenance">メンテナンス情報</p>
+                        <p class="p-news__category--failure">障害情報</p>
+                        -->
+                        <mt:PageContents count="20">
+                            <mt:SetVars>totalEntry=<$mt:BlogEntryCount$></mt:SetVars>
+                            <mt:Entries sort_by="modified_on" lastn="$totalEntry">
+                                <mt:EntryPrimaryCategory>
+                                    <mt:HasNoParentCategory>
+                                        <div class="p-news__item">
+                                            <a href="<$mt:EntryLink$>">
+                                                <div class="p-news__box">
+                                                    <p class="p-news__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
+                                                    <mt:EntryAdditionalCategories>
+                                                        <mt:If tag="CategoryBasename" ne="release">
+                                                            <$mt:CategoryBasename setvar="cate_name"$>
+                                                            <$mt:CategoryLabel setvar="cate_label"$>
+                                                        </mt:If>
+                                                    </mt:EntryAdditionalCategories>
+                                                    <mt:If name="cate_name" eq="info">
+                                                        <p class="p-news__category--support"><$mt:GetVar name="cate_label"$></p>
+                                                    <mt:Else>
+                                                        <mt:If name="cate_name" eq="fault">
+                                                            <p class="p-news__category--failure"><$mt:GetVar name="cate_label"$></p>
+                                                        <mt:Else>
+                                                            <p class="p-news__category--<$mt:GetVar name="cate_name"$>"><$mt:GetVar name="cate_label"$></p>
+                                                        </mt:If> 
+                                                    </mt:If>
+                                                    <p class="p-news__title"><$mt:EntryTitle$></p>
+                                                </div>
+                                                <!-- /.p-news__box -->
+                                            </a>
+                                        </div>
+                                        <!-- /.p-news__item -->
+                                    </mt:HasNoParentCategory>
+                                </mt:EntryPrimaryCategory>
+                                <$mt:PageSeparator$>
+                            </mt:Entries>
+                        </mt:PageContents>
+                        <ul class="c-pager">
+                            <mt:Pagination>
+                                <mt:PaginationHeader>
+                                    <mt:ifPaginationPrev>
+                                        <li class="c-pager__prev"><a href="<mt:PaginationPrev>">&lt;前へ</a></li>
+                                    </mt:ifPaginationPrev>
+                                </mt:PaginationHeader>
+                                <mt:ifPaginationCurrent>
+                                    <li class="c-pager__number"><span><mt:PaginationLink element="number"></span></li>
+                                <mt:Else>
+                                    <li class="c-pager__number"><a href="<mt:PaginationLink>"><mt:PaginationLink element="number"></a></li>
+                                </mt:ifPaginationCurrent>
+                                <mt:PaginationFooter>
+                                    <mt:ifPaginationNext>
+                                        <li class="c-pager__next"><a href="<mt:PaginationNext>">次へ</a></li>
+                                    </mt:ifPaginationNext>
+                                </mt:PaginationFooter>
+                            </mt:Pagination>
+                        </ul>
 
-</div>
-<!-- /.p-news -->
+                    </div>
+                    <!-- /.p-news__block -->
 
-</div>
-<!-- /.l-inner -->
-</section>
+                </div>
+                <!-- /.p-news__content -->
 
+            </div>
+            <!-- /.p-news -->
+
+        </div>
+        <!-- /.l-inner -->
+    </section>
 </main>
+<div class="p-local_nav">
+    <div class="p-local_nav__inner">
+        <p class="p-local_nav__heading">サポート</p>
+        <ul class="p-local_nav__list js-local_nav_current">
+            <li><a href="/support/">サポートTOP</a></li>
+            <li><a href="/support/release/">サポート情報一覧</a></li>
+            <li><a href="/support/award-certification/">D-linkの品質保証</a></li>
+            <li><a href="">サポート体制について</a></li>
+            <li><a href="/support/info/">無償保証について</a></li>
+            <li><a href="/support/info/product-assurance-provision.html">製品保証規定</a></li>
+            <li><a href="/support/info/target.html">保証対象製品と保証期間</a></li>
+            <li><a href="/support/faq/category/product-warranty.html">製品保証のQ&amp;A</a></li>
+            <li><a href="/contact/repair-form/">故障・修理申し込み</a></li>
+            <li><a href="/support/support-services/">有償保守サービスについて</a></li>
+            <li><a href="/support/support-services/support-info.html">約款 / 仕様 / お申し込み方法</a></li>
+            <li><a href="/support/faq/">よくあるご質問</a></li>
+        </ul>
+    </div>
+    <!-- /.p-local_nav__inner -->
+</div>
+<!-- /.p-local_nav -->
 <mt:Include module="footer" parent="1" />
 <mt:Include module="html_foot" parent="1" />

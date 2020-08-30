@@ -16,120 +16,118 @@ Template Note : カテゴリ
 <mt:Include module="header" parent="1" />
 <!-- ここからコンテンツ -->
 <main class="p-main">
-<div class="c-breadcrumb">
-<ul class="c-breadcrumb__list">
-<li><a href="/">HOME</a></li>
-<li><a href="/event/">イベント・セミナー</a></li>
-<li><span><$mt:EntryTitle$></span></li>
-</ul>
-</div>
-<!-- /.c-breadcrumb -->
+    <div class="c-breadcrumb">
+        <ul class="c-breadcrumb__list">
+            <li><a href="/">HOME</a></li>
+            <li><a href="/event/">イベント・セミナー</a></li>
+            <li><span><$mt:EntryTitle$></span></li>
+        </ul>
+    </div>
+    <!-- /.c-breadcrumb -->
 
-<section class="l-outer--lower">
-<div class="l-inner">
+    <section class="l-outer--lower">
+        <div class="l-inner">
 
-<div class="c-title">
-<h1 class="c-title__text"><$mt:EntryTitle$></h1>
-</div>
-<!-- /.c-title -->
+            <div class="c-title">
+                <h1 class="c-title__text"><$mt:EntryTitle$></h1>
+            </div>
+            <!-- /.c-title -->
 
-<div class="p-news_header">
-<!--
-# カテゴリHTML
-<p class="p-news_header__category--event">イベント</p>
-<p class="p-news_header__category--seminar">セミナー</p>
-<p class="p-news_header__category--online">オンライン</p>
+            <div class="p-news_header">
+                <!--
+                # カテゴリHTML
+                <p class="p-news_header__category--event">イベント</p>
+                <p class="p-news_header__category--seminar">セミナー</p>
+                <p class="p-news_header__category--online">オンライン</p>
 
-# 開催ステータスHTML
-<p class="p-news_header__status--accept">申込受付中</p>
-<p class="p-news_header__status--full">満員御礼</p>
-<p class="p-news_header__status--end">開催は終了しました</p>
--->
-<mt:EntryAdditionalCategories setvar="sub_cat"><$mt:CategoryLabel$></mt:EntryAdditionalCategories>
-<mt:EntryAdditionalCategories setvar="cate_name"><$mt:CategoryBasename$></mt:EntryAdditionalCategories>
-<mt:If name="cate_name" eq="event-info">
-    <p class="p-news_header__category--event"><$mt:GetVar name="sub_cat"$></p>
-<mt:Else>
-    <p class="p-news_header__category--<$mt:GetVar name="cate_name"$>"><$mt:GetVar name="sub_cat"$></p> 
-</mt:If>
-<mt:If tag="EntryDataEventStatus" eq="申込受付中">
-    <p class="p-news_header__status--accept">申込受付中</p>
-<mt:Else>
-    <mt:If tag="EntryDataEventStatus" eq="満員御礼">
-        <p class="p-news_header__status--full">満員御礼</p>
-    <mt:Else>
-        <mt:If tag="EntryDataEventStatus" eq="満員御礼">
-            <p class="p-news_header__status--end">開催は終了しました</p>
-        <mt:Else>
-            <$mt:EntryDataEndDateEvent format="%Y%m%d%H%M%S" setvar="exp_date"$>
-            <$mt:Date format="%Y%m%d%H%M%S" setvar="current_date"$>
-            <mt:If name="exp_date" lt="$current_date">
+                # 開催ステータスHTML
+                <p class="p-news_header__status--accept">申込受付中</p>
+                <p class="p-news_header__status--full">満員御礼</p>
                 <p class="p-news_header__status--end">開催は終了しました</p>
-            </mt:If>
-        </mt:If>
-    </mt:If>
-</mt:If>
-</div>
-<!-- /.p-news_header -->
+                -->
+                <mt:EntryAdditionalCategories setvar="sub_cat"><$mt:CategoryLabel$></mt:EntryAdditionalCategories>
+                <mt:EntryAdditionalCategories setvar="cate_name"><$mt:CategoryBasename$></mt:EntryAdditionalCategories>
+                <mt:If name="cate_name" eq="event-info">
+                    <p class="p-news_header__category--event"><$mt:GetVar name="sub_cat"$></p>
+                <mt:Else>
+                    <p class="p-news_header__category--<$mt:GetVar name="cate_name"$>"><$mt:GetVar name="sub_cat"$></p> 
+                </mt:If>
+                <mt:If tag="EntryDataEventStatus" eq="申込受付中">
+                    <p class="p-news_header__status--accept">申込受付中</p>
+                <mt:Else>
+                    <mt:If tag="EntryDataEventStatus" eq="満員御礼">
+                        <p class="p-news_header__status--full">満員御礼</p>
+                    <mt:Else>
+                        <mt:If tag="EntryDataEventStatus" eq="満員御礼">
+                            <p class="p-news_header__status--end">開催は終了しました</p>
+                        <mt:Else>
+                            <$mt:EntryDataEndDateEvent format="%Y%m%d%H%M%S" setvar="exp_date"$>
+                            <$mt:Date format="%Y%m%d%H%M%S" setvar="current_date"$>
+                            <mt:If name="exp_date" lt="$current_date">
+                                <p class="p-news_header__status--end">開催は終了しました</p>
+                            </mt:If>
+                        </mt:If>
+                    </mt:If>
+                </mt:If>
+            </div>
+            <!-- /.p-news_header -->
 
-<!-- /.c-content_heading -->
+            <div class="c-content_box">
+                <$mt:EntryBody$>
+            </div>
 
-<div class="c-content_box">
-<$mt:EntryBody$>
-</div>
+            <ul class="c-pager">
+                <mt:EntryPrevious by_category="1">
+                    <li class="c-pager__prev"><a href="<mt:EntryPermalink>">前へ</a></li>
+                </mt:EntryPrevious>
+                <li class="c-pager__text"><a href="<$mt:CategoryArchiveLink$>">イベント・セミナー一覧</a></li>
+                <mt:EntryNext by_category="1">
+                    <li class="c-pager__next"><a href="<mt:EntryPermalink>">次へ</a></li>
+                </mt:EntryNext>
+            </ul>
 
-<ul class="c-pager">
-<mt:EntryPrevious by_category="1">
-    <li class="c-pager__prev"><a href="<mt:EntryPermalink>">前へ</a></li>
-</mt:EntryPrevious>
-<li class="c-pager__text"><a href="<$mt:CategoryArchiveLink$>">イベント・セミナー一覧</a></li>
-<mt:EntryNext by_category="1">
-    <li class="c-pager__next"><a href="<mt:EntryPermalink>">次へ</a></li>
-</mt:EntryNext>
-</ul>
+            <div class="p-entry">
+                <div class="p-entry__inner">
+                    <a href="" target="_blank">
+                        <div class="p-entry__content">
+                            <div class="p-entry__header">
+                                <p><img src="/asset/img/common/icon_mail_01.png" alt=""></p>
+                                <p class="p-entry__title">メールマガジン登録</p>
+                            </div>
+                            <!-- /.p-entry__header -->
+                            <div class="p-entry__body">
+                                <p>毎月1回の定期配信で各種情報をお届けします。<br>【内容】新製品情報（新製品販売開始のお知らせ）イベント情報（D-Link出展情報）<br>サポート情報（ファームウェア更新、その他）</p>
+                            </div>
+                            <!-- /.p-entry__body -->
+                        </div>
+                        <!-- /.p-entry__content -->
+                    </a>
+                </div>
+                <!-- /.p-entry__inner -->
+            </div>
+            <!-- /.p-entry -->
 
-<div class="p-entry">
-<div class="p-entry__inner">
-<a href="" target="_blank">
-<div class="p-entry__content">
-<div class="p-entry__header">
-<p><img src="/asset/img/common/icon_mail_01.png" alt=""></p>
-<p class="p-entry__title">メールマガジン登録</p>
-</div>
-<!-- /.p-entry__header -->
-<div class="p-entry__body">
-<p>毎月1回の定期配信で各種情報をお届けします。<br>【内容】新製品情報（新製品販売開始のお知らせ）イベント情報（D-Link出展情報）<br>サポート情報（ファームウェア更新、その他）</p>
-</div>
-<!-- /.p-entry__body -->
-</div>
-<!-- /.p-entry__content -->
-</a>
-</div>
-<!-- /.p-entry__inner -->
-</div>
-<!-- /.p-entry -->
-
-</div>
-<!-- /.l-inner -->
-</section>
+        </div>
+        <!-- /.l-inner -->
+    </section>
 
 </main>
 
 <div class="p-contact">
-<div class="p-contact__inner">
-<div class="p-contact__read">
-<p>購入前の、製品仕様・お見積もり・<br class="u-show_sp">購入方法など<br class="u-show_pc">営業的な<br class="u-show_sp">お問い合わせについてはこちらから</p>
-</div>
-<!-- /.p-contact__read -->
-<div class="p-contact__bottom">
-<div class="p-contact__button">
-<a href="/contact/">お問い合わせ</a>
-</div>
-<!-- /.p-contact__button -->
-</div>
-<!-- /.p-contact__bottom -->
-</div>
-<!-- /.p-contact__inner -->
+    <div class="p-contact__inner">
+        <div class="p-contact__read">
+            <p>購入前の、製品仕様・お見積もり・<br class="u-show_sp">購入方法など<br class="u-show_pc">営業的な<br class="u-show_sp">お問い合わせについてはこちらから</p>
+        </div>
+        <!-- /.p-contact__read -->
+        <div class="p-contact__bottom">
+            <div class="p-contact__button">
+                <a href="/contact/">お問い合わせ</a>
+            </div>
+            <!-- /.p-contact__button -->
+        </div>
+        <!-- /.p-contact__bottom -->
+    </div>
+    <!-- /.p-contact__inner -->
 </div>
 <!-- /.p-contact -->
 <mt:Include module="footer" parent="1" />
