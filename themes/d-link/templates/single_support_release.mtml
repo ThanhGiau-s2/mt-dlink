@@ -50,12 +50,12 @@ Template Note : カテゴリ
                     </mt:If>
                 </mt:EntryAdditionalCategories>
                 <mt:If name="cate_name" eq="info">
-                    <p class="p-news__category--support"><$mt:GetVar name="cate_label"$></p>
+                    <p class="p-news_header__category--support"><$mt:GetVar name="cate_label"$></p>
                 <mt:Else>
                     <mt:If name="cate_name" eq="fault">
-                        <p class="p-news__category--failure"><$mt:GetVar name="cate_label"$></p>
+                        <p class="p-news_header__category--failure"><$mt:GetVar name="cate_label"$></p>
                     <mt:Else>
-                        <p class="p-news__category--<$mt:GetVar name="cate_name"$>"><$mt:GetVar name="cate_label"$></p>
+                        <p class="p-news_header__category--<$mt:GetVar name="cate_name"$>"><$mt:GetVar name="cate_label"$></p>
                     </mt:If> 
                 </mt:If>
                 <p class="p-news_header__time"><$mt:EntryDate format="%Y/%m/%d"$></p>

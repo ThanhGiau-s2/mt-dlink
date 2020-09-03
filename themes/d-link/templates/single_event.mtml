@@ -52,21 +52,16 @@ Template Note : カテゴリ
                 <mt:Else>
                     <p class="p-news_header__category--<$mt:GetVar name="cate_name"$>"><$mt:GetVar name="sub_cat"$></p> 
                 </mt:If>
-                <mt:If tag="EntryDataEventStatus" eq="申込受付中">
-                    <p class="p-news_header__status--accept">申込受付中</p>
+                <$mt:EntryDataEndDateEvent format="%Y%m%d%H%M%S" setvar="exp_date"$>
+                <$mt:Date format="%Y%m%d%H%M%S" setvar="current_date"$>
+                <mt:If name="exp_date" lt="$current_date">
+                    <p class="p-news_header__status--end">開催は終了しました</p>
                 <mt:Else>
+                    <mt:If tag="EntryDataEventStatus" eq="申込受付中">
+                        <p class="p-news_header__status--accept">申込受付中</p>
+                    </mt:If>
                     <mt:If tag="EntryDataEventStatus" eq="満員御礼">
                         <p class="p-news_header__status--full">満員御礼</p>
-                    <mt:Else>
-                        <mt:If tag="EntryDataEventStatus" eq="満員御礼">
-                            <p class="p-news_header__status--end">開催は終了しました</p>
-                        <mt:Else>
-                            <$mt:EntryDataEndDateEvent format="%Y%m%d%H%M%S" setvar="exp_date"$>
-                            <$mt:Date format="%Y%m%d%H%M%S" setvar="current_date"$>
-                            <mt:If name="exp_date" lt="$current_date">
-                                <p class="p-news_header__status--end">開催は終了しました</p>
-                            </mt:If>
-                        </mt:If>
                     </mt:If>
                 </mt:If>
             </div>

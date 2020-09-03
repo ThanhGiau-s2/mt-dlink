@@ -103,7 +103,7 @@ Template Note : カテゴリ
                                                     <dl class="p-card__info">
                                                         <div class="p-card__table">
                                                             <dt>【日程】</dt>
-                                                            <dd><$mt:EntryDataEventDate format="%Y/%m/%e"$>(<$mt:EntryDataEventDate format="%a"$>)</dd>
+                                                            <dd><$mt:EntryDataEventDate$></dd>
                                                             </div>
                                                             <div class="p-card__table">
                                                             <dt>【会場】</dt>
@@ -113,21 +113,16 @@ Template Note : カテゴリ
                                                 </div>
                                                 <!-- /.p-card__top -->
                                                 <div class="p-card__bottom">
-                                                    <mt:If tag="EntryDataEventStatus" eq="申込受付中">
-                                                        <p class="p-card__status--accept">申込受付中</p>
+                                                    <$mt:EntryDataEndDateEvent format="%Y%m%d%H%M%S" setvar="exp_date"$>
+                                                    <$mt:Date format="%Y%m%d%H%M%S" setvar="current_date"$>
+                                                    <mt:If name="exp_date" lt="$current_date">
+                                                        <p class="p-card__status--end">開催は終了しました</p>
                                                     <mt:Else>
+                                                        <mt:If tag="EntryDataEventStatus" eq="申込受付中">
+                                                            <p class="p-card__status--accept">申込受付中</p>
+                                                        </mt:If>
                                                         <mt:If tag="EntryDataEventStatus" eq="満員御礼">
                                                             <p class="p-card__status--full">満員御礼</p>
-                                                        <mt:Else>
-                                                            <mt:If tag="EntryDataEventStatus" eq="満員御礼">
-                                                                <p class="p-card__status--end">開催は終了しました</p>
-                                                            <mt:Else>
-                                                                <$mt:EntryDataEndDateEvent format="%Y%m%d%H%M%S" setvar="exp_date"$>
-                                                                <$mt:Date format="%Y%m%d%H%M%S" setvar="current_date"$>
-                                                                <mt:If name="exp_date" lt="$current_date">
-                                                                    <p class="p-card__status--end">開催は終了しました</p>
-                                                                </mt:If>
-                                                            </mt:If>
                                                         </mt:If>
                                                     </mt:If>
                                                 </div>
