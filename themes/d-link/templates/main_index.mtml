@@ -20,33 +20,53 @@ Template Note : トップページ出力用
 <mt:Include module="header" parent="1" />
 <main class="p-main">
     <div class="p-mv js-mv_slider">
-        <div class="p-mv__item">
-            <a href="">
-                <picture>
-                    <source srcset="/asset/img/top/top_mv_01_sp.jpg" media="(max-width: 768px)">
-                    <img src="/asset/img/top/top_mv_01.jpg" alt="有線・無線LAN統合管理ソリューション クラウドでネットワークをもっと簡単に nuclias cloud">
-                </picture>
-            </a>
-        </div>
-        <!-- /.p-mv__item -->
-        <div class="p-mv__item">
-            <a href="">
-                <picture>
-                    <source srcset="/asset/img/top/top_mv_02_sp.png" media="(max-width: 768px)">
-                    <img src="/asset/img/top/top_mv_02.png" alt="次世代高速Wi-Fi規格 Wi-Fi6 効率性、柔軟性、拡張性が強化され、新規および既存のネットワークで、次世代アプリケーションに対応可能な高速化と要領を実現します。">
-                </picture>
-            </a>
-        </div>
-        <!-- /.p-mv__item -->
-        <div class="p-mv__item">
-            <a href="">
-                <picture>
-                    <source srcset="/asset/img/top/top_mv_03_sp.png" media="(max-width: 768px)">
-                    <img src="/asset/img/top/top_mv_03.png" alt="無線LANの電波環境改善への処方箋 D-Link スマートアンテナ技術">
-                </picture>
-            </a>
-        </div>
-        <!-- /.p-mv__item -->
+        <mt:Contents content_type="トップスライダー">
+            <div class="p-mv__item">
+                <a href="">
+                    <picture>
+                        <mt:ContentField content_field="スライダー画像　１">
+                            <mt:ContentField content_field="SP画像">
+                                <source srcset="<mt:AssetThumbnailURL>" media="(max-width: 768px)">
+                            </mt:ContentField>
+                            <mt:ContentField content_field="PC画像">
+                                <img src="<mt:AssetThumbnailURL>" alt="<mt:ContentField content_field="alt テキスト"><mt:ContentFieldValue></mt:ContentField>">
+                            </mt:ContentField>
+                        </mt:ContentField>
+                    </picture>
+                </a>
+            </div>
+            <!-- /.p-mv__item -->   
+            <div class="p-mv__item">
+                <a href="">
+                    <picture>
+                        <mt:ContentField content_field="スライダー画像　２">
+                            <mt:ContentField content_field="SP画像">
+                                <source srcset="<mt:AssetThumbnailURL>" media="(max-width: 768px)">
+                            </mt:ContentField>
+                            <mt:ContentField content_field="PC画像">
+                                <img src="<mt:AssetThumbnailURL>" alt="<mt:ContentField content_field="alt テキスト"><mt:ContentFieldValue></mt:ContentField>">
+                            </mt:ContentField>
+                        </mt:ContentField>
+                    </picture>
+                </a>
+            </div>
+            <!-- /.p-mv__item -->   
+            <div class="p-mv__item">
+                <a href="">
+                    <picture>
+                        <mt:ContentField content_field="スライダー画像　３">
+                            <mt:ContentField content_field="SP画像">
+                                <source srcset="<mt:AssetThumbnailURL>" media="(max-width: 768px)">
+                            </mt:ContentField>
+                            <mt:ContentField content_field="PC画像">
+                                <img src="<mt:AssetThumbnailURL>" alt="<mt:ContentField content_field="alt テキスト"><mt:ContentFieldValue></mt:ContentField>">
+                            </mt:ContentField>
+                        </mt:ContentField>
+                    </picture>
+                </a>
+            </div>
+            <!-- /.p-mv__item -->   
+        </mt:Contents>
     </div>
     <!-- /.p-mv -->
 
