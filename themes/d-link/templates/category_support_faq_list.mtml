@@ -49,9 +49,11 @@ Template Note : カテゴリ
                         <li>
                             <button class="p-accordion_detail__header js-accordion_detail_toggle">
                                 <ul class="p-accordion_detail__tag">
-                                <mt:Tags>
-                                    <li><mt:TagName></li>
-                                </mt:Tags>
+                                    <mt:entrycategories>
+                                        <mt:HasNoSubCategories>
+                                            <li><$mt:CategoryLabel$></li>
+                                        </mt:HasNoSubCategories>
+                                    </mt:entrycategories>
                                 </ul>
                                 <div class="p-accordion_detail__question">
                                     <$mt:EntryTitle$>
