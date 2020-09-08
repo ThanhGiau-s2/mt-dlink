@@ -86,6 +86,8 @@ elements:
             label: permalink
           permalink_category:
             label: permalink_category
+          redirect_faq:
+            label: redirect_faq
         page:
           page:
             label: Page
