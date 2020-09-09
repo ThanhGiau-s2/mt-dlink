@@ -82,17 +82,15 @@ Template Note : トップページ出力用
                 <div class="p-emergency__content">
                     <h2 class="p-emergency__heading"><img src="/asset/img/common/icon_emergency_01.png" alt="">重要なお知らせ</h2>
                     <ul class="p-emergency__list">
-                        <mt:Entries sort_by="authored_on" sort_order="descend" category="ニュース" lastn="2">
-                            <mt:If tag="EntryDataImportantTag" eq="1">
-                                <li>
-                                    <a href="<$mt:EntryLink$>">
-                                        <div class="p-emergency__body">
-                                            <p class="p-emergency__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
-                                            <p class="p-emergency__title"><$mt:EntryTitle$></p>
-                                        </div>
-                                    </a>
-                                </li>   
-                            </mt:If>
+                        <mt:Entries field:important_tag="1" sort_by="authored_on" sort_order="descend" category="ニュース" lastn="2">
+                            <li>
+                                <a href="<$mt:EntryLink$>">
+                                    <div class="p-emergency__body">
+                                        <p class="p-emergency__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
+                                        <p class="p-emergency__title"><$mt:EntryTitle$></p>
+                                    </div>
+                                </a>
+                            </li>
                         </mt:Entries>
                     </ul>
                 </div>
@@ -328,17 +326,15 @@ Template Note : トップページ出力用
                         <div class="p-emergency__content--product">
                             <h2 class="p-emergency__heading--product">製品に関する重要なお知らせ</h2>
                             <ul class="p-emergency__list">
-                                <mt:Entries category="サポート情報" lastn="2">
-                                    <mt:If tag="EntryDataImportantTagSupport" eq="1">
-                                        <li>
-                                            <a href="<$mt:EntryPermalink$>" rel="bookmark">
-                                                <div class="p-emergency__body">
-                                                    <p class="p-emergency__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
-                                                    <p class="p-emergency__title"><$mt:EntryTitle$></p>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </mt:If>
+                                <mt:Entries field:important_tag_support="1" sort_by="authored_on" sort_order="descend" category="サポート情報" lastn="2">
+                                    <li>
+                                        <a href="<$mt:EntryPermalink$>" rel="bookmark">
+                                            <div class="p-emergency__body">
+                                                <p class="p-emergency__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
+                                                <p class="p-emergency__title"><$mt:EntryTitle$></p>
+                                            </div>
+                                        </a>
+                                    </li>
                                 </mt:Entries>
                             </ul>
                         </div>
