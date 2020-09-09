@@ -71,30 +71,38 @@ Template Note : トップページ出力用
     <!-- /.p-mv -->
 
     <mt:Ignore>** 重要なお知らせ **</mt:Ignore>
-    <mt:Entries sort_by="authored_on" sort_order="descend" category="ニュース" lastn="2">
+    <mt:Entries category="ニュース">
         <mt:If tag="EntryDataImportantTag" eq="1">
-            <div class="p-emergency">
-                <div class="p-emergency__inner">
-                    <div class="p-emergency__content">
-                        <h2 class="p-emergency__heading"><img src="/asset/img/common/icon_emergency_01.png" alt="">重要なお知らせ</h2>
-                        <ul class="p-emergency__list">
-                            <li>
-                                <a href="<$mt:EntryLink$>">
-                                    <div class="p-emergency__body">
-                                        <p class="p-emergency__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
-                                        <p class="p-emergency__title"><$mt:EntryTitle$></p>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- /.p-emergency__content -->
-                </div>
-                <!-- /.p-emergency__inner -->
-            </div>
-            <!-- /.p-emergency -->
+            <mt:setvarblock name="have_article">true</mt:setvarblock>
         </mt:If>
     </mt:Entries>
+    <mt:If name="have_article" eq="true">
+        <div class="p-emergency">
+            <div class="p-emergency__inner">
+                <div class="p-emergency__content">
+                    <h2 class="p-emergency__heading"><img src="/asset/img/common/icon_emergency_01.png" alt="">重要なお知らせ</h2>
+                    <ul class="p-emergency__list">
+                        <mt:Entries sort_by="authored_on" sort_order="descend" category="ニュース" lastn="2">
+                            <mt:If tag="EntryDataImportantTag" eq="1">
+                                <li>
+                                    <a href="<$mt:EntryLink$>">
+                                        <div class="p-emergency__body">
+                                            <p class="p-emergency__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
+                                            <p class="p-emergency__title"><$mt:EntryTitle$></p>
+                                        </div>
+                                    </a>
+                                </li>   
+                            </mt:If>
+                        </mt:Entries>
+                    </ul>
+                </div>
+                <!-- /.p-emergency__content -->
+            </div>
+            <!-- /.p-emergency__inner -->
+        </div>
+        <!-- /.p-emergency -->
+    </mt:if>
+                
     <section class="l-outer--top">
         <div class="l-inner">
             <div class="c-heading">
@@ -309,30 +317,37 @@ Template Note : トップページ出力用
             <!-- /.p-product_category -->
 
             <mt:Ignore>** 製品に関する重要なお知らせ **</mt:Ignore>
-            <mt:Entries category="サポート情報" lastn="2">
+            <mt:Entries category="サポート情報">
                 <mt:If tag="EntryDataImportantTagSupport" eq="1">
-                    <div class="p-emergency--product">
-                        <div class="p-emergency__inner">
-                            <div class="p-emergency__content--product">
-                                <h2 class="p-emergency__heading--product">製品に関する重要なお知らせ</h2>
-                                <ul class="p-emergency__list">
-                                    <li>
-                                        <a href="<$mt:EntryPermalink$>" rel="bookmark">
-                                            <div class="p-emergency__body">
-                                                <p class="p-emergency__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
-                                                <p class="p-emergency__title"><$mt:EntryTitle$></p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- /.p-emergency__content -->
-                        </div>
-                        <!-- /.p-emergency__inner -->
-                    </div>
-                    <!-- /.p-emergency -->
+                    <mt:setvarblock name="have_article_support">true</mt:setvarblock>
                 </mt:If>
             </mt:Entries>
+            <mt:If name="have_article_support" eq="true">
+                <div class="p-emergency--product">
+                    <div class="p-emergency__inner">
+                        <div class="p-emergency__content--product">
+                            <h2 class="p-emergency__heading--product">製品に関する重要なお知らせ</h2>
+                            <ul class="p-emergency__list">
+                                <mt:Entries category="サポート情報" lastn="2">
+                                    <mt:If tag="EntryDataImportantTagSupport" eq="1">
+                                        <li>
+                                            <a href="<$mt:EntryPermalink$>" rel="bookmark">
+                                                <div class="p-emergency__body">
+                                                    <p class="p-emergency__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
+                                                    <p class="p-emergency__title"><$mt:EntryTitle$></p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </mt:If>
+                                </mt:Entries>
+                            </ul>
+                        </div>
+                        <!-- /.p-emergency__content -->
+                    </div>
+                    <!-- /.p-emergency__inner -->
+                </div>
+                <!-- /.p-emergency -->
+            </mt:If>
             <div class="c-button">
                 <a href="/product/">製品情報を見る</a>
             </div>
