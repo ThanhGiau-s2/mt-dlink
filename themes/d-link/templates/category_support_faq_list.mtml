@@ -49,13 +49,13 @@ Template Note : カテゴリ
                         <li>
                             <button class="p-accordion_detail__header js-accordion_detail_toggle">
                                 <ul class="p-accordion_detail__tag">
-                                    <mt:SubCategories category="サポート/よくあるご質問" sort_by="created_on" sort_order="descend">
+                                    <mt:SubCategories category="サポート/よくあるご質問" sort_by="user_custom">
                                         <$mt:CategoryLabel setvar="name_cate"$>
                                         <mt:entrycategories>
                                             <$mt:CategoryLabel setvar="name_cate2"$>
                                             <mt:If name="name_cate" eq="$name_cate2"><mt:If tag="CategoryLabel" ne="目的別"><li><$mt:CategoryLabel$></li></mt:if></mt:If>
                                         </mt:entrycategories>
-                                        <mt:SubCategories category="$name_cate">
+                                        <mt:SubCategories category="$name_cate" sort_by="user_custom">
                                             <$mt:CategoryLabel setvar="name_cate2"$>
                                             <mt:entrycategories>
                                                 <$mt:CategoryLabel setvar="name_cate3"$>
