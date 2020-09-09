@@ -46,7 +46,9 @@ Template Note : カテゴリ
                     <div class="p-purpose">
                         <ul class="p-purpose__list">
                             <mt:SubCategories category="目的別">
-                                <li><a href="<$mt:CategoryArchiveLink$>" data-name="<$mt:CategoryBasename$>"><$MTCategoryLabel$></a></li>
+                                <mt:If tag="CategoryCount">
+                                    <li><a href="<$mt:CategoryArchiveLink$>" data-name="<$mt:CategoryBasename$>"><$MTCategoryLabel$></a></li>
+                                </mt:if>
                             </mt:SubCategories>
                         </ul>
                     </div>
@@ -62,20 +64,22 @@ Template Note : カテゴリ
 
                     <ul class="p-accordion_list">
                         <mt:SubCategories category="よくあるご質問">
-                            <mt:CategoryLabel setvar="name_cate">
-                            <mt:If tag="CategoryLabel" ne="目的別">
-                                <li>
-                                    <button class="js-accordion_list_toggle"><mt:getvar name="name_cate"></button>
-                                    <div class="p-accordion_list__child js-accordion_list_child">
-                                        <ul class="p-accordion_list__items">
-                                            <mt:SubCategories category="$name_cate">
-                                                <li><a href="<$mt:CategoryArchiveLink$>" data-name="<$mt:CategoryBasename$>"><$MTCategoryLabel$></a></li>
-                                            </mt:SubCategories>
-                                        </ul>
-                                    </div>
-                                    <!-- /.p-accordion_list__child -->
-                                </li>
-                            </mt:If>
+                            <mt:If tag="CategoryCount">
+                                <mt:CategoryLabel setvar="name_cate">
+                                <mt:If tag="CategoryLabel" ne="目的別">
+                                    <li>
+                                        <button class="js-accordion_list_toggle"><mt:getvar name="name_cate"></button>
+                                        <div class="p-accordion_list__child js-accordion_list_child">
+                                            <ul class="p-accordion_list__items">
+                                                <mt:SubCategories category="$name_cate">
+                                                    <li><a href="<$mt:CategoryArchiveLink$>" data-name="<$mt:CategoryBasename$>"><$MTCategoryLabel$></a></li>
+                                                </mt:SubCategories>
+                                            </ul>
+                                        </div>
+                                        <!-- /.p-accordion_list__child -->
+                                    </li>
+                                </mt:If>
+                            </mt:if>
                         </mt:SubCategories>
                     </ul>
                 </div>

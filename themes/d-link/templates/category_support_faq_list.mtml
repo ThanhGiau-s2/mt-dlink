@@ -52,18 +52,14 @@ Template Note : カテゴリ
                                     <mt:SubCategories category="サポート/よくあるご質問" sort_by="created_on" sort_order="descend">
                                         <$mt:CategoryLabel setvar="name_cate"$>
                                         <mt:entrycategories>
-                                            <mt:HasNoSubCategories>
-                                                <$mt:CategoryLabel setvar="name_cate2"$>
-                                                <mt:If name="name_cate" eq="$name_cate2"><li><$mt:CategoryLabel$></li></mt:If>
-                                            </mt:HasNoSubCategories>
+                                            <$mt:CategoryLabel setvar="name_cate2"$>
+                                            <mt:If name="name_cate" eq="$name_cate2"><mt:If tag="CategoryLabel" ne="目的別"><li><$mt:CategoryLabel$></li></mt:if></mt:If>
                                         </mt:entrycategories>
                                         <mt:SubCategories category="$name_cate">
                                             <$mt:CategoryLabel setvar="name_cate2"$>
                                             <mt:entrycategories>
-                                                <mt:HasNoSubCategories>
-                                                    <$mt:CategoryLabel setvar="name_cate3"$>
-                                                    <mt:If name="name_cate2" eq="$name_cate3"><li><$mt:CategoryLabel$></li></mt:If>
-                                                </mt:HasNoSubCategories>
+                                                <$mt:CategoryLabel setvar="name_cate3"$>
+                                                <mt:If name="name_cate2" eq="$name_cate3"><li><$mt:CategoryLabel$></li></mt:If>
                                             </mt:entrycategories>
                                         </mt:SubCategories>
                                     </mt:SubCategories>
