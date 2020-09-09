@@ -13,6 +13,14 @@ Template Note : カテゴリ
 </mt:SetVars>
 <mt:Ignore>** 表示部分 **</mt:Ignore>
 <mt:Include module="html_head" parent="1" />
+<style>
+.mr10 {
+    margin-right: 10px;
+}
+.p-news_header p:nth-child(3) {
+    margin-right: 0px;
+}
+</style>
 <mt:Include module="header" parent="1" />
 <!-- ここからコンテンツ -->
 <main class="p-main">
@@ -45,17 +53,19 @@ Template Note : カテゴリ
                 <p class="p-news_header__status--full">満員御礼</p>
                 <p class="p-news_header__status--end">開催は終了しました</p>
                 -->
-                <mt:EntryAdditionalCategories setvar="sub_cat"><$mt:CategoryLabel$></mt:EntryAdditionalCategories>
-                <mt:EntryAdditionalCategories setvar="cate_name"><$mt:CategoryBasename$></mt:EntryAdditionalCategories>
-                <mt:If name="cate_name" eq="event-info">
-                    <p class="p-news_header__category--event"><$mt:GetVar name="sub_cat"$></p>
-                <mt:Else>
-                    <p class="p-news_header__category--<$mt:GetVar name="cate_name"$>"><$mt:GetVar name="sub_cat"$></p> 
-                </mt:If>
-                <$mt:EntryDataEndDateEvent format="%Y%m%d%H%M%S" setvar="exp_date"$>
-                <$mt:Date format="%Y%m%d%H%M%S" setvar="current_date"$>
-                <mt:If name="exp_date" lt="$current_date">
-                    <p class="p-news_header__status--end">開催は終了しました</p>
+                <mt:EntryAdditionalCategories>
+                    <mt:If tag="CategoryBasename" eq="event-info">
+                        <p class="p-card__category--event mr10"><$mt:CategoryLabel$></p>
+                    <mt:Else>
+                        <p class="p-card__category--<$mt:CategoryBasename$> mr10"><$mt:CategoryLabel$></p> 
+                    </mt:If>
+                </mt:EntryAdditionalCategories>
+                <mt:If tag="EntryDataEndDateEvent">
+                    <$mt:EntryDataEndDateEvent format="%Y%m%d%H%M%S" setvar="exp_date"$>
+                    <$mt:Date format="%Y%m%d%H%M%S" setvar="current_date"$>
+                    <mt:If name="exp_date" lt="$current_date">
+                        <p class="p-news_header__status--end">開催は終了しました</p>
+                    </mt:If>
                 <mt:Else>
                     <mt:If tag="EntryDataEventStatus" eq="申込受付中">
                         <p class="p-news_header__status--accept">申込受付中</p>

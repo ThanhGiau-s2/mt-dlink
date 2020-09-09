@@ -84,7 +84,7 @@ Template Note : カテゴリ
                         <mt:Ignore>** 表示部分 **</mt:Ignore>
                         <mt:PageContents count="20">
                             <mt:SetVars>totalEntry=<$mt:BlogEntryCount$></mt:SetVars>
-                            <mt:Entries sort_by="modified_on" lastn="$totalEntry">
+                            <mt:Entries sort_by="authored_on" sort_order="descend" lastn="$totalEntry">
                                 <div class="p-news__item">
                                     <a href="<$mt:EntryPermalink$>">
                                         <div class="p-news__box">

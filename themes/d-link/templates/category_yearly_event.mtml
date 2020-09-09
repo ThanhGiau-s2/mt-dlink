@@ -96,23 +96,27 @@ Template Note : カテゴリ
                                         <div class="p-card__item">
                                             <a href="<$mt:EntryPermalink$>">
                                                 <div class="p-card__top">
-                                                    <mt:EntryAdditionalCategories setvar="sub_cat"><$mt:CategoryLabel$></mt:EntryAdditionalCategories>
-                                                    <mt:EntryAdditionalCategories setvar="cate_name"><$mt:CategoryBasename$></mt:EntryAdditionalCategories>
-                                                    <mt:If name="cate_name" eq="event-info">
-                                                        <p class="p-card__category--event"><$mt:GetVar name="sub_cat"$></p>
-                                                    <mt:Else>
-                                                        <p class="p-card__category--<$mt:GetVar name="cate_name"$>"><$mt:GetVar name="sub_cat"$></p> 
-                                                    </mt:If>
+                                                    <mt:EntryAdditionalCategories>
+                                                        <mt:If tag="CategoryBasename" eq="event-info">
+                                                            <p class="p-card__category--event mr10"><$mt:CategoryLabel$></p>
+                                                        <mt:Else>
+                                                            <p class="p-card__category--<$mt:CategoryBasename$> mr10"><$mt:CategoryLabel$></p> 
+                                                        </mt:If>
+                                                    </mt:EntryAdditionalCategories>    
                                                     <h2 class="p-card__title"><$mt:EntryTitle$></h2>
                                                     <dl class="p-card__info">
-                                                        <div class="p-card__table">
-                                                            <dt>【日程】</dt>
-                                                            <dd><$mt:EntryDataEventDate format="%Y/%m/%e"$>(<$mt:EntryDataEventDate format="%a"$>)</dd>
-                                                            </div>
+                                                        <mt:If tag="EntryDataEventDate">
                                                             <div class="p-card__table">
-                                                            <dt>【会場】</dt>
-                                                            <dd><$mt:EntryDataEventHall$></dd>
-                                                        </div>
+                                                                <dt>【日程】</dt>
+                                                                <dd><$mt:EntryDataEventDate$></dd>
+                                                            </div>
+                                                        </mt:If>
+                                                        <mt:If tag="EntryDataEventHall">
+                                                            <div class="p-card__table">
+                                                                <dt>【会場】</dt>
+                                                                <dd><$mt:EntryDataEventHall$></dd>
+                                                            </div>
+                                                        </mt:If>
                                                     </dl>
                                                 </div>
                                                 <!-- /.p-card__top -->
