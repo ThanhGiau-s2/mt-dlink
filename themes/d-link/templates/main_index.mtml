@@ -622,7 +622,7 @@ Template Note : トップページ出力用
                         <p class="p-news__category--news">お知らせ</p>
                         <p class="p-news__category--product">製品ニュース</p>
                         -->
-                        <mt:Entries category="ニュース" lastn="5">
+                        <mt:Entries sort_by="authored_on" sort_order="descend" category="ニュース" lastn="5">
                             <div class="p-news__item">
                                 <a href="<$mt:EntryLink$>">
                                     <div class="p-news__box">
@@ -657,20 +657,23 @@ Template Note : トップページ出力用
                         <p class="p-news__category--seminar">セミナー</p>
                         <p class="p-news__category--online">オンライン</p>
                         -->
-                        <mt:Entries category="イベント・セミナー" lastn="5">
+                        <mt:Entries sort_by="authored_on" sort_order="descend" category="イベント・セミナー" lastn="5">
                             <div class="p-news__item">
                                 <a href="<$mt:EntryLink$>">
                                     <div class="p-news__box">
                                         <p class="p-news__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
-                                        <mt:EntryAdditionalCategories setvar="sub_cats">
-                                            <$mt:CategoryLabel$>
+                                        <mt:SubCategories category="イベント・セミナー" sort_by="user_custom">
+                                            <mt:SubCatIsFirst><mt:CategoryLabel setvar="name_cate"></mt:SubCatIsFirst>
+                                        </mt:SubCategories>
+                                        <mt:EntryAdditionalCategories>
+                                            <mt:If tag="CategoryLabel" eq="$name_cate">
+                                                <mt:If tag="CategoryBasename" eq="event-info">
+                                                    <p class="p-news__category--event"><$mt:CategoryLabel$></p>
+                                                <mt:Else>
+                                                    <p class="p-news__category--<$mt:CategoryBasename$>"><$mt:CategoryLabel$></p> 
+                                                </mt:If>
+                                            </mt:If>
                                         </mt:EntryAdditionalCategories>
-                                        <mt:EntryAdditionalCategories setvar="cate_name"><$mt:CategoryBasename$></mt:EntryAdditionalCategories>
-                                        <mt:If name="cate_name" eq="event-info">
-                                            <p class="p-news__category--event"><$mt:GetVar name="sub_cats"$></p>
-                                        <mt:Else>
-                                            <p class="p-news__category--<$mt:GetVar name="cate_name"$>"><$mt:GetVar name="sub_cats"$></p> 
-                                        </mt:If>
                                         <div class="p-news__body">
                                             <p class="p-news__title"><$mt:EntryTitle$></p>
                                             <p class="p-news__date">【日程】<$mt:EntryDataEventDate$></p>
@@ -699,7 +702,7 @@ Template Note : トップページ出力用
                         <p class="p-news__category--maintenance">メンテナンス情報</p>
                         <p class="p-news__category--failure">障害情報</p>
                         -->
-                        <mt:Entries category="サポート/サポート情報" lastn="5">
+                        <mt:Entries sort_by="authored_on" sort_order="descend" category="サポート/サポート情報" lastn="5">
                             <div class="p-news__item">
                                 <a href="<$mt:EntryLink$>">
                                     <div class="p-news__box">

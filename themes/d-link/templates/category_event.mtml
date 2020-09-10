@@ -130,6 +130,13 @@ Template Note : カテゴリ
                                                         <$mt:Date format="%Y%m%d%H%M%S" setvar="current_date"$>
                                                         <mt:If name="exp_date" lt="$current_date">
                                                             <p class="p-card__status--end">開催は終了しました</p>
+                                                        <mt:Else>
+                                                            <mt:If tag="EntryDataEventStatus" eq="申込受付中">
+                                                                <p class="p-card__status--accept">申込受付中</p>
+                                                            </mt:If>
+                                                            <mt:If tag="EntryDataEventStatus" eq="満員御礼">
+                                                                <p class="p-card__status--full">満員御礼</p>
+                                                            </mt:If>
                                                         </mt:If>
                                                     <mt:Else>
                                                         <mt:If tag="EntryDataEventStatus" eq="申込受付中">

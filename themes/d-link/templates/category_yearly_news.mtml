@@ -76,7 +76,7 @@ Template Note : カテゴリ
                         -->
                         <mt:PageContents count="20">
                             <mt:SetVars>totalEntry=<$mt:BlogEntryCount$></mt:SetVars>
-                            <mt:Entries sort_by="modified_on" lastn="$totalEntry">
+                            <mt:Entries sort_by="authored_on" sort_order="descend" lastn="$totalEntry">
                                 <mt:EntryPrimaryCategory>
                                     <mt:HasNoParentCategory>
                                         <div class="p-news__item">

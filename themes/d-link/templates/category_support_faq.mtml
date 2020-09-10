@@ -72,7 +72,9 @@ Template Note : カテゴリ
                                         <div class="p-accordion_list__child js-accordion_list_child">
                                             <ul class="p-accordion_list__items">
                                                 <mt:SubCategories category="$name_cate">
-                                                    <li><a href="<$mt:CategoryArchiveLink$>" data-name="<$mt:CategoryBasename$>"><$MTCategoryLabel$></a></li>
+                                                    <mt:If tag="CategoryCount"> 
+                                                        <li><a href="<$mt:CategoryArchiveLink$>" data-name="<$mt:CategoryBasename$>"><$MTCategoryLabel$></a></li>
+                                                    </mt:If>
                                                 </mt:SubCategories>
                                             </ul>
                                         </div>
