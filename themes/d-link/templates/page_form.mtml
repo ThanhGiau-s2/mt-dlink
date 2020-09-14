@@ -6,6 +6,8 @@
 </mt:SetVars>
 <mt:SetVarTemplate name="file_javascript">
 <script src="/asset/js/form_ui.min.js" defer></script>
+<script src="/asset/js/jquery.zip2addr.js"></script>
+<script src="/asset/js/zipcode.js"></script>
 </mt:SetVarTemplate>
 <mt:Ignore>** 表示部分 **</mt:Ignore>
 <mt:Include module="html_head" parent="1" />
@@ -212,13 +214,9 @@
                                     <div class="p-form__cell">
                                         <div class="p-form__row">
                                             <div class="p-form__col">
-                                                <div class="">
-                                                    <div class="c-select">
-                                                        <mt:AFormFieldInput aform_id="1" parts_id="zip_1">
-                                                    </div>
-                                                    <!-- /.c-select -->
+                                                <div class="c-input">
+                                                    <mt:AFormFieldInput aform_id="1" parts_id="zip_1">
                                                 </div>
-                                                <!-- /.js-product_select -->
                                             </div>
                                             <!-- /.p-form__col -->
                                             <div class="p-form__col">
