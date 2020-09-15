@@ -15,6 +15,15 @@
 .mb45 {
     margin-bottom: 45px
 }
+.clrblue {
+    color: #0087a9
+}
+.w30 {
+    width: 30%
+}
+.w30 input {
+    width: 50%
+}
 </style>
 <mt:Include module="header" parent="1" />
 <!-- ここからコンテンツ -->
@@ -32,7 +41,7 @@
                 <h1 class="c-title__text">故障・修理申請フォーム</h1>
             </div>
             <!-- /.c-title -->
-            <form name="aform-form-1" id="aform-form-1" method="post" action="/cgi-bin/mt/plugins/AForm/aform_engine.cgi" novalidate="novalidate" enctype="multipart/form-data">
+            <form name="aform-form-1" id="aform-form-1" method="post" action="/mt/plugins/AForm/aform_engine.cgi" novalidate="novalidate" enctype="multipart/form-data">
                 <input type="hidden" name="blog_id" value="<$mt:BlogID$>" />
                 <input type="hidden" name="id" value="1" />
                 <input type="hidden" name="run_mode" value="confirm" />
@@ -111,7 +120,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="family-name" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="name"><span class="required">必須</span></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="name"><span class="required">必須</span>
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -119,33 +128,23 @@
                                     <div class="p-form__cell">
                                         <div class="p-form__row">
                                             <div class="p-form__col">
-                                                <div class="c-input">
-                                                    <div class="c-input__example">
-                                                    <p class="aform-input-example"><mt:AFormFieldLabel aform_id="1" parts_id="shimei_1"></p>
-                                                    </div>
-                                                    <!-- /.c-input__example -->
+                                                <div class="c-input js-form_check" data-label="氏名"">
                                                     <mt:AFormFieldInput aform_id="1" parts_id="shimei_1">
                                                 </div>
                                                 <!-- /.c-input -->
-                                                <div class="c-error">
-                                                    <!-- <mt:AFormFieldError aform_id="$aform_id" parts_id="$parts_id"> -->
-                                                    <!-- <p class="aform-error" id="shimei_1"><div class="validation-advice"><label for="" generated="true" class="error"><img src="/asset/img/common/icon_error_01.png">姓を入力してください</label></div></p> -->
+                                                <div class="c-error js-error_check">
+                                                    <p class="aform-error" id=""></p>
                                                 </div>
                                                 <!-- /.c-error -->
                                             </div>
                                             <!-- /.p-form__col -->
                                             <div class="p-form__col">
-                                                <div class="c-input">
-                                                    <div class="c-input__example">
-                                                    <p class="aform-input-example"><mt:AFormFieldLabel aform_id="1" parts_id="shimei_2"></p>
-                                                    </div>
-                                                    <!-- /.c-input__example -->
+                                                <div class="c-input js-form_check" data-label="氏名"">
                                                     <mt:AFormFieldInput aform_id="1" parts_id="shimei_2">
                                                 </div>
                                                 <!-- /.c-input -->
-                                                <div class="c-error">
-                                                    <!-- <mt:AFormFieldError aform_id="$aform_id" parts_id="$parts_id"> -->
-                                                    <!-- <p class="aform-error" id=""><div class="validation-advice"><label for="shimei_2" generated="true" class="error"><img src="/asset/img/common/icon_error_01.png">名を入力してください</label></div></p> -->
+                                                <div class="c-error js-error_check">
+                                                    <p class="aform-error" id=""></p>
                                                 </div>
                                                 <!-- /.c-error -->
                                             </div>
@@ -160,13 +159,13 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="number_product" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="mailaddress"><span class="required">必須</span></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="mailaddress"><span class="required">必須</span>
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
                                     <!-- /.p-form__cell -->
                                     <div class="p-form__cell">
-                                        <div class="c-input js-form_check" data-label="製品名">
+                                        <div class="c-input js-form_check" data-label="E-MAIL">
                                             <mt:AFormFieldInput aform_id="1" parts_id="mailaddress">
                                         </div>
                                         <!-- /.c-input -->
@@ -183,13 +182,13 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="number_product" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="houjin_mei"><span class="required">必須</span></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="houjin_mei"><span class="required">必須</span>
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
                                     <!-- /.p-form__cell -->
                                     <div class="p-form__cell">
-                                        <div class="c-input js-form_check" data-label="製品名">
+                                        <div class="c-input js-form_check" data-label="会社名">
                                             <mt:AFormFieldInput aform_id="1" parts_id="houjin_mei">
                                         </div>
                                         <!-- /.c-input -->
@@ -206,7 +205,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="number_product" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="zip_1"><span class="required">必須</span></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="zip_1"><span class="required">必須</span>
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -214,9 +213,13 @@
                                     <div class="p-form__cell">
                                         <div class="p-form__row">
                                             <div class="p-form__col">
-                                                <div class="c-input">
+                                                <div class="c-input js-form_check" data-label="郵便番号">
                                                     <mt:AFormFieldInput aform_id="1" parts_id="zip_1">
                                                 </div>
+                                                <div class="c-error js-error_check">
+                                                    <p class="aform-error" id=""></p>
+                                                </div>
+                                                <!-- /.c-error -->
                                             </div>
                                             <!-- /.p-form__col -->
                                             <div class="p-form__col">
@@ -225,11 +228,6 @@
                                             <!-- /.p-form__col -->
                                         </div>
                                         <!-- /.p-form__row -->
-                                        <div class="c-error">
-                                            <!-- <mt:AFormFieldError aform_id="$aform_id" parts_id="$parts_id"> -->
-                                            <!-- <p class="aform-error" id=""><div class="validation-advice"><label for="number_product" generated="true" class="error"><img src="/asset/img/common/icon_error_01.png">故障・修理申請台数を選択してください</label></div></p> -->
-                                        </div>
-                                        <!-- /.c-error -->
                                     </div>
                                     <!-- /.p-form__cell -->
                                 </div>
@@ -238,7 +236,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="number_product" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="address_1"><span class="required">必須</span></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="address_1"><span class="required">必須</span>
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -248,21 +246,20 @@
                                             <div class="p-form__col">
                                                 <div class="">
                                                     <!-- JSで判定しているので、値を固定 -->
-                                                    <div class="c-select">
+                                                    <div class="c-select js-form_check" data-label="都道府県">
                                                         <mt:AFormFieldInput aform_id="1" parts_id="address_1">
                                                     </div>
                                                     <!-- /.c-select -->
+                                                    <div class="c-error js-error_check">
+                                                        <p class="aform-error" id=""></p>
+                                                    </div>
+                                                    <!-- /.c-error -->
                                                 </div>
                                                 <!-- /.js-product_select -->
                                             </div>
                                             <!-- /.p-form__col -->
                                         </div>
                                         <!-- /.p-form__row -->
-                                        <div class="c-error">
-                                            <!-- <mt:AFormFieldError aform_id="$aform_id" parts_id="$parts_id"> -->
-                                            <!-- <p class="aform-error" id=""><div class="validation-advice"><label for="number_product" generated="true" class="error"><img src="/asset/img/common/icon_error_01.png">故障・修理申請台数を選択してください</label></div></p> -->
-                                        </div>
-                                        <!-- /.c-error -->
                                     </div>
                                     <!-- /.p-form__cell -->
                                 </div>
@@ -271,13 +268,13 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="number_product" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="address_2"><span class="required">必須</span></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="address_2"><span class="required">必須</span>
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
                                     <!-- /.p-form__cell -->
                                     <div class="p-form__cell">
-                                        <div class="c-input js-form_check" data-label="製品名">
+                                        <div class="c-input js-form_check" data-label="市区町村">
                                             <mt:AFormFieldInput aform_id="1" parts_id="address_2">
                                         </div>
                                         <!-- /.c-input -->
@@ -294,13 +291,13 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="number_product" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="address_3"><span class="required">必須</span></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="address_3"><span class="required">必須</span>
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
                                     <!-- /.p-form__cell -->
                                     <div class="p-form__cell">
-                                        <div class="c-input js-form_check" data-label="製品名">
+                                        <div class="c-input js-form_check" data-label="番地以降">
                                             <mt:AFormFieldInput aform_id="1" parts_id="address_3">
                                         </div>
                                         <!-- /.c-input -->
@@ -317,13 +314,13 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="number_product" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="telnum"><span class="required">必須</span></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="telnum"><span class="required">必須</span>
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
                                     <!-- /.p-form__cell -->
                                     <div class="p-form__cell">
-                                        <div class="c-input js-form_check" data-label="製品名">
+                                        <div class="c-input js-form_check" data-label="電話番号">
                                             <mt:AFormFieldInput aform_id="1" parts_id="telnum">
                                         </div>
                                         <!-- /.c-input -->
@@ -340,13 +337,13 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="number_product" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="agency_name"><span class="required">必須</span></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="agency_name"><span class="required">必須</span>
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
                                     <!-- /.p-form__cell -->
                                     <div class="p-form__cell">
-                                        <div class="c-input js-form_check" data-label="製品名">
+                                        <div class="c-input js-form_check" data-label="代理店名">
                                             <mt:AFormFieldInput aform_id="1" parts_id="agency_name">
                                             <div class="c-input__example">
                                                 <p class="aform-input-example">※ご不明な場合は”不明”と記入。</p>
@@ -367,13 +364,13 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="number_product" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="agent_name"><span class="required">必須</span></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="agent_name"><span class="required">必須</span>
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
                                     <!-- /.p-form__cell -->
                                     <div class="p-form__cell">
-                                        <div class="c-input js-form_check" data-label="製品名">
+                                        <div class="c-input js-form_check" data-label="代理店担当者名">
                                             <mt:AFormFieldInput aform_id="1" parts_id="agent_name">
                                             <div class="c-input__example">
                                                 <p class="aform-input-example">※ご不明な場合は”不明”と記入。</p>
@@ -394,7 +391,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="number_product" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="applications_number"><span class="required">必須</span></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="applications_number"><span class="required">必須</span>
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -402,7 +399,7 @@
                                     <div class="p-form__cell">
                                         <div class="p-form__row">
                                             <div class="p-form__col">
-                                                <div class="js-units_select">
+                                                <div class="js-units_select" data-label="故障・修理申請台数">
                                                     <!-- JSで判定しているので、値を固定 -->
                                                     <div class="c-select">
                                                         <mt:AFormFieldInput aform_id="1" parts_id="applications_number">
@@ -410,15 +407,14 @@
                                                     <!-- /.c-select -->
                                                 </div>
                                                 <!-- /.js-product_select -->
+                                                <div class="c-error js-error_check">
+                                                    <p class="aform-error" id=""></p>
+                                                </div>
+                                                <!-- /.c-error -->
                                             </div>
                                             <!-- /.p-form__col -->
                                         </div>
                                         <!-- /.p-form__row -->
-                                        <div class="c-error">
-                                            <!-- <mt:AFormFieldError aform_id="$aform_id" parts_id="$parts_id"> -->
-                                            <!-- <p class="aform-error" id=""><div class="validation-advice"><label for="number_product" generated="true" class="error"><img src="/asset/img/common/icon_error_01.png">故障・修理申請台数を選択してください</label></div></p> -->
-                                        </div>
-                                        <!-- /.c-error -->
                                     </div>
                                     <!-- /.p-form__cell -->
                                 </div>
@@ -465,13 +461,13 @@
                             <div class="p-form__table">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="serial_no_1" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="serial_no_1"><span class="required">必須</span></label>
+                                        <mt:AFormFieldLabel aform_id="1" parts_id="serial_no_1"><span class="required">必須</span>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
                                 <!-- /.p-form__cell -->
                                 <div class="p-form__cell">
-                                    <div class="c-input js-form_check" data-label="製品名">
+                                    <div class="c-input js-form_check" data-label="シリアルナンバー">
                                         <mt:AFormFieldInput aform_id="1" parts_id="serial_no_1">
                                     </div>
                                     <!-- /.c-input -->
@@ -488,13 +484,13 @@
                             <div class="p-form__table">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="firmware_1" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="firmware_1"><span class="required">必須</span></label>
+                                        <mt:AFormFieldLabel aform_id="1" parts_id="firmware_1"><span class="required">必須</span>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
                                 <!-- /.p-form__cell -->
                                 <div class="p-form__cell">
-                                    <div class="c-input js-form_check" data-label="製品名">
+                                    <div class="c-input js-form_check" data-label="ファームウェアバージョン">
                                         <mt:AFormFieldInput aform_id="1" parts_id="firmware_1">
                                     </div>
                                     <!-- /.c-input -->
@@ -511,13 +507,13 @@
                             <div class="p-form__table">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="hardware_version_1" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="hardware_version_1"><span class="required">必須</span></label>
+                                        <mt:AFormFieldLabel aform_id="1" parts_id="hardware_version_1"><span class="required">必須</span>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
                                 <!-- /.p-form__cell -->
                                 <div class="p-form__cell">
-                                    <div class="c-input js-form_check" data-label="製品名">
+                                    <div class="c-input js-form_check" data-label="ハードウェアバージョン">
                                         <mt:AFormFieldInput aform_id="1" parts_id="hardware_version_1">
                                     </div>
                                     <!-- /.c-input -->
@@ -534,13 +530,13 @@
                             <div class="p-form__table">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="purchase_date_1" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="purchase_date_1"><span class="required">必須</span></label>
+                                        <mt:AFormFieldLabel aform_id="1" parts_id="purchase_date_1"><span class="required">必須</span>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
                                 <!-- /.p-form__cell -->
                                 <div class="p-form__cell">
-                                    <div class="c-input js-form_check" data-label="製品名">
+                                    <div class="c-input js-form_check" data-label="ご購入日">
                                         <mt:AFormFieldInput aform_id="1" parts_id="purchase_date_1">
                                     </div>
                                     <!-- /.c-input -->
@@ -557,16 +553,18 @@
                             <div class="p-form__table">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="warranty_1" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="warranty_1"><span class="required">必須</span></label>
+                                        <mt:AFormFieldLabel aform_id="1" parts_id="warranty_1"><span class="required">必須</span>
                                         <p>※2010/1/1以降に購入された、</br>D-LINK リミテッドライフタイム保証対象製品は必須</p>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
                                 <!-- /.p-form__cell -->
                                 <div class="p-form__cell">
-                                    <div class="c-input js-form_check" data-label="製品名">
+                                    <div class="c-radio" data-label="D-LINKリミテッドライフタイム保証対象製品">
                                         <mt:AFormFieldInput aform_id="1" parts_id="warranty_1">
-                                        <a href="/support/info/target.html">保証対象製品と保証期間についてはこちらををご確認ください</a>
+                                        <ul class="p-link__list">
+                                            <li><a href="/support/info/target.html"><span>保証対象製品と保証期間についてはこちらををご確認ください</span></a></li>
+                                        </ul>
                                     </div>
                                     <!-- /.c-input -->
 
@@ -585,7 +583,7 @@
                         </div>
                         <!-- /.c-middle_heading -->
                         <div class="p-form_content__box">
-                            <p>【STEP1】⇒【STEP2】⇒【STEP3】の順番にお進み下さい</p>
+                            <b class="clrblue">【STEP1】⇒【STEP2】⇒【STEP3】の順番にお進み下さい</b>
                             <ul>
                                 <li>※複数機器をまとめず、ご記入頂いたシリアル番号ごとにご回答下さい</li>
                                 <li>※製品を発送する際は、本フォームの自動返信メールを印刷したものを同梱して発送願います</li>
@@ -601,7 +599,7 @@
                             <div class="p-form__table">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_1_step1_type" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="failure_point_1"><span class="required">必須</span></label>
+                                        <mt:AFormFieldLabel aform_id="1" parts_id="failure_point_1">
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -634,7 +632,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="occurrence_point_1_1"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="occurrence_point_1_1">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -659,7 +657,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="condition_1_1"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="condition_1_1">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -684,7 +682,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="reproducibility_1_1"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="reproducibility_1_1">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -697,17 +695,21 @@
                                             <!-- /.p-form__col -->
                                         </div>
                                         <!-- /.p-form__row -->
+                                        <p>（以下、発生までの期間を記載してください）</p>
                                         <div class="p-form__row">
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_miniute_1_1">
+                                                <mt:AFormFieldLabel aform_id="1" parts_id="reproducibility_miniute_1_1">
                                             </div>
                                             <!-- /.p-form__col -->
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_hour_1_1">
+                                                <mt:AFormFieldLabel aform_id="1" parts_id="reproducibility_hour_1_1">
                                             </div>
                                             <!-- /.p-form__col -->
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_day_1_1">
+                                                <mt:AFormFieldLabel aform_id="1" parts_id="reproducibility_day_1_1">
                                             </div>
                                             <!-- /.p-form__col -->
                                         </div>
@@ -727,7 +729,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="occurrence_point_1_2"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="occurrence_point_1_2">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -736,12 +738,15 @@
                                         <div class="p-form__row">
                                             <div class="p-form__col">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="occurrence_point_1_2">
+                                                <div>
+                                                    <mt:AFormFieldInput aform_id="1" parts_id="occurrence_port_1_2">
+                                                    <mt:AFormFieldLabel aform_id="1" parts_id="occurrence_port_1_2">
+                                                </div>
                                             </div>
                                             <!-- /.p-form__col -->
                                         </div>
                                         <!-- /.p-form__row -->
-                                        <mt:AFormFieldLabel aform_id="1" parts_id="occurrence_port_1_2">
-                                        <mt:AFormFieldInput aform_id="1" parts_id="occurrence_port_1_2">
+                                        
                                     </div>
                                     <!-- /.p-form__table_cell -->
                                 </div>
@@ -750,7 +755,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="condition_1_2"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="condition_1_2">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -775,7 +780,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="reproducibility_1_1"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="reproducibility_1_1">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -789,15 +794,15 @@
                                         </div>
                                         <!-- /.p-form__row -->
                                         <div class="p-form__row">
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_miniute_1_1">
                                             </div>
                                             <!-- /.p-form__col -->
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_hour_1_1">
                                             </div>
                                             <!-- /.p-form__col -->
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_day_1_1">
                                             </div>
                                             <!-- /.p-form__col -->
@@ -811,7 +816,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="after_replacement_1_2"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="after_replacement_1_2">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -840,7 +845,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="occurrence_point_1_3"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="occurrence_point_1_3">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -868,7 +873,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="condition_1_3"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="condition_1_3">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -893,7 +898,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="reproducibility_1_3"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="reproducibility_1_3">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -907,15 +912,15 @@
                                         </div>
                                         <!-- /.p-form__row -->
                                         <div class="p-form__row">
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_miniute_1_1">
                                             </div>
                                             <!-- /.p-form__col -->
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_hour_1_1">
                                             </div>
                                             <!-- /.p-form__col -->
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_day_1_1">
                                             </div>
                                             <!-- /.p-form__col -->
@@ -929,7 +934,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="after_replacement_1_3"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="after_replacement_1_3">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -958,7 +963,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="occurrence_point_1_4"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="occurrence_point_1_4">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -981,7 +986,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="condition_1_4"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="condition_1_4">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -1006,7 +1011,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="reproducibility_1_4"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="reproducibility_1_4">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -1042,7 +1047,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="after_replacement_1_4"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="after_replacement_1_4">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -1071,7 +1076,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="condition_1_5"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="condition_1_5">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -1096,7 +1101,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="reproducibility_1_5"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="reproducibility_1_5">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -1140,7 +1145,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="occurrence_point_1_6"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="occurrence_point_1_6">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -1161,7 +1166,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="condition_1_6"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="condition_1_6">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -1186,7 +1191,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="reproducibility_1_6"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="reproducibility_1_6">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -1222,7 +1227,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="after_replacement_1_6"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="after_replacement_1_6">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -1251,7 +1256,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="condition_1_7"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="condition_1_7">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -1276,7 +1281,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="reproducibility_1_7"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="reproducibility_1_7">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -1325,7 +1330,7 @@
                             <div class="p-form__table">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_1_step3_detail" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="detail_coment_1"><span class="required">必須</span></label>
+                                        <mt:AFormFieldLabel aform_id="1" parts_id="detail_coment_1"><span class="required">必須</span>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -1353,7 +1358,7 @@
                             <div class="p-form__table js-disabled_toggle">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="same_person_1"></label>
+                                        <mt:AFormFieldLabel aform_id="1" parts_id="same_person_1">
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -1378,7 +1383,7 @@
                             <div class="p-form__table js-branch_form">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_1_return_company" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_houjin_mei_1"></label>
+                                        <mt:AFormFieldLabel aform_id="1" parts_id="return_houjin_mei_1"><span class="required">必須</span>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -1402,8 +1407,7 @@
                             <div class="p-form__table js-branch_form">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_1_return_person" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_a
-                                            gent_name_1"></label>
+                                        <mt:AFormFieldLabel aform_id="1" parts_id="return_agent_name_1"><span class="required">必須</span>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -1427,7 +1431,7 @@
                             <div class="p-form__table js-branch_form">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_1_return_postal-code" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_zip_1"></label>
+                                        <mt:AFormFieldLabel aform_id="1" parts_id="return_zip_1"><span class="required">必須</span>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -1457,22 +1461,28 @@
                             <div class="p-form__table js-branch_form">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_1_return_address" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_address_1_1"></label>
+                                        <mt:AFormFieldLabel aform_id="1" parts_id="return_address_1_1"><span class="required">必須</span>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
                                 <!-- /.p-form__table_cell -->
 
                                 <div class="p-form__cell">
-                                    <div class="c-input js-form_check" data-label="ご返却先ご住所">
-                                        <mt:AFormFieldInput aform_id="1" parts_id="return_address_1_1">
-                                    </div>
-                                    <!-- /.c-input -->
+                                    <div class="p-form__row">
+                                        <div class="p-form__col">
+                                            <div class="" data-label="ご返却先都道府県">
+                                                <div class="c-select">
+                                                    <mt:AFormFieldInput aform_id="1" parts_id="return_address_1_1">
+                                                </div>
+                                                <!-- /.c-input -->
 
-                                    <div class="c-error js-error_check">
-                                        <p class="aform-error" id=""></p>
+                                                <div class="c-error js-error_check">
+                                                    <p class="aform-error" id=""></p>
+                                                </div>
+                                                <!-- /.c-error -->
+                                            </div>
+                                        </div>
                                     </div>
-                                    <!-- /.c-error -->
                                 </div>
                                 <!-- /.p-form__table_cell -->
                             </div>
@@ -1481,14 +1491,14 @@
                             <div class="p-form__table js-branch_form">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_1_return_address" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_address_1_2"></label>
+                                        <mt:AFormFieldLabel aform_id="1" parts_id="return_address_1_2"><span class="required">必須</span>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
                                 <!-- /.p-form__table_cell -->
 
                                 <div class="p-form__cell">
-                                    <div class="c-input js-form_check" data-label="ご返却先ご住所">
+                                    <div class="c-input js-form_check" data-label="ご返却先市区町村">
                                         <mt:AFormFieldInput aform_id="1" parts_id="return_address_1_2">
                                     </div>
                                     <!-- /.c-input -->
@@ -1505,14 +1515,14 @@
                             <div class="p-form__table js-branch_form">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_1_return_address" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_address_1_3"></label>
+                                        <mt:AFormFieldLabel aform_id="1" parts_id="return_address_1_3"><span class="required">必須</span>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
                                 <!-- /.p-form__table_cell -->
 
                                 <div class="p-form__cell">
-                                    <div class="c-input js-form_check" data-label="ご返却先ご住所">
+                                    <div class="c-input js-form_check" data-label="ご返却先番地以降">
                                         <mt:AFormFieldInput aform_id="1" parts_id="return_address_1_3">
                                     </div>
                                     <!-- /.c-input -->
@@ -1529,7 +1539,7 @@
                             <div class="p-form__table js-branch_form">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_1_return_tel" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_telnum_1"></label>
+                                        <mt:AFormFieldLabel aform_id="1" parts_id="return_telnum_1"><span class="required">必須</span>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -1553,14 +1563,14 @@
                             <div class="p-form__table js-branch_form">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_1_return_email" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_mailaddress_1"></label>
+                                        <mt:AFormFieldLabel aform_id="1" parts_id="return_mailaddress_1"><span class="required">必須</span>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
                                 <!-- /.p-form__table_cell -->
 
                                 <div class="p-form__cell">
-                                    <div class="c-input js-form_check" data-label="ご返却先メールアドレス">
+                                    <div class="c-input js-form_check" data-label="ご返却先E-MAIL">
                                         <mt:AFormFieldInput aform_id="1" parts_id="return_mailaddress_1">
                                     </div>
                                     <!-- /.c-input -->
@@ -1589,7 +1599,7 @@
                             <div class="p-form__table">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_1_name" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="product_name_2"><span class="required">必須</span></label>
+                                        <mt:AFormFieldLabel aform_id="1" parts_id="product_name_2"><span class="required">必須</span>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -1612,7 +1622,7 @@
                             <div class="p-form__table">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="serial_no_1" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="serial_no_2"><span class="required">必須</span></label>
+                                        <mt:AFormFieldLabel aform_id="1" parts_id="serial_no_2"><span class="required">必須</span>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -1635,7 +1645,7 @@
                             <div class="p-form__table">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="firmware_1" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="firmware_2"><span class="required">必須</span></label>
+                                        <mt:AFormFieldLabel aform_id="1" parts_id="firmware_2"><span class="required">必須</span>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -1658,7 +1668,7 @@
                             <div class="p-form__table">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="hardware_version_1" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="hardware_version_2"><span class="required">必須</span></label>
+                                        <mt:AFormFieldLabel aform_id="1" parts_id="hardware_version_2"><span class="required">必須</span>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -1681,7 +1691,7 @@
                             <div class="p-form__table">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="purchase_date_1" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="purchase_date_2"><span class="required">必須</span></label>
+                                        <mt:AFormFieldLabel aform_id="1" parts_id="purchase_date_2"><span class="required">必須</span>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -1704,16 +1714,18 @@
                             <div class="p-form__table">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="warranty_1" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="warranty_2"><span class="required">必須</span></label>
+                                        <mt:AFormFieldLabel aform_id="1" parts_id="warranty_2"><span class="required">必須</span>
                                         <p>※2010/1/1以降に購入された、</br>D-LINK リミテッドライフタイム保証対象製品は必須</p>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
                                 <!-- /.p-form__cell -->
                                 <div class="p-form__cell">
-                                    <div class="c-input js-form_check" data-label="製品名">
+                                    <div class="c-radio" data-label="製品名">
                                         <mt:AFormFieldInput aform_id="1" parts_id="warranty_2">
-                                        <a href="/support/info/target.html">保証対象製品と保証期間についてはこちらををご確認ください</a>
+                                        <ul class="p-link__list">
+                                            <li><a href="/support/info/target.html"><span>保証対象製品と保証期間についてはこちらををご確認ください</span></a></li>
+                                        </ul>
                                     </div>
                                     <!-- /.c-input -->
 
@@ -1732,7 +1744,7 @@
                         </div>
                         <!-- /.c-middle_heading -->
                         <div class="p-form_content__box">
-                            <p>【STEP1】⇒【STEP2】⇒【STEP3】の順番にお進み下さい</p>
+                            <b class="clrblue">【STEP1】⇒【STEP2】⇒【STEP3】の順番にお進み下さい</b>
                             <ul>
                                 <li>※複数機器をまとめず、ご記入頂いたシリアル番号ごとにご回答下さい</li>
                                 <li>※製品を発送する際は、本フォームの自動返信メールを印刷したものを同梱して発送願います</li>
@@ -1748,7 +1760,7 @@
                             <div class="p-form__table">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_1_step1_type" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="failure_point_2"><span class="required">必須</span></label>
+                                        <mt:AFormFieldLabel aform_id="1" parts_id="failure_point_2">
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -1781,7 +1793,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="occurrence_point_2_1"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="occurrence_point_2_1">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -1806,7 +1818,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="condition_2_1"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="condition_2_1">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -1831,7 +1843,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="reproducibility_2_1"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="reproducibility_2_1">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -1845,15 +1857,15 @@
                                         </div>
                                         <!-- /.p-form__row -->
                                         <div class="p-form__row">
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_miniute_2_1">
                                             </div>
                                             <!-- /.p-form__col -->
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_hour_2_1">
                                             </div>
                                             <!-- /.p-form__col -->
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_day_2_1">
                                             </div>
                                             <!-- /.p-form__col -->
@@ -1874,7 +1886,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="occurrence_point_2_2"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="occurrence_point_2_2">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -1897,7 +1909,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="condition_2_2"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="condition_2_2">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -1922,7 +1934,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="reproducibility_2_1"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="reproducibility_2_1">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -1936,15 +1948,15 @@
                                         </div>
                                         <!-- /.p-form__row -->
                                         <div class="p-form__row">
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_miniute_2_1">
                                             </div>
                                             <!-- /.p-form__col -->
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_hour_2_1">
                                             </div>
                                             <!-- /.p-form__col -->
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_day_2_1">
                                             </div>
                                             <!-- /.p-form__col -->
@@ -1958,7 +1970,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="after_replacement_2_2"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="after_replacement_2_2">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -1987,7 +1999,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="occurrence_point_2_3"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="occurrence_point_2_3">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -2015,7 +2027,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="condition_2_3"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="condition_2_3">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -2040,7 +2052,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="reproducibility_2_3"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="reproducibility_2_3">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -2054,15 +2066,15 @@
                                         </div>
                                         <!-- /.p-form__row -->
                                         <div class="p-form__row">
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_miniute_2_1">
                                             </div>
                                             <!-- /.p-form__col -->
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_hour_2_1">
                                             </div>
                                             <!-- /.p-form__col -->
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_day_2_1">
                                             </div>
                                             <!-- /.p-form__col -->
@@ -2076,7 +2088,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="after_replacement_2_3"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="after_replacement_2_3">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -2105,7 +2117,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="occurrence_point_2_4"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="occurrence_point_2_4">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -2128,7 +2140,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="condition_2_4"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="condition_2_4">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -2153,7 +2165,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="reproducibility_2_4"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="reproducibility_2_4">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -2189,7 +2201,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="after_replacement_2_4"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="after_replacement_2_4">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -2218,7 +2230,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="condition_2_5"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="condition_2_5">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -2243,7 +2255,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="reproducibility_2_5"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="reproducibility_2_5">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -2287,7 +2299,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="occurrence_point_2_6"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="occurrence_point_2_6">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -2308,7 +2320,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="condition_2_6"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="condition_2_6">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -2333,7 +2345,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="reproducibility_2_6"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="reproducibility_2_6">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -2369,7 +2381,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="after_replacement_2_6"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="after_replacement_2_6">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -2398,7 +2410,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="condition_2_7"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="condition_2_7">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -2423,7 +2435,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="reproducibility_2_7"></label>
+                                            <mt:AFormFieldLabel aform_id="1" parts_id="reproducibility_2_7">
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -2472,7 +2484,7 @@
                             <div class="p-form__table">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_1_step3_detail" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="detail_coment_2"><span class="required">必須</span></label>
+                                        <mt:AFormFieldLabel aform_id="1" parts_id="detail_coment_2"><span class="required">必須</span>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -2500,7 +2512,7 @@
                             <div class="p-form__table js-disabled_toggle">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="same_person_2"></label>
+                                        <mt:AFormFieldLabel aform_id="1" parts_id="same_person_2">
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -2512,7 +2524,7 @@
                                             YES = 1
                                             NO  = 0
                                         -->
-                                        <mt:AFormFieldInput aform_id="1" parts_id="same_person_1">
+                                        <mt:AFormFieldInput aform_id="1" parts_id="same_person_2">
                                     </div>
                                     <div class="p-form__example">
                                         <p class="aform-input-example">※NOの場合、以下のご返却先情報を入力してください。</p>
@@ -2525,7 +2537,7 @@
                             <div class="p-form__table js-branch_form">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_1_return_company" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_houjin_mei_2"></label>
+                                        <mt:AFormFieldLabel aform_id="1" parts_id="return_houjin_mei_2"><span class="required">必須</span>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -2549,7 +2561,7 @@
                             <div class="p-form__table js-branch_form">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_1_return_person" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_agent_name_2"></label>
+                                        <label for="product_1_return_person" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_agent_name_2"><span class="required">必須</span></label>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -2573,7 +2585,7 @@
                             <div class="p-form__table js-branch_form">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_1_return_postal-code" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_zip_2"></label>
+                                        <label for="product_1_return_postal-code" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_zip_2"><span class="required">必須</span></label>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -2603,17 +2615,21 @@
                             <div class="p-form__table js-branch_form">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_1_return_address" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_address_2_1"></label>
+                                        <label for="product_1_return_address" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_address_2_1"><span class="required">必須</span></label>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
                                 <!-- /.p-form__table_cell -->
 
                                 <div class="p-form__cell">
-                                    <div class="c-input js-form_check" data-label="ご返却先ご住所">
-                                        <mt:AFormFieldInput aform_id="1" parts_id="return_address_2_1">
+                                    <div class="p-form__row">
+                                        <div class="p-form__col">
+                                            <div class="c-select" data-label="ご返却先ご住所">
+                                                <mt:AFormFieldInput aform_id="1" parts_id="return_address_2_1">
+                                            </div>
+                                            <!-- /.c-input -->
+                                        </div>
                                     </div>
-                                    <!-- /.c-input -->
 
                                     <div class="c-error js-error_check">
                                         <p class="aform-error" id=""></p>
@@ -2627,7 +2643,7 @@
                             <div class="p-form__table js-branch_form">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_1_return_address" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_address_2_2"></label>
+                                        <label for="product_1_return_address" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_address_2_2"><span class="required">必須</span></label>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -2651,7 +2667,7 @@
                             <div class="p-form__table js-branch_form">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_1_return_address" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_address_2_3"></label>
+                                        <label for="product_1_return_address" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_address_2_3"><span class="required">必須</span></label>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -2675,7 +2691,7 @@
                             <div class="p-form__table js-branch_form">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_1_return_tel" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_telnum_2"></label>
+                                        <label for="product_1_return_tel" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_telnum_2"><span class="required">必須</span></label>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -2699,7 +2715,7 @@
                             <div class="p-form__table js-branch_form">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_1_return_email" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_mailaddress_2"></label>
+                                        <label for="product_1_return_email" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_mailaddress_2"><span class="required">必須</span></label>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -2857,9 +2873,11 @@
                                 </div>
                                 <!-- /.p-form__cell -->
                                 <div class="p-form__cell">
-                                    <div class="c-input js-form_check" data-label="製品名">
+                                    <div class="c-radio" data-label="製品名">
                                         <mt:AFormFieldInput aform_id="1" parts_id="warranty_3">
-                                        <a href="/support/info/target.html">保証対象製品と保証期間についてはこちらををご確認ください</a>
+                                        <ul class="p-link__list">
+                                            <li><a href="/support/info/target.html"><span>保証対象製品と保証期間についてはこちらををご確認ください</span></a></li>
+                                        </ul>
                                     </div>
                                     <!-- /.c-input -->
 
@@ -2878,7 +2896,7 @@
                         </div>
                         <!-- /.c-middle_heading -->
                         <div class="p-form_content__box">
-                            <p>【STEP1】⇒【STEP2】⇒【STEP3】の順番にお進み下さい</p>
+                            <b class="clrblue">【STEP1】⇒【STEP2】⇒【STEP3】の順番にお進み下さい</b>
                             <ul>
                                 <li>※複数機器をまとめず、ご記入頂いたシリアル番号ごとにご回答下さい</li>
                                 <li>※製品を発送する際は、本フォームの自動返信メールを印刷したものを同梱して発送願います</li>
@@ -2894,7 +2912,7 @@
                             <div class="p-form__table">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_1_step1_type" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="failure_point_3"><span class="required">必須</span></label>
+                                        <label for="product_1_step1_type" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="failure_point_3"></label>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -2991,15 +3009,15 @@
                                         </div>
                                         <!-- /.p-form__row -->
                                         <div class="p-form__row">
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_miniute_3_1">
                                             </div>
                                             <!-- /.p-form__col -->
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_hour_3_1">
                                             </div>
                                             <!-- /.p-form__col -->
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_day_3_1">
                                             </div>
                                             <!-- /.p-form__col -->
@@ -3082,15 +3100,15 @@
                                         </div>
                                         <!-- /.p-form__row -->
                                         <div class="p-form__row">
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_miniute_3_1">
                                             </div>
                                             <!-- /.p-form__col -->
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_hour_3_1">
                                             </div>
                                             <!-- /.p-form__col -->
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_day_3_1">
                                             </div>
                                             <!-- /.p-form__col -->
@@ -3200,15 +3218,15 @@
                                         </div>
                                         <!-- /.p-form__row -->
                                         <div class="p-form__row">
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_miniute_3_1">
                                             </div>
                                             <!-- /.p-form__col -->
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_hour_3_1">
                                             </div>
                                             <!-- /.p-form__col -->
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_day_3_1">
                                             </div>
                                             <!-- /.p-form__col -->
@@ -3671,7 +3689,7 @@
                             <div class="p-form__table js-branch_form">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_3_return_company" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_houjin_mei_3"></label>
+                                        <label for="product_3_return_company" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_houjin_mei_3"><span class="required">必須</span></label>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -3695,7 +3713,7 @@
                             <div class="p-form__table js-branch_form">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_3_return_person" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_agent_name_3"></label>
+                                        <label for="product_3_return_person" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_agent_name_3"><span class="required">必須</span></label>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -3719,7 +3737,7 @@
                             <div class="p-form__table js-branch_form">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_3_return_postal-code" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_zip_3"></label>
+                                        <label for="product_3_return_postal-code" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_zip_3"><span class="required">必須</span></label>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -3749,17 +3767,21 @@
                             <div class="p-form__table js-branch_form">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_3_return_address" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_address_3_1"></label>
+                                        <label for="product_3_return_address" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_address_3_1"><span class="required">必須</span></label>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
                                 <!-- /.p-form__table_cell -->
 
                                 <div class="p-form__cell">
-                                    <div class="c-input js-form_check" data-label="ご返却先ご住所">
-                                        <mt:AFormFieldInput aform_id="1" parts_id="return_address_3_1">
+                                    <div class="p-form__row">
+                                        <div class="p-form__col">
+                                            <div class="c-select" data-label="ご返却先ご住所">
+                                                <mt:AFormFieldInput aform_id="1" parts_id="return_address_3_1">
+                                            </div>
+                                            <!-- /.c-input -->
+                                        </div>
                                     </div>
-                                    <!-- /.c-input -->
 
                                     <div class="c-error js-error_check">
                                         <p class="aform-error" id=""></p>
@@ -3773,7 +3795,7 @@
                             <div class="p-form__table js-branch_form">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_3_return_address" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_address_3_2"></label>
+                                        <label for="product_3_return_address" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_address_3_2"><span class="required">必須</span></label>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -3797,7 +3819,7 @@
                             <div class="p-form__table js-branch_form">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_3_return_address" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_address_3_3"></label>
+                                        <label for="product_3_return_address" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_address_3_3"><span class="required">必須</span></label>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -3821,7 +3843,7 @@
                             <div class="p-form__table js-branch_form">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_3_return_tel" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_telnum_3"></label>
+                                        <label for="product_3_return_tel" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_telnum_3"><span class="required">必須</span></label>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -3845,7 +3867,7 @@
                             <div class="p-form__table js-branch_form">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_3_return_email" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_mailaddress_3"></label>
+                                        <label for="product_3_return_email" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_mailaddress_3"><span class="required">必須</span></label>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -4003,9 +4025,11 @@
                                 </div>
                                 <!-- /.p-form__cell -->
                                 <div class="p-form__cell">
-                                    <div class="c-input js-form_check" data-label="製品名">
+                                    <div class="c-radio" data-label="製品名">
                                         <mt:AFormFieldInput aform_id="1" parts_id="warranty_4">
-                                        <a href="/support/info/target.html">保証対象製品と保証期間についてはこちらををご確認ください</a>
+                                        <ul class="p-link__list">
+                                            <li><a href="/support/info/target.html"><span>保証対象製品と保証期間についてはこちらををご確認ください</span></a></li>
+                                        </ul>
                                     </div>
                                     <!-- /.c-input -->
 
@@ -4024,7 +4048,7 @@
                         </div>
                         <!-- /.c-middle_heading -->
                         <div class="p-form_content__box">
-                            <p>【STEP1】⇒【STEP2】⇒【STEP3】の順番にお進み下さい</p>
+                            <b class="clrblue">【STEP1】⇒【STEP2】⇒【STEP3】の順番にお進み下さい</b>
                             <ul>
                                 <li>※複数機器をまとめず、ご記入頂いたシリアル番号ごとにご回答下さい</li>
                                 <li>※製品を発送する際は、本フォームの自動返信メールを印刷したものを同梱して発送願います</li>
@@ -4040,7 +4064,7 @@
                             <div class="p-form__table">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_1_step1_type" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="failure_point_4"><span class="required">必須</span></label>
+                                        <label for="product_1_step1_type" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="failure_point_4"></label>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -4137,15 +4161,15 @@
                                         </div>
                                         <!-- /.p-form__row -->
                                         <div class="p-form__row">
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_miniute_4_1">
                                             </div>
                                             <!-- /.p-form__col -->
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_hour_4_1">
                                             </div>
                                             <!-- /.p-form__col -->
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_day_4_1">
                                             </div>
                                             <!-- /.p-form__col -->
@@ -4228,15 +4252,15 @@
                                         </div>
                                         <!-- /.p-form__row -->
                                         <div class="p-form__row">
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_miniute_4_1">
                                             </div>
                                             <!-- /.p-form__col -->
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_hour_4_1">
                                             </div>
                                             <!-- /.p-form__col -->
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_day_4_1">
                                             </div>
                                             <!-- /.p-form__col -->
@@ -4346,15 +4370,15 @@
                                         </div>
                                         <!-- /.p-form__row -->
                                         <div class="p-form__row">
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_miniute_4_1">
                                             </div>
                                             <!-- /.p-form__col -->
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_hour_4_1">
                                             </div>
                                             <!-- /.p-form__col -->
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_day_4_1">
                                             </div>
                                             <!-- /.p-form__col -->
@@ -4817,7 +4841,7 @@
                             <div class="p-form__table js-branch_form">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_3_return_company" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_houjin_mei_4"></label>
+                                        <label for="product_3_return_company" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_houjin_mei_4"><span class="required">必須</span></label>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -4841,7 +4865,7 @@
                             <div class="p-form__table js-branch_form">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_3_return_person" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_agent_name_4"></label>
+                                        <label for="product_3_return_person" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_agent_name_4"><span class="required">必須</span></label>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -4865,7 +4889,7 @@
                             <div class="p-form__table js-branch_form">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_3_return_postal-code" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_zip_4"></label>
+                                        <label for="product_3_return_postal-code" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_zip_4"><span class="required">必須</span></label>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -4895,17 +4919,21 @@
                             <div class="p-form__table js-branch_form">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_3_return_address" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_address_4_1"></label>
+                                        <label for="product_3_return_address" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_address_4_1"><span class="required">必須</span></label>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
                                 <!-- /.p-form__table_cell -->
 
                                 <div class="p-form__cell">
-                                    <div class="c-input js-form_check" data-label="ご返却先ご住所">
-                                        <mt:AFormFieldInput aform_id="1" parts_id="return_address_4_1">
+                                    <div class="p-form__row">
+                                        <div class="p-form__col">
+                                            <div class="c-select" data-label="ご返却先ご住所">
+                                                <mt:AFormFieldInput aform_id="1" parts_id="return_address_4_1">
+                                            </div>
+                                            <!-- /.c-input -->
+                                        </div>
                                     </div>
-                                    <!-- /.c-input -->
 
                                     <div class="c-error js-error_check">
                                         <p class="aform-error" id=""></p>
@@ -4919,7 +4947,7 @@
                             <div class="p-form__table js-branch_form">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_3_return_address" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_address_4_2"></label>
+                                        <label for="product_3_return_address" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_address_4_2"><span class="required">必須</span></label>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -4943,7 +4971,7 @@
                             <div class="p-form__table js-branch_form">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_3_return_address" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_address_4_3"></label>
+                                        <label for="product_3_return_address" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_address_4_3"><span class="required">必須</span></label>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -4967,7 +4995,7 @@
                             <div class="p-form__table js-branch_form">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_3_return_tel" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_telnum_4"></label>
+                                        <label for="product_3_return_tel" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_telnum_4"><span class="required">必須</span></label>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -4991,7 +5019,7 @@
                             <div class="p-form__table js-branch_form">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_3_return_email" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_mailaddress_4"></label>
+                                        <label for="product_3_return_email" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_mailaddress_4"><span class="required">必須</span></label>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -5033,7 +5061,7 @@
                                 </div>
                                 <!-- /.p-form__cell -->
                                 <div class="p-form__cell">
-                                    <div class="c-input js-form_check" data-label="<mt:AFormFieldLabel aform_id="1" parts_id="product_name_5">">
+                                    <div class="c-input js-form_check" data-label="製品名">
                                         <mt:AFormFieldInput aform_id="1" parts_id="product_name_5">
                                     </div>
                                     <!-- /.c-input -->
@@ -5056,7 +5084,7 @@
                                 </div>
                                 <!-- /.p-form__cell -->
                                 <div class="p-form__cell">
-                                    <div class="c-input js-form_check" data-label="<mt:AFormFieldLabel aform_id="1" parts_id="serial_no_5">">
+                                    <div class="c-input js-form_check" data-label="シリアルナンバー">
                                         <mt:AFormFieldInput aform_id="1" parts_id="serial_no_5">
                                     </div>
                                     <!-- /.c-input -->
@@ -5079,7 +5107,7 @@
                                 </div>
                                 <!-- /.p-form__cell -->
                                 <div class="p-form__cell">
-                                    <div class="c-input js-form_check" data-label="<mt:AFormFieldLabel aform_id="1" parts_id="firmware_5">">
+                                    <div class="c-input js-form_check" data-label="ファームウェアバージョン">
                                         <mt:AFormFieldInput aform_id="1" parts_id="firmware_5">
                                     </div>
                                     <!-- /.c-input -->
@@ -5102,7 +5130,7 @@
                                 </div>
                                 <!-- /.p-form__cell -->
                                 <div class="p-form__cell">
-                                    <div class="c-input js-form_check" data-label="<mt:AFormFieldLabel aform_id="1" parts_id="hardware_version_5">">
+                                    <div class="c-input js-form_check" data-label="ハードウェアバージョン">
                                         <mt:AFormFieldInput aform_id="1" parts_id="hardware_version_5">
                                     </div>
                                     <!-- /.c-input -->
@@ -5125,7 +5153,7 @@
                                 </div>
                                 <!-- /.p-form__cell -->
                                 <div class="p-form__cell">
-                                    <div class="c-input js-form_check" data-label="<mt:AFormFieldLabel aform_id="1" parts_id="purchase_date_5">">
+                                    <div class="c-input js-form_check" data-label="ご購入日">
                                         <mt:AFormFieldInput aform_id="1" parts_id="purchase_date_5">
                                     </div>
                                     <!-- /.c-input -->
@@ -5149,9 +5177,11 @@
                                 </div>
                                 <!-- /.p-form__cell -->
                                 <div class="p-form__cell">
-                                    <div class="c-input js-form_check" data-label="<mt:AFormFieldLabel aform_id="1" parts_id="warranty_5">">
+                                    <div class="c-radio" data-label="D-LINKリミテッドライフタイム保証対象製品">
                                         <mt:AFormFieldInput aform_id="1" parts_id="warranty_5">
-                                        <a href="/support/info/target.html">保証対象製品と保証期間についてはこちらををご確認ください</a>
+                                        <ul class="p-link__list">
+                                            <li><a href="/support/info/target.html"><span>保証対象製品と保証期間についてはこちらををご確認ください</span></a></li>
+                                        </ul>
                                     </div>
                                     <!-- /.c-input -->
 
@@ -5170,7 +5200,7 @@
                         </div>
                         <!-- /.c-middle_heading -->
                         <div class="p-form_content__box">
-                            <p>【STEP1】⇒【STEP2】⇒【STEP3】の順番にお進み下さい</p>
+                            <b class="clrblue">【STEP1】⇒【STEP2】⇒【STEP3】の順番にお進み下さい</b>
                             <ul>
                                 <li>※複数機器をまとめず、ご記入頂いたシリアル番号ごとにご回答下さい</li>
                                 <li>※製品を発送する際は、本フォームの自動返信メールを印刷したものを同梱して発送願います</li>
@@ -5186,7 +5216,7 @@
                             <div class="p-form__table">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_1_step1_type" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="failure_point_5"><span class="required">必須</span></label>
+                                        <label for="product_1_step1_type" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="failure_point_5"></label>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -5283,15 +5313,15 @@
                                         </div>
                                         <!-- /.p-form__row -->
                                         <div class="p-form__row">
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_miniute_5_1">
                                             </div>
                                             <!-- /.p-form__col -->
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_hour_5_1">
                                             </div>
                                             <!-- /.p-form__col -->
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_day_5_1">
                                             </div>
                                             <!-- /.p-form__col -->
@@ -5374,15 +5404,15 @@
                                         </div>
                                         <!-- /.p-form__row -->
                                         <div class="p-form__row">
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_miniute_5_1">
                                             </div>
                                             <!-- /.p-form__col -->
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_hour_5_1">
                                             </div>
                                             <!-- /.p-form__col -->
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_day_5_1">
                                             </div>
                                             <!-- /.p-form__col -->
@@ -5492,15 +5522,15 @@
                                         </div>
                                         <!-- /.p-form__row -->
                                         <div class="p-form__row">
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_miniute_5_1">
                                             </div>
                                             <!-- /.p-form__col -->
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_hour_5_1">
                                             </div>
                                             <!-- /.p-form__col -->
-                                            <div class="p-form__col">
+                                            <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_day_5_1">
                                             </div>
                                             <!-- /.p-form__col -->
@@ -5963,7 +5993,7 @@
                             <div class="p-form__table js-branch_form">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_3_return_company" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_houjin_mei_5"></label>
+                                        <label for="product_3_return_company" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_houjin_mei_5"><span class="required">必須</span></label>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -5987,7 +6017,7 @@
                             <div class="p-form__table js-branch_form">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_3_return_person" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_agent_name_5"></label>
+                                        <label for="product_3_return_person" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_agent_name_5"><span class="required">必須</span></label>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -6011,7 +6041,7 @@
                             <div class="p-form__table js-branch_form">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_3_return_postal-code" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_zip_5"></label>
+                                        <label for="product_3_return_postal-code" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_zip_5"><span class="required">必須</span></label>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -6041,17 +6071,21 @@
                             <div class="p-form__table js-branch_form">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_3_return_address" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_address_5_1"></label>
+                                        <label for="product_3_return_address" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_address_5_1"><span class="required">必須</span></label>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
                                 <!-- /.p-form__table_cell -->
 
                                 <div class="p-form__cell">
-                                    <div class="c-input js-form_check" data-label="ご返却先ご住所">
-                                        <mt:AFormFieldInput aform_id="1" parts_id="return_address_5_1">
+                                    <div class="p-form__row">
+                                        <div class="p-form__col">
+                                            <div class="c-select" data-label="ご返却先ご住所">
+                                                <mt:AFormFieldInput aform_id="1" parts_id="return_address_5_1">
+                                            </div>
+                                            <!-- /.c-input -->
+                                        </div>
                                     </div>
-                                    <!-- /.c-input -->
 
                                     <div class="c-error js-error_check">
                                         <p class="aform-error" id=""></p>
@@ -6065,7 +6099,7 @@
                             <div class="p-form__table js-branch_form">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_3_return_address" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_address_5_2"></label>
+                                        <label for="product_3_return_address" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_address_5_2"><span class="required">必須</span></label>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -6089,7 +6123,7 @@
                             <div class="p-form__table js-branch_form">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_3_return_address" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_address_5_3"></label>
+                                        <label for="product_3_return_address" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_address_5_3"><span class="required">必須</span></label>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -6113,7 +6147,7 @@
                             <div class="p-form__table js-branch_form">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_3_return_tel" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_telnum_5"></label>
+                                        <label for="product_3_return_tel" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_telnum_5"><span class="required">必須</span></label>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
@@ -6137,7 +6171,7 @@
                             <div class="p-form__table js-branch_form">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label for="product_3_return_email" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_mailaddress_5"></label>
+                                        <label for="product_3_return_email" class="aform-label"><mt:AFormFieldLabel aform_id="1" parts_id="return_mailaddress_5"><span class="required">必須</span></label>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
