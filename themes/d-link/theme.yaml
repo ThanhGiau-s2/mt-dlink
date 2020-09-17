@@ -86,6 +86,8 @@ elements:
             label: permalink
           permalink_category:
             label: permalink_category
+          permalink_page:
+            label: permalink_page
           redirect_faq:
             label: redirect_faq
         page:
@@ -94,6 +96,7 @@ elements:
             mappings:
               page_archive:
                 archive_type: Page
+                file_template: <mt:Include module="permalink_page">
     importer: template_set
 id: d-link
 label: d-link
