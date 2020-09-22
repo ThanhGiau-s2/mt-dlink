@@ -13,6 +13,11 @@ Template Note : カテゴリ
 </mt:SetVars>
 <mt:Ignore>** 表示部分 **</mt:Ignore>
 <mt:Include module="html_head" parent="1" />
+<style>
+.mr10 {
+    margin-right: 10px;
+}
+</style>
 <mt:Include module="header" parent="1" />
 <!-- ここからコンテンツ -->
 <main class="p-main">
@@ -45,19 +50,17 @@ Template Note : カテゴリ
                 -->
                 <mt:EntryAdditionalCategories>
                     <mt:If tag="CategoryBasename" ne="release">
-                        <$mt:CategoryBasename setvar="cate_name"$>
-                        <$mt:CategoryLabel setvar="cate_label"$>
-                    </mt:If>
+                        <mt:If tag="CategoryBasename" eq="info">
+                            <p class="p-news_header__category--support mr10"><$mt:CategoryLabel$></p>
+                        <mt:Else>
+                            <mt:If tag="CategoryBasename" eq="fault">
+                                <p class="p-news_header__category--failure mr10"><$mt:CategoryLabel$></p>
+                            <mt:Else>
+                                <p class="p-news_header__category--<$mt:CategoryBasename$> mr10"><$mt:CategoryLabel$></p>
+                            </mt:If> 
+                        </mt:If>
+                    </mt:if>
                 </mt:EntryAdditionalCategories>
-                <mt:If name="cate_name" eq="info">
-                    <p class="p-news_header__category--support"><$mt:GetVar name="cate_label"$></p>
-                <mt:Else>
-                    <mt:If name="cate_name" eq="fault">
-                        <p class="p-news_header__category--failure"><$mt:GetVar name="cate_label"$></p>
-                    <mt:Else>
-                        <p class="p-news_header__category--<$mt:GetVar name="cate_name"$>"><$mt:GetVar name="cate_label"$></p>
-                    </mt:If> 
-                </mt:If>
                 <p class="p-news_header__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
             </div>
             <!-- /.p-news_header -->

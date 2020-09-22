@@ -13,6 +13,11 @@ Template Note : カテゴリ
 </mt:SetVars>
 <mt:Ignore>** 表示部分 **</mt:Ignore>
 <mt:Include module="html_head" parent="1" />
+<style>
+.mr10 {
+    margin-right: 10px;
+}
+</style>
 <mt:Include module="header" parent="1" />
 <!-- ここからコンテンツ -->
 <main class="p-main">
@@ -39,15 +44,13 @@ Template Note : カテゴリ
                 <p class="p-news_header__category--news">お知らせ</p>
                 <p class="p-news_header__category--product">製品ニュース</p>
                 -->
-                <mt:EntryAdditionalCategories glue="," setvar="sub_cats">
-                    <$mt:CategoryLabel$>
+                <mt:EntryAdditionalCategories>
+                    <mt:If tag="CategoryBasename" eq="info">
+                        <p class="p-news_header__category--news mr10"><$mt:CategoryLabel$></p>
+                    <mt:Else>
+                        <p class="p-news_header__category--product mr10"><$mt:CategoryLabel$></p> 
+                    </mt:If>
                 </mt:EntryAdditionalCategories>
-                <mt:EntryAdditionalCategories setvar="cate_name"><$mt:CategoryBasename$></mt:EntryAdditionalCategories>
-                <mt:If name="cate_name" eq="info">
-                    <p class="p-news_header__category--news"><$mt:GetVar name="sub_cats"$></p>
-                <mt:Else>
-                    <p class="p-news_header__category--product"><$mt:GetVar name="sub_cats"$></p> 
-                </mt:If>
                 <p class="p-news_header__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
             </div>
             <!-- /.p-news_header -->

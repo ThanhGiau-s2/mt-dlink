@@ -623,19 +623,29 @@ Template Note : トップページ出力用
                         <p class="p-news__category--product">製品ニュース</p>
                         -->
                         <mt:Entries sort_by="authored_on" sort_order="descend" category="ニュース" lastn="5">
+                            <mt:SetVarBlock name="cate_news"></mt:SetVarBlock>
                             <div class="p-news__item">
                                 <a href="<$mt:EntryLink$>">
                                     <div class="p-news__box">
                                         <p class="p-news__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
-                                        <mt:EntryAdditionalCategories glue="," setvar="sub_cats">
-                                                <$mt:CategoryLabel$>
-                                        </mt:EntryAdditionalCategories>
-                                        <mt:EntryAdditionalCategories setvar="cate_name"><$mt:CategoryBasename$></mt:EntryAdditionalCategories>
-                                        <mt:If name="cate_name" eq="info">
-                                            <p class="p-news__category--news"><$mt:GetVar name="sub_cats"$></p>
-                                        <mt:Else>
-                                            <p class="p-news__category--product"><$mt:GetVar name="sub_cats"$></p> 
-                                        </mt:If>
+                                        <mt:EntryAdditionalCategories setvar="entry_categories"><mt:CategoryBasename></mt:EntryAdditionalCategories>
+                                        <mt:SubCategories category="ニュース">
+                                            <mt:setvarblock name="id_name_cate"><mt:CategoryID>_<mt:CategoryBasename></mt:setvarblock>
+                                            <mt:CategoryBasename setvar="name_cate">
+                                            <mt:if name="entry_categories" like="$name_cate">
+                                                <mt:SetVarBlock name="cate_news{$id_name_cate}"><mt:CategoryLabel></mt:SetVarBlock>
+                                            </mt:If>
+                                        </mt:SubCategories>
+                                        <mt:Loop name="cate_news" sort_by= "key numeric">
+                                            <mt:If name="__last__">
+                                                <mt:If name="__key__" like="info">
+                                                    <p class="p-news__category--news"><mt:Var name="__value__"></p>
+                                                </mt:If>
+                                                <mt:If name="__key__" like="product">
+                                                    <p class="p-news__category--product"><mt:Var name="__value__"></p> 
+                                                </mt:If>
+                                            </mt:If>
+                                        </mt:Loop>
                                         <p class="p-news__title"><$mt:EntryTitle$></p>
                                     </div>
                                     <!-- /.p-news__box -->
@@ -658,22 +668,32 @@ Template Note : トップページ出力用
                         <p class="p-news__category--online">オンライン</p>
                         -->
                         <mt:Entries sort_by="authored_on" sort_order="descend" category="イベント・セミナー" lastn="5">
+                            <mt:SetVarBlock name="cate_event"></mt:SetVarBlock>
                             <div class="p-news__item">
                                 <a href="<$mt:EntryLink$>">
                                     <div class="p-news__box">
                                         <p class="p-news__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
-                                        <mt:SubCategories category="イベント・セミナー" sort_by="user_custom">
-                                            <mt:SubCatIsFirst><mt:CategoryLabel setvar="name_cate"></mt:SubCatIsFirst>
+                                        <mt:EntryAdditionalCategories setvar="entry_categories"><mt:CategoryBasename></mt:EntryAdditionalCategories>
+                                        <mt:SubCategories category="イベント・セミナー">
+                                            <mt:setvarblock name="id_name_cate"><mt:CategoryID>_<mt:CategoryBasename></mt:setvarblock>
+                                            <mt:CategoryBasename setvar="name_cate">
+                                            <mt:if name="entry_categories" like="$name_cate">
+                                                <mt:SetVarBlock name="cate_event{$id_name_cate}"><mt:CategoryLabel></mt:SetVarBlock>
+                                            </mt:If>
                                         </mt:SubCategories>
-                                        <mt:EntryAdditionalCategories>
-                                            <mt:If tag="CategoryLabel" eq="$name_cate">
-                                                <mt:If tag="CategoryBasename" eq="event-info">
-                                                    <p class="p-news__category--event"><$mt:CategoryLabel$></p>
-                                                <mt:Else>
-                                                    <p class="p-news__category--<$mt:CategoryBasename$>"><$mt:CategoryLabel$></p> 
+                                        <mt:Loop name="cate_event" sort_by= "key numeric">
+                                            <mt:If name="__last__">
+                                                <mt:If name="__key__" like="event-info">
+                                                    <p class="p-news__category--event"><mt:Var name="__value__"></p>
+                                                </mt:If>
+                                                <mt:If name="__key__" like="online">
+                                                    <p class="p-news__category--online"><mt:Var name="__value__"></p> 
+                                                </mt:If>
+                                                <mt:If name="__key__" like="seminar">
+                                                    <p class="p-news__category--seminar"><mt:Var name="__value__"></p> 
                                                 </mt:If>
                                             </mt:If>
-                                        </mt:EntryAdditionalCategories>
+                                        </mt:Loop>
                                         <div class="p-news__body">
                                             <p class="p-news__title"><$mt:EntryTitle$></p>
                                             <p class="p-news__date">【日程】<$mt:EntryDataEventDate$></p>
@@ -703,25 +723,38 @@ Template Note : トップページ出力用
                         <p class="p-news__category--failure">障害情報</p>
                         -->
                         <mt:Entries sort_by="authored_on" sort_order="descend" category="サポート/サポート情報" lastn="5">
+                            <mt:SetVarBlock name="cate_support"></mt:SetVarBlock>
                             <div class="p-news__item">
                                 <a href="<$mt:EntryLink$>">
                                     <div class="p-news__box">
                                         <p class="p-news__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
-                                        <mt:EntryAdditionalCategories>
-                                            <mt:If tag="CategoryBasename" ne="release">
-                                                <$mt:CategoryBasename setvar="cate_name"$>
-                                                <$mt:CategoryLabel setvar="cate_label"$>
+                                        <mt:EntryAdditionalCategories setvar="entry_categories"><mt:If tag="CategoryBasename" ne="release"><$mt:CategoryBasename$></mt:If></mt:EntryAdditionalCategories>
+                                        <mt:SubCategories category="サポート/サポート情報">
+                                            <mt:setvarblock name="id_name_cate"><mt:CategoryID>_<mt:CategoryBasename></mt:setvarblock>
+                                            <mt:CategoryBasename setvar="name_cate">
+                                            <mt:if name="entry_categories" like="$name_cate">
+                                                <mt:SetVarBlock name="cate_support{$id_name_cate}"><mt:CategoryLabel></mt:SetVarBlock>
                                             </mt:If>
-                                        </mt:EntryAdditionalCategories>
-                                        <mt:If name="cate_name" eq="info">
-                                            <p class="p-news__category--support"><$mt:GetVar name="cate_label"$></p>
-                                        <mt:Else>
-                                            <mt:If name="cate_name" eq="fault">
-                                                <p class="p-news__category--failure"><$mt:GetVar name="cate_label"$></p>
-                                            <mt:Else>
-                                                <p class="p-news__category--<$mt:GetVar name="cate_name"$>"><$mt:GetVar name="cate_label"$></p>
-                                            </mt:If> 
-                                        </mt:If>
+                                        </mt:SubCategories>
+                                        <mt:Loop name="cate_support" sort_by= "key numeric">
+                                            <mt:If name="__last__">
+                                                <mt:If name="__key__" like="info">
+                                                    <p class="p-news__category--support"><mt:Var name="__value__"></p>
+                                                </mt:If>
+                                                <mt:If name="__key__" like="fault">
+                                                    <p class="p-news__category--failure"><mt:Var name="__value__"></p> 
+                                                </mt:If>
+                                                <mt:If name="__key__" like="firmware">
+                                                    <p class="p-news__category--firmware"><mt:Var name="__value__"></p> 
+                                                </mt:If>
+                                                <mt:If name="__key__" like="security">
+                                                    <p class="p-news__category--security"><mt:Var name="__value__"></p> 
+                                                </mt:If>
+                                                <mt:If name="__key__" like="maintenance">
+                                                    <p class="p-news__category--maintenance"><mt:Var name="__value__"></p> 
+                                                </mt:If>
+                                            </mt:If>
+                                        </mt:Loop>
                                         <div class="p-news__body">
                                             <p class="p-news__title"><$mt:EntryTitle$></p>
                                         </div>

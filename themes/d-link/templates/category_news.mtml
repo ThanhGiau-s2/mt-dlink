@@ -75,29 +75,45 @@ Template Note : カテゴリ
                         <mt:PageContents count="20">
                             <mt:SetVars>totalEntry=<$mt:BlogEntryCount$></mt:SetVars>
                             <mt:Entries sort_by="authored_on" sort_order="descend" lastn="$totalEntry">
-                                <mt:EntryPrimaryCategory>
-                                    <mt:HasNoParentCategory>
-                                        <div class="p-news__item">
-                                            <a href="<$mt:EntryPermalink$>">
-                                                <div class="p-news__box">
-                                                    <p class="p-news__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
-                                                    <mt:EntryAdditionalCategories glue="," setvar="sub_cats">
-                                                        <$mt:CategoryLabel$>
-                                                    </mt:EntryAdditionalCategories>
-                                                    <mt:EntryAdditionalCategories setvar="cate_name"><$mt:CategoryBasename$></mt:EntryAdditionalCategories>
-                                                    <mt:If name="cate_name" eq="info">
-                                                        <p class="p-news__category--news"><$mt:GetVar name="sub_cats"$></p>
-                                                    <mt:Else>
-                                                        <p class="p-news__category--product"><$mt:GetVar name="sub_cats"$></p> 
+                                <mt:SetVarBlock name="cate_news"></mt:SetVarBlock>
+                                    <div class="p-news__item">
+                                        <a href="<$mt:EntryPermalink$>">
+                                            <div class="p-news__box">
+                                                <p class="p-news__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
+                                                <mt:EntryAdditionalCategories setvar="entry_categories"><mt:CategoryBasename></mt:EntryAdditionalCategories>
+                                                <mt:SubCategories category="ニュース">
+                                                    <mt:setvarblock name="id_name_cate"><mt:CategoryID>_<mt:CategoryBasename></mt:setvarblock>
+                                                    <mt:CategoryBasename setvar="name_cate">
+                                                    <mt:if name="entry_categories" like="$name_cate">
+                                                        <mt:SetVarBlock name="cate_news{$id_name_cate}"><mt:CategoryLabel></mt:SetVarBlock>
                                                     </mt:If>
-                                                    <p class="p-news__title"><$mt:EntryTitle$></p>
-                                                </div>
-                                                <!-- /.p-news__box -->
-                                            </a>
-                                        </div>
-                                        <!-- /.p-news__item -->
-                                    </mt:HasNoParentCategory>
-                                </mt:EntryPrimaryCategory>
+                                                </mt:SubCategories>
+                                                <$mt:ArchiveCategory setvar="current_category"$>
+                                                <mt:If name="current_category" eq="ニュース">
+                                                    <mt:Loop name="cate_news" sort_by= "key numeric">
+                                                        <mt:If name="__last__">
+                                                            <mt:If name="__key__" like="info">
+                                                                <p class="p-news__category--news"><mt:Var name="__value__"></p>
+                                                            </mt:If>
+                                                            <mt:If name="__key__" like="product">
+                                                                <p class="p-news__category--product"><mt:Var name="__value__"></p> 
+                                                            </mt:If>
+                                                        </mt:If>
+                                                    </mt:Loop>
+                                                <mt:Else>
+                                                    <mt:If name="current_category" like="お知らせ">
+                                                        <p class="p-news__category--news"><mt:Var name="current_category"></p>
+                                                    </mt:If>
+                                                    <mt:If name="current_category" like="製品ニュース">
+                                                        <p class="p-news__category--product"><mt:Var name="current_category"></p> 
+                                                    </mt:If>
+                                                </mt:If>
+                                                <p class="p-news__title"><$mt:EntryTitle$></p>
+                                            </div>
+                                            <!-- /.p-news__box -->
+                                        </a>
+                                    </div>
+                                    <!-- /.p-news__item -->
                                 <$mt:PageSeparator$>
                             </mt:Entries>
                         </mt:PageContents>
