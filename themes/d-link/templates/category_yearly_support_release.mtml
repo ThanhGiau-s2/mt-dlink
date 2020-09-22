@@ -25,7 +25,7 @@ Template Note : カテゴリ
             <li><a href="/">HOME</a></li>
             <li><a href="/support/">サポート</a></li>
             <li><a href="/support/release/">サポート情報</a></li>
-            <li><span>2020年</span></li>
+            <li><span><mt:ArchiveDate format="%Y">年</span></li>
         </ul>
     </div>
     <!-- /.c-breadcrumb -->
@@ -82,35 +82,63 @@ Template Note : カテゴリ
                         <mt:PageContents count="20">
                             <mt:SetVars>totalEntry=<$mt:BlogEntryCount$></mt:SetVars>
                             <mt:Entries sort_by="authored_on" sort_order="descend" lastn="$totalEntry">
-                                <mt:EntryPrimaryCategory>
-                                    <mt:HasNoParentCategory>
-                                        <div class="p-news__item">
-                                            <a href="<$mt:EntryLink$>">
-                                                <div class="p-news__box">
-                                                    <p class="p-news__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
-                                                    <mt:EntryAdditionalCategories>
-                                                        <mt:If tag="CategoryBasename" ne="release">
-                                                            <$mt:CategoryBasename setvar="cate_name"$>
-                                                            <$mt:CategoryLabel setvar="cate_label"$>
+                                <mt:SetVarBlock name="cate_support"></mt:SetVarBlock>
+                                <div class="p-news__item">
+                                    <a href="<$mt:EntryLink$>">
+                                        <div class="p-news__box">
+                                            <p class="p-news__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
+                                            <mt:EntryAdditionalCategories setvar="entry_categories"><mt:CategoryBasename></mt:EntryAdditionalCategories>
+                                            <mt:SubCategories category="サポート/サポート情報">
+                                                <mt:setvarblock name="id_name_cate"><mt:CategoryID>_<mt:CategoryBasename></mt:setvarblock>
+                                                <mt:CategoryBasename setvar="name_cate">
+                                                <mt:if name="entry_categories" like="$name_cate">
+                                                    <mt:SetVarBlock name="cate_support{$id_name_cate}"><mt:CategoryLabel></mt:SetVarBlock>
+                                                </mt:If>
+                                            </mt:SubCategories>
+                                            <$mt:ArchiveCategory setvar="current_category"$>
+                                            <mt:If name="current_category" eq="サポート情報">
+                                                <mt:Loop name="cate_support" sort_by= "key numeric">
+                                                    <mt:If name="__last__">
+                                                        <mt:If name="__key__" like="info">
+                                                            <p class="p-news__category--support"><mt:Var name="__value__"></p>
                                                         </mt:If>
-                                                    </mt:EntryAdditionalCategories>
-                                                    <mt:If name="cate_name" eq="info">
-                                                        <p class="p-news__category--support"><$mt:GetVar name="cate_label"$></p>
-                                                    <mt:Else>
-                                                        <mt:If name="cate_name" eq="fault">
-                                                            <p class="p-news__category--failure"><$mt:GetVar name="cate_label"$></p>
-                                                        <mt:Else>
-                                                            <p class="p-news__category--<$mt:GetVar name="cate_name"$>"><$mt:GetVar name="cate_label"$></p>
-                                                        </mt:If> 
+                                                        <mt:If name="__key__" like="fault">
+                                                            <p class="p-news__category--failure"><mt:Var name="__value__"></p> 
+                                                        </mt:If>
+                                                        <mt:If name="__key__" like="firmware">
+                                                            <p class="p-news__category--firmware"><mt:Var name="__value__"></p> 
+                                                        </mt:If>
+                                                        <mt:If name="__key__" like="security">
+                                                            <p class="p-news__category--security"><mt:Var name="__value__"></p> 
+                                                        </mt:If>
+                                                        <mt:If name="__key__" like="maintenance">
+                                                            <p class="p-news__category--maintenance"><mt:Var name="__value__"></p> 
+                                                        </mt:If>
                                                     </mt:If>
-                                                    <p class="p-news__title"><$mt:EntryTitle$></p>
-                                                </div>
-                                                <!-- /.p-news__box -->
-                                            </a>
+                                                </mt:Loop>
+                                            <mt:Else>
+                                                <mt:If name="current_category" like="お知らせ">
+                                                    <p class="p-news__category--support"><mt:Var name="current_category"></p>
+                                                </mt:If>
+                                                <mt:If name="current_category" like="ファームフェア">
+                                                    <p class="p-news__category--firmware"><mt:Var name="current_category"></p> 
+                                                </mt:If>
+                                                <mt:If name="current_category" like="メンテナンス情報">
+                                                    <p class="p-news__category--maintenance"><mt:Var name="current_category"></p> 
+                                                </mt:If>
+                                                <mt:If name="current_category" like="障害情報">
+                                                    <p class="p-news__category--failure"><mt:Var name="current_category"></p> 
+                                                </mt:If>
+                                                <mt:If name="current_category" like="セキュリティ情報">
+                                                    <p class="p-news__category--security"><mt:Var name="current_category"></p> 
+                                                </mt:If>
+                                            </mt:If>
+                                            <p class="p-news__title"><$mt:EntryTitle$></p>
                                         </div>
-                                        <!-- /.p-news__item -->
-                                    </mt:HasNoParentCategory>
-                                </mt:EntryPrimaryCategory>
+                                        <!-- /.p-news__box -->
+                                    </a>
+                                </div>
+                                <!-- /.p-news__item -->
                                 <$mt:PageSeparator$>
                             </mt:Entries>
                         </mt:PageContents>
