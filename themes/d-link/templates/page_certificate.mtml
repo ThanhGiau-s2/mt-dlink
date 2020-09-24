@@ -1,0 +1,959 @@
+<mt:SetVars>
+    base_description=ディスクリプション
+    og_title=フォームテスト | お問い合わせ | D-Link Japan
+    og_url=https://www.dlink-jp.com/contact/
+    og_type=article
+</mt:SetVars>
+<mt:SetVarTemplate name="file_javascript">
+<script src="/asset/js/form_ui.min.js" defer></script>
+<script src="/asset/js/jquery.zip2addr.js"></script>
+<script src="/asset/js/zipcode.js"></script>
+</mt:SetVarTemplate>
+<mt:Ignore>** 表示部分 **</mt:Ignore>
+<mt:Include module="html_head" parent="1" />
+<link rel="stylesheet" href="/asset/css/contact.css">
+<mt:Include module="header" parent="1" />
+<!-- ここからコンテンツ -->
+<main class="p-main">
+<div class="c-breadcrumb">
+<ul class="c-breadcrumb__list">
+<li><a href="/">HOME</a></li>
+<li><span>非該当証明書発行依頼</span></li>
+</ul>
+</div>
+<!-- /.c-breadcrumb -->
+
+<section class="l-outer--lower">
+<div class="l-inner">
+
+<div class="c-title">
+<h1 class="c-title__text">非該当証明書発行依頼</h1>
+</div>
+<!-- /.c-title -->
+
+<form action="" method="POST" enctype="multipart/form-data">
+<div id="form_app" class="p-form_content">
+
+<div class="p-form_content__block">
+  <div class="p-form_content__box">
+    <p>弊社は以下の誓約内容にご同意いただいた場合で、且つ必要項目にご記入していただいた場合のみ該当製品の該非判定用パラメータシートを発行させていただきます。 お手数ですが下記枠内すべての項目にご記入の上、ご送信いただけますようお願い申し上げます。</p>
+  </div>
+</div>
+
+<!-- 輸出管理にかかる法令遵守のご誓約 -->
+<div class="p-form_content__block">
+  <div class="c-content_heading">
+    <h2 class="c-content_heading__text">輸出管理にかかる法令遵守のご誓約</h2>
+  </div>
+  <!-- /.c-content_heading -->
+
+  <div class="p-form_choice">
+    <div class="p-form_choice__label mb38">
+      <p>当社＊1は貴社製品を輸出する際に以下の事項を遵守します。</p>
+    </div>
+    <!-- /.p-form_choice__label -->
+    <div class="p-form_content__block">
+      <div class="p-form_content__box mb18">
+        <p>1．当社は、外国為替および外国貿易法に定める製品を輸出または国外へ提供する場合は、「外国為替及び外国貿易法」を含む日本政府および外国政府の輸出関連法規を厳密に遵守することに同意し、必要とされるすべての手続きを自己の責任と費用で行うこととします。</p>
+        <p>2．該当製品を核兵器、ミサイル、化学兵器、生物兵器またはその他武器並びにこれらの製造装置等に一切使用しません。</p>
+        <p>3．該当製品は日本国内仕様であり、日本国外においては製品保証および品質保証の対象外になり、製品サポートおよび修理など一切のサービスが受けられないいことに同意します。</p>
+        <p>4．当社の輸出等に関して派生した問題については、全て当社の責任において処理します。</p>
+      </div>
+      <!-- /.p-form_content__box -->
+      <div class="p-form_content__box mb18">
+        <p>＊1「当社」とは申請者を表します</p>
+      </div>
+      <!-- /.p-form_content__box -->
+      <div class="p-form_privacy__check">
+        <div class="c-check">
+          <mt:AFormFieldInput aform_id="4" parts_id="legal_compliance">
+          <div><span class="p-form_privacy__required">必須</span></div>
+        </div>
+        <!-- /.c-check -->
+        <div class="c-error js-error_check">
+        </div>
+        <!-- /.c-error -->
+      </div>
+      <!-- /.p-form_privacy__check -->
+    </div>
+    <!-- /.p-form_content__block -->
+  </div>
+  <!-- /.p-form_choice -->
+</div>
+<!-- end 輸出管理にかかる法令遵守のご誓約 -->
+
+<!-- 非該当証明書発行依頼 -->
+<div class="p-form_content__block">
+  <div class="c-content_heading">
+    <h2 class="c-content_heading__text">非該当証明書発行依頼</h2>
+  </div>
+  <!-- /.c-content_heading -->
+
+  <div class="p-form_content__box">
+    <div class="p-form">
+      <!-- 発行期日 -->
+      <div class="p-form__table">
+        <div class="p-form__cell">
+          <div class="p-form__label">
+            <label for="">発行期日<span class="required">必須</span></label>
+          </div>
+        </div>
+        <!-- /.p-form__table_cell -->
+        <div class="p-form__cell">
+          <div class="p-form_choice__flex input-flex">
+              <mt:AFormFieldInput aform_id="4" parts_id="issuedate_year">
+              <mt:AFormFieldLabel aform_id="4" parts_id="issuedate_year">
+
+              <mt:AFormFieldInput aform_id="4" parts_id="issuedate_month">
+              <mt:AFormFieldLabel aform_id="4" parts_id="issuedate_month">
+
+              <mt:AFormFieldInput aform_id="4" parts_id="issuedate_day">
+              <mt:AFormFieldLabel aform_id="4" parts_id="issuedate_day">
+          </div>
+          <!-- /.p-form_choice__flex -->
+          <div class="c-error js-error_check">
+          </div>
+          <!-- /.c-error -->
+        </div>
+        <!-- /.p-form__table_cell -->
+      </div>
+      <!-- /.p-form__table -->
+    </div>
+    <!-- /.p-form -->
+  </div>
+  <!-- /.p-form_content__box -->
+</div>
+<!-- end 非該当証明書発行依頼 -->
+
+<!-- 申請者情報 -->
+<div class="p-form_content__block">
+  <div class="c-middle_heading">
+    <h3 class="c-middle_heading__text">申請者情報</h3>
+  </div>
+  <!-- /.c-content_heading -->
+  <ul>
+    <li class="c-notice"><span class="c-notice__bullet">※</span>書類は申請者に送付します。</li>
+  </ul>
+  <!-- .c-notice -->
+
+  <div class="p-form_content__box">
+    <div class="p-form">
+      <!-- 会社名 -->
+      <div class="p-form__table">
+        <div class="p-form__cell">
+          <div class="p-form__label">
+            <mt:AFormFieldLabel aform_id="4" parts_id="houjin_mei">
+          </div>
+          <!-- .p-form__label -->
+        </div>
+        <!-- /.p-form__cell -->
+        <div class="p-form__cell">
+          <div class="c-input">
+            <mt:AFormFieldInput aform_id="4" parts_id="houjin_mei">
+          </div>
+          <!-- /.c-input -->
+          <div class="c-error js-error_check" data-label="会社名">
+          </div>
+          <!-- /.c-error -->
+        </div>
+        <!-- /.p-form__cell -->
+      </div>
+      <!-- .p-form__table -->
+
+      <!-- 部署名 -->
+      <div class="p-form__table">
+        <div class="p-form__cell">
+          <div class="p-form__label">
+            <mt:AFormFieldLabel aform_id="4" parts_id="busho_mei">
+          </div>
+          <!-- .p-form__label -->
+        </div>
+        <!-- /.p-form__cell -->
+        <div class="p-form__cell">
+          <div class="c-input">
+            <mt:AFormFieldInput aform_id="4" parts_id="busho_mei">
+          </div>
+          <!-- /.c-input -->
+          <div class="c-error js-error_check" data-label="部署名">
+          </div>
+          <!-- /.c-error -->
+        </div>
+        <!-- /.p-form__cell -->
+      </div>
+      <!-- .p-form__table -->
+
+      <!-- 郵便番号 -->
+      <div class="p-form__table">
+        <div class="p-form__cell">
+          <div class="p-form__label">
+            <mt:AFormFieldLabel aform_id="4" parts_id="zip_1">
+          </div>
+          <!-- .p-form__label -->
+        </div>
+        <!-- .p-form__table -->
+        <div class="p-form__cell">
+          <div class="p-form__row">
+              <div class="p-form__col">
+                  <div class="c-input">
+                    <mt:AFormFieldInput aform_id="4" parts_id="zip_1">
+                  </div>
+                  <div class="c-error js-error_check" data-label="郵便番号">
+                  </div>
+                  <!-- /.c-error -->
+              </div>
+              <!-- /.p-form__col -->
+              <div class="p-form__col">
+              <p>記入例：123-4567</p>
+              </div>
+              <!-- /.p-form__col -->
+          </div>
+          <!-- /.p-form__row -->
+        </div>
+      </div>
+      <!-- .p-form__table -->
+
+      <!-- 都道府県 -->
+      <div class="p-form__table">
+        <div class="p-form__cell">
+            <div class="p-form__label">
+              <mt:AFormFieldLabel aform_id="4" parts_id="address_1">
+            </div>
+            <!-- /.p-form__label -->
+        </div>
+        <!-- /.p-form__cell -->
+        <div class="p-form__cell">
+            <div class="p-form__row">
+                <div class="p-form__col">
+                    <div class="">
+                        <!-- JSで判定しているので、値を固定 -->
+                        <div class="c-select">
+                          <mt:AFormFieldInput aform_id="4" parts_id="address_1">
+                        </div>
+                        <!-- /.c-select -->
+                        <div class="c-error js-error_check" data-label="都道府県">
+                        </div>
+                        <!-- /.c-error -->
+                    </div>
+                    <!-- /.js-product_select -->
+                </div>
+                <!-- /.p-form__col -->
+            </div>
+            <!-- /.p-form__row -->
+        </div>
+        <!-- /.p-form__cell -->
+      </div>
+      <!-- .p-form__table -->
+
+      <!-- 市区町村 -->
+      <div class="p-form__table">
+        <div class="p-form__cell">
+          <div class="p-form__label">
+            <mt:AFormFieldLabel aform_id="4" parts_id="address_2">
+          </div>
+          <!-- .p-form__label -->
+        </div>
+        <!-- /.p-form__cell -->
+        <div class="p-form__cell">
+          <div class="c-input">
+            <mt:AFormFieldInput aform_id="4" parts_id="address_2">
+          </div>
+          <!-- /.c-input -->
+          <div class="c-error js-error_check" data-label="市区町村">
+          </div>
+          <!-- /.c-error -->
+        </div>
+        <!-- /.p-form__cell -->
+      </div>
+      <!-- .p-form__table -->
+
+      <!-- 番地以降 -->
+      <div class="p-form__table">
+        <div class="p-form__cell">
+          <div class="p-form__label">
+            <mt:AFormFieldLabel aform_id="4" parts_id="address_3">
+          </div>
+          <!-- .p-form__label -->
+        </div>
+        <!-- /.p-form__cell -->
+        <div class="p-form__cell">
+          <div class="c-input">
+            <mt:AFormFieldInput aform_id="4" parts_id="address_3">
+          </div>
+          <!-- /.c-input -->
+          <div class="c-error js-error_check" data-label="番地以降">
+          </div>
+          <!-- /.c-error -->
+        </div>
+        <!-- /.p-form__cell -->
+      </div>
+      <!-- .p-form__table -->
+
+      <!-- 電話番号 -->
+      <div class="p-form__table">
+        <div class="p-form__cell">
+          <div class="p-form__label">
+            <mt:AFormFieldLabel aform_id="4" parts_id="telnum">
+          </div>
+          <!-- .p-form__label -->
+        </div>
+        <!-- /.p-form__cell -->
+        <div class="p-form__cell">
+          <div class="c-input">
+            <mt:AFormFieldInput aform_id="4" parts_id="telnum">
+          </div>
+          <!-- /.c-input -->
+          <div class="c-error js-error_check" data-label="電話番号">
+          </div>
+          <!-- /.c-error -->
+        </div>
+        <!-- /.p-form__cell -->
+      </div>
+      <!-- .p-form__table -->
+
+      <!-- ご担当者氏名 -->
+      <div class="p-form__table">
+        <div class="p-form__cell">
+          <div class="p-form__label">
+            <label for="shimei_1" class="aform-label">ご担当者氏名<span class="required">必須</span></label>
+          </div>
+          <!-- /.p-form__label -->
+        </div>
+        <!-- /.p-form__table_cell -->
+        
+        <div class="p-form__cell">
+          <!-- 2カラムの場合に.p-form__rowで囲む -->
+          <div class="p-form__row">
+            <!-- 2カラムの場合に各要素を.p-form__colで囲む -->
+            <div class="p-form__col">
+              <div class="c-input">
+                <mt:AFormFieldInput aform_id="4" parts_id="shimei_1">
+              </div>
+              <!-- /.c-input -->
+              <div class="c-error js-error_check" data-label="ご担当者氏名">
+              </div>
+              <!-- /.c-error -->
+            </div>
+            <!-- /.p-form__col -->
+
+            <!-- 2カラムの場合に各要素を.p-form__colで囲む -->
+            <div class="p-form__col">
+              <div class="c-input">
+                <mt:AFormFieldInput aform_id="4" parts_id="shimei_2">
+              </div>
+              <!-- /.c-input -->
+              <div class="c-error js-error_check" data-label="ご担当者氏名">
+              </div>
+              <!-- /.c-error -->
+            </div>
+            <!-- /.p-form__col -->
+          </div>
+          <!-- /.p-form__row -->
+        </div>
+        <!-- /.p-form__table_cell -->
+      </div>
+      <!-- /.p-form__table -->
+
+      <!-- E-MAIL -->
+      <div class="p-form__table">
+        <div class="p-form__cell">
+          <div class="p-form__label">
+            <mt:AFormFieldLabel aform_id="4" parts_id="mailaddress">
+          </div>
+          <!-- .p-form__label -->
+        </div>
+        <!-- /.p-form__cell -->
+        <div class="p-form__cell">
+          <div class="c-input">
+            <mt:AFormFieldInput aform_id="4" parts_id="mailaddress">
+          </div>
+          <!-- /.c-input -->
+          <div class="c-error js-error_check" data-label="E-MAIL">
+          </div>
+          <!-- /.c-error -->
+        </div>
+        <!-- /.p-form__cell -->
+      </div>
+      <!-- .p-form__table -->
+    </div>
+    <!-- .p-form -->
+  </div>
+  <!-- .p-form_content__box -->
+</div>
+<!-- end 申請者情報-->
+
+<!-- 用途 -->
+<div class="p-form_content__block">
+  <div class="c-middle_heading">
+    <h3 class="c-middle_heading__text">用途</h3>
+  </div>
+  <!-- /.c-middle_heading -->
+
+  <div class="p-form_choice">
+    <div class="p-form_choice__between w-unset">
+      <mt:AFormFieldInput aform_id="4" parts_id="use">
+      <span class="required">必須</span>
+    </div>
+    <div class="c-error js-error_check" data-label="用途">
+    </div>
+    <!-- /.p-form_choice__between -->
+  </div>
+  <!-- /.p-form_choice -->
+</div>
+<!-- end 用途 -->
+
+<!-- 輸出者情報 -->
+<div class="p-form_content__block">
+  <div class="c-middle_heading">
+    <h3 class="c-middle_heading__text">輸出者情報</h3>
+  </div>
+  <!-- /.c-content_heading -->
+  <ul>
+    <li class="c-notice"><span class="c-notice__bullet">※</span>税関に輸出者として申告する企業情報を記入ください。</li>
+  </ul>
+  <!-- .c-notice -->
+
+  <div class="p-form_content__box">
+    <div class="p-form">
+      <!-- 会社名(日本語名) -->
+      <div class="p-form__table">
+        <div class="p-form__cell">
+          <div class="p-form__label">
+            <mt:AFormFieldLabel aform_id="4" parts_id="houjin_mei_2_1">
+          </div>
+          <!-- .p-form__label -->
+        </div>
+        <!-- /.p-form__cell -->
+        <div class="p-form__cell">
+          <div class="c-input">
+            <mt:AFormFieldInput aform_id="4" parts_id="houjin_mei_2_1">
+          </div>
+          <!-- /.c-input -->
+          <div class="c-error js-error_check" data-label="会社名(日本語名)">
+          </div>
+          <!-- /.c-error -->
+        </div>
+        <!-- /.p-form__cell -->
+      </div>
+      <!-- .p-form__table -->
+
+      <!-- 会社名(英語名) -->
+      <div class="p-form__table">
+        <div class="p-form__cell">
+          <div class="p-form__label">
+            <mt:AFormFieldLabel aform_id="4" parts_id="houjin_mei_2_2">
+          </div>
+          <!-- .p-form__label -->
+        </div>
+        <!-- /.p-form__cell -->
+        <div class="p-form__cell">
+          <div class="c-input">
+            <mt:AFormFieldInput aform_id="4" parts_id="houjin_mei_2_2">
+          </div>
+          <!-- /.c-input -->
+          <div class="c-error js-error_check" data-label="会社名(英語名)">
+          </div>
+          <!-- /.c-error -->
+        </div>
+        <!-- /.p-form__cell -->
+      </div>
+      <!-- .p-form__table -->
+
+      <!-- 部署名 -->
+      <div class="p-form__table">
+        <div class="p-form__cell">
+          <div class="p-form__label">
+            <mt:AFormFieldLabel aform_id="4" parts_id="busho_mei_2">
+          </div>
+          <!-- .p-form__label -->
+        </div>
+        <!-- /.p-form__cell -->
+        <div class="p-form__cell">
+          <div class="c-input">
+            <mt:AFormFieldInput aform_id="4" parts_id="busho_mei_2">
+          </div>
+          <!-- /.c-input -->
+          <div class="c-error js-error_check" data-label="部署名">
+          </div>
+          <!-- /.c-error -->
+        </div>
+        <!-- /.p-form__cell -->
+      </div>
+      <!-- .p-form__table -->
+
+      <!-- 郵便番号 -->
+      <div class="p-form__table">
+        <div class="p-form__cell">
+          <div class="p-form__label">
+            <mt:AFormFieldLabel aform_id="4" parts_id="zip_2">
+          </div>
+          <!-- .p-form__label -->
+        </div>
+        <!-- .p-form__table -->
+        <div class="p-form__cell">
+          <div class="p-form__row">
+              <div class="p-form__col">
+                  <div class="c-input">
+                    <mt:AFormFieldInput aform_id="4" parts_id="zip_2">
+                  </div>
+                  <div class="c-error js-error_check" data-label="郵便番号">
+                  </div>
+                  <!-- /.c-error -->
+              </div>
+              <!-- /.p-form__col -->
+              <div class="p-form__col">
+              <p>記入例：123-4567</p>
+              </div>
+              <!-- /.p-form__col -->
+          </div>
+          <!-- /.p-form__row -->
+        </div>
+      </div>
+      <!-- .p-form__table -->
+
+      <!-- 都道府県 -->
+      <div class="p-form__table">
+        <div class="p-form__cell">
+            <div class="p-form__label">
+              <mt:AFormFieldLabel aform_id="4" parts_id="address_2_1">
+            </div>
+            <!-- /.p-form__label -->
+        </div>
+        <!-- /.p-form__cell -->
+        <div class="p-form__cell">
+            <div class="p-form__row">
+                <div class="p-form__col">
+                    <div class="">
+                        <!-- JSで判定しているので、値を固定 -->
+                        <div class="c-select">
+                          <mt:AFormFieldInput aform_id="4" parts_id="address_2_1">
+                        </div>
+                        <!-- /.c-select -->
+                        <div class="c-error js-error_check" data-label="都道府県">
+                        </div>
+                        <!-- /.c-error -->
+                    </div>
+                    <!-- /.js-product_select -->
+                </div>
+                <!-- /.p-form__col -->
+            </div>
+            <!-- /.p-form__row -->
+        </div>
+        <!-- /.p-form__cell -->
+      </div>
+      <!-- .p-form__table -->
+
+      <!-- 市区町村 -->
+      <div class="p-form__table">
+        <div class="p-form__cell">
+          <div class="p-form__label">
+            <mt:AFormFieldLabel aform_id="4" parts_id="address_2_2">
+          </div>
+          <!-- .p-form__label -->
+        </div>
+        <!-- /.p-form__cell -->
+        <div class="p-form__cell">
+          <div class="c-input">
+            <mt:AFormFieldInput aform_id="4" parts_id="address_2_2">
+          </div>
+          <!-- /.c-input -->
+          <div class="c-error js-error_check" data-label="市区町村">
+          </div>
+          <!-- /.c-error -->
+        </div>
+        <!-- /.p-form__cell -->
+      </div>
+      <!-- .p-form__table -->
+
+      <!-- 番地以降 -->
+      <div class="p-form__table">
+        <div class="p-form__cell">
+          <div class="p-form__label">
+            <mt:AFormFieldLabel aform_id="4" parts_id="address_2_3">
+          </div>
+          <!-- .p-form__label -->
+        </div>
+        <!-- /.p-form__cell -->
+        <div class="p-form__cell">
+          <div class="c-input">
+            <mt:AFormFieldInput aform_id="4" parts_id="address_2_3">
+          </div>
+          <!-- /.c-input -->
+          <div class="c-error js-error_check" data-label="番地以降">
+          </div>
+          <!-- /.c-error -->
+        </div>
+        <!-- /.p-form__cell -->
+      </div>
+      <!-- .p-form__table -->
+
+      <!-- 電話番号 -->
+      <div class="p-form__table">
+        <div class="p-form__cell">
+          <div class="p-form__label">
+            <mt:AFormFieldLabel aform_id="4" parts_id="telnum_2">
+          </div>
+          <!-- .p-form__label -->
+        </div>
+        <!-- /.p-form__cell -->
+        <div class="p-form__cell">
+          <div class="c-input">
+            <mt:AFormFieldInput aform_id="4" parts_id="telnum_2">
+          </div>
+          <!-- /.c-input -->
+          <div class="c-error js-error_check" data-label="電話番号">
+          </div>
+          <!-- /.c-error -->
+        </div>
+        <!-- /.p-form__cell -->
+      </div>
+      <!-- .p-form__table -->
+
+      <!-- ご担当者氏名 -->
+      <div class="p-form__table">
+        <div class="p-form__cell">
+          <div class="p-form__label">
+            <mt:AFormFieldLabel aform_id="4" parts_id="shimei_3">
+          </div>
+          <!-- .p-form__label -->
+        </div>
+        <!-- /.p-form__cell -->
+        <div class="p-form__cell">
+          <div class="c-input">
+            <mt:AFormFieldInput aform_id="4" parts_id="shimei_3">
+          </div>
+          <!-- /.c-input -->
+          <div class="c-error js-error_check" data-label="ご担当者氏名">
+          </div>
+          <!-- /.c-error -->
+        </div>
+        <!-- /.p-form__cell -->
+      </div>
+      <!-- .p-form__table -->
+    </div>
+    <!-- .p-form -->
+  </div>
+  <!-- .p-form_content__box -->
+</div>
+<!-- end 輸出者情報-->
+
+<!-- 品名（型番）・製品のシリアル番号 -->
+<div class="p-form_content__block">
+  <div class="c-middle_heading">
+    <h3 class="c-middle_heading__text">品名（型番）・製品のシリアル番号</h3>
+  </div>
+  <!-- /.c-content_heading -->
+
+  <div class="p-form_content__box">
+    <div class="p-form">
+      <!-- 1 -->
+      <div class="p-form__table">
+        <div class="p-form__cell custom-cell">
+          <div class="p-form__label">
+            <label>1</label>
+          </div>
+          <!-- .p-form__label -->
+        </div>
+        <!-- /.p-form__cell -->
+
+        <div class="p-form__cell">
+          <div class="p-form_choice__flex input-flex custom-flex">
+            <mt:AFormFieldLabel aform_id="4" parts_id="modelnumber_1">
+            <mt:AFormFieldInput aform_id="4" parts_id="modelnumber_1">
+
+            <mt:AFormFieldLabel aform_id="4" parts_id="serialno_1">
+            <mt:AFormFieldInput aform_id="4" parts_id="serialno_1">
+          </div>
+          <!-- /.p-form_choice__flex -->
+        </div>
+        <!-- /.p-form__table_cell -->
+      </div>
+      <!-- .p-form__table -->
+
+      <!-- 2 -->
+      <div class="p-form__table">
+        <div class="p-form__cell custom-cell">
+          <div class="p-form__label">
+            <label>2</label>
+          </div>
+          <!-- .p-form__label -->
+        </div>
+        <!-- /.p-form__cell -->
+
+        <div class="p-form__cell">
+          <div class="p-form_choice__flex input-flex custom-flex">
+            <mt:AFormFieldLabel aform_id="4" parts_id="modelnumber_2">
+            <mt:AFormFieldInput aform_id="4" parts_id="modelnumber_2">
+
+            <mt:AFormFieldLabel aform_id="4" parts_id="serialno_2">
+            <mt:AFormFieldInput aform_id="4" parts_id="serialno_2">
+          </div>
+          <!-- /.p-form_choice__flex -->
+        </div>
+        <!-- /.p-form__table_cell -->
+      </div>
+      <!-- .p-form__table -->
+
+      <!-- 3 -->
+      <div class="p-form__table">
+        <div class="p-form__cell custom-cell">
+          <div class="p-form__label">
+            <label>3</label>
+          </div>
+          <!-- .p-form__label -->
+        </div>
+        <!-- /.p-form__cell -->
+
+        <div class="p-form__cell">
+          <div class="p-form_choice__flex input-flex custom-flex">
+            <mt:AFormFieldLabel aform_id="4" parts_id="modelnumber_3">
+            <mt:AFormFieldInput aform_id="4" parts_id="modelnumber_3">
+
+            <mt:AFormFieldLabel aform_id="4" parts_id="serialno_3">
+            <mt:AFormFieldInput aform_id="4" parts_id="serialno_3">
+          </div>
+          <!-- /.p-form_choice__flex -->
+        </div>
+        <!-- /.p-form__table_cell -->
+      </div>
+      <!-- .p-form__table -->
+
+      <!-- 4 -->
+      <div class="p-form__table">
+        <div class="p-form__cell custom-cell">
+          <div class="p-form__label">
+            <label>4</label>
+          </div>
+          <!-- .p-form__label -->
+        </div>
+        <!-- /.p-form__cell -->
+
+        <div class="p-form__cell">
+          <div class="p-form_choice__flex input-flex custom-flex">
+            <mt:AFormFieldLabel aform_id="4" parts_id="modelnumber_4">
+            <mt:AFormFieldInput aform_id="4" parts_id="modelnumber_4">
+
+            <mt:AFormFieldLabel aform_id="4" parts_id="serialno_4">
+            <mt:AFormFieldInput aform_id="4" parts_id="serialno_4">
+          </div>
+          <!-- /.p-form_choice__flex -->
+        </div>
+        <!-- /.p-form__table_cell -->
+      </div>
+      <!-- .p-form__table -->
+
+      <!-- 5 -->
+      <div class="p-form__table">
+        <div class="p-form__cell custom-cell">
+          <div class="p-form__label">
+            <label>5</label>
+          </div>
+          <!-- .p-form__label -->
+        </div>
+        <!-- /.p-form__cell -->
+
+        <div class="p-form__cell">
+          <div class="p-form_choice__flex input-flex custom-flex">
+            <mt:AFormFieldLabel aform_id="4" parts_id="modelnumber_5">
+            <mt:AFormFieldInput aform_id="4" parts_id="modelnumber_5">
+
+            <mt:AFormFieldLabel aform_id="4" parts_id="serialno_5">
+            <mt:AFormFieldInput aform_id="4" parts_id="serialno_5">
+          </div>
+          <!-- /.p-form_choice__flex -->
+        </div>
+        <!-- /.p-form__table_cell -->
+      </div>
+      <!-- .p-form__table -->
+    </div>
+    <!-- .p-form -->
+  </div>
+  <!-- .p-form_content__box -->
+</div>
+<!-- end 品名（型番）・製品のシリアル番号-->
+
+<!-- 輸出先情報 -->
+<div class="p-form_content__block">
+  <div class="c-middle_heading">
+    <h3 class="c-middle_heading__text">輸出先情報</h3>
+  </div>
+  <!-- /.c-content_heading -->
+  <ul>
+    <li class="c-notice"><span class="c-notice__bullet">※</span>税関に輸出者として申告する企業情報を記入ください。</li>
+  </ul>
+  <!-- .c-notice -->
+
+  <div class="p-form_content__box">
+    <div class="p-form">
+      <!-- 輸出相手国 -->
+      <div class="p-form__table">
+        <div class="p-form__cell">
+          <div class="p-form__label">
+            <mt:AFormFieldLabel aform_id="4" parts_id="export_country">
+          </div>
+          <!-- .p-form__label -->
+        </div>
+        <!-- /.p-form__cell -->
+        <div class="p-form__cell">
+          <div class="c-input">
+            <mt:AFormFieldInput aform_id="4" parts_id="export_country">
+          </div>
+          <!-- /.c-input -->
+          <div class="c-error js-error_check" data-label="輸出相手国">
+          </div>
+          <!-- /.c-error -->
+        </div>
+        <!-- /.p-form__cell -->
+      </div>
+      <!-- .p-form__table -->
+
+      <!-- 輸出先 END USER NAME -->
+      <div class="p-form__table">
+        <div class="p-form__cell">
+          <div class="p-form__label">
+            <mt:AFormFieldLabel aform_id="4" parts_id="endusername">
+          </div>
+          <!-- .p-form__label -->
+        </div>
+        <!-- /.p-form__cell -->
+        <div class="p-form__cell">
+          <div class="c-input">
+            <mt:AFormFieldInput aform_id="4" parts_id="endusername">
+          </div>
+          <!-- /.c-input -->
+          <div class="c-error js-error_check" data-label="輸出先 END USER NAME">
+          </div>
+          <!-- /.c-error -->
+        </div>
+        <!-- /.p-form__cell -->
+      </div>
+      <!-- .p-form__table -->
+
+      <!-- 用途 -->
+        <div class="p-form_content__block">
+        <div class="c-middle_heading">
+            <h3 class="c-middle_heading__text">用途</h3>
+        </div>
+        <!-- /.c-middle_heading -->
+
+        <div class="p-form_choice">
+            <div class="p-form_choice__between w-unset">
+            <mt:AFormFieldInput aform_id="4" parts_id="use">
+            </div>
+            <div class="c-error js-error_check" data-label="用途">
+            </div>
+            <!-- /.p-form_choice__between -->
+        </div>
+        <!-- /.p-form_choice -->
+        </div>
+        <!-- end 用途 -->
+
+      <!-- 輸出予定日-->
+      <div class="p-form__table">
+        <div class="p-form__cell">
+          <div class="p-form__label">
+            <mt:AFormFieldLabel aform_id="4" parts_id="export_date">
+          </div>
+          <!-- .p-form__label -->
+        </div>
+        <!-- /.p-form__cell -->
+        <div class="p-form__cell">
+          <div class="c-input">
+            <mt:AFormFieldInput aform_id="4" parts_id="export_date">
+          </div>
+          <!-- /.c-input -->
+          <div class="c-error js-error_check" data-label="輸出予定日">
+          </div>
+          <!-- /.c-error -->
+        </div>
+        <!-- /.p-form__cell -->
+      </div>
+      <!-- .p-form__table -->
+    </div>
+    <!-- .p-form -->
+  </div>
+  <!-- .p-form_content__box -->
+</div>
+<!-- end 輸出先情報-->
+
+<!-- その他要望事項 -->
+<div class="p-form_content__block">
+  <div class="c-middle_heading">
+    <h3 class="c-middle_heading__text">その他要望事項</h3>
+  </div>
+  <!-- /.c-middle_heading -->
+  <div class="p-form_content__box">
+    <div class="p-form">
+      <div class="p-form__table">
+        <div class="p-form__cell">
+          <div class="p-form__label">
+            <mt:AFormFieldLabel aform_id="4" parts_id="other_requests">
+          </div>
+          <!-- /.p-form__label -->
+        </div>
+        <!-- /.p-form__table_cell -->
+
+        <div class="p-form__cell">
+          <div class="c-textarea">
+            <div class="c-textarea__example">
+            </div>
+            <!-- /.c-textarea__example -->
+            <mt:AFormFieldInput aform_id="4" parts_id="other_requests">
+          </div>
+          <!-- /.c-textarea -->
+        </div>
+        <!-- /.p-form__table_cell -->
+      </div>
+      <!-- /.p-form__table -->
+    </div>
+    <!-- /.p-form -->
+  </div>
+  <!-- /.p-form_content__box -->
+</div>
+<!-- /.end その他要望事項-->
+
+<!-- 個人情報の取り扱いについて -->
+<div class="p-form_content__block">
+  <div class="c-middle_heading">
+    <h3 class="c-middle_heading__text">個人情報の取り扱いについて</h3>
+  </div>
+  <!-- /.c-middle_heading -->
+  <div class="p-form_privacy">
+    <div class="p-form_privacy__text">
+      <p><a href="/privacy-policy/" target="_blank" rel="noopener">個人情報の取り扱いについて</a>をご確認いただき、よろしければ「個人情報の取り扱いについて同意する」にチェックをして、内容を送信してください。</p>
+    </div>
+    <!-- /.p-form_privacy__text -->
+    <div class="p-form_privacy__check">
+      <div class="c-check">
+        <mt:AFormFieldInput aform_id="4" parts_id="privacy_check">
+        <div><span class="p-form_privacy__required">必須</span></div>
+      </div>
+      <!-- /.c-check -->
+      <div class="c-error js-error_check">
+      </div>
+      <!-- /.c-error -->
+    </div>
+    <!-- /.p-form_privacy__check -->
+  </div>
+  <!-- /.p-form_privacy -->
+</div>
+<!-- /end 個人情報の取り扱いについて -->
+
+<!-- submit-btn -->
+<div class="p-form_content__block">
+    <div class="c-submit js-form_submit">
+        <button type="submit">確認画面へ</button>
+    </div>
+</div>
+<!-- /.p-form_content__block -->
+
+</div>
+<!-- /.p-form_content -->
+</form>
+
+</div>
+<!-- /.l-inner -->
+</section>
+
+</main>
+<mt:Include module="footer" parent="1" />
+<mt:Include module="html_foot" parent="1" />

@@ -72,8 +72,22 @@ elements:
             label: 'single_event'
           single_support_release:
             label: 'single_support_release'
-          page_form:
-            label: 'page_form'
+          page_repair-form:
+            label: 'page_repair-form'
+          page_complete_form:
+            label: 'page_complete_form'
+          page_contact-before:
+            label: 'page_contact-before'
+          page_contact-after:
+            label: 'page_contact-after'
+          page_privacy-policy:
+            label: 'page_privacy-policy'
+          page_certificate:
+            label: 'page_certificate'
+          page_contact-other:
+            label: 'page_contact-other'
+          page_career: 
+            label: 'page_career'
           category_support_release:
             label: 'category_support_release'
           category_support_faq_list:

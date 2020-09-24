@@ -1,0 +1,455 @@
+<mt:SetVars>
+    base_description=ディスクリプション
+    og_title=フォームテスト | お問い合わせ | D-Link Japan
+    og_url=https://www.dlink-jp.com/contact/
+    og_type=article
+</mt:SetVars>
+<mt:SetVarTemplate name="file_javascript">
+<script src="/asset/js/form_ui.min.js" defer></script>
+<script src="/asset/js/jquery.zip2addr.js"></script>
+<script src="/asset/js/zipcode.js"></script>
+</mt:SetVarTemplate>
+<mt:Ignore>** 表示部分 **</mt:Ignore>
+<mt:Include module="html_head" parent="1" />
+<mt:Include module="header" parent="1" />
+<!-- ここからコンテンツ -->
+<main class="p-main">
+    <div class="c-breadcrumb">
+        <ul class="c-breadcrumb__list">
+            <li><a href="/">HOME</a></li>
+            <li><a href="/contact/">お問い合わせ</a></li>
+            <li><span>個人情報保護についてのお問い合わせ</span></li>
+        </ul>
+    </div>
+    <!-- /.c-breadcrumb -->
+    <section class="l-outer--lower">
+        <div class="l-inner">
+            <div class="c-title">
+                <h1 class="c-title__text">個人情報保護について<br class="u-show_sp">お問い合わせ</h1>
+            </div>
+            <!-- /.c-title -->
+            <form name="aform-form-5" id="aform-form-5" action="/mt/plugins/AForm/aform_engine.cgi" method="POST" novalidate="novalidate" enctype="multipart/form-data">
+                <input type="hidden" name="blog_id" value="<$mt:BlogID$>" />
+                <input type="hidden" name="id" value="5" />
+                <input type="hidden" name="run_mode" value="confirm" />
+                <input type="hidden" name="aform_url" value="<$mt:PagePermalink$>" />
+                <input type="hidden" name="aform_path" value="<$mt:PagePermalink$>" />
+                <input type="hidden" name="entry_id" value="<$mt:PageID$>" />
+                <div id="form_app" class="p-form_content">
+                    <div class="p-form_content__box">
+                        <div class="c-content_heading">
+                            <h2 class="c-content_heading__text">お問い合わせ内容</h2>
+                        </div>
+                    </div>
+                    <div class="p-form_content__block">
+                        <div class="c-middle_heading">
+                            <h3 class="c-middle_heading__text">お客様情報</h3>
+                        </div>
+                        <!-- /.c-middle_heading -->
+                        <div class="p-form_content__box">
+                            <div class="p-form">
+                                <!-- 法人名 -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                        <div class="p-form__label">
+                                            <mt:AFormFieldLabel aform_id="5" parts_id="houjin_mei"><span class="required">必須</span>
+                                        </div>
+                                        <!-- /.p-form__label -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                    <div class="p-form__cell">
+                                        <div class="c-input js-form_check" data-label="法人名">
+                                            <mt:AFormFieldInput aform_id="5" parts_id="houjin_mei">
+                                        </div>
+                                        <!-- /.c-input -->
+                                        <div class="c-error js-error_check">
+                                            <p class="aform-error" id=""></p>
+                                        </div>
+                                        <!-- /.c-error -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- /.p-form__table -->
+                                <!-- 部署名 -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                        <div class="p-form__label">
+                                            <mt:AFormFieldLabel aform_id="5" parts_id="busho_mei">
+                                        </div>
+                                        <!-- /.p-form__label -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+
+                                    <div class="p-form__cell">
+                                        <div class="c-input">
+                                            <mt:AFormFieldInput aform_id="5" parts_id="busho_mei">
+                                        </div>
+                                        <!-- /.c-input -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- /.p-form__table -->
+                                <!-- 役職 -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                        <div class="p-form__label">
+                                            <mt:AFormFieldLabel aform_id="5" parts_id="yakushoku">
+                                        </div>
+                                        <!-- /.p-form__label -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                    <div class="p-form__cell">
+                                        <div class="c-input">
+                                            <mt:AFormFieldInput aform_id="5" parts_id="yakushoku">
+                                        </div>
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- /.p-form__table -->
+                                <!-- 氏名 -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                        <div class="p-form__label">
+                                            <label>氏名</label><span class="required">必須</span>
+                                        </div>
+                                        <!-- /.p-form__label -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                    <div class="p-form__cell">
+                                        <!-- 2カラムの場合に.p-form__rowで囲む -->
+                                        <div class="p-form__row">
+                                            <!-- 2カラムの場合に各要素を.p-form__colで囲む -->
+                                            <div class="p-form__col">
+                                                <div class="c-input js-form_check" data-label="氏名">
+                                                    <mt:AFormFieldInput aform_id="5" parts_id="shimei_1">
+                                                </div>
+                                                <!-- /.c-input -->
+                                                <div class="c-error js-error_check">
+                                                    <p class="aform-error" id=""></p>
+                                                </div>
+                                                <!-- /.c-error -->
+                                            </div>
+                                            <!-- /.p-form__col -->
+                                            <!-- 2カラムの場合に各要素を.p-form__colで囲む -->
+                                            <div class="p-form__col">
+                                                <div class="c-input js-form_check" data-label="氏名">
+                                                    <mt:AFormFieldInput aform_id="5" parts_id="shimei_2">
+                                                </div>
+                                                <!-- /.c-input -->
+                                                <div class="c-error js-error_check">
+                                                    <p class="aform-error" id=""></p>
+                                                </div>
+                                                <!-- /.c-error -->
+                                            </div>
+                                            <!-- /.p-form__col -->
+                                        </div>
+                                        <!-- /.p-form__row -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- /.p-form__table -->
+                                <!-- 氏名フリガナ -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                        <div class="p-form__label">
+                                            <label>氏名フリガナ</label><span class="required">必須</span>
+                                        </div>
+                                        <!-- /.p-form__label -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+
+                                    <div class="p-form__cell">
+                                        <!-- 2カラムの場合に.p-form__rowで囲む -->
+                                        <div class="p-form__row">
+                                            <!-- 2カラムの場合に各要素を.p-form__colで囲む -->
+                                            <div class="p-form__col">
+                                                <div class="c-input js-form_check" data-label="氏名フリガナ">
+                                                    <mt:AFormFieldInput aform_id="5" parts_id="shimei_kana_1">
+                                                </div>
+                                                <!-- /.c-input -->
+                                                <div class="c-error js-error_check">
+                                                    <p class="aform-error" id=""></p>
+                                                </div>
+                                                <!-- /.c-error -->
+                                            </div>
+                                            <!-- /.p-form__col -->
+                                            <!-- 2カラムの場合に各要素を.p-form__colで囲む -->
+                                            <div class="p-form__col">
+                                                <div class="c-input js-form_check" data-label="氏名フリガナ">
+                                                    <mt:AFormFieldInput aform_id="5" parts_id="shimei_kana_2">
+                                                </div>
+                                                <!-- /.c-input -->
+                                                <div class="c-error js-error_check">
+                                                    <p class="aform-error" id=""></p>
+                                                </div>
+                                                <!-- /.c-error -->
+                                            </div>
+                                            <!-- /.p-form__col -->
+                                        </div>
+                                        <!-- /.p-form__row -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- /.p-form__table -->
+                                <!-- 郵便番号 -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                        <div class="p-form__label">
+                                            <mt:AFormFieldLabel aform_id="5" parts_id="zip_1">
+                                        </div>
+                                        <!-- /.p-form__label -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+
+                                    <div class="p-form__cell">
+                                        <!-- 2カラムの場合に.p-form__rowで囲む -->
+                                        <div class="p-form__row">
+                                            <!-- 2カラムの場合に各要素を.p-form__colで囲む -->
+                                            <div class="p-form__col">
+                                                <div class="c-input">
+                                                    <mt:AFormFieldInput aform_id="5" parts_id="zip_1">
+                                                </div>
+                                                <!-- /.c-input -->
+                                            </div>
+                                            <!-- /.p-form__col -->
+                                            <div class="p-form__col">
+                                                <mt:AFormFieldInputExample aform_id="5" parts_id="zip_1">
+                                            </div>
+                                            <!-- /.p-form__col -->
+                                        </div>
+                                        <!-- /.p-form__row -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- /.p-form__table -->
+                                <!-- 都道府県 -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                        <div class="p-form__label">
+                                            <mt:AFormFieldLabel aform_id="5" parts_id="address_1">
+                                        </div>
+                                        <!-- /.p-form__label -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+
+                                    <div class="p-form__cell">
+                                        <!-- 2カラムの場合に.p-form__rowで囲む -->
+                                        <div class="p-form__row">
+                                            <!-- 2カラムの場合に各要素を.p-form__colで囲む -->
+                                            <div class="p-form__col">
+                                                <div class="c-select">
+                                                    <mt:AFormFieldInput aform_id="5" parts_id="address_1">
+                                                </div>
+                                                <!-- /.c-select -->
+                                            </div>
+                                            <!-- /.p-form__col -->
+                                        </div>
+                                        <!-- /.p-form__row -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- /.p-form__table -->
+                                <!-- 市区町村 -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                        <div class="p-form__label">
+                                            <mt:AFormFieldLabel aform_id="5" parts_id="address_2">
+                                        </div>
+                                        <!-- /.p-form__label -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+
+                                    <div class="p-form__cell">
+                                        <div class="c-input">
+                                            <mt:AFormFieldInput aform_id="5" parts_id="address_2">
+                                        </div>
+                                        <!-- /.c-input -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- /.p-form__table -->
+                                <!-- 番地以降 -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                        <div class="p-form__label">
+                                            <mt:AFormFieldLabel aform_id="5" parts_id="address_3">
+                                        </div>
+                                        <!-- /.p-form__label -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+
+                                    <div class="p-form__cell">
+                                        <div class="c-input">
+                                        <mt:AFormFieldInput aform_id="5" parts_id="address_3">
+                                        </div>
+                                        <!-- /.c-input -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- /.p-form__table -->
+                                <!-- 電話番号 -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                        <div class="p-form__label">
+                                            <mt:AFormFieldLabel aform_id="5" parts_id="telnum">
+                                        </div>
+                                        <!-- /.p-form__label -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+
+                                    <div class="p-form__cell">
+                                        <div class="c-input js-form_check" data-label="電話番号">
+                                            <mt:AFormFieldInput aform_id="5" parts_id="telnum">
+                                        </div>
+                                        <!-- /.c-input -->
+                                        <div class="c-error js-error_check">
+                                            <p class="aform-error" id=""></p>
+                                        </div>
+                                        <!-- /.c-error -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- /.p-form__table -->
+                                <!-- FAX -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                        <div class="p-form__label">
+                                            <mt:AFormFieldLabel aform_id="5" parts_id="fax">
+                                        </div>
+                                        <!-- /.p-form__label -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+
+                                    <div class="p-form__cell">
+                                        <div class="c-input">
+                                            <mt:AFormFieldInput aform_id="5" parts_id="fax">
+                                        </div>
+                                        <!-- /.c-input -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- /.p-form__table -->
+                                <!-- E-MAIL -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                        <div class="p-form__label">
+                                            <mt:AFormFieldLabel aform_id="5" parts_id="mailaddress"><span class="required">必須</span>
+                                        </div>
+                                        <!-- /.p-form__label -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+
+                                    <div class="p-form__cell">
+                                        <div class="c-input js-form_check" data-label="E-MAIL">
+                                            <mt:AFormFieldInput aform_id="5" parts_id="mailaddress">
+                                        </div>
+                                        <!-- /.c-input -->
+                                        <div class="c-error js-error_check">
+                                            <p class="aform-error" id=""></p>
+                                        </div>
+                                        <!-- /.c-error -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- /.p-form__table -->
+                                <!-- E-MAIL（確認用）-->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                        <div class="p-form__label">
+                                            <label for="email2" class="aform-label">E-MAIL（確認）<span class="required">必須</span></label>
+                                        </div>
+                                        <!-- /.p-form__label -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+
+                                    <div class="p-form__cell">
+                                        <div class="c-input js-form_check" data-label="E-MAIL">
+                                            <input id="mailaddress2" class="aform-input aform-text required" name="email2" type="email" value="" required="">
+                                        </div>
+                                        <!-- /.c-input -->
+                                        <div class="c-error js-error_check">
+                                            <p class="aform-error" id=""></p>
+                                        </div>
+                                        <!-- /.c-error -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- /.p-form__table -->
+                            </div>
+                            <!-- /.p-form -->
+                        </div>
+                        <!-- /.p-form_content__box -->
+                    </div>
+                    <!-- /.p-form_content__block -->
+                    <div class="p-form_content__block">
+                        <div class="c-middle_heading">
+                            <h3 class="c-middle_heading__text">お問い合わせ詳細</h3>
+                        </div>
+                        <!-- /.c-middle_heading -->
+                        <div class="p-form_content__box">
+                            <div class="p-form">
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                        <div class="p-form__label">
+                                            <mt:AFormFieldLabel aform_id="5" parts_id="contact">
+                                        </div>
+                                        <!-- /.p-form__label -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+
+                                    <div class="p-form__cell">
+                                        <div class="c-textarea">
+                                            <mt:AFormFieldInput aform_id="5" parts_id="contact">
+                                        </div>
+                                        <!-- /.c-textarea -->
+                                        <div class="c-error">
+                                        </div>
+                                        <!-- /.c-error -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- /.p-form__table -->
+                            </div>
+                            <!-- /.p-form -->
+                        </div>
+                        <!-- /.p-form_content__box -->
+                    </div>
+                    <!-- /.p-form_content__block -->
+                    <div class="p-form_content__block">
+                        <div class="p-form_privacy">
+                            <div class="p-form_privacy__text">
+                                <p><a href="/privacy-policy/" target="_blank" rel="noopener">個人情報の取り扱いについて</a>をご確認いただき、よろしければ「個人情報の取り扱いについて同意する」にチェックをして、内容を送信してください。</p>
+                            </div>
+                            <!-- /.p-form_privacy__text -->
+                            <div class="p-form_privacy__check">
+                                <div class="c-check d-flex">
+                                    <mt:AFormFieldInput aform_id="5" parts_id="privacy_check">
+                                    <div><span class="p-form_privacy__required">必須</span></div>
+                                </div>
+                                <!-- /.c-check -->
+                                <div class="c-error js-error_check">
+                                    <p class="aform-error" id=""></p>
+                                </div>
+                                <!-- /.c-error -->
+                            </div>
+                            <!-- /.p-form_privacy__check -->
+                        </div>
+                        <!-- /.p-form_privacy -->
+                    </div>
+                    <!-- /.p-form_content__block -->
+
+                    <div class="p-form_content__block">
+                        <div class="c-submit js-form_submit">
+                            <button type="submit">確認画面へ</button>
+                        </div>
+                    </div>
+                    <!-- /.p-form_content__block -->
+                </div>
+                <!-- /.p-form_content -->
+            </form>
+        </div>
+        <!-- /.l-inner -->
+    </section>
+</main>
+<mt:Include module="footer" parent="1" />
+<mt:Include module="html_foot" parent="1" />
