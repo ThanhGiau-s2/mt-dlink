@@ -1,0 +1,190 @@
+<mt:Ignore>Copyright (c) 2008 ARK-Web Co.,Ltd.</mt:Ignore>
+<MTVersion setvar="mtver">
+<mt:setvar name="screen_id" value="disp_aform_data_body">
+<mt:setvar name="screen_type" value="disp_aform_data_body">
+<mt:setvarblock name="page_title"><mt:var name="display_title" escape="html"></mt:setvarblock>
+<$mt:setvar name="position_actions_bottom" value="1"$>
+
+<mt:setvarblock name="content_header">
+</mt:setvarblock>
+
+<mt:setvarblock name="related_content">
+</mt:setvarblock>
+
+<mt:setvarblock name="js_include" append="1">
+<script type="text/javascript" src="<mt:var name="static_uri">jquery/jquery.min.js"></script>
+<script type="text/javascript" src="<mt:var name="static_uri">jquery/jquery.mt.min.js"></script>
+</mt:setvarblock>
+
+<mt:setvarblock name="html_head" append="1">
+<link rel="stylesheet" type="text/css" href="<mt:var name="plugin_static_uri">edit_aform.css" />
+
+</mt:setvarblock>
+
+<mt:setvarblock name="html_body" append="1">
+</mt:setvarblock>
+
+<mt:setvarblock name="page_title"><__trans phrase="View AForm data"></mt:setvarblock>
+
+
+
+<mt:setvarblock name="close_buttons">
+    <button
+        type="button"
+        accesskey="x"
+        onclick="//parent.jQuery.fn.mtDialog.close()"
+        title="<__trans phrase="Close">"
+        class="action cancel mt-close-dialog btn btn-default"
+        data-dismiss="modal"
+        data-mt-modal-close
+        ><__trans phrase="Close"></button>
+</mt:setvarblock>
+
+<mt:setvarblock name="dialog_close_button">
+    <a
+        accesskey="x"
+        onclick="parent.jQuery.fn.mtDialog.close()"
+        title="<__trans phrase="Close">"
+        class="dialog-close"
+        ></a>
+</mt:setvarblock>
+
+
+
+<mt:setvarblock name="link_disp_aform_data"><$mt:var name="script_url"$>?blog_id=<mt:var name="blog_id">&__mode=disp_aform_data&aform_id=<mt:var name="aform_id">&manage_return_args=<mt:var name="manage_return_args" escape="url">&aform_data_id=</mt:setvarblock>
+
+<mt:setvarblock name="modal_body">
+
+<div class="pagination">
+ <mt:if name="top_id">
+  <a class="pagenav start" href="<mt:var name="link_disp_aform_data"><mt:var name="top_id">">&laquo; <__trans phrase="First" escape="js"></a>
+ <mt:else>
+  <span class="pagenav start disabled start-disabled">&laquo; <__trans phrase="First" escape="js"></span>
+ </mt:if>
+ <mt:if name="prev_id">
+  <a class="pagenav to-start" href="<mt:var name="link_disp_aform_data"><mt:var name="prev_id">">&lsaquo; <__trans phrase="Prev" escape="js"></a>
+ <mt:else>
+  <span class="pagenav to-start disabled to-start-disabled">&lsaquo; <__trans phrase="Prev" escape="js"></span>
+ </mt:if>
+  <span class="current-rows"><mt:var name="current_pos"> / <mt:var name="count_all"></span>
+ <mt:if name="next_id">
+  <a class="pagenav to-end" href="<mt:var name="link_disp_aform_data"><mt:var name="next_id">"><__trans phrase="Next" escape="js"> &rsaquo;</a>
+ <mt:else>
+  <span class="pagenav to-end disabled to-end-disabled"><__trans phrase="Next" escape="js"> &rsaquo;</span>
+ </mt:if>
+ <mt:if name="last_id">
+  <a class="pagenav end" href="<mt:var name="link_disp_aform_data"><mt:var name="last_id">"><__trans phrase="Last" escape="js"> &raquo;</em></a>
+ <mt:else>
+  <span class="pagenav end disabled end-disabled"><__trans phrase="Last" escape="js"> &raquo;</span>
+ </mt:if>
+</div>
+
+
+
+
+<h3><mt:var name="aform_name" escape="html">(<mt:var name="aform_disp_id" escape="html">)<__trans phrase="Received data detail"></h3>
+<div class="list-wrapper clear" style="position: relative;">
+<div class="listing mt-table--outline">
+<table cellspacing="0" class="list-heading compact table mt-table" id="assetDisplay">
+<thead>
+<tr>
+<th scope="col"><__trans phrase="Field Name"></th>
+<th scope="col"><__trans phrase="Entry Data"></th>
+</tr>
+</thead>
+<tbody>
+<mt:loop name="datas">
+
+  <tr<mt:if name="__even__"> class="even"</mt:if>>
+   <td>
+     <mt:var name="label" escape="html">
+   </td>
+   <td>
+   <mt:if name="type" eq="upload">
+     <mt:if name="upload_id">
+       <a href="<mt:var name="script_url">?blog_id=<mt:var name="blog_id">&__mode=download_aform_file&id=<mt:var name="file_id">"><mt:var name="value" escape="html"><br />(<mt:var name="upload_path" escape="html">)</a>
+       <mt:var name="upload_size" escape="html">
+     </mt:if>
+   <mt:elseif name="type" eq="email">
+     <a href="mailto:<mt:var name="value" escape="html">"><mt:var name="value" escape="html"></a>
+   <mt:else>
+     <mt:var name="value" escape="html">
+   </mt:if>
+   </td>
+  </tr>
+</mt:loop>
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+
+</mt:setvarblock>
+
+
+<mt:setvarblock name="modal_footer">
+<form method="post" action="<$mt:var name="script_url"$>" target="_parent" class="edit_aform_data_status_form">
+<input type="hidden" name="__mode" value="update_aform_data_status_and_comment" />
+<input type="hidden" name="blog_id" value="<$mt:var name="blog_id"$>" />
+<input type="hidden" name="aform_id" value="<$mt:var name="aform_id"$>" />
+<input type="hidden" name="aform_data_id" value="<$mt:var name="aform_data_id"$>" />
+<input type="hidden" name="return_args" value="<$mt:var name="manage_return_args"$>" />
+
+<div class="edit_aform_data_status">
+<table border="0">
+<tr>
+  <td><__trans phrase="Received Status"></td>
+  <td>
+<mt:if name="can_change_aform_data_status">
+    <select name="status" class="custom-select form-control">
+      <option value=""></option>
+<mt:loop name="data_status_options">
+      <option value="<mt:var name="__value__">"<mt:if name="__value__" eq="$status"> selected="selected"</mt:if>><mt:var name="__value__"></option>
+</mt:loop>
+    </select>
+<mt:else>
+    <mt:var name="status" escape="html">
+</mt:if>
+  </td>
+</tr>
+<tr>
+  <td><__trans phrase="Received Comment"></td>
+  <td>
+<mt:if name="can_change_aform_data_status">
+    <textarea name="comment" class="form-control"><mt:var name="comment"></textarea>
+<mt:else>
+    <mt:var name="comment" escape="html" nl2br="1">
+</mt:if>
+  </td>
+</tr>
+</table>
+
+<div class="action-bar">
+<mt:if name="can_change_aform_data_status">
+    <button
+        type="submit"
+        title="<__trans phrase="Save AForm Data Status and Comment">"
+        class="action primary-button btn btn-primary"
+        ><__trans phrase="Update"></button>
+</mt:if>
+    <span class="button-actions actions">
+    <$mt:var name="close_buttons"$>
+    </span>
+</div>
+
+</div>
+</form>
+</mt:setvarblock>
+
+<mt:if name="mtver" ge="7">
+  <mt:include name="layout/modal.tmpl">
+  <mt:var name="layout">
+<mt:else>
+  <mt:include name="dialog/header.tmpl">
+  <mt:var name="dialog_close_button">
+  <mt:var name="modal_body">
+  <mt:include name="dialog/footer.tmpl">
+</mt:if>

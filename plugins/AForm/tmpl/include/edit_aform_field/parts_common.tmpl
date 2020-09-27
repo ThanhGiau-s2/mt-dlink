@@ -1,0 +1,72 @@
+<div class="collapse mt-collapse__content %%field_show%%" id="field%%field_idx%%-content" style="width:100%">
+
+<mt:if name="display_label">
+	<div class="form-group">
+		<label for="aformFieldEditLabelText%%field_idx%%"><__trans phrase="Field name"></label>
+	<mt:if name="field_label_multi_line">
+		<textarea class="form-control aform-field-edit-label-text" id="aformFieldEditLabelText%%field_idx%%">%%field_label%%</textarea>
+	<mt:else>
+		<input type="text" class="form-control aform-field-edit-label-text" id="aformFieldEditLabelText%%field_idx%%" value="%%field_label%%">
+	</mt:if>
+	</div>
+</mt:if>
+
+<mt:if name="display_parts_id">
+	<div class="form-group">
+		<label for="aformFieldEditPartsIdText%%field_idx%%"><__trans phrase="parts id"></label>
+		<input type="text" class="form-control aform-field-edit-parts-id-text" id="aformFieldEditPartsIdText%%field_idx%%" value="%%parts_id%%">
+	</div>
+</mt:if>
+
+<mt:if name="display_required">
+	<div class="form-group">
+		<label for="aformFieldNecessary%%field_idx%%"><__trans phrase="Required"><mt:if name="force_required"> (<__trans phrase="Not allowed to change">)</mt:if></label>
+		<input ref="required" type="checkbox" class="mt-switch form-control aform-field-necessary" id="aformFieldNecessary%%field_idx%%" name="required" value="1" %%field_necessary_checked%% <mt:if name="force_required">disabled="disabled"</mt:if>>
+		<label for="aformFieldNecessary%%field_idx%%"><__trans phrase="Required"></label>
+	</div>
+</mt:if>
+
+<mt:if name="display_input_example">
+	<div class="form-group">
+		<label for="aformFieldInputExample%%field_idx%%"><__trans phrase="Input example"></label>
+		<input type="text" class="form-control aform-field-edit-input-example-text" id="aformFieldEditInputExampleText%%field_idx%%" value="%%field_input_example%%">
+	</div>
+</mt:if>
+
+<mt:If name="display_length">
+	<div class="form-group">
+		<label for="aformFieldEditMinLengthText%%field_idx%%"><__trans phrase="Min/Max length"></label>
+		<div class="form-inline">
+			<input type="text" class="form-control w-10 aform-field-edit-min-length-text" id="aformFieldEditMinLengthText%%field_idx%%" value="%%field_min_length%%">
+			<span class="ml-sm-3 mr-sm-3"><__trans phrase=" - "></span>
+			<input type="text" class="form-control w-10 aform-field-edit-max-length-text" id="aformFieldEditMaxLengthText%%field_idx%%" value="%%field_max_length%%">
+		</div>
+	</div>
+</mt:if>
+
+<mt:if name="display_default">
+	<div class="form-group">
+		<label for="aformField%%field_idx%%"><__trans phrase="Default value"></label>
+	<mt:if name="field_default_multi_line">
+		<textarea class="form-control aform-field-default-text" id="aformField%%field_idx%%">%%field_default_text%%</textarea>
+	<mt:else>
+		<input type="text" class="form-control aform-field-default-text" id="aformField%%field_idx%%" value="%%field_default_text%%">
+	</mt:if>
+	</div>
+</mt:If>
+
+<mt:if name="display_require_hyphen">
+	<div class="form-group">
+		<label for="aformFieldRequireHyphen%%field_idx%%"><__trans phrase="Require Hyphen"></label>
+		<input ref="required" type="checkbox" class="mt-switch form-control aform-field-require-hyphen" id="aformFieldRequireHyphen%%field_idx%%" value="1">
+		<label for="aformFieldRequireHyphen%%field_idx%%"><__trans phrase="Require Hyphen"></label>
+	</div>
+</mt:if>
+
+<mt:if name="display_only_ascii">
+	<div class="form-group">
+		<label for="aformFieldTextOnlyAscii%%field_idx%%"><__trans phrase="Only ascii characters"></label>
+		<input ref="required" type="checkbox" class="mt-switch form-control aform-field-text-only-ascii" id="aformFieldTextOnlyAscii%%field_idx%%" value="1">
+		<label for="aformFieldTextOnlyAscii%%field_idx%%"><__trans phrase="Only ascii characters"></label>
+	</div>
+</mt:if>

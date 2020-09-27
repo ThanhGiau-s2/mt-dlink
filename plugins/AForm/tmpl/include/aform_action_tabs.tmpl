@@ -1,0 +1,47 @@
+<__trans_section component="AForm">
+        <div id="aform-field-editor-header">
+            <ul class="nav mt-tabs" id="myTab" role="tablist" mt:delegate="tab-container">
+<mt:if name="can_edit_aform_field">
+                <li class="nav-item">
+                    <a href="<$mt:var name="script_url"$>?blog_id=<mt:var name="current_blog_id">&__mode=edit_aform_field&amp;id=<$mt:var name="current_aform_id"$>" class="nav-link<mt:if name="current_mode" eq="edit_aform_field"> active</mt:if>"><span><__trans phrase="Edit Field"></span></a>
+                </li>
+</mt:if>
+<mt:if name="can_edit_aform">
+                <li class="nav-item">
+                    <a href="<$mt:var name="script_url"$>?blog_id=<mt:var name="current_blog_id">&__mode=edit_aform&amp;id=<$mt:var name="current_aform_id"$>" class="nav-link<mt:if name="current_mode" eq="edit_aform"> active</mt:if>"><span><__trans phrase="Config Form"></span></a>
+                </li>
+</mt:if>
+<mt:if name="can_manage_aform_data">
+<mt:unless name="is_amember_form">
+                <li class="nav-item">
+                    <a href="<$mt:var name="script_url"$>?blog_id=<mt:var name="current_blog_id">&__mode=manage_aform_data&amp;id=<$mt:var name="current_aform_id"$>" class="nav-link<mt:if name="current_mode" eq="manage_aform_data"> active</mt:if>"><span><__trans phrase="Manage Data"></span></a>
+                </li>
+</mt:unless>
+</mt:if>
+<mt:if name="can_list_aform_input_error">
+                <li class="nav-item">
+                    <a href="<$mt:var name="script_url"$>?blog_id=<mt:var name="current_blog_id">&__mode=list_aform_input_error&amp;id=<$mt:var name="current_aform_id"$>" class="nav-link<mt:if name="current_mode" eq="list_aform_input_error"> active</mt:if>"><span><__trans phrase="List A-Form Input Error"></span></a>
+                </li>
+</mt:if>
+<mt:if name="can_list_aform_entry">
+                <li class="nav-item">
+                    <a href="<$mt:var name="script_url"$>?blog_id=<mt:var name="current_blog_id">&__mode=list_aform_entry&amp;id=<$mt:var name="current_aform_id"$>" class="nav-link<mt:if name="current_mode" eq="list_aform_entry"> active</mt:if>"><span><__trans phrase="Place AForm"></span></a>
+                </li>
+</mt:if>
+<mt:if name="aform_reserve_installed">
+<mt:if name="can_aform_reserve">
+                <li class="nav-item">
+                    <a href="<$mt:var name="script_url"$>?blog_id=<mt:var name="current_blog_id">&__mode=list_aform_reserve_plan&amp;aform_id=<$mt:var name="current_aform_id"$>" class="nav-link<mt:if name="current_mode" eq="aform_reserve"> active</mt:if>"><span><__trans phrase="Manage A-Form Reserve"></span></a>
+                </li>
+</mt:if>
+</mt:if>
+<mt:if name="aform_payment_installed">
+<mt:if name="can_aform_payment">
+                <li class="nav-item">
+                    <a href="<$mt:var name="script_url"$>?blog_id=<mt:var name="current_blog_id">&__mode=edit_aform_payment&amp;id=<$mt:var name="current_aform_id"$>" class="nav-link<mt:if name="current_mode" eq="aform_payment"> active</mt:if>"><span><__trans phrase="Manage A-Form Payment"></span></a>
+                </li>
+</mt:if>
+</mt:if>
+            </ul>
+        </div>
+</__trans_section>

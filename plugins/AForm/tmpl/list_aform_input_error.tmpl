@@ -1,0 +1,353 @@
+<mt:Ignore>Copyright (c) 2008 ARK-Web Co.,Ltd.</mt:Ignore>
+<mt:setvarblock name="page_title"><$mt:var name="display_title" escape="html"$></mt:setvarblock>
+<mt:setvarblock name="system_msg">
+    <div id="msg-container">
+    <mt:if name="dynamic_all">
+        <mt:setvar name="rebuild" value="">
+    <mt:else>
+        <mt:if name="blog_id">    
+            <mt:setvar name="rebuild" value="all">
+        <mt:else>
+            <mt:setvar name="rebuild" value="">
+        </mt:if>
+    </mt:if>
+    <mt:if name="saved">
+        <mtapp:statusmsg
+            id="saved"
+            class="success"
+            rebuild="$rebuild">
+            <__trans phrase="Your changes have been saved.">
+        </mtapp:statusmsg>
+    </mt:if>
+    <mt:if name="cleared_aform_access">
+        <mtapp:statusmsg
+            id="saved-deleted"
+            class="success"
+            rebuild="$rebuild">
+            <__trans phrase="Your access report has been deleted from the database.">
+        </mtapp:statusmsg>
+    </mt:if>
+    <mt:if name="cleared_aform_input_error">
+        <mtapp:statusmsg
+            id="saved-deleted"
+            class="success"
+            rebuild="$rebuild">
+            <__trans phrase="Your input error has been deleted from the database.">
+        </mtapp:statusmsg>
+    </mt:if>
+    </div>
+</mt:setvarblock>
+<mt:setvarblock name="html_body_footer">
+<mt:ignore><$mt:include name="include/display_options.tmpl"$></mt:ignore>
+</mt:setvarblock>
+<mt:setvarblock name="html_head" append="1">
+<link rel="stylesheet" type="text/css" href="<mt:var name="plugin_static_uri">edit_aform.css" />
+<script type="text/javascript">
+<!--
+function enableFilterButton(fld) {
+    if (fld && (fld.id == "author_id-val")) {
+        var opt = fld.options[fld.selectedIndex];
+        if (opt.id == 'filter-user-search') {
+            window.location = ScriptURI + '?__mode=search_replace&_type=author';
+        } else {
+            if (opt.value == "") {
+                getByID("filter-button").style.display = "none";
+                return;
+            }
+        }
+    } else if (fld && (fld.id == "filter-col")) {
+        var opt = fld.options[fld.selectedIndex];
+        if (opt.value == 'author_id') {
+            var authfld = getByID("author_id-val");
+            var authopt = authfld.options[authfld.selectedIndex];
+            if (authopt.value == "") {
+                getByID("filter-button").style.display = "none";
+                return;
+            }
+        }
+    }
+    getByID("filter-button").style.display = "inline";
+}
+
+function toggleFilter() {
+    var filterActive = getByID("filter-title");
+    if (filterActive.style.display == "none") {
+        filterActive.style.display = "block";
+        getByID("filter-select").style.display = "none";
+    } else {
+        filterActive.style.display = "none";
+        getByID("filter-select").style.display = "block";<mt:unless name="filter">setFilterCol('status');</mt:unless>
+    }
+}
+
+function setFilterCol(choice) {
+    var sel = getByID('filter-select');
+    if (!sel) return;
+    sel.className = "filter-" + choice;
+    if (choice != 'none') {
+        var fld = getByID('filter-col');
+        if (choice == 'status')
+            fld.selectedIndex = 0;
+        else if (choice == 'author_id')
+            fld.selectedIndex = 1;
+        else if (choice == 'exacttag')
+            fld.selectedIndex = 2;
+        else if (choice == 'normalizedtag')
+            fld.selectedIndex = 3;
+        else if (choice == 'category_id')
+            fld.selectedIndex = 4;
+        col_span = getByID("filter-text-col");
+        if (fld.selectedIndex > -1 && col_span)
+            col_span.innerHTML = '<strong>' + fld.options[fld.selectedIndex].text + '</strong>';
+    }
+}
+
+var tableSelect;
+function init()
+{
+<mt:unless name="is_power_edit">
+    // setup
+    tableSelect = new TC.TableSelect( "<mt:var name="object_type">-listing-table" );
+    tableSelect.rowSelect = true;
+</mt:unless>
+
+    setFilterCol(<mt:if name="filter">'<mt:var name="filter">'<mt:else>'none'</mt:if>);<mt:if name="filter">
+    setFilterVal('<mt:var name="filter_val">');
+</mt:if>
+}
+
+TC.attachLoadEvent( init );
+// -->
+</script>
+</mt:setvarblock>
+
+<mt:setvarblock name="list_filter_form">
+<mt:if name="is_power_edit">
+    <div class="filter">
+        <div id="filter-title">
+            &laquo;&nbsp;<a href="<mt:var name="script_url">?__mode=<mt:var name="mode">&amp;blog_id=<mt:var name="blog_id">&amp;is_power_edit=0"><__trans phrase="Go back"></a>
+        </div>
+    </div>
+<mt:else>
+    <div class="listing-filter">
+        <div class="listing-filter-inner inner pkg">
+<form id="filter-form" method="get" action="<mt:var name="mt_url">">
+    <input type="hidden" name="__mode" value="<mt:var name="mode">" />
+    <mt:if name="blog_id">
+    <input type="hidden" name="blog_id" value="<mt:var name="blog_id">" />
+    </mt:if>
+    <mt:if name="is_power_edit">
+    <input type="hidden" name="is_power_edit" value="1" />
+    </mt:if>
+    <input id="filter" type="hidden" name="filter" value="" />
+    <input id="filter_val" type="hidden" name="filter_val" value="" />
+</form>
+<form id="filter-select-form" method="get" onsubmt="return execFilter(this)">
+    <div class="filter">
+        <div id="filter-title">
+        <mt:if name="filter_key">
+            <strong><__trans phrase="Showing only: [_1]" params="<mt:var name="filter_label">"></strong>
+            <a class="filter-link" href="<mt:var name="script_url">?__mode=<mt:var name="mode"><mt:if name="blog_id">&amp;blog_id=<mt:var name="blog_id"></mt:if><mt:if name="is_power_edit">&amp;is_power_edit=1</mt:if>">[ <__trans phrase="Remove filter"> ]</a>
+        <mt:else>
+            <mt:unless name="filter">
+            <strong><__trans phrase="All [_1]" params="<$mt:var name="object_label_plural"$>"></strong>
+<!--            <a href="javascript:void(0)" onclick="toggleFilter()" class="filter-link">[ <__trans phrase="change"> ]</a>-->
+            <mt:else>
+            <strong><a href="javascript:void(0)" onclick="toggleFilter()"><__trans phrase="[_1] where [_2] is [_3]" params='<$mt:var name="object_label_plural"$>%%<span id="filter-text-col">&nbsp;</span>%%<span id="filter-text-val"></span>'></a></strong>
+            <a href="<mt:var name="script_url">?__mode=<mt:var name="mode"><mt:if name="blog_id">&amp;blog_id=<mt:var name="blog_id"></mt:if><mt:if name="is_power_edit">&amp;is_power_edit=1</mt:if>" class="filter-link">[ <__trans phrase="Remove filter"> ]</a>
+            </mt:unless>
+        </mt:if>
+        </div>
+        <div id="filter-select" class="page-title" style="display: none">
+            <__trans phrase="Show only [_1] where" params="<mt:var name="object_label_plural" lower_case="1">">
+            <!-- start filter form -->
+                <select id="filter-col" name="filter" onchange="setFilterCol(this.options[this.selectedIndex].value);enableFilterButton(this)">
+                    <option value="status"><__trans phrase="status"></option>
+                    <option value="author_id"><__trans phrase="user"></option>
+                    <option value="exacttag"><__trans phrase="tag (exact match)"></option>
+                    <option value="normalizedtag"><__trans phrase="tag (fuzzy match)"></option>
+    <mt:if name="category_loop">
+                    <option value="category_id"><mt:var name="container_label"></option>
+    </mt:if>
+                </select>
+                <__trans phrase="is">
+                <span id="filter-status" style="display: none">
+                    <select id="status-val" name="filter_val" onchange="enableFilterButton()">
+                        <option value="2"><__trans phrase="published"></option>
+                        <option value="1"><__trans phrase="unpublished"></option>
+                        <option value="4"><__trans phrase="scheduled"></option>
+                    </select>
+                </span>
+                <span id="filter-exacttag" style="display: none">
+                    <input type="text" id="exacttag-val" name="filter_val" value="<mt:if name="filter_col_exacttag"><mt:var name="filter_val" escape="html"></mt:if><mt:if name="filter_col_normalizedtag"><mt:var name="filter_val" escape="html"></mt:if>" onchange="enableFilterButton()" onkeypress="enableFilterButton()" />
+                </span>
+                <span id="filter-normalizedtag" style="display: none">
+                    <input type="text" id="normalizedtag-val" name="filter_val" value="<mt:if name="filter_col_exacttag"><mt:var name="filter_val" escape="html"></mt:if><mt:if name="filter_col_normalizedtag"><mt:var name="filter_val" escape="html"></mt:if>" onchange="enableFilterButton()" onkeypress="enableFilterButton()" />
+                </span>
+    <mt:if name="category_loop">
+                <span id="filter-category_id" style="display: none">
+                    <select id="category_id-val" name="filter_val" onchange="enableFilterButton()">
+        <mt:loop name="category_loop">
+                        <option value="<mt:var name="category_id">"><mt:var name="category_label_spacer"><mt:var name="category_label"></option>
+        </mt:loop>
+                    </select>
+                </span>
+    </mt:if>
+                <span id="filter-author_id" style="display: none">
+                    <select id="author_id-val" name="filter_val" onchange="enableFilterButton(this)">
+                        <option value=""><__trans phrase='Select A User:'></option>
+                        <option id="filter-user-search" value=""><__trans phrase='User Search...'></option>
+                        <optgroup label="<__trans phrase='Recent Users...'>" value="">
+    <mt:loop name="entry_author_loop">
+                            <option value="<mt:var name="author_id">"><mt:var name="author_name" escape="html"></option>
+    </mt:loop>
+                        </optgroup>
+                    </select>
+                </span>
+            <!-- end of filter form -->
+            <span class="buttons">
+                <a href="javascript:void(0)"
+                    id="filter-button"
+                    onclick="return execFilter(getByID('filter-select-form'))"
+                    type="submit"
+                    ><__trans phrase="Filter"></a>
+                <a href="javascript:void(0)"
+                    onclick="toggleFilter(); return false;"
+                    type="submit"
+                    ><__trans phrase="Cancel"></a>
+            </span>
+        </div>
+    </div>
+</form>
+    </div>
+</div>
+</mt:if>
+</mt:setvarblock>
+
+<mt:setvarblock name="js_include" append="1">
+<script type="text/javascript" src="<mt:var name="plugin_static_uri">js/edit_aform/config_form.js"></script>
+<script type="text/javascript">
+jQuery(document).ready(function() {
+	jQuery('#pagination-top').addClass('pagination');
+	jQuery('#pagination-top').closest('div').addClass('col-12');
+	jQuery('div.mt-table--outline').after(jQuery('#actions-bar-top'));
+	jQuery('#actions-bar-top').addClass('mt-3');
+});
+</script>
+</mt:setvarblock>
+
+<mt:setvarblock name="html_head" append="1">
+<style>
+#aform_input_error-listing-table{
+    table-layout: fixed;
+}
+</style>
+</mt:setvarblock>
+
+<mt:setvarblock name="page_content">
+
+    <mt:if name="id">
+    <nav aria-label="A-Form Navigation" id="entry-nav" class="pkg clearfix">
+        <ul class="pagination float-right inline-nav right">
+            <li class="page-item" id="previous-link"><mt:if name="previous_aform_id"><a href="<$mt:var name="script_url"$>?__mode=list_aform_input_error&amp;id=<$mt:var name="previous_aform_id"$>&amp;blog_id=<$mt:var name="blog_id"$>" class="page-link"><__trans phrase="Previous"></a></mt:if></li>
+            <li class="page-item" id="manage-link"><a href="<$mt:var name="script_url"$>?__mode=manage_aform&amp;blog_id=<$mt:var name="blog_id"$>" class="page-link"><__trans phrase="Manage A-Form"></a></li>
+            <li class="page-item" id="next-link"><mt:if name="next_aform_id"><a href="<$mt:var name="script_url"$>?__mode=list_aform_input_error&amp;id=<$mt:var name="next_aform_id"$>&amp;blog_id=<$mt:var name="blog_id"$>" class="page-link"><__trans phrase="Next"></a></mt:if></li>
+        </ul>
+    </nav>
+    </mt:if>
+
+<mt:var name="aform_action_tabs">
+
+<div class="listing">
+<h3><__trans phrase="Access Info Summary"></h3>
+<p><__trans phrase="Access Info Summary Description"></p>
+<div class="access-summary mt-widget">
+<mt:if name="mobile_installed">
+  <h2 class="mt-widget__title">
+    <__trans phrase="PC">
+  </h2>
+</mt:if>
+  <div class="mt-widget__content row">
+    <div class="mt-widget__data"><__trans phrase="Session Count"><br><strong class="number"><mt:var name="session"></strong></div>
+    <div class="mt-widget__data"><__trans phrase="Page View"><br><strong class="number"><mt:var name="pv"></strong></div>
+    <div class="mt-widget__data"><__trans phrase="Conversion Count"><br><strong class="number"><mt:var name="conversion_count"></strong></div>
+    <div class="mt-widget__data"><__trans phrase="Conversion Rate"> <br><strong class="number"><mt:var name="conversion_rate"></strong></div>
+  </div>
+</div>
+
+<mt:if name="mobile_installed">
+<div class="access-summary mt-widget">
+  <h2 class="mt-widget__title">
+    <__trans phrase="Mobile">
+  </h2>
+  <div class="mt-widget__content row">
+    <div class="mt-widget__data"><__trans phrase="Session Count"><br><strong class="number">-</strong></div>
+    <div class="mt-widget__data"><__trans phrase="Page View"><br><strong class="number"><mt:var name="mobile_pv"></strong></div>
+    <div class="mt-widget__data"><__trans phrase="Conversion Count"><br><strong class="number"><mt:var name="mobile_conversion_count"></strong></div>
+    <div class="mt-widget__data"><__trans phrase="Conversion Rate"> <br><strong class="number"><mt:var name="mobile_conversion_rate"></strong></div>
+  </div>
+</div>
+</mt:if>
+
+
+<__trans phrase="Conversion Rate Help">
+<mt:if name="can_clear_aform_access">
+<div class="form-group">
+  <a class="icon-left icon-action last-child" href="<mt:var name="script_url">?__mode=clear_aform_access&amp;id=<mt:var name="id">&amp;blog_id=<mt:var name="blog_id">&amp;magic_token=<mt:var name="magic_token">" onclick="return confirm('<__trans phrase="Are you sure you want to clear the data?">');">
+  <mtapp:svgicon id="ic_trash" title="" size="sm">
+  <__trans phrase="Clear access report"></a>
+</div>
+</mt:if>
+</div>
+
+<hr class="clear" />
+
+<h3><__trans phrase="Input Error Log"></h3>
+<p><__trans phrase="Input Error Log Description"></p>
+<mt:if name="can_export_aform_input_error">
+<form name="form_export_aform_input_error" action="<mt:var name="script_url">">
+  <input type="hidden" name="__mode" value="export_aform_input_error" />
+  <input type="hidden" name="magic_token" value="<mt:var name="magic_token">" id="m_t" />
+  <input type="hidden" name="id" value="<mt:var name="id" escape="html">" />
+  <input type="hidden" name="blog_id" value="<mt:var name="blog_id" escape="html">" />
+  <div class="form-group">
+    <div class="custom-control custom-radio">
+      <input type="radio" class="custom-control-input" name="charset" id="charset_sjis" value="shift_jis" <mt:if name="charset" eq="shift_jis">checked="checked"</mt:if> />
+      <label class="custom-control-label" for="charset_sjis"><__trans phrase="Shift-JIS"></label>
+    </div>
+    <div class="custom-control custom-radio">
+      <input type="radio" class="custom-control-input" name="charset" id="charset_utf8" value="utf-8" <mt:if name="charset" eq="utf-8">checked="checked"</mt:if> />
+      <label class="custom-control-label" for="charset_utf8"><__trans phrase="UTF-8"></label>
+    </div>
+    <button
+      id="btn_export_aform_input_error"
+      type="submit"
+      title="<__trans phrase="Download CSV Data">"
+      class="button btn btn-primary mt-4"
+      ><__trans phrase="Download CSV Data"></button>
+  </div>
+</form>
+</mt:if>
+<mt:if name="can_clear_aform_input_error">
+<div class="form-group">
+  <a class="icon-left icon-action last-child" href="<mt:var name="script_url">?__mode=clear_aform_input_error&amp;id=<mt:var name="id">&amp;blog_id=<mt:var name="blog_id">&amp;magic_token=<mt:var name="magic_token">" onclick="return confirm('<__trans phrase="Are you sure you want to clear the data?">');">
+  <mtapp:svgicon id="ic_trash" title="" size="sm">
+  <__trans phrase="Clear input error report"></a>
+</div>
+</mt:if>
+<$mt:include name="include/aform_input_error_table.tmpl"$>
+</mt:setvarblock>
+
+<MTVersion setvar="mtver">
+<mt:if name="mtver" ge="7">
+  <mt:include name="layout/default.tmpl">
+  <mt:var name="layout">
+<mt:else>
+  <mt:setvarblock name="html_head" append="1">
+<link rel="stylesheet" type="text/css" href="<mt:var name="plugin_static_uri">edit_aform.css" />
+  </mt:setvarblock>
+  <mt:include name="include/header.tmpl" id="header_include">
+  <mt:var name="page_content">
+  <mt:var name="related_content">
+  <mt:include name="include/footer.tmpl" id="footer_include">
+</mt:if>

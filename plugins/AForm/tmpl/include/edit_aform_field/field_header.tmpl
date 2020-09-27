@@ -1,0 +1,14 @@
+<div class="mt-draggable aform-field" draggable="true" aria-grabbed="false" data-drag-field-idx="%%field_idx%%">
+<div class="tool-block">
+	<div class="col-auto"><mtapp:svgicon id="ic_move" title="<__trans phrase="Move">"></div>
+	<div class="col form-inline"><mtapp:svgicon id="ic_contentstype" title="" size="secondary">
+		<span class="aform-field-label parts-%%field_idx%%" id="aformFieldLabel%%field_idx%%">%%field_label%%</span>
+		<span class="aform-parts-id parts-%%field_idx%%">(%%parts_id%%)</span>
+		<span class="aform-required parts-%%field_idx%% last-child" style="display:%%field_required_display%%"><__trans phrase="Required"></span>
+	</div>
+	<div class="col-auto">
+		<a href="#" class="aform-field-copy" id="aformFieldCopy%%field_idx%%"><mtapp:svgicon id="ic_duplicate" title="<__trans phrase="Clone">" size="secondary"></a>
+		<a href="#" class="aform-field-delete" id="aformFieldDelete%%field_idx%%"><mtapp:svgicon id="ic_trash" title="<__trans phrase="Remove">" size="secondary"></a>
+		<a id="aformFieldOpen%%field_idx%%" class="aform-field-open" data-toggle="collapse" href="#field%%field_idx%%-content" aria-expanded="%%aria_expanded%%" aria-controls="<mt:Var name="___collapse">"><mtapp:svgicon id="ic_collapse" title="<__trans phrase="Collapse">" size="secondary"></a>
+	</div>
+</div>

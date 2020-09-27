@@ -1,0 +1,60 @@
+<mt:Ignore>Copyright (c) 2008 ARK-Web Co.,Ltd.</mt:Ignore>
+<mt:setvarblock name="action_buttons">
+</mt:setvarblock>
+
+<mt:setvar name="current_blog_id" value="$blog_id">
+<mtapp:listing empty_message="<__trans phrase="No A-Form could be found.">">
+    <mt:if name="__first__">
+    <thead>
+        <tr>
+            <th id="bt-operation" class="col head"><span class="col-label"><__trans phrase="Operation"></span></th>
+            <th id="bt-id" class="col head"><span class="col-label"><__trans phrase="Id"></span></th>
+            <th id="bt-title" class="primary-col col head"><span class="col-label"><__trans phrase="Title"></span></th>
+            <th id="bt-blog" class="col head"><span class="col-label"><__trans phrase="Blog"></span></th>
+            <th id="bt-status" class="col head"><span class="col-label"><__trans phrase="Form Status"></span></th>
+            <th id="bt-conversion-rate" class="col head"><span class="col-label"><__trans phrase="Conversion Rate"></span></th>
+            <th id="bt-preview" class="view col head"><span class="col-label"><__trans phrase="Preview"></span></th>
+            <th id="bt-place" class="col head"><span class="col-label"><__trans phrase="Place AForm"></span></th>
+        </tr>
+    </thead>
+    <tbody>
+    </mt:if>
+        <tr class="<mt:if name="__odd__">odd<mt:else>even</mt:if>">
+            <td class="col">
+<mt:if name="can_copy_aform">
+            <a href="<mt:var name="script_url">?blog_id=<mt:var name="current_blog_id">&__mode=copy_aform&id=<mt:var name="id">" onclick="return confirm('<__trans phrase="Are you sure you want to Copy the A-Form?">\n\n<mt:if name="current_blog_id" gt="0"><__trans phrase="Warning: Copy a new form in the [_1]." params="<mt:var name="current_blog_name">"><mt:else><__trans phrase="Warning: Copy a new form in the System."></mt:if>');">[<__trans phrase="copy">]</a>
+</mt:if>
+<mt:if name="can_delete_aform">
+  <mt:unless name="is_amember_form">
+            <a href="<mt:var name="script_url">?blog_id=<mt:var name="current_blog_id">&__mode=delete_aform&id=<mt:var name="id">" onclick="return confirm('<__trans phrase="Are you sure you want to Delete the A-Form?">');">[<__trans phrase="delete">]</a>
+  </mt:unless>
+</mt:if>
+            </td>
+            <td class="col"><mt:var name="disp_id" escape="html"></td>
+            <td class="col">
+<mt:if name="can_edit_aform">
+  <a href="<mt:var name="script_url">?blog_id=<mt:var name="current_blog_id">&__mode=edit_aform_field&amp;id=<mt:var name="id">"><mt:var name="title" escape="html"></a>
+<mt:elseif name="can_manage_aform_data">
+  <a href="<mt:var name="script_url">?blog_id=<mt:var name="current_blog_id">&__mode=manage_aform_data&amp;id=<mt:var name="id">"><mt:var name="title" escape="html"></a>
+<mt:elseif name="can_list_aform_input_error">
+  <a href="<mt:var name="script_url">?blog_id=<mt:var name="current_blog_id">&__mode=list_aform_input_error&amp;id=<mt:var name="id">"><mt:var name="title" escape="html"></a>
+<mt:else>
+  <mt:var name="title" escape="html">
+</mt:if>
+<mt:if name="is_amember_form">(*)</mt:if>
+            </td>
+            <td class="col"><mt:var name="blog_name"></td>
+            <td class="col"><mt:if name="can_edit_aform" eq="1"><a href="<mt:var name="script_url">?__mode=change_aform_status&amp;id=<mt:var name="id">&amp;blog_id=<mt:var name="current_blog_id">" title="<mt:if name="status" eq="2"><__trans phrase="Unpublish this form."><mt:else><__trans phrase="Publish this form."></mt:if>"></mt:if><mt:var name="status_label" escape="html"><mt:if name="can_publish_aform" eq="1"></a></mt:if></td>
+            <td class="col"><mt:if name="can_list_aform_input_error"><a href="<mt:var name="script_url">?blog_id=<mt:var name="current_blog_id">&__mode=list_aform_input_error&amp;id=<mt:var name="id">" title="<__trans phrase="conversion rate description">"><mt:var name="conversion_rate"></a><mt:else><mt:var name="conversion_rate"></mt:if></td>
+            <td class="col view si status-view"><mt:if name="can_preview_aform"><a href="<mt:var name="script_url">?__mode=disp_aform&id=<mt:var name="id">&blog_id=<mt:var name="current_blog_id">" class="mt-open-dialog" title="<__trans phrase="preview this form">"><img src="<$mt:var name="static_uri"$>images/spacer.gif" alt="<__trans phrase="preview this form">" width="13" height="9" /></a></mt:if></td>
+            <td class="col"><mt:if name="can_list_aform_entry"><a href="<mt:var name="script_url">?blog_id=<mt:var name="current_blog_id">&__mode=list_aform_entry&amp;id=<mt:var name="id">"><mt:var name="number_of_entry"></a><mt:else><mt:var name="number_of_entry"></mt:if></td>
+        </tr>
+    <mt:if name="__last__">
+    </tbody>
+    </mt:if>
+<!--<mt:var name="id"><br/>-->
+<!--<mt:var name="title">-->
+</mtapp:listing>
+<mt:if name="is_amember_installed">
+<p><__trans phrase="(*) is User Registlation Form."></p>
+</mt:if>

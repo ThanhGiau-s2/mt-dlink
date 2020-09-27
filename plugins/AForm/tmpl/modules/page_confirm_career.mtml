@@ -1,0 +1,1009 @@
+<mt:Ignore>
+========================================
+Template Name : index.html
+Template Type : Main Index Template
+Template Note : トップページ出力用
+========================================
+</mt:Ignore>
+<mt:SetVars>
+    base_description=世界 71カ国、187 拠点を有する世界的なネットワーク機器メーカーD-Linkは、インターネット黎明期の1986年創業の老舗メーカーの1社です。エントリーレベルからハイエンドまでのスイッチ、無線LAN、ルータ、UTM、メディアコンバーター、IPカメラなど、ネットワーキングの全分野を網羅したネットワーク機器を、企画・製造・販売しております。D-Linkは 『 Building Networks for People 』 の理念の元、お客様と社会全体にネットワーク機器を通して貢献できる製品作りをグループ全体で行い、約670の製品を年間3,000万台以上世界各国に向けて出荷しています。日本では2005年7月にD-Linkブランド製品の販売を目的とした日本現地法人を設立。D-Link製品の中でも法人向け製品に特化して日本国内への浸透を図っています。
+    og_title=ディーリンクジャパン株式会社 ｜ D-Link Japan ｜ Building Networks for People
+    og_url=https://www.dlink-jp.com/
+    og_type=website
+</mt:SetVars>
+<mt:SetVarTemplate name="file_javascript">
+<script src="/asset/js/slick.min.js"></script>
+<script src="/asset/js/top.min.js" defer></script>
+</mt:SetVarTemplate>
+<mt:Ignore>** 表示部分 **</mt:Ignore>
+<mt:include name="modules/html_head.mtml" component="AForm">
+<mt:include name="modules/html_header.mtml" component="AForm">
+<main class="p-main">
+    <div class="c-breadcrumb">
+        <ul class="c-breadcrumb__list">
+            <li><a href="/">HOME</a></li>
+            <li><span>採用応募フォーム</span></li>
+        </ul>
+    </div>
+    <!-- /.c-breadcrumb -->
+    <section class="l-outer--lower">
+        <div class="l-inner">
+            <div class="c-title">
+                <h1 class="c-title__text">採用応募フォーム</h1>
+            </div>
+            <!-- /.c-title -->
+            <form action="/mt/plugins/AForm/aform_engine.cgi" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="blog_id" value="<$mt:var name="blog_id"$>" />
+                <input type="hidden" name="id" value="<$mt:var name="id"$>" />
+                <input type="hidden" name="run_mode" value="complete" />
+                <input type="hidden" id="use_js" name="use_js" value="" />
+                <input type="hidden" name="aform_url" value="<mt:var name="aform_url" escape="html">" />
+                <input type="hidden" name="aform_path" value="<mt:var name="aform_path" escape="html">" />
+                <input type="hidden" name="authenticity_token" value="<mt:var name="authenticity_token" escape="html">" />
+                <input type="hidden" name="entry_id" value="<mt:var name="entry_id" escape="html">" />
+                <mt:var name="hidden_params">
+                <mt:AFormFieldConfirmAll aform_id="<$mt:var name="id"$>"
+                    prefix="<dl class="dl_%%parts_id%%">"
+                    suffix="</dl>"
+                    label_tag="span"
+                    label_prefix="<dt>"
+                    label_suffix="</dt>"
+                    data_prefix="<dd>"
+                    data_suffix="</dd>">
+                <div id="form_app" class="p-form_content">
+                    <!-- 応募内容 -->
+                    <div class="p-form_content__block">
+                        <div class="c-content_heading">
+                            <h2 class="c-content_heading__text">応募内容</h2>
+                        </div>
+                        <!-- /.c-content_heading -->
+                        <div class="p-form_content__block">
+                            <div class="p-form_content__box">
+                                <p>ディーリンクジャパン株式会社の人材募集に応募される方は、下記フォームにご記入のうえ、申込みボタンを押してください。</p>
+                                <p>英数字【半角】、それ以外は【全角】でご記入願います。※応募の秘密は厳守いたします。</p>
+                            </div>
+                            <!-- /.p-form_content__box -->
+                        </div>
+                        <!-- /.p-form_content__block -->
+                    </div>
+                    <!-- /.p-form_content__block -->
+                    <!-- 個人情報の取り扱いについて -->
+                    <div class="p-form_content__block">
+                        <div class="c-middle_heading">
+                            <h3 class="c-middle_heading__text">個人情報の取り扱いについて</h3>
+                        </div>
+                        <!-- /.c-middle_heading -->
+                        <div class="p-form_privacy">
+                            <div class="p-form_privacy__text">
+                                <p><a href="/privacy-policy/" target="_blank" rel="noopener">採用活動における方の個人情報の取り扱いについて</a>を応募される前によくお読み下さい。よろしければ「個人情報の取り扱いについて同意する」にチェックをして、内容を送信してください。</p>
+                            </div>
+                            <!-- /.p-form_privacy__text -->
+                            <div class="p-form_privacy__check">
+                                <div class="c-check d-flex">
+                                    <mt:AFormFieldInput aform_id="7" parts_id="privacy_check">
+                                    <div>
+                                        <span class="p-form_privacy__required">必須</span>
+                                    </div>
+                                </div>
+                                <!-- /.c-check -->
+                            </div>
+                            <!-- /.p-form_privacy__check -->
+                        </div>
+                        <!-- /.p-form_privacy -->
+                    </div>
+                    <!-- /.p-form_content__block -->
+                    <!-- 個人プロフィール -->
+                    <div class="p-form_content__block">
+                        <div class="c-middle_heading">
+                            <h3 class="c-middle_heading__text">個人プロフィール</h3>
+                        </div>
+                        <!-- /.c-content_heading -->
+                        <div class="p-form_content__box">
+                            <div class="p-form">
+                                <!-- 氏名 -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                        <div class="p-form__label">
+                                            <label for="shimei_1" class="aform-label">氏名<span class="required">必須</span></label>
+                                        </div>
+                                        <!-- /.p-form__label -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                    <div class="p-form__cell--confirm">
+                                        <!-- 2カラムの場合に.p-form__rowで囲む -->
+                                        <div class="p-form__row">
+                                            <!-- 2カラムの場合に各要素を.p-form__col--confirmで囲む -->
+                                            <div class="p-form__col--confirm">
+                                                <p><mt:AFormFieldConfirm aform_id="1" parts_id="shimei_1"></p>
+                                            </div>
+                                            <!-- /.p-form__col--confirm -->
+                                            <!-- 2カラムの場合に各要素を.p-form__col--confirmで囲む -->
+                                            <div class="p-form__col--confirm">
+                                                <p><mt:AFormFieldConfirm aform_id="1" parts_id="shimei_2"></p>
+                                            </div>
+                                            <!-- /.p-form__col--confirm -->
+                                        </div>
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- /.p-form__table -->
+                                <!-- 氏名フリガナ -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                        <div class="p-form__label">
+                                            <label for="shimei_kana_1" class="aform-label">氏名フリガナ<span class="required">必須</span></label>
+                                        </div>
+                                        <!-- /.p-form__label -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                    
+                                    <div class="p-form__cell--confirm">
+                                        <!-- 2カラムの場合に.p-form__rowで囲む -->
+                                        <div class="p-form__row">
+                                            <!-- 2カラムの場合に各要素を.p-form__col--confirmで囲む -->
+                                            <div class="p-form__col--confirm">
+                                                <p><mt:AFormFieldConfirm aform_id="1" parts_id="shimei_kana_1"></p>
+                                            </div>
+                                            <!-- /.p-form__col--confirm -->
+                                            <!-- 2カラムの場合に各要素を.p-form__col--confirmで囲む -->
+                                            <div class="p-form__col--confirm">
+                                                <p><mt:AFormFieldConfirm aform_id="1" parts_id="shimei_kana_2"></p>
+                                            </div>
+                                            <!-- /.p-form__col--confirm -->
+                                        </div>
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- /.p-form__table -->
+                                <!-- 生年月日 -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                        <div class="p-form__label">
+                                            <label for="birthday_year">生年月日<span class="required">必須</span></label>
+                                        </div>
+                                        <!-- .p-form__label -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                    <div class="p-form__cell">
+                                        <div class="p-form_choice__flex flex-box">
+                                            <div class="p-form__col">
+                                                <div class="c-input flex-input">
+                                                    <label class="w50">西暦</label>
+                                                    <mt:AFormFieldConfirm aform_id="7" parts_id="birthday_year">
+                                                    <mt:AFormFieldLabel aform_id="7" parts_id="birthday_year">
+                                                </div>
+                                            </div>
+                                            <div class="p-form__col">
+                                                <div class="c-input flex-input">
+                                                    <mt:AFormFieldConfirm aform_id="7" parts_id="birthday_month">
+                                                    <mt:AFormFieldLabel aform_id="7" parts_id="birthday_month">
+                                                </div>
+                                            </div>
+                                            <div class="p-form__col">
+                                                <div class="c-input flex-input">
+                                                    <mt:AFormFieldConfirm aform_id="7" parts_id="birthday_day">
+                                                    <mt:AFormFieldLabel aform_id="7" parts_id="birthday_day">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- /.p-form__table -->
+                                <!-- 年齢 -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                        <div class="p-form__label">
+                                            <mt:AFormFieldLabel aform_id="7" parts_id="age">
+                                        </div>
+                                        <!-- .p-form__label -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                    <div class="p-form__cell">
+                                        <div class="p-form_choice__flex input-flex">
+                                            <label class="mr14">満</label>
+                                            <mt:AFormFieldConfirm aform_id="7" parts_id="age">
+                                            <label>歳</label>
+                                        </div>
+                                        <!-- /.p-form_choice__flex -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- /.p-form__table -->
+                                <!-- 性別 -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                        <div class="p-form__label">
+                                            <mt:AFormFieldLabel aform_id="7" parts_id="sex">
+                                        </div>
+                                        <!-- .p-form__label -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                    <div class="p-form__cell--confirm">
+                                        <p><mt:AFormFieldConfirm aform_id="7" parts_id="sex"></p>
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- /.p-form__table -->
+                                <!-- E-MAIL -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                        <div class="p-form__label">
+                                            <mt:AFormFieldLabel aform_id="7" parts_id="mailaddress">
+                                        </div>
+                                        <!-- .p-form__label -->
+                                    </div>
+                                    <!-- /.p-form__cell -->
+                                    <div class="p-form__cell--confirm">
+                                        <p><mt:AFormFieldConfirm aform_id="7" parts_id="mailaddress"></p>
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- .p-form__table -->
+                                <!-- 電話番号/携帯番号 -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                        <div class="p-form__label">
+                                            <mt:AFormFieldLabel aform_id="7" parts_id="telnum">
+                                        </div>
+                                        <!-- .p-form__label -->
+                                    </div>
+                                    <!-- /.p-form__cell -->
+                                    <div class="p-form__cell--confirm">
+                                        <p><mt:AFormFieldConfirm aform_id="7" parts_id="telnum"></p>
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- .p-form__table -->
+                                <!-- 郵便番号 -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                        <div class="p-form__label">
+                                            <mt:AFormFieldLabel aform_id="7" parts_id="zip_1">
+                                        </div>
+                                        <!-- .p-form__label -->
+                                    </div>
+                                    <!-- .p-form__table -->
+                                    <div class="p-form__cell--confirm">
+                                        <p><mt:AFormFieldConfirm aform_id="7" parts_id="zip_1"></p>
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- .p-form__table -->
+                                <!-- 都道府県 -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                        <div class="p-form__label">
+                                            <mt:AFormFieldLabel aform_id="7" parts_id="address_1">
+                                        </div>
+                                        <!-- /.p-form__label -->
+                                    </div>
+                                    <!-- /.p-form__cell -->
+                                    <div class="p-form__cell--confirm">
+                                        <p><mt:AFormFieldConfirm aform_id="7" parts_id="address_1"></p>
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- .p-form__table -->
+                                <!-- 市区町村 -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                        <div class="p-form__label">
+                                            <mt:AFormFieldLabel aform_id="7" parts_id="address_2">
+                                        </div>
+                                        <!-- .p-form__label -->
+                                    </div>
+                                    <!-- /.p-form__cell -->
+                                    <div class="p-form__cell--confirm">
+                                        <p><mt:AFormFieldConfirm aform_id="7" parts_id="address_2"></p>
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- .p-form__table -->
+                                <!-- 番地以降 -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                        <div class="p-form__label">
+                                            <mt:AFormFieldLabel aform_id="7" parts_id="address_3">
+                                        </div>
+                                        <!-- .p-form__label -->
+                                    </div>
+                                    <!-- /.p-form__cell -->
+                                    <div class="p-form__cell--confirm">
+                                        <p><mt:AFormFieldConfirm aform_id="7" parts_id="address_3"></p>
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- .p-form__table -->
+                            </div>
+                            <!-- .p-form -->
+                        </div>
+                        <!-- .p-form_content__box -->
+                    </div>
+                    <!-- end 個人プロフィール-->
+                    <!-- 学歴・語学力・資格 -->
+                    <div class="p-form_content__block">
+                        <div class="c-middle_heading">
+                            <h3 class="c-middle_heading__text">学歴・語学力・資格</h3>
+                        </div>
+                        <!-- /.c-middle_heading -->
+                        <div class="p-form_content__box">
+                            <div class="p-form">
+                                <!-- 最終学歴 -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                        <div class="p-form__label">
+                                            <label class="aform-label">最終学歴<span class="required">必須</span></label>
+                                        </div>
+                                        <!-- /.p-form__label -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                    <div class="p-form__cell">
+                                        <!-- 2カラムの場合に.p-form__rowで囲む -->
+                                        <!-- 学種 -->
+                                        <div class="p-form__row mb21">
+                                            <!-- 2カラムの場合に各要素を.p-form__colで囲む -->
+                                            <div class="p-form__col">
+                                                <div class="p-form__label">
+                                                    <mt:AFormFieldLabel aform_id="7" parts_id="final_educational">
+                                                </div>
+                                                <!-- /.p-form__col -->
+                                            </div>
+                                            <!-- /.p-form__col -->
+                                            <!-- 2カラムの場合に各要素を.p-form__colで囲む -->
+                                            <div class="p-form__col">
+                                                <p><mt:AFormFieldConfirm aform_id="7" parts_id="final_educational"></p>
+                                            </div>
+                                            <!-- /.p-form__col -->
+                                        </div>
+                                        <!-- /.p-form__row -->
+                                        <!-- 学校名（学部・学科） -->
+                                        <div class="p-form__row mb21">
+                                            <!-- 2カラムの場合に各要素を.p-form__colで囲む -->
+                                            <div class="p-form__col">
+                                                <div class="p-form__label">
+                                                    <mt:AFormFieldLabel aform_id="7" parts_id="schoolname">
+                                                </div>
+                                            </div>
+                                            <!-- /.p-form__col -->
+                                            <!-- 2カラムの場合に各要素を.p-form__colで囲む -->
+                                            <div class="p-form__col">
+                                                <p><mt:AFormFieldConfirm aform_id="7" parts_id="schoolname"></p>
+                                            </div>
+                                            <!-- /.p-form__col -->
+                                        </div>
+                                        <!-- /.p-form__row -->
+                                        <!-- 卒業日時 -->
+                                        <div class="p-form__row">
+                                            <!-- 2カラムの場合に各要素を.p-form__colで囲む -->
+                                            <div class="p-form__col">
+                                                <div class="p-form__label">
+                                                    <label>卒業日時</label>
+                                                </div>
+                                            </div>
+                                            <!-- /.p-form__col -->
+                                            <!-- 2カラムの場合に各要素を.p-form__colで囲む -->
+                                            <div class="p-form__col p-form__colmw470">
+                                                <div class="p-form_choice__flex input-flex input-flex42">
+                                                    <mt:AFormFieldConfirm aform_id="7" parts_id="graduation_year">
+                                                    <mt:AFormFieldLabel aform_id="7" parts_id="graduation_year">
+                                    
+                                                    <mt:AFormFieldConfirm aform_id="7" parts_id="graduation_month">
+                                                    <mt:AFormFieldLabel aform_id="7" parts_id="graduation_month">
+                                                </div>
+                                            </div>
+                                            <!-- /.p-form_choice__flex -->
+                                        </div>
+                                        <!-- /.p-form__row -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- /.p-form__table -->
+
+                                <!-- 語学関連の資格等 -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                        <div class="p-form__label">
+                                            <mt:AFormFieldLabel aform_id="7" parts_id="language_qualifications">
+                                        </div>
+                                        <!-- /.p-form__label -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                
+                                    <div class="p-form__cell--confirm">
+                                        <p><mt:AFormFieldConfirm aform_id="1" parts_id="language_qualifications"></p>
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- /.p-form__table -->
+
+                                <!-- ネットワーク関連の資格等 -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                        <div class="p-form__label">
+                                            <mt:AFormFieldLabel aform_id="7" parts_id="network_qualifications">
+                                        </div>
+                                        <!-- /.p-form__label -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                
+                                    <div class="p-form__cell--confirm">
+                                        <p><mt:AFormFieldConfirm aform_id="1" parts_id="network_qualifications"></p>
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- /.p-form__table -->
+                            </div>
+                            <!-- /.p-form -->
+                        </div>
+                        <!-- /.p-form_content__box -->
+                    </div>
+                    <!-- 希望条件について -->
+                    <div class="p-form_content__block">
+                        <div class="c-content_heading">
+                            <h2 class="c-content_heading__text">希望条件について</h2>
+                        </div>
+                        <!-- /.c-content_heading -->
+                        <div class="p-form_content__box">
+                            <div class="p-form">
+                            <!-- 希望年俸 -->
+                            <div class="p-form__table">
+                                <div class="p-form__cell">
+                                    <div class="p-form__label">
+                                        <mt:AFormFieldLabel aform_id="7" parts_id="annual_salary">
+                                    </div>
+                                    <!-- .p-form__label -->
+                                </div>
+                                <!-- .p-form__table -->
+                                <div class="p-form__cell">
+                                    <div class="p-form__row">
+                                        <div class="p-form__col">
+                                            <mt:AFormFieldConfirm aform_id="7" parts_id="annual_salary">
+                                        </div>
+                                        <!-- /.p-form__col -->
+                                        <div class="p-form__col">
+                                            <p>万円</p>
+                                        </div>
+                                        <!-- /.p-form__col -->
+                                    </div>
+                                    <!-- /.p-form__row -->
+                                </div>
+                            </div>
+                            <!-- .p-form__table -->
+                            <!-- 希望転職時期 -->
+                            <div class="p-form__table">
+                                <div class="p-form__cell">
+                                    <div class="p-form__label">
+                                        <label>希望転職時期<span class="required">必須</span></label>
+                                    </div>
+                                </div>
+                                <!-- /.p-form__table_cell -->
+                                <div class="p-form__cell">
+                                    <div class="p-form_choice__flex flex-box">
+                                        <div class="p-form__col">
+                                            <div class="c-input flex-input">
+                                                <mt:AFormFieldConfirm aform_id="7" parts_id="changejob_year">
+                                                <mt:AFormFieldLabel aform_id="7" parts_id="changejob_year">
+                                            </div>
+                                        </div>
+
+                                        <div class="p-form__col">
+                                            <div class="c-input flex-input">
+                                                <mt:AFormFieldConfirm aform_id="7" parts_id="changejob_month">
+                                                <mt:AFormFieldLabel aform_id="7" parts_id="changejob_month">
+                                            </div>
+                                        </div>
+
+                                        <div class="p-form__col">
+                                            <div class="c-input flex-input">
+                                                <mt:AFormFieldConfirm aform_id="7" parts_id="changejob_day">
+                                                <mt:AFormFieldLabel aform_id="7" parts_id="changejob_day">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.p-form__table_cell -->
+                            </div>
+                            <!-- /.p-form__table -->
+                            <!-- 希望職種 -->
+                            <div class="p-form__table">
+                                <div class="p-form__cell">
+                                    <div class="p-form__label">
+                                        <mt:AFormFieldLabel aform_id="7" parts_id="desired_occupation">
+                                    </div>
+                                    <!-- /.p-form__label -->
+                                </div>
+                                <!-- /.p-form__cell -->
+                                <div class="p-form__cell--confirm">
+                                    <p><mt:AFormFieldConfirm aform_id="1" parts_id="desired_occupation"></p>
+                                </div>
+                                <!-- /.p-form__table_cell -->
+                            </div>
+                            <!-- .p-form__table -->
+                            <!-- 応募理由（自己セールスポイント） -->
+                            <div class="p-form__table">
+                                <div class="p-form__cell">
+                                    <div class="p-form__label label-1dot6rem">
+                                        <mt:AFormFieldLabel aform_id="7" parts_id="salespoint">
+                                    </div>
+                                    <!-- /.p-form__label -->
+                                </div>
+                                <!-- /.p-form__table_cell -->
+                                <div class="p-form__cell--confirm">
+                                    <p><mt:AFormFieldConfirm aform_id="1" parts_id="salespoint"></p>
+                                </div>
+                                <!-- /.p-form__table_cell -->
+                            </div>
+                            <!-- /.p-form__table -->
+                            </div>
+                            <!-- /.p-form -->
+                        </div>
+                        <!-- /.p-form_content__box -->
+                    </div>
+                    <!-- 直近の職歴について -->
+                    <div class="p-form_content__block">
+                        <div class="c-middle_heading">
+                            <h3 class="c-middle_heading__text">直近の職歴について</h3>
+                        </div>
+                        <!-- /.c-content_heading -->
+                        <div class="p-form_content__box">
+                            <div class="p-form">
+                                <!-- 現在の勤務状況 -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                        <div class="p-form__label">
+                                            <mt:AFormFieldLabel aform_id="7" parts_id="worksituation">
+                                        </div>
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                    <div class="p-form__cell--confirm">
+                                        <p><mt:AFormFieldConfirm aform_id="1" parts_id="worksituation"></p>
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- /.p-form__table -->
+                            </div>
+                            <!-- .p-form -->
+                        </div>
+                        <!-- .p-form_content__box -->
+                    </div>
+                    <!-- 現在もしくは直近の職務経歴 -->
+                    <div class="p-form_content__block">
+                        <div class="c-medium_heading">
+                            <h4 class="c-medium_heading__text">現在もしくは直近の職務経歴</h4>
+                        </div>
+                        <!-- /.c-content_heading -->
+                        <div class="p-form_content__box">
+                            <div class="p-form">
+                                <!-- 勤務会社名 -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                        <div class="p-form__label">
+                                            <mt:AFormFieldLabel aform_id="7" parts_id="companyname_1">
+                                        </div>
+                                        <!-- .p-form__label -->
+                                    </div>
+                                    <div class="p-form__cell--confirm">
+                                        <p><mt:AFormFieldConfirm aform_id="1" parts_id="companyname_1"></p>
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- .p-form__table -->
+                                <!-- 勤務年月日 -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                        <div class="p-form__label">
+                                            <label>勤務年月日<span class="required">必須</span></label>
+                                        </div>
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                    <div class="p-form__cell">
+                                        <div class="p-form_choice__flex flex-box mb21">
+                                            <div class="p-form__col">
+                                                <div class="c-input flex-input">
+                                                    <mt:AFormFieldConfirm aform_id="7" parts_id="start_workdate_year_1">
+                                                    <mt:AFormFieldLabel aform_id="7" parts_id="start_workdate_year_1">
+                                                </div>
+                                            </div>
+                                            <div class="p-form__col">
+                                                <div class="c-input flex-input">
+                                                    <mt:AFormFieldConfirm aform_id="7" parts_id="start_workdate_month_1">
+                                                    <mt:AFormFieldLabel aform_id="7" parts_id="start_workdate_month_1">
+                                                </div>
+                                            </div>
+                                            <div class="p-form__col">
+                                                <div class="c-input flex-input">
+                                                    <mt:AFormFieldConfirm aform_id="7" parts_id="start_workdate_day_1">
+                                                    <mt:AFormFieldLabel aform_id="7" parts_id="start_workdate_day_1">~
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="p-form_choice__flex flex-box mb21">
+                                            <div class="p-form__col">
+                                                <div class="c-input flex-input">
+                                                    <mt:AFormFieldConfirm aform_id="7" parts_id="end_workdate_year_1">
+                                                    <mt:AFormFieldLabel aform_id="7" parts_id="end_workdate_year_1">
+                                                </div>
+                                            </div>
+                                            <div class="p-form__col">
+                                                <div class="c-input flex-input">
+                                                    <mt:AFormFieldConfirm aform_id="7" parts_id="end_workdate_month_1">
+                                                    <mt:AFormFieldLabel aform_id="7" parts_id="end_workdate_month_1">
+                                                </div>
+                                            </div>
+                                            <div class="p-form__col">
+                                                <div class="c-input flex-input">
+                                                    <mt:AFormFieldConfirm aform_id="7" parts_id="end_workdate_day_1">
+                                                    <mt:AFormFieldLabel aform_id="7" parts_id="end_workdate_day_1">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- /.p-form__table -->
+                                <!-- 業種 -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                        <div class="p-form__label">
+                                            <mt:AFormFieldLabel aform_id="7" parts_id="industry_1">
+                                        </div>
+                                        <!-- /.p-form__label -->
+                                    </div>
+                                    <!-- /.p-form__cell -->
+                                    <div class="p-form__cell--confirm">
+                                        <p><mt:AFormFieldConfirm aform_id="1" parts_id="industry_1"></p>
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- .p-form__table -->
+                                <!-- 職種 -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                        <div class="p-form__label">
+                                            <mt:AFormFieldLabel aform_id="7" parts_id="occupation_1">
+                                        </div>
+                                        <!-- /.p-form__label -->
+                                    </div>
+                                    <!-- /.p-form__cell -->
+                                    <div class="p-form__cell--confirm">
+                                        <p><mt:AFormFieldConfirm aform_id="1" parts_id="occupation_1"></p>
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- .p-form__table -->
+                                <!-- 役職 -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                        <div class="p-form__label">
+                                            <mt:AFormFieldLabel aform_id="7" parts_id="yakushoku_1">
+                                        </div>
+                                        <!-- /.p-form__label -->
+                                    </div>
+                                    <!-- /.p-form__cell -->
+                                    <div class="p-form__cell--confirm">
+                                        <p><mt:AFormFieldConfirm aform_id="1" parts_id="yakushoku_1"></p>
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- .p-form__table -->
+                                <!-- 年収 -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                        <div class="p-form__label">
+                                            <mt:AFormFieldLabel aform_id="7" parts_id="annual_income_1">
+                                        </div>
+                                        <!-- .p-form__label -->
+                                    </div>
+                                    <div class="p-form__cell">
+                                        <div class="p-form__row mb21">
+                                            <div class="p-form__col">
+                                                <div class="c-input">
+                                                    <mt:AFormFieldConfirm aform_id="7" parts_id="annual_income_1">
+                                                </div>
+                                            </div>
+                                            <!-- /.p-form__col -->
+                                            <div class="p-form__col">
+                                                <p>万円</p>
+                                            </div>
+                                            <!-- /.p-form__col -->
+                                        </div>
+                                        <!-- /.p-form__row -->
+                                        <div class="p-form__row">
+                                            <div class="p-form__col p-form__colmw100pc">
+                                            <ul>
+                                                <li class="c-notice"><span class="c-notice__bullet">※</span>秘密は厳守致します</li>
+                                            </ul>
+                                            </div>
+                                            <!-- /.p-form__col -->
+                                        </div>
+                                        <!-- /.p-form__row -->
+                                    </div>
+                                </div>
+                                <!-- .p-form__table -->
+                                <!-- 主な担当領域（入力欄下部参照） -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                    <div class="p-form__label label-1dot6rem">
+                                        <mt:AFormFieldLabel aform_id="7" parts_id="areaincharge_1">
+                                    </div>
+                                    <!-- /.p-form__label -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                
+                                    <div class="p-form__cell">
+                                    <mt:AFormFieldConfirm aform_id="7" parts_id="areaincharge_1">
+                                    <ul>
+                                        <li class="c-notice">(営業部門は販売チャネル、技術部門・マーケティング部門は取り扱い製品)</li>
+                                        <li class="c-notice"><span class="c-notice__bullet">※</span>全角1000文字以内で記入</li>
+                                    </ul>
+                                    <!-- /.c-textarea -->
+                                    <div class="c-error js-error_check" data-label="主な担当領域（入力欄下部参照）">
+                                    </div>
+                                    <!-- /.c-error -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- /.p-form__table -->
+                                <!-- 主な職務内容 -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                    <div class="p-form__label label-1dot6rem">
+                                        <mt:AFormFieldLabel aform_id="7" parts_id="duties_1">
+                                    </div>
+                                    <!-- /.p-form__label -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                
+                                    <div class="p-form__cell--confirm">
+                                        <p><mt:AFormFieldConfirm aform_id="1" parts_id="mailaddress"></p>
+                                        <p><span class="c-notice__bullet">※</span>全角1000文字以内で記入</p>
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- /.p-form__table -->
+                            </div>
+                            <!-- .p-form -->
+                        </div>
+                        <!-- .p-form_content__box -->
+                    </div>
+                    <!-- 以前の職務経歴 -->
+                    <div class="p-form_content__block">
+                        <div class="c-medium_heading">
+                            <h4 class="c-medium_heading__text">以前の職務経歴</h4>
+                        </div>
+                        <!-- /.c-content_heading -->
+                        <div class="p-form_content__box">
+                            <div class="p-form">
+                                <!-- 勤務会社名 -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                    <div class="p-form__label">
+                                        <mt:AFormFieldLabel aform_id="7" parts_id="companyname_2">
+                                    </div>
+                                    <!-- .p-form__label -->
+                                    </div>
+                                    <!-- .p-form__table -->
+                                    <div class="p-form__cell--confirm">
+                                        <p><mt:AFormFieldConfirm aform_id="1" parts_id="companyname_2"></p>
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- .p-form__table -->
+                                <!-- 勤務年月日 -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                    <div class="p-form__label">
+                                        <label>勤務年月日<span class="required">必須</span></label>
+                                    </div>
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                    <div class="p-form__cell">
+                                    <div class="p-form_choice__flex flex-box mb21">
+                                        <div class="p-form__col">
+                                        <div class="c-input flex-input">
+                                            <mt:AFormFieldConfirm aform_id="7" parts_id="start_workdate_year_2">
+                                            <mt:AFormFieldLabel aform_id="7" parts_id="start_workdate_year_2">
+                                        </div>
+                                        <div class="c-error js-error_check" data-label="年">
+                                        </div>
+                                        </div>
+
+                                        <div class="p-form__col">
+                                        <div class="c-input flex-input">
+                                            <mt:AFormFieldConfirm aform_id="7" parts_id="start_workdate_month_2">
+                                            <mt:AFormFieldLabel aform_id="7" parts_id="start_workdate_month_2">
+                                        </div>
+                                        <div class="c-error js-error_check" data-label="月">
+                                        </div>
+                                        </div>
+
+                                        <div class="p-form__col">
+                                        <div class="c-input flex-input">
+                                            <mt:AFormFieldConfirm aform_id="7" parts_id="start_workdate_day_2">
+                                            <mt:AFormFieldLabel aform_id="7" parts_id="start_workdate_day_2">~
+                                        </div>
+                                        <div class="c-error js-error_check" data-label="日">
+                                        </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="p-form_choice__flex flex-box mb21">
+                                        <div class="p-form__col">
+                                        <div class="c-input flex-input">
+                                            <mt:AFormFieldConfirm aform_id="7" parts_id="end_workdate_year_2">
+                                            <mt:AFormFieldLabel aform_id="7" parts_id="end_workdate_year_2">
+                                        </div>
+                                        <div class="c-error js-error_check" data-label="年">
+                                        </div>
+                                        </div>
+
+                                        <div class="p-form__col">
+                                        <div class="c-input flex-input">
+                                            <mt:AFormFieldConfirm aform_id="7" parts_id="end_workdate_month_2">
+                                            <mt:AFormFieldLabel aform_id="7" parts_id="end_workdate_month_2">
+                                        </div>
+                                        <div class="c-error js-error_check" data-label="月">
+                                        </div>
+                                        </div>
+
+                                        <div class="p-form__col">
+                                        <div class="c-input flex-input">
+                                            <mt:AFormFieldConfirm aform_id="7" parts_id="end_workdate_day_2">
+                                            <mt:AFormFieldLabel aform_id="7" parts_id="end_workdate_day_2">
+                                        </div>
+                                        <div class="c-error js-error_check" data-label="日">
+                                        </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- /.p-form__table -->
+                                <!-- 業種 -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                        <div class="p-form__label">
+                                        <mt:AFormFieldLabel aform_id="7" parts_id="industry_2">
+                                        </div>
+                                        <!-- /.p-form__label -->
+                                    </div>
+                                    <!-- /.p-form__cell -->
+                                    <div class="p-form__cell--confirm">
+                                        <p><mt:AFormFieldConfirm aform_id="1" parts_id="industry_2"></p>
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- .p-form__table -->
+                                <!-- 職種 -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                        <div class="p-form__label">
+                                        <mt:AFormFieldLabel aform_id="7" parts_id="occupation_2">
+                                        </div>
+                                        <!-- /.p-form__label -->
+                                    </div>
+                                    <!-- /.p-form__cell -->
+                                    <div class="p-form__cell--confirm">
+                                        <p><mt:AFormFieldConfirm aform_id="1" parts_id="occupation_2"></p>
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- .p-form__table -->
+                                <!-- 役職 -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                        <div class="p-form__label">
+                                        <mt:AFormFieldLabel aform_id="7" parts_id="yakushoku_2">
+                                        </div>
+                                        <!-- /.p-form__label -->
+                                    </div>
+                                    <!-- /.p-form__cell -->
+                                    <div class="p-form__cell--confirm">
+                                        <p><mt:AFormFieldConfirm aform_id="1" parts_id="yakushoku_2"></p>
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- .p-form__table -->
+                                <!-- 年収 -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                    <div class="p-form__label">
+                                        <mt:AFormFieldLabel aform_id="7" parts_id="annual_income_2">
+                                    </div>
+                                    <!-- .p-form__label -->
+                                    </div>
+                                    <!-- .p-form__table -->
+                                    <div class="p-form__cell">
+                                    <div class="p-form__row mb21">
+                                        <div class="p-form__col">
+                                            <mt:AFormFieldConfirm aform_id="7" parts_id="annual_income_2">
+                                        </div>
+                                        <!-- /.p-form__col -->
+                                        <div class="p-form__col">
+                                            <p>万円</p>
+                                        </div>
+                                        <!-- /.p-form__col -->
+                                    </div>
+                                    <!-- /.p-form__row -->
+
+                                    <div class="p-form__row">
+                                        <div class="p-form__col p-form__colmw100pc">
+                                        <ul>
+                                            <li class="c-notice"><span class="c-notice__bullet">※</span>秘密は厳守致します</li>
+                                        </ul>
+                                        </div>
+                                        <!-- /.p-form__col -->
+                                    </div>
+                                    <!-- /.p-form__row -->
+                                    
+                                    </div>
+                                </div>
+                                <!-- .p-form__table -->
+                                <!-- 主な担当領域（入力欄下部参照） -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                    <div class="p-form__label label-1dot6rem">
+                                        <mt:AFormFieldLabel aform_id="7" parts_id="areaincharge_2">
+                                    </div>
+                                    <!-- /.p-form__label -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                
+                                    <div class="p-form__cell--confirm">
+                                        <p><mt:AFormFieldConfirm aform_id="7" parts_id="areaincharge_2"></p>
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- /.p-form__table -->
+                                <!-- 主な職務内容 -->
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                    <div class="p-form__label label-1dot6rem">
+                                        <mt:AFormFieldLabel aform_id="7" parts_id="duties_2">
+                                    </div>
+                                    <!-- /.p-form__label -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                
+                                    <div class="p-form__cell--confirm">
+                                        <p><mt:AFormFieldConfirm aform_id="7" parts_id="duties_2"></p>
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- /.p-form__table -->
+                            </div>
+                            <!-- .p-form -->
+                        </div>
+                        <!-- .p-form_content__box -->
+                    </div>
+                    <!-- submit-btn -->
+                    <div class="p-form_content__block">
+                        <div class="p-form_post">
+                            <div class="p-form_post__item">
+                                <div class="c-submit">
+                                    <button type="submit">送信</button>
+                                </div>
+                                <!-- /.c-submit -->
+                            </div>
+                            <!-- /.p-form_post__item -->
+                            <div class="p-form_post__item">
+                                <div class="c-back">
+                                    <a href="/contact/form">戻る</a>
+                                </div>
+                                <!-- /.c-back -->
+                            </div>
+                            <!-- /.p-form_post__item -->
+                        </div>
+                        <!-- /.p-form_post -->
+                    </div>
+                    <!-- /.p-form_content__block -->
+                </div>
+                <!-- /.p-form_content -->
+            </form>
+        </div>
+        <!-- /.l-inner -->
+    </section>
+</main>
+<mt:include name="modules/html_footer.mtml" component="AForm">
+<mt:include name="modules/html_foot.mtml" component="AForm">

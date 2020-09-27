@@ -1,0 +1,114 @@
+<mt:Ignore>Copyright (c) 2008 ARK-Web Co.,Ltd.</mt:Ignore>
+<mtapp:settinggroup id="alert-report-setting-group">
+  <h3><__trans phrase="Alert Report Setting"></h3>
+  <p><__trans phrase="Report by access to some form Description"></p>
+  <mtapp:setting
+    id="report_access_setting"
+    label="<__trans phrase="Report by access to some form Title">"
+    label_for="check_when_first_access"
+    hint=""
+    show_hint="">
+    <input type="checkbox" class="mt-switch" value="1" name="check_when_first_access" id="check_when_first_access" <mt:if name="check_when_first_access" eq="1">checked="checked"</mt:if>/>
+    <label for="check_when_first_access"><__trans phrase="Report by access to some form"></label>
+  </mtapp:setting>
+
+  <mtapp:setting
+    id="check_interval_setting"
+    label="<__trans phrase="Interval of check(ex: 30min, 24h, 3day)">"
+    label_for="check_interval"
+    hint="<__trans phrase="Interval of check(ex: 30min, 24h, 3day) Description">"
+    show_hint="1">
+    <input type="text" class="form-control" name="check_interval" value="<mt:var name="check_interval">" id="check_interval" />
+  </mtapp:setting>
+
+  <mtapp:setting
+    id="alert_mail_setting"
+    label="<__trans phrase="Alert mail address Title">"
+    label_for="alert_mail"
+    hint="<__trans phrase="Alert mail address Description">"
+    show_hint="1">
+    <input type="text" class="form-control" size="40" value="<mt:var name="alert_mail">" name="alert_mail" id="alert_mail" />
+  </mtapp:setting>
+
+  <mtapp:setting
+    id="alert_confirm_pv_setting"
+    label="<__trans phrase="Alert confirm pv Title">"
+    label_for="alert_min_confirm_pv"
+    hint="<__trans phrase="Alert confirm pv Description">"
+    show_hint="1">
+    <input type="text" class="form-control w-10" size="2" value="<mt:var name="alert_min_confirm_pv">" name="alert_min_confirm_pv" id="alert_min_confirm_pv" />
+  </mtapp:setting>
+
+  <mtapp:setting
+    id="alert_data_count_setting"
+    label="<__trans phrase="Alert Data count Title">"
+    label_for="alert_min_complete_pv"
+    hint="<__trans phrase="Alert Data count Description">"
+    show_hint="1">
+    <input type="text" class="form-control w-10" size="2" value="<mt:var name="alert_min_complete_pv">" name="alert_min_complete_pv" id="alert_min_complete_pv" />
+  </mtapp:setting>
+</mtapp:settinggroup>
+
+
+<mtapp:settinggroup id="script-url-setting-group">
+  <h3><__trans phrase="Script URL Setting"></h3>
+  <mtapp:setting
+    id="script_url_setting"
+    label="<__trans phrase="Script URL Directory Title">"
+    label_for="script_url_dir"
+    hint="<__trans phrase="Script URL Directory Description">"
+    show_hint="1">
+    <input type="text" class="form-control" size="60" value="<mt:var name="script_url_dir">" name="script_url_dir" id="script_url_dir" />
+  </mtapp:setting>
+</mtapp:settinggroup>
+
+
+<mtapp:settinggroup id="upload-setting-group">
+  <h3><__trans phrase="Upload Setting"></h3>
+  <mtapp:setting
+    id="upload_setting"
+    label="<__trans phrase="Upload Directory Title">"
+    label_for="upload_dir"
+    hint="<__trans phrase="Upload Directory Description">"
+    show_hint="1">
+    <input type="text" class="form-control" size="60" value="<mt:var name="upload_dir">" name="upload_dir" id="upload_dir" />
+  </mtapp:setting>
+</mtapp:settinggroup>
+
+
+<mtapp:settinggroup id="serial-number-setting-group">
+<mt:if name="for_business">
+  <mt:SetVarBlock name="aform_sn_setting_label"><__trans phrase="SerialNumber Title for Business"></mt:SetVarBlock>
+  <mt:SetVarBlock name="aform_sn_setting_hint"><__trans phrase="SerialNumber Description for Business"></mt:SetVarBlock>
+<mt:else>
+  <mt:SetVarBlock name="aform_sn_setting_label"><__trans phrase="SerialNumber Title for Personal"></mt:SetVarBlock>
+  <mt:SetVarBlock name="aform_sn_setting_hint"><__trans phrase="SerialNumber Description for Personal"></mt:SetVarBlock>
+</mt:if>
+  <h3><__trans phrase="SerialNumber Setting"></h3>
+  <mtapp:setting
+    id="serial_number_setting"
+    label="<mt:Var name="aform_sn_setting_label">"
+    label_for="serialnumber"
+    hint="<mt:Var name="aform_sn_setting_hint">"
+    show_hint="1">
+    <input type="text" class="form-control" size="40" value="<mt:var name="serialnumber">" name="serialnumber" id="serialnumber" />
+    <mt:if name="serialnumber">
+      <mt:if name="checked_sn">
+      <mt:else>
+        <p style="color:#c00;"><__trans phrase="Invalid SerialNumber"></p>
+      </mt:if>
+    </mt:if>
+  </mtapp:setting>
+</mtapp:settinggroup>
+
+<h3><__trans phrase="Google reCAPTCHA Setting"></h3>
+<mtapp:setting
+  id="recaptcha_site_key"
+  label="<__trans phrase="Site key">">
+  <input type="text" name="recaptcha_site_key" value="<mt:var name="recaptcha_site_key" escape="html">" class="form-control" />
+</mtapp:setting>
+<mtapp:setting
+  id="recaptcha_secret_key"
+  label="<__trans phrase="Secret key">">
+  <input type="text" name="recaptcha_secret_key" value="<mt:var name="recaptcha_secret_key" escape="html">" class="form-control" />
+</mtapp:setting>

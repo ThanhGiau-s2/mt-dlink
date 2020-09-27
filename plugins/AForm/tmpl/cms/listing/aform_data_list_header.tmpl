@@ -1,0 +1,135 @@
+<mt:Ignore>Copyright (c) 2008 ARK-Web Co.,Ltd.</mt:Ignore>
+<MTVersion setvar="mtver">
+<mt:setvarblock name="system_msg" append="1">
+<__trans_section component="AForm">
+    <div id="msg-block">
+    <mt:if name="saved_deleted">
+        <mtapp:statusmsg    
+            id="saved-deleted"
+            class="success">
+            <__trans phrase="You have successfully deleted the Form data(s).">
+        </mtapp:statusmsg>
+    </mt:if>
+    <mt:if name="saved_changes">
+        <mtapp:statusmsg    
+            id="saved-status"
+            class="success">
+            <__trans phrase="You have successfully changed the AForm data.">
+        </mtapp:statusmsg>
+    </mt:if>
+    </div>
+</__trans_section>
+</mt:setvarblock>
+
+<mt:setvarblock name="js_include" append="1">
+<__trans_section component="AForm">
+<script type="text/javascript">
+<!--
+jQuery(window).bind('listReady', function(){
+<mt:if name="mtver" ge="7">
+  jQuery('.mt-modal-open').mtModal();
+<mt:else>
+  jQuery('a.mt-open-dialog').mtDialog();
+</mt:if>
+});
+// -->
+</script>
+</__trans_section>
+</mt:setvarblock>
+
+<mt:setvarblock name="html_head" append="1">
+<mt:if name="mtver" ge="7">
+<style>
+input.date{max-width:7em;}
+</style>
+<mt:else>
+<link rel="stylesheet" type="text/css" href="<mt:var name="plugin_static_uri">edit_aform.css" />
+</mt:if>
+</mt:setvarblock>
+
+
+<mt:setvarblock name="content_header" prepend="1">
+<__trans_section component="AForm">
+    <mt:if name="id">
+    <nav aria-label="A-Form Navigation" id="entry-nav" class="pkg clearfix">
+        <ul class="pagination float-right inline-nav right">
+            <li class="page-item" id="previous-link"><mt:if name="previous_aform_id"><a href="<$mt:var name="script_url"$>?__mode=manage_aform_data&amp;id=<$mt:var name="previous_aform_id"$>&amp;blog_id=<$mt:var name="blog_id"$>" class="page-link"><__trans phrase="Previous"></a></mt:if></li>
+            <li class="page-item" id="manage-link"><a href="<$mt:var name="script_url"$>?__mode=manage_aform&amp;blog_id=<$mt:var name="blog_id"$>" class="page-link"><__trans phrase="Manage A-Form"></a></li>
+            <li class="page-item" id="next-link"><mt:if name="next_aform_id"><a href="<$mt:var name="script_url"$>?__mode=manage_aform_data&amp;id=<$mt:var name="next_aform_id"$>&amp;blog_id=<$mt:var name="blog_id"$>" class="page-link"><__trans phrase="Next"></a></mt:if></li>
+        </ul>
+    </nav>
+    </mt:if>
+
+<mt:var name="aform_action_tabs">
+
+<mt:if name="can_export_aform_data">
+<form name="form_export_aform_data" action="<$mt:var name="script_url"$>">
+<input type="hidden" name="__mode" value="export_aform_data" />
+<input type="hidden" name="magic_token" value="<$mt:var name="magic_token"$>" id="m_t" />
+<input type="hidden" name="_type" value="aform_data" />
+<input type="hidden" name="blog_id" value="<mt:var name="blog_id">" />
+<input type="hidden" name="id" value="<mt:var name="id">" />
+<fieldset class="form-group">
+<legend class="h3"><__trans phrase="Backup this AForm Data(CSV Download)"></legend>
+<div class="form-group">
+    <div class="custom-control custom-radio">
+      <input type="radio" class="custom-control-input" name="range" id="range-all" value="all" checked="checked" />
+      <label class="custom-control-label" for="range-all"><__trans phrase="All range"></label>
+    </div>
+
+  <div class="form-inline">
+    <div class="custom-control custom-radio">
+      <input type="radio" class="custom-control-input" name="range" id="range-range" value="range" />
+      <label class="custom-control-label mr-2" for="range-range"><__trans phrase="Specify range"></label>
+    </div>
+    <select name="range_target" class="custom-select form-control">
+      <option value="created_on"><__trans phrase="Received Date"></option>
+<mt:if name="exists_reserve_field">
+      <option value="reserve_date"><__trans phrase="Reserve Date"></option>
+</mt:if>
+    </select>
+    <__trans phrase="is">
+    <__trans phrase="from [_1] to [_2]" params="
+      <input type="text" name="range_from" value="" class="form-control date text-date" />%%
+      <input type="text" name="range_to" value="" class="form-control date text-date" />
+    ">
+  </div>
+</div>
+
+<div class="form-group">
+  <label><__trans phrase="Charset"></label>
+  <div class="custom-control custom-radio">
+    <input type="radio" name="charset" class="custom-control-input" id="charset_sjis" value="shift_jis" <mt:if name="charset" eq="shift_jis">checked="checked"</mt:if> />
+    <label class="custom-control-label" for="charset_sjis"><__trans phrase="Shift-JIS"></label>
+  </div>
+  <div class="custom-control custom-radio">
+    <input type="radio" name="charset" class="custom-control-input" id="charset_utf8" value="utf-8" <mt:if name="charset" eq="utf-8">checked="checked"</mt:if> />
+    <label class="custom-control-label" for="charset_utf8"><__trans phrase="UTF-8"></label>
+  </div>
+</div>
+
+
+<button
+    id="btn_export_aform_data"
+    type="submit"
+    title="<__trans phrase="Download CSV Data">"
+    class="button primary action primary-button btn btn-primary"
+    ><__trans phrase="Download CSV Data"></button>
+</fieldset>
+</form>
+</mt:if>
+
+<hr>
+
+<mt:if name="can_delete_aform_data">
+<div>
+<h3><__trans phrase="Clear this AForm Data"></h3>
+<a class="icon-left icon-action" href="<mt:var name="script_url">?__mode=clear_aform_data&magic_token=<mt:var name="magic_token">&_type=aform_data&blog_id=<mt:var name="blog_id">&id=<mt:var name="id">" onclick="return confirm('<__trans phrase="Clear Data Confirm">');">
+<mtapp:svgicon id="ic_trash" title="" size="sm">
+<__trans phrase="Clear this AForm Data">
+</a>
+</div>
+</mt:if>
+
+</__trans_section>
+</mt:setvarblock>

@@ -1,0 +1,27 @@
+<div class="view-block">
+	<span class="aform-validation parts-%%field_idx%%">%%field_validation%%</span>
+	<div class="aform-input-example parts-%%field_idx%%">%%field_input_example%%</div>
+	<input id="parts-%%field_idx%%" class="aform-input aform-email aform-field-preview parts-%%field_idx%% hankaku validate-email" name="aform-field-%%field_idx%%" type="email" value="%%field_default_text%%" size="40"><br />
+	<label style="display:none;" for="parts-%%field_idx%%-confirm" class="aform-twice-note" id="parts-%%field_idx%%-confirm-label"><__trans phrase="Please re-enter to confirmation"></label>
+	<input style="display:none;" type="email" class="aform-input aform-email parts-%%field_idx%%" id="parts-%%field_idx%%-confirm">
+</div>
+
+<mt:include name="include/edit_aform_field/parts_common.tmpl"
+	display_label="1"
+	display_parts_id="1"
+	display_required="1"
+	display_input_example="1"
+	display_length="1"
+	display_default="1">
+
+<div class="form-group">
+	<label for="aformFieldEmailIsReplyed%%field_idx%%"><__trans phrase="is replyed to customer"></label>
+	<input type="checkbox" class="mt-switch form-control aform-field-email-is-replyed" id="aformFieldEmailIsReplyed%%field_idx%%" value="1">
+	<label for="aformFieldEmailIsReplyed%%field_idx%%"><__trans phrase="is replyed to customer"></label>
+</div>
+
+<div class="form-group">
+	<label for="aformFieldRequireTwice%%field_idx%%"><__trans phrase="require twice to confirmation"></label>
+	<input type="checkbox" class="mt-switch form-control aform-field-require-twice" id="aformFieldRequireTwice%%field_idx%%" value="1">
+	<label for="aformFieldRequireTwice%%field_idx%%"><__trans phrase="require twice to confirmation"></label>
+</div>

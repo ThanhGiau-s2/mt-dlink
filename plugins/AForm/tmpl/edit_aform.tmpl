@@ -1,0 +1,690 @@
+<mt:Ignore>Copyright (c) 2008 ARK-Web Co.,Ltd.</mt:Ignore>
+<mt:setvarblock name="page_title"><mt:var name="display_title" escape="html"></mt:setvarblock>
+<$mt:setvar name="position_actions_bottom" value="1"$>
+<MTVersion setvar="mtver">
+
+<mt:setvarblock name="system_msg">
+    <div id="msg-block">
+
+    <mt:unless name="recovered_object">
+        <mt:if name="autosaved_object_exists">
+            <mtapp:statusmsg
+                id="recovered-object"
+                class="info">
+                <__trans phrase="A saved version of this [_1] was auto-saved [_3]. <a href="[_2]">Recover auto-saved content</a>" params="<mt:var name="object_label">%%<mt:var name="script_url">?__mode=view&amp;_type=<mt:var name="object_type">&amp;_recover=1<mt:if name="id">&amp;id=<mt:var name="id"></mt:if><mt:if name="current_blog_id">&amp;blog_id=<mt:var name="current_blog_id"></mt:if>%%<mt:date ts="$autosaved_object_ts" relative="1">">
+            </mtapp:statusmsg>
+        </mt:if>
+    </mt:unless>
+
+    <mt:if name="saved_added">
+        <mtapp:statusmsg
+            id="saved-added"
+            class="success">
+            <__trans phrase="Your [_1] has been saved." params="<$mt:var name="object_label" lower_case="1"$>">
+        </mtapp:statusmsg>
+    </mt:if>
+
+    <mt:if name="saved_changes">
+        <mtapp:statusmsg
+            id="saved-changes"
+            class="success">
+            <__trans phrase="Your changes have been saved.">
+        </mtapp:statusmsg>
+    </mt:if>
+    
+    <mt:if name="saved_changes_mail_to_changed">
+        <mtapp:statusmsg
+            id="saved-changes"
+            class="success">
+            <__trans phrase="Your changes have been saved. Please confirm Mail To is Valid Email Address.">
+        </mtapp:statusmsg>
+    </mt:if>
+    
+    <mt:if name="saved_changes_mail_to_is_null">
+        <mtapp:statusmsg
+            id="saved-changes"
+            class="success">
+            <__trans phrase="Your changes have been saved. Mail To is null. We strongly recommend to set Mail To.">
+        </mtapp:statusmsg>
+    </mt:if>
+    
+    <mt:if name="saved_prefs">
+        <mtapp:statusmsg    
+            id="saved-prefs"
+            class="success">
+            <__trans phrase="Your customization preferences have been saved, and are visible in the form below.">
+        </mtapp:statusmsg>
+    </mt:if>
+
+    <mt:if name="saved_notify">
+        <mtapp:statusmsg    
+            id="saved-notify"
+            class="success">
+            <__trans phrase="Your notification has been sent.">
+        </mtapp:statusmsg>
+    </mt:if>
+
+    <mt:if name="recovered_object">
+        <mtapp:statusmsg    
+            id="recovered-object"
+            class="success">
+            <__trans phrase="You have successfully recovered your saved [_1]." params="<mt:var name="object_label">">
+        </mtapp:statusmsg>
+    </mt:if>
+
+    <mt:if name="recovered_failed">
+        <mtapp:statusmsg    
+            id="recovered-failed"
+            class="error">
+            <__trans phrase="An error occurred while trying to recover your saved [_1]." params="<mt:var name="object_label">">
+        </mtapp:statusmsg>
+    </mt:if>
+
+    <mt:if name="saved_deleted">
+        <mtapp:statusmsg    
+            id="saved-deleted"
+            class="success">
+            <__trans phrase="You have successfully deleted the checked comment(s).">
+        </mtapp:statusmsg>
+    </mt:if>
+    </div>
+</mt:setvarblock>
+
+<mt:setvarblock name="related_content">
+    <mt:if name="mtver" ge="7">
+    <mt:setvarblock name="icon_pagelink"><mtapp:svgicon id="ic_tri-down" title="" size="sm"></mt:setvarblock>
+    <mt:else>
+    <mt:setvarblock name="icon_pagelink"><i class="fa fa-fw fa-angle-down"></i></mt:setvarblock>
+    </mt:if>
+
+    <!-- Start of Widget(AForm's Field Extra Types) -->
+    <mtapp:widget
+        id="toc-edit-aform"
+        label="<__trans phrase="Config Form">">
+                    <ul class="list-unstyled anchor-links">
+                        <li><a href="#edit_title" title="<__trans phrase="Title Setting">"><mt:Var name="icon_pagelink"><__trans phrase="Title Setting"></a></li>
+                        <li><a href="#edit_lang" title="<__trans phrase="Language">"><mt:Var name="icon_pagelink"><__trans phrase="Language"></a></li>
+                        <li><a href="#edit_thankspage" title="<__trans phrase="Thanks page Setting">"><mt:Var name="icon_pagelink"><__trans phrase="Thanks page Setting"></a></li>
+                        <li><a href="#edit_status" title="<__trans phrase="Schedule Setting">"><mt:Var name="icon_pagelink"><__trans phrase="Schedule Setting"></a></li>
+                        <li><a href="#edit_data_number" title="<__trans phrase="Data No. Setting">"><mt:Var name="icon_pagelink"><__trans phrase="Data No. Setting"></a></li>
+                        <li><a href="#edit_customers_mail" title="<__trans phrase="Customers Mail Setting">"><mt:Var name="icon_pagelink"><__trans phrase="Customers Mail Setting"></a></li>
+                        <li><a href="#edit_admin_mail" title="<__trans phrase="Admin Mail Setting">"><mt:Var name="icon_pagelink"><__trans phrase="Admin Mail Setting"></a></li>
+                        <li><a href="#edit_input_check" title="<__trans phrase="Input check Setting">"><mt:Var name="icon_pagelink"><__trans phrase="Input check Setting"></a></li>
+                        <li><a href="#edit_ip_ua" title="<__trans phrase="IP/UA Setting">"><mt:Var name="icon_pagelink"><__trans phrase="IP/UA Setting"></a></li>
+                        <li><a href="#edit_status_management" title="<__trans phrase="Status Management">"><mt:Var name="icon_pagelink"><__trans phrase="Status Management"></a></li>
+
+<mt:if name="is_amember_installed">
+                        <li><a href="#edit_preload_setting" title="<__trans phrase="Preload Setting">"><mt:Var name="icon_pagelink"><__trans phrase="Preload Setting"></a></li>
+                        <li><a href="#edit_members_only_form" title="<__trans phrase="Members only form Setting">"><mt:Var name="icon_pagelink"><__trans phrase="Members only form Setting"></a></li>
+</mt:if>
+                        <li><a href="#anti_spam" title="<__trans phrase="Anti-Spam">"><mt:Var name="icon_pagelink"><__trans phrase="Anti-Spam"></a></li>
+                    </ul>
+    </mtapp:widget>
+    <!-- End of Widget(AForm's Field Extra Types) -->
+
+</mt:setvarblock>
+
+<mt:setvarblock name="js_include" append="1">
+<script type="text/javascript" src="<$mt:var name="static_uri"$>js/edit.js?v=<$mt:var name="mt_version_id" escape="url"$>"></script>
+<script type="text/javascript" src="<mt:var name="plugin_static_uri">js/edit_aform/config_form.js"></script>
+<script type="text/javascript">
+config_form.alertSaveMsg = '<mt:var name="alert_save_msg">';
+config_form.alertDisableTabMsg = '<mt:var name="alert_disable_tab_msg">';
+config_form.alertFormTitle = '<__trans phrase="Please input Form Title.">';
+config_form.alertThanksURL = '<__trans phrase="alert thanks url">';
+
+function show_schedule_setting_area(){
+  jQuery('#schedule_setting_area').show();
+}
+function hide_schedule_setting_area(){
+  jQuery('#schedule_setting_area').hide();
+}
+jQuery(document).ready(function() {
+  jQuery.extend(jQuery.validator.messages, {
+    maxlength: jQuery.format("<__trans phrase="Please enter no more than {0} characters.">")
+  });
+  jQuery('#aform-config-form').validate({
+    rules: {
+      mail_to: {
+        maxlength: 100
+      },
+      mail_cc: {
+        maxlength: 100
+      },
+      mail_bcc: {
+        maxlength: 100
+      }
+    }
+  });
+});
+</script>
+
+</mt:setvarblock>
+
+<mt:setvarblock name="html_head" append="1">
+<mt:if name="mtver" ge="7">
+<link rel="stylesheet" type="text/css" href="<mt:var name="plugin_static_uri">edit_aform.css" />
+<mt:else>
+<link rel="stylesheet" type="text/css" href="<mt:var name="plugin_static_uri">edit_aform.css" />
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+</mt:if>
+</mt:setvarblock>
+
+<mt:setvarblock name="html_body" append="1">
+</mt:setvarblock>
+
+
+<mt:setvarblock name="page_content">
+    <mt:if name="id">
+    <nav aria-label="A-Form Navigation" id="entry-nav" class="pkg clearfix">
+        <ul class="pagination float-right inline-nav right">
+            <li class="page-item" id="previous-link"><mt:if name="previous_aform_id"><a href="<$mt:var name="script_url"$>?__mode=edit_aform&amp;id=<$mt:var name="previous_aform_id"$>&amp;blog_id=<$mt:var name="current_blog_id"$>" class="page-link"><__trans phrase="Previous"></a></mt:if></li>
+            <li class="page-item" id="manage-link"><a href="<$mt:var name="script_url"$>?__mode=manage_aform&amp;blog_id=<$mt:var name="current_blog_id"$>" class="page-link"><__trans phrase="Manage A-Form"></a></li>
+            <li class="page-item" id="next-link"><mt:if name="next_aform_id"><a href="<$mt:var name="script_url"$>?__mode=edit_aform&amp;id=<$mt:var name="next_aform_id"$>&amp;blog_id=<$mt:var name="current_blog_id"$>" class="page-link"><__trans phrase="Next"></a></mt:if></li>
+        </ul>
+    </nav>
+    </mt:if>
+
+<form name="aform-config-form" id="aform-config-form" method="post" action="<$mt:var name="script_url"$>">
+    <input type="hidden" id="blog_id" name="blog_id" value="<$mt:var name="current_blog_id"$>" />
+    <input type="hidden" id="id" name="id" value="<$mt:var name="id"$>" />
+    <input type="hidden" name="__mode" value="save_aform" />
+    <input type="hidden" name="_type" value="<$mt:var name="object_type"$>" />
+    <input type="hidden" name="return_args" value="<$mt:var name="return_args" escape="html"$>" />
+    <input type="hidden" name="magic_token" value="<$mt:var name="magic_token"$>" id="m_t" />
+
+<mt:var name="aform_action_tabs">
+
+<fieldset id="edit_title">
+  <h3><__trans phrase="Title Setting"></h3>
+<mt:if name="is_amember_form">
+  <mtapp:setting
+    id="title"
+    label="<__trans phrase="User registration form title">"
+    hint="<__trans phrase="Title your Form">" >
+    <input type="text" class="form-control" name="title" id="title" value="<mt:var name="title" escape="html">" size="50" />
+    <small class="hint form-text text-muted"><__trans phrase="Title Setting Description"></small>
+  </mtapp:setting>
+  <mtapp:setting
+    id="amember_edit_form_title"
+    label="<__trans phrase="User edit form title">"
+    hint="<__trans phrase="Title your Form">" >
+    <input type="text" class="form-control" name="amember_edit_form_title" id="amember_edit_form_title" value="<mt:var name="amember_edit_form_title" escape="html">" size="50" />
+    <small class="hint form-text text-muted"><__trans phrase="Title Setting Description"></small>
+  </mtapp:setting>
+<mt:else>
+  <mtapp:setting
+    id="title"
+    label="<__trans phrase="Title">"
+    hint="<__trans phrase="Title your Form">" >
+    <input type="text" class="form-control" name="title" id="title" value="<mt:var name="title" escape="html">" size="50" />
+    <small class="hint form-text text-muted"><__trans phrase="Title Setting Description"></small>
+  </mtapp:setting>
+</mt:if>
+</fieldset>
+
+<fieldset id="edit_lang">
+  <h3><__trans phrase="Language"></h3>
+  <mtapp:setting
+    id="lang"
+    label="<__trans phrase="Language">"
+    hint="<__trans phrase="Select Language">" >
+    <select class="custom-select form-control" name="lang" id="lang">
+     <mt:loop name="langs">
+      <option value="<mt:var name="__key__" escape="html">"<mt:if name="__key__" eq="$lang"> selected="selected"</mt:if>><mt:var name="__value__" escape="html"></option>     </mt:loop>
+    </select>
+  </mtapp:setting>
+</fieldset>
+
+<fieldset id="edit_thankspage">
+  <h3><__trans phrase="Thanks page Setting"></h3>
+  <div class="hint">
+  <__trans phrase="Enter URL or Select Web Page.">
+  </div>
+<mt:if name="is_amember_form">
+  <mtapp:setting id="thanks_url_setting" label="<__trans phrase="User registration form">">
+  <div class="custom-control custom-radio mb-3">
+    <input type="radio" class="custom-control-input" name="thanks_url_setting" value="default" id="thanks_url_setting__default" <mt:if name="thanks_type" eq="">checked="checked"</mt:if>>
+    <label class="custom-control-label" for="thanks_url_setting__default"><__trans phrase="label_thanks_url_default"></label>
+  </div>
+
+  <div class="custom-control custom-radio mb-3">
+    <input type="radio" class="custom-control-input" name="thanks_url_setting" value="finish" id="thanks_url_setting__finish" <mt:if name="thanks_type" eq="finish">checked="checked"</mt:if>>
+    <label class="custom-control-label" for="thanks_url_setting__finish"><__trans phrase="label_thanks_url_finish"></label>
+    <textarea class="form-control" name="thanks_message" placeholder="<__trans phrase="Thanks message">"><mt:var name="thanks_message" escape="html"></textarea>
+  </div>
+
+  <div class="custom-control custom-radio mb-3">
+    <input type="radio" class="custom-control-input" name="thanks_url_setting" value="webpage" id="thanks_url_setting__webpage" <mt:if name="thanks_type" eq="webpage">checked="checked"</mt:if>>
+    <label class="custom-control-label" for="thanks_url_setting__webpage"><__trans phrase="label_thanks_url_select"></label>
+    <select class="custom-select form-control" id="thanks_url_select" name="thanks_url_select">
+    <option value=""><__trans phrase="please select"></option>
+    <mt:loop name="webpages">
+      <option value="<mt:var name="link">" <mt:if name="selected" eq="1">selected="selected"</mt:if>><mt:var name="title"></options>
+    </mt:loop>
+    </select>
+  </div>
+
+  <div class="custom-control custom-radio mb-3">
+    <input type="radio" class="custom-control-input" name="thanks_url_setting" value="url" id="thanks_url_setting__url" <mt:if name="thanks_type" eq="url">checked="checked"</mt:if>>
+    <label class="custom-control-label" for="thanks_url_setting__url"><__trans phrase="label_thanks_url"></label>
+    <input type="text" class="form-control" name="thanks_url" id="thanks_url" value="<mt:if name="thanks_type" eq="url"><mt:var name="thanks_url" escape="html"></mt:if>" size="50" />
+  </div>
+  </mtapp:setting>
+
+  <mtapp:setting id="amember_edit_form_thanks_url_setting" label="<__trans phrase="User edit form">">
+  <div class="custom-control custom-radio mb-3">
+    <input type="radio" class="custom-control-input" name="amember_edit_form_thanks_url_setting" value="default" id="thanks_url_setting__default" <mt:if name="amember_edit_form_thanks_type" eq="">checked="checked"</mt:if>>
+    <label class="custom-control-label" for="thanks_url_setting__default"><__trans phrase="label_thanks_url_default"></label>
+  </div>
+
+  <div class="custom-control custom-radio mb-3">
+    <input type="radio" class="custom-control-input"
+      name="amember_edit_form_thanks_url_setting" value="finish" id="thanks_url_setting__finish"
+      <mt:if name="amember_edit_form_thanks_type" eq="finish">checked="checked"</mt:if>>
+    <label class="custom-control-label" for="thanks_url_setting__finish"><__trans phrase="label_thanks_url_finish"></label>
+    <textarea class="form-control" name="amember_edit_form_thanks_message" placeholder="<__trans phrase="Thanks message">"><mt:var name="amember_edit_form_thanks_message" escape="html"></textarea>
+  </div>
+
+  <div class="custom-control custom-radio mb-3">
+    <input type="radio" class="custom-control-input"
+      name="amember_edit_form_thanks_url_setting" value="webpage" id="thanks_url_setting__webpage"
+      <mt:if name="amember_edit_form_thanks_type" eq="webpage">checked="checked"</mt:if>>
+    <label class="custom-control-label" for="thanks_url_setting__webpage"><__trans phrase="label_thanks_url_select"></label>
+    <select class="custom-select form-control" id="amember_edit_form_thanks_url_select" name="amember_edit_form_thanks_url_select">
+      <option value=""><__trans phrase="please select"></option>
+    <mt:loop name="webpages">
+      <option value="<mt:var name="link">" <mt:if name="amember_edit_form_selected" eq="1">selected="selected"</mt:if>><mt:var name="title"></options>
+    </mt:loop>
+    </select>
+  </div>
+
+  <div class="custom-control custom-radio mb-3">
+    <input type="radio" class="custom-control-input" name="amember_edit_form_thanks_url_setting" value="url" id="amember_edit_form_thanks_url_setting__url" <mt:if name="amember_edit_form_thanks_type" eq="url">checked="checked"</mt:if>>
+    <label class="custom-control-label" for="amember_edit_form_thanks_url_setting__url"><__trans phrase="label_thanks_url"></label>
+    <input type="text" class="form-control" name="amember_edit_form_thanks_url" id="amember_edit_form_thanks_url" value="<mt:if name="amember_edit_form_thanks_type" eq="url"><mt:var name="amember_edit_form_thanks_url" escape="html"></mt:if>" size="50" />
+  </div>
+  </mtapp:setting>
+<mt:else>
+  <mtapp:setting id="thanks_url_setting">
+  <div class="custom-control custom-radio mb-3">
+    <input type="radio" class="custom-control-input" name="thanks_url_setting" value="default" id="thanks_url_setting__default" <mt:if name="thanks_type" eq="">checked="checked"</mt:if>>
+    <label class="custom-control-label" for="thanks_url_setting__default"><__trans phrase="label_thanks_url_default"></label>
+  </div>
+
+  <div class="custom-control custom-radio mb-3">
+    <input type="radio" class="custom-control-input" name="thanks_url_setting" value="finish" id="thanks_url_setting__finish" <mt:if name="thanks_type" eq="finish">checked="checked"</mt:if>>
+    <label class="custom-control-label" for="thanks_url_setting__finish"><__trans phrase="label_thanks_url_finish"></label>
+    <textarea class="form-control" name="thanks_message" placeholder="<__trans phrase="Thanks message">"><mt:var name="thanks_message" escape="html"></textarea>
+  </div>
+
+  <div class="custom-control custom-radio mb-3">
+    <input type="radio" class="custom-control-input" name="thanks_url_setting" value="webpage" id="thanks_url_setting__webpage" <mt:if name="thanks_type" eq="webpage">checked="checked"</mt:if>>
+    <label class="custom-control-label" for="thanks_url_setting__webpage"><__trans phrase="label_thanks_url_select"></label>
+    <select class="custom-select form-control" id="thanks_url_select" name="thanks_url_select">
+    <option value=""><__trans phrase="please select"></option>
+    <mt:loop name="webpages">
+      <option value="<mt:var name="link">" <mt:if name="selected" eq="1">selected="selected"</mt:if>><mt:var name="title"></options>
+    </mt:loop>
+    </select>
+  </div>
+
+  <div class="custom-control custom-radio mb-3">
+    <input type="radio" class="custom-control-input" name="thanks_url_setting" value="url" id="thanks_url_setting__url" <mt:if name="thanks_type" eq="url">checked="checked"</mt:if>>
+    <label class="custom-control-label" for="thanks_url_setting__url"><__trans phrase="label_thanks_url"></label>
+    <input type="text" class="form-control" name="thanks_url" id="thanks_url" value="<mt:if name="thanks_type" eq="url"><mt:var name="thanks_url" escape="html"></mt:if>" size="50" />
+  </div>
+  </mtapp:setting>
+</mt:if>
+
+</fieldset>
+
+<fieldset id="edit_status">
+  <h3><__trans phrase="Schedule Setting"></h3>
+  <div>
+  <mtapp:setting
+    id="status"
+    label="<__trans phrase="Form Status">"
+    hint="<__trans phrase="Form Status">" >
+    <div class="custom-control custom-radio" onclick="show_schedule_setting_area()">
+      <input type="radio" class="custom-control-input" name="status" value="2"<mt:if name="status" eq="2"> checked="checked"</mt:if> id="status_radio_value2"><label class="custom-control-label" for="status_radio_value2"><__trans phrase="Enable"></label></div>
+    <div class="custom-control custom-radio" onclick="hide_schedule_setting_area()">
+      <input type="radio" class="custom-control-input" name="status" value="0"<mt:if name="status" eq="0"> checked="checked"</mt:if> id="status_radio_value0"><label class="custom-control-label" for="status_radio_value0"><__trans phrase="Disable"></label></div>
+    <small class="hint form-text text-muted"><__trans phrase="description schedule setting"></small>
+  </mtapp:setting>
+
+  <div id="schedule_setting_area">
+  <mtapp:setting
+    id="schedule"
+    label="<__trans phrase="Form Schedule">"
+    hint="<__trans phrase="Form Schedule">" >
+    <div class="row">
+      <div class="col">
+        <label><__trans phrase="Schedule Start Date"></label>
+        <input type="date" class="form-control" id="d_start_at_date" name="start_at_date" value="<mt:var name="start_at_date" escape="html">" class="text-date">
+      </div>
+      <div class="col">
+        <label><__trans phrase="Schedule Start Time"></label>
+        <input type="time" step="1" class="form-control" id="start-at-time" name="start_at_time" value="<mt:var name="start_at_time" escape="html">">
+        <small class="hint form-text text-muted"><__trans phrase="Schedule Start Time description"></small>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col">
+       <label><__trans phrase="Schedule End Date"></label>
+        <input type="date" class="form-control" id="d_end_at_date" name="end_at_date" value="<mt:var name="end_at_date" escape="html">" class="text-date">
+      </div>
+      <div class="col">
+        <label><__trans phrase="Schedule End Time"></label>
+        <input type="time" step="1" class="form-control" id="end_at_time" name="end_at_time" value="<mt:var name="end_at_time" escape="html">">
+       <small class="hint form-text text-muted"><__trans phrase="Schedule End Time description"></small>
+      </div>
+    </div>
+  </mtapp:setting>
+
+  <mtapp:setting
+    id="receive_limit"
+    label="<__trans phrase="Receive limit">"
+    hint="<__trans phrase="Receive limit">" >
+    <input type="text" class="form-control w-25" id="receive_limit" name="receive_limit" value="<mt:var name="receive_limit" escape="html">" size="4">
+  </mtapp:setting>
+
+  <h4><__trans phrase="Message Setting"></h4>
+  <mtapp:setting
+    id="msg_before_start"
+    label="<__trans phrase="msg before start">">
+    <input type="text" class="form-control" id="msg_before_start" name="msg_before_start" value="<mt:var name="msg_before_start" escape="html">" size="50">
+    <small class="hint form-text text-muted">
+      <__trans phrase="description before start">
+    </small>
+  </mtapp:setting>
+
+  <mtapp:setting
+    id="msg_after_end"
+    label="<__trans phrase="msg after end">">
+    <input type="text" class="form-control" id="msg_after_end" name="msg_after_end" value="<mt:var name="msg_after_end" escape="html">" size="50">
+    <small class="hint form-text text-muted">
+      <__trans phrase="description after end">
+    </small>
+  </mtapp:setting>
+
+  <mtapp:setting
+    id="msg_limit_over"
+    label="<__trans phrase="msg limit over">">
+    <input type="text" class="form-control" id="msg_limit_over" name="msg_limit_over" value="<mt:var name="msg_limit_over" escape="html">" size="50">
+    <small class="hint form-text text-muted">
+      <__trans phrase="description limit over">
+    </small>
+  </mtapp:setting>
+  </div>
+  </div>
+</fieldset>
+<script type="text/javascript">
+<mt:if name="status" eq="2">
+  show_schedule_setting_area();
+<mt:else>
+  hide_schedule_setting_area();
+</mt:if>
+</script>
+
+<fieldset id="edit_data_number">
+  <h3><__trans phrase="Data No. Setting"></h3>
+  <p><a data-toggle="collapse" href="#dataNoSettingDescriptionContent" aria-expanded="false" aria-controls="dataNoSettingDescriptionContent"><mtapp:svgicon id="ic_info" title="" size="sm"><__trans phrase="Data No. Setting Description Title"></a></p>
+  <div class="collapse mb-6" id="dataNoSettingDescriptionContent"><__trans phrase="Data No. Setting Description"></div>
+  <mtapp:setting
+    id="data_id_offset"
+    label="<__trans phrase="Data No. offset">"
+    hint="<__trans phrase="Data No. offset">" >
+    <input type="text" class="form-control" name="data_id_offset" id="data_id_offset" value="<mt:var name="data_id_offset" escape="html">" size="50" />
+    <small class="hint form-text text-muted"><__trans phrase="Data No. offset Description"></small>
+  </mtapp:setting>
+  <mtapp:setting
+    id="data_reset_no"
+    label="<__trans phrase="Reset Data No.">"
+    hint="<__trans phrase="Reset Data No.">" >
+    <input type="checkbox" class="mt-switch" name="reset_data_id" id="reset_data_id" value="1">
+    <label for="reset_data_id"><__trans phrase="Reset Data No."></label>
+    <small class="hint form-text text-muted"><__trans phrase="Reset Data No. Description"></small>
+  </mtapp:setting>
+</fieldset>
+
+<fieldset id="edit_customers_mail">
+  <h3><__trans phrase="Customers Mail Setting"></h3>
+
+  <mt:ignore><div><__trans phrase="Customers Mail Setting Description"><a href="javascript:void(0)" onclick="window.open('<mt:var name="plugin_static_uri">images/aform_mail_sample.png','sample','width=750,height=820,scrollbars=yes,resizable=yes')"><__trans phrase="View Sample"></a></div></mt:ignore>
+
+  <mtapp:setting
+    id="mail_subject"
+    label="<__trans phrase="Mail Subject">"
+    hint="<__trans phrase="mail subject">" >
+    <input type="text" class="form-control" id="mail_subject" name="mail_subject" value="<mt:var name="mail_subject" escape="html">" size="50">
+  </mtapp:setting>
+
+  <mtapp:setting
+    id="mail_from"
+    label="<__trans phrase="Mail From">"
+    hint="<__trans phrase="mail from">" >
+    <input type="text" class="form-control" id="mail_from" name="mail_from" value="<mt:var name="mail_from" escape="html">" size="50">
+    <small class="hint form-text text-muted"><__trans phrase="Mail From description"></small>
+  </mtapp:setting>
+
+  <mtapp:setting
+    id="mail_to"
+    label="<__trans phrase="Customers Mail To">"
+    hint="<__trans phrase="mail to">" >
+    <div><__trans phrase="Customers Mail To description"></div>
+  </mtapp:setting>
+
+  <mtapp:setting
+    id="mail_header"
+    label="<__trans phrase="Mail Header">"
+    hint="<__trans phrase="mail header">" >
+    <textarea class="form-control text full-width long" cols="" rows="5" id="mail_header" name="mail_header"><mt:var name="mail_header" escape="html"></textarea>
+    <small class="hint form-text text-muted"><__trans phrase="Mail Header Description"></small>
+  </mtapp:setting>
+
+  <mtapp:setting
+    id="mail_footer"
+    label="<__trans phrase="Mail Footer">"
+    hint="<__trans phrase="mail footer">" >
+    <textarea class="form-control text full-width long" cols="" rows="5" id="mail_footer" name="mail_footer"><mt:var name="mail_footer" escape="html"></textarea>
+    <small class="hint form-text text-muted"><__trans phrase="Mail Footer Description"></small>
+    <small class="hint form-text text-muted"><__trans phrase="Customers/Admin Mail Setting description"></small>
+  </mtapp:setting>
+</fieldset>
+
+<fieldset id="edit_admin_mail">
+  <h3><__trans phrase="Admin Mail Setting"></h3>
+
+  <mtapp:setting
+    id="admin_mail_subject"
+    label="<__trans phrase="Mail Subject">"
+    hint="<__trans phrase="Mail Subject">" >
+    <input type="text" class="form-control" id="mail_admin_subject" name="mail_admin_subject" value="<mt:var name="mail_admin_subject" escape="html">" size="50">
+  </mtapp:setting>
+
+  <mtapp:setting
+    id="admin_mail_from"
+    label="<__trans phrase="Admin Mail From">"
+    hint="<__trans phrase="mail from">" >
+    <input type="text" class="form-control" id="mail_admin_from" name="mail_admin_from" value="<mt:var name="mail_admin_from" escape="html">" size="50">
+    <div class="custom-control custom-checkbox">
+      <input type="checkbox" class="custom-control-input" id="use_users_mail_from" name="use_users_mail_from" value="1" <mt:if name="use_users_mail_from">checked="checked"</mt:if> />
+      <label class="custom-control-label" for="use_users_mail_from"><__trans phrase="Use users mail From"></label>
+    </div>
+  </mtapp:setting>
+
+  <mtapp:setting
+    id="mail_to"
+    label="<__trans phrase="Admin Mail To">"
+    hint="<__trans phrase="mail to">" >
+    <input type="text" class="form-control mail_to" id="mail_to" name="mail_to" value="<mt:var name="mail_to" escape="html">" size="50">
+    <small class="hint form-text text-muted"><__trans phrase="Mail To description"></small>
+  </mtapp:setting>
+
+  <mtapp:setting
+    id="mail_cc"
+    label="<__trans phrase="Mail CC">"
+    hint="<__trans phrase="mail cc">" >
+    <input type="text" class="form-control mail_cc" id="mail_cc" name="mail_cc" value="<mt:var name="mail_cc" escape="html">" size="50">
+    <small class="hint form-text text-muted"><__trans phrase="Mail To description"></small>
+  </mtapp:setting>
+
+  <mtapp:setting
+    id="mail_bcc"
+    label="<__trans phrase="Mail BCC">"
+    hint="<__trans phrase="mail bcc">" >
+    <input type="text" class="form-control mail_bcc" id="mail_bcc" name="mail_bcc" value="<mt:var name="mail_bcc" escape="html">" size="50">
+    <small class="hint form-text text-muted"><__trans phrase="Mail To description"></small>
+  </mtapp:setting>
+
+  <mtapp:setting
+    id="admin_mail_header"
+    label="<__trans phrase="Mail Header">"
+    hint="<__trans phrase="mail header">" >
+    <textarea class="form-control text full-width long" cols="" rows="5" id="admin_mail_header" name="admin_mail_header"><mt:var name="admin_mail_header" escape="html"></textarea>
+    <small class="hint form-text text-muted"><__trans phrase="Mail Header Description"></small>
+  </mtapp:setting>
+
+  <mtapp:setting
+    id="admin_mail_footer"
+    label="<__trans phrase="Mail Footer">"
+    hint="<__trans phrase="mail footer">" >
+    <textarea class="form-control text full-width long" cols="" rows="5" id="admin_mail_footer" name="admin_mail_footer"><mt:var name="admin_mail_footer" escape="html"></textarea>
+    <small class="hint form-text text-muted"><__trans phrase="Mail Footer Description"></small>
+    <small class="hint form-text text-muted"><__trans phrase="Customers/Admin Mail Setting description"></small>
+  </mtapp:setting>
+</fieldset>
+
+<fieldset id="edit_input_check">
+  <h3><__trans phrase="Input check Setting"></h3>
+  <!--<div><__trans phrase="Input check Setting Description"></div>-->
+  <div class="form-group">
+  <mtapp:setting
+    id="input_check"
+    label="<__trans phrase="Input check">"
+    hint="<__trans phrase="input check">" >
+    <div class="custom-control custom-radio">
+      <input type="radio" class="custom-control-input" name="check_immediate" value="1" id="edit_input_check_value1" <mt:if name="check_immediate"> checked="checked"</mt:if>><label class="custom-control-label" for="edit_input_check_value1"><__trans phrase="Check Immediately."></label>
+    </div>
+    <div class="custom-control custom-radio">
+      <input type="radio" class="custom-control-input" name="check_immediate" value="0" id="edit_input_check_value0"<mt:if name="check_immediate" ne="1"> checked="checked"</mt:if>><label class="custom-control-label" for="edit_input_check_value0"><__trans phrase="Check only when Confirm button is pushed."></label>
+    </div>
+  </mtapp:setting>
+  </div>
+</fieldset>
+
+<fieldset id="edit_ip_ua">
+  <h3><__trans phrase="IP/UA Setting"></h3>
+  <div class="form-group">
+  <mtapp:setting
+    id="edit_ip_ua_to_admin"
+    label="<__trans phrase="Display IP/UA to admin mail">">
+    <input type="checkbox" class="mt-switch" name="ip_ua_to_admin" id="check_ip_ua_to_admin" value="1" <mt:if name="ip_ua_to_admin"> checked="checked"</mt:if> />
+    <label for="check_ip_ua_to_admin"><__trans phrase="Display IP/UA to admin mail"></label>
+  </mtapp:setting>
+  <mtapp:setting
+    id="edit_ip_ua_to_customer"
+    label="<__trans phrase="Display IP/UA to customer mail">">
+    <input type="checkbox" class="mt-switch" name="ip_ua_to_customer" id="check_ip_ua_to_customer" value="1" <mt:if name="ip_ua_to_customer"> checked="checked"</mt:if> />
+    <label for="check_ip_ua_to_customer"><__trans phrase="Display IP/UA to customer mail"></label>
+  </mtapp:setting>
+  </div>
+</fieldset>
+
+<fieldset id="edit_status_management">
+  <h3><__trans phrase="Status Management"></h3>
+  <!--<div><__trans phrase="Status Management Description"></div>-->
+  <div class="form-group">
+  <mtapp:setting
+    id="data_status_options"
+    label="<__trans phrase="Data Status Options">"
+    hint="<__trans phrase="Data Status Options">" >
+    <input type="text" class="form-control" name="data_status_options" id="data_status_options" value="<mt:var name="data_status_options" escape="html">" size="50" />
+    <small class="hint form-text text-muted"><__trans phrase="Data Status Options Comment"></small>
+  </mtapp:setting>
+  </div>
+</fieldset>
+
+<mt:if name="is_amember_installed">
+<fieldset id="edit_preload_setting">
+  <h3><__trans phrase="Preload Setting"></h3>
+  <p><a data-toggle="collapse" href="#preloadSettingDescriptionContent" aria-expanded="false" aria-controls="preloadSettingDescriptionContent"><mtapp:svgicon id="ic_info" title="" size="sm"><__trans phrase="Preload Setting Description Title"></a></p>
+  <div class="collapse mb-6" id="preloadSettingDescriptionContent"><__trans phrase="Preload Setting Description"></div>
+  <mtapp:setting
+    id="disable_preload"
+    label="<__trans phrase="Disable Preload">"
+    hint="<__trans phrase="Disable Preload">" >
+    <input type="checkbox" class="mt-switch" name="disable_preload" id="check_disable_preload" value="1" <mt:if name="disable_preload"> checked="checked"</mt:if> />
+    <label for="check_disable_preload"><__trans phrase="Disable Preload"></label>
+  </mtapp:setting>
+</fieldset>
+</mt:if>
+
+<mt:if name="is_amember_installed">
+<fieldset id="edit_members_only_form">
+  <h3><__trans phrase="Members only form Setting"></h3>
+  <p><a data-toggle="collapse" href="#membersOnlyFormSettingDescriptionContent" aria-expanded="false" aria-controls="membersOnlyFormSettingDescriptionContent"><mtapp:svgicon id="ic_info" title="" size="sm"><__trans phrase="Members only form Setting Title"></a></p>
+  <div class="collapse mb-6" id="membersOnlyFormSettingDescriptionContent"><__trans phrase="Members only form Setting Description"></div>
+  <mtapp:setting
+    id="member_already_send_redirect_url"
+    label="<__trans phrase="URL to redirect if member already send">"
+    hint="<__trans phrase="URL to redirect if member already send">" >
+    <input type="text" class="form-control" name="member_already_send_redirect_url" value="<mt:var name="member_already_send_redirect_url" escape="html">" />
+    <small class="hint form-text text-muted"><__trans phrase="URL to redirect Comment"></small>
+  </mtapp:setting>
+</fieldset>
+</mt:if>
+
+<fieldset id="anti_spam">
+  <h3><__trans phrase="Anti-Spam"></h3>
+  <mtapp:setting
+    id="enable_recaptcha"
+    label="<__trans phrase="Enable Google reCAPTCHA">">
+    <input type="checkbox" class="mt-switch" id="enable_recaptcha" name="enable_recaptcha" value="1" <mt:if name="enable_recaptcha">checked="checked"</mt:if> />
+    <label for="enable_recaptcha"><__trans phrase="Use"></label>
+  </mtapp:setting>
+
+  <mtapp:setting
+    id="ng_word"
+    label="<__trans phrase="NG Word">"
+    hint="<__trans phrase="Please enter NG words with line separator.">"
+    show_hint="1">
+    <textarea class="form-control" rows="5" name="ng_word"><mt:var name="ng_word" escape="html"></textarea>
+  </mtapp:setting>
+
+  <mtapp:setting
+    id="ban_ip"
+    label="<__trans phrase="Ban IP">"
+    hint="<__trans phrase="Please enter Ban IPs with line separator.">"
+    show_hint="1">
+    <textarea class="form-control" rows="5" name="ban_ip"><mt:var name="ban_ip" escape="html"></textarea>
+  </mtapp:setting>
+</fieldset>
+
+<mt:setvarblock name="action_buttons">
+    <button
+        type="submit"
+        accesskey="s"
+        title="<__trans phrase="Save">"
+        class="button primary action primary-button btn btn-primary"
+        ><__trans phrase="Save"></button>
+</mt:setvarblock>
+
+<mt:include name="include/actions_bar.tmpl" bar_position="bottom" hide_pager="1" settings_bar="1">
+
+
+</form>
+</mt:setvarblock>
+
+<mt:if name="mtver" ge="7">
+  <mt:setvar name="main_content_panel_class" value="mt-mainContent--scrollable">
+  <mt:setvar name="secondary_panel_class" value="mt-secondaryPanel--scrollable">
+  <mt:include name="layout/default.tmpl">
+  <mt:var name="layout">
+<mt:else>
+  <mt:include name="include/header.tmpl" id="header_include">
+  <mt:var name="page_content">
+  <mt:var name="related_content">
+  <mt:include name="include/footer.tmpl" id="footer_include">
+</mt:if>

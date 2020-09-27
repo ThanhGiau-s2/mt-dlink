@@ -1,0 +1,51 @@
+<div class="view-block">
+	<div class="aform-input-example parts-%%field_idx%%">%%field_input_example%%</div>
+	<select id="parts-%%field_idx%%-yy" class="aform-input aform-calendar parts-%%field_idx%%" name="aform-field-%%field_idx%%-yy"></select>
+	<label for="parts-%%field_idx%%-yy"><__trans phrase="year"></label>
+	<select id="parts-%%field_idx%%-mm" class="aform-input aform-calendar parts-%%field_idx%%" name="aform-field-%%field_idx%%-mm"></select>
+	<label for="parts-%%field_idx%%-mm"><__trans phrase="month"></label>
+	<select id="parts-%%field_idx%%-dd" class="aform-input aform-calendar parts-%%field_idx%%" name="aform-field-%%field_idx%%-dd"></select>
+	<label for="parts-%%field_idx%%-dd"><__trans phrase="day"></label>
+	<span><img class="ui-datepicker-trigger" src="<mt:var name="plugin_static_uri">images/calendar.gif"></span>
+</div>
+
+<mt:include name="include/edit_aform_field/parts_common.tmpl"
+	display_label="1"
+	display_parts_id="1"
+	display_required="1"
+	display_input_example="1">
+
+<div class="form-group">
+	<label for="aformFieldEditDropdown%%field_idx%%"><__trans phrase="default value"></label>
+	<select class="custom-select form-control aform-field-calendar-default-value" id="aformFieldCalendarDefaultValue%%field_idx%%" >
+		<option value=""><__trans phrase="please select"></option>
+		<option value="today"><__trans phrase="today"></option><option value="+1day"><__trans phrase="tomorrow"></option>
+		<option value="+1month">1<__trans phrase="month later"></option><option value="+2month">2<__trans phrase="month later"></option>
+		<option value="+3month">3<__trans phrase="month later"></option><option value="-10year">10<__trans phrase="years ago"></option>
+		<option value="-20year">20<__trans phrase="years ago"></option><option value="-30year">30<__trans phrase="years ago"></option>
+	</select>
+</div>
+
+<div class="form-group">
+	<label for="aformFieldEditDropdown%%field_idx%%"><__trans phrase="selectable range"></label>
+	<div class="form-inline">
+		<select class="custom-select form-control w-10 aform-field-calendar-range-from" id="aformFieldCalendarRangeFrom%%field_idx%%"></select>
+		<span class="ml-sm-3 mr-sm-3"><__trans phrase="-01-01 to"></span>
+		<select class="custom-select form-control w-10 aform-field-calendar-range-to" id="aformFieldCalendarRangeTo%%field_idx%%"></select>
+		<span class="ml-sm-3 mr-sm-3"><__trans phrase="-12-31"></span>
+	</div>
+</div>
+
+<div class="form-group">
+	<label for="aformFieldEditDropdown5"><__trans phrase="Disable dates"></label>
+	<textarea class="form-control aform-field-calendar-disable-dates" id="aformFieldCalendarDisableDates%%field_idx%%" aria-describedby="aformFieldCalendarDisableDatesHelp"></textarea>
+	<small id="aformFieldCalendarDisableDatesHelp" class="form-text text-muted"><__trans phrase="Disable dates description"></small>
+</div>
+
+<div class="form-group">
+	<label><__trans phrase="Selectable range from"></label>
+	<div class="form-inline">
+		<input type="number" class="form-control aform-field-calendar-abs-range-from w-10" id="aformFieldCalendarAbsRangeFrom%%field_idx%%" value="" />
+		<span class="ml-sm-3 mr-sm-3"><__trans phrase="selectable abs range from"></span>
+	</div>
+</div>

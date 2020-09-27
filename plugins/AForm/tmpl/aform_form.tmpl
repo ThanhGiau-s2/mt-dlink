@@ -1,0 +1,140 @@
+<mt:Ignore>Copyright (c) 2008 ARK-Web Co.,Ltd.</mt:Ignore>
+
+<$mt:setvar name="aform_id" value="$id"$>
+<script type="text/javascript">
+<!--
+aform = new Object;
+aform.id = '<$mt:var name="aform_id"$>';
+aform.logger_url = '<$mt:var name="logger_url"$>';
+aform.checker_url = '<$mt:var name="checker_url"$>';
+aform.phrases = {"Input error:": "<__trans phrase="Input error:">"};
+aform.static_uri = '<$mt:var name="static_uri"$>';
+aform.require_ajax_check = '<mt:var name="require_ajax_check" escape="html">';
+aform.is_active = '<mt:var name="aform_is_active" escape="html">';
+aform.check_immediate = '<mt:var name="check_immediate" escape="html">';
+aform.parameters = new Object;
+aform.datepickers = new Object;
+aform.relations = new Object;
+<mt:AFormFieldRelationScript aform_id="$aform_id">
+aform.payment = { parts_id: '', field_id: '', methods: {} };
+aform.recaptcha = new Object;
+aform.pages = <mt:var name="aform_pages">;
+aform.auto_status = '<mt:var name="aform_auto_status" escape="js">';
+//-->
+</script>
+
+<mt:if name="charset" eq="UTF-8">
+  <script src="<$mt:var name="static_uri"$>plugins/AForm/js/zenhanconv.js" type="text/javascript"></script>
+</mt:if>
+<mt:if name="charset" eq="SHIFT_JIS">
+  <script src="<$mt:var name="static_uri"$>plugins/AForm/js/zenhanconv-sjis.js" type="text/javascript"></script>
+</mt:if>
+<mt:if name="charset" eq="EUC-JP">
+  <script src="<$mt:var name="static_uri"$>plugins/AForm/js/zenhanconv-euc.js" type="text/javascript"></script>
+</mt:if>
+
+<mt:if name="require_ajaxzip">
+<script src="<$mt:var name="static_uri"$>plugins/AForm/js/ajaxzip2/ajaxzip2.js" charset="UTF-8" type="text/javascript"></script>
+<script type="text/javascript">
+<!--
+AjaxZip2.JSONDATA = '<$mt:var name="static_uri"$>plugins/AForm/js/ajaxzip2/data';
+//-->
+</script>
+</mt:if>
+
+<div id="aform-<$mt:var name="aform_id"$>" class="aform <$mt:var name="aform_lang"$>">
+<div class="aform-header"><$mt:var name="title" escape="html"$></div>
+<div class="aform-checking" style="display:none;"><__trans phrase="Checking form condition..."></div>
+<div class="aform-content">
+<mt:if name="aform_is_active" eq="published">
+<form enctype="multipart/form-data" name="aform-form-<$mt:var name="aform_id"$>" id="aform-form-<$mt:var name="aform_id"$>" method="post" action="<$mt:var name="action_url"$>" <mt:if name="preview" eq="1">onsubmit="return false;"</mt:if> novalidate="novalidate">
+    <input type="hidden" name="blog_id" value="<$mt:var name="blog_id"$>" />
+    <input type="hidden" name="id" value="<$mt:var name="aform_id"$>" />
+    <input type="hidden" name="run_mode" value="confirm" />
+    <input type="hidden" name="aform_url" value="<mt:var name="aform_url" escape="html">" />
+    <input type="hidden" name="aform_path" value="<mt:var name="aform_path" escape="html">" />
+    <input type="hidden" name="entry_id" value="<mt:var name="entry_id" escape="html">" />
+    <mt:var name="hidden_params">
+
+<mt:ignore><!-- multi page header template --></mt:ignore>
+<mt:setvartemplate name="aform_multipage_header">
+<mt:if name="aform_page_max" gt="1">
+<div class="aform_page" id="aform_page_<mt:var name="aform_current_page" escape="html">">
+  <p><mt:var name="aform_current_page" escape="html"> / <mt:var name="aform_page_max" escape="html"></p>
+</mt:if>
+</mt:setvartemplate>
+
+<mt:ignore><!-- multi page footer template --></mt:ignore>
+<mt:setvartemplate name="aform_multipage_footer">
+  <div class="aform-button-area">
+      <mt:if name="aform_current_page" gt="1"><input type="button" value="<__trans phrase="Prev">" id="aform_button_prev_<mt:var name="aform_current_page" escape="html">" /></mt:if>
+      <mt:if name="aform_current_page" lt="$aform_page_max">
+        <input type="button" value="<mt:var name="next_text" escape="html">" id="aform_button_next_<mt:var name="aform_current_page" escape="html">" />
+      <mt:else>
+	    <input id="aform_btn_confirm_<mt:var name="aform_id">" type="submit" name="Submit" value="<__trans phrase="Confirm">" />
+      </mt:if>
+  </div>
+</div>
+</mt:setvartemplate>
+
+<mt:setvar name="aform_current_page" value="1">
+<mt:var name="aform_multipage_header">
+
+<mt:loop name="fields">
+<mt:if name="type" like="^(label|note)$"><mt:Ignore><!-- 見出し, コメント・注釈パーツ --></mt:Ignore>
+  <mt:AFormFieldInputExample aform_id="$aform_id" parts_id="$parts_id">
+  <mt:AFormFieldInput aform_id="$aform_id" parts_id="$parts_id">
+<mt:else name="type" eq="pagebreak"><mt:Ignore><!-- pagebreak --></mt:Ignore>
+  <mt:var name="aform_multipage_footer">
+  <mt:setvar name="aform_current_page" op="++">
+  <mt:var name="aform_multipage_header">
+<mt:else name="type" eq="parameter">
+  <mt:if name="show_parameter">
+<dl class="dl_<mt:var name="parts_id" escape="html">">
+  <dt><mt:AFormFieldLabel aform_id="$aform_id" parts_id="$parts_id">
+  <mt:AFormFieldValidation aform_id="$aform_id" parts_id="$parts_id"></dt>
+  <dd><mt:AFormFieldInputExample aform_id="$aform_id" parts_id="$parts_id">
+      <mt:AFormFieldInput aform_id="$aform_id" parts_id="$parts_id">
+      <mt:AFormFieldError aform_id="$aform_id" parts_id="$parts_id"></dd>
+</dl>
+  <mt:else>
+    <mt:AFormFieldInput aform_id="$aform_id" parts_id="$parts_id">
+  </mt:if>
+<mt:else><mt:Ignore><!-- 見出し, コメント・注釈パーツ以外 --></mt:Ignore>
+<dl class="dl_<mt:var name="parts_id" escape="html">">
+  <dt><mt:AFormFieldLabel aform_id="$aform_id" parts_id="$parts_id">
+  <mt:AFormFieldValidation aform_id="$aform_id" parts_id="$parts_id"></dt>
+  <dd><mt:AFormFieldInputExample aform_id="$aform_id" parts_id="$parts_id">
+      <mt:AFormFieldInput aform_id="$aform_id" parts_id="$parts_id">
+      <mt:AFormFieldError aform_id="$aform_id" parts_id="$parts_id"></dd>
+</dl>
+</mt:if>
+</mt:loop>
+
+<mt:if name="enable_recaptcha">
+  <mt:unless name="recaptcha_site_key">
+    <p class="error"><__trans phrase="ERROR: reCAPCHA site key is null."></p>
+  <mt:else>
+    <script>aform.recaptcha = {'enable': true, 'token': ''};</script>
+    <script src='https://www.google.com/recaptcha/api.js' async defer></script>
+    <div id="recaptcha" class="g-recaptcha" data-sitekey="<mt:var name="recaptcha_site_key" escape="html">" data-callback='aform_recaptcha_onSubmit' data-size="invisible"></div>
+  </mt:unless>
+</mt:if>
+
+<mt:if name="aform_page_max" gt="1">
+	<mt:var name="aform_multipage_footer">
+<mt:else>
+	<div class="aform-button-area"><input id="aform_btn_confirm_<mt:var name="aform_id">" type="submit" name="Submit" value="<__trans phrase="Confirm">" /></div>
+</mt:if>
+
+</form>
+<mt:else>
+  <div class="aform-inactive-msg"><mt:var name="aform_message" escape="html"></div>
+</mt:if>
+<mt:if name="hide_demo_warning" ne="1"><p class="aform-demo"><__trans phrase="This form is <a href='http://www.ark-web.jp/movabletype/' target='_blank'>A-Form for Movabletype Trial version</a>"></p></mt:if>
+<mt:if name="hide_powered_by" ne="1">
+<p class="powerdby"><a href="http://www.ark-web.jp/movabletype/" target="_blank">Powered by A-Form for Movable Type</a></p>
+</mt:if>
+
+</div>
+</div>

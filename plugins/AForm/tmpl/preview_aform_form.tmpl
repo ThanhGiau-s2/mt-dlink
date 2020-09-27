@@ -1,0 +1,34 @@
+<mt:Ignore>Copyright (c) 2008 ARK-Web Co.,Ltd.</mt:Ignore>
+<MTVersion setvar="mtver">
+<mt:setvar name="preview" value="1">
+<mt:setvarblock name="page_title"><__trans phrase="Preview Aform"></mt:setvarblock>
+
+<mt:setvarblock name="html_head" append="1">
+<link rel="stylesheet" type="text/css" href="<$mt:var name="static_uri"$>plugins/AForm/style.css" />
+<link rel="stylesheet" type="text/css" href="<$mt:var name="static_uri"$>plugins/AForm/jquery-ui-1.8.4.custom.css" />
+<link rel="stylesheet" type="text/css" href="<$mt:var name="static_uri"$>plugins/AForm/edit_aform.css" />
+</mt:setvarblock>
+
+<mt:if name="mtver" ge="7">
+  <mt:setvarblock name="modal_body">
+  <mt:include name="aform_form.tmpl">
+  <mt:include module="aform_js" exclude_jquery_js="1">
+  </mt:setvarblock>
+
+  <mt:include name="layout/modal.tmpl">
+  <mt:var name="layout">
+<mt:else>
+  <mt:include name="include/aform_preview_header.tmpl">
+  <mt:include name="aform_form.tmpl">
+  <mt:setvarblock name="action_buttons">
+    <button
+        type="button"
+        accesskey="x"
+        onclick="parent.jQuery.fn.mtDialog.close()"
+        title="<__trans phrase="Close">"
+        class="action cancel"
+        ><__trans phrase="Close"></button>
+  </mt:setvarblock>
+  <mt:include name="include/actions_bar.tmpl" bar_position="bottom" hide_pager="1" settings_bar="1">
+  <mt:include name="include/aform_preview_footer.tmpl">
+</mt:if>

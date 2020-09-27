@@ -1,0 +1,377 @@
+<mt:Ignore>Copyright (c) 2008 ARK-Web Co.,Ltd.</mt:Ignore>
+<MTVersion setvar="mtver">
+<mt:setvarblock name="page_title"><$mt:var name="display_title" escape="html"$></mt:setvarblock>
+<$mt:setvar name="position_actions_bottom" value="1"$>
+
+<mt:setvarblock name="system_msg">
+    <div id="msg-block">
+
+    <mt:unless name="recovered_object">
+        <mt:if name="autosaved_object_exists">
+            <mtapp:statusmsg
+                id="recovered-object"
+                class="info">
+                <__trans phrase="A saved version of this [_1] was auto-saved [_3]. <a href="[_2]">Recover auto-saved content</a>" params="<mt:var name="object_label">%%<mt:var name="script_url">?__mode=view&amp;_type=<mt:var name="object_type">&amp;_recover=1<mt:if name="id">&amp;id=<mt:var name="id"></mt:if><mt:if name="blog_id">&amp;blog_id=<mt:var name="blog_id"></mt:if>%%<mt:date ts="$autosaved_object_ts" relative="1">">
+            </mtapp:statusmsg>
+        </mt:if>
+    </mt:unless>
+
+    <mt:if name="saved_added">
+        <mtapp:statusmsg
+            id="saved-added"
+            class="success">
+            <__trans phrase="Your [_1] has been saved." params="<$mt:var name="object_label" lower_case="1"$>">
+        </mtapp:statusmsg>
+    </mt:if>
+
+    <mt:if name="saved_changes">
+        <mtapp:statusmsg
+            id="saved-changes"
+            class="success">
+            <__trans phrase="Your changes have been saved.">
+          <mt:if name="aform_status" ne="2">
+            <__trans phrase="Currently, This form status is Unpublished.">
+            <a href="<mt:var name="script_url">?__mode=change_aform_status&amp;id=<mt:var name="aform_id">&amp;blog_id=<mt:var name="blog_id">&amp;redirect_mode=edit_aform_field"><__trans phrase="Publish this A-Form."></a>
+          </mt:if>
+        </mtapp:statusmsg>
+    </mt:if>
+    
+    <mt:if name="saved_prefs">
+        <mtapp:statusmsg    
+            id="saved-prefs"
+            class="success">
+            <__trans phrase="Your customization preferences have been saved, and are visible in the form below.">
+        </mtapp:statusmsg>
+    </mt:if>
+
+    <mt:if name="saved_notify">
+        <mtapp:statusmsg    
+            id="saved-notify"
+            class="success">
+            <__trans phrase="Your notification has been sent.">
+        </mtapp:statusmsg>
+    </mt:if>
+
+    <mt:if name="recovered_object">
+        <mtapp:statusmsg    
+            id="recovered-object"
+            class="success">
+            <__trans phrase="You have successfully recovered your saved [_1]." params="<mt:var name="object_label">">
+        </mtapp:statusmsg>
+    </mt:if>
+
+    <mt:if name="recovered_failed">
+        <mtapp:statusmsg    
+            id="recovered-failed"
+            class="error">
+            <__trans phrase="An error occurred while trying to recover your saved [_1]." params="<mt:var name="object_label">">
+        </mtapp:statusmsg>
+    </mt:if>
+
+    <mt:if name="saved_deleted">
+        <mtapp:statusmsg    
+            id="saved-deleted"
+            class="success">
+            <__trans phrase="You have successfully deleted the checked comment(s).">
+        </mtapp:statusmsg>
+    </mt:if>
+
+    <mt:if name="exists_form_data">
+        <mtapp:statusmsg    
+            id="exists-form-data"
+            class="info">
+            <__trans phrase="Form data exists. Please download and clear data first.">
+        </mtapp:statusmsg>
+    </mt:if>
+
+    <mt:if name="status_changed">
+        <mtapp:statusmsg    
+            id="status_changed"
+            class="success">
+          <mt:if name="aform_status" eq="2">
+            <__trans phrase="Status was changed Published.">
+          <mt:else>
+            <__trans phrase="Status was changed Unpublished.">
+          </mt:if>
+        </mtapp:statusmsg>
+    </mt:if>
+
+        <mtapp:statusmsg    
+            id="status-published"
+            class="success">
+          <mt:if name="aform_status" eq="2">
+            <__trans phrase="Currently, Form Status is Published.">
+            <a href="<mt:var name="script_url">?__mode=change_aform_status&amp;id=<mt:var name="aform_id">&amp;blog_id=<mt:var name="blog_id">&amp;redirect_mode=edit_aform_field"><__trans phrase="Unpublish this A-Form."></a>
+          <mt:else>
+            <__trans phrase="Currently, Form Status is Unpublished.">
+            <a href="<mt:var name="script_url">?__mode=change_aform_status&amp;id=<mt:var name="aform_id">&amp;blog_id=<mt:var name="blog_id">&amp;redirect_mode=edit_aform_field"><__trans phrase="Publish this A-Form."></a>
+          </mt:if>
+        </mtapp:statusmsg>
+    </div>
+</mt:setvarblock>
+
+<mt:setvarblock name="related_content">
+<!-- Start of Right Side Box -->
+
+    <h3><__trans phrase="AForm Field Extra Types"></h3>
+
+    <div id="aformFieldType-name" data-tooltip="<__trans phrase="tip_name">"
+      class="mt-draggable aform-field-type" draggable="true" aria-grabbed="false" data-toggle="tooltip" data-placement="top" data-field-type="name">
+      <div class="col-auto"><mtapp:svgicon id="ic_move" title="<__trans phrase="Draggable">"></div>
+      <div class="col"><mtapp:svgicon id="ic_contentstype" title="<__trans phrase="Content Type">"><__trans phrase="AForm Field Extra Type Name"></div>
+    </div>
+    <div id="aformFieldType-kana" data-tooltip="<__trans phrase="tip_kana">"
+      class="mt-draggable aform-field-type" draggable="true" aria-grabbed="false" data-toggle="tooltip" data-placement="top" data-field-type="kana">
+      <div class="col-auto"><mtapp:svgicon id="ic_move" title="<__trans phrase="Draggable">"></div>
+      <div class="col"><mtapp:svgicon id="ic_contentstype" title="<__trans phrase="Content Type">"><__trans phrase="AForm Field Extra Type Kana"></div>
+    </div>
+<mt:if name="is_amember_form"><mt:else>
+    <div id="aformFieldType-email" data-tooltip="<__trans phrase="tip_email">"
+      class="mt-draggable aform-field-type" draggable="true" aria-grabbed="false" data-toggle="tooltip" data-placement="top" data-field-type="email">
+      <div class="col-auto"><mtapp:svgicon id="ic_move" title="<__trans phrase="Draggable">"></div>
+      <div class="col"><mtapp:svgicon id="ic_mail" title="<__trans phrase="email">"><__trans phrase="AForm Field Extra Type Email"></div>
+    </div>
+</mt:if>
+    <div id="aformFieldType-tel" data-tooltip="<__trans phrase="tip_tel">"
+      class="mt-draggable aform-field-type" draggable="true" aria-grabbed="false" data-toggle="tooltip" data-placement="top" data-field-type="tel">
+      <div class="col-auto"><mtapp:svgicon id="ic_move" title="<__trans phrase="Draggable">"></div>
+      <div class="col"><mtapp:svgicon id="ic_contentstype" title="<__trans phrase="Content Type">"><__trans phrase="AForm Field Extra Type Telephone"></div>
+    </div>
+    <div id="aformFieldType-zipcode" data-tooltip="<__trans phrase="tip_zipcode">"
+      class="mt-draggable aform-field-type" draggable="true" aria-grabbed="false" data-toggle="tooltip" data-placement="top" data-field-type="zipcode">
+      <div class="col-auto"><mtapp:svgicon id="ic_move" title="<__trans phrase="Draggable">"></div>
+      <div class="col"><mtapp:svgicon id="ic_contentstype" title="<__trans phrase="Content Type">"><__trans phrase="AForm Field Extra Type ZipCode"></div>
+    </div>
+    <div id="aformFieldType-prefecture" data-tooltip="<__trans phrase="tip_prefecture">"
+      class="mt-draggable aform-field-type" draggable="true" aria-grabbed="false" data-toggle="tooltip" data-placement="top" data-field-type="prefecture">
+      <div class="col-auto"><mtapp:svgicon id="ic_move" title="<__trans phrase="Draggable">"></div>
+      <div class="col"><mtapp:svgicon id="ic_contentstype" title="<__trans phrase="Content Type">"><__trans phrase="AForm Field Extra Type Prefecture"></div>
+    </div>
+    <div id="aformFieldType-url" data-tooltip="<__trans phrase="tip_url">"
+      class="mt-draggable aform-field-type" draggable="true" aria-grabbed="false" data-toggle="tooltip" data-placement="top" data-field-type="url">
+      <div class="col-auto"><mtapp:svgicon id="ic_move" title="<__trans phrase="Draggable">"></div>
+      <div class="col"><mtapp:svgicon id="ic_contentstype" title="<__trans phrase="Content Type">"><__trans phrase="AForm Field Extra Type URL"></div>
+    </div>
+    <div id="aformFieldType-privacy" data-tooltip="<__trans phrase="tip_privacy">"
+      class="mt-draggable aform-field-type" draggable="true" aria-grabbed="false" data-toggle="tooltip" data-placement="top" data-field-type="privacy">
+      <div class="col-auto"><mtapp:svgicon id="ic_move" title="<__trans phrase="Draggable">"></div>
+      <div class="col"><mtapp:svgicon id="ic_contentstype" title="<__trans phrase="Content Type">"><__trans phrase="AForm Field Extra Type Privacy"></div>
+    </div>
+
+
+    <h3><__trans phrase="AForm Field Types"></h3>
+    <div id="aformFieldType-label" data-tooltip="<__trans phrase="tip_label">"
+      class="mt-draggable aform-field-type" draggable="true" aria-grabbed="false" data-toggle="tooltip" data-placement="top" data-field-type="label">
+      <div class="col-auto"><mtapp:svgicon id="ic_move" title="<__trans phrase="Draggable">"></div>
+      <div class="col"><mtapp:svgicon id="ic_header" title="<__trans phrase="Content Type">"><__trans phrase="AForm Field Type Label"></div>
+    </div>
+    <div id="aformFieldType-note" data-tooltip="<__trans phrase="tip_note">"
+      class="mt-draggable aform-field-type" draggable="true" aria-grabbed="false" data-toggle="tooltip" data-placement="top" data-field-type="note">
+      <div class="col-auto"><mtapp:svgicon id="ic_move" title="<__trans phrase="Draggable">"></div>
+      <div class="col"><mtapp:svgicon id="ic_contentstype" title="<__trans phrase="Content Type">"><__trans phrase="AForm Field Type Note"></div>
+    </div>
+    <div id="aformFieldType-text" data-tooltip="<__trans phrase="tip_text">"
+      class="mt-draggable aform-field-type" draggable="true" aria-grabbed="false" data-toggle="tooltip" data-placement="top" data-field-type="text">
+      <div class="col-auto"><mtapp:svgicon id="ic_move" title="<__trans phrase="Draggable">"></div>
+      <div class="col"><mtapp:svgicon id="ic_singleline" title="<__trans phrase="Single Line Text">"><__trans phrase="AForm Field Type Text"></div>
+    </div>
+    <div id="aformFieldType-textarea" data-tooltip="<__trans phrase="tip_textarea">"
+      class="mt-draggable aform-field-type" draggable="true" aria-grabbed="false" data-toggle="tooltip" data-placement="top" data-field-type="textarea">
+      <div class="col-auto"><mtapp:svgicon id="ic_move" title="<__trans phrase="Draggable">"></div>
+      <div class="col"><mtapp:svgicon id="ic_multiline" title="<__trans phrase="Multi Line Text">"><__trans phrase="AForm Field Type Textarea"></div>
+    </div>
+    <div id="aformFieldType-radio" data-tooltip="<__trans phrase="tip_radio">"
+      class="mt-draggable aform-field-type" draggable="true" aria-grabbed="false" data-toggle="tooltip" data-placement="top" data-field-type="radio">
+      <div class="col-auto"><mtapp:svgicon id="ic_move" title="<__trans phrase="Draggable">"></div>
+      <div class="col"><mtapp:svgicon id="ic_radio" title="<__trans phrase="Radio Button">"><__trans phrase="AForm Field Type Radio"></div>
+    </div>
+    <div id="aformFieldType-checkbox" data-tooltip="<__trans phrase="tip_checkbox">"
+      class="mt-draggable aform-field-type" draggable="true" aria-grabbed="false" data-toggle="tooltip" data-placement="top" data-field-type="checkbox">
+      <div class="col-auto"><mtapp:svgicon id="ic_move" title="<__trans phrase="Draggable">"></div>
+      <div class="col"><mtapp:svgicon id="ic_checkbox" title="<__trans phrase="Checkboxes">"><__trans phrase="AForm Field Type Checkbox"></div>
+    </div>
+    <div id="aformFieldType-select" data-tooltip="<__trans phrase="tip_select">"
+      class="mt-draggable aform-field-type" draggable="true" aria-grabbed="false" data-toggle="tooltip" data-placement="top" data-field-type="select">
+      <div class="col-auto"><mtapp:svgicon id="ic_move" title="<__trans phrase="Draggable">"></div>
+      <div class="col"><mtapp:svgicon id="ic_selectbox" title="<__trans phrase="Content Type">"><__trans phrase="AForm Field Type Select"></div>
+    </div>
+    <div id="aformFieldType-linkedselect" data-tooltip="<__trans phrase="tip_linkedselect">"
+      class="mt-draggable aform-field-type" draggable="true" aria-grabbed="false" data-toggle="tooltip" data-placement="top" data-field-type="linkedselect">
+      <div class="col-auto"><mtapp:svgicon id="ic_move" title="<__trans phrase="Draggable">"></div>
+      <div class="col"><mtapp:svgicon id="ic_selectbox" title="<__trans phrase="Content Type">"><__trans phrase="AForm Field Type Linked Select"></div>
+    </div>
+    <div id="aformFieldType-calendar" data-tooltip="<__trans phrase="tip_calendar">"
+      class="mt-draggable aform-field-type" draggable="true" aria-grabbed="false" data-toggle="tooltip" data-placement="top" data-field-type="calendar">
+      <div class="col-auto"><mtapp:svgicon id="ic_move" title="<__trans phrase="Draggable">"></div>
+      <div class="col"><mtapp:svgicon id="ic_date" title="<__trans phrase="Content Type">"><__trans phrase="AForm Field Extra Type Calendar"></div>
+    </div>
+<mt:if name="is_amember_form"><mt:else>
+    <div id="aformFieldType-password" data-tooltip="<__trans phrase="tip_password">"
+      class="mt-draggable aform-field-type" draggable="true" aria-grabbed="false" data-toggle="tooltip" data-placement="top" data-field-type="password">
+      <div class="col-auto"><mtapp:svgicon id="ic_move" title="<__trans phrase="Draggable">"></div>
+      <div class="col"><mtapp:svgicon id="ic_contentstype" title="<__trans phrase="Content Type">"><__trans phrase="AForm Field Type Password"></div>
+    </div>
+</mt:if>
+    <div id="aformFieldType-upload" data-tooltip="<__trans phrase="tip_upload">"
+      class="mt-draggable aform-field-type" draggable="true" aria-grabbed="false" data-toggle="tooltip" data-placement="top" data-field-type="upload">
+      <div class="col-auto"><mtapp:svgicon id="ic_move" title="<__trans phrase="Draggable">"></div>
+      <div class="col"><mtapp:svgicon id="ic_file" title="<__trans phrase="Content Type">"><__trans phrase="AForm Field Type Upload"></div>
+    </div>
+    <div id="aformFieldType-parameter" data-tooltip="<__trans phrase="tip_parameter">"
+      class="mt-draggable aform-field-type" draggable="true" aria-grabbed="false" data-toggle="tooltip" data-placement="top" data-field-type="parameter">
+      <div class="col-auto"><mtapp:svgicon id="ic_move" title="<__trans phrase="Draggable">"></div>
+      <div class="col"><mtapp:svgicon id="ic_contentstype" title="<__trans phrase="Content Type">"><__trans phrase="AForm Field Type Parameter"></div>
+    </div>
+<mt:if name="aform_reserve_installed">
+    <div id="aformFieldType-reserve" data-tooltip="<__trans phrase="tip_reserve">"
+      class="mt-draggable aform-field-type" draggable="true" aria-grabbed="false" data-toggle="tooltip" data-placement="top" data-field-type="reserve">
+      <div class="col-auto"><mtapp:svgicon id="ic_move" title="<__trans phrase="Draggable">"></div>
+      <div class="col"><mtapp:svgicon id="ic_date" title="<__trans phrase="Content Type">"><__trans phrase="AForm Field Extra Type Reserve"></div>
+    </div>
+</mt:if>
+<mt:if name="aform_payment_installed">
+    <div id="aformFieldType-payment" data-tooltip="<__trans phrase="tip_payment">"
+      class="mt-draggable aform-field-type" draggable="true" aria-grabbed="false" data-toggle="tooltip" data-placement="top" data-field-type="payment">
+      <div class="col-auto"><mtapp:svgicon id="ic_move" title="<__trans phrase="Draggable">"></div>
+      <div class="col"><mtapp:svgicon id="ic_contentstype" title="<__trans phrase="Content Type">"><__trans phrase="AForm Field Extra Type Payment"></div>
+    </div>
+</mt:if>
+    <div id="aformFieldType-pagebreak" data-tooltip="<__trans phrase="tip_pagebreak">"
+      class="mt-draggable aform-field-type" draggable="true" aria-grabbed="false" data-toggle="tooltip" data-placement="top" data-field-type="pagebreak">
+      <div class="col-auto"><mtapp:svgicon id="ic_move" title="<__trans phrase="Draggable">"></div>
+      <div class="col"><mtapp:svgicon id="ic_contentstype" title="<__trans phrase="Content Type">"><__trans phrase="AForm Field Extra Type Pagebreak"></div>
+    </div>
+
+
+    <h3><__trans phrase="Manual"></h3>
+    <a href="<$mt:var name="edit_field_help_url" escape="html"$>" target="_blank"><__trans phrase="Manual(Edit Form)"></a>
+
+</div>
+<!-- End of Right Side Box -->
+</mt:setvarblock>
+
+<mt:setvarblock name="js_include" append="1">
+<script type="text/javascript" src="<mt:var name="plugin_static_uri">js/json.js"></script>
+<script type="text/javascript" src="<mt:var name="plugin_static_uri">js/edit_aform/edit_aform_controller.js"></script>
+<script type="text/javascript" src="<mt:var name="plugin_static_uri">js/edit_aform/edit_aform.js"></script>
+<script type="text/javascript" src="<mt:var name="plugin_static_uri">js/edit_aform/edit_aform_view.js"></script>
+<script type="text/javascript">
+  edit_aform.plugin_static_uri = '<mt:var name="plugin_static_uri" escape="html">';
+  edit_aform.alertSaveMsg = '<mt:var name="alert_save_msg">';
+  edit_aform.json_fields_data = eval('(<mt:var name="json_aform_fields" escape="js">)');
+  edit_aform.phrases = <mt:var name="json_phrases">;
+  edit_aform.enable_save = <mt:if name="aform_status" eq="2">false<mt:else>true</mt:if>;
+  edit_aform.is_amember_form = <mt:if name="is_amember_form">true<mt:else>false</mt:if>;
+  edit_aform.exists_amember_user = <mt:if name="exists_amember_user">true<mt:else>false</mt:if>;
+  edit_aform.template = {
+    empty_box: '<mt:include name="include/edit_aform_field/empty_box.tmpl" strip_linefeeds="1">',
+    field_header: '<mt:include name="include/edit_aform_field/field_header.tmpl" strip_linefeeds="1">',
+    field_footer: '<mt:include name="include/edit_aform_field/field_footer.tmpl" strip_linefeeds="1">',
+    parts_display_condition: '<mt:include name="include/edit_aform_field/parts_display_condition.tmpl" strip_linefeeds="1">',
+    parts_display_condition_option: '<mt:include name="include/edit_aform_field/parts_display_condition_option.tmpl" strip_linefeeds="1">',
+    parts_amember_user_id_field: '<mt:include name="include/edit_aform_field/parts_amember_user_id_field.tmpl" strip_linefeeds="1">',
+    parts: {
+      name: '<mt:include name="include/edit_aform_field/parts/name.tmpl" strip_linefeeds="1">',
+      kana: '<mt:include name="include/edit_aform_field/parts/kana.tmpl" strip_linefeeds="1">',
+      email: '<mt:include name="include/edit_aform_field/parts/email.tmpl" strip_linefeeds="1">',
+      tel: '<mt:include name="include/edit_aform_field/parts/tel.tmpl" strip_linefeeds="1">',
+      zipcode: '<mt:include name="include/edit_aform_field/parts/zipcode.tmpl" strip_linefeeds="1">',
+      url: '<mt:include name="include/edit_aform_field/parts/url.tmpl" strip_linefeeds="1">',
+      privacy: '<mt:include name="include/edit_aform_field/parts/privacy.tmpl" strip_linefeeds="1">',
+      label: '<mt:include name="include/edit_aform_field/parts/label.tmpl" strip_linefeeds="1">',
+      note: '<mt:include name="include/edit_aform_field/parts/note.tmpl" strip_linefeeds="1">',
+      text: '<mt:include name="include/edit_aform_field/parts/text.tmpl" strip_linefeeds="1">',
+      textarea: '<mt:include name="include/edit_aform_field/parts/textarea.tmpl" strip_linefeeds="1">',
+      radio: '<mt:include name="include/edit_aform_field/parts/radio.tmpl" strip_linefeeds="1">',
+      radio_option: '<mt:include name="include/edit_aform_field/parts/radio_option.tmpl" strip_linefeeds="1">',
+      checkbox: '<mt:include name="include/edit_aform_field/parts/checkbox.tmpl" strip_linefeeds="1">',
+      checkbox_option: '<mt:include name="include/edit_aform_field/parts/checkbox_option.tmpl" strip_linefeeds="1">',
+      select: '<mt:include name="include/edit_aform_field/parts/select.tmpl" strip_linefeeds="1">',
+      select_option: '<mt:include name="include/edit_aform_field/parts/select_option.tmpl" strip_linefeeds="1">',
+      select_default: '<mt:include name="include/edit_aform_field/parts/select_default.tmpl" strip_linefeeds="1">',
+      linked_select: '<mt:include name="include/edit_aform_field/parts/linked_select.tmpl" strip_linefeeds="1">',
+      linked_select_option: '<mt:include name="include/edit_aform_field/parts/linked_select_option.tmpl" strip_linefeeds="1">',
+      linked_select_default: '<mt:include name="include/edit_aform_field/parts/linked_select_default.tmpl" strip_linefeeds="1">',
+      calendar: '<mt:include name="include/edit_aform_field/parts/calendar.tmpl" strip_linefeeds="1">',
+      password: '<mt:include name="include/edit_aform_field/parts/password.tmpl" strip_linefeeds="1">',
+      upload: '<mt:include name="include/edit_aform_field/parts/upload.tmpl" strip_linefeeds="1">',
+      parameter: '<mt:include name="include/edit_aform_field/parts/parameter.tmpl" strip_linefeeds="1">',
+      pagebreak: '<mt:include name="include/edit_aform_field/parts/pagebreak.tmpl" strip_linefeeds="1">',
+      reserve: '<mt:include name="include/edit_aform_field/parts/reserve.tmpl" strip_linefeeds="1">',
+      payment: '<mt:include name="include/edit_aform_field/parts/payment.tmpl" strip_linefeeds="1">'
+    }
+  };
+</script>
+</mt:setvarblock>
+
+<mt:setvarblock name="html_head" append="1">
+<link rel="stylesheet" type="text/css" href="<mt:var name="plugin_static_uri">style.css" />
+<link rel="stylesheet" type="text/css" href="<mt:var name="plugin_static_uri">edit_aform.css" />
+</mt:setvarblock>
+
+<mt:setvarblock name="html_body" append="1">
+</mt:setvarblock>
+
+<mt:setvarblock name="page_content">
+    <mt:if name="aform_id">
+    <nav aria-label="A-Form Navigation" id="entry-nav" class="pkg clearfix">
+        <ul class="pagination float-right inline-nav right">
+            <li class="page-item" id="previous-link"><mt:if name="previous_aform_id"><a href="<$mt:var name="script_url"$>?__mode=edit_aform_field&amp;id=<$mt:var name="previous_aform_id"$>&amp;blog_id=<$mt:var name="blog_id"$>" class="page-link"><__trans phrase="Previous"></a></mt:if></li>
+            <li class="page-item" id="manage-link"><a href="<$mt:var name="script_url"$>?__mode=manage_aform&amp;blog_id=<$mt:var name="blog_id"$>" class="page-link"><__trans phrase="Manage A-Form"></a></li>
+            <li class="page-item" id="next-link"><mt:if name="next_aform_id"><a href="<$mt:var name="script_url"$>?__mode=edit_aform_field&amp;id=<$mt:var name="next_aform_id"$>&amp;blog_id=<$mt:var name="blog_id"$>" class="page-link"><__trans phrase="Next"></a></mt:if></li>
+        </ul>
+    </nav>
+    </mt:if>
+
+<mt:var name="aform_action_tabs">
+
+<mt:setvarblock name="action_buttons">
+    <button
+        type="button"
+        accesskey="s"
+        title="<__trans phrase="Save">"
+        class="button primary action primary-button btn btn-primary aform-btn-save"
+        ><__trans phrase="Save"></button>
+    <a 
+        class="aform-preview-link mt-open-dialog mt-modal-open button action preview btn btn-default aform-btn-preview"
+        data-mt-modal-large 
+        href="<mt:var name="script_url" escape="html">?__mode=disp_aform&id=<mt:var name="aform_id" escape="html">&blog_id=<mt:var name="blog_id" escape="html">"
+        accesskey="v" 
+        title="<__trans phrase="Preview Aform">" 
+        class="" 
+        ><__trans phrase="Preview Aform">
+    </a>
+</mt:setvarblock>
+
+<mt:include name="include/actions_bar.tmpl" bar_position="top" hide_pager="1" settings_bar="1">
+
+<div id="field-edit-field" class="field-edit-field mt-draggable__area">
+</div>
+
+<form name="aform-field-form" id="aform-field-form" method="post" action="<$mt:var name="script_url"$>">
+    <input type="hidden" name="json_aform_fields" id="json_aform_fields" value="" />
+    <input type="hidden" name="blog_id" value="<$mt:var name="blog_id"$>" />
+    <input type="hidden" name="id" value="<$mt:var name="aform_id"$>" />
+    <input type="hidden" name="__mode" value="save_aform_field" />
+    <input type="hidden" name="_type" value="<$mt:var name="object_type"$>" />
+    <input type="hidden" name="return_args" value="<$mt:var name="return_args" escape="html"$>" />
+    <input type="hidden" name="magic_token" value="<$mt:var name="magic_token"$>" id="m_t" />
+    <input type="hidden" id="amember_user_id_field" name="amember_user_id_field" value="<mt:var name="amember_user_id_field" escape="html">" />
+
+
+<mt:include name="include/actions_bar.tmpl" bar_position="bottom" hide_pager="1" settings_bar="1">
+
+</form>
+</mt:setvarblock>
+
+<mt:if name="mtver" ge="7">
+  <mt:setvar name="main_content_panel_class" value="mt-mainContent--scrollable">
+  <mt:setvar name="secondary_panel_class" value="mt-secondaryPanel--scrollable">
+  <mt:include name="layout/default.tmpl">
+  <mt:var name="layout">
+<mt:else>
+  <mt:include name="include/header.tmpl" id="header_include">
+  <mt:var name="page_content">
+  <mt:var name="related_content">
+  <mt:include name="include/footer.tmpl" id="footer_include">
+</mt:if>

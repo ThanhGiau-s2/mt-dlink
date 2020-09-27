@@ -1,0 +1,33 @@
+<mt:Ignore>Copyright (c) 2008 ARK-Web Co.,Ltd.</mt:Ignore>
+
+<mtapp:listing empty_message="<__trans phrase="No Input Errors.">">
+    <mt:if name="__first__">
+    <thead>
+        <tr>
+<!--            <th scope="col" class="cb"><span class="col-label"><input type="checkbox" name="id-head" value="all" class="select" /></span></th>-->
+            <th scope="col" id="bt-date"><span class="col-label"><__trans phrase="Error Datetime"></span></th>
+            <th scope="col" id="bt-field"><span class="col-label"><__trans phrase="Error Field"></th>
+            <th scope="col" id="bt-type"><span class="col-label"><__trans phrase="Error Type"></span></th>
+            <th scope="col" id="bt-value"><span class="col-label"><__trans phrase="Error Value"></span></th>
+            <th scope="col" id="bt-page"><span class="col-label"><__trans phrase="Error Page"></span></th>
+        <mt:unless name="mode_search_replace">
+            <mt:unless name="is_administrator">
+            <th id="bt-delete"><span class="col-label"><__trans phrase="Delete"></span></th>
+            </mt:unless>
+        </mt:unless>
+        </tr>
+    </thead>
+    <tbody>
+    </mt:if>
+        <tr class="<mt:if name="__odd__">odd<mt:else>even</mt:if>">
+<!--            <td class="cb"><input type="checkbox" name="id" value="<mt:var name="id">" class="select" /></td>-->
+            <td><mt:var name="created_on" escape="html"></td>
+            <td><mt:var name="field_label" escape="html"></td>
+            <td><mt:var name="type" escape="html"></td>
+            <td><mt:var name="error_value" escape="html"></td>
+            <td><a href="<mt:var name="aform_url" escape="html">" title="<__trans phrase="Show">" target="_blank"><mtapp:svgicon id="ic_permalink" title="<__trans phrase="Show">" size="secondary"></a></td>
+        </tr>
+    <mt:if name="__last__">
+    </tbody>
+    </mt:if>
+</mtapp:listing>

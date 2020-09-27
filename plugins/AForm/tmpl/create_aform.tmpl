@@ -1,0 +1,198 @@
+<mt:Ignore>Copyright (c) 2008 ARK-Web Co.,Ltd.</mt:Ignore>
+<MTVersion setvar="mtver">
+<mt:setvar name="screen_id" value="create_aform_body">
+<mt:setvar name="screen_type" value="create_aform_body">
+<mt:setvarblock name="page_title"><__trans phrase="Create AForm"></mt:setvarblock>
+<$mt:setvar name="position_actions_bottom" value="1"$>
+
+<mt:setvarblock name="content_header">
+    <div id="msg-block">
+
+    <mt:unless name="recovered_object">
+        <mt:if name="autosaved_object_exists">
+            <mtapp:statusmsg
+                id="recovered-object"
+                class="info">
+                <__trans phrase="A saved version of this [_1] was auto-saved [_3]. <a href="[_2]">Recover auto-saved content</a>" params="<mt:var name="object_label">%%<mt:var name="script_url">?__mode=view&amp;_type=<mt:var name="object_type">&amp;_recover=1<mt:if name="id">&amp;id=<mt:var name="id"></mt:if><mt:if name="blog_id">&amp;blog_id=<mt:var name="blog_id"></mt:if>%%<mt:date ts="$autosaved_object_ts" relative="1">">
+            </mtapp:statusmsg>
+        </mt:if>
+    </mt:unless>
+
+    <mt:if name="saved_added">
+        <mtapp:statusmsg
+            id="saved-added"
+            class="success">
+            <__trans phrase="Your [_1] has been saved." params="<$mt:var name="object_label" lower_case="1"$>">
+        </mtapp:statusmsg>
+    </mt:if>
+
+    <mt:if name="saved_changes">
+        <mtapp:statusmsg
+            id="saved-changes"
+            class="success">
+            <__trans phrase="Your changes have been saved."><__trans phrase="Please rebuild blog which has some AForm.">
+        </mtapp:statusmsg>
+    </mt:if>
+    
+    <mt:if name="saved_prefs">
+        <mtapp:statusmsg    
+            id="saved-prefs"
+            class="success">
+            <__trans phrase="Your customization preferences have been saved, and are visible in the form below.">
+        </mtapp:statusmsg>
+    </mt:if>
+
+    <mt:if name="saved_notify">
+        <mtapp:statusmsg    
+            id="saved-notify"
+            class="success">
+            <__trans phrase="Your notification has been sent.">
+        </mtapp:statusmsg>
+    </mt:if>
+
+    <mt:if name="recovered_object">
+        <mtapp:statusmsg    
+            id="recovered-object"
+            class="success">
+            <__trans phrase="You have successfully recovered your saved [_1]." params="<mt:var name="object_label">">
+        </mtapp:statusmsg>
+    </mt:if>
+
+    <mt:if name="recovered_failed">
+        <mtapp:statusmsg    
+            id="recovered-failed"
+            class="error">
+            <__trans phrase="An error occurred while trying to recover your saved [_1]." params="<mt:var name="object_label">">
+        </mtapp:statusmsg>
+    </mt:if>
+
+    <mt:if name="saved_deleted">
+        <mtapp:statusmsg    
+            id="saved-deleted"
+            class="success">
+            <__trans phrase="You have successfully deleted the checked comment(s).">
+        </mtapp:statusmsg>
+    </mt:if>
+    </div>
+</mt:setvarblock>
+
+<mt:setvarblock name="related_content">
+</mt:setvarblock>
+
+<mt:setvarblock name="js_include" append="1">
+<script type="text/javascript" src="<mt:var name="static_uri">jquery/jquery.min.js"></script>
+<script type="text/javascript" src="<mt:var name="static_uri">jquery/jquery.mt.min.js"></script>
+</mt:setvarblock>
+
+<mt:setvarblock name="html_head" append="1">
+<link rel="stylesheet" type="text/css" href="<mt:var name="plugin_static_uri">edit_aform.css" />
+</mt:setvarblock>
+
+<mt:setvarblock name="html_body" append="1">
+</mt:setvarblock>
+
+<mt:setvarblock name="action_buttons">
+    <button
+        type="button"
+        accesskey="s"
+        title="<__trans phrase="Save">"
+        class="action primary-button primary button btn btn-primary"
+        onclick="create_aform()"
+        ><__trans phrase="Save"></button>
+    <button
+        type="button"
+        accesskey="x"
+        onclick="parent.jQuery.fn.mtDialog.close()"
+        title="<__trans phrase="Cancel">"
+        class="action cancel button mt-close-dialog btn btn-default"
+        data-mt-modal-close
+        ><__trans phrase="Cancel"></button>
+</mt:setvarblock>
+
+<mt:setvarblock name="modal_body">
+<form name="aform-config-form" id="aform-config-form" method="post" action="<$mt:var name="script_url"$>" onsubmit="return false;">
+    <input type="hidden" name="blog_id" value="<mt:var name="blog_id">" />
+    <input type="hidden" name="__mode" value="save_aform" />
+    <input type="hidden" name="_type" value="<$mt:var name="object_type"$>" />
+    <input type="hidden" name="return_args" value="<$mt:var name="return_args" escape="html"$>" />
+    <input type="hidden" name="magic_token" value="<$mt:var name="magic_token"$>" id="m_t" />
+    <input type="hidden" name="a-member" value="<mt:var name="a-member">" />
+
+<fieldset>
+  <h3><__trans phrase="Title Setting"></h3>
+  <mtapp:setting
+    id="title"
+    class="mb-4"
+    label="<__trans phrase="Title">"
+    hint="<__trans phrase="Title your Form">" >
+    <input type="text" class="form-control" name="title" id="title" value="<mt:var name="title" escape="html">" size="50" />
+  </mtapp:setting>
+</fieldset>
+
+<fieldset>
+  <h3><__trans phrase="Language"></h3>
+  <mtapp:setting
+    id="lang"
+    class="mb-4"
+    label="<__trans phrase="Language">"
+    hint="<__trans phrase="Select Language">" >
+    <select class="custom-select form-control" name="lang" id="lang">
+     <mt:loop name="langs">
+      <option value="<mt:var name="__key__" escape="html">"<mt:if name="__key__" eq="$default_lang"> selected="selected"</mt:if>><mt:var name="__value__" escape="html"></option>
+     </mt:loop>
+    </select>
+  </mtapp:setting>
+</fieldset>
+
+<h3><__trans phrase="Available Website/Blog"></h3>
+<div class="field-left-label"><div class="field-content">
+<div class="msg msg-info alert alert-info">
+  <mt:if name="blog_id" gt="0">
+  <__trans phrase="Warning: Create a new form in the [_1]." params="<mt:var name="blog_name" escape="html">">
+  <mt:else>
+  <__trans phrase="Warning: Create a new form in the System.">
+  </mt:if>
+</div>
+</div></div>
+
+</form>
+</mt:setvarblock>
+
+<mt:setvarblock name="js_include" append="1">
+<script type="text/javascript">
+function create_aform()
+{
+  if( jQuery('#title').val() == '' ){
+    alert('<__trans phrase="Please input Form Title.">');
+    return false;
+  }
+
+  jQuery.post(
+    '<mt:var name="script_url">', 
+    {
+      'blog_id': '<mt:var name="blog_id">',
+      '__mode': 'save_aform',
+      'lang': jQuery('#lang').val(),
+      'a-member': '<mt:var name="a-member">',
+      'title': jQuery('#title').val()
+    },
+    function(text, status) {
+      if( status == 'success' && text.match(/success:(\d+)/) ){
+        parent.location.href = '<mt:var name="script_url">' + '?blog_id=<mt:var name="blog_id">&__mode=edit_aform_field&id=' + RegExp.$1;
+      }else{
+        alert('error: create aform');
+      }
+    });
+}
+</script>
+</mt:setvarblock>
+
+<mt:if name="mtver" ge="7">
+  <mt:include name="layout/modal.tmpl">
+  <mt:var name="layout">
+<mt:else>
+  <mt:include name="dialog/header.tmpl">
+  <mt:var name="modal_body">
+  <mt:include name="include/actions_bar.tmpl" bar_position="bottom" hide_pager="1" settings_bar="1">
+  <mt:include name="dialog/footer.tmpl">
+</mt:if>

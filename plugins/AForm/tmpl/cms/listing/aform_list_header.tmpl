@@ -1,0 +1,50 @@
+<mt:setvarblock name="content_header" append="1">
+<__trans_section component="AForm">
+<p><__trans phrase="how to build A-Form" params="[[aformXXX]]%%<mt:var name="aform_manual_url">"></p>
+<mt:if name="current_blog_id" gt="0">
+<div class="msg msg-info alert alert-info"><__trans phrase="how to build A-Form blog warning"></div>
+<mt:else>
+<div class="msg msg-info alert alert-info"><__trans phrase="how to build A-Form system warning"></div>
+</mt:if>
+
+<mt:if name="can_create_aform" eq="1">
+    <p><a href="<mt:var name="script_url">?__mode=create_aform&blog_id=<mt:var name="blog_id">" class="mt-open-dialog mt-modal-open icon-left icon-create" data-mt-modal-large><mtapp:svgicon id="ic_add" title="" size="sm"> <__trans phrase="Create AForm"></a></p>
+</mt:if>
+<mt:if name="can_create_amember_form" eq="1">
+    <p><a href="<mt:var name="script_url">?__mode=create_aform&blog_id=<mt:var name="blog_id">&a-member=1" class="mt-open-dialog icon-left icon-create"><mtapp:svgicon id="ic_add" title="" size="sm"> <__trans phrase="Create Form to register"></a></p>
+</mt:if>
+
+<mt:if name="is_amember_installed">
+<p><__trans phrase="(*) is User Registlation Form."></p>
+</mt:if>
+</__trans_section>
+
+<form name="form_aform_operation" method="post" action="<mt:var name="script_url">">
+<input type="hidden" name="magic_token" value="<mt:var name="magic_token">" id="m_t" />
+<input type="hidden" name="blog_id" value="<mt:var name="blog_id">" />
+<input type="hidden" name="__mode" value="" />
+<input type="hidden" name="id" value="" />
+</form>
+
+</mt:setvarblock>
+
+<mt:setvarblock name="js_include" append="1">
+<script type="text/javascript">
+jQuery(window).bind('listReady', function() {
+  jQuery('.mt-modal-open').mtModal();
+  jQuery('[data-mt-modal-close]').mtModalClose();
+});
+function exec_aform(mode, id, msg) {
+  if (confirm(msg)) {
+    document.forms.form_aform_operation.__mode.value = mode;
+    document.forms.form_aform_operation.id.value = id;
+    document.forms.form_aform_operation.submit();
+  }
+  return false;
+}
+</script>
+</mt:setvarblock>
+
+<mt:setvarblock name="html_head" append="1">
+  <link rel="stylesheet" href="<$mt:var name="static_uri"$>plugins/AForm/edit_aform.css" />
+</mt:setvarblock>

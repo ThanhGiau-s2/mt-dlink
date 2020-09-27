@@ -1,0 +1,65 @@
+<mt:Ignore>Copyright (c) 2008 ARK-Web Co.,Ltd.</mt:Ignore>
+<mt:setvarblock name="action_buttons">
+        <button
+           onclick="doRemoveItems(getByID('<$mt:var name="object_type"$>-listing-form'), '<mt:var name="object_label" lower_case="1" escape="js">', '<__trans phrase="Received Data">', null, null,
+{ 'singular_prompt' : '<__trans phrase='Are you sure you want to Delete the selected A-Form Received data?'>', 'plural_prompt' : '<__trans phrase='Are you sure you want to Delete the selected A-Form Received data?'>' } ); return false;"
+           accesskey="x"
+           title="<__trans phrase="Delete selected [_1] (x)" params="<__trans phrase="Received Data">">"
+        ><__trans phrase="Delete"></button>
+        <button
+          id="btnSaveStatus"
+          class="btnAFormSaveStatus"
+          title="<__trans phrase="Update AForm Datas Status">"
+        ><__trans phrase="Update"></button>
+</mt:setvarblock>
+
+<mtapp:listing empty_message="<__trans phrase="No A-Form Data could be found.">">
+    <mt:if name="__first__">
+<input type="hidden" name="id" value="<mt:var name="aform_id">" />
+    <thead>
+        <tr>
+            <th class="cb"><input type="checkbox" name="id-head" value="all" class="select" /></th>
+            <th id="bt-id" class="primary-col"><__trans phrase="Received Data ID"></th>
+<mt:if name="is_amember_installed">
+            <th id="bt-member_id"><__trans phrase="Member ID"></th>
+</mt:if>
+            <th id="bt-status"><__trans phrase="Data Status"></th>
+            <th id="bt-date"><__trans phrase="Received Datetime"></th>
+            <th id="bt-detail" class="view"><__trans phrase="Detail"></th>
+<mt:loop name="upload_fields">
+            <th id="bt-files"><mt:var name="label" escape="html"></th>
+</mt:loop>
+        </tr>
+    </thead>
+    <tbody>
+    </mt:if>
+        <tr class="<mt:if name="__odd__">odd<mt:else>even</mt:if>">
+            <td class="cb"><input type="checkbox" name="id" value="<mt:var name="id">" class="select" /></td>
+            <td><mt:var name="disp_id" escape="html"></td>
+<mt:if name="is_amember_installed">
+            <td>
+  <mt:if name="member_id">
+              <a href="<$mt:var name="script_url"$>?__mode=view&_type=entry&id=<mt:var name="member_id">&blog_id=<mt:var name="user_blog_id">"><mt:var name="member_id"></a>
+  </mt:if>
+            </td>
+</mt:if>
+            <td>
+              <select name="data_status_<mt:var name="id">">
+                <option value=""></option>
+<mt:loop name="data_status_options">
+                <option value="<$mt:var name="__value__" escape="html"$>"<mt:if name="status" eq="$__value__"> selected="selected"</mt:if>><$mt:var name="__value__" escape="html"$></option>
+</mt:loop>
+              </select>
+            </td>
+            <td><mt:var name="date" escape="html"></td>
+            <td class="view"><a href="<mt:var name="script_url">?blog_id=<mt:var name="blog_id">&__mode=disp_aform_data&aform_id=<mt:var name="aform_id" escape="html">&aform_data_id=<mt:var name="id" escape="html">&manage_return_args=<mt:var name="return_args" escape="url">" class="mt-open-dialog"><__trans phrase="Detail"></a></td>
+<mt:loop name="files">
+            <td><mt:if name="upload_id"><a href="<mt:var name="script_url">?blog_id=<mt:var name="blog_id">&__mode=download_aform_file&id=<mt:var name="id">"><__trans phrase="Download"></a></mt:if></td>
+</mt:loop>
+        </tr>
+    <mt:if name="__last__">
+    </tbody>
+    </mt:if>
+</mtapp:listing>
+
+</form>

@@ -1,0 +1,36 @@
+<div class="view-block">
+	<div class="aform-input-example parts-%%field_idx%%">%%field_input_example%%</div>
+	<input class="aform-input aform-upload parts-%%field_idx%%" id="parts-%%field_idx%%" name="aform-field-%%field_idx%%" type="file" disabled="disabled">
+</div>
+
+<mt:include name="include/edit_aform_field/parts_common.tmpl"
+	display_label="1"
+	display_parts_id="1"
+	display_required="1"
+	display_input_example="1">
+
+<div class="form-group">
+	<label for="aformFieldSendAttachedFiles%%field_idx%%"><__trans phrase="send attached files to admin"></label>
+	<input type="checkbox" class="mt-switch form-control aform-field-send-attached-files" id="aformFieldSendAttachedFiles%%field_idx%%" value="1">
+	<label for="aformFieldSendAttachedFiles%%field_idx%%"><__trans phrase="send attached files to admin"></label>
+</div>
+
+<div class="form-group">
+	<label for="aformFieldSendAttachedFilesToCustomer%%field_idx%%"><__trans phrase="send attached files to customers"></label>
+	<input type="checkbox" class="mt-switch form-control aform-field-send-attached-files-to-customer" id="aformFieldSendAttachedFilesToCustomer%%field_idx%%" value="1">
+	<label for="aformFieldSendAttachedFilesToCustomer%%field_idx%%"><__trans phrase="send attached files to customers"></label>
+</div>
+
+<div class="form-group">
+	<label for="aformFieldEditDropdown5"><__trans phrase="Upload Type"></label>
+	<input type="text" class="form-control aform-field-edit-upload-type-text" id="aformFieldEditUploadTypeText%%field_idx%%" aria-describedby="aformFieldSendAttachedFilesToCustomer%%field_idx%%Help">
+	<small id="aformFieldSendAttachedFilesToCustomer%%field_idx%%Help" class="form-text text-muted"><__trans phrase="upload file type description"></small>
+</div>
+
+<div class="form-group">
+	<label for="aformFieldEditDropdown5"><__trans phrase="Upload Size"></label>
+	<div class="form-inline">
+		<input type="text" class="form-control w-25 mr-sm-3 aform-field-edit-upload-size-text" id="aformFieldEditUploadSizeText%%field_idx%%" aria-describedby="aformFieldSendAttachedFilesToCustomer%%field_idx%%Help"><__trans phrase="Bytes">
+	</div>
+	<small id="aformFieldSendAttachedFilesToCustomer%%field_idx%%Help" class="form-text text-muted"><__trans phrase="upload file size description"></small>
+</div>

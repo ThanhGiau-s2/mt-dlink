@@ -1,0 +1,45 @@
+<div class="view-block">
+	<div class="aform-input-example parts-%%field_idx%%">%%field_input_example%%</div>
+	<ul class="aform-checkbox-ul aform-parts-%%field_idx%% parts-%%field_idx%%"></ul>
+</div>
+
+<mt:include name="include/edit_aform_field/parts_common.tmpl"
+	display_label="1"
+	display_parts_id="1"
+	display_required="1"
+	display_input_example="1">
+
+<div class="form-group">
+	<label for=""><__trans phrase="Options"></label>
+	<div class="mt-table--outline mb-3">
+		<table class="table mt-table values-option-table" ref="table">
+		<thead>
+			<tr>
+				<th scope="col" class="check"><__trans phrase="Selected state"></th>
+				<th scope="col"><__trans phrase="Label"></th>
+				<th scope="col" class="other"><__trans phrase="Other text"></th>
+				<th scope="col" class="button"><__trans phrase="delete"></th>
+				<th scope="col" class="button"><__trans phrase="up"></th>
+				<th scope="col" class="button"><__trans phrase="down"></th>
+			</tr>
+		</thead>
+		<tbody id="aformFieldCheckboxOptionTbody%%field_idx%%">
+		</tbody>
+		</table>
+	</div>
+	<button type="button" class="btn btn-default btn-sm aform-field-add-value" id="aformFieldAddValue%%field_idx%%"><mtapp:svgicon id="ic_add" title="<__trans phrase="Add">" size="sm"><__trans phrase="Add"></button>
+</div>
+
+<div class="form-group">
+	<label for="aformFieldOptionsAlignment"><__trans phrase="Alignment"></label>
+	<div class="form-inline">
+		<div class="custom-control custom-radio mr-sm-4">
+			<input type="radio" class="custom-control-input aform-field-options-vertically" name="aformFieldOptionsHorizontally%%field_idx%%" id="aformFieldOptionsVertically%%field_idx%%" value="0">
+			<label class="custom-control-label" for="aformFieldOptionsVertically%%field_idx%%"><__trans phrase="Arrange vertically"></label>
+		</div>
+		<div class="custom-control custom-radio mr-sm-4">
+			<input type="radio" class="custom-control-input aform-field-options-horizontally" name="aformFieldOptionsHorizontally%%field_idx%%" id="aformFieldOptionsHorizontally%%field_idx%%" value="1">
+			<label class="custom-control-label" for="aformFieldOptionsHorizontally%%field_idx%%"><__trans phrase="Arrange horizontally"></label>
+		</div>
+	</div>
+</div>

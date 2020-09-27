@@ -1,0 +1,34 @@
+<mt:Ignore>Copyright (c) 2008 ARK-Web Co.,Ltd.</mt:Ignore>
+<mt:setvarblock name="action_buttons">
+</mt:setvarblock>
+
+<mt:setvar name="current_blog_id" value="$blog_id">
+<mtapp:listing empty_message="<__trans phrase="No Entry found.">">
+    <mt:if name="__first__">
+    <thead>
+        <tr>
+            <th id="bt-title" scope="col"><span class="col-label"><__trans phrase="Place Title"></span></th>
+            <th id="bt-category" scope="col"><span class="col-label"><__trans phrase="Main Category/Folder"></span></th>
+            <th id="bt-blog" scope="col"><span class="col-label"><__trans phrase="Blog"></span></th>
+            <th id="bt-preview" scope="col"><span class="col-label"><__trans phrase="Preview"></span></th>
+        </tr>
+    </thead>
+    <tbody>
+    </mt:if>
+        <tr class="<mt:if name="__odd__">odd<mt:else>even</mt:if>">
+            <td><a href="<mt:var name="edit_link" escape="html">" target="_blank"><mt:var name="entry_title"></a></td>
+            <td><mt:if name="entry_category" ne=""><mt:var name="entry_category"><mt:else>-</mt:if></td>
+            <td><mt:var name="blog_name"></td>
+            <td><a href="<mt:var name="entry_permalink">" class="d-inline-block" target="_blank">
+                <svg title="<__trans phrase="preview this form">" role="img" class="mt-icon mt-icon--secondary">
+                  <use xlink:href="<$mt:var name="static_uri"$>images/sprite.svg#ic_permalink">
+                </use></svg>
+              </a>
+            </td>
+        </tr>
+    <mt:if name="__last__">
+    </tbody>
+    </mt:if>
+<!--<mt:var name="id"><br/>-->
+<!--<mt:var name="title">-->
+</mtapp:listing>
