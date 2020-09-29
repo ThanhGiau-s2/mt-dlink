@@ -15,64 +15,72 @@ aform_confirm.msg_success = '<__trans phrase="Send completed."><a href="<mt:var 
 <mt:if name="id" eq="1">
   <mt:include name="modules/page_confirm_form.mtml" component="AForm">
 </mt:if>
+<mt:if name="id" eq="2">
+  <mt:include name="modules/page_confirm_before.mtml" component="AForm">
+</mt:if>
+<mt:if name="id" eq="3">
+  <mt:include name="modules/page_confirm_after.mtml" component="AForm">
+</mt:if>
+<mt:if name="id" eq="4">
+  <mt:include name="modules/page_confirm_certificate.mtml" component="AForm">
+</mt:if>
 <mt:if name="id" eq="5">
   <mt:include name="modules/page_confirm_privacy.mtml" component="AForm">
 </mt:if>
 <mt:if name="id" eq="6">
   <mt:include name="modules/page_confirm_other.mtml" component="AForm">
 </mt:if>
-<mt:Else>
-      <div id="aform-<$mt:var name="id"$>" class="aform <$mt:var name="aform_lang"$>">
-      <div class="aform-header"><$mt:var name="aform_title" escape="html"$></div>
-      <div class="aform-content" id="aform-content">
-      <form name="aform-confirm-form" id="aform-confirm-form" method="post" action="<$mt:var name="action_url"$>">
-      <mt:unless name="disabled_aform_hiddens">
-          <input type="hidden" name="blog_id" value="<$mt:var name="blog_id"$>" />
-          <input type="hidden" name="id" value="<$mt:var name="id"$>" />
-          <input type="hidden" name="run_mode" value="complete" />
-          <input type="hidden" id="use_js" name="use_js" value="" />
-          <input type="hidden" name="aform_url" value="<mt:var name="aform_url" escape="html">" />
-          <input type="hidden" name="aform_path" value="<mt:var name="aform_path" escape="html">" />
-          <input type="hidden" name="authenticity_token" value="<mt:var name="authenticity_token" escape="html">" />
-          <input type="hidden" name="entry_id" value="<mt:var name="entry_id" escape="html">" />
-      </mt:unless>
-
-          <mt:var name="hidden_params">
-
-      <mt:setvar name="aform_id" value="$id">
-      <mt:AFormFieldConfirmAll aform_id="$aform_id"
-        prefix="<dl class="dl_%%parts_id%%">"
-        suffix="</dl>"
-        label_tag="span"
-        label_prefix="<dt>"
-        label_suffix="</dt>"
-        data_prefix="<dd>"
-        data_suffix="</dd>">
-
-      <mt:if name="msg_confirm">
-        <mt:var name="msg_confirm">
-      <mt:else>
-      <p id="aform_confirm_msg"><__trans phrase='Please review contents and then, push the "Send this contents" button.'></p>
-      <noscript><p><__trans phrase="To fix contents, please return to your browser's back button."></p></noscript>
-      </mt:if>
-
-          <div class="aform-button-area">
-      <script type="text/javascript">
-      <!--
-        document.write('<input id="aform_btn_back" type="button" value="<__trans phrase="Back">" onclick="history.back();" />');
-      //-->
-      </script>
-      <mt:if name="btn_submit">
-        <mt:var name="btn_submit">
-      <mt:else>
-          <input id="aform_btn_submit" type="submit" name="Submit" value="<__trans phrase="Send this contents">" /> 
-      </mt:if>
-          </div>
-      </form>
-      </div>
-      <div id="aform_result"></div>
-      </div>
+<mt:if name="id" eq="7">
+  <mt:include name="modules/page_confirm_careers.mtml" component="AForm">
 </mt:if>
-    
+<mt:if name="id" gt="7">
+  <div id="aform-<$mt:var name="id"$>" class="aform <$mt:var name="aform_lang"$>">
+  <div class="aform-header"><$mt:var name="aform_title" escape="html"$></div>
+  <div class="aform-content" id="aform-content">
+  <form name="aform-confirm-form" id="aform-confirm-form" method="post" action="<$mt:var name="action_url"$>">
+  <mt:unless name="disabled_aform_hiddens">
+    <input type="hidden" name="blog_id" value="<$mt:var name="blog_id"$>" />
+    <input type="hidden" name="id" value="<$mt:var name="id"$>" />
+    <input type="hidden" name="run_mode" value="complete" />
+    <input type="hidden" id="use_js" name="use_js" value="" />
+    <input type="hidden" name="aform_url" value="<mt:var name="aform_url" escape="html">" />
+    <input type="hidden" name="aform_path" value="<mt:var name="aform_path" escape="html">" />
+    <input type="hidden" name="authenticity_token" value="<mt:var name="authenticity_token" escape="html">" />
+    <input type="hidden" name="entry_id" value="<mt:var name="entry_id" escape="html">" />
+  </mt:unless>
+  <mt:var name="hidden_params">
+  <mt:setvar name="aform_id" value="$id">
+  <mt:AFormFieldConfirmAll aform_id="$aform_id"
+    prefix="<dl class="dl_%%parts_id%%">"
+    suffix="</dl>"
+    label_tag="span"
+    label_prefix="<dt>"
+    label_suffix="</dt>"
+    data_prefix="<dd>"
+    data_suffix="</dd>">
 
+  <mt:if name="msg_confirm">
+    <mt:var name="msg_confirm">
+  <mt:else>
+  <p id="aform_confirm_msg"><__trans phrase='Please review contents and then, push the "Send this contents" button.'></p>
+  <noscript><p><__trans phrase="To fix contents, please return to your browser's back button."></p></noscript>
+  </mt:if>
+
+  <div class="aform-button-area">
+  <script type="text/javascript">
+  <!--
+    document.write('<input id="aform_btn_back" type="button" value="<__trans phrase="Back">" onclick="history.back();" />');
+  //-->
+  </script>
+  <mt:if name="btn_submit">
+    <mt:var name="btn_submit">
+  <mt:else>
+      <input id="aform_btn_submit" type="submit" name="Submit" value="<__trans phrase="Send this contents">" /> 
+  </mt:if>
+      </div>
+  </form>
+  </div>
+  <div id="aform_result"></div>
+  </div>
+</mt:if>
 </__trans_section>

@@ -1,0 +1,38 @@
+<mt:Ignore>Copyright (c) 2008 ARK-Web Co.,Ltd.</mt:Ignore>
+
+<mt:loop name="fields"><mt:If name="parts_id" eq="shimei_1"><$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="shimei_2"><$mt:var name="label_value"$></mt:If></mt:loop> 様
+この度は弊社にお問い合わせいただきまして、
+誠にありがとうございました。
+
+弊社への「個人情報保護についてのお問い合わせ」を
+以下の内容で受付けました。
+
+追って担当部署よりご連絡させていただきますので、
+しばらくお待ちいただきたく、お願い申し上げます。
+
+よろしくお願いします。
+
+===＜お問い合わせ内容＞===
+
+区分：「個人情報保護についてのお問い合わせ」
+
+■お客様情報
+法人名　　　：<mt:loop name="fields"><mt:If name="parts_id" eq="houjin_mei"><$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="busho_mei">
+部署名　　　：<$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="yakushoku">
+役　職　　　：<$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="shimei_1">
+氏　名　　　：<$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="shimei_2"><$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="shimei_kana_1">
+氏名フリガナ：<$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="shimei_kana_2"><$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="zip_1">
+郵便番号　　：<$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="address_1">
+住　所　　　：<$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="address_2"><$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="address_3"><$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="telnum">
+電話番号　　：<$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="fax">
+F　A　X 　　：<$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="mailaddress">
+E-mail　　　：<$mt:var name="label_value"$></mt:If></mt:loop>
+
+■詳　細　　：<mt:loop name="fields"><mt:If name="parts_id" eq="contact"><$mt:var name="label_value"$></mt:If></mt:loop>
+
+
+===========以上===========
+<mt:if name="display_ip_ua">
+<__trans phrase="IP">: <mt:var name="ip">
+<__trans phrase="User Agent">: <mt:var name="ua">
+</mt:if>

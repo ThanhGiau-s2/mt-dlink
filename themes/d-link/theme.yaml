@@ -72,6 +72,8 @@ elements:
             label: 'single_event'
           single_support_release:
             label: 'single_support_release'
+          page_contact:
+            label: 'page_contact'
           page_repair-form:
             label: 'page_repair-form'
           page_complete_form:

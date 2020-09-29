@@ -11,6 +11,11 @@
 </mt:SetVarTemplate>
 <mt:Ignore>** 表示部分 **</mt:Ignore>
 <mt:Include module="html_head" parent="1" />
+<style>
+.d-flex {
+    display: flex
+}
+</style>
 <mt:Include module="header" parent="1" />
 <!-- ここからコンテンツ -->
 <main class="p-main">
@@ -28,7 +33,7 @@
                 <h1 class="c-title__text">個人情報保護について<br class="u-show_sp">お問い合わせ</h1>
             </div>
             <!-- /.c-title -->
-            <form name="aform-form-5" id="aform-form-5" action="/mt/plugins/AForm/aform_engine.cgi" method="POST" novalidate="novalidate" enctype="multipart/form-data">
+            <form name="aform-form-5" id="aform-form-5" action="/contact/aform_engine.cgi" method="POST" novalidate="novalidate" enctype="multipart/form-data">
                 <input type="hidden" name="blog_id" value="<$mt:BlogID$>" />
                 <input type="hidden" name="id" value="5" />
                 <input type="hidden" name="run_mode" value="confirm" />
@@ -238,6 +243,7 @@
                                             <!-- 2カラムの場合に各要素を.p-form__colで囲む -->
                                             <div class="p-form__col">
                                                 <div class="c-select">
+                                                    <input type="hidden" id="tmp_address_1">
                                                     <mt:AFormFieldInput aform_id="5" parts_id="address_1">
                                                 </div>
                                                 <!-- /.c-select -->
@@ -291,7 +297,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <mt:AFormFieldLabel aform_id="5" parts_id="telnum">
+                                            <mt:AFormFieldLabel aform_id="5" parts_id="telnum"><span class="required">必須</span>
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -391,18 +397,19 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <mt:AFormFieldLabel aform_id="5" parts_id="contact">
+                                            <mt:AFormFieldLabel aform_id="5" parts_id="contact"><span class="required">必須</span>
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
                                     <!-- /.p-form__table_cell -->
 
                                     <div class="p-form__cell">
-                                        <div class="c-textarea">
+                                        <div class="c-textarea js-form_check" data-label="本文">
                                             <mt:AFormFieldInput aform_id="5" parts_id="contact">
                                         </div>
                                         <!-- /.c-textarea -->
-                                        <div class="c-error">
+                                        <div class="c-error js-error_check">
+                                            <p class="aform-error" id=""></p>
                                         </div>
                                         <!-- /.c-error -->
                                     </div>
@@ -416,6 +423,10 @@
                     </div>
                     <!-- /.p-form_content__block -->
                     <div class="p-form_content__block">
+                        <div class="c-middle_heading">
+                            <h3 class="c-middle_heading__text">個人情報の取り扱いについて</h3>
+                        </div>
+                        <!-- /.c-middle_heading -->
                         <div class="p-form_privacy">
                             <div class="p-form_privacy__text">
                                 <p><a href="/privacy-policy/" target="_blank" rel="noopener">個人情報の取り扱いについて</a>をご確認いただき、よろしければ「個人情報の取り扱いについて同意する」にチェックをして、内容を送信してください。</p>

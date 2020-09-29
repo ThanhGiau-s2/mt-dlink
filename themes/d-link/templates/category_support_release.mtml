@@ -50,7 +50,7 @@ Template Note : カテゴリ
                 </ul>
 
                 <button class="p-news__menu js-select_show">
-                    <div class="p-news__selected">すべて</div>
+                    <div class="p-news__selected selected-category-sp">すべて</div>
                     <div class="p-news__arrow"></div>
                 </button>
 
@@ -58,15 +58,15 @@ Template Note : カテゴリ
                     <ul class="p-news__select_list js-select_list">
                         <li><a href="/support/release/">すべて</a></li>
 
-                        <li><a href="/support/release/info.html">お知らせ</a></li>
+                        <li><a href="/support/release/info/index.html">お知らせ</a></li>
 
-                        <li><a href="/support/release/firmware.html">ファームフェア</a></li>
+                        <li><a href="/support/release/firmware/index.html">ファームフェア</a></li>
 
-                        <li><a href="/support/release/maintenance.html">メンテナンス情報</a></li>
+                        <li><a href="/support/release/maintenance/index.html">メンテナンス情報</a></li>
 
-                        <li><a href="/support/release/fault.html">障害情報</a></li>
+                        <li><a href="/support/release/fault/index.html">障害情報</a></li>
 
-                        <li><a href="/support/release/security.html">セキュリティ情報</a></li>
+                        <li><a href="/support/release/security/index.html">セキュリティ情報</a></li>
                     </ul>
                 </div>
                 <!-- /.p-news__select -->
@@ -123,7 +123,7 @@ Template Note : カテゴリ
                                                 <mt:If name="current_category" like="お知らせ">
                                                     <p class="p-news__category--support"><mt:Var name="current_category"></p>
                                                 </mt:If>
-                                                <mt:If name="current_category" like="ファームフェア">
+                                                <mt:If name="current_category" like="ファームウェア">
                                                     <p class="p-news__category--firmware"><mt:Var name="current_category"></p> 
                                                 </mt:If>
                                                 <mt:If name="current_category" like="メンテナンス情報">

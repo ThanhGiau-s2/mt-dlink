@@ -2,7 +2,11 @@
 <__trans_section component="AForm">
 <mt:if name="id" eq="1">
 <mt:include name="modules/page_complete_form.mtml" component="AForm">
-<mt:Else>
+</mt:if>
+<mt:if name="id" eq="6">
+<mt:include name="modules/page_complete_other.mtml" component="AForm">
+</mt:if>
+<mt:if name="id" gt="7">
 <div id="aform-<$mt:var name="id"$>" class="aform <$mt:var name="aform_lang"$>">
 <div class="aform-header"><$mt:var name="aform_title" escape="html"$></div>
 <div class="aform-content" id="aform_result">

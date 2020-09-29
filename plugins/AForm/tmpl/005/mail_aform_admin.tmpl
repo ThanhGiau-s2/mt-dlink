@@ -1,0 +1,31 @@
+<mt:Ignore>Copyright (c) 2008 ARK-Web Co.,Ltd.</mt:Ignore>
+
+◆◆ Webお問い合わせ受付け通知 ◆◆
+
+下記お客様からのお問い合わせを受付けました。
+担当者をアサインし、回答してください。
+
+===＜お問い合わせ内容＞===
+
+区分：「個人情報保護についてのお問い合わせ」
+
+■申請日
+<$mt:var name="datetime" format="%x"$>
+
+■申請者情報
+会社名　　　：<mt:loop name="fields"><mt:If name="parts_id" eq="houjin_mei"><$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="busho_mei">
+部署名　　　：<$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="zip_1">
+郵便番号　　：<$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="address_1">
+住　所　　　：<$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="address_2"><$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="address_3"><$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="telnum">
+電話番号　　：<$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="shimei_1">
+氏　名　　　：<$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="shimei_2"><$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="mailaddress">
+E-mail　　　：<$mt:var name="label_value"$></mt:If></mt:loop>
+
+■お問い合わせ内容：<mt:loop name="fields"><mt:If name="parts_id" eq="contact"><$mt:var name="label_value"$></mt:If></mt:loop>
+
+
+===========以上===========
+<mt:if name="display_ip_ua">
+<__trans phrase="IP">: <mt:var name="ip">
+<__trans phrase="User Agent">: <mt:var name="ua">
+</mt:if>
