@@ -56,17 +56,10 @@ Template Note : カテゴリ
 
                 <div class="p-news__select js-select_menu">
                     <ul class="p-news__select_list js-select_list">
-                        <li><a href="/support/release/">すべて</a></li>
-
-                        <li><a href="/support/release/info/index.html">お知らせ</a></li>
-
-                        <li><a href="/support/release/firmware/index.html">ファームフェア</a></li>
-
-                        <li><a href="/support/release/maintenance/index.html">メンテナンス情報</a></li>
-
-                        <li><a href="/support/release/fault/index.html">障害情報</a></li>
-
-                        <li><a href="/support/release/security/index.html">セキュリティ情報</a></li>
+                        <li><a href="/support/release/" data-name="release">すべて</a></li>
+                        <mt:SubCategories category="サポート情報">
+                            <li><a href="<$mt:CategoryArchiveLink$>index.html" data-name="<$mt:CategoryBasename$>"><$MTCategoryLabel$></a></li>
+                        </mt:SubCategories>
                     </ul>
                 </div>
                 <!-- /.p-news__select -->

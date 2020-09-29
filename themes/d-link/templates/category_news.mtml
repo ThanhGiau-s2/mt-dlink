@@ -55,11 +55,10 @@ Template Note : カテゴリ
 
                 <div class="p-news__select js-select_menu">
                     <ul class="p-news__select_list js-select_list">
-                        <li><a href="/news">すべて</a></li>
-
-                        <li><a href="/news/info.html">お知らせ</a></li>
-
-                        <li><a href="/news/product.html">製品ニュース</a></li>
+                        <li><a href="/news/" data-name="news">すべて</a></li>
+                        <mt:SubCategories category="ニュース">
+                            <li><a href="<$mt:CategoryArchiveLink$>" data-name="<$mt:CategoryBasename$>"><$MTCategoryLabel$></a></li>
+                        </mt:SubCategories>
                     </ul>
                 </div>
                 <!-- /.p-news__select -->
