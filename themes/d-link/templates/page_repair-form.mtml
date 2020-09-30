@@ -1,7 +1,7 @@
 <mt:SetVars>
     base_description=ディスクリプション
     og_title=故障・修理申請フォーム | お問い合わせ | D-Link Japan
-    og_url=https://www.dlink-jp.com/contact/repair-form
+    og_url=https://www.dlink-jp.com/contact/repair-form/
     og_type=article
 </mt:SetVars>
 <mt:SetVarTemplate name="file_javascript">
@@ -59,55 +59,62 @@
                                 <h2 class="c-content_heading__text">申請に必要なもの</h2>
                             </div>
                             <!-- /.c-content_heading -->
-                            <div class="c-content_box p-form_content__box">
-                                <ul class="p-content_point__list">
-                                    <li>・サポート対象：ディーリンクジャパン（株）が日本国内で販売した製品のみ</li>
-                                    <li>・営業時間：平日9：00〜17：00（土日祝日、年末年始休暇は除く）</li>
-                                    <li>・有償保証サービスをご契約のお客様は、こちらでは受け付けておりません。別途、契約後にお送りしたご案内を確認ください。</li>
-                                    <li>・クラウド管理型製品（DBAシリーズ/DBSシリーズ）の修理を依頼される場合、<br>必ず<b>Device UIDをクラウドサーバから削除</b>の上、修理対象機器の発送をお願いいたします。</li>
+                            <div class="c-content_box">
+                                <ul>
+                                    <li class="c-notice"><span class="c-notice__bullet">・</span>サポート対象：ディーリンクジャパン（株）が日本国内で販売した製品のみ</li>
+                                    <li class="c-notice"><span class="c-notice__bullet">・</span>営業時間：平日9：00〜17：00（土日祝日、年末年始休暇は除く）</li>
+                                    <li class="c-notice"><span class="c-notice__bullet">・</span>有償保証サービスをご契約のお客様は、こちらでは受け付けておりません。別途、契約後にお送りしたご案内を確認ください。</li>
+                                    <li class="c-notice"><span class="c-notice__bullet">・</span>クラウド管理型製品（DBAシリーズ/DBSシリーズ）の修理を依頼される場合、必ず<b>Device UIDをクラウドサーバから削除</b>の上、修理対象機器の発送をお願いいたします。</li>
                                 </ul>
                             </div>
                             <!-- /.c-content_box -->
-                            <div class="p-form_content__box">
-                                <div class="p-form_class">
-                                    <div class="p-form_class__inner">
-                                        <b>申請時には、下記をご用意下さい。</b>
-                                        <ul class="p-content_point__list">
-                                            <li><span>1.</span>製品シリアル番号</li>
-                                            <li><span>2.</span>ファームウェアバージョン</li>
-                                            <li><span>3.</span>ハードウェアバージョン(製品裏面シールに記載）</li>
-                                            <li><span>4.</span>故障内容：出来るだけ具体的な故障内容</li>
-                                        </ul>
-                                        <div class="">
-                                            <div class="p-form_class__row">
-                                                <div class="p-form_class__col">
-                                                    <div class="p-form_class__heading h50">
-                                                        <p>保証対象製品と保証期間については</br>こちらをご確認ください</p>
-                                                    </div>
-                                                    <div class="p-form_class__button">
-                                                        <a href="/support/info/target.html" target="_blank" rel="noopener">各製品の保証期間</a>
-                                                    </div>
-                                                </div>
-                                                <!-- /.p-form_class__col -->
-                                                <div class="p-form_class__col">
-                                                    <div class="p-form_class__heading h50">
-                                                        <p>製品保証規定についてはこちらをご確認ください</p>
-                                                    </div>
-                                                    <div class="p-form_class__button">
-                                                        <a href="/support/info/product-assurance-provision.html" target="_blank" rel="noopener">製品保証規定</a>
-                                                    </div>
-                                                </div>
-                                                <!-- /.p-form_class__col -->
-                                            </div>
-                                            <!-- /.p-form_class__row -->
-                                        </div>
-                                        <!-- /.p-form_class__nav -->
-                                    </div>
-                                    <!-- /.p-form_class__inner -->
-                                </div>
-                                <!-- /.p-form_class -->
+                        </div>
+                        <!-- /.p-form_content__box -->
+
+                        <div class="p-form_content__box">
+                            <div class="p-form_class">
+                            <div class="p-form_class__inner">
+                            <div class="c-content_box">
+                            <p class="u-fw_bold u-fz_16">申請時には、下記をご用意下さい。</p>
+
+                            <ol>
+                                <li class="c-notice"><span class="c-notice__bullet">1. </span>製品シリアル番号</li>
+                                <li class="c-notice"><span class="c-notice__bullet">2. </span>ファームウェアバージョン</li>
+                                <li class="c-notice"><span class="c-notice__bullet">3. </span>ハードウェアバージョン(製品裏面シールに記載）</li>
+                                <li class="c-notice"><span class="c-notice__bullet">4. </span>故障内容：出来るだけ具体的な故障内容</li>
+                            </ol>
                             </div>
-                            <!-- /.p-form_content__box -->
+                            <!-- /.c-content_box -->
+
+                            <div class="p-form_class__row">
+                            <div class="p-form_class__col">
+                            <div class="p-form_class__heading">
+                            <p>保証対象製品と保証期間については<br>こちらをご確認ください</p>
+                            </div>
+                            <!-- /.p-form_class__heading -->
+                            <div class="p-form_class__button">
+                            <a href="/support/info/target.html" target="_blank" rel="noopener">各製品の保証期間</a>
+                            </div>
+                            <!-- /.p-form_class__button -->
+                            </div>
+                            <!-- /.p-form_class__col -->
+
+                            <div class="p-form_class__col">
+                            <div class="p-form_class__heading">
+                            <p>製品保証規定については<br>こちらをご確認ください</p>
+                            </div>
+                            <!-- /.p-form_class__heading -->
+                            <div class="p-form_class__button">
+                            <a href="/support/info/product-assurance-provision.html" target="_blank" rel="noopener">製品保証規定</a>
+                            </div>
+                            <!-- /.p-form_class__button -->
+                            </div>
+                            </div>
+                            <!-- /.p-form_class__row -->
+                            </div>
+                            <!-- /.p-form_class__inner -->
+                            </div>
+                            <!-- /.p-form_class -->
                         </div>
                         <!-- /.p-form_content__box -->
                     </div>
@@ -116,14 +123,18 @@
                         <h2 class="c-content_heading__text">申請内容</h2>
                     </div>
                     <!-- /.c-content_heading -->
-                            
+
                     <div class="p-form_content__block">
                         <div class="c-middle_heading">
                             <h3 class="c-middle_heading__text">お客様情報</h3>
                         </div>
                         <!-- /.c-middle_heading -->
+
                         <div class="p-form_content__box">
                             <p>※弊社からご連絡させて頂く場合が御座いますので、ご連絡可能な情報の入力をお願い致します</p>
+                        </div>
+
+                        <div class="p-form_content__box">
                             <div class="p-form">
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
@@ -136,7 +147,10 @@
                                     <div class="p-form__cell">
                                         <div class="p-form__row">
                                             <div class="p-form__col">
-                                                <div class="c-input js-form_check" data-label="氏名">
+                                                <div class="c-input__example">
+                                                    <p class="aform-input-example">姓</p>
+                                                </div>
+                                                <div class="c-input js-form_check" data-label="名前">
                                                     <mt:AFormFieldInput aform_id="1" parts_id="shimei_1">
                                                 </div>
                                                 <!-- /.c-input -->
@@ -147,7 +161,10 @@
                                             </div>
                                             <!-- /.p-form__col -->
                                             <div class="p-form__col">
-                                                <div class="c-input js-form_check" data-label="氏名">
+                                                <div class="c-input__example">
+                                                    <p class="aform-input-example">名</p>
+                                                </div>
+                                                <div class="c-input js-form_check" data-label="名前">
                                                     <mt:AFormFieldInput aform_id="1" parts_id="shimei_2">
                                                 </div>
                                                 <!-- /.c-input -->
@@ -244,6 +261,9 @@
                                     <div class="p-form__cell">
                                         <div class="p-form__row">
                                             <div class="p-form__col">
+                                                <div class="c-input__example">
+                                                    <p class="aform-input-example">記入例：123-4567</p>
+                                                </div>
                                                 <div class="c-input js-form_check" data-label="郵便番号">
                                                     <mt:AFormFieldInput aform_id="1" parts_id="zip_1">
                                                 </div>
@@ -251,10 +271,6 @@
                                                     <p class="aform-error" id=""></p>
                                                 </div>
                                                 <!-- /.c-error -->
-                                            </div>
-                                            <!-- /.p-form__col -->
-                                            <div class="p-form__col">
-                                            <p>記入例：123-4567</p>
                                             </div>
                                             <!-- /.p-form__col -->
                                         </div>
@@ -380,12 +396,12 @@
                                     <div class="p-form__cell">
                                         <div class="c-input js-form_check" data-label="代理店名">
                                             <mt:AFormFieldInput aform_id="1" parts_id="agency_name">
-                                            <div class="c-input__example">
-                                                <p class="aform-input-example">※ご不明な場合は”不明”と記入。</p>
-                                            </div>
-                                            <!-- /.c-input__example -->
                                         </div>
                                         <!-- /.c-input -->
+
+                                        <div class="p-form__example">
+                                            <p class="aform-input-example">※ご不明な場合は”不明”と記入。</p>
+                                        </div>
 
                                         <div class="c-error js-error_check">
                                             <p class="aform-error" id=""></p>
@@ -407,12 +423,12 @@
                                     <div class="p-form__cell">
                                         <div class="c-input js-form_check" data-label="代理店担当者名">
                                             <mt:AFormFieldInput aform_id="1" parts_id="agent_name">
-                                            <div class="c-input__example">
-                                                <p class="aform-input-example">※ご不明な場合は”不明”と記入。</p>
-                                            </div>
-                                            <!-- /.c-input__example -->
                                         </div>
                                         <!-- /.c-input -->
+
+                                        <div class="p-form__example">
+                                            <p class="aform-input-example">※ご不明な場合は”不明”と記入。</p>
+                                        </div>
 
                                         <div class="c-error js-error_check">
                                             <p class="aform-error" id=""></p>
@@ -460,7 +476,7 @@
                         <!-- /.p-form_content__box -->
                     </div>
                     <!-- /.p-form_content__block -->
-                    
+
                     <!-- 1台目の申請 -->
                     <div class="p-form_content__block js-units_item">
                         <p class="p-form_content__time">1台目の申請</p>
@@ -588,22 +604,22 @@
                             <div class="p-form__table">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <mt:AFormFieldLabel aform_id="1" parts_id="warranty_1"><span class="required">必須</span>
-                                        <ul>
-                                            <li class="c-notice"><span class="c-notice__bullet">※</span>2010/1/1以降に購入された、<br>D-LINK リミテッドライフタイム保証対象製品は必須</li>
-                                        </ul>
+                                        <mt:AFormFieldLabel aform_id="1" parts_id="warranty_1"><span class="c-notice u-fw_normal u-color_notice u-fz_14"><span class="c-notice__bullet">※</span>2010/1/1以降に購入された、D-LINK リミテッドライフタイム保証対象製品は必須</span><span class="required">必須</span>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
                                 <!-- /.p-form__cell -->
                                 <div class="p-form__cell">
-                                    <div class="c-radio" data-label="D-LINKリミテッドライフタイム保証対象製品">
+                                    <div class="c-radio js_warranty_1" data-label="D-LINKリミテッドライフタイム保証対象製品">
                                         <mt:AFormFieldInput aform_id="1" parts_id="warranty_1">
+                                    </div>
+                                    <!-- /.c-input -->
+
+                                    <div class="p-link">
                                         <ul class="p-link__list">
                                             <li><a href="/support/info/target.html"><span>保証対象製品と保証期間についてはこちらをご確認ください</span></a></li>
                                         </ul>
                                     </div>
-                                    <!-- /.c-input -->
 
                                     <div class="c-error js-error_check">
                                         <p class="aform-error" id=""></p>
@@ -646,11 +662,14 @@
                                     <div class="js-step1_checkbox">
                                         <mt:AFormFieldInput aform_id="1" parts_id="failure_point_1">
                                     </div>
+
+                                    <div class="p-form__example">
+                                        <p class="aform-input-example">※上記の不具合に該当しない場合は、STEP3 の詳細内容記入欄に事象内容を詳細に記載して下さい</p>
+                                    </div>
                                 </div>
                                 <!-- /.p-form__cell -->
                             </div>
                             <!-- /.p-form__table -->
-                            <p>※上記の不具合に該当しない場合は、STEP3 の詳細内容記入欄に事象内容を詳細に記載してください</p>
                         </div>
                         <!-- /.p-form_content__box -->
 
@@ -1361,7 +1380,7 @@
                             </div>
                             <!-- /.p-form_content__box -->
                         </div>
-                        <!-- /.p-form_content__box -->          
+                        <!-- /.p-form_content__box -->
                         <div class="p-form_content__box">
                             <div class="c-medium_heading">
                                 <h4 class="c-medium_heading__text">【STEP3】 可能な限り詳細に回答をお願い致します</h4>
@@ -1631,6 +1650,7 @@
                         <!-- /.p-form_content__box -->
                     </div>
                     <!-- /.p-form_content__block -->
+
                     <!-- 2台目の申請 -->
                     <div class="p-form_content__block js-units_item">
                         <p class="p-form_content__time">2台目の申請</p>
@@ -1672,7 +1692,7 @@
                                 </div>
                                 <!-- /.p-form__cell -->
                                 <div class="p-form__cell">
-                                    <div class="c-input js-form_check" data-label="製品名">
+                                    <div class="c-input js-form_check" data-label="シリアルナンバー">
                                         <mt:AFormFieldInput aform_id="1" parts_id="serial_no_2">
                                     </div>
                                     <!-- /.c-input -->
@@ -1695,7 +1715,7 @@
                                 </div>
                                 <!-- /.p-form__cell -->
                                 <div class="p-form__cell">
-                                    <div class="c-input js-form_check" data-label="製品名">
+                                    <div class="c-input js-form_check" data-label="ファームウェアバージョン">
                                         <mt:AFormFieldInput aform_id="1" parts_id="firmware_2">
                                     </div>
                                     <!-- /.c-input -->
@@ -1718,7 +1738,7 @@
                                 </div>
                                 <!-- /.p-form__cell -->
                                 <div class="p-form__cell">
-                                    <div class="c-input js-form_check" data-label="製品名">
+                                    <div class="c-input js-form_check" data-label="ハードウェアバージョン">
                                         <mt:AFormFieldInput aform_id="1" parts_id="hardware_version_2">
                                     </div>
                                     <!-- /.c-input -->
@@ -1741,7 +1761,7 @@
                                 </div>
                                 <!-- /.p-form__cell -->
                                 <div class="p-form__cell">
-                                    <div class="c-input js-form_check" data-label="製品名">
+                                    <div class="c-input js-form_check" data-label="ご購入日">
                                         <mt:AFormFieldInput aform_id="1" parts_id="purchase_date_2">
                                     </div>
                                     <!-- /.c-input -->
@@ -1758,22 +1778,22 @@
                             <div class="p-form__table">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <mt:AFormFieldLabel aform_id="1" parts_id="warranty_2"><span class="required">必須</span>
-                                        <ul>
-                                            <li class="c-notice"><span class="c-notice__bullet">※</span>2010/1/1以降に購入された、<br>D-LINK リミテッドライフタイム保証対象製品は必須</li>
-                                        </ul>
+                                        <mt:AFormFieldLabel aform_id="1" parts_id="warranty_2"><span class="c-notice u-fw_normal u-color_notice u-fz_14"><span class="c-notice__bullet">※</span>2010/1/1以降に購入された、D-LINK リミテッドライフタイム保証対象製品は必須</span><span class="required">必須</span>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
                                 <!-- /.p-form__cell -->
                                 <div class="p-form__cell">
-                                    <div class="c-radio" data-label="製品名">
+                                    <div class="c-radio js_warranty_2" data-label="製品名">
                                         <mt:AFormFieldInput aform_id="1" parts_id="warranty_2">
+                                    </div>
+                                    <!-- /.c-input -->
+
+                                    <div class="p-link">
                                         <ul class="p-link__list">
                                             <li><a href="/support/info/target.html"><span>保証対象製品と保証期間についてはこちらをご確認ください</span></a></li>
                                         </ul>
                                     </div>
-                                    <!-- /.c-input -->
 
                                     <div class="c-error js-error_check">
                                         <p class="aform-error" id=""></p>
@@ -1816,11 +1836,14 @@
                                     <div class="js-step1_checkbox">
                                         <mt:AFormFieldInput aform_id="1" parts_id="failure_point_2">
                                     </div>
+
+                                    <div class="p-form__example">
+                                        <p class="aform-input-example">※上記の不具合に該当しない場合は、STEP3 の詳細内容記入欄に事象内容を詳細に記載して下さい</p>
+                                    </div>
                                 </div>
                                 <!-- /.p-form__cell -->
                             </div>
                             <!-- /.p-form__table -->
-                            <p>※上記の不具合に該当しない場合は、STEP3 の詳細内容記入欄に事象内容を詳細に記載してください</p>
                         </div>
                         <!-- /.p-form_content__box -->
 
@@ -2184,7 +2207,7 @@
                                             </div>
                                         </div>
                                         <!-- /.p-form__row -->
-                                        
+
                                     </div>
                                     <!-- /.p-form__table_cell -->
                                 </div>
@@ -2420,12 +2443,12 @@
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_miniute_2_6">
                                                 <mt:AFormFieldLabel aform_id="1" parts_id="reproducibility_miniute_2_6">
                                             </div>
-                                            
+
                                             <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_hour_2_6">
                                                 <mt:AFormFieldLabel aform_id="1" parts_id="reproducibility_hour_2_6">
                                             </div>
-                                           
+
                                             <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_day_2_6">
                                                 <mt:AFormFieldLabel aform_id="1" parts_id="reproducibility_day_2_6">
@@ -2531,7 +2554,7 @@
                             </div>
                             <!-- /.p-form_content__box -->
                         </div>
-                        <!-- /.p-form_content__box -->          
+                        <!-- /.p-form_content__box -->
                         <div class="p-form_content__box">
                             <div class="c-medium_heading">
                                 <h4 class="c-medium_heading__text">【STEP3】 可能な限り詳細に回答をお願い致します</h4>
@@ -2801,6 +2824,7 @@
                         <!-- /.p-form_content__box -->
                     </div>
                     <!-- /.p-form_content__block -->
+
                     <!-- 3台目の申請 -->
                     <div class="p-form_content__block js-units_item">
                         <p class="p-form_content__time">3台目の申請</p>
@@ -2842,7 +2866,7 @@
                                 </div>
                                 <!-- /.p-form__cell -->
                                 <div class="p-form__cell">
-                                    <div class="c-input js-form_check" data-label="製品名">
+                                    <div class="c-input js-form_check" data-label="シリアルナンバー">
                                         <mt:AFormFieldInput aform_id="1" parts_id="serial_no_3">
                                     </div>
                                     <!-- /.c-input -->
@@ -2865,7 +2889,7 @@
                                 </div>
                                 <!-- /.p-form__cell -->
                                 <div class="p-form__cell">
-                                    <div class="c-input js-form_check" data-label="製品名">
+                                    <div class="c-input js-form_check" data-label="ファームウェアバージョン">
                                         <mt:AFormFieldInput aform_id="1" parts_id="firmware_3">
                                     </div>
                                     <!-- /.c-input -->
@@ -2888,7 +2912,7 @@
                                 </div>
                                 <!-- /.p-form__cell -->
                                 <div class="p-form__cell">
-                                    <div class="c-input js-form_check" data-label="製品名">
+                                    <div class="c-input js-form_check" data-label="ハードウェアバージョン">
                                         <mt:AFormFieldInput aform_id="1" parts_id="hardware_version_3">
                                     </div>
                                     <!-- /.c-input -->
@@ -2911,7 +2935,7 @@
                                 </div>
                                 <!-- /.p-form__cell -->
                                 <div class="p-form__cell">
-                                    <div class="c-input js-form_check" data-label="製品名">
+                                    <div class="c-input js-form_check" data-label="ご購入日">
                                         <mt:AFormFieldInput aform_id="1" parts_id="purchase_date_3">
                                     </div>
                                     <!-- /.c-input -->
@@ -2928,22 +2952,22 @@
                             <div class="p-form__table">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <mt:AFormFieldLabel aform_id="1" parts_id="warranty_3"><span class="required">必須</span>
-                                        <ul>
-                                            <li class="c-notice"><span class="c-notice__bullet">※</span>2010/1/1以降に購入された、<br>D-LINK リミテッドライフタイム保証対象製品は必須</li>
-                                        </ul>
+                                        <mt:AFormFieldLabel aform_id="1" parts_id="warranty_3"><span class="c-notice u-fw_normal u-color_notice u-fz_14"><span class="c-notice__bullet">※</span>2010/1/1以降に購入された、D-LINK リミテッドライフタイム保証対象製品は必須</span><span class="required">必須</span>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
                                 <!-- /.p-form__cell -->
                                 <div class="p-form__cell">
-                                    <div class="c-radio" data-label="製品名">
+                                    <div class="c-radio js_warranty_3" data-label="製品名">
                                         <mt:AFormFieldInput aform_id="1" parts_id="warranty_3">
+                                    </div>
+                                    <!-- /.c-input -->
+
+                                    <div class="p-link">
                                         <ul class="p-link__list">
                                             <li><a href="/support/info/target.html"><span>保証対象製品と保証期間についてはこちらをご確認ください</span></a></li>
                                         </ul>
                                     </div>
-                                    <!-- /.c-input -->
 
                                     <div class="c-error js-error_check">
                                         <p class="aform-error" id=""></p>
@@ -2986,11 +3010,14 @@
                                     <div class="js-step1_checkbox">
                                         <mt:AFormFieldInput aform_id="1" parts_id="failure_point_3">
                                     </div>
+
+                                    <div class="p-form__example">
+                                        <p class="aform-input-example">※上記の不具合に該当しない場合は、STEP3 の詳細内容記入欄に事象内容を詳細に記載して下さい</p>
+                                    </div>
                                 </div>
                                 <!-- /.p-form__cell -->
                             </div>
                             <!-- /.p-form__table -->
-                            <p>※上記の不具合に該当しない場合は、STEP3 の詳細内容記入欄に事象内容を詳細に記載してください</p>
                         </div>
                         <!-- /.p-form_content__box -->
 
@@ -3589,12 +3616,12 @@
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_miniute_3_6">
                                                 <mt:AFormFieldLabel aform_id="1" parts_id="reproducibility_miniute_3_6">
                                             </div>
-                                            
+
                                             <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_hour_3_6">
                                                 <mt:AFormFieldLabel aform_id="1" parts_id="reproducibility_hour_3_6">
                                             </div>
-                                           
+
                                             <div class="w30">
                                                 <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_day_3_6">
                                                 <mt:AFormFieldLabel aform_id="1" parts_id="reproducibility_day_3_6">
@@ -3700,7 +3727,7 @@
                             </div>
                             <!-- /.p-form_content__box -->
                         </div>
-                        <!-- /.p-form_content__box -->          
+                        <!-- /.p-form_content__box -->
                         <div class="p-form_content__box">
                             <div class="c-medium_heading">
                                 <h4 class="c-medium_heading__text">【STEP3】 可能な限り詳細に回答をお願い致します</h4>
@@ -3970,6 +3997,7 @@
                         <!-- /.p-form_content__box -->
                     </div>
                     <!-- /.p-form_content__block -->
+
                     <!-- 4台目の申請 -->
                     <div class="p-form_content__block js-units_item">
                         <p class="p-form_content__time">4台目の申請</p>
@@ -4011,7 +4039,7 @@
                                 </div>
                                 <!-- /.p-form__cell -->
                                 <div class="p-form__cell">
-                                    <div class="c-input js-form_check" data-label="製品名">
+                                    <div class="c-input js-form_check" data-label="シリアルナンバー">
                                         <mt:AFormFieldInput aform_id="1" parts_id="serial_no_4">
                                     </div>
                                     <!-- /.c-input -->
@@ -4034,7 +4062,7 @@
                                 </div>
                                 <!-- /.p-form__cell -->
                                 <div class="p-form__cell">
-                                    <div class="c-input js-form_check" data-label="製品名">
+                                    <div class="c-input js-form_check" data-label="ファームウェアバージョン">
                                         <mt:AFormFieldInput aform_id="1" parts_id="firmware_4">
                                     </div>
                                     <!-- /.c-input -->
@@ -4057,7 +4085,7 @@
                                 </div>
                                 <!-- /.p-form__cell -->
                                 <div class="p-form__cell">
-                                    <div class="c-input js-form_check" data-label="製品名">
+                                    <div class="c-input js-form_check" data-label="ハードウェアバージョン">
                                         <mt:AFormFieldInput aform_id="1" parts_id="hardware_version_4">
                                     </div>
                                     <!-- /.c-input -->
@@ -4080,7 +4108,7 @@
                                 </div>
                                 <!-- /.p-form__cell -->
                                 <div class="p-form__cell">
-                                    <div class="c-input js-form_check" data-label="製品名">
+                                    <div class="c-input js-form_check" data-label="ご購入日">
                                         <mt:AFormFieldInput aform_id="1" parts_id="purchase_date_4">
                                     </div>
                                     <!-- /.c-input -->
@@ -4097,22 +4125,22 @@
                             <div class="p-form__table">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <mt:AFormFieldLabel aform_id="1" parts_id="warranty_4"><span class="required">必須</span>
-                                        <ul>
-                                            <li class="c-notice"><span class="c-notice__bullet">※</span>2010/1/1以降に購入された、<br>D-LINK リミテッドライフタイム保証対象製品は必須</li>
-                                        </ul>
+                                        <mt:AFormFieldLabel aform_id="1" parts_id="warranty_4"><span class="c-notice u-fw_normal u-color_notice u-fz_14"><span class="c-notice__bullet">※</span>2010/1/1以降に購入された、D-LINK リミテッドライフタイム保証対象製品は必須</span><span class="required">必須</span>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
                                 <!-- /.p-form__cell -->
                                 <div class="p-form__cell">
-                                    <div class="c-radio" data-label="製品名">
+                                    <div class="c-radio js_warranty_4" data-label="製品名">
                                         <mt:AFormFieldInput aform_id="1" parts_id="warranty_4">
+                                    </div>
+                                    <!-- /.c-input -->
+
+                                    <div class="p-link">
                                         <ul class="p-link__list">
                                             <li><a href="/support/info/target.html"><span>保証対象製品と保証期間についてはこちらをご確認ください</span></a></li>
                                         </ul>
                                     </div>
-                                    <!-- /.c-input -->
 
                                     <div class="c-error js-error_check">
                                         <p class="aform-error" id=""></p>
@@ -4155,11 +4183,14 @@
                                     <div class="js-step1_checkbox">
                                         <mt:AFormFieldInput aform_id="1" parts_id="failure_point_4">
                                     </div>
+
+                                    <div class="p-form__example">
+                                        <p class="aform-input-example">※上記の不具合に該当しない場合は、STEP3 の詳細内容記入欄に事象内容を詳細に記載して下さい</p>
+                                    </div>
                                 </div>
                                 <!-- /.p-form__cell -->
                             </div>
                             <!-- /.p-form__table -->
-                            <p>※上記の不具合に該当しない場合は、STEP3 の詳細内容記入欄に事象内容を詳細に記載してください</p>
                         </div>
                         <!-- /.p-form_content__box -->
 
@@ -4869,7 +4900,7 @@
                             </div>
                             <!-- /.p-form_content__box -->
                         </div>
-                        <!-- /.p-form_content__box -->          
+                        <!-- /.p-form_content__box -->
                         <div class="p-form_content__box">
                             <div class="c-medium_heading">
                                 <h4 class="c-medium_heading__text">【STEP3】 可能な限り詳細に回答をお願い致します</h4>
@@ -5139,6 +5170,7 @@
                         <!-- /.p-form_content__box -->
                     </div>
                     <!-- /.p-form_content__block -->
+
                     <!-- 5台目の申請 -->
                     <div class="p-form_content__block js-units_item">
                         <p class="p-form_content__time">5台目の申請</p>
@@ -5266,22 +5298,22 @@
                             <div class="p-form__table">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <mt:AFormFieldLabel aform_id="1" parts_id="warranty_5"><span class="required">必須</span>
-                                        <ul>
-                                            <li class="c-notice"><span class="c-notice__bullet">※</span>2010/1/1以降に購入された、<br>D-LINK リミテッドライフタイム保証対象製品は必須</li>
-                                        </ul>
+                                        <mt:AFormFieldLabel aform_id="1" parts_id="warranty_5"><span class="c-notice u-fw_normal u-color_notice u-fz_14"><span class="c-notice__bullet">※</span>2010/1/1以降に購入された、D-LINK リミテッドライフタイム保証対象製品は必須</span><span class="required">必須</span>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
                                 <!-- /.p-form__cell -->
                                 <div class="p-form__cell">
-                                    <div class="c-radio" data-label="D-LINKリミテッドライフタイム保証対象製品">
+                                    <div class="c-radio js_warranty_5" data-label="D-LINKリミテッドライフタイム保証対象製品">
                                         <mt:AFormFieldInput aform_id="1" parts_id="warranty_5">
+                                    </div>
+                                    <!-- /.c-input -->
+
+                                    <div class="p-link">
                                         <ul class="p-link__list">
                                             <li><a href="/support/info/target.html"><span>保証対象製品と保証期間についてはこちらをご確認ください</span></a></li>
                                         </ul>
                                     </div>
-                                    <!-- /.c-input -->
 
                                     <div class="c-error js-error_check">
                                         <p class="aform-error" id=""></p>
@@ -5324,11 +5356,14 @@
                                     <div class="js-step1_checkbox">
                                         <mt:AFormFieldInput aform_id="1" parts_id="failure_point_5">
                                     </div>
+
+                                    <div class="p-form__example">
+                                        <p class="aform-input-example">※上記の不具合に該当しない場合は、STEP3 の詳細内容記入欄に事象内容を詳細に記載して下さい</p>
+                                    </div>
                                 </div>
                                 <!-- /.p-form__cell -->
                             </div>
                             <!-- /.p-form__table -->
-                            <p>※上記の不具合に該当しない場合は、STEP3 の詳細内容記入欄に事象内容を詳細に記載してください</p>
                         </div>
                         <!-- /.p-form_content__box -->
 
@@ -6038,7 +6073,7 @@
                             </div>
                             <!-- /.p-form_content__box -->
                         </div>
-                        <!-- /.p-form_content__box -->          
+                        <!-- /.p-form_content__box -->
                         <div class="p-form_content__box">
                             <div class="c-medium_heading">
                                 <h4 class="c-medium_heading__text">【STEP3】 可能な限り詳細に回答をお願い致します</h4>
@@ -6308,7 +6343,11 @@
                         <!-- /.p-form_content__box -->
                     </div>
                     <!-- /.p-form_content__block -->
-                    
+
+                    <div class="c-middle_heading">
+                        <h3 class="c-middle_heading__text">個人情報の取り扱いについて</h3>
+                    </div>
+
                     <div class="p-form_content__block">
                         <div class="p-form_privacy">
                             <div class="p-form_privacy__text">
