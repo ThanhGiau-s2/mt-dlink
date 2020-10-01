@@ -13,7 +13,19 @@
 <mt:Include module="html_head" parent="1" />
 <style>
 .d-flex {
-    display: flex
+  display: flex
+}
+.w10 {
+  width: 10%
+}
+.w30 {
+  width: 30%
+}
+.w30 input {
+  width: 100%
+}
+.graduation input {
+  width: 70%
 }
 </style>
 <link rel="stylesheet" href="/asset/css/contact.css">
@@ -68,12 +80,13 @@
                 </div>
                 <!-- /.p-form_privacy__text -->
                 <div class="p-form_privacy__check">
-                  <div class="c-check d-flex">
+                  <div class="c-check d-flex js-privacy_check" data-label="採用活動における方の個人情報の取り扱いについて">
                     <mt:AFormFieldInput aform_id="7" parts_id="privacy_check">
                     <div><span class="p-form_privacy__required">必須</span></div>
                   </div>
                   <!-- /.c-check -->
                   <div class="c-error js-error_check">
+                    <p class="aform-error" id=""></p>
                   </div>
                   <!-- /.c-error -->
                 </div>
@@ -100,7 +113,7 @@
                     <!-- /.p-form__label -->
                   </div>
                   <!-- /.p-form__table_cell -->
-                  
+
                   <div class="p-form__cell">
                     <!-- 2カラムの場合に.p-form__rowで囲む -->
                     <div class="p-form__row">
@@ -145,7 +158,7 @@
                     <!-- /.p-form__label -->
                   </div>
                   <!-- /.p-form__table_cell -->
-                  
+
                   <div class="p-form__cell">
                     <!-- 2カラムの場合に.p-form__rowで囲む -->
                     <div class="p-form__row">
@@ -190,8 +203,43 @@
                   </div>
                   <!-- /.p-form__table_cell -->
                   <div class="p-form__cell">
-                    <div class="p-form_choice__flex flex-box">
-                      
+                    <div class="p-form_choice__flex d-flex">
+                      <div class="w10"><label>西暦</label></div>
+                      <div class="w30 d-flex">
+                        <div>
+                          <div class="c-input js-form_check" data-label="年">
+                            <mt:AFormFieldInput aform_id="7" parts_id="birthday_year">
+                          </div>
+                          <div class="c-error js-error_check">
+                            <p class="aform-error" id=""></p>
+                          </div>
+                        </div>
+                        <div><mt:AFormFieldLabel aform_id="7" parts_id="birthday_year"></div>
+                      </div>
+                      <div class="w30 d-flex">
+                        <div>
+                          <div class="c-input js-form_check" data-label="月">
+                            <mt:AFormFieldInput aform_id="7" parts_id="birthday_month">
+                          </div>
+                          <div class="c-error js-error_check">
+                            <p class="aform-error" id=""></p>
+                          </div>
+                          <!-- /.c-error -->
+                        </div>
+                        <div><mt:AFormFieldLabel aform_id="7" parts_id="birthday_month"></div>
+                      </div>
+                      <div class="w30 d-flex">
+                        <div>
+                          <div class="c-input js-form_check" data-label="日">
+                            <mt:AFormFieldInput aform_id="7" parts_id="birthday_day">
+                          </div>
+                          <div class="c-error js-error_check">
+                            <p class="aform-error" id=""></p>
+                          </div>
+                          <!-- /.c-error -->
+                        </div>
+                        <div><mt:AFormFieldLabel aform_id="7" parts_id="birthday_day"></div>
+                      </div>
                     </div>
                   </div>
                   <!-- /.p-form__table_cell -->
@@ -207,10 +255,18 @@
                   </div>
                   <!-- /.p-form__table_cell -->
                   <div class="p-form__cell">
-                    <div class="p-form_choice__flex input-flex">
+                    <div class="p-form_choice__flex d-flex">
                         <label class="mr14">満</label>
-                        <mt:AFormFieldInput aform_id="7" parts_id="age">
-                        <label>歳</label>
+                        <div>
+                          <div class="c-input js-form_check" data-label="年齢">
+                            <mt:AFormFieldInput aform_id="7" parts_id="age">
+                          </div>
+                          <div class="c-error js-error_check">
+                            <p class="aform-error" id=""></p>
+                          </div>
+                          <!-- /.c-error -->
+                        </div>
+                        <label class="ml10">歳</label>
                     </div>
                     <!-- /.p-form_choice__flex -->
                     <div class="c-error js-error_check" data-label="年齢">
@@ -230,16 +286,13 @@
                   </div>
                   <!-- /.p-form__table_cell -->
                   <div class="p-form__cell">
-                    <div class="p-form_choice__between" data-label="性別">
+                    <div class="p-form_choice__between js-sex" data-label="性別">
                       <mt:AFormFieldInput aform_id="7" parts_id="sex">
                     </div>
-                    <!-- /.p-form_choice__flex -->
                     <div class="c-error js-error_check">
                       <p class="aform-error" id=""></p>
                     </div>
-                    <!-- /.c-error -->
                   </div>
-                  <!-- /.p-form__table_cell -->
                 </div>
                 <!-- /.p-form__table -->
 
@@ -265,7 +318,29 @@
                   <!-- /.p-form__cell -->
                 </div>
                 <!-- .p-form__table -->
+                <!-- E-MAIL（確認用）-->
+                <div class="p-form__table">
+                    <div class="p-form__cell">
+                        <div class="p-form__label">
+                            <label for="email2" class="aform-label">E-MAIL（確認）<span class="required">必須</span></label>
+                        </div>
+                        <!-- /.p-form__label -->
+                    </div>
+                    <!-- /.p-form__table_cell -->
 
+                    <div class="p-form__cell">
+                        <div class="c-input js-form_check" data-label="E-MAIL">
+                            <input id="mailaddress2" class="aform-input aform-text required" name="email2" type="email" value="" required="">
+                        </div>
+                        <!-- /.c-input -->
+                        <div class="c-error js-error_check">
+                            <p class="aform-error" id=""></p>
+                        </div>
+                        <!-- /.c-error -->
+                    </div>
+                    <!-- /.p-form__table_cell -->
+                </div>
+                <!-- /.p-form__table -->
                 <!-- 電話番号/携帯番号 -->
                 <div class="p-form__table">
                   <div class="p-form__cell">
@@ -332,19 +407,17 @@
                   <div class="p-form__cell">
                       <div class="p-form__row">
                           <div class="p-form__col">
-                              <div class="">
-                                  <!-- JSで判定しているので、値を固定 -->
-                                  <div class="c-select js-form_check" data-label="都道府県">
-                                    <input type="hidden" id="tmp_address_1">
-                                    <mt:AFormFieldInput aform_id="7" parts_id="address_1">
-                                  </div>
-                                  <!-- /.c-select -->
-                                  <div class="c-error js-error_check">
-                                    <p class="aform-error" id=""></p>
-                                  </div>
-                                  <!-- /.c-error -->
+                              <div class="js-address_1-select" data-label="都道府県">
+                                <div class="c-select">
+                                  <input type="hidden" id="tmp_address_1">
+                                  <mt:AFormFieldInput aform_id="7" parts_id="address_1">
+                                </div>
+                                <!-- /.c-select -->
                               </div>
-                              <!-- /.js-product_select -->
+                              <div class="c-error js-error_check">
+                                <p class="aform-error" id=""></p>
+                              </div>
+                              <!-- /.c-error -->
                           </div>
                           <!-- /.p-form__col -->
                       </div>
@@ -433,7 +506,7 @@
                       <!-- /.p-form__col -->
                       <!-- 2カラムの場合に各要素を.p-form__colで囲む -->
                       <div class="p-form__col">
-                        <div class="">
+                        <div class="js-final_educational-select">
                             <div class="c-select js-form_check" data-label="学種">
                               <mt:AFormFieldInput aform_id="7" parts_id="final_educational">
                             </div>
@@ -485,12 +558,27 @@
                       <!-- /.p-form__col -->
                       <!-- 2カラムの場合に各要素を.p-form__colで囲む -->
                       <div class="p-form__col p-form__colmw470">
-                        <div class="p-form_choice__flex input-flex input-flex42">
-                          <mt:AFormFieldInput aform_id="7" parts_id="graduation_year">
-                          <mt:AFormFieldLabel aform_id="7" parts_id="graduation_year">
-            
-                          <mt:AFormFieldInput aform_id="7" parts_id="graduation_month">
-                          <mt:AFormFieldLabel aform_id="7" parts_id="graduation_month">
+                        <div class="p-form_choice__flex d-flex input-flex42">
+                          <div class="graduation">
+                            <div class="c-input js-form_check" data-label="年">
+                              <mt:AFormFieldInput aform_id="7" parts_id="graduation_year">
+                              <mt:AFormFieldLabel aform_id="7" parts_id="graduation_year">
+                            </div>
+                            <div class="c-error js-error_check">
+                              <p class="aform-error" id=""></p>
+                            </div>
+                            <!-- /.c-error -->
+                          </div>
+                          <div class="graduation">
+                            <div class="c-input js-form_check" data-label="月卒業">
+                              <mt:AFormFieldInput aform_id="7" parts_id="graduation_month">
+                              <mt:AFormFieldLabel aform_id="7" parts_id="graduation_month">
+                            </div>
+                            <div class="c-error js-error_check">
+                              <p class="aform-error" id=""></p>
+                            </div>
+                            <!-- /.c-error -->
+                          </div>
                         </div>
                       </div>
                       <!-- /.p-form_choice__flex -->
@@ -513,7 +601,7 @@
                     <!-- /.p-form__label -->
                   </div>
                   <!-- /.p-form__table_cell -->
-                
+
                   <div class="p-form__cell">
                     <div class="c-textarea textarea-117h">
                       <mt:AFormFieldInput aform_id="7" parts_id="language_qualifications">
@@ -533,7 +621,7 @@
                     <!-- /.p-form__label -->
                   </div>
                   <!-- /.p-form__table_cell -->
-                
+
                   <div class="p-form__cell">
                     <div class="c-textarea textarea-117h">
                       <mt:AFormFieldInput aform_id="7" parts_id="network_qualifications">
@@ -599,32 +687,41 @@
                   </div>
                   <!-- /.p-form__table_cell -->
                   <div class="p-form__cell">
-                    <div class="p-form_choice__flex flex-box">
-                      <div class="p-form__col">
-                        <div class="c-input flex-input">
-                          <mt:AFormFieldInput aform_id="7" parts_id="changejob_year">
-                          <mt:AFormFieldLabel aform_id="7" parts_id="changejob_year">
+                    <div class="p-form_choice__flex d-flex">
+                      <div class="w30 d-flex">
+                        <div>
+                          <div class="c-input js-form_check" data-label="年">
+                            <mt:AFormFieldInput aform_id="7" parts_id="changejob_year">
+                          </div>
+                          <div class="c-error js-error_check">
+                            <p class="aform-error" id=""></p>
+                          </div>
                         </div>
-                        <div class="c-error js-error_check" data-label="年">
-                        </div>
+                        <div><mt:AFormFieldLabel aform_id="7" parts_id="changejob_year"></div>
                       </div>
-
-                      <div class="p-form__col">
-                        <div class="c-input flex-input">
-                          <mt:AFormFieldInput aform_id="7" parts_id="changejob_month">
-                          <mt:AFormFieldLabel aform_id="7" parts_id="changejob_month">
+                      <div class="w30 d-flex">
+                        <div>
+                          <div class="c-input js-form_check" data-label="月">
+                            <mt:AFormFieldInput aform_id="7" parts_id="changejob_month">
+                          </div>
+                          <div class="c-error js-error_check">
+                            <p class="aform-error" id=""></p>
+                          </div>
+                          <!-- /.c-error -->
                         </div>
-                        <div class="c-error js-error_check" data-label="月">
-                        </div>
+                        <div><mt:AFormFieldLabel aform_id="7" parts_id="changejob_month"></div>
                       </div>
-
-                      <div class="p-form__col">
-                        <div class="c-input flex-input">
-                          <mt:AFormFieldInput aform_id="7" parts_id="changejob_day">
-                          <mt:AFormFieldLabel aform_id="7" parts_id="changejob_day">
+                      <div class="w30 d-flex">
+                        <div>
+                          <div class="c-input js-form_check" data-label="日">
+                            <mt:AFormFieldInput aform_id="7" parts_id="changejob_day">
+                          </div>
+                          <div class="c-error js-error_check">
+                            <p class="aform-error" id=""></p>
+                          </div>
+                          <!-- /.c-error -->
                         </div>
-                        <div class="c-error js-error_check" data-label="日">
-                        </div>
+                        <div><mt:AFormFieldLabel aform_id="7" parts_id="changejob_day"></div>
                       </div>
                     </div>
                   </div>
@@ -644,18 +741,16 @@
                   <div class="p-form__cell">
                       <div class="p-form__row mb21">
                           <div class="p-form__col">
-                              <div class="">
-                                  <!-- JSで判定しているので、値を固定 -->
-                                  <div class="c-select js-form_check" data-label="希望職種">
-                                    <mt:AFormFieldInput aform_id="7" parts_id="desired_occupation">
-                                  </div>
-                                  <!-- /.c-select -->
-                                  <div class="c-error js-error_check">
-                                    <p class="aform-error" id=""></p>
-                                  </div>
-                                  <!-- /.c-error -->
+                              <div class="js-desired_occupation-select" data-label="希望職種">
+                                <div class="c-select">
+                                  <mt:AFormFieldInput aform_id="7" parts_id="desired_occupation">
+                                </div>
+                                <!-- /.c-select -->
                               </div>
-                              <!-- /.js-product_select -->
+                              <div class="c-error js-error_check">
+                                <p class="aform-error" id=""></p>
+                              </div>
+                              <!-- /.c-error -->
                           </div>
                           <!-- /.p-form__col -->
                       </div>
@@ -674,7 +769,7 @@
                     <!-- /.p-form__label -->
                   </div>
                   <!-- /.p-form__table_cell -->
-                
+
                   <div class="p-form__cell">
                     <div class="c-textarea js-form_check" data-label="応募理由（自己セールスポイント）">
                       <mt:AFormFieldInput aform_id="7" parts_id="salespoint">
@@ -712,7 +807,7 @@
                   </div>
                   <!-- /.p-form__table_cell -->
                   <div class="p-form__cell">
-                    <div class="p-form_choice__between" data-label="現在の勤務状況">
+                    <div class="p-form_choice__between js-worksituation" data-label="現在の勤務状況">
                       <mt:AFormFieldInput aform_id="7" parts_id="worksituation">
                     </div>
                     <div class="c-error js-error_check">
@@ -776,58 +871,64 @@
                   <div class="p-form__cell">
                     <div class="p-form_choice__flex flex-box mb21">
                       <div class="p-form__col">
-                        <div class="c-input flex-input">
+                        <div class="c-input flex-input js-form_check" data-label="年">
                           <mt:AFormFieldInput aform_id="7" parts_id="start_workdate_year_1">
                           <mt:AFormFieldLabel aform_id="7" parts_id="start_workdate_year_1">
                         </div>
-                        <div class="c-error js-error_check" data-label="年">
+                        <div class="c-error js-error_check">
+                          <p class="aform-error" id=""></p>
                         </div>
                       </div>
 
                       <div class="p-form__col">
-                        <div class="c-input flex-input">
+                        <div class="c-input flex-input js-form_check"  data-label="月">
                           <mt:AFormFieldInput aform_id="7" parts_id="start_workdate_month_1">
                           <mt:AFormFieldLabel aform_id="7" parts_id="start_workdate_month_1">
                         </div>
-                        <div class="c-error js-error_check" data-label="月">
+                        <div class="c-error js-error_check">
+                          <p class="aform-error" id=""></p>
                         </div>
                       </div>
 
                       <div class="p-form__col">
-                        <div class="c-input flex-input">
+                        <div class="c-input flex-input js-form_check" data-label="日">
                           <mt:AFormFieldInput aform_id="7" parts_id="start_workdate_day_1">
                           <mt:AFormFieldLabel aform_id="7" parts_id="start_workdate_day_1">～
                         </div>
-                        <div class="c-error js-error_check" data-label="日">
+                        <div class="c-error js-error_check">
+                          <p class="aform-error" id=""></p>
                         </div>
                       </div>
                     </div>
 
                     <div class="p-form_choice__flex flex-box mb21">
                       <div class="p-form__col">
-                        <div class="c-input flex-input">
+                        <div class="c-input flex-input js-form_check" data-label="年">
                           <mt:AFormFieldInput aform_id="7" parts_id="end_workdate_year_1">
                           <mt:AFormFieldLabel aform_id="7" parts_id="end_workdate_year_1">
                         </div>
-                        <div class="c-error js-error_check" data-label="年">
+                        <div class="c-error js-error_check">
+                          <p class="aform-error" id=""></p>
                         </div>
                       </div>
 
                       <div class="p-form__col">
-                        <div class="c-input flex-input">
+                        <div class="c-input flex-input js-form_check" data-label="月">
                           <mt:AFormFieldInput aform_id="7" parts_id="end_workdate_month_1">
                           <mt:AFormFieldLabel aform_id="7" parts_id="end_workdate_month_1">
                         </div>
-                        <div class="c-error js-error_check" data-label="月">
+                        <div class="c-error js-error_check">
+                          <p class="aform-error" id=""></p>
                         </div>
                       </div>
 
                       <div class="p-form__col">
-                        <div class="c-input flex-input">
+                        <div class="c-input flex-input js-form_check" data-label="日">
                           <mt:AFormFieldInput aform_id="7" parts_id="end_workdate_day_1">
                           <mt:AFormFieldLabel aform_id="7" parts_id="end_workdate_day_1">
                         </div>
-                        <div class="c-error js-error_check" data-label="日">
+                        <div class="c-error js-error_check">
+                          <p class="aform-error" id=""></p>
                         </div>
                       </div>
                     </div>
@@ -851,18 +952,16 @@
                   <div class="p-form__cell">
                       <div class="p-form__row">
                           <div class="p-form__col">
-                              <div class="">
-                                  <!-- JSで判定しているので、値を固定 -->
-                                  <div class="c-select js-form_check" data-label="業種">
-                                    <mt:AFormFieldInput aform_id="7" parts_id="industry_1">
-                                  </div>
-                                  <!-- /.c-select -->
-                                  <div class="c-error js-error_check">
-                                    <p class="aform-error" id=""></p>
-                                  </div>
-                                  <!-- /.c-error -->
+                              <div class="js-industry_1-select" data-label="業種">
+                                <div class="c-select">
+                                  <mt:AFormFieldInput aform_id="7" parts_id="industry_1">
+                                </div>
+                                <!-- /.c-select -->
                               </div>
-                              <!-- /.js-product_select -->
+                              <div class="c-error js-error_check">
+                                <p class="aform-error" id=""></p>
+                              </div>
+                              <!-- /.c-error -->
                           </div>
                           <!-- /.p-form__col -->
                       </div>
@@ -884,17 +983,16 @@
                   <div class="p-form__cell">
                       <div class="p-form__row">
                           <div class="p-form__col">
-                              <div class="">
-                                  <div class="c-select js-form_check" data-label="職種">
+                              <div class="js-occupation_1-select" data-label="職種">
+                                  <div class="c-select">
                                     <mt:AFormFieldInput aform_id="7" parts_id="occupation_1">
                                   </div>
                                   <!-- /.c-select -->
-                                  <div class="c-error js-error_check">
-                                    <p class="aform-error" id=""></p>
-                                  </div>
-                                  <!-- /.c-error -->
                               </div>
-                              <!-- /.js-product_select -->
+                              <div class="c-error js-error_check">
+                                <p class="aform-error" id=""></p>
+                              </div>
+                              <!-- /.c-error -->
                           </div>
                           <!-- /.p-form__col -->
                       </div>
@@ -916,18 +1014,16 @@
                   <div class="p-form__cell">
                       <div class="p-form__row">
                           <div class="p-form__col">
-                              <div class="">
-                                  <!-- JSで判定しているので、値を固定 -->
-                                  <div class="c-select js-form_check" data-label="役職">
-                                    <mt:AFormFieldInput aform_id="7" parts_id="yakushoku_1">
-                                  </div>
-                                  <!-- /.c-select -->
-                                  <div class="c-error js-error_check">
-                                    <p class="aform-error" id=""></p>
-                                  </div>
-                                  <!-- /.c-error -->
+                              <div class="js-yakushoku_1-select" data-label="役職">
+                                <div class="c-select">
+                                  <mt:AFormFieldInput aform_id="7" parts_id="yakushoku_1">
+                                </div>
+                                <!-- /.c-select -->
                               </div>
-                              <!-- /.js-product_select -->
+                              <div class="c-error js-error_check">
+                                <p class="aform-error" id=""></p>
+                              </div>
+                              <!-- /.c-error -->
                           </div>
                           <!-- /.p-form__col -->
                       </div>
@@ -974,7 +1070,7 @@
                       <!-- /.p-form__col -->
                     </div>
                   <!-- /.p-form__row -->
-                    
+
                   </div>
                 </div>
                 <!-- .p-form__table -->
@@ -988,7 +1084,7 @@
                     <!-- /.p-form__label -->
                   </div>
                   <!-- /.p-form__table_cell -->
-                
+
                   <div class="p-form__cell">
                     <div class="c-textarea js-form_check" data-label="主な担当領域（入力欄下部参照）">
                       <mt:AFormFieldInput aform_id="7" parts_id="areaincharge_1">
@@ -1016,7 +1112,7 @@
                     <!-- /.p-form__label -->
                   </div>
                   <!-- /.p-form__table_cell -->
-                
+
                   <div class="p-form__cell">
                     <div class="c-textarea js-form_check" data-label="主な職務内容">
                       <mt:AFormFieldInput aform_id="7" parts_id="duties_1">
@@ -1063,9 +1159,6 @@
                             <div class="c-input">
                               <mt:AFormFieldInput aform_id="7" parts_id="companyname_2">
                             </div>
-                            <div class="c-error js-error_check" data-label="勤務会社名">
-                            </div>
-                            <!-- /.c-error -->
                         </div>
                         <!-- /.p-form__col -->
                     </div>
@@ -1089,8 +1182,6 @@
                           <mt:AFormFieldInput aform_id="7" parts_id="start_workdate_year_2">
                           <mt:AFormFieldLabel aform_id="7" parts_id="start_workdate_year_2">
                         </div>
-                        <div class="c-error js-error_check" data-label="年">
-                        </div>
                       </div>
 
                       <div class="p-form__col">
@@ -1098,16 +1189,12 @@
                           <mt:AFormFieldInput aform_id="7" parts_id="start_workdate_month_2">
                           <mt:AFormFieldLabel aform_id="7" parts_id="start_workdate_month_2">
                         </div>
-                        <div class="c-error js-error_check" data-label="月">
-                        </div>
                       </div>
 
                       <div class="p-form__col">
                         <div class="c-input flex-input">
                           <mt:AFormFieldInput aform_id="7" parts_id="start_workdate_day_2">
                           <mt:AFormFieldLabel aform_id="7" parts_id="start_workdate_day_2">～
-                        </div>
-                        <div class="c-error js-error_check" data-label="日">
                         </div>
                       </div>
                     </div>
@@ -1118,8 +1205,6 @@
                           <mt:AFormFieldInput aform_id="7" parts_id="end_workdate_year_2">
                           <mt:AFormFieldLabel aform_id="7" parts_id="end_workdate_year_2">
                         </div>
-                        <div class="c-error js-error_check" data-label="年">
-                        </div>
                       </div>
 
                       <div class="p-form__col">
@@ -1127,16 +1212,12 @@
                           <mt:AFormFieldInput aform_id="7" parts_id="end_workdate_month_2">
                           <mt:AFormFieldLabel aform_id="7" parts_id="end_workdate_month_2">
                         </div>
-                        <div class="c-error js-error_check" data-label="月">
-                        </div>
                       </div>
 
                       <div class="p-form__col">
                         <div class="c-input flex-input">
                           <mt:AFormFieldInput aform_id="7" parts_id="end_workdate_day_2">
                           <mt:AFormFieldLabel aform_id="7" parts_id="end_workdate_day_2">
-                        </div>
-                        <div class="c-error js-error_check" data-label="日">
                         </div>
                       </div>
                     </div>
@@ -1161,14 +1242,10 @@
                       <div class="p-form__row">
                           <div class="p-form__col">
                               <div class="">
-                                  <!-- JSで判定しているので、値を固定 -->
                                   <div class="c-select">
                                     <mt:AFormFieldInput aform_id="7" parts_id="industry_2">
                                   </div>
                                   <!-- /.c-select -->
-                                  <div class="c-error js-error_check" data-label="業種">
-                                  </div>
-                                  <!-- /.c-error -->
                               </div>
                               <!-- /.js-product_select -->
                           </div>
@@ -1198,9 +1275,6 @@
                                     <mt:AFormFieldInput aform_id="7" parts_id="occupation_2">
                                   </div>
                                   <!-- /.c-select -->
-                                  <div class="c-error js-error_check" data-label="職種">
-                                  </div>
-                                  <!-- /.c-error -->
                               </div>
                               <!-- /.js-product_select -->
                           </div>
@@ -1230,9 +1304,6 @@
                                     <mt:AFormFieldInput aform_id="7" parts_id="yakushoku_2">
                                   </div>
                                   <!-- /.c-select -->
-                                  <div class="c-error js-error_check" data-label="役職">
-                                  </div>
-                                  <!-- /.c-error -->
                               </div>
                               <!-- /.js-product_select -->
                           </div>
@@ -1259,9 +1330,6 @@
                             <div class="c-input">
                               <mt:AFormFieldInput aform_id="7" parts_id="annual_income_2">
                             </div>
-                            <div class="c-error js-error_check" data-label="年収">
-                            </div>
-                            <!-- /.c-error -->
                         </div>
                         <!-- /.p-form__col -->
                         <div class="p-form__col">
@@ -1280,7 +1348,7 @@
                       <!-- /.p-form__col -->
                     </div>
                   <!-- /.p-form__row -->
-                    
+
                   </div>
                 </div>
                 <!-- .p-form__table -->
@@ -1294,7 +1362,7 @@
                     <!-- /.p-form__label -->
                   </div>
                   <!-- /.p-form__table_cell -->
-                
+
                   <div class="p-form__cell">
                     <div class="c-textarea">
                       <mt:AFormFieldInput aform_id="7" parts_id="areaincharge_2">
@@ -1321,7 +1389,7 @@
                     <!-- /.p-form__label -->
                   </div>
                   <!-- /.p-form__table_cell -->
-                
+
                   <div class="p-form__cell">
                     <div class="c-textarea">
                       <mt:AFormFieldInput aform_id="7" parts_id="duties_2">

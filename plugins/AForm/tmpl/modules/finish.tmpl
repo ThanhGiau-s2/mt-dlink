@@ -3,8 +3,23 @@
 <mt:if name="id" eq="1">
 <mt:include name="modules/page_complete_form.mtml" component="AForm">
 </mt:if>
+<mt:if name="id" eq="2">
+<mt:include name="modules/page_complete_before.mtml" component="AForm">
+</mt:if>
+<mt:if name="id" eq="3">
+<mt:include name="modules/page_complete_after.mtml" component="AForm">
+</mt:if>
+<mt:if name="id" eq="4">
+<mt:include name="modules/page_complete_certificate.mtml" component="AForm">
+</mt:if>
+<mt:if name="id" eq="5">
+<mt:include name="modules/page_complete_privacy.mtml" component="AForm">
+</mt:if>
 <mt:if name="id" eq="6">
 <mt:include name="modules/page_complete_other.mtml" component="AForm">
+</mt:if>
+<mt:if name="id" eq="7">
+<mt:include name="modules/page_complete_careers.mtml" component="AForm">
 </mt:if>
 <mt:if name="id" gt="7">
 <div id="aform-<$mt:var name="id"$>" class="aform <$mt:var name="aform_lang"$>">

@@ -1,0 +1,52 @@
+<mt:Ignore>Copyright (c) 2008 ARK-Web Co.,Ltd.</mt:Ignore>
+
+◆◆ Webお問い合わせ受付け通知 ◆◆
+
+下記お客様からのお問い合わせを受付けました。
+担当者をアサインし、回答してください。
+
+区分：「該非判定用パラメータシート発行依頼」
+
+■輸出管理にかかる法令遵守のご誓約
+<mt:loop name="fields"><mt:If name="parts_id" eq="legal_compliance"><$mt:var name="label_value"$></mt:If></mt:loop>
+
+■発行期日
+<mt:loop name="fields"><mt:If name="parts_id" eq="issuedate_year"><$mt:var name="label_value"$> 年 </mt:If><mt:If name="parts_id" eq="issuedate_month"><$mt:var name="label_value"$> 月 </mt:If><mt:If name="parts_id" eq="issuedate_day"><$mt:var name="label_value"$> 日 </mt:If></mt:loop>
+
+■申請者情報
+会社名　　　：<mt:loop name="fields"><mt:If name="parts_id" eq="houjin_mei"><$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="busho_mei">
+部署名　　　：<$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="zip_1">
+郵便番号　　：<$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="address_1">
+住　所　　　：<$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="address_2"><$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="address_3"><$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="telnum">
+電話番号　　：<$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="shimei_1">
+氏　名　　　：<$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="shimei_2"><$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="mailaddress">
+E-mail　　：<$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="use">
+用　途　　　：<$mt:var name="label_value"$></mt:If></mt:loop>
+
+■輸出者情報
+会社名(日本語)：<mt:loop name="fields"><mt:If name="parts_id" eq="houjin_mei_2_1"><$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="houjin_mei_2_2">
+会社名(英語)　：<$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="busho_mei_2">
+部署名　　　　：<$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="zip_2">
+郵便番号　　　：<$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="address_2_1">
+住　所　　　　：<$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="address_2_2"><$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="address_2_3"><$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="telnum_2">
+電話番号　　　：<$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="shimei_3">
+氏　名　　　　：<$mt:var name="label_value"$></mt:If></mt:loop>
+
+■対象製品
+型番：<mt:loop name="fields"><mt:If name="parts_id" eq="modelnumber_1"><$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="serialno_1">
+S/N：<$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="modelnumber_2">
+型番：<$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="serialno_2">
+S/N：<$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="modelnumber_3">
+型番：<$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="serialno_3">
+S/N：<$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="modelnumber_4">
+型番：<$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="serialno_4">
+S/N：<$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="modelnumber_5">
+型番：<$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="serialno_5">
+S/N：<$mt:var name="label_value"$></mt:If></mt:loop>
+
+
+===========以上===========
+<mt:if name="display_ip_ua">
+<__trans phrase="IP">: <mt:var name="ip">
+<__trans phrase="User Agent">: <mt:var name="ua">
+</mt:if>

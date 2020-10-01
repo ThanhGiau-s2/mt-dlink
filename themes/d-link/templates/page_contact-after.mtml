@@ -1,7 +1,7 @@
 <mt:SetVars>
     base_description=ディスクリプション
-    og_title=フォームテスト | お問い合わせ | D-Link Japan
-    og_url=https://www.dlink-jp.com/contact/
+    og_title=購入後の技術的なお問い合わせ | お問い合わせ | D-Link Japan
+    og_url=https://www.dlink-jp.com/contact/contact-after/
     og_type=article
 </mt:SetVars>
 <mt:SetVarTemplate name="file_javascript">
@@ -12,17 +12,8 @@
 <mt:Ignore>** 表示部分 **</mt:Ignore>
 <mt:Include module="html_head" parent="1" />
 <style>
-.mb45 {
-    margin-bottom: 45px
-}
-.clrblue {
-    color: #0087a9
-}
-.w30 {
-    width: 30%
-}
-.w30 input {
-    width: 50%
+.d-flex {
+    display: flex
 }
 </style>
 <mt:Include module="header" parent="1" />
@@ -45,7 +36,13 @@
             </div>
             <!-- /.c-title -->
 
-            <form action="" method="POST" enctype="multipart/form-data">
+            <form name="aform-form-3" id="aform-form-3" action="/contact/aform_engine.cgi" method="POST" novalidate="novalidate" enctype="multipart/form-data">
+                <input type="hidden" name="blog_id" value="<$mt:BlogID$>" />
+                <input type="hidden" name="id" value="3" />
+                <input type="hidden" name="run_mode" value="confirm" />
+                <input type="hidden" name="aform_url" value="<$mt:PagePermalink$>" />
+                <input type="hidden" name="aform_path" value="<$mt:PagePermalink$>" />
+                <input type="hidden" name="entry_id" value="<$mt:PageID$>" />
                 <div id="form_app" class="p-form_content">
                     <div class="p-form_content__block">
                         <div class="c-content_heading">
@@ -83,7 +80,7 @@
                         <div class="p-form_content__box">
                             <div class="p-form_class">
                                 <div class="p-form_class__inner">
-                                    <mt:AFormFieldInput aform_id="2" parts_id="bunrui">
+                                    <mt:AFormFieldInput aform_id="3" parts_id="bunrui">
                                     <div class="p-form_class__nav">
                                         <div class="p-form_class__text">
                                             <p>以下の方は、こちらのお問い合わせでは受け付けておりませんので、該当するところへお問い合わせください。</p>
@@ -327,6 +324,7 @@
                                             <!-- 2カラムの場合に各要素を.p-form__colで囲む -->
                                             <div class="p-form__col">
                                                 <div class="c-select">
+                                                    <input type="hidden" id="tmp_address_1">
                                                     <mt:AFormFieldInput aform_id="3" parts_id="address_1">
                                                 </div>
                                                 <!-- /.c-select -->
@@ -380,7 +378,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <mt:AFormFieldLabel aform_id="3" parts_id="telnum">
+                                            <mt:AFormFieldLabel aform_id="3" parts_id="telnum"><span class="required">必須</span>
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -470,15 +468,276 @@
                         <!-- /.p-form_content__box -->
                     </div>
                     <!-- /.p-form_content__block -->
+                    <div class="p-form_content__block">
+                        <div class="c-middle_heading">
+                            <h3 class="c-middle_heading__text">お問い合わせ製品</h3>
+                        </div>
+                        <!-- /.c-middle_heading -->
+                    <div class="p-form_content__box">
+
+                    <div class="p-form">
+
+                    <div class="p-form__table">
+                    <div class="p-form__cell">
+                    <div class="p-form__label">
+                        <mt:AFormFieldLabel aform_id="3" parts_id="product_name"><span class="required">必須</span>
+                    </div>
+                    <!-- /.p-form__label -->
+                    </div>
+                    <!-- /.p-form__table_cell -->
+
+                    <div class="p-form__cell">
+                    <div class="c-input">
+                    <div class="c-input__example">
+                    </div>
+                    <!-- /.c-input__example -->
+                        <mt:AFormFieldInput aform_id="3" parts_id="product_name">
+                    </div>
+                    <!-- /.c-input -->
+                    <div class="c-error">
+                    </div>
+                    <!-- /.c-error -->
+                    </div>
+                    <!-- /.p-form__table_cell -->
+                    </div>
+                    <!-- /.p-form__table -->
+                    <div class="p-form__table">
+                    <div class="p-form__cell">
+                    <div class="p-form__label">
+                    <mt:AFormFieldLabel aform_id="3" parts_id="firmware"><span class="required">必須</span>
+                    </div>
+                    <!-- /.p-form__label -->
+                    </div>
+                    <!-- /.p-form__table_cell -->
+
+                    <div class="p-form__cell">
+                    <div class="c-input">
+                    <div class="c-input__example">
+                    </div>
+                    <!-- /.c-input__example -->
+                    <mt:AFormFieldInput aform_id="3" parts_id="firmware">
+                    </div>
+                    <!-- /.c-input -->
+                    <div class="c-error">
+                    </div>
+                    <!-- /.c-error -->
+                    </div>
+                    <!-- /.p-form__table_cell -->
+                    </div>
+                    <!-- /.p-form__table -->
+                    <div class="p-form__table">
+                    <div class="p-form__cell">
+                    <div class="p-form__label">
+                    <mt:AFormFieldLabel aform_id="3" parts_id="serial_no">
+                    </div>
+                    <!-- /.p-form__label -->
+                    </div>
+                    <!-- /.p-form__table_cell -->
+
+                    <div class="p-form__cell">
+                    <div class="c-input">
+                    <div class="c-input__example">
+                    </div>
+                    <!-- /.c-input__example -->
+                    <mt:AFormFieldInput aform_id="3" parts_id="serial_no">
+                    </div>
+                    <!-- /.c-input -->
+                    <div class="c-error">
+                    </div>
+                    <!-- /.c-error -->
+                    </div>
+                    <!-- /.p-form__table_cell -->
+                    </div>
+                    <!-- /.p-form__table -->
+                    <div class="p-form__table">
+                    <div class="p-form__cell">
+                    <div class="p-form__label">
+                    <mt:AFormFieldLabel aform_id="3" parts_id="hardware_version">
+                    </div>
+                    <!-- /.p-form__label -->
+                    </div>
+                    <!-- /.p-form__table_cell -->
+
+                    <div class="p-form__cell">
+                    <div class="c-input">
+                    <div class="c-input__example">
+                    </div>
+                    <!-- /.c-input__example -->
+                    <mt:AFormFieldInput aform_id="3" parts_id="hardware_version">
+                    </div>
+                    <!-- /.c-input -->
+                    <div class="c-error">
+                    </div>
+                    <!-- /.c-error -->
+                    </div>
+                    <!-- /.p-form__table_cell -->
+                    </div>
+                    <!-- /.p-form__table -->
+                    <div class="p-form__table">
+                    <div class="p-form__cell">
+                    <div class="p-form__label">
+                    <!--
+                    #AForm
+                    <mt:AFormFieldLabel aform_id="$aform_id" parts_id="$parts_id">
+                    ↓
+                    <label for="config_file_1" class="aform-label">設定ファイルアップロード<span class="required">必須</span></label>
+                    -->
+                    <label for="config_file_1" class="aform-label">設定ファイルアップロード</label>
+                    </div>
+                    <!-- /.p-form__label -->
+                    </div>
+                    <!-- /.p-form__table_cell -->
+
+                    <div class="p-form__cell">
+                    <!-- 2カラムの場合に.p-form__rowで囲む -->
+                    <div class="p-form__row--file">
+                    <!-- 2カラムの場合に各要素を.p-form__colで囲む -->
+                    <div class="p-form__col--file">
+                    <div class="c-file js-file">
+                    <button type="button" class="c-file__button js-file_button ">ファイルを選択</button>
+                    <div class="c-file__upload js-file__upload">選択されていません</div>
+                    <!--
+                    #AForm Template
+                    <mt:AFormFieldInput aform_id="3" parts_id="file_data">
+                    ↓
+                    <input id="config_file_1" class="aform-input aform-text required " name="config_file_1" type="file" required="">
+                    -->
+                    <mt:AFormFieldInput aform_id="3" parts_id="file_data_1">
+                    </div>
+                    <!-- /.c-file -->
+                    <div class="c-error">
+                    </div>
+                    <!-- /.c-error -->
+                    </div>
+                    <!-- /.p-form__col--file -->
+                    <!-- 2カラムの場合に各要素を.p-form__colで囲む -->
+                    <div class="p-form__col--file">
+                    <div class="c-file js-file">
+                    <button type="button" class="c-file__button js-file_button ">ファイルを選択</button>
+                    <div class="c-file__upload js-file__upload">選択されていません</div>
+                    <!--
+                    #AForm Template
+                    <mt:AFormFieldInput aform_id="$aform_id" parts_id="$parts_id">
+                    ↓
+                    <input id="config_file_2" class="aform-input aform-text required " name="config_file_2" type="file" required="">
+                    -->
+                    <mt:AFormFieldInput aform_id="3" parts_id="file_data_2">
+                    </div>
+                    <!-- /.c-file -->
+                    <div class="c-error">
+                    </div>
+                    <!-- /.c-error -->
+                    </div>
+                    <!-- /.p-form__col--file -->
+                    <!-- 2カラムの場合に各要素を.p-form__colで囲む -->
+                    <div class="p-form__col--file">
+                    <div class="c-file js-file">
+                    <button type="button" class="c-file__button js-file_button ">ファイルを選択</button>
+                    <div class="c-file__upload js-file__upload">選択されていません</div>
+                    <!--
+                    #AForm Template
+                    <mt:AFormFieldInput aform_id="$aform_id" parts_id="$parts_id">
+                    ↓
+                    <input id="config_file_3" class="aform-input aform-text required " name="config_file_3" type="file" required="">
+                    -->
+                    <mt:AFormFieldInput aform_id="3" parts_id="file_data_3">
+                    </div>
+                    <!-- /.c-file -->
+                    <div class="c-error">
+                    </div>
+                    <!-- /.c-error -->
+                    </div>
+                    <!-- /.p-form__col--file -->
+                    <!-- 2カラムの場合に各要素を.p-form__colで囲む -->
+                    <div class="p-form__col--file">
+                    <div class="c-file js-file">
+                    <button type="button" class="c-file__button js-file_button ">ファイルを選択</button>
+                    <div class="c-file__upload js-file__upload">選択されていません</div>
+                    <!--
+                    #AForm Template
+                    <mt:AFormFieldInput aform_id="$aform_id" parts_id="$parts_id">
+                    ↓
+                    <input id="config_file_4" class="aform-input aform-text required " name="config_file_4" type="file" required="">
+                    -->
+                    <mt:AFormFieldInput aform_id="3" parts_id="file_data_4">
+                    </div>
+                    <!-- /.c-file -->
+                    <div class="c-error">
+                    </div>
+                    <!-- /.c-error -->
+                    </div>
+                    <!-- /.p-form__col--file -->
+                    </div>
+                    <!-- /.p-form__row--file -->
+                    <div class="p-form__example">
+                    <!--
+                    #AForm Template
+                    <mt:AFormFieldInputExample aform_id="$aform_id" parts_id="$parts_id">
+                    ↓
+                    <p class="aform-input-example">3MByteまでのzip, jpg, gif, pngファイルが受付可能です</p>
+                    -->
+                    <p class="aform-input-example">3MByteまでのzip, jpg, gif, pngファイルが受付可能です</p>
+                    </div>
+                    <!-- /.p-form__example -->
+                    </div>
+                    <!-- /.p-form__table_cell -->
+                    </div>
+                    <!-- /.p-form__table -->
+
+                    </div>
+                    <!-- /.p-form -->
+                    </div>
+                    <!-- /.p-form_content__box -->
+                    </div>
+                    <!-- /.p-form_content__block -->
 
                     <div class="p-form_content__block">
+                        <div class="c-middle_heading">
+                            <h3 class="c-middle_heading__text">お問い合わせ詳細</h3>
+                        </div>
+                        <!-- /.c-middle_heading -->
+                        <div class="p-form_content__box">
+                            <div class="p-form">
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                        <div class="p-form__label">
+                                            <mt:AFormFieldLabel aform_id="3" parts_id="content"><span class="required">必須</span>
+                                        </div>
+                                        <!-- /.p-form__label -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+
+                                    <div class="p-form__cell">
+                                        <div class="c-textarea">
+                                            <mt:AFormFieldInput aform_id="3" parts_id="content">
+                                        </div>
+                                        <!-- /.c-textarea -->
+                                        <div class="c-error">
+                                        </div>
+                                        <!-- /.c-error -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- /.p-form__table -->
+                            </div>
+                            <!-- /.p-form -->
+                        </div>
+                        <!-- /.p-form_content__box -->
+                    </div>
+                    <!-- /.p-form_content__block -->
+
+                    <div class="p-form_content__block">
+                        <div class="c-middle_heading">
+                            <h3 class="c-middle_heading__text">個人情報の取り扱いについて</h3>
+                        </div>
+                        <!-- /.c-middle_heading -->
                         <div class="p-form_privacy">
                             <div class="p-form_privacy__text">
                                 <p><a href="/privacy-policy/" target="_blank" rel="noopener">個人情報の取り扱いについて</a>をご確認いただき、よろしければ「個人情報の取り扱いについて同意する」にチェックをして、内容を送信してください。</p>
                             </div>
                             <!-- /.p-form_privacy__text -->
                             <div class="p-form_privacy__check">
-                                <div class="c-check d-flex">
+                                <div class="c-check d-flex js-privacy_check" data-label="個人情報保護方針に同意して">
                                     <mt:AFormFieldInput aform_id="3" parts_id="privacy_check">
                                     <div><span class="p-form_privacy__required">必須</span></div>
                                 </div>
@@ -499,7 +758,7 @@
                             <button type="submit">確認画面へ</button>
                         </div>
                     </div>
-                    <!-- /.p-form_content__block -->        
+                    <!-- /.p-form_content__block -->
                 </div>
                 <!-- /.p-form_content -->
             </form>

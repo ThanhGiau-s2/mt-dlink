@@ -1,6 +1,6 @@
 <mt:SetVars>
     base_description=ディスクリプション
-    og_title=フォームテスト | お問い合わせ | D-Link Japan
+    og_title=購入前のお問い合わせ | お問い合わせ | D-Link Japan
     og_url=https://www.dlink-jp.com/contact/
     og_type=article
 </mt:SetVars>
@@ -12,17 +12,8 @@
 <mt:Ignore>** 表示部分 **</mt:Ignore>
 <mt:Include module="html_head" parent="1" />
 <style>
-.mb45 {
-    margin-bottom: 45px
-}
-.clrblue {
-    color: #0087a9
-}
-.w30 {
-    width: 30%
-}
-.w30 input {
-    width: 50%
+.d-flex {
+    display: flex
 }
 </style>
 <mt:Include module="header" parent="1" />
@@ -42,7 +33,13 @@
                 <h1 class="c-title__text">購入前のお問い合わせ</h1>
             </div>
             <!-- /.c-title -->
-            <form action="" method="POST" enctype="multipart/form-data">
+            <form name="aform-form-2" id="aform-form-2" action="/contact/aform_engine.cgi" method="POST" novalidate="novalidate" enctype="multipart/form-data">
+                <input type="hidden" name="blog_id" value="<$mt:BlogID$>" />
+                <input type="hidden" name="id" value="2" />
+                <input type="hidden" name="run_mode" value="confirm" />
+                <input type="hidden" name="aform_url" value="<$mt:PagePermalink$>" />
+                <input type="hidden" name="aform_path" value="<$mt:PagePermalink$>" />
+                <input type="hidden" name="entry_id" value="<$mt:PageID$>" />
                 <div id="form_app" class="p-form_content">
                     <div class="p-form_content__block">
                         <div class="c-content_heading">
@@ -80,9 +77,11 @@
                         <!-- /.c-middle_heading -->
                         <div class="p-form_choice">
                             <div class="p-form_content__block">
+                                <!--
                                 <div class="p-form_choice__label">
                                     <mt:AFormFieldLabel aform_id="2" parts_id="about_contact">
                                 </div>
+                                -->
                                 <!-- /.p-form_choice__label -->
                                 <div class="p-form_choice__flex">
                                     <mt:AFormFieldInput aform_id="2" parts_id="about_contact">
@@ -285,16 +284,16 @@
                                         <!-- /.p-form__label -->
                                     </div>
                                     <!-- /.p-form__table_cell -->
-
                                     <div class="p-form__cell">
-                                        <!-- 2カラムの場合に.p-form__rowで囲む -->
                                         <div class="p-form__row">
-                                            <!-- 2カラムの場合に各要素を.p-form__colで囲む -->
                                             <div class="p-form__col">
-                                                <div class="c-select">
-                                                    <mt:AFormFieldInput aform_id="2" parts_id="address_1">
+                                                <div class="">
+                                                    <div class="c-select">
+                                                        <input type="hidden" id="tmp_address_1">
+                                                        <mt:AFormFieldInput aform_id="2" parts_id="address_1">
+                                                    </div>
+                                                    <!-- /.c-select -->
                                                 </div>
-                                                <!-- /.c-select -->
                                             </div>
                                             <!-- /.p-form__col -->
                                         </div>
@@ -345,7 +344,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <mt:AFormFieldLabel aform_id="2" parts_id="telnum">
+                                            <mt:AFormFieldLabel aform_id="2" parts_id="telnum"><span class="required">必須</span>
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -437,13 +436,53 @@
                     <!-- /.p-form_content__block -->
 
                     <div class="p-form_content__block">
+                        <div class="c-middle_heading">
+                            <h3 class="c-middle_heading__text">お問い合わせ詳細</h3>
+                        </div>
+                        <!-- /.c-middle_heading -->
+                        <div class="p-form_content__box">
+                            <div class="p-form">
+                                <div class="p-form__table">
+                                    <div class="p-form__cell">
+                                        <div class="p-form__label">
+                                            <mt:AFormFieldLabel aform_id="2" parts_id="content"><span class="required">必須</span>
+                                        </div>
+                                        <!-- /.p-form__label -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+
+                                    <div class="p-form__cell">
+                                        <div class="c-textarea js-form_check" data-label="本文">
+                                            <mt:AFormFieldInput aform_id="2" parts_id="content">
+                                        </div>
+                                        <!-- /.c-textarea -->
+                                        <div class="c-error js-error_check">
+                                            <p class="aform-error" id=""></p>
+                                        </div>
+                                        <!-- /.c-error -->
+                                    </div>
+                                    <!-- /.p-form__table_cell -->
+                                </div>
+                                <!-- /.p-form__table -->
+                            </div>
+                            <!-- /.p-form -->
+                        </div>
+                        <!-- /.p-form_content__box -->
+                    </div>
+                    <!-- /.p-form_content__block -->
+
+                    <div class="p-form_content__block">
+                        <div class="c-middle_heading">
+                            <h3 class="c-middle_heading__text">個人情報の取り扱いについて</h3>
+                        </div>
+                        <!-- /.c-middle_heading -->
                         <div class="p-form_privacy">
                             <div class="p-form_privacy__text">
                                 <p><a href="/privacy-policy/" target="_blank" rel="noopener">個人情報の取り扱いについて</a>をご確認いただき、よろしければ「個人情報の取り扱いについて同意する」にチェックをして、内容を送信してください。</p>
                             </div>
                             <!-- /.p-form_privacy__text -->
                             <div class="p-form_privacy__check">
-                                <div class="c-check d-flex">
+                                <div class="c-check d-flex js-privacy_check" data-label="個人情報保護方針に同意して">
                                     <mt:AFormFieldInput aform_id="2" parts_id="privacy_check">
                                     <div><span class="p-form_privacy__required">必須</span></div>
                                 </div>

@@ -1,0 +1,37 @@
+<mt:Ignore>Copyright (c) 2008 ARK-Web Co.,Ltd.</mt:Ignore>
+
+◆◆ Webお問い合わせ受付け通知　◆◆
+
+下記お客様からのお問い合わせを受付けました。
+担当者をアサインし、回答してください。
+
+区分：「購入前のお問い合わせ」
+
+受付日　　　　：<$mt:var name="datetime"$>
+受付番号　　　：D268__%aform-data-id%__375
+
+■問合せ経由
+<mt:loop name="fields"><mt:If name="parts_id" eq="show_media"><$mt:var name="label_value"$></mt:If></mt:loop>
+
+■問合せ内容分類
+<mt:loop name="fields"><mt:If name="parts_id" eq="about_contact"><$mt:var name="label_value"$></mt:If></mt:loop>
+
+■お客様情報
+法人名　　　：<mt:loop name="fields"><mt:If name="parts_id" eq="houjin_mei"><$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="busho_mei">
+部署名　　　：<$mt:var name="label_value"$></mt:if><mt:If name="parts_id" eq="yakushoku">
+役　職　　　：<$mt:var name="label_value"$></mt:if><mt:If name="parts_id" eq="shimei_1">
+氏　名　　　：<$mt:var name="label_value"$></mt:if><mt:If name="parts_id" eq="shimei_2"><$mt:var name="label_value"$></mt:if><mt:If name="parts_id" eq="shimei_kana_1">
+氏名フリガナ：<$mt:var name="label_value"$></mt:if><mt:If name="parts_id" eq="shimei_kana_2"><$mt:var name="label_value"$></mt:if><mt:If name="parts_id" eq="zip_1">
+郵便番号　　：<$mt:var name="label_value"$></mt:if><mt:If name="parts_id" eq="address_1">
+住　所　　　：<$mt:var name="label_value"$></mt:if><mt:If name="parts_id" eq="address_2"><$mt:var name="label_value"$></mt:if><mt:If name="parts_id" eq="address_3"><$mt:var name="label_value"$></mt:if><mt:If name="parts_id" eq="telnum">
+電話番号　　：<$mt:var name="label_value"$></mt:if><mt:If name="parts_id" eq="fax">
+F　A　X　　：<$mt:var name="label_value"$></mt:if><mt:If name="parts_id" eq="mailaddress">
+E-mail　　：<$mt:var name="label_value"$></mt:if><mt:If name="parts_id" eq="content">
+■詳　細　　：<$mt:var name="label_value"$></mt:if></mt:loop>
+
+
+===========以上===========
+<mt:if name="display_ip_ua">
+<__trans phrase="IP">: <mt:var name="ip">
+<__trans phrase="User Agent">: <mt:var name="ua">
+</mt:if>

@@ -1,0 +1,80 @@
+<mt:Ignore>Copyright (c) 2008 ARK-Web Co.,Ltd.</mt:Ignore>
+
+<mt:loop name="fields"><mt:If name="parts_id" eq="shimei_1"><$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="shimei_2"><$mt:var name="label_value"$></mt:If></mt:loop> 様
+この度は弊社の採用募集にご応募いただきまして、
+誠にありがとうございました。
+
+弊社への「採用応募」について、以下の内容で受付けました。
+
+追って担当部署よりご連絡させていただきますので、
+しばらくお待ちいただきたく、お願い申し上げます。
+
+よろしくお願いいたします。
+
+===＜申請内容＞===
+
+◆◆ D-Linkより採用応募 受付完了のお知らせ　◆◆
+
+受付日: <$mt:var name="datetime" format="%x"$>
+---------------------------------------
+【個人プロフィール】
+---------------------------------------
+氏　名　　　　：<mt:loop name="fields"><mt:If name="parts_id" eq="shimei_1"><$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="shimei_2"><$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="shimei_kana_1">
+氏名フリガナ　：<$mt:var name="label_value"$></mt:if><mt:If name="parts_id" eq="shimei_kana_2"><$mt:var name="label_value"$></mt:if><mt:If name="parts_id" eq="birthday_year">
+生年月日　　　：西暦<$mt:var name="label_value"$>年</mt:if><mt:If name="parts_id" eq="birthday_month"><$mt:var name="label_value"$>月</mt:if><mt:If name="parts_id" eq="birthday_day"><$mt:var name="label_value"$>日</mt:If>  <mt:If name="parts_id" eq="age">満<$mt:var name="label_value"$>歳</mt:If><mt:If name="parts_id" eq="sex">
+性　別　　　　：<$mt:var name="label_value"$></mt:if><mt:If name="parts_id" eq="mailaddress">
+連絡先(E-Mail)：<$mt:var name="label_value"$></mt:if><mt:If name="parts_id" eq="telnum">
+　　　(電話)　：<$mt:var name="label_value"$></mt:if><mt:If name="parts_id" eq="zip_1">
+住所(郵便番号)：<$mt:var name="label_value"$></mt:if><mt:If name="parts_id" eq="address_1">
+　　(都道府県)：<$mt:var name="label_value"$></mt:if><mt:If name="parts_id" eq="address_2">
+　　(市区町村)：<$mt:var name="label_value"$></mt:if><mt:If name="parts_id" eq="address_3">
+　　(番地以降)：<$mt:var name="label_value"$></mt:if></mt:loop>
+
+---------------------------------------
+【学歴・語学力・資格】
+---------------------------------------
+最終学歴(学種)：<mt:loop name="fields"><mt:If name="parts_id" eq="final_educational"><$mt:var name="label_value"$></mt:If><mt:If name="parts_id" eq="schoolname">
+　　　(学校名)：<$mt:var name="label_value"$></mt:if><mt:If name="parts_id" eq="graduation_year">
+　　(卒業日時)：西暦<$mt:var name="label_value"$>年</mt:if><mt:If name="parts_id" eq="graduation_month"><$mt:var name="label_value"$>月卒業</mt:If><mt:If name="parts_id" eq="language_qualifications">
+語学関連資格等：<$mt:var name="label_value"$></mt:if><mt:If name="parts_id" eq="network_qualifications">
+ネットワーク関連資格等：<$mt:var name="label_value"$></mt:if></mt:loop>
+
+---------------------------------------
+【希望条件について】
+---------------------------------------
+希望年俸　　　：<mt:loop name="fields"><mt:If name="parts_id" eq="annual_salary"><$mt:var name="label_value"$>万円</mt:if><mt:If name="parts_id" eq="changejob_year">
+希望入社時期　：<$mt:var name="label_value"$>年</mt:if><mt:If name="parts_id" eq="changejob_month"><$mt:var name="label_value"$>月</mt:if><mt:If name="parts_id" eq="changejob_day"><$mt:var name="label_value"$>日頃</mt:if><mt:If name="parts_id" eq="desired_occupation">
+希望職種：<$mt:var name="label_value"$></mt:if><mt:If name="parts_id" eq="salespoint">
+応募理由：<$mt:var name="label_value"$></mt:if></mt:loop>
+
+---------------------------------------
+【直近の職歴について】
+---------------------------------------
+現在の勤務状況：<mt:loop name="fields"><mt:If name="parts_id" eq="worksituation"><$mt:var name="label_value"$></mt:if></mt:loop>
+
+▼現在もしくは直近の職務経歴
+勤務会社名　　：<mt:loop name="fields"><mt:If name="parts_id" eq="companyname_1"><$mt:var name="label_value"$></mt:if><mt:If name="parts_id" eq="start_workdate_year_1">
+年月日　　　　：<$mt:var name="label_value"$>年</mt:if><mt:If name="parts_id" eq="start_workdate_month_1"><$mt:var name="label_value"$>月</mt:if><mt:If name="parts_id" eq="start_workdate_day_1"><$mt:var name="label_value"$>日</mt:if><mt:If name="parts_id" eq="end_workdate_year_1">～<$mt:var name="label_value"$>年</mt:if><mt:If name="parts_id" eq="end_workdate_month_1"><$mt:var name="label_value"$>月</mt:if><mt:If name="parts_id" eq="end_workdate_day_1"><$mt:var name="label_value"$>日</mt:if><mt:If name="parts_id" eq="industry_1">
+業　種　　　　：<$mt:var name="label_value"$></mt:if><mt:If name="parts_id" eq="occupation_1">
+職　種　　　　：<$mt:var name="label_value"$></mt:if><mt:If name="parts_id" eq="yakushoku_1">
+役　職　　　　：<$mt:var name="label_value"$></mt:if><mt:If name="parts_id" eq="annual_income_1">
+年　収　　　　：<$mt:var name="label_value"$>万円</mt:if><mt:If name="parts_id" eq="areaincharge_1">
+主な取り扱い会社：<$mt:var name="label_value"$></mt:if><mt:If name="parts_id" eq="duties_1">
+主な職務内容：<$mt:var name="label_value"$></mt:if></mt:loop>
+
+▼以前の職務経歴
+勤務会社名　　：<mt:loop name="fields"><mt:If name="parts_id" eq="companyname_2"><$mt:var name="label_value"$></mt:if><mt:If name="parts_id" eq="start_workdate_year_2">
+年月日　　　　：<$mt:var name="label_value"$>年</mt:if><mt:If name="parts_id" eq="start_workdate_month_2"><$mt:var name="label_value"$>月</mt:if><mt:If name="parts_id" eq="start_workdate_day_2"><$mt:var name="label_value"$>日</mt:if><mt:If name="parts_id" eq="end_workdate_year_2">～<$mt:var name="label_value"$>年</mt:if><mt:If name="parts_id" eq="end_workdate_month_2"><$mt:var name="label_value"$>月</mt:if><mt:If name="parts_id" eq="end_workdate_day_2"><$mt:var name="label_value"$>日</mt:if><mt:If name="parts_id" eq="industry_2">
+業　種　　　　：<$mt:var name="label_value"$></mt:if><mt:If name="parts_id" eq="occupation_2">
+職　種　　　　：<$mt:var name="label_value"$></mt:if><mt:If name="parts_id" eq="yakushoku_2">
+役　職　　　　：<$mt:var name="label_value"$></mt:if><mt:If name="parts_id" eq="annual_income_2">
+年　収　　　　：<$mt:var name="label_value"$>万円</mt:if><mt:If name="parts_id" eq="areaincharge_2">
+主な取り扱い会社：<$mt:var name="label_value"$></mt:if><mt:If name="parts_id" eq="duties_2">
+主な職務内容：<$mt:var name="label_value"$></mt:if></mt:loop>
+
+
+===========以上===========
+<mt:if name="display_ip_ua">
+<__trans phrase="IP">: <mt:var name="ip">
+<__trans phrase="User Agent">: <mt:var name="ua">
+</mt:if>

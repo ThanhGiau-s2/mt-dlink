@@ -1,13 +1,6 @@
-<mt:Ignore>
-========================================
-Template Name : index.html
-Template Type : Main Index Template
-Template Note : トップページ出力用
-========================================
-</mt:Ignore>
 <mt:SetVars>
     base_description=世界 71カ国、187 拠点を有する世界的なネットワーク機器メーカーD-Linkは、インターネット黎明期の1986年創業の老舗メーカーの1社です。エントリーレベルからハイエンドまでのスイッチ、無線LAN、ルータ、UTM、メディアコンバーター、IPカメラなど、ネットワーキングの全分野を網羅したネットワーク機器を、企画・製造・販売しております。D-Linkは 『 Building Networks for People 』 の理念の元、お客様と社会全体にネットワーク機器を通して貢献できる製品作りをグループ全体で行い、約670の製品を年間3,000万台以上世界各国に向けて出荷しています。日本では2005年7月にD-Linkブランド製品の販売を目的とした日本現地法人を設立。D-Link製品の中でも法人向け製品に特化して日本国内への浸透を図っています。
-    og_title=ディーリンクジャパン株式会社 ｜ D-Link Japan ｜ Building Networks for People
+    og_title=確認画面｜採用応募フォーム | お問い合わせ | D-Link Japan
     og_url=https://www.dlink-jp.com/
     og_type=website
 </mt:SetVars>
@@ -17,6 +10,11 @@ Template Note : トップページ出力用
 </mt:SetVarTemplate>
 <mt:Ignore>** 表示部分 **</mt:Ignore>
 <mt:include name="modules/html_head.mtml" component="AForm">
+<style>
+.d-flex {
+  display: flex
+}
+</style>
 <mt:include name="modules/html_header.mtml" component="AForm">
 <main class="p-main">
     <div class="c-breadcrumb">
@@ -32,7 +30,7 @@ Template Note : トップページ出力用
                 <h1 class="c-title__text">採用応募フォーム</h1>
             </div>
             <!-- /.c-title -->
-            <form action="/mt/plugins/AForm/aform_engine.cgi" method="POST" enctype="multipart/form-data">
+            <form name="aform-form-7" id="aform-form-7" action="/contact/aform_engine.cgi" method="POST" novalidate="novalidate" enctype="multipart/form-data">
                 <input type="hidden" name="blog_id" value="<$mt:var name="blog_id"$>" />
                 <input type="hidden" name="id" value="<$mt:var name="id"$>" />
                 <input type="hidden" name="run_mode" value="complete" />
@@ -79,13 +77,7 @@ Template Note : トップページ出力用
                             </div>
                             <!-- /.p-form_privacy__text -->
                             <div class="p-form_privacy__check">
-                                <div class="c-check d-flex">
-                                    <mt:AFormFieldInput aform_id="7" parts_id="privacy_check">
-                                    <div>
-                                        <span class="p-form_privacy__required">必須</span>
-                                    </div>
-                                </div>
-                                <!-- /.c-check -->
+                                <mt:AFormFieldConfirm aform_id="7" parts_id="privacy_check">
                             </div>
                             <!-- /.p-form_privacy__check -->
                         </div>
@@ -114,12 +106,12 @@ Template Note : トップページ出力用
                                         <div class="p-form__row">
                                             <!-- 2カラムの場合に各要素を.p-form__col--confirmで囲む -->
                                             <div class="p-form__col--confirm">
-                                                <p><mt:AFormFieldConfirm aform_id="1" parts_id="shimei_1"></p>
+                                                <p><mt:AFormFieldConfirm aform_id="7" parts_id="shimei_1"></p>
                                             </div>
                                             <!-- /.p-form__col--confirm -->
                                             <!-- 2カラムの場合に各要素を.p-form__col--confirmで囲む -->
                                             <div class="p-form__col--confirm">
-                                                <p><mt:AFormFieldConfirm aform_id="1" parts_id="shimei_2"></p>
+                                                <p><mt:AFormFieldConfirm aform_id="7" parts_id="shimei_2"></p>
                                             </div>
                                             <!-- /.p-form__col--confirm -->
                                         </div>
@@ -136,18 +128,18 @@ Template Note : トップページ出力用
                                         <!-- /.p-form__label -->
                                     </div>
                                     <!-- /.p-form__table_cell -->
-                                    
+
                                     <div class="p-form__cell--confirm">
                                         <!-- 2カラムの場合に.p-form__rowで囲む -->
                                         <div class="p-form__row">
                                             <!-- 2カラムの場合に各要素を.p-form__col--confirmで囲む -->
                                             <div class="p-form__col--confirm">
-                                                <p><mt:AFormFieldConfirm aform_id="1" parts_id="shimei_kana_1"></p>
+                                                <p><mt:AFormFieldConfirm aform_id="7" parts_id="shimei_kana_1"></p>
                                             </div>
                                             <!-- /.p-form__col--confirm -->
                                             <!-- 2カラムの場合に各要素を.p-form__col--confirmで囲む -->
                                             <div class="p-form__col--confirm">
-                                                <p><mt:AFormFieldConfirm aform_id="1" parts_id="shimei_kana_2"></p>
+                                                <p><mt:AFormFieldConfirm aform_id="7" parts_id="shimei_kana_2"></p>
                                             </div>
                                             <!-- /.p-form__col--confirm -->
                                         </div>
@@ -165,25 +157,19 @@ Template Note : トップページ出力用
                                     </div>
                                     <!-- /.p-form__table_cell -->
                                     <div class="p-form__cell">
-                                        <div class="p-form_choice__flex flex-box">
-                                            <div class="p-form__col">
-                                                <div class="c-input flex-input">
-                                                    <label class="w50">西暦</label>
-                                                    <mt:AFormFieldConfirm aform_id="7" parts_id="birthday_year">
-                                                    <mt:AFormFieldLabel aform_id="7" parts_id="birthday_year">
-                                                </div>
+                                        <div class="p-form_choice__flex d-flex">
+                                            <div class="">
+                                                <label>西暦</label>
+                                                <mt:AFormFieldConfirm aform_id="7" parts_id="birthday_year">
+                                                <mt:AFormFieldLabel aform_id="7" parts_id="birthday_year">
                                             </div>
-                                            <div class="p-form__col">
-                                                <div class="c-input flex-input">
-                                                    <mt:AFormFieldConfirm aform_id="7" parts_id="birthday_month">
-                                                    <mt:AFormFieldLabel aform_id="7" parts_id="birthday_month">
-                                                </div>
+                                            <div class="">
+                                                <mt:AFormFieldConfirm aform_id="7" parts_id="birthday_month">
+                                                <mt:AFormFieldLabel aform_id="7" parts_id="birthday_month">
                                             </div>
-                                            <div class="p-form__col">
-                                                <div class="c-input flex-input">
-                                                    <mt:AFormFieldConfirm aform_id="7" parts_id="birthday_day">
-                                                    <mt:AFormFieldLabel aform_id="7" parts_id="birthday_day">
-                                                </div>
+                                            <div class="">
+                                                <mt:AFormFieldConfirm aform_id="7" parts_id="birthday_day">
+                                                <mt:AFormFieldLabel aform_id="7" parts_id="birthday_day">
                                             </div>
                                         </div>
                                     </div>
@@ -194,7 +180,7 @@ Template Note : トップページ出力用
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <mt:AFormFieldLabel aform_id="7" parts_id="age">
+                                            <mt:AFormFieldLabel aform_id="7" parts_id="age"><span class="required">必須</span></label>
                                         </div>
                                         <!-- .p-form__label -->
                                     </div>
@@ -214,7 +200,7 @@ Template Note : トップページ出力用
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <mt:AFormFieldLabel aform_id="7" parts_id="sex">
+                                            <mt:AFormFieldLabel aform_id="7" parts_id="sex"><span class="required">必須</span></label>
                                         </div>
                                         <!-- .p-form__label -->
                                     </div>
@@ -229,7 +215,7 @@ Template Note : トップページ出力用
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <mt:AFormFieldLabel aform_id="7" parts_id="mailaddress">
+                                            <mt:AFormFieldLabel aform_id="7" parts_id="mailaddress"><span class="required">必須</span></label>
                                         </div>
                                         <!-- .p-form__label -->
                                     </div>
@@ -244,7 +230,7 @@ Template Note : トップページ出力用
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <mt:AFormFieldLabel aform_id="7" parts_id="telnum">
+                                            <mt:AFormFieldLabel aform_id="7" parts_id="telnum"><span class="required">必須</span></label>
                                         </div>
                                         <!-- .p-form__label -->
                                     </div>
@@ -259,7 +245,7 @@ Template Note : トップページ出力用
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <mt:AFormFieldLabel aform_id="7" parts_id="zip_1">
+                                            <mt:AFormFieldLabel aform_id="7" parts_id="zip_1"><span class="required">必須</span></label>
                                         </div>
                                         <!-- .p-form__label -->
                                     </div>
@@ -274,7 +260,7 @@ Template Note : トップページ出力用
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <mt:AFormFieldLabel aform_id="7" parts_id="address_1">
+                                            <mt:AFormFieldLabel aform_id="7" parts_id="address_1"><span class="required">必須</span></label>
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -289,7 +275,7 @@ Template Note : トップページ出力用
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <mt:AFormFieldLabel aform_id="7" parts_id="address_2">
+                                            <mt:AFormFieldLabel aform_id="7" parts_id="address_2"><span class="required">必須</span></label>
                                         </div>
                                         <!-- .p-form__label -->
                                     </div>
@@ -387,7 +373,7 @@ Template Note : トップページ出力用
                                                 <div class="p-form_choice__flex input-flex input-flex42">
                                                     <mt:AFormFieldConfirm aform_id="7" parts_id="graduation_year">
                                                     <mt:AFormFieldLabel aform_id="7" parts_id="graduation_year">
-                                    
+
                                                     <mt:AFormFieldConfirm aform_id="7" parts_id="graduation_month">
                                                     <mt:AFormFieldLabel aform_id="7" parts_id="graduation_month">
                                                 </div>
@@ -409,9 +395,9 @@ Template Note : トップページ出力用
                                         <!-- /.p-form__label -->
                                     </div>
                                     <!-- /.p-form__table_cell -->
-                                
+
                                     <div class="p-form__cell--confirm">
-                                        <p><mt:AFormFieldConfirm aform_id="1" parts_id="language_qualifications"></p>
+                                        <p><mt:AFormFieldConfirm aform_id="7" parts_id="language_qualifications"></p>
                                     </div>
                                     <!-- /.p-form__table_cell -->
                                 </div>
@@ -426,9 +412,9 @@ Template Note : トップページ出力用
                                         <!-- /.p-form__label -->
                                     </div>
                                     <!-- /.p-form__table_cell -->
-                                
+
                                     <div class="p-form__cell--confirm">
-                                        <p><mt:AFormFieldConfirm aform_id="1" parts_id="network_qualifications"></p>
+                                        <p><mt:AFormFieldConfirm aform_id="7" parts_id="network_qualifications"></p>
                                     </div>
                                     <!-- /.p-form__table_cell -->
                                 </div>
@@ -450,7 +436,7 @@ Template Note : トップページ出力用
                             <div class="p-form__table">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <mt:AFormFieldLabel aform_id="7" parts_id="annual_salary">
+                                        <mt:AFormFieldLabel aform_id="7" parts_id="annual_salary"><span class="required">必須</span></label>
                                     </div>
                                     <!-- .p-form__label -->
                                 </div>
@@ -479,26 +465,18 @@ Template Note : トップページ出力用
                                 </div>
                                 <!-- /.p-form__table_cell -->
                                 <div class="p-form__cell">
-                                    <div class="p-form_choice__flex flex-box">
-                                        <div class="p-form__col">
-                                            <div class="c-input flex-input">
-                                                <mt:AFormFieldConfirm aform_id="7" parts_id="changejob_year">
-                                                <mt:AFormFieldLabel aform_id="7" parts_id="changejob_year">
-                                            </div>
+                                    <div class="p-form_choice__flex d-flex">
+                                        <div class="">
+                                            <mt:AFormFieldConfirm aform_id="7" parts_id="changejob_year">
+                                            <mt:AFormFieldLabel aform_id="7" parts_id="changejob_year">
                                         </div>
-
-                                        <div class="p-form__col">
-                                            <div class="c-input flex-input">
-                                                <mt:AFormFieldConfirm aform_id="7" parts_id="changejob_month">
-                                                <mt:AFormFieldLabel aform_id="7" parts_id="changejob_month">
-                                            </div>
+                                        <div class="">
+                                            <mt:AFormFieldConfirm aform_id="7" parts_id="changejob_month">
+                                            <mt:AFormFieldLabel aform_id="7" parts_id="changejob_month">
                                         </div>
-
-                                        <div class="p-form__col">
-                                            <div class="c-input flex-input">
-                                                <mt:AFormFieldConfirm aform_id="7" parts_id="changejob_day">
-                                                <mt:AFormFieldLabel aform_id="7" parts_id="changejob_day">
-                                            </div>
+                                        <div class="">
+                                            <mt:AFormFieldConfirm aform_id="7" parts_id="changejob_day">
+                                            <mt:AFormFieldLabel aform_id="7" parts_id="changejob_day">
                                         </div>
                                     </div>
                                 </div>
@@ -509,13 +487,13 @@ Template Note : トップページ出力用
                             <div class="p-form__table">
                                 <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <mt:AFormFieldLabel aform_id="7" parts_id="desired_occupation">
+                                        <mt:AFormFieldLabel aform_id="7" parts_id="desired_occupation"><span class="required">必須</span></label>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
                                 <!-- /.p-form__cell -->
                                 <div class="p-form__cell--confirm">
-                                    <p><mt:AFormFieldConfirm aform_id="1" parts_id="desired_occupation"></p>
+                                    <p><mt:AFormFieldConfirm aform_id="7" parts_id="desired_occupation"></p>
                                 </div>
                                 <!-- /.p-form__table_cell -->
                             </div>
@@ -524,13 +502,13 @@ Template Note : トップページ出力用
                             <div class="p-form__table">
                                 <div class="p-form__cell">
                                     <div class="p-form__label label-1dot6rem">
-                                        <mt:AFormFieldLabel aform_id="7" parts_id="salespoint">
+                                        <mt:AFormFieldLabel aform_id="7" parts_id="salespoint"><span class="required">必須</span></label>
                                     </div>
                                     <!-- /.p-form__label -->
                                 </div>
                                 <!-- /.p-form__table_cell -->
                                 <div class="p-form__cell--confirm">
-                                    <p><mt:AFormFieldConfirm aform_id="1" parts_id="salespoint"></p>
+                                    <p><mt:AFormFieldConfirm aform_id="7" parts_id="salespoint"></p>
                                 </div>
                                 <!-- /.p-form__table_cell -->
                             </div>
@@ -552,12 +530,12 @@ Template Note : トップページ出力用
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <mt:AFormFieldLabel aform_id="7" parts_id="worksituation">
+                                            <mt:AFormFieldLabel aform_id="7" parts_id="worksituation"><span class="required">必須</span></label>
                                         </div>
                                     </div>
                                     <!-- /.p-form__table_cell -->
                                     <div class="p-form__cell--confirm">
-                                        <p><mt:AFormFieldConfirm aform_id="1" parts_id="worksituation"></p>
+                                        <p><mt:AFormFieldConfirm aform_id="7" parts_id="worksituation"></p>
                                     </div>
                                     <!-- /.p-form__table_cell -->
                                 </div>
@@ -579,12 +557,12 @@ Template Note : トップページ出力用
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <mt:AFormFieldLabel aform_id="7" parts_id="companyname_1">
+                                            <mt:AFormFieldLabel aform_id="7" parts_id="companyname_1"><span class="required">必須</span></label>
                                         </div>
                                         <!-- .p-form__label -->
                                     </div>
                                     <div class="p-form__cell--confirm">
-                                        <p><mt:AFormFieldConfirm aform_id="1" parts_id="companyname_1"></p>
+                                        <p><mt:AFormFieldConfirm aform_id="7" parts_id="companyname_1"></p>
                                     </div>
                                     <!-- /.p-form__table_cell -->
                                 </div>
@@ -598,45 +576,33 @@ Template Note : トップページ出力用
                                     </div>
                                     <!-- /.p-form__table_cell -->
                                     <div class="p-form__cell">
-                                        <div class="p-form_choice__flex flex-box mb21">
-                                            <div class="p-form__col">
-                                                <div class="c-input flex-input">
-                                                    <mt:AFormFieldConfirm aform_id="7" parts_id="start_workdate_year_1">
-                                                    <mt:AFormFieldLabel aform_id="7" parts_id="start_workdate_year_1">
-                                                </div>
+                                        <div class="p-form_choice__flex d-flex">
+                                            <div class="">
+                                                <mt:AFormFieldConfirm aform_id="7" parts_id="start_workdate_year_1">
+                                                <mt:AFormFieldLabel aform_id="7" parts_id="start_workdate_year_1">
                                             </div>
-                                            <div class="p-form__col">
-                                                <div class="c-input flex-input">
-                                                    <mt:AFormFieldConfirm aform_id="7" parts_id="start_workdate_month_1">
-                                                    <mt:AFormFieldLabel aform_id="7" parts_id="start_workdate_month_1">
-                                                </div>
+                                            <div class="">
+                                                <mt:AFormFieldConfirm aform_id="7" parts_id="start_workdate_month_1">
+                                                <mt:AFormFieldLabel aform_id="7" parts_id="start_workdate_month_1">
                                             </div>
-                                            <div class="p-form__col">
-                                                <div class="c-input flex-input">
-                                                    <mt:AFormFieldConfirm aform_id="7" parts_id="start_workdate_day_1">
-                                                    <mt:AFormFieldLabel aform_id="7" parts_id="start_workdate_day_1">~
-                                                </div>
+                                            <div class="">
+                                                <mt:AFormFieldConfirm aform_id="7" parts_id="start_workdate_day_1">
+                                                <mt:AFormFieldLabel aform_id="7" parts_id="start_workdate_day_1">~
                                             </div>
                                         </div>
-                                        <div class="p-form_choice__flex flex-box mb21">
-                                            <div class="p-form__col">
-                                                <div class="c-input flex-input">
-                                                    <mt:AFormFieldConfirm aform_id="7" parts_id="end_workdate_year_1">
-                                                    <mt:AFormFieldLabel aform_id="7" parts_id="end_workdate_year_1">
-                                                </div>
-                                            </div>
-                                            <div class="p-form__col">
-                                                <div class="c-input flex-input">
-                                                    <mt:AFormFieldConfirm aform_id="7" parts_id="end_workdate_month_1">
-                                                    <mt:AFormFieldLabel aform_id="7" parts_id="end_workdate_month_1">
-                                                </div>
-                                            </div>
-                                            <div class="p-form__col">
-                                                <div class="c-input flex-input">
-                                                    <mt:AFormFieldConfirm aform_id="7" parts_id="end_workdate_day_1">
-                                                    <mt:AFormFieldLabel aform_id="7" parts_id="end_workdate_day_1">
-                                                </div>
-                                            </div>
+                                        <div class="p-form_choice__flex d-flex">
+                                          <div class="">
+                                              <mt:AFormFieldConfirm aform_id="7" parts_id="end_workdate_year_1">
+                                              <mt:AFormFieldLabel aform_id="7" parts_id="end_workdate_year_1">
+                                          </div>
+                                          <div class="">
+                                              <mt:AFormFieldConfirm aform_id="7" parts_id="end_workdate_month_1">
+                                              <mt:AFormFieldLabel aform_id="7" parts_id="end_workdate_month_1">
+                                          </div>
+                                          <div class="">
+                                              <mt:AFormFieldConfirm aform_id="7" parts_id="end_workdate_day_1">
+                                              <mt:AFormFieldLabel aform_id="7" parts_id="end_workdate_day_1">
+                                          </div>
                                         </div>
                                     </div>
                                     <!-- /.p-form__table_cell -->
@@ -646,13 +612,13 @@ Template Note : トップページ出力用
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <mt:AFormFieldLabel aform_id="7" parts_id="industry_1">
+                                            <mt:AFormFieldLabel aform_id="7" parts_id="industry_1"><span class="required">必須</span></label>
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
                                     <!-- /.p-form__cell -->
                                     <div class="p-form__cell--confirm">
-                                        <p><mt:AFormFieldConfirm aform_id="1" parts_id="industry_1"></p>
+                                        <p><mt:AFormFieldConfirm aform_id="7" parts_id="industry_1"></p>
                                     </div>
                                     <!-- /.p-form__table_cell -->
                                 </div>
@@ -661,13 +627,13 @@ Template Note : トップページ出力用
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <mt:AFormFieldLabel aform_id="7" parts_id="occupation_1">
+                                            <mt:AFormFieldLabel aform_id="7" parts_id="occupation_1"><span class="required">必須</span></label>
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
                                     <!-- /.p-form__cell -->
                                     <div class="p-form__cell--confirm">
-                                        <p><mt:AFormFieldConfirm aform_id="1" parts_id="occupation_1"></p>
+                                        <p><mt:AFormFieldConfirm aform_id="7" parts_id="occupation_1"></p>
                                     </div>
                                     <!-- /.p-form__table_cell -->
                                 </div>
@@ -676,13 +642,13 @@ Template Note : トップページ出力用
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <mt:AFormFieldLabel aform_id="7" parts_id="yakushoku_1">
+                                            <mt:AFormFieldLabel aform_id="7" parts_id="yakushoku_1"><span class="required">必須</span></label>
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
                                     <!-- /.p-form__cell -->
                                     <div class="p-form__cell--confirm">
-                                        <p><mt:AFormFieldConfirm aform_id="1" parts_id="yakushoku_1"></p>
+                                        <p><mt:AFormFieldConfirm aform_id="7" parts_id="yakushoku_1"></p>
                                     </div>
                                     <!-- /.p-form__table_cell -->
                                 </div>
@@ -691,7 +657,7 @@ Template Note : トップページ出力用
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <mt:AFormFieldLabel aform_id="7" parts_id="annual_income_1">
+                                            <mt:AFormFieldLabel aform_id="7" parts_id="annual_income_1"><span class="required">必須</span></label>
                                         </div>
                                         <!-- .p-form__label -->
                                     </div>
@@ -725,12 +691,12 @@ Template Note : トップページ出力用
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                     <div class="p-form__label label-1dot6rem">
-                                        <mt:AFormFieldLabel aform_id="7" parts_id="areaincharge_1">
+                                        <mt:AFormFieldLabel aform_id="7" parts_id="areaincharge_1"><span class="required">必須</span></label>
                                     </div>
                                     <!-- /.p-form__label -->
                                     </div>
                                     <!-- /.p-form__table_cell -->
-                                
+
                                     <div class="p-form__cell">
                                     <mt:AFormFieldConfirm aform_id="7" parts_id="areaincharge_1">
                                     <ul>
@@ -749,14 +715,14 @@ Template Note : トップページ出力用
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                     <div class="p-form__label label-1dot6rem">
-                                        <mt:AFormFieldLabel aform_id="7" parts_id="duties_1">
+                                        <mt:AFormFieldLabel aform_id="7" parts_id="duties_1"><span class="required">必須</span></label>
                                     </div>
                                     <!-- /.p-form__label -->
                                     </div>
                                     <!-- /.p-form__table_cell -->
-                                
+
                                     <div class="p-form__cell--confirm">
-                                        <p><mt:AFormFieldConfirm aform_id="1" parts_id="mailaddress"></p>
+                                        <p><mt:AFormFieldConfirm aform_id="7" parts_id="duties_1"></p>
                                         <p><span class="c-notice__bullet">※</span>全角1000文字以内で記入</p>
                                     </div>
                                     <!-- /.p-form__table_cell -->
@@ -785,7 +751,7 @@ Template Note : トップページ出力用
                                     </div>
                                     <!-- .p-form__table -->
                                     <div class="p-form__cell--confirm">
-                                        <p><mt:AFormFieldConfirm aform_id="1" parts_id="companyname_2"></p>
+                                        <p><mt:AFormFieldConfirm aform_id="7" parts_id="companyname_2"></p>
                                     </div>
                                     <!-- /.p-form__table_cell -->
                                 </div>
@@ -794,68 +760,41 @@ Template Note : トップページ出力用
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                     <div class="p-form__label">
-                                        <label>勤務年月日<span class="required">必須</span></label>
+                                        <label>勤務年月日</label>
                                     </div>
                                     </div>
                                     <!-- /.p-form__table_cell -->
                                     <div class="p-form__cell">
-                                    <div class="p-form_choice__flex flex-box mb21">
-                                        <div class="p-form__col">
-                                        <div class="c-input flex-input">
-                                            <mt:AFormFieldConfirm aform_id="7" parts_id="start_workdate_year_2">
-                                            <mt:AFormFieldLabel aform_id="7" parts_id="start_workdate_year_2">
-                                        </div>
-                                        <div class="c-error js-error_check" data-label="年">
-                                        </div>
-                                        </div>
+                                      <div class="p-form_choice__flex d-flex">
+                                          <div class="">
+                                              <mt:AFormFieldConfirm aform_id="7" parts_id="start_workdate_year_2">
+                                              <mt:AFormFieldLabel aform_id="7" parts_id="start_workdate_year_2">
+                                          </div>
+                                          <div class="">
+                                              <mt:AFormFieldConfirm aform_id="7" parts_id="start_workdate_month_2">
+                                              <mt:AFormFieldLabel aform_id="7" parts_id="start_workdate_month_2">
+                                          </div>
+                                          <div class="">
+                                              <mt:AFormFieldConfirm aform_id="7" parts_id="start_workdate_day_2">
+                                              <mt:AFormFieldLabel aform_id="7" parts_id="start_workdate_day_2">~
+                                          </div>
+                                      </div>
 
-                                        <div class="p-form__col">
-                                        <div class="c-input flex-input">
-                                            <mt:AFormFieldConfirm aform_id="7" parts_id="start_workdate_month_2">
-                                            <mt:AFormFieldLabel aform_id="7" parts_id="start_workdate_month_2">
-                                        </div>
-                                        <div class="c-error js-error_check" data-label="月">
-                                        </div>
-                                        </div>
-
-                                        <div class="p-form__col">
-                                        <div class="c-input flex-input">
-                                            <mt:AFormFieldConfirm aform_id="7" parts_id="start_workdate_day_2">
-                                            <mt:AFormFieldLabel aform_id="7" parts_id="start_workdate_day_2">~
-                                        </div>
-                                        <div class="c-error js-error_check" data-label="日">
-                                        </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="p-form_choice__flex flex-box mb21">
-                                        <div class="p-form__col">
-                                        <div class="c-input flex-input">
-                                            <mt:AFormFieldConfirm aform_id="7" parts_id="end_workdate_year_2">
-                                            <mt:AFormFieldLabel aform_id="7" parts_id="end_workdate_year_2">
-                                        </div>
-                                        <div class="c-error js-error_check" data-label="年">
-                                        </div>
-                                        </div>
-
-                                        <div class="p-form__col">
-                                        <div class="c-input flex-input">
-                                            <mt:AFormFieldConfirm aform_id="7" parts_id="end_workdate_month_2">
-                                            <mt:AFormFieldLabel aform_id="7" parts_id="end_workdate_month_2">
-                                        </div>
-                                        <div class="c-error js-error_check" data-label="月">
-                                        </div>
-                                        </div>
-
-                                        <div class="p-form__col">
-                                        <div class="c-input flex-input">
-                                            <mt:AFormFieldConfirm aform_id="7" parts_id="end_workdate_day_2">
-                                            <mt:AFormFieldLabel aform_id="7" parts_id="end_workdate_day_2">
-                                        </div>
-                                        <div class="c-error js-error_check" data-label="日">
-                                        </div>
-                                        </div>
-                                    </div>
+                                      <div class="p-form_choice__flex d-flex">
+                                          <div class="">
+                                              <mt:AFormFieldConfirm aform_id="7" parts_id="end_workdate_year_2">
+                                              <mt:AFormFieldLabel aform_id="7" parts_id="end_workdate_year_2">
+                                          </div>
+                                          <div class="">
+                                              <mt:AFormFieldConfirm aform_id="7" parts_id="end_workdate_month_2">
+                                              <mt:AFormFieldLabel aform_id="7" parts_id="end_workdate_month_2">
+                                          </div>
+                                          <div class="">
+                                              <mt:AFormFieldConfirm aform_id="7" parts_id="end_workdate_day_2">
+                                              <mt:AFormFieldLabel aform_id="7" parts_id="end_workdate_day_2">
+                                          </div>
+                                      </div>
+                                      <!-- /.p-form_choice__flex -->
                                     </div>
                                     <!-- /.p-form__table_cell -->
                                 </div>
@@ -870,7 +809,7 @@ Template Note : トップページ出力用
                                     </div>
                                     <!-- /.p-form__cell -->
                                     <div class="p-form__cell--confirm">
-                                        <p><mt:AFormFieldConfirm aform_id="1" parts_id="industry_2"></p>
+                                        <p><mt:AFormFieldConfirm aform_id="7" parts_id="industry_2"></p>
                                     </div>
                                     <!-- /.p-form__table_cell -->
                                 </div>
@@ -885,7 +824,7 @@ Template Note : トップページ出力用
                                     </div>
                                     <!-- /.p-form__cell -->
                                     <div class="p-form__cell--confirm">
-                                        <p><mt:AFormFieldConfirm aform_id="1" parts_id="occupation_2"></p>
+                                        <p><mt:AFormFieldConfirm aform_id="7" parts_id="occupation_2"></p>
                                     </div>
                                     <!-- /.p-form__table_cell -->
                                 </div>
@@ -900,7 +839,7 @@ Template Note : トップページ出力用
                                     </div>
                                     <!-- /.p-form__cell -->
                                     <div class="p-form__cell--confirm">
-                                        <p><mt:AFormFieldConfirm aform_id="1" parts_id="yakushoku_2"></p>
+                                        <p><mt:AFormFieldConfirm aform_id="7" parts_id="yakushoku_2"></p>
                                     </div>
                                     <!-- /.p-form__table_cell -->
                                 </div>
@@ -936,7 +875,7 @@ Template Note : トップページ出力用
                                         <!-- /.p-form__col -->
                                     </div>
                                     <!-- /.p-form__row -->
-                                    
+
                                     </div>
                                 </div>
                                 <!-- .p-form__table -->
@@ -949,7 +888,7 @@ Template Note : トップページ出力用
                                     <!-- /.p-form__label -->
                                     </div>
                                     <!-- /.p-form__table_cell -->
-                                
+
                                     <div class="p-form__cell--confirm">
                                         <p><mt:AFormFieldConfirm aform_id="7" parts_id="areaincharge_2"></p>
                                     </div>
@@ -965,7 +904,7 @@ Template Note : トップページ出力用
                                     <!-- /.p-form__label -->
                                     </div>
                                     <!-- /.p-form__table_cell -->
-                                
+
                                     <div class="p-form__cell--confirm">
                                         <p><mt:AFormFieldConfirm aform_id="7" parts_id="duties_2"></p>
                                     </div>
@@ -989,7 +928,7 @@ Template Note : トップページ出力用
                             <!-- /.p-form_post__item -->
                             <div class="p-form_post__item">
                                 <div class="c-back">
-                                    <a href="/contact/form">戻る</a>
+                                    <a href="javascript:history.back()">戻る</a>
                                 </div>
                                 <!-- /.c-back -->
                             </div>
