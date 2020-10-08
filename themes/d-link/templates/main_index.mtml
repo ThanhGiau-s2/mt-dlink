@@ -20,53 +20,36 @@ Template Note : トップページ出力用
 <mt:Include module="header" parent="1" />
 <main class="p-main">
     <div class="p-mv js-mv_slider">
-        <mt:Contents content_type="トップスライダー">
-            <div class="p-mv__item">
-                <a href="">
-                    <picture>
-                        <mt:ContentField content_field="スライダー画像　１">
-                            <mt:ContentField content_field="SP画像">
-                                <source srcset="<mt:AssetThumbnailURL>" media="(max-width: 768px)">
-                            </mt:ContentField>
-                            <mt:ContentField content_field="PC画像">
-                                <img src="<mt:AssetThumbnailURL>" alt="<mt:ContentField content_field="alt テキスト"><mt:ContentFieldValue></mt:ContentField>">
-                            </mt:ContentField>
-                        </mt:ContentField>
-                    </picture>
-                </a>
-            </div>
-            <!-- /.p-mv__item -->   
-            <div class="p-mv__item">
-                <a href="">
-                    <picture>
-                        <mt:ContentField content_field="スライダー画像　２">
-                            <mt:ContentField content_field="SP画像">
-                                <source srcset="<mt:AssetThumbnailURL>" media="(max-width: 768px)">
-                            </mt:ContentField>
-                            <mt:ContentField content_field="PC画像">
-                                <img src="<mt:AssetThumbnailURL>" alt="<mt:ContentField content_field="alt テキスト"><mt:ContentFieldValue></mt:ContentField>">
-                            </mt:ContentField>
-                        </mt:ContentField>
-                    </picture>
-                </a>
-            </div>
-            <!-- /.p-mv__item -->   
-            <div class="p-mv__item">
-                <a href="">
-                    <picture>
-                        <mt:ContentField content_field="スライダー画像　３">
-                            <mt:ContentField content_field="SP画像">
-                                <source srcset="<mt:AssetThumbnailURL>" media="(max-width: 768px)">
-                            </mt:ContentField>
-                            <mt:ContentField content_field="PC画像">
-                                <img src="<mt:AssetThumbnailURL>" alt="<mt:ContentField content_field="alt テキスト"><mt:ContentFieldValue></mt:ContentField>">
-                            </mt:ContentField>
-                        </mt:ContentField>
-                    </picture>
-                </a>
-            </div>
-            <!-- /.p-mv__item -->   
-        </mt:Contents>
+        <mt:Entries category="トップスライダー">
+            <mt:entrydatatopsliderBlock>
+                <$mt:FLCFValue field="another_tab" setvar="another_tab"$>
+                <$mt:FLCFValue field="link_url" setvar="link_url"$>
+                <div class="p-mv__item">
+                    <mt:if name="link_url">
+                        <a href="<$mt:FLCFValue field="link_url"$>" <mt:if name="another_tab">target="_blank"</mt:if>>
+                            <picture>
+                                <mt:FLCFAsset field="photo_sp">
+                                    <source srcset="<mt:AssetURL>" media="(max-width: 768px)">
+                                </mt:FLCFAsset>
+                                <mt:FLCFAsset field="photo_pc">
+                                    <img src="<mt:AssetURL>" alt="<$mt:FLCFValue field="alt_text"$>">
+                                </mt:FLCFAsset>
+                            </picture>
+                        </a>
+                    <mt:else>
+                        <picture>
+                            <mt:FLCFAsset field="photo_sp">
+                                <source srcset="<mt:AssetURL>" media="(max-width: 768px)">
+                            </mt:FLCFAsset>
+                            <mt:FLCFAsset field="photo_pc">
+                                <img src="<mt:AssetURL>" alt="<$mt:FLCFValue field="alt_text"$>">
+                            </mt:FLCFAsset>
+                        </picture>
+                    </mt:if>
+                </div>
+                <!-- /.p-mv__item -->
+            </mt:entrydatatopsliderBlock>
+        </mt:Entries>
     </div>
     <!-- /.p-mv -->
 
@@ -100,7 +83,7 @@ Template Note : トップページ出力用
         </div>
         <!-- /.p-emergency -->
     </mt:if>
-                
+    
     <section class="l-outer--top">
         <div class="l-inner">
             <div class="c-heading">
@@ -221,13 +204,13 @@ Template Note : トップページ出力用
                         <a href="/product/software/">
                             <div class="p-product_category__row">
                                 <div class="p-product_category__info--small">
-                                    <h3 class="p-product_category__name--small">ソフトウェア</h3>
+                                    <h3 class="p-product_category__name--small">ネットワーク管理ソフトウェア</h3>
                                 </div>
                                 <!-- /.p-product_category__info--small -->
                                 <div class="p-product_category__image--small">
                                     <picture>
                                         <source srcset="/asset/img/top/category_img_06_sp.png" media="(max-width: 768px)">
-                                        <img src="/asset/img/top/category_img_06_pc.png" alt="ソフトウェア">
+                                        <img src="/asset/img/top/category_img_06_pc.png" alt="ネットワーク管理ソフトウェア">
                                     </picture>
                                 </div>
                                 <!-- /.p-product_category__thumbnail -->
@@ -240,13 +223,13 @@ Template Note : トップページ出力用
                         <a href="/product/sfp-xf-others/">
                             <div class="p-product_category__row">
                                 <div class="p-product_category__info--small">
-                                <h3 class="p-product_category__name--small">光モジュール / ケーブル</h3>
+                                <h3 class="p-product_category__name--small">光トランシーバ / ケーブル</h3>
                                 </div>
                                 <!-- /.p-product_category__info--small -->
                                 <div class="p-product_category__image--small">
                                     <picture>
                                         <source srcset="/asset/img/top/category_img_07_sp.png" media="(max-width: 768px)">
-                                        <img src="/asset/img/top/category_img_07_pc.png" alt="光モジュール / ケーブル">
+                                        <img src="/asset/img/top/category_img_07_pc.png" alt="光トランシーバ / ケーブル">
                                     </picture>
                                 </div>
                                 <!-- /.p-product_category__thumbnail -->
@@ -278,13 +261,13 @@ Template Note : トップページ出力用
                         <a href="/product/other/">
                             <div class="p-product_category__row">
                                 <div class="p-product_category__info--small">
-                                <h3 class="p-product_category__name--small">PoE / アクセサリアダプタ</h3>
+                                <h3 class="p-product_category__name--small">その他製品</h3>
                                 </div>
                                 <!-- /.p-product_category__info--small -->
                                 <div class="p-product_category__image--small">
                                     <picture>
                                         <source srcset="/asset/img/top/category_img_09_sp.png" media="(max-width: 768px)">
-                                        <img src="/asset/img/top/category_img_09_pc.png" alt="PoE / アクセサリアダプタ">
+                                        <img src="/asset/img/top/category_img_09_pc.png" alt="その他製品">
                                     </picture>
                                 </div>
                                 <!-- /.p-product_category__thumbnail -->
@@ -393,7 +376,7 @@ Template Note : トップページ出力用
             <!-- /.p-product_category -->
 
             <div class="c-button--multiple">
-                <a href="">すべての<br class="u-show_sp">製品ピックアップ情報を見る</a>
+                <a href="/product/">すべての<br class="u-show_sp">製品ピックアップ情報を見る</a>
             </div>
 
         </div>
@@ -511,7 +494,7 @@ Template Note : トップページ出力用
                                 </div>
                                 <!-- /.p-tile__icon -->
                                 <div class="p-tile__name">
-                                    <p>サポート体制<br>について</p>
+                                    <p>サポート</p>
                                 </div>
                                 <!-- /.p-tile__name -->
                             </div>
@@ -519,14 +502,14 @@ Template Note : トップページ出力用
                         </a>
                     </li>
                     <li class="p-tile__item">
-                        <a href="/support/award-certification/" class="js-toggle_png">
+                        <a href="/support/support-system/" class="js-toggle_png">
                             <div class="p-tile__box">
                                 <div class="p-tile__icon">
                                 <img src="/asset/img/top/support_icon_02.png" alt="">
                                 </div>
                                 <!-- /.p-tile__icon -->
                                 <div class="p-tile__name">
-                                    <p>D-linkの品質保証</p>
+                                    <p>サポート体制<br>について</p>
                                 </div>
                                 <!-- /.p-tile__name -->
                             </div>
@@ -629,23 +612,27 @@ Template Note : トップページ出力用
                                     <div class="p-news__box">
                                         <p class="p-news__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
                                         <mt:EntryAdditionalCategories setvar="entry_categories"><mt:CategoryBasename></mt:EntryAdditionalCategories>
-                                        <mt:SubCategories category="ニュース">
-                                            <mt:setvarblock name="id_name_cate"><mt:CategoryID>_<mt:CategoryBasename></mt:setvarblock>
-                                            <mt:CategoryBasename setvar="name_cate">
-                                            <mt:if name="entry_categories" like="$name_cate">
-                                                <mt:SetVarBlock name="cate_news{$id_name_cate}"><mt:CategoryLabel></mt:SetVarBlock>
-                                            </mt:If>
-                                        </mt:SubCategories>
-                                        <mt:Loop name="cate_news" sort_by= "key numeric">
-                                            <mt:If name="__last__">
-                                                <mt:If name="__key__" like="info">
-                                                    <p class="p-news__category--news"><mt:Var name="__value__"></p>
+                                        <mt:If name="entry_categories">
+                                            <mt:SubCategories category="ニュース">
+                                                <mt:setvarblock name="id_name_cate"><mt:CategoryID>_<mt:CategoryBasename></mt:setvarblock>
+                                                <mt:CategoryBasename setvar="name_cate">
+                                                <mt:if name="entry_categories" like="$name_cate">
+                                                    <mt:SetVarBlock name="cate_news{$id_name_cate}"><mt:CategoryLabel></mt:SetVarBlock>
                                                 </mt:If>
-                                                <mt:If name="__key__" like="product">
-                                                    <p class="p-news__category--product"><mt:Var name="__value__"></p> 
+                                            </mt:SubCategories>
+                                            <mt:Loop name="cate_news" sort_by= "key numeric">
+                                                <mt:If name="__last__">
+                                                    <mt:If name="__key__" like="info">
+                                                        <p class="p-news__category--news"><mt:Var name="__value__"></p>
+                                                    </mt:If>
+                                                    <mt:If name="__key__" like="product">
+                                                        <p class="p-news__category--product"><mt:Var name="__value__"></p>
+                                                    </mt:If>
                                                 </mt:If>
-                                            </mt:If>
-                                        </mt:Loop>
+                                            </mt:Loop>
+                                        <mt:Else>
+                                            <p class="p-news__category--news"></p>
+                                        </mt:If>
                                         <p class="p-news__title"><$mt:EntryTitle$></p>
                                     </div>
                                     <!-- /.p-news__box -->
@@ -674,26 +661,31 @@ Template Note : トップページ出力用
                                     <div class="p-news__box">
                                         <p class="p-news__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
                                         <mt:EntryAdditionalCategories setvar="entry_categories"><mt:CategoryBasename></mt:EntryAdditionalCategories>
-                                        <mt:SubCategories category="イベント・セミナー">
-                                            <mt:setvarblock name="id_name_cate"><mt:CategoryID>_<mt:CategoryBasename></mt:setvarblock>
-                                            <mt:CategoryBasename setvar="name_cate">
-                                            <mt:if name="entry_categories" like="$name_cate">
-                                                <mt:SetVarBlock name="cate_event{$id_name_cate}"><mt:CategoryLabel></mt:SetVarBlock>
-                                            </mt:If>
-                                        </mt:SubCategories>
-                                        <mt:Loop name="cate_event" sort_by= "key numeric">
-                                            <mt:If name="__last__">
-                                                <mt:If name="__key__" like="event-info">
-                                                    <p class="p-news__category--event"><mt:Var name="__value__"></p>
+                                        <mt:If name="entry_categories">
+                                            <mt:SubCategories category="イベント・セミナー">
+                                                <mt:setvarblock name="id_name_cate"><mt:CategoryID>_<mt:CategoryBasename></mt:setvarblock>
+                                                <mt:CategoryBasename setvar="name_cate">
+                                                <mt:if name="entry_categories" like="$name_cate">
+                                                    <mt:SetVarBlock name="cate_event{$id_name_cate}"><mt:CategoryLabel></mt:SetVarBlock>
                                                 </mt:If>
-                                                <mt:If name="__key__" like="online">
-                                                    <p class="p-news__category--online"><mt:Var name="__value__"></p> 
+                                            </mt:SubCategories>
+
+                                            <mt:Loop name="cate_event" sort_by= "key numeric">
+                                                <mt:If name="__last__">
+                                                    <mt:If name="__key__" like="event-info">
+                                                        <p class="p-news__category--event"><mt:Var name="__value__"></p>
+                                                    </mt:If>
+                                                    <mt:If name="__key__" like="online">
+                                                        <p class="p-news__category--online"><mt:Var name="__value__"></p>
+                                                    </mt:If>
+                                                    <mt:If name="__key__" like="seminar">
+                                                        <p class="p-news__category--seminar"><mt:Var name="__value__"></p>
+                                                    </mt:If>
                                                 </mt:If>
-                                                <mt:If name="__key__" like="seminar">
-                                                    <p class="p-news__category--seminar"><mt:Var name="__value__"></p> 
-                                                </mt:If>
-                                            </mt:If>
-                                        </mt:Loop>
+                                            </mt:Loop>
+                                        <mt:Else>
+                                            <p class="p-news__category--event"></p>
+                                        </mt:If>
                                         <div class="p-news__body">
                                             <p class="p-news__title"><$mt:EntryTitle$></p>
                                             <p class="p-news__date">【日程】<$mt:EntryDataEventDate$></p>
@@ -729,32 +721,36 @@ Template Note : トップページ出力用
                                     <div class="p-news__box">
                                         <p class="p-news__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
                                         <mt:EntryAdditionalCategories setvar="entry_categories"><mt:If tag="CategoryBasename" ne="release"><$mt:CategoryBasename$></mt:If></mt:EntryAdditionalCategories>
-                                        <mt:SubCategories category="サポート/サポート情報">
-                                            <mt:setvarblock name="id_name_cate"><mt:CategoryID>_<mt:CategoryBasename></mt:setvarblock>
-                                            <mt:CategoryBasename setvar="name_cate">
-                                            <mt:if name="entry_categories" like="$name_cate">
-                                                <mt:SetVarBlock name="cate_support{$id_name_cate}"><mt:CategoryLabel></mt:SetVarBlock>
-                                            </mt:If>
-                                        </mt:SubCategories>
-                                        <mt:Loop name="cate_support" sort_by= "key numeric">
-                                            <mt:If name="__last__">
-                                                <mt:If name="__key__" like="info">
-                                                    <p class="p-news__category--support"><mt:Var name="__value__"></p>
+                                        <mt:If name="entry_categories">
+                                            <mt:SubCategories category="サポート/サポート情報">
+                                                <mt:setvarblock name="id_name_cate"><mt:CategoryID>_<mt:CategoryBasename></mt:setvarblock>
+                                                <mt:CategoryBasename setvar="name_cate">
+                                                <mt:if name="entry_categories" like="$name_cate">
+                                                    <mt:SetVarBlock name="cate_support{$id_name_cate}"><mt:CategoryLabel></mt:SetVarBlock>
                                                 </mt:If>
-                                                <mt:If name="__key__" like="fault">
-                                                    <p class="p-news__category--failure"><mt:Var name="__value__"></p> 
+                                            </mt:SubCategories>
+                                            <mt:Loop name="cate_support" sort_by= "key numeric">
+                                                <mt:If name="__last__">
+                                                    <mt:If name="__key__" like="info">
+                                                        <p class="p-news__category--support"><mt:Var name="__value__"></p>
+                                                    </mt:If>
+                                                    <mt:If name="__key__" like="fault">
+                                                        <p class="p-news__category--failure"><mt:Var name="__value__"></p>
+                                                    </mt:If>
+                                                    <mt:If name="__key__" like="firmware">
+                                                        <p class="p-news__category--firmware"><mt:Var name="__value__"></p>
+                                                    </mt:If>
+                                                    <mt:If name="__key__" like="security">
+                                                        <p class="p-news__category--security"><mt:Var name="__value__"></p>
+                                                    </mt:If>
+                                                    <mt:If name="__key__" like="maintenance">
+                                                        <p class="p-news__category--maintenance"><mt:Var name="__value__"></p>
+                                                    </mt:If>
                                                 </mt:If>
-                                                <mt:If name="__key__" like="firmware">
-                                                    <p class="p-news__category--firmware"><mt:Var name="__value__"></p> 
-                                                </mt:If>
-                                                <mt:If name="__key__" like="security">
-                                                    <p class="p-news__category--security"><mt:Var name="__value__"></p> 
-                                                </mt:If>
-                                                <mt:If name="__key__" like="maintenance">
-                                                    <p class="p-news__category--maintenance"><mt:Var name="__value__"></p> 
-                                                </mt:If>
-                                            </mt:If>
-                                        </mt:Loop>
+                                            </mt:Loop>
+                                        <mt:Else>
+                                            <p class="p-news__category--support"></p>
+                                        </mt:If>
                                         <div class="p-news__body">
                                             <p class="p-news__title"><$mt:EntryTitle$></p>
                                         </div>
