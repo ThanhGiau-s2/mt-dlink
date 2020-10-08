@@ -6,16 +6,13 @@
 </mt:SetVars>
 <mt:SetVarTemplate name="file_javascript">
 <script src="/asset/js/form_ui.min.js" defer></script>
+<script src="/asset/js/ajaxzip3.js"></script>
 <script src="/asset/js/jquery.zip2addr.js"></script>
 <script src="/asset/js/zipcode.js"></script>
 </mt:SetVarTemplate>
 <mt:Ignore>** 表示部分 **</mt:Ignore>
 <mt:Include module="html_head" parent="1" />
-<style>
-.d-flex {
-    display: flex
-}
-</style>
+<link rel="stylesheet" href="/asset/css/contact.css">
 <mt:Include module="header" parent="1" />
 <!-- ここからコンテンツ -->
 <main class="p-main">
@@ -112,6 +109,7 @@
                                     <!-- /.p-form__table_cell -->
                                     <div class="p-form__cell">
                                         <div class="c-input js-form_check" data-label="法人名">
+                                            <!-- <input id="houjin_mei" class="aform-input aform-text houjin_mei aform-validate" name="houjin_mei" type="text" size="40" title="法人名を入力してください"> -->
                                             <mt:AFormFieldInput aform_id="2" parts_id="houjin_mei">
                                         </div>
                                         <!-- /.c-input -->
@@ -135,6 +133,7 @@
 
                                     <div class="p-form__cell">
                                         <div class="c-input">
+                                            <!-- <input id="busho_mei" class="aform-input aform-text busho_mei aform-validate" name="busho_mei" type="text" size="40" title="部署名を入力してください"> -->
                                             <mt:AFormFieldInput aform_id="2" parts_id="busho_mei">
                                         </div>
                                         <!-- /.c-input -->
@@ -153,6 +152,7 @@
                                     <!-- /.p-form__table_cell -->
                                     <div class="p-form__cell">
                                         <div class="c-input">
+                                            <!-- <input id="yakushoku" class="aform-input aform-text yakushoku aform-validate" name="yakushoku" type="text" size="40" title="役職を入力してください"> -->
                                             <mt:AFormFieldInput aform_id="2" parts_id="yakushoku">
                                         </div>
                                     </div>
@@ -173,7 +173,11 @@
                                         <div class="p-form__row">
                                             <!-- 2カラムの場合に各要素を.p-form__colで囲む -->
                                             <div class="p-form__col">
-                                                <div class="c-input js-form_check" data-label="氏名">
+                                                <div class="c-input__example">
+                                                    <p class="aform-input-example">姓</p>
+                                                </div>
+                                                <div class="c-input js-form_check" data-label="氏名　姓">
+                                                    <!-- <input id="shimei_1" class="aform-input aform-text shimei_1 aform-validate" name="shimei_1" type="text" size="40" title="氏名１を入力してください"> -->
                                                     <mt:AFormFieldInput aform_id="2" parts_id="shimei_1">
                                                 </div>
                                                 <!-- /.c-input -->
@@ -185,7 +189,11 @@
                                             <!-- /.p-form__col -->
                                             <!-- 2カラムの場合に各要素を.p-form__colで囲む -->
                                             <div class="p-form__col">
-                                                <div class="c-input js-form_check" data-label="氏名">
+                                                <div class="c-input__example">
+                                                    <p class="aform-input-example">名</p>
+                                                </div>
+                                                <div class="c-input js-form_check" data-label="氏名　名">
+                                                    <!-- <input id="shimei_2" class="aform-input aform-text shimei_2 aform-validate" name="shimei_2" type="text" size="40" title="氏名２を入力してください"> -->
                                                     <mt:AFormFieldInput aform_id="2" parts_id="shimei_2">
                                                 </div>
                                                 <!-- /.c-input -->
@@ -216,7 +224,11 @@
                                         <div class="p-form__row">
                                             <!-- 2カラムの場合に各要素を.p-form__colで囲む -->
                                             <div class="p-form__col">
-                                                <div class="c-input js-form_check" data-label="氏名フリガナ">
+                                                <div class="c-input__example">
+                                                    <p class="aform-input-example">セイ</p>
+                                                </div>
+                                                <div class="c-input js-form_check" data-label="氏名フリガナ　セイ">
+                                                    <!-- <input id="shimei_kana_1" class="aform-input aform-text shimei_kana_1 aform-validate" name="shimei_kana_1" type="text" size="40" title="氏名フリガナ１を入力してください"> -->
                                                     <mt:AFormFieldInput aform_id="2" parts_id="shimei_kana_1">
                                                 </div>
                                                 <!-- /.c-input -->
@@ -228,7 +240,11 @@
                                             <!-- /.p-form__col -->
                                             <!-- 2カラムの場合に各要素を.p-form__colで囲む -->
                                             <div class="p-form__col">
-                                                <div class="c-input js-form_check" data-label="氏名フリガナ">
+                                                <div class="c-input__example">
+                                                    <p class="aform-input-example">メイ</p>
+                                                </div>
+                                                <div class="c-input js-form_check" data-label="氏名フリガナ　メイ">
+                                                    <!-- <input id="shimei_kana_2" class="aform-input aform-text shimei_kana_2 aform-validate" name="shimei_kana_2" type="text" size="40" title="氏名フリガナ２を入力してください"> -->
                                                     <mt:AFormFieldInput aform_id="2" parts_id="shimei_kana_2">
                                                 </div>
                                                 <!-- /.c-input -->
@@ -259,14 +275,14 @@
                                         <div class="p-form__row">
                                             <!-- 2カラムの場合に各要素を.p-form__colで囲む -->
                                             <div class="p-form__col">
+                                                <div class="c-input__example">
+                                                    <p><mt:AFormFieldInputExample aform_id="2" parts_id="zip_1"></p>
+                                                </div>
                                                 <div class="c-input">
+                                                    <!-- <input id="zip_1" class="aform-input aform-text zip_1 aform-validate" name="zip_1" type="text" size="40" title="郵便番号を入力してください"> -->
                                                     <mt:AFormFieldInput aform_id="2" parts_id="zip_1">
                                                 </div>
                                                 <!-- /.c-input -->
-                                            </div>
-                                            <!-- /.p-form__col -->
-                                            <div class="p-form__col">
-                                                <mt:AFormFieldInputExample aform_id="2" parts_id="zip_1">
                                             </div>
                                             <!-- /.p-form__col -->
                                         </div>
@@ -291,6 +307,7 @@
                                                     <div class="c-select">
                                                         <input type="hidden" id="tmp_address_1">
                                                         <mt:AFormFieldInput aform_id="2" parts_id="address_1">
+                                                        <!-- <select id="address_1" class="aform-input aform-select address_1 aform-validate" name="address_1" title="選択してください"><option value="">選択してください</option><option value="1">北海道</option><option value="2">青森県</option><option value="3">秋田県</option><option value="4">岩手県</option><option value="5">山形県</option><option value="6">宮城県</option><option value="7">福島県</option><option value="8">新潟県</option><option value="9">富山県</option><option value="10">石川県</option><option value="11">福井県</option><option value="12">長野県</option><option value="13">群馬県</option><option value="14">栃木県</option><option value="15">茨城県</option><option value="16">千葉県</option><option value="17">埼玉県</option><option value="18">東京都</option><option value="19">神奈川県</option><option value="20">山梨県</option><option value="21">静岡県</option><option value="22">愛知県</option><option value="23">岐阜県</option><option value="24">三重県</option><option value="25">滋賀県</option><option value="26">京都府</option><option value="27">大阪府</option><option value="28">奈良県</option><option value="29">和歌山県</option><option value="30">兵庫県</option><option value="31">鳥取県</option><option value="32">島根県</option><option value="33">岡山県</option><option value="34">広島県</option><option value="35">山口県</option><option value="36">香川県</option><option value="37">徳島県</option><option value="38">高知県</option><option value="39">愛媛県</option><option value="40">福岡県</option><option value="41">大分県</option><option value="42">宮崎県</option><option value="43">熊本県</option><option value="44">鹿児島県</option><option value="45">佐賀県</option><option value="46">長崎県</option><option value="47">沖縄県</option></select> -->
                                                     </div>
                                                     <!-- /.c-select -->
                                                 </div>
@@ -314,6 +331,7 @@
 
                                     <div class="p-form__cell">
                                         <div class="c-input">
+                                            <!-- <input id="address_2" class="aform-input aform-text address_2 aform-validate" name="address_2" type="text" size="40" title="市区町村を入力してください"> -->
                                             <mt:AFormFieldInput aform_id="2" parts_id="address_2">
                                         </div>
                                         <!-- /.c-input -->
@@ -333,7 +351,8 @@
 
                                     <div class="p-form__cell">
                                         <div class="c-input">
-                                        <mt:AFormFieldInput aform_id="2" parts_id="address_3">
+                                            <!-- <input id="address_3" class="aform-input aform-text address_3 aform-validate" name="address_3" type="text" size="40" title="番地以降を入力してください"> -->
+                                            <mt:AFormFieldInput aform_id="2" parts_id="address_3">
                                         </div>
                                         <!-- /.c-input -->
                                     </div>
@@ -352,6 +371,7 @@
 
                                     <div class="p-form__cell">
                                         <div class="c-input js-form_check" data-label="電話番号">
+                                            <!-- <input id="telnum" class="aform-input aform-text telnum aform-validate" name="telnum" type="text" size="40" title="電話番号を入力してください"> -->
                                             <mt:AFormFieldInput aform_id="2" parts_id="telnum">
                                         </div>
                                         <!-- /.c-input -->
@@ -374,10 +394,15 @@
                                     <!-- /.p-form__table_cell -->
 
                                     <div class="p-form__cell">
-                                        <div class="c-input">
+                                        <div class="c-input js-check-number-hyphen">
+                                            <!-- <input id="fax" class="aform-input aform-text fax aform-validate" name="fax" type="text" size="40" title="FAXを入力してください"> -->
                                             <mt:AFormFieldInput aform_id="2" parts_id="fax">
                                         </div>
                                         <!-- /.c-input -->
+                                        <div class="c-error js-error_check">
+                                            <p class="aform-error" id=""></p>
+                                        </div>
+                                        <!-- /.c-error -->
                                     </div>
                                     <!-- /.p-form__table_cell -->
                                 </div>
@@ -394,6 +419,7 @@
 
                                     <div class="p-form__cell">
                                         <div class="c-input js-form_check" data-label="E-MAIL">
+                                            <!-- <input id="mailaddress" class="aform-input aform-email mailaddress aform-validate hankaku validate-email" name="mailaddress" type="email" size="40" title="E-MAIL(英数記号のみ)を入力してください 例）foo@example.com"> -->
                                             <mt:AFormFieldInput aform_id="2" parts_id="mailaddress">
                                         </div>
                                         <!-- /.c-input -->
@@ -453,6 +479,7 @@
 
                                     <div class="p-form__cell">
                                         <div class="c-textarea js-form_check" data-label="本文">
+                                            <!-- <textarea id="content" class="aform-input aform-textarea content aform-validate" name="content" cols="40" rows="6" title="本文を入力してください"></textarea> -->
                                             <mt:AFormFieldInput aform_id="2" parts_id="content">
                                         </div>
                                         <!-- /.c-textarea -->

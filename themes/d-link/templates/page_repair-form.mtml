@@ -6,28 +6,13 @@
 </mt:SetVars>
 <mt:SetVarTemplate name="file_javascript">
 <script src="/asset/js/form_ui.min.js" defer></script>
+<script src="/asset/js/ajaxzip3.js"></script>
 <script src="/asset/js/jquery.zip2addr.js"></script>
 <script src="/asset/js/zipcode.js"></script>
 </mt:SetVarTemplate>
 <mt:Ignore>** 表示部分 **</mt:Ignore>
 <mt:Include module="html_head" parent="1" />
-<style>
-.clrblue {
-    color: #0087a9
-}
-.w30 {
-    width: 30%
-}
-.w30 input {
-    width: 50%
-}
-.d-flex {
-    display: flex
-}
-.h50 {
-    height: 50px
-}
-</style>
+<link rel="stylesheet" href="/asset/css/contact.css">
 <mt:Include module="header" parent="1" />
 <!-- ここからコンテンツ -->
 <main class="p-main">
@@ -150,7 +135,7 @@
                                                 <div class="c-input__example">
                                                     <p class="aform-input-example">姓</p>
                                                 </div>
-                                                <div class="c-input js-form_check" data-label="名前">
+                                                <div class="c-input js-form_check" data-label="名前　姓">
                                                     <mt:AFormFieldInput aform_id="1" parts_id="shimei_1">
                                                 </div>
                                                 <!-- /.c-input -->
@@ -164,7 +149,7 @@
                                                 <div class="c-input__example">
                                                     <p class="aform-input-example">名</p>
                                                 </div>
-                                                <div class="c-input js-form_check" data-label="名前">
+                                                <div class="c-input js-form_check" data-label="名前　名">
                                                     <mt:AFormFieldInput aform_id="1" parts_id="shimei_2">
                                                 </div>
                                                 <!-- /.c-input -->
@@ -610,7 +595,7 @@
                                 </div>
                                 <!-- /.p-form__cell -->
                                 <div class="p-form__cell">
-                                    <div class="c-radio js_warranty_1" data-label="D-LINKリミテッドライフタイム保証対象製品">
+                                    <div class="c-radio js_warranty_1" data-label="D-LINKリミテッドライフタイム保証対象製品か">
                                         <mt:AFormFieldInput aform_id="1" parts_id="warranty_1">
                                     </div>
                                     <!-- /.c-input -->
@@ -1784,7 +1769,7 @@
                                 </div>
                                 <!-- /.p-form__cell -->
                                 <div class="p-form__cell">
-                                    <div class="c-radio js_warranty_2" data-label="製品名">
+                                    <div class="c-radio js_warranty_2" data-label="D-LINKリミテッドライフタイム保証対象製品か">
                                         <mt:AFormFieldInput aform_id="1" parts_id="warranty_2">
                                     </div>
                                     <!-- /.c-input -->
@@ -2958,7 +2943,7 @@
                                 </div>
                                 <!-- /.p-form__cell -->
                                 <div class="p-form__cell">
-                                    <div class="c-radio js_warranty_3" data-label="製品名">
+                                    <div class="c-radio js_warranty_3" data-label="D-LINKリミテッドライフタイム保証対象製品か">
                                         <mt:AFormFieldInput aform_id="1" parts_id="warranty_3">
                                     </div>
                                     <!-- /.c-input -->
@@ -3186,7 +3171,7 @@
                                     <div class="p-form__cell">
                                         <div class="p-form__row">
                                             <div class="p-form__col">
-                                                <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_3_1">
+                                                <mt:AFormFieldInput aform_id="1" parts_id="reproducibility_3_2">
                                             </div>
                                             <!-- /.p-form__col -->
                                         </div>
@@ -4131,7 +4116,7 @@
                                 </div>
                                 <!-- /.p-form__cell -->
                                 <div class="p-form__cell">
-                                    <div class="c-radio js_warranty_4" data-label="製品名">
+                                    <div class="c-radio js_warranty_4" data-label="D-LINKリミテッドライフタイム保証対象製品か">
                                         <mt:AFormFieldInput aform_id="1" parts_id="warranty_4">
                                     </div>
                                     <!-- /.c-input -->
@@ -5304,7 +5289,7 @@
                                 </div>
                                 <!-- /.p-form__cell -->
                                 <div class="p-form__cell">
-                                    <div class="c-radio js_warranty_5" data-label="D-LINKリミテッドライフタイム保証対象製品">
+                                    <div class="c-radio js_warranty_5" data-label="D-LINKリミテッドライフタイム保証対象製品か">
                                         <mt:AFormFieldInput aform_id="1" parts_id="warranty_5">
                                     </div>
                                     <!-- /.c-input -->

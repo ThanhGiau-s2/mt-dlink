@@ -6,16 +6,13 @@
 </mt:SetVars>
 <mt:SetVarTemplate name="file_javascript">
 <script src="/asset/js/form_ui.min.js" defer></script>
+<script src="/asset/js/ajaxzip3.js"></script>
 <script src="/asset/js/jquery.zip2addr.js"></script>
 <script src="/asset/js/zipcode.js"></script>
 </mt:SetVarTemplate>
 <mt:Ignore>** 表示部分 **</mt:Ignore>
 <mt:Include module="html_head" parent="1" />
-<style>
-.d-flex {
-    display: flex
-}
-</style>
+<link rel="stylesheet" href="/asset/css/contact.css">
 <mt:Include module="header" parent="1" />
 <!-- ここからコンテンツ -->
 <main class="p-main">
@@ -48,13 +45,17 @@
                         <!-- /.c-content_heading -->
 
                         <div class="c-content_box">
-                            <p>ディーリンクジャパンでは、弊社の認定パートナー様経由で販売させていただいた製品のみサポートを行っております。海外からの並行輸入品については、サポートの対象外となります。日本国以外から購入されたD-Link製品は、購入された国の保証規定により、保証責任を履行いたします。購入された国のD-Link Webサイトをご確認ください。</p>
+                            <p>製品保証や有償保守サービスに関するお問い合わせ、広告/取材関連に関するお問い合わせ、およびその他のお問い合わせについては、以下のフォームよりお問い合わせください。</p>
                         </div>
                         <!-- /.c-content_box -->
                     </div>
                     <!-- /.p-form_content__block -->
                     <!-- お客さま種別 -->
                     <div class="p-form_content__block">
+                        <div class="c-middle_heading">
+                            <h3 class="c-middle_heading__text">お客さま種別</h3>
+                        </div>
+                        <!-- /.c-middle_heading -->
                         <div class="p-form_content__box">
                             <div class="p-form_choice">
                                 <div class="p-form_choice__between">
@@ -162,7 +163,10 @@
                                         <div class="p-form__row">
                                             <!-- 2カラムの場合に各要素を.p-form__colで囲む -->
                                             <div class="p-form__col">
-                                                <div class="c-input js-form_check" data-label="氏名">
+                                                <div class="c-input__example">
+                                                    <p class="aform-input-example">姓</p>
+                                                </div>
+                                                <div class="c-input js-form_check" data-label="氏名　姓">
                                                     <mt:AFormFieldInput aform_id="6" parts_id="shimei_1">
                                                 </div>
                                                 <!-- /.c-input -->
@@ -174,7 +178,10 @@
                                             <!-- /.p-form__col -->
                                             <!-- 2カラムの場合に各要素を.p-form__colで囲む -->
                                             <div class="p-form__col">
-                                                <div class="c-input js-form_check" data-label="氏名">
+                                                <div class="c-input__example">
+                                                    <p class="aform-input-example">名</p>
+                                                </div>
+                                                <div class="c-input js-form_check" data-label="氏名　名">
                                                     <mt:AFormFieldInput aform_id="6" parts_id="shimei_2">
                                                 </div>
                                                 <!-- /.c-input -->
@@ -205,7 +212,10 @@
                                         <div class="p-form__row">
                                             <!-- 2カラムの場合に各要素を.p-form__colで囲む -->
                                             <div class="p-form__col">
-                                                <div class="c-input js-form_check" data-label="氏名フリガナ">
+                                                <div class="c-input__example">
+                                                    <p class="aform-input-example">セイ</p>
+                                                </div>
+                                                <div class="c-input js-form_check" data-label="氏名フリガナ　セイ">
                                                     <mt:AFormFieldInput aform_id="6" parts_id="shimei_kana_1">
                                                 </div>
                                                 <!-- /.c-input -->
@@ -217,7 +227,10 @@
                                             <!-- /.p-form__col -->
                                             <!-- 2カラムの場合に各要素を.p-form__colで囲む -->
                                             <div class="p-form__col">
-                                                <div class="c-input js-form_check" data-label="氏名フリガナ">
+                                                <div class="c-input__example">
+                                                    <p class="aform-input-example">メイ</p>
+                                                </div>
+                                                <div class="c-input js-form_check" data-label="氏名フリガナ　メイ">
                                                     <mt:AFormFieldInput aform_id="6" parts_id="shimei_kana_2">
                                                 </div>
                                                 <!-- /.c-input -->
@@ -248,14 +261,13 @@
                                         <div class="p-form__row">
                                             <!-- 2カラムの場合に各要素を.p-form__colで囲む -->
                                             <div class="p-form__col">
+                                                <div class="c-input__example">
+                                                    <p><mt:AFormFieldInputExample aform_id="6" parts_id="zip_1"></p>
+                                                </div>
                                                 <div class="c-input">
                                                     <mt:AFormFieldInput aform_id="6" parts_id="zip_1">
                                                 </div>
                                                 <!-- /.c-input -->
-                                            </div>
-                                            <!-- /.p-form__col -->
-                                            <div class="p-form__col">
-                                                <mt:AFormFieldInputExample aform_id="6" parts_id="zip_1">
                                             </div>
                                             <!-- /.p-form__col -->
                                         </div>
@@ -364,10 +376,14 @@
                                     <!-- /.p-form__table_cell -->
 
                                     <div class="p-form__cell">
-                                        <div class="c-input">
+                                        <div class="c-input js-check-number-hyphen">
                                             <mt:AFormFieldInput aform_id="6" parts_id="fax">
                                         </div>
                                         <!-- /.c-input -->
+                                        <div class="c-error js-error_check">
+                                            <p class="aform-error" id=""></p>
+                                        </div>
+                                        <!-- /.c-error -->
                                     </div>
                                     <!-- /.p-form__table_cell -->
                                 </div>

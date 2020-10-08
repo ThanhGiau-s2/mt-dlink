@@ -6,22 +6,12 @@
 </mt:SetVars>
 <mt:SetVarTemplate name="file_javascript">
 <script src="/asset/js/form_ui.min.js" defer></script>
+<script src="/asset/js/ajaxzip3.js"></script>
 <script src="/asset/js/jquery.zip2addr.js"></script>
 <script src="/asset/js/zipcode.js"></script>
 </mt:SetVarTemplate>
 <mt:Ignore>** 表示部分 **</mt:Ignore>
 <mt:Include module="html_head" parent="1" />
-<style>
-.d-flex {
-    display: flex
-}
-.w30 {
-  width: 30%
-}
-.w30 input {
-  width: 100%
-}
-</style>
 <link rel="stylesheet" href="/asset/css/contact.css">
 <mt:Include module="header" parent="1" />
 <!-- ここからコンテンツ -->
@@ -61,39 +51,31 @@
             </div>
             <!-- /.c-content_heading -->
 
-            <div class="p-form_choice">
-              <div class="p-form_choice__label mb38">
-                <p>当社＊1は貴社製品を輸出する際に以下の事項を遵守します。</p>
+            <div class="c-content_box">
+              <p class="u-fw_bold u-fz_16">当社＊1は貴社製品を輸出する際に以下の事項を遵守します。</p>
+              <ol>
+                <li class="c-notice"><span class="c-notice__bullet">1．</span>当社は、外国為替および外国貿易法に定める製品を輸出または国外へ提供する場合は、「外国為替及び外国貿易法」を含む日本政府および外国政府の輸出関連法規を厳密に遵守することに同意し、必要とされるすべての手続きを自己の責任と費用で行うこととします。</li>
+                <li class="c-notice"><span class="c-notice__bullet">2．</span>該当製品を核兵器、ミサイル、化学兵器、生物兵器またはその他武器並びにこれらの製造装置等に一切使用しません。</li>
+                <li class="c-notice"><span class="c-notice__bullet">3．</span>該当製品は日本国内仕様であり、日本国外においては製品保証および品質保証の対象外になり、製品サポートおよび修理など一切のサービスが受けられないいことに同意します。</li>
+                <li class="c-notice"><span class="c-notice__bullet">4．</span>当社の輸出等に関して派生した問題については、全て当社の責任において処理します。</li>
+              </ol>
+              <div class="p-form_content__box mb18 mt20">
+                <p>＊1「当社」とは申請者を表します</p>
               </div>
-              <!-- /.p-form_choice__label -->
-              <div class="p-form_content__block">
-                <div class="p-form_content__box mb18">
-                  <p>1．当社は、外国為替および外国貿易法に定める製品を輸出または国外へ提供する場合は、「外国為替及び外国貿易法」を含む日本政府および外国政府の輸出関連法規を厳密に遵守することに同意し、必要とされるすべての手続きを自己の責任と費用で行うこととします。</p>
-                  <p>2．該当製品を核兵器、ミサイル、化学兵器、生物兵器またはその他武器並びにこれらの製造装置等に一切使用しません。</p>
-                  <p>3．該当製品は日本国内仕様であり、日本国外においては製品保証および品質保証の対象外になり、製品サポートおよび修理など一切のサービスが受けられないいことに同意します。</p>
-                  <p>4．当社の輸出等に関して派生した問題については、全て当社の責任において処理します。</p>
+              <!-- /.p-form_content__box -->
+              <div class="p-form_privacy__check">
+                <div class="c-check d-flex js-legal_compliance" data-label="輸出管理にかかる法令遵守のご誓約に同意して">
+                  <mt:AFormFieldInput aform_id="4" parts_id="legal_compliance">
+                  <div><span class="p-form_privacy__required">必須</span></div>
                 </div>
-                <!-- /.p-form_content__box -->
-                <div class="p-form_content__box mb18">
-                  <p>＊1「当社」とは申請者を表します</p>
+                <!-- /.c-check -->
+                <div class="c-error js-error_check">
+                  <p class="aform-error" id=""></p>
                 </div>
-                <!-- /.p-form_content__box -->
-                <div class="p-form_privacy__check">
-                  <div class="c-check d-flex js-legal_compliance" data-label="輸出管理にかかる法令遵守のご誓約に同意して">
-                    <mt:AFormFieldInput aform_id="4" parts_id="legal_compliance">
-                    <div><span class="p-form_privacy__required">必須</span></div>
-                  </div>
-                  <!-- /.c-check -->
-                  <div class="c-error js-error_check">
-                    <p class="aform-error" id=""></p>
-                  </div>
-                  <!-- /.c-error -->
-                </div>
-                <!-- /.p-form_privacy__check -->
+                <!-- /.c-error -->
               </div>
-              <!-- /.p-form_content__block -->
+              <!-- /.p-form_privacy__check -->
             </div>
-            <!-- /.p-form_choice -->
           </div>
           <!-- end 輸出管理にかかる法令遵守のご誓約 -->
           <!-- 非該当証明書発行依頼 -->
@@ -114,44 +96,38 @@
                   </div>
                   <!-- /.p-form__table_cell -->
                   <div class="p-form__cell">
-                    <div class="p-form_choice__flex d-flex">
-                      <div class="w30 d-flex">
-                        <div>
-                          <div class="c-input js-form_check" data-label="年">
-                            <mt:AFormFieldInput aform_id="4" parts_id="issuedate_year">
-                          </div>
-                          <div class="c-error js-error_check">
-                            <p class="aform-error" id=""></p>
-                          </div>
+                    <div class="d-flex">
+                      <div class="inputw80">
+                        <div class="c-input js-form_check" data-label="年">
+                          <mt:AFormFieldInput aform_id="4" parts_id="issuedate_year">
+                          <span class="ml15"><mt:AFormFieldLabel aform_id="4" parts_id="issuedate_year"></span>
                         </div>
-                        <div><mt:AFormFieldLabel aform_id="4" parts_id="issuedate_year"></div>
+                        <div class="c-error js-error_check">
+                          <p class="aform-error" id=""></p>
+                        </div>
                       </div>
-                      <div class="w30 d-flex">
-                        <div>
-                          <div class="c-input js-form_check" data-label="月">
-                            <mt:AFormFieldInput aform_id="4" parts_id="issuedate_month">
-                          </div>
-                          <div class="c-error js-error_check">
-                            <p class="aform-error" id=""></p>
-                          </div>
-                          <!-- /.c-error -->
+                      <div class="inputw80">
+                        <div class="c-input js-form_check" data-label="月">
+                          <mt:AFormFieldInput aform_id="4" parts_id="issuedate_month">
+                          <span class="ml15"><mt:AFormFieldLabel aform_id="4" parts_id="issuedate_month"></span>
                         </div>
-                        <div><mt:AFormFieldLabel aform_id="4" parts_id="issuedate_month"></div>
+                        <div class="c-error js-error_check">
+                          <p class="aform-error" id=""></p>
+                        </div>
+                        <!-- /.c-error -->
                       </div>
-                      <div class="w30 d-flex">
-                        <div>
-                          <div class="c-input js-form_check" data-label="日">
-                            <mt:AFormFieldInput aform_id="4" parts_id="issuedate_day">
-                          </div>
-                          <div class="c-error js-error_check">
-                            <p class="aform-error" id=""></p>
-                          </div>
-                          <!-- /.c-error -->
+                      <div class="inputw80">
+                        <div class="c-input js-form_check" data-label="日">
+                          <mt:AFormFieldInput aform_id="4" parts_id="issuedate_day">
+                          <span class="ml15"><mt:AFormFieldLabel aform_id="4" parts_id="issuedate_day"></span>
                         </div>
-                        <div><mt:AFormFieldLabel aform_id="4" parts_id="issuedate_day"></div>
+                        <div class="c-error js-error_check">
+                          <p class="aform-error" id=""></p>
+                        </div>
+                        <!-- /.c-error -->
                       </div>
                     </div>
-                    <!-- /.p-form_choice__flex -->
+                    <!-- /.d-flex -->
                   </div>
                   <!-- /.p-form__table_cell -->
                 </div>
@@ -233,6 +209,9 @@
                   <div class="p-form__cell">
                     <div class="p-form__row">
                         <div class="p-form__col">
+                            <div class="c-input__example">
+                              <p><mt:AFormFieldInputExample aform_id="4" parts_id="zip_1"></p>
+                            </div>
                             <div class="c-input js-form_check" data-label="郵便番号">
                               <mt:AFormFieldInput aform_id="4" parts_id="zip_1">
                             </div>
@@ -240,10 +219,6 @@
                               <p class="aform-error" id=""></p>
                             </div>
                             <!-- /.c-error -->
-                        </div>
-                        <!-- /.p-form__col -->
-                        <div class="p-form__col">
-                        <p>記入例：123-4567</p>
                         </div>
                         <!-- /.p-form__col -->
                     </div>
@@ -369,7 +344,10 @@
                     <div class="p-form__row">
                       <!-- 2カラムの場合に各要素を.p-form__colで囲む -->
                       <div class="p-form__col">
-                        <div class="c-input js-form_check" data-label="ご担当者氏名">
+                        <div class="c-input__example">
+                          <p class="aform-input-example">姓</p>
+                        </div>
+                        <div class="c-input js-form_check" data-label="ご担当者氏名　姓">
                           <mt:AFormFieldInput aform_id="4" parts_id="shimei_1">
                         </div>
                         <!-- /.c-input -->
@@ -382,7 +360,10 @@
 
                       <!-- 2カラムの場合に各要素を.p-form__colで囲む -->
                       <div class="p-form__col">
-                        <div class="c-input js-form_check" data-label="ご担当者氏名">
+                        <div class="c-input__example">
+                          <p class="aform-input-example">名</p>
+                        </div>
+                        <div class="c-input js-form_check" data-label="ご担当者氏名　名">
                           <mt:AFormFieldInput aform_id="4" parts_id="shimei_2">
                         </div>
                         <!-- /.c-input -->
@@ -462,6 +443,7 @@
                 <mt:AFormFieldInput aform_id="4" parts_id="use"><span class="required">必須</span>
               </div>
               <!-- /.p-form_choice__between -->
+              <p class="mbt1em">※社内管理用は、輸出先未定の場合や通関以外の社内資料等でご利用の場合。</p>
               <div class="c-error js-error_check">
                 <p class="aform-error" id=""></p>
               </div>
@@ -563,6 +545,9 @@
                   <div class="p-form__cell">
                     <div class="p-form__row">
                         <div class="p-form__col">
+                            <div class="c-input__example">
+                              <p><mt:AFormFieldInputExample aform_id="4" parts_id="zip_2"></p>
+                            </div>
                             <div class="c-input js-form_check" data-label="郵便番号">
                               <mt:AFormFieldInput aform_id="4" parts_id="zip_2">
                             </div>
@@ -570,10 +555,6 @@
                               <p class="aform-error" id=""></p>
                             </div>
                             <!-- /.c-error -->
-                        </div>
-                        <!-- /.p-form__col -->
-                        <div class="p-form__col">
-                        <p>記入例：123-4567</p>
                         </div>
                         <!-- /.p-form__col -->
                     </div>
@@ -732,7 +713,7 @@
                   <!-- /.p-form__cell -->
 
                   <div class="p-form__cell">
-                    <div class="p-form_choice__flex input-flex custom-flex">
+                    <div class="p-form_choice__flex custom-flex">
                       <mt:AFormFieldLabel aform_id="4" parts_id="modelnumber_1">
                       <mt:AFormFieldInput aform_id="4" parts_id="modelnumber_1">
 
@@ -756,7 +737,7 @@
                   <!-- /.p-form__cell -->
 
                   <div class="p-form__cell">
-                    <div class="p-form_choice__flex input-flex custom-flex">
+                    <div class="p-form_choice__flex custom-flex">
                       <mt:AFormFieldLabel aform_id="4" parts_id="modelnumber_2">
                       <mt:AFormFieldInput aform_id="4" parts_id="modelnumber_2">
 
@@ -780,7 +761,7 @@
                   <!-- /.p-form__cell -->
 
                   <div class="p-form__cell">
-                    <div class="p-form_choice__flex input-flex custom-flex">
+                    <div class="p-form_choice__flex custom-flex">
                       <mt:AFormFieldLabel aform_id="4" parts_id="modelnumber_3">
                       <mt:AFormFieldInput aform_id="4" parts_id="modelnumber_3">
 
@@ -804,7 +785,7 @@
                   <!-- /.p-form__cell -->
 
                   <div class="p-form__cell">
-                    <div class="p-form_choice__flex input-flex custom-flex">
+                    <div class="p-form_choice__flex custom-flex">
                       <mt:AFormFieldLabel aform_id="4" parts_id="modelnumber_4">
                       <mt:AFormFieldInput aform_id="4" parts_id="modelnumber_4">
 
@@ -828,7 +809,7 @@
                   <!-- /.p-form__cell -->
 
                   <div class="p-form__cell">
-                    <div class="p-form_choice__flex input-flex custom-flex">
+                    <div class="p-form_choice__flex custom-flex">
                       <mt:AFormFieldLabel aform_id="4" parts_id="modelnumber_5">
                       <mt:AFormFieldInput aform_id="4" parts_id="modelnumber_5">
 

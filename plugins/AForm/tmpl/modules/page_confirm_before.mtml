@@ -7,6 +7,7 @@
 <mt:SetVarTemplate name="file_javascript">
 <script src="/asset/js/slick.min.js"></script>
 <script src="/asset/js/top.min.js" defer></script>
+<script src="/asset/js/confirm-before.js" defer></script>
 </mt:SetVarTemplate>
 <mt:Ignore>** 表示部分 **</mt:Ignore>
 <mt:include name="modules/html_head.mtml" component="AForm">
@@ -26,15 +27,7 @@
                 <h1 class="c-title__text">購入前のお問い合わせ</h1>
             </div>
             <!-- /.c-title -->
-            <form name="aform-form-2" id="aform-form-2" action="/contact/aform_engine.cgi" method="POST" novalidate="novalidate" enctype="multipart/form-data">
-                <input type="hidden" name="blog_id" value="<$mt:var name="blog_id"$>" />
-                <input type="hidden" name="id" value="<$mt:var name="id"$>" />
-                <input type="hidden" name="run_mode" value="complete" />
-                <input type="hidden" id="use_js" name="use_js" value="" />
-                <input type="hidden" name="aform_url" value="<mt:var name="aform_url" escape="html">" />
-                <input type="hidden" name="aform_path" value="<mt:var name="aform_path" escape="html">" />
-                <input type="hidden" name="authenticity_token" value="<mt:var name="authenticity_token" escape="html">" />
-                <input type="hidden" name="entry_id" value="<mt:var name="entry_id" escape="html">" />
+            <form name="aform-form-2" id="aform-form-2" action="https://go.dlink-jp.com/l/553122/2020-10-05/3z9px1j" method="POST" novalidate="novalidate">
                 <mt:var name="hidden_params">
                 <mt:AFormFieldConfirmAll aform_id="<$mt:var name="id"$>"
                     prefix="<dl class="dl_%%parts_id%%">"
@@ -44,6 +37,25 @@
                     label_suffix="</dt>"
                     data_prefix="<dd>"
                     data_suffix="</dd>">
+                    
+                    <input type="hidden" name="show_media" value="">
+                    <input type="hidden" name="about_contact" value="">
+                    <input type="hidden" name="houjin_mei" value="">
+                    <input type="hidden" name="busho_mei" value="">
+                    <input type="hidden" name="yakushoku" value="">
+                    <input type="hidden" name="shimei_1" value="">
+                    <input type="hidden" name="shimei_2" value="">
+                    <input type="hidden" name="shimei_kana_1" value="">
+                    <input type="hidden" name="shimei_kana_2" value="">
+                    <input type="hidden" name="zip_1" value="">
+                    <input type="hidden" name="address_1" value="">
+                    <input type="hidden" name="address_2" value="">
+                    <input type="hidden" name="address_3" value="">
+                    <input type="hidden" name="telnum" value="">
+                    <input type="hidden" name="fax" value="">
+                    <input type="hidden" name="mailaddress" value="">
+                    <input type="hidden" name="content" value="">   
+                    
                 <div id="form_app" class="p-form_content">
                     <div class="p-form_content__block">
                         <div class="c-content_heading">
@@ -81,10 +93,6 @@
                         <!-- /.c-middle_heading -->
                         <div class="p-form_choice">
                             <div class="p-form_content__block">
-                                <div class="p-form_choice__label">
-                                    <mt:AFormFieldLabel aform_id="2" parts_id="about_contact">
-                                </div>
-                                <!-- /.p-form_choice__label -->
                                 <div class="p-form_choice__flex">
                                     <mt:AFormFieldConfirm aform_id="2" parts_id="about_contact">
                                 </div>

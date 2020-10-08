@@ -7,6 +7,7 @@
 <mt:SetVarTemplate name="file_javascript">
 <script src="/asset/js/slick.min.js"></script>
 <script src="/asset/js/top.min.js" defer></script>
+<script src="/asset/js/confirm-after.js" defer></script>
 </mt:SetVarTemplate>
 <mt:Ignore>** 表示部分 **</mt:Ignore>
 <mt:include name="modules/html_head.mtml" component="AForm">
@@ -29,15 +30,7 @@
             </div>
             <!-- /.c-title -->
 
-            <form name="aform-form-3" id="aform-form-3" action="/contact/aform_engine.cgi" method="POST" novalidate="novalidate" enctype="multipart/form-data">
-                <input type="hidden" name="blog_id" value="<$mt:var name="blog_id"$>" />
-                <input type="hidden" name="id" value="<$mt:var name="id"$>" />
-                <input type="hidden" name="run_mode" value="complete" />
-                <input type="hidden" id="use_js" name="use_js" value="" />
-                <input type="hidden" name="aform_url" value="<mt:var name="aform_url" escape="html">" />
-                <input type="hidden" name="aform_path" value="<mt:var name="aform_path" escape="html">" />
-                <input type="hidden" name="authenticity_token" value="<mt:var name="authenticity_token" escape="html">" />
-                <input type="hidden" name="entry_id" value="<mt:var name="entry_id" escape="html">" />
+            <form name="aform-form-3" id="aform-form-3" action="https://go.dlink-jp.com/l/553122/2020-10-06/3z9qj1n" method="POST" novalidate="novalidate">
                 <mt:var name="hidden_params">
                 <mt:AFormFieldConfirmAll aform_id="<$mt:var name="id"$>"
                     prefix="<dl class="dl_%%parts_id%%">"
@@ -47,35 +40,25 @@
                     label_suffix="</dt>"
                     data_prefix="<dd>"
                     data_suffix="</dd>">
+                    
+                    <input type="hidden" name="bunrui" value="">
+                    <input type="hidden" name="houjin_mei" value="">
+                    <input type="hidden" name="busho_mei" value="">
+                    <input type="hidden" name="yakushoku" value="">
+                    <input type="hidden" name="shimei_1" value="">
+                    <input type="hidden" name="shimei_2" value="">
+                    <input type="hidden" name="shimei_kana_1" value="">
+                    <input type="hidden" name="shimei_kana_2" value="">
+                    <input type="hidden" name="zip_1" value="">
+                    <input type="hidden" name="address_1" value="">
+                    <input type="hidden" name="address_2" value="">
+                    <input type="hidden" name="address_3" value="">
+                    <input type="hidden" name="telnum" value="">
+                    <input type="hidden" name="fax" value="">
+                    <input type="hidden" name="mailaddress" value="">
+                    <input type="hidden" name="content" value="">    
+                    
                 <div id="form_app" class="p-form_content">
-                    <div class="p-form_content__block">
-                        <div class="c-content_heading">
-                            <h2 class="c-content_heading__text">弊社製品のお問い合わせについて</h2>
-                        </div>
-                        <!-- /.c-content_heading -->
-
-                        <div class="c-content_box">
-                            <p>ディーリンクジャパンでは、弊社の認定パートナー様経由で販売させていただいた製品のみサポートを行っております。海外からの並行輸入品については、サポートの対象外となります。日本国以外から購入されたD-Link製品は、購入された国の保証規定により、保証責任を履行いたします。購入された国のD-Link Webサイトをご確認ください。</p>
-                        </div>
-                        <!-- /.c-content_box -->
-
-                        <div class="p-rectangle">
-                            <div class="p-rectangle__inner">
-                                <div class="p-rectangle__text">
-                                    <p>お問い合わせいただく前に、<br class="u-show_sp">お困りごと解決に役立つ<br class="u-show_sp">よくあるご質問をご利用ください。</p>
-                                </div>
-                                <!-- /.p-rectangle__text -->
-                                <div class="p-rectangle__button">
-                                    <a href="/support/faq/">よくあるご質問</a>
-                                </div>
-                                <!-- /.p-rectangle__button -->
-                            </div>
-                            <!-- /.p-rectangle__inner -->
-                        </div>
-                        <!-- /.p-rectangle -->
-                    </div>
-                    <!-- /.p-form_content__block -->
-
                     <div class="p-form_content__block">
                         <div class="c-middle_heading">
                             <h3 class="c-middle_heading__text">お問い合わせ内容分類</h3>
@@ -481,10 +464,10 @@
                     <!-- /.p-form__table_cell -->
 
                     <div class="p-form__cell--confirm">
-                    <mt:AFormFieldConfirm aform_id="3" parts_id="file_data_1">
-                    <mt:AFormFieldConfirm aform_id="3" parts_id="file_data_2">
-                    <mt:AFormFieldConfirm aform_id="3" parts_id="file_data_3">
-                    <mt:AFormFieldConfirm aform_id="3" parts_id="file_data_4">
+                        <p><mt:AFormFieldConfirm aform_id="3" parts_id="file_data_1"></p>
+                        <p><mt:AFormFieldConfirm aform_id="3" parts_id="file_data_2"></p>
+                        <p><mt:AFormFieldConfirm aform_id="3" parts_id="file_data_3"></p>
+                        <p><mt:AFormFieldConfirm aform_id="3" parts_id="file_data_4"></p>
                     </div>
                     <!-- /.p-form__table_cell -->
                     </div>
