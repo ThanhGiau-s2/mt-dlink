@@ -1,0 +1,740 @@
+<mt:SetVars>
+    <mt:subcategories category="製品情報" setvar="subcate"><mt:CategoryBasename></mt:subcategories>
+    <mt:EntryAdditionalCategories><mt:CategoryBasename setvar="cate_base"><mt:if name="subcate" like="$cate_base"><mt:CategoryBasename setvar="basename"><mt:CategoryLabel setvar="label"></mt:if></mt:EntryAdditionalCategories>
+    base_description=ディスクリプション
+    og_title=<mt:EntryTitle>|<mt:getvar name="label">|製品情報 | D-Link Japan
+    og_url=https://www.dlink-jp.com/product/switch/
+    og_type=article
+</mt:SetVars>
+<mt:SetVarTemplate name="file_javascript">
+<script src="/asset/js/vue.min.js"></script>
+<script src="/asset/js/product_switch_compare.min.js" defer></script>
+</mt:SetVarTemplate>
+<mt:Ignore>** 表示部分 **</mt:Ignore>
+<mt:Include module="html_head" parent="1" />
+<mt:Include module="header" parent="1" />
+<!-- ここからコンテンツ -->
+<main class="p-main">
+    <div class="c-breadcrumb">
+        <ul class="c-breadcrumb__list">
+            <li><a href="/">HOME</a></li>
+            <li><a href="/product/">製品情報</a></li>
+            <li><a href="/product/<mt:getvar name="basename">/"><mt:getvar name="label"></a></li>
+            <li><span><mt:EntryTitle></span></li>
+        </ul>
+    </div>
+    <!-- /.c-breadcrumb -->
+    <section id="compare_app" class="l-outer--lower">
+        <div class="l-inner">
+            <div class="p-product_main">
+                <div class="p-product_main__header">
+                    <p class="p-product_main__series"><mt:EntryDataSeriesMiddlecatText></p>
+                    <div class="p-product_main__title">
+                        <h1 class="p-product_main__name"><mt:EntryTitle></h1>
+                    </div>
+                    <!-- /.p-product_main__title -->
+                    <div class="p-product_main__image">
+                        <MTIfNonEmpty tag="EntryDataSeriesDetailMainImg">
+                        <mt:EntryDataSeriesImgasset>
+                            <img src="<mt:AssetURL>" alt="<mt:EntryTitle>">
+                        </mt:EntryDataSeriesImgasset>
+                        <mt:else>
+                            <img src="/asset/img/product/alternative_image.jpg" alt="<mt:EntryTitle>">
+                        </MTIfNonEmpty>
+                    </div>
+                    <!-- /.p-product_main__image -->
+                </div>
+                <!-- /.p-product_main__header -->
+
+                <div class="p-product_main__body">
+                    <div class="p-specification">
+                        <div class="p-specification__block">
+                            <ul class="p-specification__main">
+                                <mt:EntryDataSeriesFeatureAreaTagtext replace="$","<li>">
+                            </ul>
+                        </div>
+                        <!-- /.p-specification__block -->
+                        <mt:if tag="EntryDataSeriesTypeTagtext">
+                            <div class="p-specification__block">
+                                <h2 class="p-specification__heading">製品タイプラインナップ</h2>
+                                <ul class="p-specification__col4">
+                                    <mt:EntryDataSeriesTypeTagtext replace="$","<li>">
+                                </ul>
+                            </div>
+                            <!-- /.p-specification__block -->
+                        </mt:if>
+                        <mt:if tag="EntryDataSeriesType02Tagtext">
+                        <div class="p-specification__block">
+                            <h2 class="p-specification__heading"><mt:EntryDataSeriesType02Title></h2>
+                            <ul class="p-specification__col6">
+                                <mt:EntryDataSeriesType02Tagtext replace="$","<li>">
+                            </ul>
+                        </div>
+                        <!-- /.p-specification__block -->
+                        </mt:if>
+                        <mt:if tag="EntryDataSeriesSoftwareTagtext">
+                        <div class="p-specification__block">
+                            <h2 class="p-specification__heading">ソフトウェア機能</h2>
+                            <ul class="p-specification__sub">
+                                <mt:EntryDataSeriesSoftwareTagtext replace="$","<li>">
+                            </ul>
+                        </div>
+                        <!-- /.p-specification__block -->
+                        </mt:if>
+                        <div class="c-content_box u-mt10">
+                        <ul class="c-list--notice">
+                        <li><mt:EntryDataSeriesDescription></li>
+                        </ul>
+                        </div>
+                        <!-- /.c-content_box -->
+                        <ul class="p-specification__notice">
+                            <li><span>※</span>品番により対応/非対応があります。詳細は各品番ページでご確認ください。</li>
+                        </ul>
+                    </div>
+                    <!-- /.p-specification -->
+                </div>
+                <!-- /.p-product_main__body -->
+            </div>
+            <!-- /.p-product_main -->
+
+            <div class="l-container">
+                <div class="l-container__block">
+                    <div class="l-container__slot">
+                        <ul class="p-accordion_list">
+                            <li>
+                                <button class="js-accordion_list_toggle">特長</button>
+                                <div class="p-accordion_list__child js-accordion_list_child">
+                                    <div class="p-accordion_list__content">
+                                        <div class="l-container">
+                                            <!-- 01 -->
+                                            <div class="l-container__block">
+                                                <mt:if tag="EntryDataSeriesFeatureTitle01">
+                                                    <div class="c-middle_heading">
+                                                        <h3 class="c-middle_heading__text"><mt:EntryDataSeriesFeatureTitle01></h3>
+                                                    </div>
+                                                    <!-- /.c-middle_heading -->
+                                                </mt:if>
+                                                <mt:if tag="EntryDataSeriesFeatureText01">
+                                                <div class="l-container__slot">
+                                                    <div class="c-content_box">
+                                                        <p><mt:EntryDataSeriesFeatureText01></p>
+                                                    </div>
+                                                    <!-- /.c-content_box -->
+                                                </div>
+                                                <!-- /.l-container__slot -->
+                                                </mt:if>
+                                                <mt:if tag="EntryDataSeriesFeatureImg01">
+                                                <div class="l-container__slot">
+                                                    <div class="p-photo">
+                                                        <div class="p-photo__img">
+                                                            <mt:EntryDataSeriesFeatureImg01Asset>
+                                                                <img src="<mt:AssetURL>" alt="<mt:EntryDataSeriesFeatureTitle01>">
+                                                            </mt:EntryDataSeriesFeatureImg01Asset>
+                                                        </div>
+                                                        <!-- /.p-photo__img -->
+                                                    </div>
+                                                    <!-- /.p-photo -->
+                                                </div>
+                                                <!-- /.l-container__slot -->
+                                                </mt:if>
+                                            </div>
+                                            <!-- /.l-container__block -->
+                                            <!-- 02 -->
+                                            <div class="l-container__block">
+                                                <mt:if tag="EntryDataSeriesFeatureTitle02">
+                                                    <div class="c-middle_heading">
+                                                        <h3 class="c-middle_heading__text"><mt:EntryDataSeriesFeatureTitle02></h3>
+                                                    </div>
+                                                    <!-- /.c-middle_heading -->
+                                                </mt:if>
+                                                <mt:if tag="EntryDataSeriesFeatureText02">
+                                                <div class="l-container__slot">
+                                                    <div class="c-content_box">
+                                                        <p><mt:EntryDataSeriesFeatureText02></p>
+                                                    </div>
+                                                    <!-- /.c-content_box -->
+                                                </div>
+                                                <!-- /.l-container__slot -->
+                                                </mt:if>
+                                                <mt:if tag="EntryDataSeriesFeatureImg02">
+                                                <div class="l-container__slot">
+                                                    <div class="p-photo">
+                                                        <div class="p-photo__img">
+                                                            <mt:EntryDataSeriesFeatureImg02Asset>
+                                                                <img src="<mt:AssetURL>" alt="<mt:EntryDataSeriesFeatureTitle02>">
+                                                            </mt:EntryDataSeriesFeatureImg02Asset>
+                                                        </div>
+                                                        <!-- /.p-photo__img -->
+                                                    </div>
+                                                    <!-- /.p-photo -->
+                                                </div>
+                                                <!-- /.l-container__slot -->
+                                                </mt:if>
+                                            </div>
+                                            <!-- /.l-container__block -->
+                                            <!-- 03 -->
+                                            <div class="l-container__block">
+                                                <mt:if tag="EntryDataSeriesFeatureTitle03">
+                                                    <div class="c-middle_heading">
+                                                        <h3 class="c-middle_heading__text"><mt:EntryDataSeriesFeatureTitle03></h3>
+                                                    </div>
+                                                    <!-- /.c-middle_heading -->
+                                                </mt:if>
+                                                <mt:if tag="EntryDataSeriesFeatureText03">
+                                                <div class="l-container__slot">
+                                                    <div class="c-content_box">
+                                                        <p><mt:EntryDataSeriesFeatureText03></p>
+                                                    </div>
+                                                    <!-- /.c-content_box -->
+                                                </div>
+                                                <!-- /.l-container__slot -->
+                                                </mt:if>
+                                                <mt:if tag="EntryDataSeriesFeatureImg03">
+                                                <div class="l-container__slot">
+                                                    <div class="p-photo">
+                                                        <div class="p-photo__img">
+                                                            
+                                                                <mt:EntryDataSeriesFeatureImg03Asset>
+                                                                    <img src="<mt:AssetURL>" alt="<mt:EntryDataSeriesFeatureTitle03>">
+                                                                </mt:EntryDataSeriesFeatureImg03Asset>
+                                                           
+                                                        </div>
+                                                        <!-- /.p-photo__img -->
+                                                    </div>
+                                                    <!-- /.p-photo -->
+                                                </div>
+                                                <!-- /.l-container__slot -->
+                                                </mt:if>
+                                            </div>
+                                            <!-- /.l-container__block -->
+                                            <!-- 04 -->
+                                            <div class="l-container__block">
+                                                <mt:if tag="EntryDataSeriesFeatureTitle04">
+                                                    <div class="c-middle_heading">
+                                                        <h3 class="c-middle_heading__text"><mt:EntryDataSeriesFeatureTitle04></h3>
+                                                    </div>
+                                                    <!-- /.c-middle_heading -->
+                                                </mt:if>
+                                                <mt:if tag="EntryDataSeriesFeatureText04">
+                                                <div class="l-container__slot">
+                                                    <div class="c-content_box">
+                                                        <p><mt:EntryDataSeriesFeatureText04></p>
+                                                    </div>
+                                                    <!-- /.c-content_box -->
+                                                </div>
+                                                <!-- /.l-container__slot -->
+                                                </mt:if>
+                                                <mt:if tag="EntryDataSeriesFeatureImg04">
+                                                <div class="l-container__slot">
+                                                    <div class="p-photo">
+                                                        <div class="p-photo__img">
+                                                            
+                                                                <mt:EntryDataSeriesFeatureImg04Asset>
+                                                                    <img src="<mt:AssetURL>" alt="<mt:EntryDataSeriesFeatureTitle04>">
+                                                                </mt:EntryDataSeriesFeatureImg04Asset>
+                                                            
+                                                        </div>
+                                                        <!-- /.p-photo__img -->
+                                                    </div>
+                                                    <!-- /.p-photo -->
+                                                </div>
+                                                <!-- /.l-container__slot -->
+                                                </mt:if>
+                                            </div>
+                                            <!-- /.l-container__block -->
+                                            <!-- 05 -->
+                                            <div class="l-container__block">
+                                                <mt:if tag="EntryDataSeriesFeatureTitle05">
+                                                    <div class="c-middle_heading">
+                                                        <h3 class="c-middle_heading__text"><mt:EntryDataSeriesFeatureTitle05></h3>
+                                                    </div>
+                                                    <!-- /.c-middle_heading -->
+                                                </mt:if>
+                                                <mt:if tag="EntryDataSeriesFeatureText05">
+                                                <div class="l-container__slot">
+                                                    <div class="c-content_box">
+                                                        <p><mt:EntryDataSeriesFeatureText05></p>
+                                                    </div>
+                                                    <!-- /.c-content_box -->
+                                                </div>
+                                                <!-- /.l-container__slot -->
+                                                </mt:if>
+                                                <mt:if tag="EntryDataSeriesFeatureImg05">
+                                                <div class="l-container__slot">
+                                                    <div class="p-photo">
+                                                        <div class="p-photo__img">
+                                                           
+                                                                <mt:EntryDataSeriesFeatureImg05Asset>
+                                                                    <img src="<mt:AssetURL>" alt="<mt:EntryDataSeriesFeatureTitle05>">
+                                                                </mt:EntryDataSeriesFeatureImg05Asset>
+                                                           
+                                                        </div>
+                                                        <!-- /.p-photo__img -->
+                                                    </div>
+                                                    <!-- /.p-photo -->
+                                                </div>
+                                                <!-- /.l-container__slot -->
+                                                </mt:if>
+                                            </div>
+                                            <!-- /.l-container__block -->
+                                            <!-- 06 -->
+                                            <div class="l-container__block">
+                                                <mt:if tag="EntryDataSeriesFeatureTitle06">
+                                                    <div class="c-middle_heading">
+                                                        <h3 class="c-middle_heading__text"><mt:EntryDataSeriesFeatureTitle06></h3>
+                                                    </div>
+                                                    <!-- /.c-middle_heading -->
+                                                </mt:if>
+                                                <mt:if tag="EntryDataSeriesFeatureText06">
+                                                <div class="l-container__slot">
+                                                    <div class="c-content_box">
+                                                        <p><mt:EntryDataSeriesFeatureText06></p>
+                                                    </div>
+                                                    <!-- /.c-content_box -->
+                                                </div>
+                                                <!-- /.l-container__slot -->
+                                                </mt:if>
+                                                <mt:if tag="EntryDataSeriesFeatureImg06">
+                                                <div class="l-container__slot">
+                                                    <div class="p-photo">
+                                                        <div class="p-photo__img">
+                                                            
+                                                                <mt:EntryDataSeriesFeatureImg06Asset>
+                                                                    <img src="<mt:AssetURL>" alt="<mt:EntryDataSeriesFeatureTitle06>">
+                                                                </mt:EntryDataSeriesFeatureImg06Asset>
+                                                            
+                                                        </div>
+                                                        <!-- /.p-photo__img -->
+                                                    </div>
+                                                    <!-- /.p-photo -->
+                                                </div>
+                                                <!-- /.l-container__slot -->
+                                                </mt:if>
+                                            </div>
+                                            <!-- /.l-container__block -->
+                                            <!-- 07 -->
+                                            <div class="l-container__block">
+                                                <mt:if tag="EntryDataSeriesFeatureTitle07">
+                                                    <div class="c-middle_heading">
+                                                        <h3 class="c-middle_heading__text"><mt:EntryDataSeriesFeatureTitle07></h3>
+                                                    </div>
+                                                    <!-- /.c-middle_heading -->
+                                                </mt:if>
+                                                <mt:if tag="EntryDataSeriesFeatureText07">
+                                                <div class="l-container__slot">
+                                                    <div class="c-content_box">
+                                                        <p><mt:EntryDataSeriesFeatureText07></p>
+                                                    </div>
+                                                    <!-- /.c-content_box -->
+                                                </div>
+                                                <!-- /.l-container__slot -->
+                                                </mt:if>
+                                                <mt:if tag="EntryDataSeriesFeatureImg07">
+                                                <div class="l-container__slot">
+                                                    <div class="p-photo">
+                                                        <div class="p-photo__img">
+                                                            
+                                                                <mt:EntryDataSeriesFeatureImg07Asset>
+                                                                    <img src="<mt:AssetURL>" alt="<mt:EntryDataSeriesFeatureTitle07>">
+                                                                </mt:EntryDataSeriesFeatureImg07Asset>
+                                                            
+                                                        </div>
+                                                        <!-- /.p-photo__img -->
+                                                    </div>
+                                                    <!-- /.p-photo -->
+                                                </div>
+                                                <!-- /.l-container__slot -->
+                                                </mt:if>
+                                            </div>
+                                            <!-- /.l-container__block -->
+                                            <!-- 08 -->
+                                            <div class="l-container__block">
+                                                <mt:if tag="EntryDataSeriesFeatureTitle08">
+                                                    <div class="c-middle_heading">
+                                                        <h3 class="c-middle_heading__text"><mt:EntryDataSeriesFeatureTitle08></h3>
+                                                    </div>
+                                                    <!-- /.c-middle_heading -->
+                                                </mt:if>
+                                                <mt:if tag="EntryDataSeriesFeatureText08">
+                                                <div class="l-container__slot">
+                                                    <div class="c-content_box">
+                                                        <p><mt:EntryDataSeriesFeatureText08></p>
+                                                    </div>
+                                                    <!-- /.c-content_box -->
+                                                </div>
+                                                <!-- /.l-container__slot -->
+                                                </mt:if>
+                                                <mt:if tag="EntryDataSeriesFeatureImg08">
+                                                <div class="l-container__slot">
+                                                    <div class="p-photo">
+                                                        <div class="p-photo__img">
+                                                            
+                                                                <mt:EntryDataSeriesFeatureImg08Asset>
+                                                                    <img src="<mt:AssetURL>" alt="<mt:EntryDataSeriesFeatureTitle08>">
+                                                                </mt:EntryDataSeriesFeatureImg08Asset>
+                                                            
+                                                        </div>
+                                                        <!-- /.p-photo__img -->
+                                                    </div>
+                                                    <!-- /.p-photo -->
+                                                </div>
+                                                <!-- /.l-container__slot -->
+                                                </mt:if>
+                                            </div>
+                                            <!-- /.l-container__block -->
+                                        </div>
+                                        <!-- /.l-container -->
+                                    </div>
+                                    <!-- /.p-accordion_list__content -->
+                                </div>
+                                <!-- /.p-accordion_list__child -->
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.l-container__slot -->
+                </div>
+                <!-- /.l-container__block -->
+                <div class="l-container__block">
+                    <mt:entries category="$category">
+                        <$mt:EntriesCount setvar="count"$>
+                    </mt:entries>
+                    <mt:if name="count" gt="0">
+                        <div class="c-content_heading">
+                            <h2 class="c-content_heading__text">シリーズラインナップ</h2>
+                        </div>
+                        <!-- /.c-content_heading -->
+                    </mt:if>
+
+                    <div class="l-container__box">
+                        <div class="l-container__slot">
+                            <div class="p-product_list">
+                                <mt:EntryAdditionalCategories glue="/" setvar="sub_cats"><$mt:CategoryLabel$></mt:EntryAdditionalCategories>
+                                <mt:setvarblock name="category">製品情報/<mt:getvar name="sub_cats">/<mt:EntryTitle></mt:setvarblock>
+                                <mt:entries category="$category">
+                                    <mt:unless tag="EntryDataSeriesDetailOptionProduct">
+                                        <div class="p-product_list__item">
+                                            <a href="<$mt:EntryPermalink$>" rel="bookmark">
+                                                <div class="p-product_list__main">
+                                                <div class="p-product_list__row">
+                                                <div class="p-product_list__header">
+                                                    <ul class="p-product_list__tag">
+                                                        <mt:EntryDataSeriesDetailListTagtext replace="$","<li>">
+                                                    </ul>
+                                                <div class="p-product_list__img">
+                                                    <MTIfNonEmpty tag="EntryDataSeriesDetailMainImg">
+                                                        <mt:EntryDataSeriesDetailMainImgAsset>
+                                                            <img src="<mt:AssetURL>" alt="<mt:EntryTitle>">
+                                                        </mt:EntryDataSeriesDetailMainImgAsset>
+                                                    <mt:else>
+                                                        <img src="/asset/img/product/alternative_image.jpg" alt="<mt:EntryTitle>">
+                                                    </MTIfNonEmpty>
+                                                </div>
+                                                <!-- /.p-product_list__img -->
+                                                </div>
+                                                <!-- /.p-product_list__header -->
+
+                                                <div class="p-product_list__body">
+                                                    <h3 class="p-product_list__name"><mt:EntryTitle></h3>
+                                                    <mt:If tag="EntryDataSeriesDetailSalestatus" like="(販売終了予定|販売終了)">
+                                                        <p class="p-product_list__status--close"><mt:EntryDataSeriesDetailSalestatus></p>
+                                                    <mt:else>
+                                                        <$mt:DateDiff tag="EntryDate" offset="90d" format="%Y%m%d%H%M%S" setvar="exp_date"$>
+                                                        <$mt:Date format="%Y%m%d%H%M%S" setvar="current_date"$>
+                                                        <mt:If name="exp_date" gt="$current_date"><p class="p-product_list__status--new">NEW</p></mt:If>
+                                                    </mt:If>
+                                                    <div class="p-product_list__description">
+                                                        <p><mt:EntryDataSeriesDetailListText></p>
+                                                    </div>
+                                                    <!-- /.p-product_list__description -->
+                                                </div>
+                                                <!-- /.p-product_list__body -->
+                                                </div>
+                                                <!-- /.p-product_list__row -->
+                                                </div>
+                                                <!-- /.p-product_list__main -->
+
+                                                <div class="p-product_list__add">
+                                                <input type="checkbox" name="compare_list[]" value="0" id="product_id_0" @change="add_compare_list(0)" :checked="compare_check(0)">
+                                                <label class="p-product_list__label" for="product_id_0">
+                                                <span class="p-product_list__check">比較リストに追加する</span>
+                                                </label>
+                                                </div>
+                                                <!-- /.p-product_list__add -->
+                                            </a>
+                                        </div>
+                                        <!-- /.p-product_list__item -->
+                                    </mt:unless>
+                                </mt:entries>
+                            </div>
+                            <!-- /.p-product_list -->
+                        </div>
+                        <!-- /.l-container__slot -->
+                        
+                        <div class="l-container__slot">
+                        <mt:entries category="$category">
+                            <mt:if tag="EntryDataSeriesDetailOptionProduct"><$mt:EntriesCount setvar="count"$></mt:if>
+                        </mt:entries>
+                        <mt:if name="count" gt="0">
+                            <div class="c-middle_heading">
+                                <h3 class="c-middle_heading__text">シリーズ専用オプション製品</h3>
+                            </div>
+                            <!-- /.c-middle_heading -->
+                        </mt:if>
+                        
+                            <div class="l-container__slot">
+                                <div class="p-product_list">
+                                <mt:entries category="$category">
+                                    <mt:if tag="EntryDataSeriesDetailOptionProduct">
+                                        <div class="p-product_list__item">
+                                            <a href="<$mt:EntryPermalink$>" rel="bookmark">
+                                                <div class="p-product_list__main">
+                                                    <div class="p-product_list__row">
+                                                        <div class="p-product_list__header">
+                                                            <div class="p-product_list__img">
+                                                                
+                                                                    <mt:EntryDataSeriesDetailMainImgAsset>
+                                                                        <img src="<mt:AssetURL>" alt="<mt:EntryTitle>">
+                                                                    </mt:EntryDataSeriesDetailMainImgAsset>
+                                                            
+                                                            </div>
+                                                            <!-- /.p-product_list__img -->
+                                                        </div>
+                                                        <!-- /.p-product_list__header -->
+
+                                                        <div class="p-product_list__body">
+                                                            <h3 class="p-product_list__name"><mt:EntryTitle></h3>
+                                                            <div class="p-product_list__description">
+                                                                <p><mt:EntryDataSeriesDetailListText></p>
+                                                            </div>
+                                                            <!-- /.p-product_list__description -->
+                                                        </div>
+                                                        <!-- /.p-product_list__body -->
+                                                    </div>
+                                                    <!-- /.p-product_list__row -->
+                                                </div>
+                                                <!-- /.p-product_list__main -->
+                                            </a>
+                                        </div>
+                                        <!-- /.p-product_list__item -->
+                                    </mt:if>
+                                </mt:entries>
+                                </div>
+                                <!-- /.p-product_list -->
+                            </div>
+                            <!-- /.l-container__slot -->
+                        </div>
+                        <!-- /.l-container__slot -->
+                    </div>
+                    <!-- /.l-container__box -->
+                </div>
+                <!-- /.l-container__block -->
+            
+                <div class="l-container__block">
+                    <mt:if tag="EntryDataSeriesRelatedinfoText01">
+                        <div class="c-content_heading">
+                            <h2 class="c-content_heading__text">関連情報</h2>
+                        </div>
+                        <!-- /.c-content_heading -->
+
+                        <div class="l-container__box">
+                            <div class="l-container__slot">
+                                <div class="p-infomation_box">
+                                    <!-- 01 -->
+                                    <div class="p-infomation_box__content">
+                                        <div class="p-link">
+                                            <ul class="p-link__list">
+                                                <li><a href="<mt:EntryDataSeriesRelatedinfoLink01>"<mt:if tag="<mt:EntryDataSeriesRelatedinfoWindow01>"> target="_blank"</mt:if>><span><mt:EntryDataSeriesRelatedinfoText01></span></a></li>
+                                            </ul>
+                                        </div>
+                                        <!-- /.p-link -->
+                                    </div>
+                                    <!-- /.p-infomation_box__content -->
+                                    <!-- 02 -->
+                                    <div class="p-infomation_box__content">
+                                        <div class="p-link">
+                                            <ul class="p-link__list">
+                                                <li><a href="<mt:EntryDataSeriesRelatedinfoLink02>"<mt:if tag="<mt:EntryDataSeriesRelatedinfoWindow02>"> target="_blank"</mt:if>><span><mt:EntryDataSeriesRelatedinfoText02></span></a></li>
+                                            </ul>
+                                        </div>
+                                        <!-- /.p-link -->
+                                    </div>
+                                    <!-- /.p-infomation_box__content -->
+                                    <!-- 03 -->
+                                    <div class="p-infomation_box__content">
+                                        <div class="p-link">
+                                            <ul class="p-link__list">
+                                                <li><a href="<mt:EntryDataSeriesRelatedinfoLink03>"<mt:if tag="<mt:EntryDataSeriesRelatedinfoWindow03>"> target="_blank"</mt:if>><span><mt:EntryDataSeriesRelatedinfoText03></span></a></li>
+                                            </ul>
+                                        </div>
+                                        <!-- /.p-link -->
+                                    </div>
+                                    <!-- /.p-infomation_box__content -->
+                                    <!-- 04 -->
+                                    <div class="p-infomation_box__content">
+                                        <div class="p-link">
+                                            <ul class="p-link__list">
+                                                <li><a href="<mt:EntryDataSeriesRelatedinfoLink04>"<mt:if tag="<mt:EntryDataSeriesRelatedinfoWindow04>"> target="_blank"</mt:if>><span><mt:EntryDataSeriesRelatedinfoText04></span></a></li>
+                                            </ul>
+                                        </div>
+                                        <!-- /.p-link -->
+                                    </div>
+                                    <!-- /.p-infomation_box__content -->
+                                    <!-- 05 -->
+                                    <div class="p-infomation_box__content">
+                                        <div class="p-link">
+                                            <ul class="p-link__list">
+                                                <li><a href="<mt:EntryDataSeriesRelatedinfoLink05>"<mt:if tag="<mt:EntryDataSeriesRelatedinfoWindow05>"> target="_blank"</mt:if>><span><mt:EntryDataSeriesRelatedinfoText05></span></a></li>
+                                            </ul>
+                                        </div>
+                                        <!-- /.p-link -->
+                                    </div>
+                                    <!-- /.p-infomation_box__content -->
+                                    <!-- 06 -->
+                                    <div class="p-infomation_box__content">
+                                        <div class="p-link">
+                                            <ul class="p-link__list">
+                                                <li><a href="<mt:EntryDataSeriesRelatedinfoLink06>"<mt:if tag="<mt:EntryDataSeriesRelatedinfoWindow06>"> target="_blank"</mt:if>><span><mt:EntryDataSeriesRelatedinfoText06></span></a></li>
+                                            </ul>
+                                        </div>
+                                        <!-- /.p-link -->
+                                    </div>
+                                    <!-- /.p-infomation_box__content -->
+                                    <!-- 07 -->
+                                    <div class="p-infomation_box__content">
+                                        <div class="p-link">
+                                            <ul class="p-link__list">
+                                                <li><a href="<mt:EntryDataSeriesRelatedinfoLink07>"<mt:if tag="<mt:EntryDataSeriesRelatedinfoWindow07>"> target="_blank"</mt:if>><span><mt:EntryDataSeriesRelatedinfoText07></span></a></li>
+                                            </ul>
+                                        </div>
+                                        <!-- /.p-link -->
+                                    </div>
+                                    <!-- /.p-infomation_box__content -->
+                                    <!-- 08 -->
+                                    <div class="p-infomation_box__content">
+                                        <div class="p-link">
+                                            <ul class="p-link__list">
+                                                <li><a href="<mt:EntryDataSeriesRelatedinfoLink08>"<mt:if tag="<mt:EntryDataSeriesRelatedinfoWindow08>"> target="_blank"</mt:if>><span><mt:EntryDataSeriesRelatedinfoText08></span></a></li>
+                                            </ul>
+                                        </div>
+                                        <!-- /.p-link -->
+                                    </div>
+                                    <!-- /.p-infomation_box__content -->
+                                    <!-- 09 -->
+                                    <div class="p-infomation_box__content">
+                                        <div class="p-link">
+                                            <ul class="p-link__list">
+                                                <li><a href="<mt:EntryDataSeriesRelatedinfoLink09>"<mt:if tag="<mt:EntryDataSeriesRelatedinfoWindow09>"> target="_blank"</mt:if>><span><mt:EntryDataSeriesRelatedinfoText09></span></a></li>
+                                            </ul>
+                                        </div>
+                                        <!-- /.p-link -->
+                                    </div>
+                                    <!-- /.p-infomation_box__content -->
+                                    <!-- 10 -->
+                                    <div class="p-infomation_box__content">
+                                        <div class="p-link">
+                                            <ul class="p-link__list">
+                                                <li><a href="<mt:EntryDataSeriesRelatedinfoLink10>"<mt:if tag="<mt:EntryDataSeriesRelatedinfoWindow10>"> target="_blank"</mt:if>><span><mt:EntryDataSeriesRelatedinfoText10></span></a></li>
+                                            </ul>
+                                        </div>
+                                        <!-- /.p-link -->
+                                    </div>
+                                    <!-- /.p-infomation_box__content -->
+                                </div>
+                                <!-- /.p-infomation_box -->
+                            </div>
+                            <!-- /.l-container__slot -->
+                        </div>
+                        <!-- /.l-container__box -->
+                    </mt:if>
+                </div>
+                <!-- /.l-container__block -->
+            </div>
+            <!-- /.l-container -->
+        </div>
+        <!-- /.l-inner -->
+        <div class="p-compare_selected" :class="{'is-show' : add_compare[0]}">
+            <div class="p-compare_selected__inner">
+                <div class="p-compare_selected__content">
+                    <div class="p-compare_selected__header">
+                        <p class="p-compare_selected__heading">製品比較</p>
+                        <div class="p-compare_selected__text">
+                            <p>比較リストに追加されました。<br>4製品まで比較することができます。</p>
+                        </div>
+                    </div>
+                    <!-- /.p-compare_selected__header -->
+
+                    <div class="p-compare_selected__body">
+                        <div class="p-compare_selected__row">
+                            <template v-for="item of add_compare">
+                                <div class="p-compare_selected__item">
+                                <div class="p-compare_selected__remove">
+                                <button>削除する</button>
+                                </div>
+                                <!-- /.p-compare_selected__remove -->
+                                <div class="p-compare_selected__product">
+                                <a href="/product/switch/series/single.html">
+                                <img src="/asset/img/product/compare/switch/img_compare_01.jpg" alt="">
+                                <p>DGS-3630-28SC</p>
+                                </a>
+                                </div>
+                                <!-- /.p-compare_selected__product -->
+                                </div>
+                                <!-- /.p-compare_selected__item -->
+                            </template>
+                        </div>
+                        <!-- /.p-compare_selected__row -->
+                    </div>
+                    <!-- /.p-compare_selected__body -->
+                    <div class="p-compare_selected__footer">
+                        <div class="p-compare_selected__init">
+                            <a :href="create_compare_link()">比較する</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.p-compare_selected__content -->
+            </div>
+            <!-- /.p-compare_selected__inner -->
+        </div>
+        <!-- /.p-compare_selected -->
+    </section>
+</main>
+<div class="p-contact">
+    <div class="p-contact__inner">
+        <div class="p-contact__read">
+            <p>購入前の、製品仕様・お見積もり・<br class="u-show_sp">購入方法など<br class="u-show_pc">営業的な<br class="u-show_sp">お問い合わせについてはこちらから</p>
+        </div>
+        <!-- /.p-contact__read -->
+        <div class="p-contact__bottom">
+            <div class="p-contact__button">
+                <a href="/contact/contact-before/">お問い合わせ</a>
+            </div>
+            <!-- /.p-contact__button -->
+        </div>
+        <!-- /.p-contact__bottom -->
+    </div>
+    <!-- /.p-contact__inner -->
+</div>
+<!-- /.p-contact -->
+<div class="p-local_nav">
+    <div class="p-local_nav__inner">
+        <p class="p-local_nav__heading">製品情報</p>
+        <ul class="p-local_nav__list js-local_nav_current">
+            <li><a href="/product/">製品情報TOP</a></li>
+            <li><a href="/product/switch/">スイッチ</a></li>
+            <li><a href="/product/wireless-lan/">無線LAN</a></li>
+            <li><a href="/product/router-firewall/">ルータ / ファイアーウォール</a></li>
+            <li><a href="/product/media-converter/">メディアコンバータ</a></li>
+            <li><a href="/product/network-camera/">ネットワークカメラ</a></li>
+            <li><a href="/product/software/">ネットワーク管理ソフトウェア</a></li>
+            <li><a href="/product/sfp-xf-others/">光トランシーバ / ケーブル</a></li>
+            <li><a href="/product/redundant/">リダンダント電源</a></li>
+            <li><a href="/product/other/">その他製品</a></li>
+            <li><a href="/product/compare/">製品比較</a></li>
+            <li><a href="/product/archive/">販売終了予定／販売終了製品</a></li>
+        </ul>
+    </div>
+    <!-- /.p-local_nav__inner -->
+</div>
+<!-- /.p-local_nav -->
+<mt:Include module="footer" parent="1" />
+<mt:Include module="html_foot" parent="1" />

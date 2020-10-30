@@ -1,0 +1,22 @@
+name: TopSlider
+id:   TopSlider
+version: 1.0
+author_name: Voyager
+description: トップスライダー
+
+applications:
+  cms:
+    menus:
+      TopSlider:
+        label: トップスライダー
+      TopSlider:TopSliderEdit:
+        label: トップスライダー編集
+        mode: view
+        args:
+          _type: entry
+          id: 22
+        view:
+          - blog
+          - website
+          - system
+      

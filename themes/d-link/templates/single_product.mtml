@@ -72,7 +72,7 @@
                     <!-- /.p-product_main__image -->
                     <mt:if name="basename_max" like="(switch|wireless-lan)">
                         <mt:if tag="EntryDataSeriesDetailSalestatus" ne="販売終了">
-                            <mt:unless tag="EntryDataSeriesDetailProductOption">
+                            <mt:unless tag="EntryDataSeriesDetailOptionProduct">
                                 <div class="p-product_main__checkbox">
                                     <div class="c-check">
                                         <input type="checkbox" name="compare_list[]" value="<mt:EntryID>" id="product_id_<mt:EntryID>" data-product_id="<mt:EntryID>" @change="add_compare_list" :checked="compare_check(<mt:EntryID>)">
@@ -337,14 +337,14 @@
                                 <ul class="p-product_content__tab js-product_tab">
                                     <!-- #管理画面に入力がない場合、該当のボタンを非表示にする -->
                                     <mt:if tag="EntryDataSeriesDetailFeatureTitle01"><li><a href="#feature">特長</a></li></mt:if>
-                                    <li><a href="#hardware">ハードウェア仕様</a></li>
+                                    <mt:if name="has_hardware" eq="1"><li><a href="#hardware">ハードウェア仕様</a></li></mt:if>
                                     <mt:if name="basename_max" like="(media-converter|redundant|sfp-xf-others|other)">
                                         <mt:setvarblock name="description"><mt:EntryDataMediaConverterSeriesDetailSoftwareTableInnerDescriptionText><mt:EntryDataMediaConverterSeriesDetailSoftwareTableOuterDescriptionText></mt:setvarblock>
                                         <mt:if name="description">
                                             <li><a href="#software">ソフトウェア仕様</a></li>
                                         </mt:if>
                                     <mt:else>
-                                        <li><a href="#software">ソフトウェア仕様</a></li>
+                                        <mt:if name="has_software" eq="1"><li><a href="#software">ソフトウェア仕様</a></li></mt:if>
                                     </mt:if>
                                     <mt:if tag="EntryDataSeriesDetailManualfirmwareDataText01"><li><a href="#firmware">マニュアル / <br>ファームウェア</a></li></mt:if>
                                     <mt:if tag="EntryDataSeriesDetailRelatedOptionTitle01"><li><a href="#option">関連オプション</a></li></mt:if>
@@ -635,6 +635,7 @@
                                                                         <table>
                                                                             <tbody>
                                                                                 <mt:if tag="EntryDataSwitchSeriesDetailHardwareTableText01">
+                                                                                    <mt:setvar name="has_hardware" value="1">
                                                                                     <tr>
                                                                                         <th colspan="2" scope="col">インターフェース</th>
                                                                                     </tr>
@@ -958,6 +959,7 @@
                                                                         <table>
                                                                             <tbody>
                                                                                 <mt:if tag="EntryDataWirelessLanSeriesDetailHardwareTableText01">
+                                                                                <mt:setvar name="has_hardware" value="1">
                                                                                 <tr>
                                                                                     <th colspan="2" scope="col">LANインターフェース</th>
                                                                                 </tr>
@@ -1231,6 +1233,7 @@
                                                                         <table>
                                                                             <tbody>
                                                                                 <mt:if tag="EntryDataRouterFirewallSeriesDetailHardwareTableText01">
+                                                                                <mt:setvar name="has_hardware" value="1">
                                                                                 <tr>
                                                                                     <th colspan="2" scope="col">インタフェース</th>
                                                                                 </tr>
@@ -1407,6 +1410,7 @@
                                                                         <table>
                                                                             <tbody>
                                                                                 <mt:if tag="EntryDataNetworkCameraSeriesDetailHardwareTableText01">
+                                                                                <mt:setvar name="has_hardware" value="1">
                                                                                 <tr>
                                                                                     <th colspan="2" scope="col">インタフェース</th>
                                                                                 </tr>
@@ -1629,6 +1633,7 @@
                                                                         <table>
                                                                             <tbody>
                                                                                 <mt:if tag="EntryDataMediaConverterSeriesDetailHardwareTableText01">
+                                                                                <mt:setvar name="has_hardware" value="1">
                                                                                 <tr>
                                                                                     <th colspan="2" scope="col">インタフェース</th>
                                                                                 </tr>
@@ -1963,6 +1968,7 @@
                                                                         <table>
                                                                             <tbody>
                                                                                 <mt:if tag="EntryDataRedundantSeriesDetailHardwareTableText01">
+                                                                                <mt:setvar name="has_hardware" value="1">
                                                                                 <tr>
                                                                                     <th colspan="2" scope="col">インタフェース</th>
                                                                                 </tr>
@@ -2108,6 +2114,7 @@
                                                                         <table>
                                                                             <tbody>
                                                                                 <mt:if tag="EntryDataSfpXfOthersSeriesDetailHardwareTableText01">
+                                                                                <mt:setvar name="has_hardware" value="1">
                                                                                 <tr>
                                                                                     <th colspan="2" scope="col">標準規格</th>
                                                                                 </tr>
@@ -2320,6 +2327,7 @@
                                                                         <table>
                                                                             <tbody>
                                                                                 <mt:if tag="EntryDataOtherSeriesDetailHardwareTableText01">
+                                                                                <mt:setvar name="has_hardware" value="1">
                                                                                 <tr>
                                                                                     <th colspan="2" scope="col">インターフェース</th>
                                                                                 </tr>
@@ -2642,6 +2650,7 @@
                                                                         <table>
                                                                             <tbody>
                                                                                 <mt:if tag="EntryDataSwitchSeriesDetailSoftwareTableText01">
+                                                                                <mt:setvar name="has_software" value="1">
                                                                                 <tr>
                                                                                     <th colspan="2" scope="col">スタック</th>
                                                                                 </tr>
@@ -3479,6 +3488,7 @@
                                                                         <table>
                                                                             <tbody>
                                                                                 <mt:if tag="EntryDataWirelessLanSeriesDetailSoftwareTableText01">
+                                                                                    <mt:setvar name="has_software" value="1">
                                                                                     <tr>
                                                                                         <th colspan="2" scope="col">ネットワーク設定</th>
                                                                                     </tr>
@@ -4307,6 +4317,7 @@
                                                                         <table>
                                                                             <tbody>
                                                                                 <mt:if tag="EntryDataRouterFirewallSeriesDetailSoftwareTableText01">
+                                                                                <mt:setvar name="has_software" value="1">
                                                                                 <tr>
                                                                                     <th colspan="2" scope="col">システム性能</th>
                                                                                 </tr>
@@ -4958,6 +4969,7 @@
                                                                         <table>
                                                                             <tbody>
                                                                                 <mt:if tag="EntryDataNetworkCameraSeriesDetailSoftwareTableText01">
+                                                                                <mt:setvar name="has_software" value="1">
                                                                                 <tr>
                                                                                     <th colspan="2" scope="col">レンズ</th>
                                                                                 </tr>
@@ -10060,15 +10072,16 @@
                 </div>
                 <!-- /.l-container__block -->
                 
-                <mt:if tag="EntryDataSeriesDetailRelatedInforAreaText01">
-                    <div class="l-container__block">
+                <div class="l-container__block">
+                    <mt:if tag="EntryDataSeriesDetailRelatedInforAreaText01">
                         <div class="c-content_heading">
                             <h2 class="c-content_heading__text">関連情報</h2>
                         </div>
                         <!-- /.c-content_heading -->
-
-                        <div class="l-container__box">
-                            <div class="l-container__slot">
+                    </mt:if>
+                    <div class="l-container__box">
+                        <div class="l-container__slot">
+                            <mt:if tag="EntryDataSeriesDetailRelatedInforAreaText01">
                                 <div class="p-infomation_box">
                                     <div class="p-infomation_box__content">
                                         <ul class="p-link__list">
@@ -10117,17 +10130,18 @@
                                     <!-- /.p-infomation_box__content -->
                                 </div>
                                 <!-- /.p-infomation_box -->
+                            </mt:if>
 
-                                <ul class="c-pager">
-                                    <li class="c-pager__text"><a href="/product/<mt:getvar name="basename_max">/<mt:getvar name="basename_medium">/<mt:getvar name="basename_small">/">シリーズトップに戻る</a></li>
-                                </ul>
-                            </div>
-                            <!-- /.l-container__slot -->
+                            <ul class="c-pager">
+                                <li class="c-pager__text"><a href="./">シリーズトップに戻る</a></li>
+                            </ul>
                         </div>
-                        <!-- /.l-container__box -->
+                        <!-- /.l-container__slot -->
                     </div>
-                    <!-- /.l-container__block -->
-                </mt:if>
+                    <!-- /.l-container__box -->
+                </div>
+                <!-- /.l-container__block -->
+                
             </div>
             <!-- /.l-container -->
 

@@ -1,0 +1,1311 @@
+<mt:SetVars>
+    base_description=ディスクリプション
+    og_title=販売終了予定製品| D-Link Japan
+    og_url=https://www.dlink-jp.com/product/archive/
+    og_type=article
+</mt:SetVars>
+<mt:SetVarTemplate name="file_javascript">
+<script src="/asset/js/vue.min.js"></script>
+<script src="/asset/js/product_switch_compare.min.js" defer></script>
+</mt:SetVarTemplate>
+<mt:Ignore>** 表示部分 **</mt:Ignore>
+<mt:Include module="html_head" parent="1" />
+<mt:Include module="header" parent="1" />
+<!-- ここからコンテンツ -->
+<main class="p-main">
+    <div class="c-breadcrumb">
+        <ul class="c-breadcrumb__list">
+            <li><a href="/">HOME</a></li>
+            <li><a href="/product/">製品情報</a></li>
+            <li><span>販売終了予定製品</span></li>
+        </ul>
+    </div>
+    <!-- /.c-breadcrumb -->
+
+    <section class="l-outer--lower">
+        <div class="l-inner">
+            <div class="c-title">
+                <h1 class="c-title__text">販売終了予定製品</h1>
+            </div>
+            <!-- /.c-title -->
+
+            <div class="l-container">
+                <div class="l-container__block">
+                    <div class="l-container__box">
+                        <div class="l-container__slot">
+                            <div class="l-container__separator">
+                                <div class="c-tab">
+                                    <ul class="c-tab__list">
+                                        <li><a href="/product/archive/" class="c-tab__button">すべて</a></li>
+                                        <li><a href="/product/archive/pog.html" class="c-tab__button is-active">販売終了<br class="u-show_sp">予定製品</a></li>
+                                        <li><a href="/product/archive/eos.html" class="c-tab__button">販売終了<br class="u-show_sp">製品</a></li>
+                                    </ul>
+                                </div>
+                                <!-- /.c-tab -->
+                            </div>
+                            <!-- /.l-container__separator -->
+
+                            <div class="l-container__separator">
+                                <div class="p-anchor_list">
+                                    <div class="p-anchor_list__block js-anchor_list">
+                                        <div class="p-anchor_list__label">
+                                            <button type="button" class="js-anchor_list_button">製品カテゴリーを選択して移動</button>
+                                        </div>
+                                        <!-- /.p-anchor_list__label -->
+                                        <ul class="p-anchor_list__link js-anchor_list_content">
+                                            <mt:SubCategories category="製品情報">
+                                                <mt:setvarblock name="sub_cate_product">製品情報/<mt:CategoryLabel></mt:setvarblock>
+                                                <mt:entries category="$sub_cate_product">
+                                                    <mt:SetVar name="depth" value="0">
+                                                    <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                                                    <mt:if name="depth" eq="3">
+                                                        <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定">
+                                                            <mt:SetVar name="has_entries_product" value="1">
+                                                        </mt:if>
+                                                    </mt:if>
+                                                    <mt:if name="has_entries_product" eq="1">
+                                                        <li><a href="#<mt:CategoryBasename>" class="js-anchor"><mt:CategoryLabel></a></li>
+                                                        <mt:SetVar name="has_entries_product" value="0">
+                                                    </mt:if>
+                                                </mt:entries>
+                                            </mt:subcategories>
+                                            <!--
+                                            <li><a href="#switch" class="js-anchor">スイッチ</a></li>
+                                            <li><a href="#wireless_lan" class="js-anchor">無線アクセスポイント</a></li>
+                                            <li><a href="#router_firefall" class="js-anchor">ルータ／ファイアウォール</a></li>
+                                            <li><a href="#mediaconverter" class="js-anchor">メディアコンバータ</a></li>
+                                            <li><a href="#network_software" class="js-anchor">ネットワーク管理ソフトウェア</a></li>
+                                            <li><a href="#redundant" class="js-anchor">リダンダント電源</a></li>
+                                            <li><a href="#networkcamera" class="js-anchor">ネットワークカメラ</a></li>
+                                            <li><a href="#opticaltransceiver_cable" class="js-anchor">光トランシーバ/ケーブル</a></li>
+                                            <li><a href="#other" class="js-anchor">その他製品</a></li>
+                                            -->
+                                        </ul>
+                                    </div>
+                                    <!-- /.p-anchor_list__block -->
+                                </div>
+                                <!-- /.p-anchor_list -->
+                            </div>
+                            <!-- /.l-container__separator -->
+                        </div>
+                        <!-- /.l-container__slot -->
+                    </div>
+                    <!-- /.l-container__box -->
+                </div>
+                <!-- /.l-container__block -->
+                
+                <!-- スイッチ -->
+                <mt:entries category="製品情報/スイッチ">
+                    <mt:SetVar name="depth" value="0">
+                    <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                    <mt:if name="depth" eq="3">
+                        <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定">
+                            <mt:SetVar name="has_entries_switch" value="1">
+                        </mt:if>
+                    </mt:if>
+                    <mt:if name="has_entries_switch" eq="1">
+                        <div class="l-container__block">
+                            <div class="l-container__box">
+                                <div class="c-content_heading">
+                                    <h2 id="switch" class="c-content_heading__text">スイッチ</h2>
+                                </div>
+                                <!-- /.c-content_heading -->
+
+                                <div class="l-container__slot">
+                                    <nav class="c-anchor">
+                                        <ul class="c-anchor__list">
+                                            <mt:SubCategories category="製品情報/スイッチ">
+                                                <mt:setvarblock name="sub_cate_switch">製品情報/スイッチ/<mt:CategoryLabel></mt:setvarblock>
+                                                <mt:entries category="$sub_cate_switch">
+                                                    <mt:SetVar name="depth" value="0">
+                                                    <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                                                    <mt:if name="depth" eq="3">
+                                                        <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定">
+                                                            <mt:SetVar name="has_entries" value="1">
+                                                        </mt:if>
+                                                    </mt:if>
+                                                    <mt:if name="has_entries" eq="1">
+                                                        <li><a href="#switch_<mt:CategoryBasename>" class="js-anchor"><mt:CategoryLabel></a></li>
+                                                        <mt:SetVar name="has_entries" value="0">
+                                                    </mt:if>
+                                                </mt:entries>
+                                            </mt:subcategories>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <!-- /.l-container__slot -->
+                            </div>
+                            <!-- /.l-container__box -->
+                            <mt:SubCategories category="製品情報/スイッチ">
+                                <mt:setvarblock name="sub_cate_switch">製品情報/スイッチ/<mt:CategoryLabel></mt:setvarblock>
+                                <mt:entries category="$sub_cate_switch">
+                                    <mt:SetVar name="depth" value="0">
+                                    <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                                    <mt:if name="depth" eq="3">
+                                        <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定">
+                                            <mt:SetVar name="has_entries" value="1">
+                                        </mt:if>
+                                    </mt:if>
+                                    <mt:if name="has_entries" eq="1">
+                                        <div class="l-container__box">
+                                            <div class="c-middle_heading">
+                                                <h3 id="switch_<mt:CategoryBasename>" class="c-middle_heading__text"><mt:CategoryLabel></h3>
+                                            </div>
+                                            <!-- /.c-middle_heading -->
+                        
+                                            <div class="l-container__slot">
+                                                <div class="p-feature">
+                                                    <div class="p-feature__table--archive">
+                                                        <table>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col"></th>
+                                                                    <th scope="col">製品名</th>
+                                                                    <th scope="col">品番</th>
+                                                                    <th scope="col">製造終了日(EoL)<br>サポート終了日(EoSL)</th>
+                                                                    <th scope="col">後継機種</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            <mt:entries category="$sub_cate_switch">
+                                                                <mt:SetVar name="depth" value="0">
+                                                                <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                                                                <mt:if name="depth" eq="3">
+                                                                    <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定">
+                                                                        <tr>
+                                                                            <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定"><th scope="row" class="p-feature__status--close">販売終了<br class="u-show_sp">予定製品</th></mt:if>
+                                                                            <td>
+                                                                                <mt:if tag="EntryDataSeriesDetailEndsaleLink">
+                                                                                    <mt:EntryTitle>
+                                                                                <mt:else>
+                                                                                    <a href="<$mt:EntryPermalink$>"><mt:EntryTitle></a>
+                                                                                </mt:if>
+                                                                            </td>
+                                                                            <td>
+                                                                                <mt:if tag="EntryDataSeriesDetailProduct01"><p>品番：<mt:EntryDataSeriesDetailProduct01></p></mt:if>
+                                                                                <mt:if tag="EntryDataSeriesDetailProduct02"><p>品番：<mt:EntryDataSeriesDetailProduct02></p></mt:if>
+                                                                                <mt:if tag="EntryDataSeriesDetailProduct03"><p>品番：<mt:EntryDataSeriesDetailProduct03></p></mt:if>
+                                                                            </td>
+                                                                            <td>
+                                                                            <p><mt:if tag="EntryDataSeriesDetailSaleEnddate"><mt:EntryDataSeriesDetailSaleEnddate></mt:if>製造終了</p>
+                                                                            <p><mt:if tag="EntryDataSeriesDetailSupportEnddate"><mt:EntryDataSeriesDetailSupportEnddate></mt:if> サポート終了</p>
+                                                                            </td>
+                                                                            <td>
+                                                                                <mt:if tag="EntryDataSeriesDetailSuccessormodelText01"><p><mt:EntryDataSeriesDetailSuccessormodelText01></p></mt:if>
+                                                                                <mt:if tag="EntryDataSeriesDetailSuccessormodelText02"><p><mt:EntryDataSeriesDetailSuccessormodelText02></p></mt:if>
+                                                                                <mt:if tag="EntryDataSeriesDetailSuccessormodelText03"><p><mt:EntryDataSeriesDetailSuccessormodelText03></p></mt:if>
+                                                                                <mt:setvarblock name="successormode"><mt:EntryDataSeriesDetailSuccessormodelText01><mt:EntryDataSeriesDetailSuccessormodelText02><mt:EntryDataSeriesDetailSuccessormodelText03></mt:SetVarBlock>
+                                                                                <mt:unless name="successormode">
+                                                                                    <p>販売終了</p>
+                                                                                    <p>後継機種なし</p>
+                                                                                </mt:unless>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </mt:if>
+                                                                </mt:if>
+                                                            </mt:entries>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <!-- /.p-feature__table--scroll -->
+                                                </div>
+                                                <!-- /.p-feature -->
+                                            </div>
+                                            <!-- /.l-container__slot -->
+                                        </div>
+                                        <!-- /.l-container__box -->
+                                        <mt:SetVar name="has_entries" value="0">
+                                    </mt:if>
+                                </mt:entries>
+                            </mt:subcategories>
+                        </div>
+                        <!-- /.l-container__block -->
+                        <mt:SetVar name="has_entries_switch" value="0">
+                    </mt:if>
+                </mt:entries>
+                
+                <!-- 無線LAN -->
+                <mt:entries category="製品情報/無線LAN">
+                    <mt:SetVar name="depth" value="0">
+                    <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                    <mt:if name="depth" eq="3">
+                        <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定">
+                            <mt:SetVar name="has_entries_wireless_lan" value="1">
+                        </mt:if>
+                    </mt:if>
+                    <mt:if name="has_entries_wireless_lan" eq="1">
+                        <div class="l-container__block">
+                            <div class="l-container__box">
+                                <div class="c-content_heading">
+                                    <h2 id="wireless-lan" class="c-content_heading__text">無線LAN</h2>
+                                </div>
+                                <!-- /.c-content_heading -->
+
+                                <div class="l-container__slot">
+                                    <nav class="c-anchor">
+                                        <ul class="c-anchor__list">
+                                            <mt:SubCategories category="製品情報/無線LAN">
+                                                <mt:setvarblock name="sub_cate_wifi">製品情報/無線LAN/<mt:CategoryLabel></mt:setvarblock>
+                                                <mt:entries category="$sub_cate_wifi">
+                                                    <mt:SetVar name="depth" value="0">
+                                                    <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                                                    <mt:if name="depth" eq="3">
+                                                        <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定">
+                                                            <mt:SetVar name="has_entries" value="1">
+                                                        </mt:if>
+                                                    </mt:if>
+                                                    <mt:if name="has_entries" eq="1">
+                                                        <li><a href="#wireless_lan_<mt:CategoryBasename>" class="js-anchor"><mt:CategoryLabel></a></li>
+                                                        <mt:SetVar name="has_entries" value="0">
+                                                    </mt:if>
+                                                </mt:entries>
+                                            </mt:subcategories>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <!-- /.l-container__slot -->
+                            </div>
+                            <!-- /.l-container__box -->
+                            <mt:SubCategories category="製品情報/無線LAN">
+                                <mt:setvarblock name="sub_cate_wifi">製品情報/無線LAN/<mt:CategoryLabel></mt:setvarblock>
+                                <mt:entries category="$sub_cate_wifi">
+                                    <mt:SetVar name="depth" value="0">
+                                    <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                                    <mt:if name="depth" eq="3">
+                                        <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定">
+                                            <mt:SetVar name="has_entries" value="1">
+                                        </mt:if>
+                                    </mt:if>
+                                    <mt:if name="has_entries" eq="1">
+                                        <div class="l-container__box">
+                                            <div class="c-middle_heading">
+                                                <h3 id="wireless_lan_<mt:CategoryBasename>" class="c-middle_heading__text"><mt:CategoryLabel></h3>
+                                            </div>
+                                            <!-- /.c-middle_heading -->
+
+                                            <div class="l-container__slot">
+                                                <div class="p-feature">
+                                                    <div class="p-feature__table--archive">
+                                                        <table>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col"></th>
+                                                                    <th scope="col">製品名</th>
+                                                                    <th scope="col">品番</th>
+                                                                    <th scope="col">製造終了日(EoL)<br>サポート終了日(EoSL)</th>
+                                                                    <th scope="col">後継機種</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <mt:entries category="$sub_cate_wifi">
+                                                                    <mt:SetVar name="depth" value="0">
+                                                                    <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                                                                    <mt:if name="depth" eq="3">
+                                                                        <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定">
+                                                                            <tr>
+                                                                                <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定"><th scope="row" class="p-feature__status--close">販売終了<br class="u-show_sp">予定製品</th></mt:if>
+                                                                                <td>
+                                                                                    <mt:if tag="EntryDataSeriesDetailEndsaleLink">
+                                                                                        <mt:EntryTitle>
+                                                                                    <mt:else>
+                                                                                        <a href="<$mt:EntryPermalink$>"><mt:EntryTitle></a>
+                                                                                    </mt:if>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <mt:if tag="EntryDataSeriesDetailProduct01"><p>品番：<mt:EntryDataSeriesDetailProduct01></p></mt:if>
+                                                                                    <mt:if tag="EntryDataSeriesDetailProduct02"><p>品番：<mt:EntryDataSeriesDetailProduct02></p></mt:if>
+                                                                                    <mt:if tag="EntryDataSeriesDetailProduct03"><p>品番：<mt:EntryDataSeriesDetailProduct03></p></mt:if>
+                                                                                </td>
+                                                                                <td>
+                                                                                <p><mt:if tag="EntryDataSeriesDetailSaleEnddate"><mt:EntryDataSeriesDetailSaleEnddate></mt:if>製造終了</p>
+                                                                                <p><mt:if tag="EntryDataSeriesDetailSupportEnddate"><mt:EntryDataSeriesDetailSupportEnddate></mt:if> サポート終了</p>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <mt:if tag="EntryDataSeriesDetailSuccessormodelText01"><p><mt:EntryDataSeriesDetailSuccessormodelText01></p></mt:if>
+                                                                                    <mt:if tag="EntryDataSeriesDetailSuccessormodelText02"><p><mt:EntryDataSeriesDetailSuccessormodelText02></p></mt:if>
+                                                                                    <mt:if tag="EntryDataSeriesDetailSuccessormodelText03"><p><mt:EntryDataSeriesDetailSuccessormodelText03></p></mt:if>
+                                                                                    <mt:setvarblock name="successormode"><mt:EntryDataSeriesDetailSuccessormodelText01><mt:EntryDataSeriesDetailSuccessormodelText02><mt:EntryDataSeriesDetailSuccessormodelText03></mt:SetVarBlock>
+                                                                                    <mt:unless name="successormode">
+                                                                                        <p>販売終了</p>
+                                                                                        <p>後継機種なし</p>
+                                                                                    </mt:unless>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </mt:if>
+                                                                    </mt:if>
+                                                                </mt:entries>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <!-- /.p-feature__table--scroll -->
+                                                </div>
+                                                <!-- /.p-feature -->
+                                            </div>
+                                            <!-- /.l-container__slot -->
+                                        </div>
+                                        <!-- /.l-container__box -->
+                                        <mt:SetVar name="has_entries" value="0">
+                                    </mt:if>
+                                </mt:entries>
+                            </mt:subcategories>
+                        </div>
+                        <!-- /.l-container__block -->
+                        <mt:SetVar name="has_entries_wireless_lan" value="0">
+                    </mt:if>
+                </mt:entries>
+                
+                <!-- ルータ／ファイアウォール -->
+                <mt:entries category="製品情報/ルータ／ファイアウォール">
+                    <mt:SetVar name="depth" value="0">
+                    <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                    <mt:if name="depth" eq="3">
+                        <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定">
+                            <mt:SetVar name="has_entries_router_firefall" value="1">
+                        </mt:if>
+                    </mt:if>
+                    <mt:if name="has_entries_router_firefall" eq="1">
+                        <div class="l-container__block">
+                            <div class="l-container__box">
+                                <div class="c-content_heading">
+                                    <h2 id="router_firefall" class="c-content_heading__text">ルータ／ファイアウォール</h2>
+                                </div>
+                                <!-- /.c-content_heading -->
+
+                                <div class="l-container__slot">
+                                    <nav class="c-anchor">
+                                        <ul class="c-anchor__list">
+                                            <mt:SubCategories category="製品情報/ルータ／ファイアウォール">
+                                                <mt:setvarblock name="sub_cate_router">製品情報/ルータ／ファイアウォール/<mt:CategoryLabel></mt:setvarblock>
+                                                <mt:entries category="$sub_cate_router">
+                                                    <mt:SetVar name="depth" value="0">
+                                                    <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                                                    <mt:if name="depth" eq="3">
+                                                        <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定">
+                                                            <mt:SetVar name="has_entries" value="1">
+                                                        </mt:if>
+                                                    </mt:if>
+                                                    <mt:if name="has_entries" eq="1">
+                                                        <li><a href="#router_firefall_<mt:CategoryBasename>" class="js-anchor"><mt:CategoryLabel></a></li>
+                                                        <mt:SetVar name="has_entries" value="0">
+                                                    </mt:if>
+                                                </mt:entries>
+                                            </mt:subcategories>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <!-- /.l-container__slot -->
+                            </div>
+                            <!-- /.l-container__box -->
+                            <mt:SubCategories category="製品情報/ルータ／ファイアウォール">
+                                <mt:setvarblock name="sub_cate_router">製品情報/ルータ／ファイアウォール/<mt:CategoryLabel></mt:setvarblock>
+                                <mt:entries category="$sub_cate_router">
+                                    <mt:SetVar name="depth" value="0">
+                                    <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                                    <mt:if name="depth" eq="3">
+                                        <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定">
+                                            <mt:SetVar name="has_entries" value="1">
+                                        </mt:if>
+                                    </mt:if>
+                                    <mt:if name="has_entries" eq="1">
+                                        <div class="l-container__box">
+                                            <div class="c-middle_heading">
+                                                <h3 id="router_firefall_<mt:CategoryBasename>" class="c-middle_heading__text"><mt:CategoryLabel></h3>
+                                            </div>
+                                            <!-- /.c-middle_heading -->
+
+                                            <div class="l-container__slot">
+                                                <div class="p-feature">
+                                                    <div class="p-feature__table--archive">
+                                                        <table>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col"></th>
+                                                                    <th scope="col">製品名</th>
+                                                                    <th scope="col">品番</th>
+                                                                    <th scope="col">製造終了日(EoL)<br>サポート終了日(EoSL)</th>
+                                                                    <th scope="col">後継機種</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <mt:entries category="$sub_cate_router">
+                                                                    <mt:SetVar name="depth" value="0">
+                                                                    <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                                                                    <mt:if name="depth" eq="3">
+                                                                        <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定">
+                                                                            <tr>
+                                                                                <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定"><th scope="row" class="p-feature__status--close">販売終了<br class="u-show_sp">予定製品</th></mt:if>
+                                                                                <td>
+                                                                                    <mt:if tag="EntryDataSeriesDetailEndsaleLink">
+                                                                                        <mt:EntryTitle>
+                                                                                    <mt:else>
+                                                                                        <a href="<$mt:EntryPermalink$>"><mt:EntryTitle></a>
+                                                                                    </mt:if>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <mt:if tag="EntryDataSeriesDetailProduct01"><p>品番：<mt:EntryDataSeriesDetailProduct01></p></mt:if>
+                                                                                    <mt:if tag="EntryDataSeriesDetailProduct02"><p>品番：<mt:EntryDataSeriesDetailProduct02></p></mt:if>
+                                                                                    <mt:if tag="EntryDataSeriesDetailProduct03"><p>品番：<mt:EntryDataSeriesDetailProduct03></p></mt:if>
+                                                                                </td>
+                                                                                <td>
+                                                                                <p><mt:if tag="EntryDataSeriesDetailSaleEnddate"><mt:EntryDataSeriesDetailSaleEnddate></mt:if>製造終了</p>
+                                                                                <p><mt:if tag="EntryDataSeriesDetailSupportEnddate"><mt:EntryDataSeriesDetailSupportEnddate></mt:if> サポート終了</p>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <mt:if tag="EntryDataSeriesDetailSuccessormodelText01"><p><mt:EntryDataSeriesDetailSuccessormodelText01></p></mt:if>
+                                                                                    <mt:if tag="EntryDataSeriesDetailSuccessormodelText02"><p><mt:EntryDataSeriesDetailSuccessormodelText02></p></mt:if>
+                                                                                    <mt:if tag="EntryDataSeriesDetailSuccessormodelText03"><p><mt:EntryDataSeriesDetailSuccessormodelText03></p></mt:if>
+                                                                                    <mt:setvarblock name="successormode"><mt:EntryDataSeriesDetailSuccessormodelText01><mt:EntryDataSeriesDetailSuccessormodelText02><mt:EntryDataSeriesDetailSuccessormodelText03></mt:SetVarBlock>
+                                                                                    <mt:unless name="successormode">
+                                                                                        <p>販売終了</p>
+                                                                                        <p>後継機種なし</p>
+                                                                                    </mt:unless>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </mt:if>
+                                                                    </mt:if>
+                                                                </mt:entries>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <!-- /.p-feature__table--scroll -->
+                                                </div>
+                                                <!-- /.p-feature -->
+                                            </div>
+                                            <!-- /.l-container__slot -->
+                                        </div>
+                                        <!-- /.l-container__box -->
+                                        <mt:SetVar name="has_entries" value="0">
+                                    </mt:if>
+                                </mt:entries>
+                            </mt:subcategories>
+                        </div>
+                        <!-- /.l-container__block -->
+                        <mt:SetVar name="has_entries_router_firefall" value="0">
+                    </mt:if>
+                </mt:entries>
+                
+                <!-- メディアコンバータ -->
+                <mt:entries category="製品情報/メディアコンバータ">
+                    <mt:SetVar name="depth" value="0">
+                    <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                    <mt:if name="depth" eq="3">
+                        <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定">
+                            <mt:SetVar name="has_entries_mediaconverter" value="1">
+                        </mt:if>
+                    </mt:if>
+                    <mt:if name="has_entries_mediaconverter" eq="1">
+                        <div class="l-container__block">
+                            <div class="l-container__box">
+                                <div class="c-content_heading">
+                                    <h2 id="mediaconverter" class="c-content_heading__text">メディアコンバータ</h2>
+                                </div>
+                                <!-- /.c-content_heading -->
+
+                                <div class="l-container__slot">
+                                    <nav class="c-anchor">
+                                        <ul class="c-anchor__list">
+                                            <mt:SubCategories category="製品情報/メディアコンバータ">
+                                                <mt:setvarblock name="sub_cate_converter">製品情報/メディアコンバータ/<mt:CategoryLabel></mt:setvarblock>
+                                                <mt:entries category="$sub_cate_converter">
+                                                    <mt:SetVar name="depth" value="0">
+                                                    <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                                                    <mt:if name="depth" eq="3">
+                                                        <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定">
+                                                            <mt:SetVar name="has_entries" value="1">
+                                                        </mt:if>
+                                                    </mt:if>
+                                                    <mt:if name="has_entries" eq="1">
+                                                        <li><a href="#mediaconverter_<mt:CategoryBasename>" class="js-anchor"><mt:CategoryLabel></a></li>
+                                                        <mt:SetVar name="has_entries" value="0">
+                                                    </mt:if>
+                                                </mt:entries>
+                                            </mt:subcategories>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <!-- /.l-container__slot -->
+                            </div>
+                            <!-- /.l-container__box -->
+                            <mt:SubCategories category="製品情報/メディアコンバータ">
+                                <mt:setvarblock name="sub_cate_converter">製品情報/メディアコンバータ/<mt:CategoryLabel></mt:setvarblock>
+                                <mt:entries category="$sub_cate_converter">
+                                    <mt:SetVar name="depth" value="0">
+                                    <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                                    <mt:if name="depth" eq="3">
+                                        <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定">
+                                            <mt:SetVar name="has_entries" value="1">
+                                        </mt:if>
+                                    </mt:if>
+                                    <mt:if name="has_entries" eq="1">
+                                        <div class="l-container__box">
+                                            <div class="c-middle_heading">
+                                                <h3 id="mediaconverter_<mt:CategoryBasename>" class="c-middle_heading__text"><mt:CategoryLabel></h3>
+                                            </div>
+                                            <!-- /.c-middle_heading -->
+
+                                            <div class="l-container__slot">
+                                                <div class="p-feature">
+                                                    <div class="p-feature__table--archive">
+                                                        <table>
+                                                            <thead>
+                                                            <tr>
+                                                                <th scope="col"></th>
+                                                                <th scope="col">製品名</th>
+                                                                <th scope="col">品番</th>
+                                                                <th scope="col">製造終了日(EoL)<br>サポート終了日(EoSL)</th>
+                                                                <th scope="col">後継機種</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <mt:entries category="$sub_cate_converter">
+                                                                    <mt:SetVar name="depth" value="0">
+                                                                    <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                                                                    <mt:if name="depth" eq="3">
+                                                                        <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定">
+                                                                            <tr>
+                                                                                <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定"><th scope="row" class="p-feature__status--close">販売終了<br class="u-show_sp">予定製品</th></mt:if>
+                                                                                <td>
+                                                                                    <mt:if tag="EntryDataSeriesDetailEndsaleLink">
+                                                                                        <mt:EntryTitle>
+                                                                                    <mt:else>
+                                                                                        <a href="<$mt:EntryPermalink$>"><mt:EntryTitle></a>
+                                                                                    </mt:if>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <mt:if tag="EntryDataSeriesDetailProduct01"><p>品番：<mt:EntryDataSeriesDetailProduct01></p></mt:if>
+                                                                                    <mt:if tag="EntryDataSeriesDetailProduct02"><p>品番：<mt:EntryDataSeriesDetailProduct02></p></mt:if>
+                                                                                    <mt:if tag="EntryDataSeriesDetailProduct03"><p>品番：<mt:EntryDataSeriesDetailProduct03></p></mt:if>
+                                                                                </td>
+                                                                                <td>
+                                                                                <p><mt:if tag="EntryDataSeriesDetailSaleEnddate"><mt:EntryDataSeriesDetailSaleEnddate></mt:if>製造終了</p>
+                                                                                <p><mt:if tag="EntryDataSeriesDetailSupportEnddate"><mt:EntryDataSeriesDetailSupportEnddate></mt:if> サポート終了</p>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <mt:if tag="EntryDataSeriesDetailSuccessormodelText01"><p><mt:EntryDataSeriesDetailSuccessormodelText01></p></mt:if>
+                                                                                    <mt:if tag="EntryDataSeriesDetailSuccessormodelText02"><p><mt:EntryDataSeriesDetailSuccessormodelText02></p></mt:if>
+                                                                                    <mt:if tag="EntryDataSeriesDetailSuccessormodelText03"><p><mt:EntryDataSeriesDetailSuccessormodelText03></p></mt:if>
+                                                                                    <mt:setvarblock name="successormode"><mt:EntryDataSeriesDetailSuccessormodelText01><mt:EntryDataSeriesDetailSuccessormodelText02><mt:EntryDataSeriesDetailSuccessormodelText03></mt:SetVarBlock>
+                                                                                    <mt:unless name="successormode">
+                                                                                        <p>販売終了</p>
+                                                                                        <p>後継機種なし</p>
+                                                                                    </mt:unless>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </mt:if>
+                                                                    </mt:if>
+                                                                </mt:entries>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <!-- /.p-feature__table--scroll -->
+                                                </div>
+                                                <!-- /.p-feature -->
+                                            </div>
+                                            <!-- /.l-container__slot -->
+                                        </div>
+                                        <!-- /.l-container__box -->
+                                        <mt:SetVar name="has_entries" value="0">
+                                    </mt:if>
+                                </mt:entries>
+                            </mt:subcategories>
+                        </div>
+                        <!-- /.l-container__block -->
+                        <mt:SetVar name="has_entries_mediaconverter" value="0">
+                    </mt:if>
+                </mt:entries>
+                
+                <!-- ネットワーク管理ソフトウェア -->
+                <mt:entries category="製品情報/ネットワーク管理ソフトウェア">
+                    <mt:SetVar name="depth" value="0">
+                    <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                    <mt:if name="depth" eq="3">
+                        <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定">
+                            <mt:SetVar name="has_entries_network_software" value="1">
+                        </mt:if>
+                    </mt:if>
+                    <mt:if name="has_entries_network_software" eq="1">
+                        <div class="l-container__block">
+                            <div class="l-container__box">
+                                <div class="c-content_heading">
+                                    <h2 id="network_software" class="c-content_heading__text">ネットワーク管理ソフトウェア</h2>
+                                </div>
+                                <!-- /.c-content_heading -->
+
+                                <div class="l-container__slot">
+                                    <nav class="c-anchor">
+                                        <ul class="c-anchor__list">
+                                            <mt:SubCategories category="製品情報/ネットワーク管理ソフトウェア">
+                                                <mt:setvarblock name="sub_cate_network_software">製品情報/ネットワーク管理ソフトウェア/<mt:CategoryLabel></mt:setvarblock>
+                                                <mt:entries category="$sub_cate_network_software">
+                                                    <mt:SetVar name="depth" value="0">
+                                                    <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                                                    <mt:if name="depth" eq="3">
+                                                        <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定">
+                                                            <mt:SetVar name="has_entries" value="1">
+                                                        </mt:if>
+                                                    </mt:if>
+                                                    <mt:if name="has_entries" eq="1">
+                                                        <li><a href="#network_software_<mt:CategoryBasename>" class="js-anchor"><mt:CategoryLabel></a></li>
+                                                        <mt:SetVar name="has_entries" value="0">
+                                                    </mt:if>
+                                                </mt:entries>
+                                            </mt:subcategories>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <!-- /.l-container__slot -->
+                            </div>
+                            <!-- /.l-container__box -->
+                            <mt:SubCategories category="製品情報/ネットワーク管理ソフトウェア">
+                                <mt:setvarblock name="sub_cate_network_software">製品情報/ネットワーク管理ソフトウェア/<mt:CategoryLabel></mt:setvarblock>
+                                <mt:entries category="$sub_cate_network_software">
+                                    <mt:SetVar name="depth" value="0">
+                                    <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                                    <mt:if name="depth" eq="3">
+                                        <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定">
+                                            <mt:SetVar name="has_entries" value="1">
+                                        </mt:if>
+                                    </mt:if>
+                                    <mt:if name="has_entries" eq="1">
+                                        <div class="l-container__box">
+                                            <div class="c-middle_heading">
+                                                <h3 id="network_software_<mt:CategoryBasename>" class="c-middle_heading__text"><mt:CategoryLabel></h3>
+                                            </div>
+                                            <!-- /.c-middle_heading -->
+
+                                            <div class="l-container__slot">
+                                                <div class="p-feature">
+                                                    <div class="p-feature__table--archive">
+                                                        <table>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col"></th>
+                                                                    <th scope="col">製品名</th>
+                                                                    <th scope="col">品番</th>
+                                                                    <th scope="col">製造終了日(EoL)<br>サポート終了日(EoSL)</th>
+                                                                    <th scope="col">後継機種</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <mt:entries category="$sub_cate_network_software">
+                                                                    <mt:SetVar name="depth" value="0">
+                                                                    <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                                                                    <mt:if name="depth" eq="3">
+                                                                        <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定">
+                                                                            <tr>
+                                                                                <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定"><th scope="row" class="p-feature__status--close">販売終了<br class="u-show_sp">予定製品</th></mt:if>
+                                                                                <td>
+                                                                                    <mt:if tag="EntryDataSeriesDetailEndsaleLink">
+                                                                                        <mt:EntryTitle>
+                                                                                    <mt:else>
+                                                                                        <a href="<$mt:EntryPermalink$>"><mt:EntryTitle></a>
+                                                                                    </mt:if>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <mt:if tag="EntryDataSeriesDetailProduct01"><p>品番：<mt:EntryDataSeriesDetailProduct01></p></mt:if>
+                                                                                    <mt:if tag="EntryDataSeriesDetailProduct02"><p>品番：<mt:EntryDataSeriesDetailProduct02></p></mt:if>
+                                                                                    <mt:if tag="EntryDataSeriesDetailProduct03"><p>品番：<mt:EntryDataSeriesDetailProduct03></p></mt:if>
+                                                                                </td>
+                                                                                <td>
+                                                                                <p><mt:if tag="EntryDataSeriesDetailSaleEnddate"><mt:EntryDataSeriesDetailSaleEnddate></mt:if>製造終了</p>
+                                                                                <p><mt:if tag="EntryDataSeriesDetailSupportEnddate"><mt:EntryDataSeriesDetailSupportEnddate></mt:if> サポート終了</p>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <mt:if tag="EntryDataSeriesDetailSuccessormodelText01"><p><mt:EntryDataSeriesDetailSuccessormodelText01></p></mt:if>
+                                                                                    <mt:if tag="EntryDataSeriesDetailSuccessormodelText02"><p><mt:EntryDataSeriesDetailSuccessormodelText02></p></mt:if>
+                                                                                    <mt:if tag="EntryDataSeriesDetailSuccessormodelText03"><p><mt:EntryDataSeriesDetailSuccessormodelText03></p></mt:if>
+                                                                                    <mt:setvarblock name="successormode"><mt:EntryDataSeriesDetailSuccessormodelText01><mt:EntryDataSeriesDetailSuccessormodelText02><mt:EntryDataSeriesDetailSuccessormodelText03></mt:SetVarBlock>
+                                                                                    <mt:unless name="successormode">
+                                                                                        <p>販売終了</p>
+                                                                                        <p>後継機種なし</p>
+                                                                                    </mt:unless>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </mt:if>
+                                                                    </mt:if>
+                                                                </mt:entries>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <!-- /.p-feature__table--scroll -->
+                                                </div>
+                                                <!-- /.p-feature -->
+                                            </div>
+                                            <!-- /.l-container__slot -->
+                                        </div>
+                                        <!-- /.l-container__box -->
+                                        <mt:SetVar name="has_entries" value="0">
+                                    </mt:if>
+                                </mt:entries>
+                            </mt:subcategories>
+                        </div>
+                        <!-- /.l-container__block -->
+                        <mt:SetVar name="has_entries_network_software" value="0">
+                    </mt:if>
+                </mt:entries>
+                
+                <!-- リダンダント電源 -->
+                <mt:entries category="製品情報/リダンダント電源">
+                    <mt:SetVar name="depth" value="0">
+                    <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                    <mt:if name="depth" eq="3">
+                        <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定">
+                            <mt:SetVar name="has_entries_redundant" value="1">
+                        </mt:if>
+                    </mt:if>
+                    <mt:if name="has_entries_redundant" eq="1">
+                        <div class="l-container__block">
+                            <div class="l-container__box">
+                                <div class="c-content_heading">
+                                    <h2 id="redundant" class="c-content_heading__text">リダンダント電源</h2>
+                                </div>
+                                <!-- /.c-content_heading -->
+
+                                <div class="l-container__slot">
+                                    <nav class="c-anchor">
+                                        <ul class="c-anchor__list">
+                                            <mt:SubCategories category="製品情報/リダンダント電源">
+                                                <mt:setvarblock name="sub_cate_redundant">製品情報/リダンダント電源/<mt:CategoryLabel></mt:setvarblock>
+                                                <mt:entries category="$sub_cate_redundant">
+                                                    <mt:SetVar name="depth" value="0">
+                                                    <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                                                    <mt:if name="depth" eq="3">
+                                                        <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定">
+                                                            <mt:SetVar name="has_entries" value="1">
+                                                        </mt:if>
+                                                    </mt:if>
+                                                    <mt:if name="has_entries" eq="1">
+                                                        <li><a href="#redundant_<mt:CategoryBasename>" class="js-anchor"><mt:CategoryLabel></a></li>
+                                                        <mt:SetVar name="has_entries" value="0">
+                                                    </mt:if>
+                                                </mt:entries>
+                                            </mt:subcategories>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <!-- /.l-container__slot -->
+                            </div>
+                            <!-- /.l-container__box -->
+                            <mt:SubCategories category="製品情報/リダンダント電源">
+                                <mt:setvarblock name="sub_cate_redundant">製品情報/リダンダント電源/<mt:CategoryLabel></mt:setvarblock>
+                                <mt:entries category="$sub_cate_redundant">
+                                    <mt:SetVar name="depth" value="0">
+                                    <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                                    <mt:if name="depth" eq="3">
+                                        <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定">
+                                            <mt:SetVar name="has_entries" value="1">
+                                        </mt:if>
+                                    </mt:if>
+                                    <mt:if name="has_entries" eq="1">
+                                        <div class="l-container__box">
+                                            <div class="c-middle_heading">
+                                                <h3 id="redundant_<mt:CategoryBasename>" class="c-middle_heading__text"><mt:CategoryLabel></h3>
+                                            </div>
+                                            <!-- /.c-middle_heading -->
+
+                                            <div class="l-container__slot">
+                                                <div class="p-feature">
+                                                    <div class="p-feature__table--archive">
+                                                        <table>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col"></th>
+                                                                    <th scope="col">製品名</th>
+                                                                    <th scope="col">品番</th>
+                                                                    <th scope="col">製造終了日(EoL)<br>サポート終了日(EoSL)</th>
+                                                                    <th scope="col">後継機種</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <mt:entries category="$sub_cate_redundant">
+                                                                    <mt:SetVar name="depth" value="0">
+                                                                    <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                                                                    <mt:if name="depth" eq="3">
+                                                                        <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定">
+                                                                            <tr>
+                                                                                <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定"><th scope="row" class="p-feature__status--close">販売終了<br class="u-show_sp">予定製品</th></mt:if>
+                                                                                <td>
+                                                                                    <mt:if tag="EntryDataSeriesDetailEndsaleLink">
+                                                                                        <mt:EntryTitle>
+                                                                                    <mt:else>
+                                                                                        <a href="<$mt:EntryPermalink$>"><mt:EntryTitle></a>
+                                                                                    </mt:if>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <mt:if tag="EntryDataSeriesDetailProduct01"><p>品番：<mt:EntryDataSeriesDetailProduct01></p></mt:if>
+                                                                                    <mt:if tag="EntryDataSeriesDetailProduct02"><p>品番：<mt:EntryDataSeriesDetailProduct02></p></mt:if>
+                                                                                    <mt:if tag="EntryDataSeriesDetailProduct03"><p>品番：<mt:EntryDataSeriesDetailProduct03></p></mt:if>
+                                                                                </td>
+                                                                                <td>
+                                                                                <p><mt:if tag="EntryDataSeriesDetailSaleEnddate"><mt:EntryDataSeriesDetailSaleEnddate></mt:if>製造終了</p>
+                                                                                <p><mt:if tag="EntryDataSeriesDetailSupportEnddate"><mt:EntryDataSeriesDetailSupportEnddate></mt:if> サポート終了</p>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <mt:if tag="EntryDataSeriesDetailSuccessormodelText01"><p><mt:EntryDataSeriesDetailSuccessormodelText01></p></mt:if>
+                                                                                    <mt:if tag="EntryDataSeriesDetailSuccessormodelText02"><p><mt:EntryDataSeriesDetailSuccessormodelText02></p></mt:if>
+                                                                                    <mt:if tag="EntryDataSeriesDetailSuccessormodelText03"><p><mt:EntryDataSeriesDetailSuccessormodelText03></p></mt:if>
+                                                                                    <mt:setvarblock name="successormode"><mt:EntryDataSeriesDetailSuccessormodelText01><mt:EntryDataSeriesDetailSuccessormodelText02><mt:EntryDataSeriesDetailSuccessormodelText03></mt:SetVarBlock>
+                                                                                    <mt:unless name="successormode">
+                                                                                        <p>販売終了</p>
+                                                                                        <p>後継機種なし</p>
+                                                                                    </mt:unless>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </mt:if>
+                                                                    </mt:if>
+                                                                </mt:entries>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <!-- /.p-feature__table--scroll -->
+                                                </div>
+                                                <!-- /.p-feature -->
+                                            </div>
+                                            <!-- /.l-container__slot -->
+                                        </div>
+                                        <!-- /.l-container__box -->
+                                        <mt:SetVar name="has_entries" value="0">
+                                    </mt:if>
+                                </mt:entries>
+                            </mt:subcategories>
+                        </div>
+                        <!-- /.l-container__block -->
+                        <mt:SetVar name="has_entries_redundant" value="0">
+                    </mt:if>
+                </mt:entries>
+                
+                <!-- ネットワークカメラ -->
+                <mt:entries category="製品情報/ネットワークカメラ">
+                    <mt:SetVar name="depth" value="0">
+                    <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                    <mt:if name="depth" eq="3">
+                        <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定">
+                            <mt:SetVar name="has_entries_networkcamera" value="1">
+                        </mt:if>
+                    </mt:if>
+                    <mt:if name="has_entries_networkcamera" eq="1">
+                        <div class="l-container__block">
+                            <div class="l-container__box">
+                                <div class="c-content_heading">
+                                    <h2 id="networkcamera" class="c-content_heading__text">ネットワークカメラ</h2>
+                                </div>
+                                <!-- /.c-content_heading -->
+
+                                <div class="l-container__slot">
+                                    <nav class="c-anchor">
+                                        <ul class="c-anchor__list">
+                                            <mt:SubCategories category="製品情報/ネットワークカメラ">
+                                                <mt:setvarblock name="sub_cate_network">製品情報/ネットワークカメラ/<mt:CategoryLabel></mt:setvarblock>
+                                                <mt:entries category="$sub_cate_network">
+                                                    <mt:SetVar name="depth" value="0">
+                                                    <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                                                    <mt:if name="depth" eq="3">
+                                                        <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定">
+                                                            <mt:SetVar name="has_entries" value="1">
+                                                        </mt:if>
+                                                    </mt:if>
+                                                    <mt:if name="has_entries" eq="1">
+                                                        <li><a href="#networkcamera_<mt:CategoryBasename>" class="js-anchor"><mt:CategoryLabel></a></li>
+                                                        <mt:SetVar name="has_entries" value="0">
+                                                    </mt:if>
+                                                </mt:entries>
+                                            </mt:subcategories>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <!-- /.l-container__slot -->
+                            </div>
+                            <!-- /.l-container__box -->
+                            <mt:SubCategories category="製品情報/ネットワークカメラ">
+                                <mt:setvarblock name="sub_cate_network">製品情報/ネットワークカメラ/<mt:CategoryLabel></mt:setvarblock>
+                                <mt:entries category="$sub_cate_network">
+                                    <mt:SetVar name="depth" value="0">
+                                    <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                                    <mt:if name="depth" eq="3">
+                                        <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定">
+                                            <mt:SetVar name="has_entries" value="1">
+                                        </mt:if>
+                                    </mt:if>
+                                    <mt:if name="has_entries" eq="1">
+                                        <div class="l-container__box">
+                                            <div class="c-middle_heading">
+                                                <h3 id="networkcamera_<mt:CategoryBasename>" class="c-middle_heading__text"><mt:CategoryLabel></h3>
+                                            </div>
+                                            <!-- /.c-middle_heading -->
+
+                                            <div class="l-container__slot">
+                                                <div class="p-feature">
+                                                    <div class="p-feature__table--archive">
+                                                        <table>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col"></th>
+                                                                    <th scope="col">製品名</th>
+                                                                    <th scope="col">品番</th>
+                                                                    <th scope="col">製造終了日(EoL)<br>サポート終了日(EoSL)</th>
+                                                                    <th scope="col">後継機種</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <mt:entries category="$sub_cate_network">
+                                                                    <mt:SetVar name="depth" value="0">
+                                                                    <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                                                                    <mt:if name="depth" eq="3">
+                                                                        <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定">
+                                                                            <tr>
+                                                                                <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定"><th scope="row" class="p-feature__status--close">販売終了<br class="u-show_sp">予定製品</th></mt:if>
+                                                                                <td>
+                                                                                    <mt:if tag="EntryDataSeriesDetailEndsaleLink">
+                                                                                        <mt:EntryTitle>
+                                                                                    <mt:else>
+                                                                                        <a href="<$mt:EntryPermalink$>"><mt:EntryTitle></a>
+                                                                                    </mt:if>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <mt:if tag="EntryDataSeriesDetailProduct01"><p>品番：<mt:EntryDataSeriesDetailProduct01></p></mt:if>
+                                                                                    <mt:if tag="EntryDataSeriesDetailProduct02"><p>品番：<mt:EntryDataSeriesDetailProduct02></p></mt:if>
+                                                                                    <mt:if tag="EntryDataSeriesDetailProduct03"><p>品番：<mt:EntryDataSeriesDetailProduct03></p></mt:if>
+                                                                                </td>
+                                                                                <td>
+                                                                                <p><mt:if tag="EntryDataSeriesDetailSaleEnddate"><mt:EntryDataSeriesDetailSaleEnddate></mt:if>製造終了</p>
+                                                                                <p><mt:if tag="EntryDataSeriesDetailSupportEnddate"><mt:EntryDataSeriesDetailSupportEnddate></mt:if> サポート終了</p>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <mt:if tag="EntryDataSeriesDetailSuccessormodelText01"><p><mt:EntryDataSeriesDetailSuccessormodelText01></p></mt:if>
+                                                                                    <mt:if tag="EntryDataSeriesDetailSuccessormodelText02"><p><mt:EntryDataSeriesDetailSuccessormodelText02></p></mt:if>
+                                                                                    <mt:if tag="EntryDataSeriesDetailSuccessormodelText03"><p><mt:EntryDataSeriesDetailSuccessormodelText03></p></mt:if>
+                                                                                    <mt:setvarblock name="successormode"><mt:EntryDataSeriesDetailSuccessormodelText01><mt:EntryDataSeriesDetailSuccessormodelText02><mt:EntryDataSeriesDetailSuccessormodelText03></mt:SetVarBlock>
+                                                                                    <mt:unless name="successormode">
+                                                                                        <p>販売終了</p>
+                                                                                        <p>後継機種なし</p>
+                                                                                    </mt:unless>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </mt:if>
+                                                                    </mt:if>
+                                                                </mt:entries>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <!-- /.p-feature__table--scroll -->
+                                                </div>
+                                                <!-- /.p-feature -->
+                                            </div>
+                                            <!-- /.l-container__slot -->
+                                        </div>
+                                        <!-- /.l-container__box -->
+                                        <mt:SetVar name="has_entries" value="0">
+                                    </mt:if>
+                                </mt:entries>
+                            </mt:subcategories>
+                        </div>
+                        <!-- /.l-container__block -->
+                        <mt:SetVar name="has_entries_networkcamera" value="0">
+                    </mt:if>
+                </mt:entries>
+                
+                <!-- 光トランシーバ／ケーブル -->
+                <mt:entries category="製品情報/光トランシーバ／ケーブル">
+                    <mt:SetVar name="depth" value="0">
+                    <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                    <mt:if name="depth" eq="3">
+                        <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定">
+                            <mt:SetVar name="has_entries_opticaltransceiver_cable" value="1">
+                        </mt:if>
+                    </mt:if>
+                    <mt:if name="has_entries_opticaltransceiver_cable" eq="1">
+                        <div class="l-container__block">
+                            <div class="l-container__box">
+                                <div class="c-content_heading">
+                                    <h2 id="opticaltransceiver_cable" class="c-content_heading__text">光トランシーバ／ケーブル</h2>
+                                </div>
+                                <!-- /.c-content_heading -->
+
+                                <div class="l-container__slot">
+                                    <nav class="c-anchor">
+                                        <ul class="c-anchor__list">
+                                            <mt:SubCategories category="製品情報/光トランシーバ／ケーブル">
+                                                <mt:setvarblock name="sub_cate_opticaltransceiver_cable">製品情報/光トランシーバ／ケーブル/<mt:CategoryLabel></mt:setvarblock>
+                                                <mt:entries category="$sub_cate_opticaltransceiver_cable">
+                                                    <mt:SetVar name="depth" value="0">
+                                                    <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                                                    <mt:if name="depth" eq="3">
+                                                        <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定">
+                                                            <mt:SetVar name="has_entries" value="1">
+                                                        </mt:if>
+                                                    </mt:if>
+                                                    <mt:if name="has_entries" eq="1">
+                                                        <li><a href="#opticaltransceiver_cable_<mt:CategoryBasename>" class="js-anchor"><mt:CategoryLabel></a></li>
+                                                        <mt:SetVar name="has_entries" value="0">
+                                                    </mt:if>
+                                                </mt:entries>
+                                            </mt:subcategories>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <!-- /.l-container__slot -->
+                            </div>
+                            <!-- /.l-container__box -->
+                            <mt:SubCategories category="製品情報/光トランシーバ／ケーブル">
+                                <mt:setvarblock name="sub_cate_opticaltransceiver_cable">製品情報/光トランシーバ／ケーブル/<mt:CategoryLabel></mt:setvarblock>
+                                <mt:entries category="$sub_cate_opticaltransceiver_cable">
+                                    <mt:SetVar name="depth" value="0">
+                                    <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                                    <mt:if name="depth" eq="3">
+                                        <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定">
+                                            <mt:SetVar name="has_entries" value="1">
+                                        </mt:if>
+                                    </mt:if>
+                                    <mt:if name="has_entries" eq="1">
+                                        <div class="l-container__box">
+                                            <div class="c-middle_heading">
+                                                <h3 id="opticaltransceiver_cable_<mt:CategoryBasename>" class="c-middle_heading__text"><mt:CategoryLabel></h3>
+                                            </div>
+                                            <!-- /.c-middle_heading -->
+
+                                            <div class="l-container__slot">
+                                                <div class="p-feature">
+                                                    <div class="p-feature__table--archive">
+                                                        <table>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col"></th>
+                                                                    <th scope="col">製品名</th>
+                                                                    <th scope="col">品番</th>
+                                                                    <th scope="col">製造終了日(EoL)<br>サポート終了日(EoSL)</th>
+                                                                    <th scope="col">後継機種</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <mt:entries category="$sub_cate_opticaltransceiver_cable">
+                                                                    <mt:SetVar name="depth" value="0">
+                                                                    <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                                                                    <mt:if name="depth" eq="3">
+                                                                        <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定">
+                                                                            <tr>
+                                                                                <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定"><th scope="row" class="p-feature__status--close">販売終了<br class="u-show_sp">予定製品</th></mt:if>
+                                                                                <td>
+                                                                                    <mt:if tag="EntryDataSeriesDetailEndsaleLink">
+                                                                                        <mt:EntryTitle>
+                                                                                    <mt:else>
+                                                                                        <a href="<$mt:EntryPermalink$>"><mt:EntryTitle></a>
+                                                                                    </mt:if>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <mt:if tag="EntryDataSeriesDetailProduct01"><p>品番：<mt:EntryDataSeriesDetailProduct01></p></mt:if>
+                                                                                    <mt:if tag="EntryDataSeriesDetailProduct02"><p>品番：<mt:EntryDataSeriesDetailProduct02></p></mt:if>
+                                                                                    <mt:if tag="EntryDataSeriesDetailProduct03"><p>品番：<mt:EntryDataSeriesDetailProduct03></p></mt:if>
+                                                                                </td>
+                                                                                <td>
+                                                                                <p><mt:if tag="EntryDataSeriesDetailSaleEnddate"><mt:EntryDataSeriesDetailSaleEnddate></mt:if>製造終了</p>
+                                                                                <p><mt:if tag="EntryDataSeriesDetailSupportEnddate"><mt:EntryDataSeriesDetailSupportEnddate></mt:if> サポート終了</p>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <mt:if tag="EntryDataSeriesDetailSuccessormodelText01"><p><mt:EntryDataSeriesDetailSuccessormodelText01></p></mt:if>
+                                                                                    <mt:if tag="EntryDataSeriesDetailSuccessormodelText02"><p><mt:EntryDataSeriesDetailSuccessormodelText02></p></mt:if>
+                                                                                    <mt:if tag="EntryDataSeriesDetailSuccessormodelText03"><p><mt:EntryDataSeriesDetailSuccessormodelText03></p></mt:if>
+                                                                                    <mt:setvarblock name="successormode"><mt:EntryDataSeriesDetailSuccessormodelText01><mt:EntryDataSeriesDetailSuccessormodelText02><mt:EntryDataSeriesDetailSuccessormodelText03></mt:SetVarBlock>
+                                                                                    <mt:unless name="successormode">
+                                                                                        <p>販売終了</p>
+                                                                                        <p>後継機種なし</p>
+                                                                                    </mt:unless>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </mt:if>
+                                                                    </mt:if>
+                                                                </mt:entries>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <!-- /.p-feature__table--scroll -->
+                                                </div>
+                                                <!-- /.p-feature -->
+                                            </div>
+                                            <!-- /.l-container__slot -->
+                                        </div>
+                                        <!-- /.l-container__box -->
+                                        <mt:SetVar name="has_entries" value="0">
+                                    </mt:if>
+                                </mt:entries>
+                            </mt:subcategories>
+                        </div>
+                        <!-- /.l-container__block -->
+                        <mt:SetVar name="has_entries_opticaltransceiver_cable" value="0">
+                    </mt:if>
+                </mt:entries>
+                
+                <!-- その他製品 -->
+                <mt:entries category="製品情報/その他製品">
+                    <mt:SetVar name="depth" value="0">
+                    <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                    <mt:if name="depth" eq="3">
+                        <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定">
+                            <mt:SetVar name="has_entries_other" value="1">
+                        </mt:if>
+                    </mt:if>
+                    <mt:if name="has_entries_other" eq="1">
+                        <div class="l-container__block">
+                            <div class="l-container__box">
+                                <div class="c-content_heading">
+                                    <h2 id="other" class="c-content_heading__text">その他製品</h2>
+                                </div>
+                                <!-- /.c-content_heading -->
+
+                                <div class="l-container__slot">
+                                    <nav class="c-anchor">
+                                        <ul class="c-anchor__list">
+                                            <mt:SubCategories category="製品情報/その他製品">
+                                                <mt:setvarblock name="sub_cate_other">製品情報/その他製品/<mt:CategoryLabel></mt:setvarblock>
+                                                <mt:entries category="$sub_cate_other">
+                                                    <mt:SetVar name="depth" value="0">
+                                                    <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                                                    <mt:if name="depth" eq="3">
+                                                        <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定">
+                                                            <mt:SetVar name="has_entries" value="1">
+                                                        </mt:if>
+                                                    </mt:if>
+                                                    <mt:if name="has_entries" eq="1">
+                                                        <li><a href="#other_<mt:CategoryBasename>" class="js-anchor"><mt:CategoryLabel></a></li>
+                                                        <mt:SetVar name="has_entries" value="0">
+                                                    </mt:if>
+                                                </mt:entries>
+                                            </mt:subcategories>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <!-- /.l-container__slot -->
+                            </div>
+                            <!-- /.l-container__box -->
+                            <mt:SubCategories category="製品情報/その他製品">
+                                <mt:setvarblock name="sub_cate_other">製品情報/その他製品/<mt:CategoryLabel></mt:setvarblock>
+                                <mt:entries category="$sub_cate_other">
+                                    <mt:SetVar name="depth" value="0">
+                                    <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                                    <mt:if name="depth" eq="3">
+                                        <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定">
+                                            <mt:SetVar name="has_entries" value="1">
+                                        </mt:if>
+                                    </mt:if>
+                                    <mt:if name="has_entries" eq="1">
+                                        <div class="l-container__box">
+                                            <div class="c-middle_heading">
+                                                <h3 id="other_<mt:CategoryBasename>" class="c-middle_heading__text"><mt:CategoryLabel></h3>
+                                            </div>
+                                            <!-- /.c-middle_heading -->
+
+                                            <div class="l-container__slot">
+                                                <div class="p-feature">
+                                                    <div class="p-feature__table--archive">
+                                                        <table>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col"></th>
+                                                                    <th scope="col">製品名</th>
+                                                                    <th scope="col">品番</th>
+                                                                    <th scope="col">製造終了日(EoL)<br>サポート終了日(EoSL)</th>
+                                                                    <th scope="col">後継機種</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <mt:entries category="$sub_cate_other">
+                                                                    <mt:SetVar name="depth" value="0">
+                                                                    <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                                                                    <mt:if name="depth" eq="3">
+                                                                        <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定">
+                                                                            <tr>
+                                                                                <mt:If tag="EntryDataSeriesDetailSalestatus" eq="販売終了予定"><th scope="row" class="p-feature__status--close">販売終了<br class="u-show_sp">予定製品</th></mt:if>
+                                                                                <td>
+                                                                                    <mt:if tag="EntryDataSeriesDetailEndsaleLink">
+                                                                                        <mt:EntryTitle>
+                                                                                    <mt:else>
+                                                                                        <a href="<$mt:EntryPermalink$>"><mt:EntryTitle></a>
+                                                                                    </mt:if>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <mt:if tag="EntryDataSeriesDetailProduct01"><p>品番：<mt:EntryDataSeriesDetailProduct01></p></mt:if>
+                                                                                    <mt:if tag="EntryDataSeriesDetailProduct02"><p>品番：<mt:EntryDataSeriesDetailProduct02></p></mt:if>
+                                                                                    <mt:if tag="EntryDataSeriesDetailProduct03"><p>品番：<mt:EntryDataSeriesDetailProduct03></p></mt:if>
+                                                                                </td>
+                                                                                <td>
+                                                                                <p><mt:if tag="EntryDataSeriesDetailSaleEnddate"><mt:EntryDataSeriesDetailSaleEnddate></mt:if>製造終了</p>
+                                                                                <p><mt:if tag="EntryDataSeriesDetailSupportEnddate"><mt:EntryDataSeriesDetailSupportEnddate></mt:if> サポート終了</p>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <mt:if tag="EntryDataSeriesDetailSuccessormodelText01"><p><mt:EntryDataSeriesDetailSuccessormodelText01></p></mt:if>
+                                                                                    <mt:if tag="EntryDataSeriesDetailSuccessormodelText02"><p><mt:EntryDataSeriesDetailSuccessormodelText02></p></mt:if>
+                                                                                    <mt:if tag="EntryDataSeriesDetailSuccessormodelText03"><p><mt:EntryDataSeriesDetailSuccessormodelText03></p></mt:if>
+                                                                                    <mt:setvarblock name="successormode"><mt:EntryDataSeriesDetailSuccessormodelText01><mt:EntryDataSeriesDetailSuccessormodelText02><mt:EntryDataSeriesDetailSuccessormodelText03></mt:SetVarBlock>
+                                                                                    <mt:unless name="successormode">
+                                                                                        <p>販売終了</p>
+                                                                                        <p>後継機種なし</p>
+                                                                                    </mt:unless>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </mt:if>
+                                                                    </mt:if>
+                                                                </mt:entries>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <!-- /.p-feature__table--scroll -->
+                                                </div>
+                                                <!-- /.p-feature -->
+                                            </div>
+                                            <!-- /.l-container__slot -->
+                                        </div>
+                                        <!-- /.l-container__box -->
+                                        <mt:SetVar name="has_entries" value="0">
+                                    </mt:if>
+                                </mt:entries>
+                            </mt:subcategories>
+                        </div>
+                        <!-- /.l-container__block -->
+                        <mt:SetVar name="has_entries_other" value="0">
+                    </mt:if>
+                </mt:entries>
+            </div>
+            <!-- /.l-container -->
+        </div>
+        <!-- /.l-inner -->
+    </section>
+</main>
+<div class="p-contact">
+    <div class="p-contact__inner">
+        <div class="p-contact__read">
+            <p>購入前の、製品仕様・お見積もり・<br class="u-show_sp">購入方法など<br class="u-show_pc">営業的な<br class="u-show_sp">お問い合わせについてはこちらから</p>
+        </div>
+        <!-- /.p-contact__read -->
+        <div class="p-contact__bottom">
+            <div class="p-contact__button">
+                <a href="/contact/contact-before/">お問い合わせ</a>
+            </div>
+            <!-- /.p-contact__button -->
+        </div>
+        <!-- /.p-contact__bottom -->
+    </div>
+    <!-- /.p-contact__inner -->
+</div>
+<!-- /.p-contact -->
+<div class="p-local_nav">
+    <div class="p-local_nav__inner">
+        <p class="p-local_nav__heading">製品情報</p>
+        <ul class="p-local_nav__list js-local_nav_current">
+            <li><a href="/product/">製品情報TOP</a></li>
+            <li><a href="/product/switch/">スイッチ</a></li>
+            <li><a href="/product/wireless-lan/">無線LAN</a></li>
+            <li><a href="/product/router-firewall/">ルータ / ファイアーウォール</a></li>
+            <li><a href="/product/media-converter/">メディアコンバータ</a></li>
+            <li><a href="/product/network-camera/">ネットワークカメラ</a></li>
+            <li><a href="/product/software/">ネットワーク管理ソフトウェア</a></li>
+            <li><a href="/product/sfp-xf-others/">光トランシーバ / ケーブル</a></li>
+            <li><a href="/product/redundant/">リダンダント電源</a></li>
+            <li><a href="/product/other/">その他製品</a></li>
+            <li><a href="/product/compare/">製品比較</a></li>
+            <li><a href="/product/archive/">販売終了予定／販売終了製品</a></li>
+        </ul>
+    </div>
+    <!-- /.p-local_nav__inner -->
+</div>
+<!-- /.p-local_nav -->
+<mt:Include module="footer" parent="1" />
+<mt:Include module="html_foot" parent="1" />
