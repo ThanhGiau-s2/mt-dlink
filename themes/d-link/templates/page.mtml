@@ -30,6 +30,38 @@ Template Note : 固定ページ出力用
         <mt:Include module="page_career"/>
     </mt:if>
 </mt:IfFolder>
+<mt:IfFolder name="switch">
+    <mt:if tag="PageBasename" eq="list">
+        <mt:Include module="page_switch_list"/>
+    </mt:if>
+</mt:IfFolder>
+<mt:IfFolder name="wireless-lan">
+    <mt:if tag="PageBasename" eq="list">
+        <mt:Include module="page_wireless-lan_list"/>
+    </mt:if>
+    <mt:if tag="PageBasename" eq="access_point">
+        <mt:Include module="page_wireless-lan_access_point"/>
+    </mt:if>
+    <mt:if tag="PageBasename" eq="controller">
+        <mt:Include module="page_wireless-lan_controller"/>
+    </mt:if>
+</mt:IfFolder>
+<mt:IfFolder name="product">
+    <mt:if tag="PageBasename" eq="archive">
+        <mt:Include module="product_archive"/>
+    </mt:if>
+    <mt:if tag="PageBasename" eq="compare">
+        <mt:Include module="product_compare"/>
+    </mt:if>
+</mt:IfFolder>
+<mt:IfFolder name="archive">
+    <mt:if tag="PageBasename" eq="pog">
+        <mt:Include module="product_archive_pog"/>
+    </mt:if>
+    <mt:if tag="PageBasename" eq="eos">
+        <mt:Include module="product_archive_eos"/>
+    </mt:if>
+</mt:IfFolder>
 <mt:HasParentFolder>
     <mt:if tag="PageBasename" eq="thanks">
         <mt:Include module="page_complete_form"/>

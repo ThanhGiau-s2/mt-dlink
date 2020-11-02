@@ -1,0 +1,24 @@
+label: d-link_product-pickup
+id: d-link_product-pickup
+name: d-link_product-pickup
+version: '1.0'
+author_link: 
+author_name: yoyager
+class: 'blog'
+description: 製品ピックアップ情報
+thumbnail_file: 'thumb.png'
+thumbnail_file_medium: 'thumb-medium.png'
+thumbnail_file_small: 'thumb-small.png'
+elements:
+  template_set:
+    component: core
+    importer: template_set
+    data:
+      base_path: templates
+      require: 1
+      templates:
+        index:
+          main_index:
+            label: 'index.html'
+            outfile: index.html
+            rebuild_me: '1'

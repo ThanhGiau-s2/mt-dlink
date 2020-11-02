@@ -1,6 +1,8 @@
 <mt:IfArchiveTypeEnabled archive_type="Category">
     <mt:If tag="EntryCategories">
+        <mt:SetVar name="depth" value="0">
         <mt:EntryPrimaryCategory>
+            <mt:CategoryBasename setvar="name_parent">
             <mt:If tag="CategoryBasename" eq="news">
                 <mt:Include module="single_news" parent="1" />
             <mt:Else>
@@ -13,6 +15,18 @@
             <mt:If tag="CategoryBasename" eq="release">
                 <mt:Include module="single_support_release" parent="1" />
             </mt:If>
+            <mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if>
         </mt:EntryAdditionalCategories>
+        <mt:if name="name_parent" eq="product">
+            <mt:if name="depth" eq="0">
+                <mt:if tag="EntryBasename" like="(switch|wireless-lan|sfp-xf-others)">
+                    <mt:Include module="product_series" parent="1" />
+                <mt:else>
+                    <mt:Include module="product_all" parent="1" />
+                </mt:if>
+            </mt:if>
+            <mt:if name="depth" eq="2"><mt:Include module="small_cate_product" parent="1" /></mt:if>
+            <mt:if name="depth" eq="3"><mt:Include module="single_product" parent="1" /></mt:if>
+        </mt:if>
     </mt:If>
 </mt:IfArchiveTypeEnabled>

@@ -40,6 +40,12 @@ elements:
             outfile: _format_template.html
             rebuild_me: '1'
             build_type: '0'
+          switch_json:
+            label: 'switch_json'
+            outfile: product/data/switch.json
+          wireless_json:
+            label: 'wireless_json'
+            outfile: product/data/wireless.json
         individual:
           entry:
             label: Entry
@@ -62,6 +68,38 @@ elements:
             label: 'category_news'
           category_event:
             label: 'category_event'
+          product_index:
+            label: 'product_index'
+          sub_cate_product:
+            label: 'sub_cate_product'
+          product_series_index:
+            label: 'product_series_index'
+          product_all_index:
+            label: 'product_all_index'
+          page_switch_list:
+            label: 'page_switch_list'
+          page_wireless-lan_list:
+            label: 'page_wireless-lan_list'
+          page_wireless-lan_access_point:
+            label: 'page_wireless-lan_access_point'
+          page_wireless-lan_controller:
+            label: 'page_wireless-lan_controller'
+          product_archive:
+            label: 'product_archive'
+          product_archive_eos:
+            label: 'product_archive_eos'
+          product_archive_pog:
+            label: 'product_archive_pog'
+          small_cate_product:
+            label: 'small_cate_product'
+          single_product:
+            label: 'single_product'
+          switch_json:
+            label: 'switch_json'
+          wireless_json:
+            label: 'wireless_json'
+          product_compare:
+            label: 'product_compare'
           category_yearly_news:
             label: 'category_yearly_news'
           category_yearly_event:

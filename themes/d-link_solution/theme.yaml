@@ -1,0 +1,49 @@
+label: d-link_solution
+id: d-link_solution
+name: d-link_solution
+version: '1.0'
+author_link: 
+author_name: yoyager
+class: 'blog'
+description: ソリューション
+thumbnail_file: 'thumb.png'
+thumbnail_file_medium: 'thumb-medium.png'
+thumbnail_file_small: 'thumb-small.png'
+elements:
+  template_set:
+    component: core
+    importer: template_set
+    data:
+      base_path: templates
+      require: 1
+      templates:
+        index:
+          main_index:
+            label: 'index.html'
+            outfile: index.html
+            rebuild_me: '1'
+        individual:
+          entry:
+            label: Entry
+            mappings:
+              entry_archive:
+                archive_type: Individual
+                file_template: %f
+        page:
+          page:
+            label: Page
+            mappings:
+              page:
+                archive_type: Page
+                preferred: 1
+        module:
+          template_html_head:
+            label: 'html_head'
+          template_html_foot:
+            label: 'html_foot'
+          template_footer:
+            label: 'footer'
+          template_header:
+            label: 'header'
+          template_debug:
+            label: 'debug'

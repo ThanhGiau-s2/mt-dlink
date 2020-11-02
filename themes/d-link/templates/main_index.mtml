@@ -93,189 +93,118 @@ Template Note : トップページ出力用
 
             <div class="p-product_category">
                 <div class="p-product_category__large">
-                    <div class="p-product_category__item">
-                        <a href="/product/switch/">
-                            <div class="p-product_category__detail">
-                                <div class="p-product_category__info">
-                                    <h3 class="p-product_category__name">スイッチ</h3>
-                                    <div class="p-product_category__introduction">
-                                        <p>マネジメントスイッチシリーズから、スマートスイッチ、アンマネージドスイッチまで幅広いラインナップ</p>
+                    <mt:Entries category="製品情報">
+                        <mt:if tag="EntryTitle" eq="スイッチ">
+                            <div class="p-product_category__item">
+                                <a href="/product/switch/">
+                                    <div class="p-product_category__detail">
+                                        <div class="p-product_category__info">
+                                            <h3 class="p-product_category__name"><mt:EntryTitle></h3>
+                                            <div class="p-product_category__introduction">
+                                                <p><mt:EntryDataAllprotopText></p>
+                                            </div>
+                                            <!-- /.p-product_category__introduction -->
+                                        </div>
+                                        <!-- /.p-product_category__info -->
+                                        <div class="p-product_category__image">
+                                            <picture>
+                                                <MTIfNonEmpty tag="EntryDataAlltopSum">
+                                                    <mt:EntryDataAlltopSumAsset>
+                                                        <source srcset="<mt:AssetURL>" media="(max-width: 768px)">
+                                                    </mt:EntryDataAlltopSumAsset>
+                                                <mt:else>
+                                                    <source srcset="/asset/img/product/alternative_image.jpg" media="(max-width: 768px)">
+                                                </MTIfNonEmpty>
+                                                <MTIfNonEmpty tag="EntryDataProducttopSum">
+                                                    <mt:EntryDataProducttopSumAsset>
+                                                        <img src="<mt:AssetURL>" alt="<mt:EntryTitle>">
+                                                    </mt:EntryDataProducttopSumAsset>
+                                                <mt:else>
+                                                    <img src="/asset/img/product/alternative_image.jpg" alt="<mt:EntryTitle>">
+                                                </MTIfNonEmpty>
+                                            </picture>
+                                        </div>
+                                        <!-- /.p-product_category__image -->
                                     </div>
-                                    <!-- /.p-product_category__introduction -->
-                                </div>
-                                <!-- /.p-product_category__info -->
-                                <div class="p-product_category__image">
-                                    <picture>
-                                        <source srcset="/asset/img/top/category_img_01_sp.png" media="(max-width: 768px)">
-                                        <img src="/asset/img/top/category_img_01_pc.png" alt="スイッチ">
-                                    </picture>
-                                </div>
-                                <!-- /.p-product_category__image -->
+                                    <!-- /.p-product_category__detail -->
+                                </a>
                             </div>
-                            <!-- /.p-product_category__detail -->
-                        </a>
-                    </div>
-                    <!-- /.p-product_category__item -->
-                    <div class="p-product_category__item">
-                        <a href="/product/wireless-lan/">
-                            <div class="p-product_category__detail">
-                                <div class="p-product_category__info">
-                                    <h3 class="p-product_category__name">無線LAN</h3>
-                                    <div class="p-product_category__introduction">
-                                        <p>クラウド型無線LANコントローラ、オンプレミス型無線LANコントローラ、およびスタンドアローン型アクセスポイントの3種類をラインナップ</p>
+                            <!-- /.p-product_category__item -->
+                        </mt:if>
+                    </mt:entries>
+                    <mt:Entries category="製品情報">
+                        <mt:if tag="EntryTitle" eq="無線LAN">
+                            <div class="p-product_category__item">
+                                <a href="/product/wireless-lan/">
+                                    <div class="p-product_category__detail">
+                                        <div class="p-product_category__info">
+                                            <h3 class="p-product_category__name"><mt:EntryTitle></h3>
+                                            <div class="p-product_category__introduction">
+                                                <p><mt:EntryDataAllprotopText></p>
+                                            </div>
+                                            <!-- /.p-product_category__introduction -->
+                                        </div>
+                                        <!-- /.p-product_category__info -->
+                                        <div class="p-product_category__image">
+                                            <picture>
+                                                <MTIfNonEmpty tag="EntryDataAlltopSum">
+                                                    <mt:EntryDataAlltopSumAsset>
+                                                        <source srcset="<mt:AssetURL>" media="(max-width: 768px)">
+                                                    </mt:EntryDataAlltopSumAsset>
+                                                <mt:else>
+                                                    <source srcset="/asset/img/product/alternative_image.jpg" media="(max-width: 768px)">
+                                                </MTIfNonEmpty>
+                                                <MTIfNonEmpty tag="EntryDataProducttopSum">
+                                                    <mt:EntryDataProducttopSumAsset>
+                                                        <img src="<mt:AssetURL>" alt="<mt:EntryTitle>">
+                                                    </mt:EntryDataProducttopSumAsset>
+                                                <mt:else>
+                                                    <img src="/asset/img/product/alternative_image.jpg" alt="<mt:EntryTitle>">
+                                                </MTIfNonEmpty>
+                                            </picture>
+                                        </div>
+                                        <!-- /.p-product_category__image -->
                                     </div>
-                                    <!-- /.p-product_category__introduction -->
-                                </div>
-                                <!-- /.p-product_category__info -->
-                                <div class="p-product_category__image">
-                                    <picture>
-                                        <source srcset="/asset/img/top/category_img_02_sp.png" media="(max-width: 768px)">
-                                        <img src="/asset/img/top/category_img_02_pc.png" alt="無線LAN">
-                                    </picture>
-                                </div>
-                                <!-- /.p-product_category__image -->
+                                    <!-- /.p-product_category__detail -->
+                                </a>
                             </div>
-                            <!-- /.p-product_category__detail -->
-                        </a>
-                    </div>
-                    <!-- /.p-product_category__item -->
+                            <!-- /.p-product_category__item -->
+                        </mt:if>
+                    </mt:entries>
                 </div>
                 <!-- /.p-product_category__large -->
 
                 <div class="p-product_category__small">
-                    <div class="p-product_category__box">
-                        <a href="/product/router-firewall/">
-                            <div class="p-product_category__row">
-                                <div class="p-product_category__info--small">
-                                    <h3 class="p-product_category__name--small">ルータ / ファイアーウォール</h3>
+                    <mt:Entries category="製品情報" sort_by="authored_on" sort_order="ascend">
+                        <mt:EntryCategories setvar="parent_cate"><$mt:CategoryLabel$></mt:EntryCategories>
+                        <mt:if name="parent_cate" eq="製品情報">
+                            <mt:Unless tag="EntryTitle" like="(スイッチ|無線LAN)">
+                                <div class="p-product_category__box">
+                                    <a href="/product/<mt:EntryBaseName>/">
+                                        <div class="p-product_category__row">
+                                            <div class="p-product_category__info--small">
+                                                <h3 class="p-product_category__name--small"><mt:EntryTitle></h3>
+                                            </div>
+                                            <!-- /.p-product_category__info--small -->
+
+                                            <div class="p-product_category__image--small">
+                                                <MTIfNonEmpty tag="EntryDataProducttopSum">
+                                                    <mt:EntryDataProducttopSumAsset>
+                                                        <img src="<mt:AssetURL>" alt="<mt:EntryTitle>">
+                                                    </mt:EntryDataProducttopSumAsset>
+                                                <mt:else>
+                                                    <img src="/asset/img/product/alternative_image.jpg" alt="<mt:EntryTitle>">
+                                                </MTIfNonEmpty>
+                                            </div>
+                                            <!-- /.p-product_category__image--small -->
+                                        </div>
+                                        <!-- /.p-product_category__row -->
+                                    </a>
                                 </div>
-                                <!-- /.p-product_category__info--small -->
-                                <div class="p-product_category__image--small">
-                                    <picture>
-                                        <source srcset="/asset/img/top/category_img_03_sp.png" media="(max-width: 768px)">
-                                        <img src="/asset/img/top/category_img_03_pc.png" alt="ルータ / ファイアーウォール">
-                                    </picture>
-                                </div>
-                                <!-- /.p-product_category__image--small -->
-                            </div>
-                            <!-- /.p-product_category__row -->
-                        </a>
-                    </div>
-                    <!-- /.p-product_category__box -->
-                    <div class="p-product_category__box">
-                        <a href="/product/media-converter/">
-                            <div class="p-product_category__row">
-                                <div class="p-product_category__info--small">
-                                    <h3 class="p-product_category__name--small">メディアコンバータ</h3>
-                                </div>
-                                <!-- /.p-product_category__info--small -->
-                                <div class="p-product_category__image--small">
-                                    <picture>
-                                        <source srcset="/asset/img/top/category_img_04_sp.png" media="(max-width: 768px)">
-                                        <img src="/asset/img/top/category_img_04_pc.png" alt="メディアコンバータ">
-                                    </picture>
-                                </div>
-                                <!-- /.p-product_category__image--small -->
-                            </div>
-                            <!-- /.p-product_category__row -->
-                        </a>
-                    </div>
-                    <!-- /.p-product_category__box -->
-                    <div class="p-product_category__box">
-                        <a href="/product/network-camera/">
-                            <div class="p-product_category__row">
-                                <div class="p-product_category__info--small">
-                                    <h3 class="p-product_category__name--small">ネットワークカメラ</h3>
-                                </div>
-                                <!-- /.p-product_category__info--small -->
-                                <div class="p-product_category__image--small">
-                                    <picture>
-                                        <source srcset="/asset/img/top/category_img_05_sp.png" media="(max-width: 768px)">
-                                        <img src="/asset/img/top/category_img_05_pc.png" alt="ネットワークカメラ">
-                                    </picture>
-                                </div>
-                                <!-- /.p-product_category__thumbnail -->
-                            </div>
-                            <!-- /.p-product_category__row -->
-                        </a>
-                    </div>
-                    <!-- /.p-product_category__box -->
-                    <div class="p-product_category__box">
-                        <a href="/product/software/">
-                            <div class="p-product_category__row">
-                                <div class="p-product_category__info--small">
-                                    <h3 class="p-product_category__name--small">ネットワーク管理ソフトウェア</h3>
-                                </div>
-                                <!-- /.p-product_category__info--small -->
-                                <div class="p-product_category__image--small">
-                                    <picture>
-                                        <source srcset="/asset/img/top/category_img_06_sp.png" media="(max-width: 768px)">
-                                        <img src="/asset/img/top/category_img_06_pc.png" alt="ネットワーク管理ソフトウェア">
-                                    </picture>
-                                </div>
-                                <!-- /.p-product_category__thumbnail -->
-                            </div>
-                            <!-- /.p-product_category__row -->
-                        </a>
-                    </div>
-                    <!-- /.p-product_category__box -->
-                    <div class="p-product_category__box">
-                        <a href="/product/sfp-xf-others/">
-                            <div class="p-product_category__row">
-                                <div class="p-product_category__info--small">
-                                <h3 class="p-product_category__name--small">光トランシーバ / ケーブル</h3>
-                                </div>
-                                <!-- /.p-product_category__info--small -->
-                                <div class="p-product_category__image--small">
-                                    <picture>
-                                        <source srcset="/asset/img/top/category_img_07_sp.png" media="(max-width: 768px)">
-                                        <img src="/asset/img/top/category_img_07_pc.png" alt="光トランシーバ / ケーブル">
-                                    </picture>
-                                </div>
-                                <!-- /.p-product_category__thumbnail -->
-                            </div>
-                            <!-- /.p-product_category__row -->
-                        </a>
-                    </div>
-                    <!-- /.p-product_category__box -->
-                    <div class="p-product_category__box">
-                        <a href="/product/redundant/">
-                            <div class="p-product_category__row">
-                                <div class="p-product_category__info--small">
-                                <h3 class="p-product_category__name--small">リダンダント電源</h3>
-                                </div>
-                                <!-- /.p-product_category__info--small -->
-                                <div class="p-product_category__image--small">
-                                    <picture>
-                                        <source srcset="/asset/img/top/category_img_08_sp.png" media="(max-width: 768px)">
-                                        <img src="/asset/img/top/category_img_08_pc.png" alt="リダンダント電源">
-                                    </picture>
-                                </div>
-                                <!-- /.p-product_category__thumbnail -->
-                            </div>
-                            <!-- /.p-product_category__row -->
-                        </a>
-                    </div>
-                    <!-- /.p-product_category__box -->
-                    <div class="p-product_category__box">
-                        <a href="/product/other/">
-                            <div class="p-product_category__row">
-                                <div class="p-product_category__info--small">
-                                <h3 class="p-product_category__name--small">その他製品</h3>
-                                </div>
-                                <!-- /.p-product_category__info--small -->
-                                <div class="p-product_category__image--small">
-                                    <picture>
-                                        <source srcset="/asset/img/top/category_img_09_sp.png" media="(max-width: 768px)">
-                                        <img src="/asset/img/top/category_img_09_pc.png" alt="その他製品">
-                                    </picture>
-                                </div>
-                                <!-- /.p-product_category__thumbnail -->
-                            </div>
-                            <!-- /.p-product_category__row -->
-                        </a>
-                    </div>
-                    <!-- /.p-product_category__box -->
+                                <!-- /.p-product_category__box -->
+                            </mt:unless>
+                        </mt:if>
+                    </mt:Entries>
                     <div class="p-product_category__box">
                         <a href="/product/compare/" class="p-product_category__other">
                             <div class="p-product_category__row--other">
@@ -344,7 +273,7 @@ Template Note : トップページ出力用
 
             <div class="p-product_category">
                 <div class="p-product_category__large">
-                    <mt:Entries category="製品情報" sort_by="modified_on" lastn="2">
+                    <mt:Entries sort_by="authored_on" sort_order="descend" category="製品情報">
                         <mt:If tag="EntryDataFeatureContent" eq="はい">
                             <div class="p-product_category__item">
                                 <a href="<$mt:EntryPermalink$>" rel="bookmark">
@@ -358,9 +287,13 @@ Template Note : トップページ出力用
                                         </div>
                                         <!-- /.p-product_category__info -->
                                         <div class="p-product_category__image">
-                                            <mt:Entryassets type="image">
-                                                <img src="<$mt:AssetThumbnailURL $="">">
-                                            </mt:Entryassets>
+                                            <MTIfNonEmpty tag="EntryDataSeriesDetailMainImg">
+                                                <mt:EntryDataSeriesDetailMainImgAsset>
+                                                    <img src="<mt:AssetURL>" alt="<mt:EntryTitle>">
+                                                </mt:EntryDataSeriesDetailMainImgAsset>
+                                            <mt:else>
+                                                <img src="/asset/img/product/alternative_image.jpg" alt="<mt:EntryTitle>">
+                                            </MTIfNonEmpty>
                                         </div>
                                         <!-- /.p-product_category__image -->
                                     </div>
