@@ -273,24 +273,24 @@ Template Note : トップページ出力用
 
             <div class="p-product_category">
                 <div class="p-product_category__large">
-                    <mt:Entries sort_by="authored_on" sort_order="descend" category="製品情報">
-                        <mt:If tag="EntryDataFeatureContent" eq="はい">
+                    <mt:Entries include_sites="6" sort_by="authored_on" sort_order="descend" lastn="4">
+                        <mt:If tag="EntryDataProductPickupDetailDisplayAllTop">
                             <div class="p-product_category__item">
-                                <a href="<$mt:EntryPermalink$>" rel="bookmark">
+                                <a href="<mt:EntryDataProductPickupDetailLink>" rel="bookmark">
                                     <div class="p-product_category__detail">
                                         <div class="p-product_category__info">
                                             <h3 class="p-product_category__name"><$mt:EntryTitle words="30"$></h3>
                                             <div class="p-product_category__introduction">
-                                                <p><$mt:EntryBody words="80"$></p>
+                                                <p><$mt:EntryDataProductPickupDetailDisplayTopDescription words="80"$></p>
                                             </div>
                                             <!-- /.p-product_category__introduction -->
                                         </div>
                                         <!-- /.p-product_category__info -->
                                         <div class="p-product_category__image">
-                                            <MTIfNonEmpty tag="EntryDataSeriesDetailMainImg">
-                                                <mt:EntryDataSeriesDetailMainImgAsset>
+                                            <MTIfNonEmpty tag="EntryDataProductPickupDetailDisplayTopImage">
+                                                <mt:EntryDataProductPickupDetailDisplayTopImageAsset>
                                                     <img src="<mt:AssetURL>" alt="<mt:EntryTitle>">
-                                                </mt:EntryDataSeriesDetailMainImgAsset>
+                                                </mt:EntryDataProductPickupDetailDisplayTopImageAsset>
                                             <mt:else>
                                                 <img src="/asset/img/product/alternative_image.jpg" alt="<mt:EntryTitle>">
                                             </MTIfNonEmpty>
@@ -325,26 +325,27 @@ Template Note : トップページ出力用
 
             <div class="p-archive">
                 <div class="p-archive__content">
-                    <mt:Entries category="ソリューションのご提案" sort_by="modified_on" lastn="4">
+                    <mt:Entries include_sites="5" sort_by="authored_on" sort_order="descend" lastn="4">
                         <div class="p-archive__item">
                             <a href="<$mt:EntryPermalink$>" rel="bookmark">
                                 <div class="p-archive__detail">
                                     <div class="p-archive__header">
                                         <p class="p-archive__category--solution">
-                                            <mt:EntryAdditionalCategories glue="," setvar="sub_cats">
-                                            <$mt:CategoryLabel$>
-                                            </mt:EntryAdditionalCategories>
-                                            <mt:If name="sub_cats"><$mt:GetVar name="sub_cats"$></mt:If>
+                                            <mt:EntryPrimaryCategory><$mt:CategoryLabel$></mt:EntryPrimaryCategory>
                                         </p>
                                         <h3 class="p-archive__title"><$mt:EntryTitle words="16"$></h3>
                                         <div class="p-archive__description">
-                                            <p><$mt:EntryBody words="60"$></p>
+                                            <p><mt:EntryDataCaseStudiesDetailListText words="60"></p>
                                         </div>
                                     </div>
                                     <div class="p-archive__image">
-                                        <mt:entryassets type="image">
-                                            <img src="<$mt:AssetThumbnailURL $="">">
-                                        </mt:entryassets>
+                                        <MTIfNonEmpty tag="EntryDataSolutionDetailListImage">
+                                            <mt:EntryDataSolutionDetailListImageAsset>
+                                            <img src="<mt:AssetURL>" alt="<mt:EntryTitle>">
+                                            </mt:EntryDataSolutionDetailListImageAsset>
+                                        <mt:else>
+                                            <img src="/asset/img/product/alternative_image.jpg" alt="<mt:EntryTitle>">
+                                        </MTIfNonEmpty>
                                     </div>
                                 </div>
                             </a>
@@ -372,16 +373,15 @@ Template Note : トップページ出力用
 
             <div class="p-archive">
                 <div class="p-archive__content">
-                    <mt:Entries category="導入事例" sort_by="modified_on" lastn="4">
+                    <mt:Entries include_sites="4" sort_by="modified_on" lastn="4">
                         <div class="p-archive__item">
                             <a href="<$mt:EntryPermalink$>" rel="bookmark">
                                 <div class="p-archive__detail">
                                     <div class="p-archive__header">
                                         <p class="p-archive__category--case">
-                                            <mt:EntryAdditionalCategories glue="," setvar="sub_cats">
+                                            <mt:EntryPrimaryCategory>
                                                 <$mt:CategoryLabel$>
-                                            </mt:EntryAdditionalCategories>
-                                            <mt:If name="sub_cats"><$mt:GetVar name="sub_cats"$></mt:If>
+                                            </mt:EntryPrimaryCategory>
                                         </p>
                                         <h3 class="p-archive__title"><$mt:EntryTitle words="16"$></h3>
                                         <div class="p-archive__description">
@@ -389,9 +389,13 @@ Template Note : トップページ出力用
                                         </div>
                                     </div>
                                     <div class="p-archive__image">
-                                        <mt:Entryassets type="image">
-                                            <img src="<$mt:AssetThumbnailURL $="">">
-                                        </mt:Entryassets>
+                                        <MTIfNonEmpty tag="EntryDataCaseStudiesDetailListImage">
+                                            <mt:EntryDataCaseStudiesDetailListImageAsset>
+                                            <img src="<mt:AssetURL>" alt="<mt:EntryTitle>">
+                                            </mt:EntryDataCaseStudiesDetailListImageAsset>
+                                        <mt:else>
+                                            <img src="/asset/img/product/alternative_image.jpg" alt="<mt:EntryTitle>">
+                                        </MTIfNonEmpty>
                                     </div>
                                 </div>
                             </a>

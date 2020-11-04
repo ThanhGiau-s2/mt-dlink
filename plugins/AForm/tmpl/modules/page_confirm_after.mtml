@@ -30,7 +30,15 @@
             </div>
             <!-- /.c-title -->
 
-            <form name="aform-form-3" id="aform-form-3" action="https://go.dlink-jp.com/l/553122/2020-10-06/3z9qj1n" method="POST" novalidate="novalidate">
+            <form name="aform-form-3" id="aform-form-3" action="/contact/aform_engine.cgi" method="POST" novalidate="novalidate" enctype="multipart/form-data">
+                <input type="hidden" name="blog_id" value="<$mt:var name="blog_id"$>" />
+                <input type="hidden" name="id" value="<$mt:var name="id"$>" />
+                <input type="hidden" name="run_mode" value="complete" />
+                <input type="hidden" id="use_js" name="use_js" value="" />
+                <input type="hidden" name="aform_url" value="<mt:var name="aform_url" escape="html">" />
+                <input type="hidden" name="aform_path" value="<mt:var name="aform_path" escape="html">" />
+                <input type="hidden" name="authenticity_token" value="<mt:var name="authenticity_token" escape="html">" />
+                <input type="hidden" name="entry_id" value="<mt:var name="entry_id" escape="html">" />
                 <mt:var name="hidden_params">
                 <mt:AFormFieldConfirmAll aform_id="<$mt:var name="id"$>"
                     prefix="<dl class="dl_%%parts_id%%">"

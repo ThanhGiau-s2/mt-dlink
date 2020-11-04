@@ -28,7 +28,7 @@ elements:
             mappings:
               entry_archive:
                 archive_type: Individual
-                file_template: %f
+                file_template: %c/%f
         page:
           page:
             label: Page

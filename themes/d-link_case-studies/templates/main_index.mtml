@@ -6,10 +6,10 @@ Template Note : トップページ出力用
 ========================================
 </mt:Ignore>
 <mt:SetVars>
-    base_description=多治見市教育委員会教育環境の充実化と災害発生時に備えた無線LAN整備機器として、D-Linkのクラウド管理型の無線アクセスポイントを採用 千代田電資株式会社フロアの配置換えを機にD-Linkの無線LANを導入。仕事の進め方や業務効率を大幅に改善し、お客様へのWi-Fi構築提案に経験を活用
-    og_title=導入事例 | D-Link Japan
-    og_url=https://www.dlink-jp.com/case-studies/
-    og_type=article
+  base_description=多治見市教育委員会教育環境の充実化と災害発生時に備えた無線LAN整備機器として、D-Linkのクラウド管理型の無線アクセスポイントを採用 千代田電資株式会社フロアの配置換えを機にD-Linkの無線LANを導入。仕事の進め方や業務効率を大幅に改善し、お客様へのWi-Fi構築提案に経験を活用
+  og_title=導入事例 | D-Link Japan
+  og_url=https://www.dlink-jp.com/case-studies/
+  og_type=article
 </mt:SetVars>
 <mt:SetVarTemplate name="file_javascript">
 <script src="/asset/js/slick.min.js"></script>
@@ -19,49 +19,44 @@ Template Note : トップページ出力用
 <mt:Include module="html_head" parent="1" />
 <mt:Include module="header" parent="1" />
 <main class="p-main">
-    <div class="c-breadcrumb">
-        <ul class="c-breadcrumb__list">
-            <li><a href="/">HOME</a></li>
-            <li><span>導入事例</span></li>
-        </ul>
-    </div>
-    <!-- /.c-breadcrumb -->
-
-<section class="l-outer--lower">
-<div class="l-inner">
-
-    <div class="c-title">
+  <div class="c-breadcrumb">
+    <ul class="c-breadcrumb__list">
+      <li><a href="/">HOME</a></li>
+      <li><span>導入事例</span></li>
+    </ul>
+  </div>
+  <!-- /.c-breadcrumb -->
+  <section class="l-outer--lower">
+    <div class="l-inner">
+      <div class="c-title">
         <h1 class="c-title__text">導入事例</h1>
-    </div>
-    <!-- /.c-title -->
-
-    <nav class="c-anchor">
-        <ul class="c-anchor__list">
-        <!--
-            <li><a href="#case_01" class="js-anchor">文教・教育</a></li>
-            <li><a href="#case_02" class="js-anchor">大学・研究機関</a></li>
-            <li><a href="#case_03" class="js-anchor">自治体</a></li>
-            <li><a href="#case_04" class="js-anchor">民間企業</a></li>
-            <li><a href="#case_05" class="js-anchor">医療機関</a></li>
-            <li><a href="#case_06" class="js-anchor">工場・倉庫</a></li>
-            <li><a href="#case_07" class="js-anchor">キャリア・ISP</a></li>
-        -->
+      </div>
+      <!-- /.c-title -->
+      <mt:toplevelcategories>
+      <mt:if tag="CategoryCount" gt="0">
+        <mt:setvar name="have_entry" value="1">
+      </mt:if>
+      </mt:toplevelcategories>
+      <mt:if name="have_entry" eq="1">
+        <nav class="c-anchor">
+          <ul class="c-anchor__list">
+            <mt:toplevelcategories>
+              <mt:if tag="CategoryCount" gt="0"><li><a href="#<$mt:CategoryBasename$>" class="js-anchor"><$MTCategoryLabel$></a></li></mt:if>
+            </mt:toplevelcategories>
+          </ul>
+        </nav>
+      </mt:if>
+      <div class="l-container">
         <mt:toplevelcategories>
-            <li><a href="#<$mt:CategoryBasename$>" class="js-anchor"><$MTCategoryLabel$></a></li>
-        </mt:toplevelcategories>
-        </ul>
-    </nav>
-
-<div class="l-container">
-    <mt:toplevelcategories>
-        <mt:setvarblock name="sub_cate"><mt:CategoryLabel></mt:setvarblock>
-        <div class="l-container__block">
-            <div class="c-content_heading">
+          <mt:if tag="CategoryCount" gt="0">
+            <mt:setvarblock name="sub_cate"><mt:CategoryLabel></mt:setvarblock>
+            <div class="l-container__block">
+              <div class="c-content_heading">
                 <h2 id="<mt:CategoryBasename>" class="c-content_heading__text"><mt:CategoryLabel></h2>
-            </div>
-            <!-- /.c-content_heading -->
+              </div>
+              <!-- /.c-content_heading -->
 
-            <div class="l-container__box">
+              <div class="l-container__box">
                 <div class="p-media">
                     <div class="p-media__content">
                     <mt:Entries category="$sub_cate">
@@ -75,9 +70,13 @@ Template Note : トップページ出力用
                                         </div>
                                     </div>
                                     <div class="p-media__image">
-                                        <mt:EntryDataCaseStudiesDetailListImageAsset>
+                                        <MTIfNonEmpty tag="EntryDataCaseStudiesDetailListImage">
+                                          <mt:EntryDataCaseStudiesDetailListImageAsset>
                                             <img src="<mt:AssetURL>" alt="<mt:EntryTitle>">
-                                        </mt:EntryDataCaseStudiesDetailListImageAsset>
+                                          </mt:EntryDataCaseStudiesDetailListImageAsset>
+                                        <mt:else>
+                                          <img src="/asset/img/product/alternative_image.jpg" alt="<mt:EntryTitle>">
+                                        </MTIfNonEmpty>
                                     </div>
                                 </div>
                             </a>
@@ -88,93 +87,277 @@ Template Note : トップページ出力用
                     <!-- /.p-media__content -->
                 </div>
                 <!-- /.p-media -->
+              </div>
+              <!-- /.l-container__box -->
             </div>
-            <!-- /.l-container__box -->
-        </div>
-        <!-- /.l-container__block -->
-    </mt:toplevelcategories>
-    
-    
-    
+            <!-- /.l-container__block -->
+          </mt:if>
+        </mt:toplevelcategories>
+        
+        
+        <mt:Entries>
+          <mt:if tag="EntryTitle" eq="導入事例">
+            <mt:unless tag="EntryPrimaryCategory">
+              <div class="l-container__block">
+                <mt:if tag="FLCFValue" field="layout_image_text_panel_type">
+                  <div class="c-content_heading">
+                    <h2 class="c-content_heading__text">クライアントリスト</h2>
+                  </div>
+                  <!-- /.c-content_heading -->
 
-<div class="l-container__block">
-<div class="c-content_heading">
-<h2 class="c-content_heading__text">クライアントリスト</h2>
-</div>
-<!-- /.c-content_heading -->
+                  <div class="l-container__box">
+                      <!-- 画像+テキスト（パネル型）-->
+                        <!-- SP時レイアウト変更なし -->
+                          <mt:if tag="FLCFValue" field="layout_image_text_panel_type" eq="sentence_left_justified">
+                            <div class="l-container__slot">
+                              <div class="p-archive">
+                                <div class="p-archive__content">
+                                  <div class="p-archive__item">
+                                    <a href="<mt:FLCFValue field="url_01">">
+                                      <div class="p-archive__detail">
+                                        <div class="p-archive__header">
+                                          <h3 class="p-archive__title"><mt:FLCFValue field="headline_sentence_01"></h3>
+                                          <div class="p-archive__description">
+                                            <p><mt:FLCFValue field="supplementary_text_01"></p>
+                                          </div>
+                                          <!-- /.p-archive__description -->
+                                        </div>
+                                        <!-- /.p-archive__header -->
+                                        <div class="p-archive__image">
+                                          <mt:FLCFAsset field="image_01">
+                                            <img src="<mt:AssetURL>" alt="">
+                                          </mt:FLCFAsset>
+                                        </div>
+                                        <!-- /.p-archive__image -->
+                                      </div>
+                                      <!-- /.p-archive__detail -->
+                                    </a>
+                                  </div>
+                                  <!-- /.p-archive__item -->
 
-<div class="l-container__box">
-<div class="p-img_list">
-<ul class="p-img_list__content">
-<li>
-<img src="/asset/img/case-studies/logo_01.png" alt="社名ロゴ">
-</li>
-<li>
-<img src="/asset/img/case-studies/logo_01.png" alt="社名ロゴ">
-</li>
-<li>
-<img src="/asset/img/case-studies/logo_01.png" alt="社名ロゴ">
-</li>
-<li>
-<img src="/asset/img/case-studies/logo_01.png" alt="社名ロゴ">
-</li>
-<li>
-<img src="/asset/img/case-studies/logo_01.png" alt="社名ロゴ">
-</li>
-<li>
-<img src="/asset/img/case-studies/logo_01.png" alt="社名ロゴ">
-</li>
-<li>
-<img src="/asset/img/case-studies/logo_01.png" alt="社名ロゴ">
-</li>
-<li>
-<img src="/asset/img/case-studies/logo_01.png" alt="社名ロゴ">
-</li>
-</ul>
-<p class="p-img_list__notice"><span>※</span>50音順</p>
-</div>
-<!-- /.p-img_list -->
-</div>
-<!-- /.l-container__box -->
+                                  <div class="p-archive__item">
+                                    <a href="<mt:FLCFValue field="url_02">">
+                                      <div class="p-archive__detail">
+                                        <div class="p-archive__header">
+                                          <h3 class="p-archive__title"><mt:FLCFValue field="headline_sentence_02"></h3>
+                                          <div class="p-archive__description">
+                                            <p><mt:FLCFValue field="supplementary_text_02"></p>
+                                          </div>
+                                          <!-- /.p-archive__description -->
+                                        </div>
+                                        <!-- /.p-archive__header -->
+                                        <div class="p-archive__image">
+                                          <mt:FLCFAsset field="image_02">
+                                            <img src="<mt:AssetURL>" alt="">
+                                          </mt:FLCFAsset>
+                                        </div>
+                                        <!-- /.p-archive__image -->
+                                      </div>
+                                      <!-- /.p-archive__detail -->
+                                    </a>
+                                  </div>
+                                  <!-- /.p-archive__item -->
 
-<div class="l-container__box">
-<div class="c-middle_heading">
-<h3 class="c-middle_heading__text">お客さま一覧</h3>
-</div>
-<!-- /.c-middle_heading -->
-<div class="c-content_box">
-<p>お客様リスト/お客様リスト/お客様リスト/お客様リスト/お客様リスト/お客様リスト/お客様リスト/お客様リスト/お客様リスト/お客様リスト/お客様リスト/お客様リスト/お客様リスト/お客様リスト/お客様リスト/お客様リスト/お客様リスト/お客様リスト/お客様リスト/お客様リスト/お客様リスト/お客様リスト</p>
-</div>
-<!-- /.c-content_box -->
-</div>
-<!-- /.l-container__box -->
-</div>
-<!-- /.l-container__block -->
+                                  <div class="p-archive__item">
+                                    <a href="<mt:FLCFValue field="url_03">">
+                                      <div class="p-archive__detail">
+                                        <div class="p-archive__header">
+                                          <h3 class="p-archive__title"><mt:FLCFValue field="headline_sentence_03"></h3>
+                                          <div class="p-archive__description">
+                                            <p><mt:FLCFValue field="supplementary_text_03"></p>
+                                          </div>
+                                          <!-- /.p-archive__description -->
+                                        </div>
+                                        <!-- /.p-archive__header -->
+                                        <div class="p-archive__image">
+                                          <mt:FLCFAsset field="image_03">
+                                            <img src="<mt:AssetURL>" alt="">
+                                          </mt:FLCFAsset>
+                                        </div>
+                                        <!-- /.p-archive__image -->
+                                      </div>
+                                      <!-- /.p-archive__detail -->
+                                    </a>
+                                  </div>
+                                  <!-- /.p-archive__item -->
 
-</div>
-<!-- /.l-container -->
+                                  <div class="p-archive__item">
+                                    <a href="<mt:FLCFValue field="url_04">">
+                                      <div class="p-archive__detail">
+                                        <div class="p-archive__header">
+                                          <h3 class="p-archive__title"><mt:FLCFValue field="headline_sentence_04"></h3>
+                                          <div class="p-archive__description">
+                                            <p><mt:FLCFValue field="supplementary_text_04"></p>
+                                          </div>
+                                          <!-- /.p-archive__description -->
+                                        </div>
+                                        <!-- /.p-archive__header -->
+                                        <div class="p-archive__image">
+                                          <mt:FLCFAsset field="image_04">
+                                            <img src="<mt:AssetURL>" alt="">
+                                          </mt:FLCFAsset>
+                                        </div>
+                                        <!-- /.p-archive__image -->
+                                      </div>
+                                      <!-- /.p-archive__detail -->
+                                    </a>
+                                  </div>
+                                  <!-- /.p-archive__item -->
+                                </div>
+                                <!-- /.p-archive__content -->
+                              </div>
+                              <!-- /.p-archive -->
+                            </div>
+                            <!-- /.l-container__slot -->
+                          </mt:if>
+                        <!-- SP時レイアウト変更なし -->
+                        <!-- SP時画像左 -->
+                          <mt:if tag="FLCFValue" field="layout_image_text_panel_type" eq="sentence_left_justified">
+                            <div class="l-container__slot">
+                              <div class="p-media">
+                                <div class="p-media__content">
+                                  <div class="p-media__item">
+                                    <a href="<mt:FLCFValue field="url_01">" target="_blank" rel="noopener">
+                                      <div class="p-media__detail">
+                                        <div class="p-media__header">
+                                          <h3 class="p-media__title"><mt:FLCFValue field="headline_sentence_01"></h3>
+                                          <div class="p-media__description">
+                                            <p><mt:FLCFValue field="supplementary_text_01"></p>
+                                          </div>
+                                          <!-- /.p-media__description -->
+                                        </div>
+                                        <!-- /.p-media__header -->
+                                        <div class="p-media__image">
+                                          <mt:FLCFAsset field="image_01">
+                                            <img src="<mt:AssetURL>" alt="">
+                                          </mt:FLCFAsset>
+                                        </div>
+                                        <!-- /.p-media__image -->
+                                      </div>
+                                      <!-- /.p-media__detail -->
+                                    </a>
+                                  </div>
+                                  <!-- /.p-media__item -->
 
-</div>
-<!-- /.l-inner -->
-</section>
+                                  <div class="p-media__item">
+                                    <a href="<mt:FLCFValue field="url_02">" target="_blank" rel="noopener">
+                                      <div class="p-media__detail">
+                                        <div class="p-media__header">
+                                          <h3 class="p-media__title"><mt:FLCFValue field="headline_sentence_02"></h3>
+                                          <div class="p-media__description">
+                                            <p><mt:FLCFValue field="supplementary_text_02"></p>
+                                          </div>
+                                          <!-- /.p-media__description -->
+                                        </div>
+                                        <!-- /.p-media__header -->
+                                        <div class="p-media__image">
+                                          <mt:FLCFAsset field="image_02">
+                                            <img src="<mt:AssetURL>" alt="">
+                                          </mt:FLCFAsset>
+                                        </div>
+                                        <!-- /.p-media__image -->
+                                      </div>
+                                      <!-- /.p-media__detail -->
+                                    </a>
+                                  </div>
+                                  <!-- /.p-media__item -->
 
+                                  <div class="p-media__item">
+                                    <a href="<mt:FLCFValue field="url_03">" target="_blank" rel="noopener">
+                                      <div class="p-media__detail">
+                                        <div class="p-media__header">
+                                          <h3 class="p-media__title"><mt:FLCFValue field="headline_sentence_03"></h3>
+                                          <div class="p-media__description">
+                                            <p><mt:FLCFValue field="supplementary_text_03"></p>
+                                          </div>
+                                          <!-- /.p-media__description -->
+                                        </div>
+                                        <!-- /.p-media__header -->
+                                        <div class="p-media__image">
+                                          <mt:FLCFAsset field="image_03">
+                                            <img src="<mt:AssetURL>" alt="">
+                                          </mt:FLCFAsset>
+                                        </div>
+                                        <!-- /.p-media__image -->
+                                      </div>
+                                      <!-- /.p-media__detail -->
+                                    </a>
+                                  </div>
+                                  <!-- /.p-media__item -->
+
+                                  <div class="p-media__item">
+                                    <a href="<mt:FLCFValue field="url_04">" target="_blank" rel="noopener">
+                                      <div class="p-media__detail">
+                                        <div class="p-media__header">
+                                          <h3 class="p-media__title"><mt:FLCFValue field="headline_sentence_04"></h3>
+                                          <div class="p-media__description">
+                                            <p><mt:FLCFValue field="supplementary_text_04"></p>
+                                          </div>
+                                          <!-- /.p-media__description -->
+                                        </div>
+                                        <!-- /.p-media__header -->
+                                        <div class="p-media__image">
+                                          <mt:FLCFAsset field="image_04">
+                                            <img src="<mt:AssetURL>" alt="">
+                                          </mt:FLCFAsset>
+                                        </div>
+                                        <!-- /.p-media__image -->
+                                      </div>
+                                      <!-- /.p-media__detail -->
+                                    </a>
+                                  </div>
+                                  <!-- /.p-media__item -->
+                                </div>
+                                <!-- /.p-media__content -->
+                              </div>
+                              <!-- /.p-media -->
+                            </div>
+                            <!-- /.l-container__slot -->
+                          </mt:if>
+                        <!-- SP時画像左 -->
+                      <!-- 画像+テキスト（パネル型）-->
+                  </div>
+                  <!-- /.l-container__box -->
+                </mt:if>
+                <mt:if tag="<mt:EntryDataCaseStudiesTopCustomerListText>">
+                  <div class="l-container__box">
+                    <div class="c-middle_heading">
+                      <h3 class="c-middle_heading__text">お客さま一覧</h3>
+                    </div>
+                    <!-- /.c-middle_heading -->
+                    <div class="c-content_box">
+                      <p><mt:EntryDataCaseStudiesTopCustomerListText></p>
+                    </div>
+                    <!-- /.c-content_box -->
+                  </div>
+                  <!-- /.l-container__box -->
+                </mt:if>
+              </div>
+              <!-- /.l-container__block -->
+            </mt:unless>
+          </mt:if>
+        </mt:Entries>
+      </div>
+      <!-- /.l-container -->
+    </div>
+    <!-- /.l-inner -->
+  </section>
 </main>
-
 <div class="p-contact">
-<div class="p-contact__inner">
-<div class="p-contact__read">
-<p>購入前の、製品仕様・お見積もり・<br class="u-show_sp">購入方法など<br class="u-show_pc">営業的な<br class="u-show_sp">お問い合わせについてはこちらから</p>
-</div>
-<!-- /.p-contact__read -->
-<div class="p-contact__bottom">
-<div class="p-contact__button">
-<a href="/contact/contact-before/">お問い合わせ</a>
-</div>
-<!-- /.p-contact__button -->
-</div>
-<!-- /.p-contact__bottom -->
-</div>
-<!-- /.p-contact__inner -->
+  <div class="p-contact__inner">
+    <div class="p-contact__read">
+      <p>購入前の、製品仕様・お見積もり・<br class="u-show_sp">購入方法など<br class="u-show_pc">営業的な<br class="u-show_sp">お問い合わせについてはこちらから</p>
+    </div>
+    <!-- /.p-contact__read -->
+    <div class="p-contact__bottom">
+      <div class="p-contact__button">
+        <a href="/contact/contact-before/">お問い合わせ</a>
+      </div>
+      <!-- /.p-contact__button -->
+    </div>
+    <!-- /.p-contact__bottom -->
+  </div>
+  <!-- /.p-contact__inner -->
 </div>
 <!-- /.p-contact -->
 <mt:Include module="footer" parent="1" />

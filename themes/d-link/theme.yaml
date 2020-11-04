@@ -1,4 +1,7 @@
----
+id: d-link
+label: d-link
+name: d-link
+version: '1.0'
 author_link: 
 author_name: yoyager
 class: website
@@ -9,6 +12,7 @@ thumbnail_file_small: 'thumb-small.png'
 elements:
   template_set:
     component: ~
+    importer: template_set
     data:
       base_path: templates
       label: 'exported_template set'
@@ -43,9 +47,18 @@ elements:
           switch_json:
             label: 'switch_json'
             outfile: product/data/switch.json
+          switch_category_json:
+            label: 'switch_category_json'
+            outfile: product/data/switch_category.json
           wireless_json:
             label: 'wireless_json'
             outfile: product/data/wireless.json
+          wireless_category_json:
+            label: 'wireless_category_json'
+            outfile: product/data/wireless_category.json
+          product_index:
+            label: 'product_index'
+            outfile: product/index.html
         individual:
           entry:
             label: Entry
@@ -64,26 +77,34 @@ elements:
             label: 'header'
           template_debug:
             label: 'debug'
+          template_compare_list:
+            label: 'compare_list'
           category_news:
             label: 'category_news'
           category_event:
             label: 'category_event'
-          product_index:
-            label: 'product_index'
           sub_cate_product:
             label: 'sub_cate_product'
           product_series_index:
             label: 'product_series_index'
           product_all_index:
             label: 'product_all_index'
+          product_series:
+            label: 'product_series'
+          product_all:
+            label: 'product_all'
           page_switch_list:
             label: 'page_switch_list'
+          page_switch_compare:
+            label: 'page_switch_compare'
           page_wireless-lan_list:
             label: 'page_wireless-lan_list'
           page_wireless-lan_access_point:
             label: 'page_wireless-lan_access_point'
           page_wireless-lan_controller:
             label: 'page_wireless-lan_controller'
+          page_wireless-lan_compare:
+            label: 'page_wireless-lan_compare'
           product_archive:
             label: 'product_archive'
           product_archive_eos:
@@ -96,8 +117,12 @@ elements:
             label: 'single_product'
           switch_json:
             label: 'switch_json'
+          switch_category_json:
+            label: 'switch_category_json'
           wireless_json:
             label: 'wireless_json'
+          wireless_category_json:
+            label: 'wireless_category_json'
           product_compare:
             label: 'product_compare'
           category_yearly_news:
@@ -144,6 +169,8 @@ elements:
             label: permalink_page
           redirect_faq:
             label: redirect_faq
+          product_pickup:
+            label: 'product_pickup'
         page:
           page:
             label: Page
@@ -151,8 +178,4 @@ elements:
               page_archive:
                 archive_type: Page
                 file_template: <mt:Include module="permalink_page">
-    importer: template_set
-id: d-link
-label: d-link
-name: d-link
-version: '1.0'
+                
