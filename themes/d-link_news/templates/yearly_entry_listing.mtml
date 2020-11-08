@@ -1,0 +1,150 @@
+<mt:Ignore>
+========================================
+Template Name : category.html
+Template Type : Yearly Template
+Template Note : Yearly
+========================================
+</mt:Ignore>
+<mt:SetVars>
+    base_description=ディスクリプション
+    og_title=<mt:ArchiveDate format="%Y">年 | 最新ニュース | D-Link Japan
+    og_url=<$mt:ArchiveLink encode_html="1"$>
+    og_type=article
+</mt:SetVars>
+<mt:SetVarTemplate name="file_javascript">
+<script src="/asset/js/category.js" defer></script>
+</mt:SetVarTemplate>
+<mt:Ignore>** 表示部分 **</mt:Ignore>
+<mt:Include module="html_head" parent="1" />
+<mt:Include module="header" parent="1" />
+<!-- ここからコンテンツ -->
+<main class="p-main">
+    <div class="c-breadcrumb">
+        <ul class="c-breadcrumb__list">
+            <li><a href="/">HOME</a></li>
+            <li><a href="/news/">ニュース</a></li>
+            <li><span><mt:ArchiveDate format="%Y">年</span></li>
+        </ul>
+    </div>
+    <!-- /.c-breadcrumb -->
+
+    <section class="l-outer--lower">
+        <div class="l-inner">
+
+            <div class="c-title">
+                <p class="c-title__text">ニュース</p>
+            </div>
+            <!-- /.c-title -->
+
+            <div class="p-news">
+                <ul class="p-news__tab--short">
+                    <li><a href="/news/" class="p-news__toggle">分類別表示</a></li>
+                    <li><a href="/news/<mt:Date format="%Y">.html" class="p-news__toggle is-active" data-name="<mt:Date format="%Y">">年別表示</a></li>
+                </ul>
+
+                <ul class="p-news__type">
+                    <mt:ArchiveList archive_type="Yearly"> 
+                        <li class="widget-list-item"><a href="<$mt:ArchiveLink encode_html="1"$>" data-name="<mt:ArchiveDate format="%Y">"><$mt:ArchiveTitle$></a></li>
+                    </mt:ArchiveList>
+                </ul>
+
+                <button class="p-news__menu js-select_show">
+                    <div class="p-news__selected selected-category-sp">2020年</div>
+                    <div class="p-news__arrow"></div>
+                </button>
+
+                <div class="p-news__select js-select_menu">
+                    <ul class="p-news__select_list js-select_list">
+                        <mt:ArchiveList archive_type="Yearly">
+                            <li class="widget-list-item"><a href="<$mt:ArchiveLink encode_html="1"$>" data-name="<mt:ArchiveDate format="%Y">"><$mt:ArchiveTitle$></a></li>
+                        </mt:ArchiveList>
+                    </ul>
+                </div>
+                <!-- /.p-news__select -->
+
+                <div class="c-content_heading">
+                    <h1 class="c-content_heading__text"><$mt:ArchiveDate format="%Y"$>年</h1>
+                </div>
+                <!-- /.c-content_heading -->
+
+                <div class="p-news__content">
+                    <div class="p-news__block--show">
+                        <!--
+                        # カテゴリHTML
+                        <p class="p-news__category--news">お知らせ</p>
+                        <p class="p-news__category--product">製品ニュース</p>
+                        -->
+                        <mt:PageContents count="20">
+                            <mt:SetVars>totalEntry=<$mt:BlogEntryCount$></mt:SetVars>
+                            <mt:Entries sort_by="authored_on" sort_order="descend" lastn="$totalEntry">
+                                <div class="p-news__item">
+                                    <a href="<$mt:EntryLink$>">
+                                        <div class="p-news__box">
+                                            <p class="p-news__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
+                                            <mt:EntryCategories setvar="entry_categories"><mt:CategoryBasename></mt:EntryCategories>
+                                            <mt:If name="entry_categories">
+                                                <mt:toplevelcategories>
+                                                    <mt:setvarblock name="id_name_cate"><mt:CategoryID>_<mt:CategoryBasename></mt:setvarblock>
+                                                    <mt:CategoryBasename setvar="name_cate">
+                                                    <mt:if name="entry_categories" like="$name_cate">
+                                                        <mt:SetVarBlock name="cate_news{$id_name_cate}"><mt:CategoryLabel></mt:SetVarBlock>
+                                                    </mt:If>
+                                                </mt:toplevelcategories>
+                                                <mt:Loop name="cate_news" sort_by= "key numeric">
+                                                    <mt:If name="__last__">
+                                                        <mt:If name="__key__" like="info">
+                                                            <p class="p-news__category--news"><mt:Var name="__value__"></p>
+                                                        </mt:If>
+                                                        <mt:If name="__key__" like="product">
+                                                            <p class="p-news__category--product"><mt:Var name="__value__"></p> 
+                                                        </mt:If>
+                                                    </mt:If>
+                                                </mt:Loop>
+                                            <mt:Else>
+                                                <p class="p-news__category--news"></p>
+                                            </mt:If>
+                                            <p class="p-news__title"><$mt:EntryTitle$></p>
+                                        </div>
+                                        <!-- /.p-news__box -->
+                                    </a>
+                                </div>
+                                <!-- /.p-news__item -->
+                                <$mt:PageSeparator$>
+                            </mt:Entries>
+                        </mt:PageContents>
+                        <ul class="c-pager">
+                            <mt:Pagination>
+                                <mt:PaginationHeader>
+                                    <mt:ifPaginationPrev>
+                                        <li class="c-pager__prev"><a href="<mt:PaginationPrev>">&lt;前へ</a></li>
+                                    </mt:ifPaginationPrev>
+                                </mt:PaginationHeader>
+                                <mt:ifPaginationCurrent>
+                                    <li class="c-pager__number"><span><mt:PaginationLink element="number"></span></li>
+                                <mt:Else>
+                                    <li class="c-pager__number"><a href="<mt:PaginationLink>"><mt:PaginationLink element="number"></a></li>
+                                </mt:ifPaginationCurrent>
+                                <mt:PaginationFooter>
+                                    <mt:ifPaginationNext>
+                                        <li class="c-pager__next"><a href="<mt:PaginationNext>">次へ</a></li>
+                                    </mt:ifPaginationNext>
+                                </mt:PaginationFooter>
+                            </mt:Pagination>
+                        </ul>
+
+                    </div>
+                    <!-- /.p-news__block -->
+
+                </div>
+                <!-- /.p-news__content -->
+
+            </div>
+            <!-- /.p-news -->
+
+        </div>
+        <!-- /.l-inner -->
+    </section>
+
+</main>
+<mt:Include module="footer" parent="1" />
+<mt:Include module="html_foot" parent="1" />

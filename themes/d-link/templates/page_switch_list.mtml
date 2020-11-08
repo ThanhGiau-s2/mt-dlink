@@ -43,827 +43,811 @@
                         </div>
                         <!-- /.l-container__slot -->
 
-                        <div class="l-container__slot">
-                            <div class="p-product_filter">
-                            <div class="p-product_filter__parent">
-                                <h2 class="p-product_filter__heading">スイッチのレイヤを絞り込み</h2>
-                            <div class="p-product_filter__introduction">
-                            <p>複数のレイヤを選択可能です</p>
-                            </div>
-                            <!-- /.p-product_filter__introduction -->
+<div class="l-container__slot">
+<div class="p-product_filter">
+<div class="p-product_filter__parent">
+<h2 class="p-product_filter__heading">スイッチのレイヤを絞り込み</h2>
+<div class="p-product_filter__introduction">
+<p>複数のレイヤを選択可能です</p>
+</div>
+<!-- /.p-product_filter__introduction -->
 
-                            <div class="p-product_filter__main">
-                            <div class="p-product_filter__main_row">
-                            <div class="p-product_filter__parent_item">
-                            <div class="p-product_filter__select">
-                            <input type="checkbox" value="l3" name="layer" id="l3">
-                            <label for="l3">レイヤ3<br>スイッチ</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__main_item -->
-                            <div class="p-product_filter__parent_item">
-                            <div class="p-product_filter__select">
-                            <input type="checkbox" value="l2" name="layer" id="l2">
-                            <label for="l2">レイヤ2＋<br>スイッチ</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__main_item -->
-                            <div class="p-product_filter__parent_item">
-                            <div class="p-product_filter__select">
-                            <input type="checkbox" value="cloud" name="layer" id="cloud">
-                            <label for="cloud">クラウド管理<br>スイッチ</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__main_item -->
-                            <div class="p-product_filter__parent_item">
-                            <div class="p-product_filter__select">
-                            <input type="checkbox" value="l2smart" name="layer" id="l2smart">
-                            <label for="l2smart">レイヤ2<br>スマートスイッチ</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__main_item -->
-                            <div class="p-product_filter__parent_item">
-                            <div class="p-product_filter__select">
-                            <input type="checkbox" value="unmanaged" name="layer" id="unmanaged">
-                            <label for="unmanaged">アンマネージド<br>スイッチ</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__main_item -->
-                            <div class="p-product_filter__parent_item">
-                            <div class="p-product_filter__select">
-                            <input type="checkbox" value="industrial" name="layer" id="industrial">
-                            <label for="industrial">産業用<br>スイッチ</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__main_item -->
-                            </div>
-                            <!-- /.p-product_filter__main_row -->
-                            </div>
-                            <!-- /.p-product_filter__main -->
-                            </div>
-                            <!-- /.p-product_filter__parent -->
+<div class="p-product_filter__main">
+<div class="p-product_filter__main_row">
+<div class="p-product_filter__parent_item">
+<div class="p-product_filter__select">
+<input type="checkbox" value="layer3_managed" name="type[]" id="layer3_managed" v-model="product_filter.type" @change="create_result_data()">
+<label for="layer3_managed">レイヤ3<br>スイッチ</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__main_item -->
+<div class="p-product_filter__parent_item">
+<div class="p-product_filter__select">
+<input type="checkbox" value="layer2_plus_managed" name="type[]" id="layer2_plus_managed" v-model="product_filter.type" @change="create_result_data()">
+<label for="layer2_plus_managed">レイヤ2＋<br>スイッチ</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__main_item -->
+<div class="p-product_filter__parent_item">
+<div class="p-product_filter__select">
+<input type="checkbox" value="cloud" name="type[]" id="cloud" v-model="product_filter.type" @change="create_result_data()">
+<label for="cloud">クラウド管理<br>スイッチ</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__main_item -->
+<div class="p-product_filter__parent_item">
+<div class="p-product_filter__select">
+<input type="checkbox" value="layer2_smart" name="type[]" id="layer2_smart" v-model="product_filter.type" @change="create_result_data()">
+<label for="layer2_smart">レイヤ2<br>スマートスイッチ</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__main_item -->
+<div class="p-product_filter__parent_item">
+<div class="p-product_filter__select">
+<input type="checkbox" value="unmanaged" name="type[]" id="unmanaged" v-model="product_filter.type" @change="create_result_data()">
+<label for="unmanaged">アンマネージド<br>スイッチ</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__main_item -->
+<div class="p-product_filter__parent_item">
+<div class="p-product_filter__select">
+<input type="checkbox" value="industrial" name="type[]" id="industrial" v-model="product_filter.type" @change="create_result_data()">
+<label for="industrial">産業用<br>スイッチ</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__main_item -->
+</div>
+<!-- /.p-product_filter__main_row -->
+</div>
+<!-- /.p-product_filter__main -->
+</div>
+<!-- /.p-product_filter__parent -->
 
-                            <div class="p-product_filter__child">
-                            <div class="p-product_filter__tab">
-                            <ul class="p-product_filter__tab_item">
-                            <li><button :class="{'is-active': tab_active === 0}" @click="tab(0)">ソフトウェア機能から<br>シリーズを絞り込む</a></li>
-                            <li><button :class="{'is-active': tab_active === 1}" @click="tab(1)">ハードウェア構成から<br>品番を絞り込む</a></li>
-                            </ul>
-                            </div>
-                            <!-- /.p-product_filter__tab -->
+<div class="p-product_filter__child">
+<div class="p-product_filter__tab">
+<ul class="p-product_filter__tab_item">
+<li><button :class="{'is-active': tab_active === 0}" @click="tab(0)">ソフトウェア機能から<br>シリーズを絞り込む</a></li>
+<li><button :class="{'is-active': tab_active === 1}" @click="tab(1)">ハードウェア構成から<br>品番を絞り込む</a></li>
+</ul>
+</div>
+<!-- /.p-product_filter__tab -->
 
-                            <div class="p-product_filter__introduction">
-                            <p>項目ごとに1つだけ選択可能です</p>
-                            </div>
-                            <!-- /.p-product_filter__introduction -->
+<div class="p-product_filter__introduction">
+<p>項目ごとに1つだけ選択可能です</p>
+</div>
+<!-- /.p-product_filter__introduction -->
 
-                            <transition>
-                            <div class="p-product_filter__block" v-show="tab_active === 0">
-                            <div class="p-product_filter__sub">
-                            <div class="p-product_filter__sub_row">
-                            <div class="p-product_filter__category">
-                            <p class="p-product_filter__label">L3ルーティング機能</p>
-                            </div>
-                            <!-- /.p-product_filter__category -->
+<transition>
+<div class="p-product_filter__block" v-show="tab_active === 0">
+<div class="p-product_filter__sub">
+<div class="p-product_filter__sub_row">
+<div class="p-product_filter__category">
+<p class="p-product_filter__label">L3ルーティング機能</p>
+</div>
+<!-- /.p-product_filter__category -->
 
-                            <div class="p-product_filter__condition">
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="" name="rooting" id="rooting" checked>
-                            <label for="rooting">指定なし</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="rooting_all" name="rooting" id="rooting_all">
-                            <label for="rooting_all">BGP/OSPF/RIP/Static<br>全てに対応</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="rootingo_spf" name="rooting" id="rootingo_spf">
-                            <label for="rootingo_spf">OSPF/RIP/Static<br>に対応</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="rooting_rip" name="rooting" id="rooting_rip">
-                            <label for="rooting_rip">RIP/Staticに対応</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="rooting_static" name="rooting" id="rooting_static">
-                            <label for="rooting_static">Staticのみ対応</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            </div>
-                            <!-- /.p-product_filter__condition -->
-                            </div>
-                            <!-- /.p-product_filter__sub_row -->
-                            </div>
-                            <!-- /.p-product_filter__sub -->
-                            <div class="p-product_filter__sub">
-                            <div class="p-product_filter__sub_row">
-                            <div class="p-product_filter__category">
-                            <p class="p-product_filter__label">スタック機能</p>
-                            </div>
-                            <!-- /.p-product_filter__category -->
+<div class="p-product_filter__condition">
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="0" name="list_l3_rooting" id="list_l3_rooting_0" v-model="product_filter.list_l3_rooting" @change="create_result_data()">
+<label for="list_l3_rooting_0">指定なし</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="1" name="list_l3_rooting" id="list_l3_rooting_1" v-model="product_filter.list_l3_rooting" @change="create_result_data()">
+<label for="list_l3_rooting_1">BGP/OSPF/RIP/Static<br>全てに対応</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="2" name="list_l3_rooting" id="list_l3_rooting_2" v-model="product_filter.list_l3_rooting" @change="create_result_data()">
+<label for="list_l3_rooting_2">OSPF/RIP/Static<br>に対応</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="3" name="list_l3_rooting" id="list_l3_rooting_3" v-model="product_filter.list_l3_rooting" @change="create_result_data()">
+<label for="list_l3_rooting_3">RIP/Staticに対応</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="4" name="list_l3_rooting" id="list_l3_rooting_4" v-model="product_filter.list_l3_rooting" @change="create_result_data()">
+<label for="list_l3_rooting_4">Staticのみ対応</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+</div>
+<!-- /.p-product_filter__condition -->
+</div>
+<!-- /.p-product_filter__sub_row -->
+</div>
+<!-- /.p-product_filter__sub -->
+<div class="p-product_filter__sub">
+<div class="p-product_filter__sub_row">
+<div class="p-product_filter__category">
+<p class="p-product_filter__label">スタック機能</p>
+</div>
+<!-- /.p-product_filter__category -->
 
-                            <div class="p-product_filter__condition">
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="" name="stack" id="stack" checked>
-                            <label for="stack">指定なし</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="stack_necessary" name="stack" id="stack_necessary">
-                            <label for="stack_necessary">スタック機能<br>必要</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="stack_unnecessary" name="stack" id="stack_unnecessary">
-                            <label for="stack_unnecessary">スタック機能<br>不要</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            </div>
-                            <!-- /.p-product_filter__condition -->
-                            </div>
-                            <!-- /.p-product_filter__sub_row -->
-                            </div>
-                            <!-- /.p-product_filter__sub -->
-                            <div class="p-product_filter__sub">
-                            <div class="p-product_filter__sub_row">
-                            <div class="p-product_filter__category">
-                            <p class="p-product_filter__label">認証機能</p>
-                            </div>
-                            <!-- /.p-product_filter__category -->
+<div class="p-product_filter__condition">
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="0" name="list_stack" id="list_stack_0" v-model="product_filter.list_stack" @change="create_result_data()">
+<label for="list_stack_0">指定なし</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="1" name="list_stack" id="list_stack_1" v-model="product_filter.list_stack" @change="create_result_data()">
+<label for="list_stack_1">スタック機能<br>必要</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="2" name="list_stack" id="list_stack_2" v-model="product_filter.list_stack" @change="create_result_data()">
+<label for="list_stack_2">スタック機能<br>不要</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+</div>
+<!-- /.p-product_filter__condition -->
+</div>
+<!-- /.p-product_filter__sub_row -->
+</div>
+<!-- /.p-product_filter__sub -->
+<div class="p-product_filter__sub">
+<div class="p-product_filter__sub_row">
+<div class="p-product_filter__category">
+<p class="p-product_filter__label">認証機能</p>
+</div>
+<!-- /.p-product_filter__category -->
 
-                            <div class="p-product_filter__condition">
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="" name="certification" id="certification" checked>
-                            <label for="certification">指定なし</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="certification_necessary" name="certification" id="certification_necessary">
-                            <label for="certification_necessary">認証機能<br>必要</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="certification_unnecessary" name="certification" id="certification_unnecessary">
-                            <label for="certification_unnecessary">認証機能<br>不要</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            </div>
-                            <!-- /.p-product_filter__condition -->
-                            </div>
-                            <!-- /.p-product_filter__sub_row -->
-                            </div>
-                            <!-- /.p-product_filter__sub -->
-                            <div class="p-product_filter__sub">
-                            <div class="p-product_filter__sub_row">
-                            <div class="p-product_filter__category">
-                            <p class="p-product_filter__label">マネジメント機能</p>
-                            </div>
-                            <!-- /.p-product_filter__category -->
+<div class="p-product_filter__condition">
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="0" name="list_certification" id="list_certification_0" v-model="product_filter.list_certification" @change="create_result_data()">
+<label for="list_certification_0">指定なし</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="1" name="list_certification" id="list_certification_1" v-model="product_filter.list_certification" @change="create_result_data()">
+<label for="list_certification_1">認証機能<br>必要</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="2" name="list_certification" id="list_certification_2" v-model="product_filter.list_certification" @change="create_result_data()">
+<label for="list_certification_2">認証機能<br>不要</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+</div>
+<!-- /.p-product_filter__condition -->
+</div>
+<!-- /.p-product_filter__sub_row -->
+</div>
+<!-- /.p-product_filter__sub -->
+<div class="p-product_filter__sub">
+<div class="p-product_filter__sub_row">
+<div class="p-product_filter__category">
+<p class="p-product_filter__label">マネジメント機能</p>
+</div>
+<!-- /.p-product_filter__category -->
 
-                            <div class="p-product_filter__condition">
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="" name="management" id="management" checked>
-                            <label for="management">指定なし</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="management_snmp" name="management" id="management_snmp">
-                            <label for="management_snmp">SNMP管理</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="management_cloud" name="management" id="management_cloud">
-                            <label for="management_cloud">クラウド管理</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="management_unnecessary" name="management" id="management_unnecessary">
-                            <label for="management_unnecessary">管理機能不要</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            </div>
-                            <!-- /.p-product_filter__condition -->
-                            </div>
-                            <!-- /.p-product_filter__sub_row -->
-                            </div>
-                            <!-- /.p-product_filter__sub -->
-                            <div class="p-product_filter__sub">
-                            <div class="p-product_filter__sub_row">
-                            <div class="p-product_filter__category">
-                            <p class="p-product_filter__label">VLAN</p>
-                            </div>
-                            <!-- /.p-product_filter__category -->
+<div class="p-product_filter__condition">
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="0" name="list_management" id="list_management_0" v-model="product_filter.list_management" @change="create_result_data()">
+<label for="list_management_0">指定なし</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="1" name="list_management" id="list_management_1" v-model="product_filter.list_management" @change="create_result_data()">
+<label for="list_management_1">SNMP管理</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="2" name="list_management" id="list_management_2" v-model="product_filter.list_management" @change="create_result_data()">
+<label for="list_management_2">クラウド管理</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="3" name="list_management" id="list_management_3" v-model="product_filter.list_management" @change="create_result_data()">
+<label for="list_management_3">管理機能不要</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+</div>
+<!-- /.p-product_filter__condition -->
+</div>
+<!-- /.p-product_filter__sub_row -->
+</div>
+<!-- /.p-product_filter__sub -->
+<div class="p-product_filter__sub">
+<div class="p-product_filter__sub_row">
+<div class="p-product_filter__category">
+<p class="p-product_filter__label">VLAN</p>
+</div>
+<!-- /.p-product_filter__category -->
 
-                            <div class="p-product_filter__condition">
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="" name="vlan" id="vlan" checked>
-                            <label for="vlan">指定なし</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="vlan_vlan" name="vlan" id="vlan_vlan">
-                            <label for="vlan_vlan">VLAN機能</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            </div>
-                            <!-- /.p-product_filter__condition -->
-                            </div>
-                            <!-- /.p-product_filter__sub_row -->
-                            </div>
-                            <!-- /.p-product_filter__sub -->
-                            <div class="p-product_filter__sub">
-                            <div class="p-product_filter__sub_row">
-                            <div class="p-product_filter__category">
-                            <p class="p-product_filter__label">ループ検知/遮断</p>
-                            </div>
-                            <!-- /.p-product_filter__category -->
+<div class="p-product_filter__condition">
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="0" name="list_vlan" id="list_vlan_0" v-model="product_filter.list_vlan" @change="create_result_data()">
+<label for="list_vlan_0">指定なし</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="1" name="list_vlan" id="list_vlan_1" v-model="product_filter.list_vlan" @change="create_result_data()">
+<label for="list_vlan_1">VLAN機能</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+</div>
+<!-- /.p-product_filter__condition -->
+</div>
+<!-- /.p-product_filter__sub_row -->
+</div>
+<!-- /.p-product_filter__sub -->
+<div class="p-product_filter__sub">
+<div class="p-product_filter__sub_row">
+<div class="p-product_filter__category">
+<p class="p-product_filter__label">ループ検知/遮断</p>
+</div>
+<!-- /.p-product_filter__category -->
 
-                            <div class="p-product_filter__condition">
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="" name="loop" id="loop" checked>
-                            <label for="loop">指定なし</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="loop_loop" name="loop" id="loop_loop">
-                            <label for="loop_loop">ループ検知/遮断</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            </div>
-                            <!-- /.p-product_filter__condition -->
-                            </div>
-                            <!-- /.p-product_filter__sub_row -->
-                            </div>
-                            <!-- /.p-product_filter__sub -->
-                            </div>
-                            <!-- /.p-product_filter__block -->
-                            </transition>
+<div class="p-product_filter__condition">
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="0" name="list_loop" id="list_loop_0" v-model="product_filter.list_loop" @change="create_result_data()">
+<label for="list_loop_0">指定なし</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="1" name="list_loop" id="list_loop_1" v-model="product_filter.list_loop" @change="create_result_data()">
+<label for="list_loop_1">ループ検知/遮断</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+</div>
+<!-- /.p-product_filter__condition -->
+</div>
+<!-- /.p-product_filter__sub_row -->
+</div>
+<!-- /.p-product_filter__sub -->
+</div>
+<!-- /.p-product_filter__block -->
+</transition>
 
-                            <transition>
-                            <div class="p-product_filter__block" v-show="tab_active === 1">
-                            <div class="p-product_filter__sub">
-                            <div class="p-product_filter__sub_row">
-                            <div class="p-product_filter__category">
-                            <p class="p-product_filter__label">スイッチのタイプで選択</p>
-                            </div>
-                            <!-- /.p-product_filter__category -->
+<transition>
+<div class="p-product_filter__block" v-show="tab_active === 1">
+<div class="p-product_filter__sub">
+<div class="p-product_filter__sub_row">
+<div class="p-product_filter__category">
+<p class="p-product_filter__label">スイッチのタイプで選択</p>
+</div>
+<!-- /.p-product_filter__category -->
 
-                            <div class="p-product_filter__condition">
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="" name="type" id="type" checked>
-                            <label for="type">指定なし</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="type_copper" name="type" id="type_copper">
-                            <label for="type_copper">Copper<br>タイプ</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="type_poe" name="type" id="type_poe">
-                            <label for="type_poe">PoE給電対応<br>スイッチ</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="type_sfp" name="type" id="type_sfp">
-                            <label for="type_sfp">SFP/SFP＋<br>光多ポート</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            </div>
-                            <!-- /.p-product_filter__condition -->
-                            </div>
-                            <!-- /.p-product_filter__sub_row -->
-                            </div>
-                            <!-- /.p-product_filter__sub -->
-                            <div class="p-product_filter__sub">
-                            <div class="p-product_filter__sub_row">
-                            <div class="p-product_filter__category">
-                            <p class="p-product_filter__label">標準ポート数</p>
-                            </div>
-                            <!-- /.p-product_filter__category -->
+<div class="p-product_filter__condition">
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="0" name="list_switch_type" id="list_switch_type_0" v-model="product_filter.list_switch_type" @change="create_result_data()">
+<label for="list_switch_type_0">指定なし</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="1" name="list_switch_type" id="list_switch_type_1" v-model="product_filter.list_switch_type" @change="create_result_data()">
+<label for="list_switch_type_1">Copper<br>タイプ</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="2" name="list_switch_type" id="list_switch_type_2" v-model="product_filter.list_switch_type" @change="create_result_data()">
+<label for="list_switch_type_2">PoE給電対応<br>スイッチ</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="3" name="list_switch_type" id="list_switch_type_3" v-model="product_filter.list_switch_type" @change="create_result_data()">
+<label for="list_switch_type_3">SFP/SFP＋<br>光多ポート</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+</div>
+<!-- /.p-product_filter__condition -->
+</div>
+<!-- /.p-product_filter__sub_row -->
+</div>
+<!-- /.p-product_filter__sub -->
+<div class="p-product_filter__sub">
+<div class="p-product_filter__sub_row">
+<div class="p-product_filter__category">
+<p class="p-product_filter__label">標準ポート数</p>
+</div>
+<!-- /.p-product_filter__category -->
 
-                            <div class="p-product_filter__condition">
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="" name="port" id="port" checked>
-                            <label for="port">指定なし</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="port_over48" name="port" id="port_over48">
-                            <label for="port_over48">48ポート以上</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="port_over24" name="port" id="port_over24">
-                            <label for="port_over24">24〜32ポート</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="port_over16" name="port" id="port_over16">
-                            <label for="port_over16">16〜20ポート</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="port_over8" name="port" id="port_over8">
-                            <label for="port_over8">8〜12ポート</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="port_under5" name="port" id="port_under5">
-                            <label for="port_under5">5ポート以下</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            </div>
-                            <!-- /.p-product_filter__condition -->
-                            </div>
-                            <!-- /.p-product_filter__sub_row -->
-                            </div>
-                            <!-- /.p-product_filter__sub -->
-                            <div class="p-product_filter__sub">
-                            <div class="p-product_filter__sub_row">
-                            <div class="p-product_filter__category">
-                            <p class="p-product_filter__label">標準ポート帯域（速度）</p>
-                            </div>
-                            <!-- /.p-product_filter__category -->
+<div class="p-product_filter__condition">
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="0" name="list_port" id="list_port_0" v-model="product_filter.list_port" @change="create_result_data()">
+<label for="list_port_0">指定なし</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="1" name="list_port" id="list_port_1" v-model="product_filter.list_port" @change="create_result_data()">
+<label for="list_port_1">48ポート以上</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="2" name="list_port" id="list_port_2" v-model="product_filter.list_port" @change="create_result_data()">
+<label for="list_port_2">24〜32ポート</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="3" name="list_port" id="list_port_3" v-model="product_filter.list_port" @change="create_result_data()">
+<label for="list_port_3">16〜20ポート</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="4" name="list_port" id="list_port_4" v-model="product_filter.list_port" @change="create_result_data()">
+<label for="list_port_4">8〜12ポート</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="5" name="list_port" id="list_port_5" v-model="product_filter.list_port" @change="create_result_data()">
+<label for="list_port_5">5ポート以下</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+</div>
+<!-- /.p-product_filter__condition -->
+</div>
+<!-- /.p-product_filter__sub_row -->
+</div>
+<!-- /.p-product_filter__sub -->
+<div class="p-product_filter__sub">
+<div class="p-product_filter__sub_row">
+<div class="p-product_filter__category">
+<p class="p-product_filter__label">標準ポート帯域（速度）</p>
+</div>
+<!-- /.p-product_filter__category -->
 
-                            <div class="p-product_filter__condition">
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="" name="port_band" id="port_band" checked>
-                            <label for="port_band">指定なし</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="port_band_10g" name="port_band" id="port_band_10g">
-                            <label for="port_band_10g">10G</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="port_band_multi" name="port_band" id="port_band_multi">
-                            <label for="port_band_multi">マルチギガ</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="port_band_1g" name="port_band" id="port_band_1g">
-                            <label for="port_band_1g">1G</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="port_band_100m" name="port_band" id="port_band_100m">
-                            <label for="port_band_100m">100M</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            </div>
-                            <!-- /.p-product_filter__condition -->
-                            </div>
-                            <!-- /.p-product_filter__sub_row -->
-                            </div>
-                            <!-- /.p-product_filter__sub -->
-                            <div class="p-product_filter__sub">
-                            <div class="p-product_filter__sub_row">
-                            <div class="p-product_filter__category">
-                            <p class="p-product_filter__label">Uplink/拡張ポート帯域（速度）</p>
-                            </div>
-                            <!-- /.p-product_filter__category -->
+<div class="p-product_filter__condition">
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="0" name="list_band" id="list_band_0" v-model="product_filter.list_band" @change="create_result_data()">
+<label for="list_band_0">指定なし</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="1" name="list_band" id="list_band_1" v-model="product_filter.list_band" @change="create_result_data()">
+<label for="list_band_1">10G</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="2" name="list_band" id="list_band_2" v-model="product_filter.list_band" @change="create_result_data()">
+<label for="list_band_2">マルチギガ</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="3" name="list_band" id="list_band_3" v-model="product_filter.list_band" @change="create_result_data()">
+<label for="list_band_3">1G</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="4" name="list_band" id="list_band_4" v-model="product_filter.list_band" @change="create_result_data()">
+<label for="list_band_4">100M</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+</div>
+<!-- /.p-product_filter__condition -->
+</div>
+<!-- /.p-product_filter__sub_row -->
+</div>
+<!-- /.p-product_filter__sub -->
+<div class="p-product_filter__sub">
+<div class="p-product_filter__sub_row">
+<div class="p-product_filter__category">
+<p class="p-product_filter__label">Uplink/拡張ポート帯域（速度）</p>
+</div>
+<!-- /.p-product_filter__category -->
 
-                            <div class="p-product_filter__condition">
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="" name="uplink" id="uplink" checked>
-                            <label for="uplink">指定なし</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="uplink_over10g" name="uplink" id="uplink_over10g">
-                            <label for="uplink_over10g">100G以上</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="uplink_over25g" name="uplink" id="uplink_over25g">
-                            <label for="uplink_over25g">25G〜40G</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="uplink_10g" name="uplink" id="uplink_10g">
-                            <label for="uplink_10g">10G</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="uplink_multi" name="uplink" id="uplink_multi">
-                            <label for="uplink_multi">マルチギガ</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="uplink_1g" name="uplink" id="uplink_1g">
-                            <label for="uplink_1g">1G</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            </div>
-                            <!-- /.p-product_filter__condition -->
-                            </div>
-                            <!-- /.p-product_filter__sub_row -->
-                            </div>
-                            <!-- /.p-product_filter__sub -->
-                            <div class="p-product_filter__sub">
-                            <div class="p-product_filter__sub_row">
-                            <div class="p-product_filter__category">
-                            <p class="p-product_filter__label">最大PoE給電可能電力<br><span class="p-product_filter__notice">※PoEスイッチ用項目</span></p>
-                            </div>
-                            <!-- /.p-product_filter__category -->
+<div class="p-product_filter__condition">
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="0" name="list_uplink" id="list_uplink_0" v-model="product_filter.list_uplink" @change="create_result_data()">
+<label for="list_uplink_0">指定なし</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="1" name="list_uplink" id="list_uplink_1" v-model="product_filter.list_uplink" @change="create_result_data()">
+<label for="list_uplink_1">100G以上</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="2" name="list_uplink" id="list_uplink_2" v-model="product_filter.list_uplink" @change="create_result_data()">
+<label for="list_uplink_2">25G〜40G</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="3" name="list_uplink" id="list_uplink_3" v-model="product_filter.list_uplink" @change="create_result_data()">
+<label for="list_uplink_3">10G</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="4" name="list_uplink" id="list_uplink_4" v-model="product_filter.list_uplink" @change="create_result_data()">
+<label for="list_uplink_4">マルチギガ</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="5" name="list_uplink" id="list_uplink_5" v-model="product_filter.list_uplink" @change="create_result_data()">
+<label for="list_uplink_5">1G</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+</div>
+<!-- /.p-product_filter__condition -->
+</div>
+<!-- /.p-product_filter__sub_row -->
+</div>
+<!-- /.p-product_filter__sub -->
+<div class="p-product_filter__sub">
+<div class="p-product_filter__sub_row">
+<div class="p-product_filter__category">
+<p class="p-product_filter__label">最大PoE給電可能電力<br><span class="p-product_filter__notice">※PoEスイッチ用項目</span></p>
+</div>
+<!-- /.p-product_filter__category -->
 
-                            <div class="p-product_filter__condition">
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="" name="poe_power" id="poe_power" checked>
-                            <label for="poe_power">指定なし</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="poe_power_100w" name="poe_power" id="poe_power_100w">
-                            <label for="poe_power_100w">1～100W</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="poe_power_200w" name="poe_power" id="poe_power_200w">
-                            <label for="poe_power_200w">101W～200W</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="poe_power_300w" name="poe_power" id="poe_power_300w">
-                            <label for="poe_power_300w">201W～300W</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="poe_power_400w" name="poe_power" id="poe_power_400w">
-                            <label for="poe_power_400w">301W～400W</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="poe_power_over400w" name="poe_power" id="poe_power_over400w">
-                            <label for="poe_power_over400w">400W以上</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            </div>
-                            <!-- /.p-product_filter__condition -->
-                            </div>
-                            <!-- /.p-product_filter__sub_row -->
-                            </div>
-                            <!-- /.p-product_filter__sub -->
-                            <div class="p-product_filter__sub">
-                            <div class="p-product_filter__sub_row">
-                            <div class="p-product_filter__category">
-                            <p class="p-product_filter__label">電源</p>
-                            </div>
-                            <!-- /.p-product_filter__category -->
+<div class="p-product_filter__condition">
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="0" name="list_poe_power" id="list_poe_power_0" v-model="product_filter.list_poe_power" @change="create_result_data()">
+<label for="list_poe_power_0">指定なし</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="1" name="list_poe_power" id="list_poe_power_1" v-model="product_filter.list_poe_power" @change="create_result_data()">
+<label for="list_poe_power_1">1～100W</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="2" name="list_poe_power" id="list_poe_power_2" v-model="product_filter.list_poe_power" @change="create_result_data()">
+<label for="list_poe_power_2">101W～200W</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="3" name="list_poe_power" id="list_poe_power_3" v-model="product_filter.list_poe_power" @change="create_result_data()">
+<label for="list_poe_power_3">201W～300W</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="4" name="list_poe_power" id="list_poe_power_4" v-model="product_filter.list_poe_power" @change="create_result_data()">
+<label for="list_poe_power_4">301W～400W</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="5" name="list_poe_power" id="list_poe_power_5" v-model="product_filter.list_poe_power" @change="create_result_data()">
+<label for="list_poe_power_5">400W以上</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+</div>
+<!-- /.p-product_filter__condition -->
+</div>
+<!-- /.p-product_filter__sub_row -->
+</div>
+<!-- /.p-product_filter__sub -->
+<div class="p-product_filter__sub">
+<div class="p-product_filter__sub_row">
+<div class="p-product_filter__category">
+<p class="p-product_filter__label">電源</p>
+</div>
+<!-- /.p-product_filter__category -->
 
-                            <div class="p-product_filter__condition">
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="" name="power" id="power" checked>
-                            <label for="power">指定なし</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="power_builtin" name="power" id="power_builtin">
-                            <label for="power_builtin">電源内蔵</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            </div>
-                            <!-- /.p-product_filter__condition -->
-                            </div>
-                            <!-- /.p-product_filter__sub_row -->
-                            </div>
-                            <!-- /.p-product_filter__sub -->
-                            <div class="p-product_filter__sub">
-                            <div class="p-product_filter__sub_row">
-                            <div class="p-product_filter__category">
-                            <p class="p-product_filter__label">ファン</p>
-                            </div>
-                            <!-- /.p-product_filter__category -->
+<div class="p-product_filter__condition">
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="0" name="list_power" id="list_power_0" v-model="product_filter.list_power" @change="create_result_data()">
+<label for="list_power_0">指定なし</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="1" name="list_power" id="list_power_1" v-model="product_filter.list_power" @change="create_result_data()">
+<label for="list_power_1">電源内蔵</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+</div>
+<!-- /.p-product_filter__condition -->
+</div>
+<!-- /.p-product_filter__sub_row -->
+</div>
+<!-- /.p-product_filter__sub -->
+<div class="p-product_filter__sub">
+<div class="p-product_filter__sub_row">
+<div class="p-product_filter__category">
+<p class="p-product_filter__label">ファン</p>
+</div>
+<!-- /.p-product_filter__category -->
 
-                            <div class="p-product_filter__condition">
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="" name="fan" id="fan" checked>
-                            <label for="fan">指定なし</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="fan_fanless" name="fan" id="fan_fanless">
-                            <label for="fan_fanless">ファンレス対応</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            </div>
-                            <!-- /.p-product_filter__condition -->
-                            </div>
-                            <!-- /.p-product_filter__sub_row -->
-                            </div>
-                            <!-- /.p-product_filter__sub -->
-                            <div class="p-product_filter__sub">
-                            <div class="p-product_filter__sub_row">
-                            <div class="p-product_filter__category">
-                            <p class="p-product_filter__label">50℃対応</p>
-                            </div>
-                            <!-- /.p-product_filter__category -->
+<div class="p-product_filter__condition">
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="0" name="list_fan" id="list_fan_0" v-model="product_filter.list_fan" @change="create_result_data()">
+<label for="list_fan_0">指定なし</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="1" name="list_fan" id="list_fan_1" v-model="product_filter.list_fan" @change="create_result_data()">
+<label for="list_fan_1">ファンレス対応</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+</div>
+<!-- /.p-product_filter__condition -->
+</div>
+<!-- /.p-product_filter__sub_row -->
+</div>
+<!-- /.p-product_filter__sub -->
+<div class="p-product_filter__sub">
+<div class="p-product_filter__sub_row">
+<div class="p-product_filter__category">
+<p class="p-product_filter__label">50℃対応</p>
+</div>
+<!-- /.p-product_filter__category -->
 
-                            <div class="p-product_filter__condition">
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="" name="temperature" id="temperature" checked>
-                            <label for="temperature">指定なし</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            <div class="p-product_filter__sub_item">
-                            <div class="p-product_filter__select">
-                            <input type="radio" value="temperature_over50" name="temperature" id="temperature_over50">
-                            <label for="temperature_over50">50℃以上対応</label>
-                            </div>
-                            <!-- /.p-product_filter__select -->
-                            </div>
-                            <!-- /.p-product_filter__sub_item -->
-                            </div>
-                            <!-- /.p-product_filter__condition -->
-                            </div>
-                            <!-- /.p-product_filter__sub_row -->
-                            </div>
-                            <!-- /.p-product_filter__sub -->
-                            </div>
-                            <!-- /.p-product_filter__block -->
-                            </transition>
+<div class="p-product_filter__condition">
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="0" name="list_temperature" id="list_temperature_0" v-model="product_filter.list_temperature" @change="create_result_data()">
+<label for="list_temperature_0">指定なし</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+<div class="p-product_filter__sub_item">
+<div class="p-product_filter__select">
+<input type="radio" value="1" name="list_temperature" id="list_temperature_1" v-model="product_filter.list_temperature" @change="create_result_data()">
+<label for="list_temperature_1">50℃以上対応</label>
+</div>
+<!-- /.p-product_filter__select -->
+</div>
+<!-- /.p-product_filter__sub_item -->
+</div>
+<!-- /.p-product_filter__condition -->
+</div>
+<!-- /.p-product_filter__sub_row -->
+</div>
+<!-- /.p-product_filter__sub -->
+</div>
+<!-- /.p-product_filter__block -->
+</transition>
 
-                            <div class="p-product_filter__footer">
-                            <div class="p-product_filter__footer_item">
-                            <p class="p-product_filter__count">絞り込み：<span>{{ count }}</span>製品</p>
-                            </div>
-                            <!-- /.p-product_filter__footer_item -->
+<div class="p-product_filter__footer">
+<div class="p-product_filter__footer_item">
+<p class="p-product_filter__count">絞り込み：<span>{{ count }}</span>製品</p>
+</div>
+<!-- /.p-product_filter__footer_item -->
 
-                            <div class="p-product_filter__footer_item">
-                            <div class="p-product_filter__clear">
-                            <button type="button"><span>すべてをクリア</span></button>
-                            </div>
-                            <!-- /.p-product_filter__clear -->
-                            </div>
-                            <!-- /.p-product_filter__footer_item -->
-                            </div>
-                            <!-- /.p-product_filter__footer -->
-                            </div>
-                            <!-- /.p-product_filter__child -->
-                            </div>
-                            <!-- /.p-product_filter -->
-                        </div>
-                        <!-- /.l-container__slot -->
+<div class="p-product_filter__footer_item">
+<div class="p-product_filter__clear">
+<button type="button" @click="filter_reset()"><span>すべてをクリア</span></button>
+</div>
+<!-- /.p-product_filter__clear -->
+</div>
+<!-- /.p-product_filter__footer_item -->
+</div>
+<!-- /.p-product_filter__footer -->
+</div>
+<!-- /.p-product_filter__child -->
+</div>
+<!-- /.p-product_filter -->
+</div>
+<!-- /.l-container__slot -->
 
-                        <div class="l-container__box">
-                            <div class="p-legend--left">
-                                <div class="p-legend__text">
-                                    <p>最大4つの製品の仕様を比較することができます。</p>
-                                </div>
-                                <!-- /.p-legend__text -->
-                                <ul class="p-legend__notice">
-                                    <li><span>※</span>比較をしたい製品を選定していただく際には、ブラウザ設定で「Cookieの受入れ」を有効にしていただく必要があります。</li>
-                                </ul>
-                            </div>
-                            <!-- /.p-legend -->
-                            <div class="l-container__box">
-                                <mt:SubCategories category="製品情報/スイッチ">
-                                    <mt:CategoryLabel setvar="sub_cate">
-                                    <mt:SetVarBlock name="list_sub_cate_switch">switch<mt:CategoryBasename></mt:setvarblock>
-                                    <mt:setvarblock name="sub_cate">製品情報/スイッチ/<mt:CategoryLabel></mt:setvarblock>
-                                     <mt:If tag="CategoryCount">    
-                                        <div class="c-content_heading">
-                                            <h2 class="c-content_heading__text"><$mt:CategoryLabel$></h2>
-                                        </div>
-                                        <!-- /.c-content_heading -->
+<div class="l-container__box">
+<div class="p-legend--left">
+<div class="p-legend__text">
+<p>最大4つの製品の仕様を比較することができます。</p>
+</div>
+<!-- /.p-legend__text -->
+<ul class="p-legend__notice">
+<li><span>※</span>比較をしたい製品を選定していただく際には、ブラウザ設定で「Cookieの受入れ」を有効にしていただく必要があります。</li>
+</ul>
+</div>
+<!-- /.p-legend -->
 
-                                        <div class="l-container__slot">
-                                            <div class="p-product_list">
-                                            <mt:entries category="$sub_cate">
-                                                <mt:EntryAdditionalCategories setvar="sub_cats"><$mt:CategoryBasename$></mt:EntryAdditionalCategories>
-                                                <mt:if name="sub_cats" ne="$list_sub_cate_switch">
-                                                    <div class="p-product_list__item">
-                                                        <a href="<$mt:EntryPermalink$>" rel="bookmark">
-                                                            <div class="p-product_list__main">
-                                                                <div class="p-product_list__row">
-                                                                    <div class="p-product_list__header">
-                                                                        <ul class="p-product_list__tag">
-                                                                        <!--
-                                                                            <li>MPLS</li>
-                                                                            <li>10G対応</li>
-                                                                            <li>L2Smart</li>
-                                                                        -->
-                                                                        <mt:EntryDataSeriesDetailListTagtext replace="$","<li>">
-                                                                        </ul>
-                                                                        <div class="p-product_list__img">
-                                                                            <MTIfNonEmpty tag="EntryDataSeriesDetailMainImg">
-                                                                                <mt:EntryDataSeriesDetailMainImgAsset>
-                                                                                    <img src="<mt:AssetURL>" alt="<mt:EntryTitle>">
-                                                                                </mt:EntryDataSeriesDetailMainImgAsset>
-                                                                            <mt:else>
-                                                                                <img src="/asset/img/product/alternative_image.jpg" alt="<mt:EntryTitle>">
-                                                                            </MTIfNonEmpty>
-                                                                        </div>
-                                                                        <!-- /.p-product_list__img -->
-                                                                    </div>
-                                                                    <!-- /.p-product_list__header -->
+<template v-for="product_category in result_data">
+<div class="l-container__box">
+<div class="c-content_heading">
+<h2 class="c-content_heading__text" v-text="product_category.category_name"></h2>
+</div>
+<!-- /.c-content_heading -->
 
-                                                                    <div class="p-product_list__body">
-                                                                    <h3 class="p-product_list__name"><mt:EntryTitle></h3>
-                                                                    <mt:If tag="EntryDataSeriesDetailSalestatus" like="(販売終了予定|販売終了)">
-                                                                        <p class="p-product_list__status--close"><mt:EntryDataSeriesDetailSalestatus></p>
-                                                                    <mt:else>
-                                                                        <$mt:DateDiff tag="EntryDate" offset="90d" format="%Y%m%d%H%M%S" setvar="exp_date"$>
-                                                                        <$mt:Date format="%Y%m%d%H%M%S" setvar="current_date"$>
-                                                                        <mt:If name="exp_date" gt="$current_date"><p class="p-product_list__status--new">NEW</p></mt:If>
-                                                                    </mt:If>
-                                                                    <div class="p-product_list__description">
-                                                                        <p><mt:EntryDataSeriesDetailListText></p>
-                                                                    </div>
-                                                                    <!-- /.p-product_list__description -->
-                                                                    </div>
-                                                                    <!-- /.p-product_list__body -->
-                                                                </div>
-                                                                <!-- /.p-product_list__row -->
-                                                            </div>
-                                                            <!-- /.p-product_list__main -->
+<div class="l-container__slot">
+<div class="p-product_list">
+<template v-for="item of product_category.product_item">
+<div class="p-product_list__item">
+<a :href="item.url">
+<div class="p-product_list__main">
+<div class="p-product_list__row">
+<div class="p-product_list__header">
+<template v-if="item.product_tag">
+<ul class="p-product_list__tag">
+<template v-for="tag of item.product_tag">
+<li v-if="tag">{{ tag }}</li>
+</template>
+</ul>
+</template>
 
-                                                            <div class="p-product_list__add">
-                                                                <input type="checkbox" name="compare_list[]" value="0" id="check0">
-                                                                <label class="p-product_list__label" for="check0">
-                                                                <span class="p-product_list__check">比較リストに追加する</span>
-                                                                </label>
-                                                            </div>
-                                                            <!-- /.p-product_list__add -->
-                                                        </a>
-                                                    </div>
-                                                    <!-- /.p-product_list__item -->
-                                                </mt:if>
-                                            </mt:entries>
-                                            </div>
-                                            <!-- /.p-product_list -->
-                                        </div>
-                                        <!-- /.l-container__slot -->
-                                    </mt:if>
-                                </mt:subcategories>
-                            </div>
-                            <!-- /.l-container__box -->
-                        </div>
-                        <!-- /.l-container__box -->
+<div class="p-product_list__img">
+<img :src="[item.product_image ? item.product_image : '/asset/img/product/product_default.jpg']" :alt="[item.product_image ? item.product_name : '']">
+</div>
+<!-- /.p-product_list__img -->
+</div>
+<!-- /.p-product_list__header -->
+
+<div class="p-product_list__body">
+<h3 class="p-product_list__name">{{ item.product_name }}</h3>
+<template v-if="item.product_status">
+<p :class="{'p-product_list__status--new': item.product_status === '1', 'p-product_list__status--close': item.product_status === '2'}">{{ set_product_status(item.product_status) }}</p>
+</template>
+<div class="p-product_list__description">
+<p>{{ item.product_description }}</p>
+</div>
+<!-- /.p-product_list__description -->
+</div>
+<!-- /.p-product_list__body -->
+</div>
+<!-- /.p-product_list__row -->
+</div>
+<!-- /.p-product_list__main -->
+
+<div class="p-product_list__add">
+<input type="checkbox" name="compare_list[]" :value="item.id" :id="'product_id_' + item.id" :data-product_id="item.id" @change="add_compare_list" :checked="compare_check(item.id)">
+<label class="p-product_list__label" :for="'product_id_' + item.id">
+<span class="p-product_list__check">比較リストに追加する</span>
+</label>
+</div>
+<!-- /.p-product_list__add -->
+</a>
+</div>
+<!-- /.p-product_list__item -->
+</template>
+</div>
+<!-- /.p-product_list -->
+</div>
+<!-- /.l-container__slot -->
+</div>
+<!-- /.l-container__box -->
+</template>
+
+</div>
+<!-- /.l-container__box -->
                     </div>
                     <!-- /.l-container__box -->
                 </div>
@@ -874,53 +858,7 @@
         </div>
         <!-- /.l-inner -->
 
-        <div class="p-compare_selected" :class="{'is-show' : add_compare[0]}">
-        <div class="p-compare_selected__inner">
-        <div class="p-compare_selected__content">
-        <div class="p-compare_selected__header">
-        <p class="p-compare_selected__heading">製品比較</p>
-        <div class="p-compare_selected__text">
-        <p>比較リストに追加されました。<br>4製品まで比較することができます。</p>
-        </div>
-        </div>
-        <!-- /.p-compare_selected__header -->
-
-        <div class="p-compare_selected__body">
-        <div class="p-compare_selected__row">
-
-        <template v-for="item of add_compare">
-        <div class="p-compare_selected__item">
-        <div class="p-compare_selected__remove">
-        <button>削除する</button>
-        </div>
-        <!-- /.p-compare_selected__remove -->
-        <div class="p-compare_selected__product">
-        <a href="/product/switch/series/single.html">
-        <img src="/asset/img/product/compare/switch/img_compare_01.jpg" alt="">
-        <p>DGS-3630-28SC</p>
-        </a>
-        </div>
-        <!-- /.p-compare_selected__product -->
-        </div>
-        <!-- /.p-compare_selected__item -->
-        </template>
-
-        </div>
-        <!-- /.p-compare_selected__row -->
-        </div>
-        <!-- /.p-compare_selected__body -->
-
-        <div class="p-compare_selected__footer">
-        <div class="p-compare_selected__init">
-        <a :href="create_compare_link()">比較する</a>
-        </div>
-        </div>
-        </div>
-        <!-- /.p-compare_selected__content -->
-        </div>
-        <!-- /.p-compare_selected__inner -->
-        </div>
-        <!-- /.p-compare_selected -->
+        <mt:Include module="compare_list" parent="1" />
     </section>
 </main>
 <div class="p-contact">
@@ -963,3 +901,4 @@
 <!-- /.p-local_nav -->
 <mt:Include module="footer" parent="1" />
 <mt:Include module="html_foot" parent="1" />
+

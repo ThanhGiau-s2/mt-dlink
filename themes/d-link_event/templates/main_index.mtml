@@ -51,7 +51,7 @@ Template Note : カテゴリ
             <div class="p-news--wide">
                 <ul class="p-news__type">
                     <li><a href="/event/" data-name="event">すべて</a></li>
-                    <mt:ArchiveList archive_type="Category-Yearly"> 
+                    <mt:ArchiveList archive_type="Yearly"> 
                         <li><a href="<$mt:ArchiveLink encode_html="1"$>" data-name="<mt:ArchiveDate format="%Y">"><$mt:ArchiveTitle$></a></li>
                     </mt:ArchiveList>
                 </ul>
@@ -64,7 +64,7 @@ Template Note : カテゴリ
                 <div class="p-news__select js-select_menu">
                     <ul class="p-news__select_list js-select_list">
                         <li><a href="/event/" data-name="event">すべて</a></li>
-                        <mt:ArchiveList archive_type="Category-Yearly"> 
+                        <mt:ArchiveList archive_type="Yearly"> 
                             <li><a href="<$mt:ArchiveLink encode_html="1"$>" data-name="<mt:ArchiveDate format="%Y">"><$mt:ArchiveTitle$></a></li>
                         </mt:ArchiveList>
                     </ul>
@@ -100,13 +100,13 @@ Template Note : カテゴリ
                                         <div class="p-card__item">
                                             <a href="<$mt:EntryPermalink$>">
                                                 <div class="p-card__top">
-                                                    <mt:EntryAdditionalCategories>
+                                                    <mt:EntryCategories>
                                                         <mt:If tag="CategoryBasename" eq="event-info">
                                                             <p class="p-card__category--event mr10"><$mt:CategoryLabel$></p>
                                                         <mt:Else>
                                                             <p class="p-card__category--<$mt:CategoryBasename$> mr10"><$mt:CategoryLabel$></p> 
                                                         </mt:If>
-                                                    </mt:EntryAdditionalCategories>    
+                                                    </mt:EntryCategories>    
                                                     <h2 class="p-card__title"><$mt:EntryTitle$></h2>
                                                     <dl class="p-card__info">
                                                     <mt:If tag="EntryDataEventDate">

@@ -1,149 +1,59 @@
 <mt:Ignore>
 ========================================
-Template Name : entry.html
-Template Type : Entry Template
-Template Note : 
+Template Name : category.html
+Template Type : Category Template
+Template Note : カテゴリ
 ========================================
 </mt:Ignore>
 <mt:SetVars>
-  <mt:EntryTitle setvar="current_article">
-  <mt:EntryPrimaryCategory><mt:CategoryLabel setvar="parent_category"></mt:EntryPrimaryCategory>
-  base_description=<mt:EntryTitle> 〒304-8555 茨城県下妻市鬼怒230 URL: 茨城県南西部に位置する下妻市では、「知性を基盤に、優れた創造力と豊かな情操、美しい心をもち、心身共に健全なる風格を備えた人間の形成」を教育の基本理念とする。人が持つ個性や才能を最大限に発揮するために学校教育を充実させ、特色のある学校づくりを進め、家
-  og_title=<mt:EntryTitle> | 導入事例 | D-Link Japan
-  og_url=https://www.dlink-jp.com/case-studies/
-  og_type=article
+    base_description=ディスクリプション
+    og_title=<$mt:EntryTitle$>| 最新ニュース | D-Link Japan
+    og_url=<mt:EntryPermalink>
+    og_type=article
 </mt:SetVars>
-<mt:SetVarTemplate name="file_javascript">
-<script src="/asset/js/slick.min.js"></script>
-<script src="/asset/js/top.min.js" defer></script>
-</mt:SetVarTemplate>
 <mt:Ignore>** 表示部分 **</mt:Ignore>
 <mt:Include module="html_head" parent="1" />
+<style>
+.mr10 {
+  margin-right: 10px;
+}
+</style>
 <mt:Include module="header" parent="1" />
+<!-- ここからコンテンツ -->
 <main class="p-main">
   <div class="c-breadcrumb">
     <ul class="c-breadcrumb__list">
       <li><a href="/">HOME</a></li>
-      <li><a href="/case-studies/">導入事例</a></li>
-      <li><span><mt:EntryTitle></span></li>
+      <li><a href="/news/">ニュース</a></li>
+      <li><span><$mt:EntryTitle$></span></li>
     </ul>
   </div>
   <!-- /.c-breadcrumb -->
-
   <section class="l-outer--lower">
     <div class="l-inner">
-      <!-- Title -->
-        <div class="c-title">
-          <h1 class="c-title__text"><mt:EntryTitle></h1>
-        </div>
-        <!-- /.c-title -->
-      <!-- Title -->
-      <!-- Category -->
-        <div class="p-news_header">
-          <p class="p-news_header__category--case"><mt:EntryPrimaryCategory><$mt:CategoryLabel$></mt:EntryPrimaryCategory></p>
-        </div>
-        <!-- /.p-news_header -->
-      <!-- Category -->
+      <div class="c-title">
+          <h1 class="c-title__text"><$mt:EntryTitle$></h1>
+      </div>
+      <!-- /.c-title -->
+      <div class="p-news_header">
+        <!--
+        # カテゴリHTML
+        <p class="p-news_header__category--news">お知らせ</p>
+        <p class="p-news_header__category--product">製品ニュース</p>
+        -->
+        <mt:EntryAdditionalCategories>
+          <mt:If tag="CategoryBasename" eq="info">
+            <p class="p-news_header__category--news mr10"><$mt:CategoryLabel$></p>
+          <mt:Else>
+            <p class="p-news_header__category--product mr10"><$mt:CategoryLabel$></p> 
+          </mt:If>
+        </mt:EntryAdditionalCategories>
+        <p class="p-news_header__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
+      </div>
+      <!-- /.p-news_header -->
       <!-- FLCF -->
         <div class="l-container">
           <div class="l-container__block">
-            <MTentrydatarepeatingfieldBlock>
-              <!-- 製品一覧 -->
-                <mt:FLCFIfUnitName name="product_list">
-                  <mt:If name="__unit_first__">
-                    <div class="l-container__slot">
-                      <div class="p-product_list">
-                  </mt:if>
-                        <div class="p-product_list__item">
-                          <a href="<mt:FLCFValue field="url">">
-                            <div class="p-product_list__main">
-                              <div class="p-product_list__row">
-                                <div class="p-product_list__header">
-                                  <ul class="p-product_list__tag">
-                                    <mt:if tag="FLCFValue" field="green_icon_01"><li class="p-product_list__icon--01"><mt:FLCFValue field="green_icon_01"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="green_icon_02"><li class="p-product_list__icon--01"><mt:FLCFValue field="green_icon_02"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="green_icon_03"><li class="p-product_list__icon--01"><mt:FLCFValue field="green_icon_03"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="green_icon_04"><li class="p-product_list__icon--01"><mt:FLCFValue field="green_icon_04"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="green_icon_05"><li class="p-product_list__icon--01"><mt:FLCFValue field="green_icon_05"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="green_icon_06"><li class="p-product_list__icon--01"><mt:FLCFValue field="green_icon_06"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="green_icon_07"><li class="p-product_list__icon--01"><mt:FLCFValue field="green_icon_07"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="green_icon_08"><li class="p-product_list__icon--01"><mt:FLCFValue field="green_icon_08"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="green_icon_09"><li class="p-product_list__icon--01"><mt:FLCFValue field="green_icon_09"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="green_icon_10"><li class="p-product_list__icon--01"><mt:FLCFValue field="green_icon_10"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="blue_icon_01"><li class="p-product_list__icon--02"><mt:FLCFValue field="blue_icon_01"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="blue_icon_02"><li class="p-product_list__icon--02"><mt:FLCFValue field="blue_icon_02"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="blue_icon_03"><li class="p-product_list__icon--02"><mt:FLCFValue field="blue_icon_03"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="blue_icon_04"><li class="p-product_list__icon--02"><mt:FLCFValue field="blue_icon_04"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="blue_icon_05"><li class="p-product_list__icon--02"><mt:FLCFValue field="blue_icon_05"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="blue_icon_06"><li class="p-product_list__icon--02"><mt:FLCFValue field="blue_icon_06"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="blue_icon_07"><li class="p-product_list__icon--02"><mt:FLCFValue field="blue_icon_07"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="blue_icon_08"><li class="p-product_list__icon--02"><mt:FLCFValue field="blue_icon_08"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="blue_icon_09"><li class="p-product_list__icon--02"><mt:FLCFValue field="blue_icon_09"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="blue_icon_10"><li class="p-product_list__icon--02"><mt:FLCFValue field="blue_icon_10"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="orange_icon_01"><li class="p-product_list__icon--03"><mt:FLCFValue field="orange_icon_01"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="orange_icon_02"><li class="p-product_list__icon--03"><mt:FLCFValue field="orange_icon_02"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="orange_icon_03"><li class="p-product_list__icon--03"><mt:FLCFValue field="orange_icon_03"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="orange_icon_04"><li class="p-product_list__icon--03"><mt:FLCFValue field="orange_icon_04"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="orange_icon_05"><li class="p-product_list__icon--03"><mt:FLCFValue field="orange_icon_05"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="orange_icon_06"><li class="p-product_list__icon--03"><mt:FLCFValue field="orange_icon_06"></span></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="orange_icon_07"><li class="p-product_list__icon--03"><mt:FLCFValue field="orange_icon_07"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="orange_icon_08"><li class="p-product_list__icon--03"><mt:FLCFValue field="orange_icon_08"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="orange_icon_09"><li class="p-product_list__icon--03"><mt:FLCFValue field="orange_icon_09"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="orange_icon_10"><li class="p-product_list__icon--03"><mt:FLCFValue field="orange_icon_10"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="yellow_green_icon_01"><li class="p-product_list__icon--04"><mt:FLCFValue field="yellow_green_icon_01"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="yellow_green_icon_02"><li class="p-product_list__icon--04"><mt:FLCFValue field="yellow_green_icon_02"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="yellow_green_icon_03"><li class="p-product_list__icon--04"><mt:FLCFValue field="yellow_green_icon_03"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="yellow_green_icon_04"><li class="p-product_list__icon--04"><mt:FLCFValue field="yellow_green_icon_04"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="yellow_green_icon_05"><li class="p-product_list__icon--04"><mt:FLCFValue field="yellow_green_icon_05"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="yellow_green_icon_06"><li class="p-product_list__icon--04"><mt:FLCFValue field="yellow_green_icon_06"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="yellow_green_icon_07"><li class="p-product_list__icon--04"><mt:FLCFValue field="yellow_green_icon_07"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="yellow_green_icon_08"><li class="p-product_list__icon--04"><mt:FLCFValue field="yellow_green_icon_08"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="yellow_green_icon_09"><li class="p-product_list__icon--04"><mt:FLCFValue field="yellow_green_icon_09"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="purple_icon_10"><li class="p-product_list__icon--05"><mt:FLCFValue field="purple_icon_10"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="purple_icon_01"><li class="p-product_list__icon--05"><mt:FLCFValue field="purple_icon_01"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="purple_icon_02"><li class="p-product_list__icon--05"><mt:FLCFValue field="purple_icon_02"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="purple_icon_03"><li class="p-product_list__icon--05"><mt:FLCFValue field="purple_icon_03"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="purple_icon_04"><li class="p-product_list__icon--05"><mt:FLCFValue field="purple_icon_04"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="purple_icon_05"><li class="p-product_list__icon--05"><mt:FLCFValue field="purple_icon_05"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="purple_icon_06"><li class="p-product_list__icon--05"><mt:FLCFValue field="purple_icon_06"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="purple_icon_07"><li class="p-product_list__icon--05"><mt:FLCFValue field="purple_icon_07"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="purple_icon_08"><li class="p-product_list__icon--05"><mt:FLCFValue field="purple_icon_08"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="purple_icon_09"><li class="p-product_list__icon--05"><mt:FLCFValue field="purple_icon_09"></span></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="purple_icon_10"><li class="p-product_list__icon--05"><mt:FLCFValue field="purple_icon_10"></li></mt:if>
-                                  </ul>
-                                  <div class="p-product_list__img">
-                                    <mt:FLCFAsset field="image">
-                                      <img src="<mt:AssetURL>" alt="">
-                                    </mt:FLCFAsset>
-                                  </div>
-                                  <!-- /.p-product_list__img -->
-                                </div>
-                                <!-- /.p-product_list__header -->
-
-                                <div class="p-product_list__body">
-                                  <h3 class="p-product_list__name"><mt:FLCFValue field="title"></h3>
-                                  <div class="p-product_list__description">
-                                    <p><mt:FLCFValue field="sentence_product_list"></p>
-                                  </div>
-                                  <!-- /.p-product_list__description -->
-                                </div>
-                                <!-- /.p-product_list__body -->
-                              </div>
-                              <!-- /.p-product_list__row -->
-                            </div>
-                            <!-- /.p-product_list__main -->
-                          </a>
-                        </div>
-                        <!-- /.p-product_list__item -->
-                  <mt:If name="__unit_last__">
-                      </div>
-                      <!-- /.p-product_list -->
-                    </div>
-                    <!-- /.l-container__slot -->
-                  </mt:if>
-                </mt:FLCFIfUnitName>
-              <!-- 製品一覧 -->
-            </MTentrydatarepeatingfieldBlock>
             <MTentrydatarepeatingfieldBlock>
               <div class="l-container__box">
                 <!-- 見出しパーツ -->
@@ -2799,7 +2709,6 @@ Template Note :
                     <!-- /.l-container__slot -->
                   </mt:FLCFIfUnitName>
                 <!-- アイコン説明	-->
-                
                 <!-- Point -->
                   <mt:FLCFIfUnitName name="point">
                     <div class="l-container__slot">
@@ -3129,7 +3038,7 @@ Template Note :
         <mt:EntryPrevious by_category="1">
           <li class="c-pager__prev"><a href="<mt:EntryPermalink>">前へ</a></li>
         </mt:EntryPrevious>
-        <li class="c-pager__text"><a href="../">導入事例一覧</a></li>
+        <li class="c-pager__text"><a href="<$mt:CategoryArchiveLink$>">ニュース一覧</a></li>
         <mt:EntryNext by_category="1">
           <li class="c-pager__next"><a href="<mt:EntryPermalink>">次へ</a></li>
         </mt:EntryNext>
@@ -3137,105 +3046,8 @@ Template Note :
     </div>
     <!-- /.l-inner -->
   </section>
-  
-  <mt:Entries category="$parent_category" sort_by="authored_on" sort_order="descend"><mt:EntriesCount setvar="total_entries"></mt:entries>
-  <mt:unless name="total_entries" eq="1">
-  <div class="p-recommend">
-    <div class="p-recommend__inner">
-      <div class="p-recommend__header">
-        <!--
-          #news category
-            <p class="p-recommend__category--news">お知らせ</p>
-            <p class="p-recommend__category--product">製品ニュース</p>
-          
-          #event category
-            <p class="p-recommend__category--event">イベント</p>
-            <p class="p-recommend__category--seminar">セミナー</p>
-            <p class="p-recommend__category--online">オンライン</p>
-          
-          #support category
-            <p class="p-recommend__category--support">お知らせ</p>
-            <p class="p-recommend__category--firmware">ファームウェア</p>
-            <p class="p-recommend__category--security">セキュリティ情報</p>
-            <p class="p-recommend__category--maintenance">メンテナンス情報</p>
-            <p class="p-recommend__category--failure">障害情報</p>
-          
-          #case category
-          <p class="p-recommend__category--case">導入事例</p>
-
-          #solution category
-          <p class="p-recommend__category--solution">ソリューションのご提案</p>
-        -->
-        <p class="p-recommend__category--case"><mt:getvar name="parent_category"></p>
-        <h4 class="p-recommend__title">その他の導入事例</h4>
-      </div>
-      <!-- /.p-recommend__header -->
-      <div class="p-recommend__body">
-        <mt:Entries category="$parent_category" sort_by="authored_on" sort_order="descend" lastn="4">
-          <mt:if tag="EntryTitle" eq="$current_article">
-            <mt:SetVar name="have_current" value="1">
-          </mt:if>
-        </mt:entries>
-        <mt:if name="have_current" eq="1">
-          <mt:setvar name="number_of_article" value="4">
-        <mt:else>
-          <mt:SetVar name="number_of_article" value="3">
-        </mt:if>
-        
-        <mt:Entries category="$parent_category" sort_by="authored_on" sort_order="descend" lastn="$number_of_article">
-          <mt:unless tag="EntryTitle" eq="$current_article">
-            <div class="p-recommend__item">
-              <a href="<mt:EntryPermalink>">
-                <div class="p-recommend__block">
-                  <div class="p-recommend__img">
-                    <MTIfNonEmpty tag="EntryDataCaseStudiesDetailListImage">
-                      <mt:EntryDataCaseStudiesDetailListImageAsset>
-                        <img src="<mt:AssetURL>" alt="<mt:EntryTitle>">
-                      </mt:EntryDataCaseStudiesDetailListImageAsset>
-                    <mt:else>
-                      <img src="/asset/img/product/alternative_image.jpg" alt="<mt:EntryTitle>">
-                    </MTIfNonEmpty>
-                  </div>
-                  <!-- /.p-recommend__img -->
-                  <div class="p-recommend__content">
-                    <div class="p-recommend__text">
-                      <p><mt:EntryTitle></p>
-                    </div>
-                    <!-- /.p-recommend__text -->
-                  </div>
-                  <!-- /.p-recommend__content -->
-                </div>
-                <!-- /.p-recommend__block -->
-              </a>
-            </div>
-            <!-- /.p-recommend__item -->
-          </mt:unless>
-        </mt:entries>
-      </div>
-      <!-- /.p-recommend__body -->
-    </div>
-    <!-- /.p-recommend__inner -->
-  </div>
-  <!-- /.p-recommend -->
-  </mt:unless>
+  <!-- /.l-outer--lower -->
 </main>
-
-<div class="p-contact">
-  <div class="p-contact__inner">
-    <div class="p-contact__read">
-      <p>購入前の、製品仕様・お見積もり・<br class="u-show_sp">購入方法など<br class="u-show_pc">営業的な<br class="u-show_sp">お問い合わせについてはこちらから</p>
-    </div>
-    <!-- /.p-contact__read -->
-    <div class="p-contact__bottom">
-      <div class="p-contact__button">
-        <a href="/contact/contact-before/">お問い合わせ</a>
-      </div>
-      <!-- /.p-contact__button -->
-    </div>
-    <!-- /.p-contact__bottom -->
-  </div>
-  <!-- /.p-contact__inner -->
-</div>
-<!-- /.p-contact -->
+<!-- /.p-main -->
 <mt:Include module="footer" parent="1" />
 <mt:Include module="html_foot" parent="1" />

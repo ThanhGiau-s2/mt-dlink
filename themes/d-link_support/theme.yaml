@@ -1,0 +1,83 @@
+label: d-link_support
+id: d-link_support
+name: d-link_support
+version: '1.0'
+author_link: 
+author_name: yoyager
+class: 'blog'
+description: サポート
+thumbnail_file: 'thumb.png'
+thumbnail_file_medium: 'thumb-medium.png'
+thumbnail_file_small: 'thumb-small.png'
+elements:
+  template_set:
+    component: core
+    importer: template_set
+    data:
+      base_path: templates
+      require: 1
+      templates:
+        archive:
+          category_entry_listing:
+            label: Category Entry Listing
+            mappings:
+              category:
+                archive_type: Category
+                file_template: <mt:Include module="permalink_category">
+          category_yearly_entry_listing:
+            label: Category Yearly Entry Listing
+            mappings:
+              entry_archive:
+                archive_type: Category-Yearly
+                file_template: release/%y.html
+        index:
+          main_index:
+            label: 'index.html'
+            outfile: index.html
+            rebuild_me: '1'
+        individual:
+          entry:
+            label: Entry
+            mappings:
+              entry_archive:
+                archive_type: Individual
+                file_template: <mt:Include module="permalink">
+        page:
+          page:
+            label: Page
+            mappings:
+              page:
+                archive_type: Page
+                preferred: 1
+        module:
+          template_html_head:
+            label: 'html_head'
+          template_html_foot:
+            label: 'html_foot'
+          template_footer:
+            label: 'footer'
+          template_header:
+            label: 'header'
+          template_debug:
+            label: 'debug'
+          permalink:
+            label: permalink
+          permalink_category:
+            label: permalink_category
+          category_entry_listing:
+            label: category_entry_listing
+          category_yearly_entry_listing:
+            label: category_yearly_entry_listing
+          category_yearly_release:
+            label: category_yearly_release
+          category_release:
+            label: category_release
+          category_faq:
+            label: category_faq
+          redirect_faq:
+            label: redirect_faq
+          category_faq_list:
+            label: category_faq_list
+          single_support_release:
+            label: single_support_release
+          

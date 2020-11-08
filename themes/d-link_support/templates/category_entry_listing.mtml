@@ -1,0 +1,15 @@
+<mt:ParentCategories setvar="list_cate"><mt:CategoryBasename></mt:ParentCategories>
+<mt:SubCategories category="よくあるご質問" setvar="list_sub_cate_faq">supportfaq<mt:CategoryBasename></mt:SubCategories>
+<mt:If name="list_cate" like="release">
+  <mt:Include module="category_release"/>
+<mt:Else>
+  <mt:If name="list_cate" eq="faq">
+    <mt:Include module="category_faq"/>
+  <mt:Else>
+    <mt:If name="list_sub_cate_faq" like="$list_cate">
+      <mt:Include module="redirect_faq">
+    <mt:Else>
+      <mt:Include module="category_faq_list">
+    </mt:If>
+  </mt:If>
+</mt:If>

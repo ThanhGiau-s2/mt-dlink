@@ -16,7 +16,5 @@ applications:
           _type: entry
           id: 22
         view:
-          - blog
           - website
-          - system
       

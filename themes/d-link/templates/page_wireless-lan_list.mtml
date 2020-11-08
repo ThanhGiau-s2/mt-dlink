@@ -165,8 +165,8 @@
                                                             <!-- /.p-product_list__main -->
                                                             <mt:if tag="EntryDataSeriesDetailSalestatus" ne="販売終了">
                                                             <div class="p-product_list__add">
-                                                                <input type="checkbox" name="compare_list[]" value="0" id="product_id_0" @change="add_compare_list(0)" :checked="compare_check(0)">
-                                                                <label class="p-product_list__label" for="product_id_0">
+                                                                <input type="checkbox" name="compare_list[]" value="<mt:EntryID>" id="product_id_<mt:EntryID>" data-product_id="<mt:EntryID>" @change="add_compare_list" :checked="compare_check(<mt:EntryID>)">
+                                                                <label class="p-product_list__label" for="product_id_<mt:EntryID>">
                                                                     <span class="p-product_list__check">比較リストに追加する</span>
                                                                 </label>
                                                             </div>
@@ -257,53 +257,8 @@
             <!-- /.l-container -->
         </div>
         <!-- /.l-inner -->
-        <div class="p-compare_selected" :class="{'is-show' : add_compare[0]}">
-        <div class="p-compare_selected__inner">
-        <div class="p-compare_selected__content">
-        <div class="p-compare_selected__header">
-        <p class="p-compare_selected__heading">製品比較</p>
-        <div class="p-compare_selected__text">
-        <p>比較リストに追加されました。<br>4製品まで比較することができます。</p>
-        </div>
-        </div>
-        <!-- /.p-compare_selected__header -->
 
-        <div class="p-compare_selected__body">
-        <div class="p-compare_selected__row">
-
-        <template v-for="item of add_compare">
-        <div class="p-compare_selected__item">
-        <div class="p-compare_selected__remove">
-        <button>削除する</button>
-        </div>
-        <!-- /.p-compare_selected__remove -->
-        <div class="p-compare_selected__product">
-        <a href="/product/switch/series/single.html">
-        <img src="/asset/img/product/compare/switch/img_compare_01.jpg" alt="">
-        <p>DGS-3630-28SC</p>
-        </a>
-        </div>
-        <!-- /.p-compare_selected__product -->
-        </div>
-        <!-- /.p-compare_selected__item -->
-        </template>
-
-        </div>
-        <!-- /.p-compare_selected__row -->
-        </div>
-        <!-- /.p-compare_selected__body -->
-
-        <div class="p-compare_selected__footer">
-        <div class="p-compare_selected__init">
-        <a :href="create_compare_link()">比較する</a>
-        </div>
-        </div>
-        </div>
-        <!-- /.p-compare_selected__content -->
-        </div>
-        <!-- /.p-compare_selected__inner -->
-        </div>
-        <!-- /.p-compare_selected -->
+        <mt:Include module="compare_list" parent="1" />
     </section>
 </main>
 <div class="p-contact">
@@ -346,3 +301,4 @@
 <!-- /.p-local_nav -->
 <mt:Include module="footer" parent="1" />
 <mt:Include module="html_foot" parent="1" />
+
