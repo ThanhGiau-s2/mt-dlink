@@ -273,8 +273,11 @@ Template Note : トップページ出力用
 
             <div class="p-product_category">
                 <div class="p-product_category__large">
-                    <mt:Entries include_sites="6" sort_by="authored_on" sort_order="descend" lastn="4">
+                    <mt:setvar name="count" value="0">
+                    <mt:Entries include_sites="6" sort_by="authored_on" sort_order="descend">
                         <mt:If tag="EntryDataProductPickupDetailDisplayAllTop">
+                            <mt:SetVar name="depth" op="++">
+                            <mt:if name="depth" lt="5">
                             <div class="p-product_category__item">
                                 <a href="<mt:EntryDataProductPickupDetailLink>" rel="bookmark">
                                     <div class="p-product_category__detail">
@@ -301,6 +304,7 @@ Template Note : トップページ出力用
                                 </a>
                             </div>
                             <!-- /.p-product_category__item -->
+                            </mt:if>
                         </mt:If>
                     </mt:Entries>
                 </div>
