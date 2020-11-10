@@ -16,7 +16,7 @@ Template Note : カテゴリ
 </mt:SetVarTemplate>
 <mt:Ignore>** 表示部分 **</mt:Ignore>
 <mt:Include module="html_head" parent="1" />
-<mt:Include module="header" parent="1" />
+<mt:Include module="header" />
 <!-- ここからコンテンツ -->
 <main class="p-main">
     <div class="c-breadcrumb">
@@ -38,7 +38,7 @@ Template Note : カテゴリ
             <div class="p-news">
                 <ul class="p-news__tab--short">
                     <li><a href="/news/" class="p-news__toggle is-active">分類別表示</a></li>
-                    <li><a href="/news/<mt:Date format="%Y">" class="p-news__toggle">年別表示</a></li>
+                    <li><a href="/news/<mt:Date format="%Y">.html" class="p-news__toggle">年別表示</a></li>
                 </ul>
 
                 <ul class="p-news__type">

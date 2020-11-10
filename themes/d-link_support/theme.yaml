@@ -24,11 +24,11 @@ elements:
               category:
                 archive_type: Category
                 file_template: <mt:Include module="permalink_category">
-          category_yearly_entry_listing:
-            label: Category Yearly Entry Listing
+          yearly_entry_listing:
+            label: Yearly Entry Listing
             mappings:
-              entry_archive:
-                archive_type: Category-Yearly
+              yearly:
+                archive_type: Yearly
                 file_template: release/%y.html
         index:
           main_index:
@@ -78,6 +78,3 @@ elements:
             label: redirect_faq
           category_faq_list:
             label: category_faq_list
-          single_support_release:
-            label: single_support_release
-          

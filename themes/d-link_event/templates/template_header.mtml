@@ -158,6 +158,7 @@ Template Note : Header Template
                     <div class="p-hamburger__child">
                         <p class="p-hamburger__item"><a href="/product/">製品情報トップ</a></p>
                         <ul class="p-hamburger__list">
+                        <!--
                             <li><a href="/product/switch/">スイッチ</a></li>
                             <li><a href="/product/wireless-lan/">無線LAN</a></li>
                             <li><a href="/product/router-firewall/">ルータ / ファイアーウォール</a></li>
@@ -167,6 +168,14 @@ Template Note : Header Template
                             <li><a href="/product/sfp-xf-others/">光トランシーバ / ケーブル</a></li>
                             <li><a href="/product/redundant/">リダンダント電源</a></li>
                             <li><a href="/product/other/">その他製品</a></li>
+                        -->
+                            <mt:categories include_sites="1">
+                                <mt:if tag="CategoryLabel" eq="製品情報">
+                                    <mt:subcategories  category="製品情報">
+                                        <li><a href="<$mt:CategoryArchiveLink$>"><$mt:CategoryLabel$></a></li>
+                                    </mt:subcategories>
+                                </mt:if>
+                            </mt:categories>
                             <li><a href="/product/compare/">製品比較</a></li>
                             <li><a href="/product/archive/">販売終了予定／販売終了製品</a></li>
                         </ul>

@@ -16,7 +16,7 @@ Template Note : カテゴリ
 </mt:SetVarTemplate>
 <mt:Ignore>** 表示部分 **</mt:Ignore>
 <mt:Include module="html_head" parent="1" />
-<mt:Include module="header" parent="1" />
+<mt:Include module="header"/>
 <!-- ここからコンテンツ -->
 
 <main class="p-main">
@@ -45,7 +45,7 @@ Template Note : カテゴリ
                 </ul>
 
                 <ul class="p-news__type">
-                    <mt:ArchiveList archive_type="Category-Yearly"> 
+                    <mt:ArchiveList archive_type="Yearly" sort_order="descend"> 
                         <li class="widget-list-item"><a href="<$mt:ArchiveLink encode_html="1"$>" data-name="<mt:ArchiveDate format="%Y">"><$mt:ArchiveTitle$></a></li>
                     </mt:ArchiveList>
                 </ul>
@@ -57,7 +57,7 @@ Template Note : カテゴリ
 
                 <div class="p-news__select js-select_menu">
                     <ul class="p-news__select_list js-select_list">
-                        <mt:ArchiveList archive_type="Category-Yearly">
+                        <mt:ArchiveList archive_type="Yearly" sort_order="descend">
                             <li class="widget-list-item"><a href="<$mt:ArchiveLink encode_html="1"$>" data-name="<mt:ArchiveDate format="%Y">"><$mt:ArchiveTitle$></a></li>
                         </mt:ArchiveList>
                     </ul>
@@ -86,6 +86,7 @@ Template Note : カテゴリ
                                       <div class="p-news__box">
                                           <p class="p-news__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
                                           <mt:EntryAdditionalCategories setvar="entry_categories"><mt:CategoryBasename></mt:EntryAdditionalCategories>
+                                          <mt:SetVarBlock name="cate_support"></mt:SetVarBlock>
                                           <mt:SubCategories category="サポート情報">
                                               <mt:setvarblock name="id_name_cate"><mt:CategoryID>_<mt:CategoryBasename></mt:setvarblock>
                                               <mt:CategoryBasename setvar="name_cate">

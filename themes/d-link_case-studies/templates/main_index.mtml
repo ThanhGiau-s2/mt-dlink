@@ -17,7 +17,7 @@ Template Note : トップページ出力用
 </mt:SetVarTemplate>
 <mt:Ignore>** 表示部分 **</mt:Ignore>
 <mt:Include module="html_head" parent="1" />
-<mt:Include module="header" parent="1" />
+<mt:Include module="header"/>
 <main class="p-main">
   <div class="c-breadcrumb">
     <ul class="c-breadcrumb__list">
@@ -94,10 +94,11 @@ Template Note : トップページ出力用
           </mt:if>
         </mt:toplevelcategories>
         
-        <mt:SetVarBlock name="total"><mt:BlogEntryCount></mt:SetVarBlock>
-        <mt:entries lastn="$total">
+        <mt:entries category="導入事例トップ">
           <mt:if tag="EntryTitle" eq="導入事例">
+          <!--
             <mt:unless tag="EntryPrimaryCategory">
+          -->
               <div class="l-container__block">
                 <div class="c-content_heading">
                   <h2 class="c-content_heading__text">クライアントリスト</h2>
@@ -440,7 +441,9 @@ Template Note : トップページ出力用
                 </mt:if>
               </div>
               <!-- /.l-container__block -->
+            <!--
             </mt:unless>
+            -->
           </mt:if>
         </mt:Entries>
       </div>

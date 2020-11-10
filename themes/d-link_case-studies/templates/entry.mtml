@@ -7,6 +7,7 @@ Template Note :
 </mt:Ignore>
 <mt:SetVars>
   <mt:EntryTitle setvar="current_article">
+  <mt:EntryID setvar="current_article_id">
   <mt:EntryPrimaryCategory><mt:CategoryLabel setvar="parent_category"></mt:EntryPrimaryCategory>
   base_description=<mt:EntryTitle> 〒304-8555 茨城県下妻市鬼怒230 URL: 茨城県南西部に位置する下妻市では、「知性を基盤に、優れた創造力と豊かな情操、美しい心をもち、心身共に健全なる風格を備えた人間の形成」を教育の基本理念とする。人が持つ個性や才能を最大限に発揮するために学校教育を充実させ、特色のある学校づくりを進め、家
   og_title=<mt:EntryTitle> | 導入事例 | D-Link Japan
@@ -19,7 +20,7 @@ Template Note :
 </mt:SetVarTemplate>
 <mt:Ignore>** 表示部分 **</mt:Ignore>
 <mt:Include module="html_head" parent="1" />
-<mt:Include module="header" parent="1" />
+<mt:Include module="header"/>
 <main class="p-main">
   <div class="c-breadcrumb">
     <ul class="c-breadcrumb__list">
@@ -144,8 +145,8 @@ Template Note :
                 </mt:FLCFIfUnitName>
               <!-- 製品一覧 -->
             </MTentrydatarepeatingfieldBlock>
-            <MTentrydatarepeatingfieldBlock>
-              <div class="l-container__box">
+            <div class="l-container__box">
+              <MTentrydatarepeatingfieldBlock>
                 <!-- 見出しパーツ -->
                   <mt:FLCFIfUnitName name="heading">
                     <mt:FLCFOptions field="size">
@@ -3139,9 +3140,9 @@ Template Note :
                   </mt:FLCFIfUnitName>
                   <!-- 単表 -->
                 <!-- テーブル（縦積み型）-->
-              </div>
-              <!-- /.l-container__box -->
-            </MTentrydatarepeatingfieldBlock>
+              </MTentrydatarepeatingfieldBlock>
+            </div>
+            <!-- /.l-container__box -->
           </div>
           <!-- /.l-container__block -->
         </div>
@@ -3193,6 +3194,7 @@ Template Note :
       </div>
       <!-- /.p-recommend__header -->
       <div class="p-recommend__body">
+        <!--
         <mt:Entries category="$parent_category" sort_by="authored_on" sort_order="descend" lastn="4">
           <mt:if tag="EntryTitle" eq="$current_article">
             <mt:SetVar name="have_current" value="1">
@@ -3203,9 +3205,9 @@ Template Note :
         <mt:else>
           <mt:SetVar name="number_of_article" value="3">
         </mt:if>
-        
-        <mt:Entries category="$parent_category" sort_by="authored_on" sort_order="descend" lastn="$number_of_article">
-          <mt:unless tag="EntryTitle" eq="$current_article">
+        -->
+        <mt:Entries category="$parent_category" sort_by="authored_on" sort_order="descend">
+          <mt:unless tag="EntryID" eq="$current_article_id">
             <div class="p-recommend__item">
               <a href="<mt:EntryPermalink>">
                 <div class="p-recommend__block">
