@@ -54,7 +54,7 @@ Template Note : トップページ出力用
     <!-- /.p-mv -->
 
     <mt:Ignore>** 重要なお知らせ **</mt:Ignore>
-    <mt:Entries category="ニュース">
+    <mt:Entries include_sites="7" sort_by="authored_on" sort_order="descend">
         <mt:If tag="EntryDataImportantTag" eq="1">
             <mt:setvarblock name="have_article">true</mt:setvarblock>
         </mt:If>
@@ -65,7 +65,7 @@ Template Note : トップページ出力用
                 <div class="p-emergency__content">
                     <h2 class="p-emergency__heading"><img src="/asset/img/common/icon_emergency_01.png" alt="">重要なお知らせ</h2>
                     <ul class="p-emergency__list">
-                        <mt:Entries field:important_tag="1" sort_by="authored_on" sort_order="descend" category="ニュース" lastn="2">
+                        <mt:Entries field:important_tag="1" include_sites="7" sort_by="authored_on" sort_order="descend" lastn="2">
                             <li>
                                 <a href="<$mt:EntryLink$>">
                                     <div class="p-emergency__body">
@@ -178,7 +178,7 @@ Template Note : トップページ出力用
                     <mt:Entries category="製品情報" sort_by="authored_on" sort_order="ascend">
                         <mt:EntryCategories setvar="parent_cate"><$mt:CategoryLabel$></mt:EntryCategories>
                         <mt:if name="parent_cate" eq="製品情報">
-                            <mt:Unless tag="EntryTitle" like="(スイッチ|無線LAN)">
+                            <mt:Unless tag="EntryTitle" like="(スイッチ|無線LAN|ネットワークカメラ)">
                                 <div class="p-product_category__box">
                                     <a href="/product/<mt:EntryBaseName>/">
                                         <div class="p-product_category__row">
@@ -221,13 +221,39 @@ Template Note : トップページ出力用
                         </a>
                     </div>
                     <!-- /.p-product_category__box -->
+
+                    <div class="p-product_category__box">
+                        <div class="p-product_category__align">
+                            <div class="p-product_category__link">
+                                <a href="/product/archive/pog.html">
+                                    <div class="p-product_category__info--small">
+                                        <h3 class="p-product_category__name--small">販売終了予定製品</h3>
+                                    </div>
+                                    <!-- /.p-product_category__info--small -->
+                                </a>
+                            </div>
+                            <!-- /.p-product_category__link -->
+
+                            <div class="p-product_category__link">
+                                <a href="/product/archive/eos.html">
+                                    <div class="p-product_category__info--small">
+                                        <h3 class="p-product_category__name--small">販売終了製品</h3>
+                                    </div>
+                                    <!-- /.p-product_category__info--small -->
+                                </a>
+                            </div>
+                            <!-- /.p-product_category__link -->
+                        </div>
+                        <!-- /.p-product_category__align -->
+                    </div>
+                    <!-- /.p-product_category__box -->
                 </div>
                 <!-- /.p-product_category__small -->
             </div>
             <!-- /.p-product_category -->
 
             <mt:Ignore>** 製品に関する重要なお知らせ **</mt:Ignore>
-            <mt:Entries category="サポート情報">
+            <mt:Entries include_sites="9" sort_by="authored_on" sort_order="descend">
                 <mt:If tag="EntryDataImportantTagSupport" eq="1">
                     <mt:setvarblock name="have_article_support">true</mt:setvarblock>
                 </mt:If>
@@ -238,7 +264,7 @@ Template Note : トップページ出力用
                         <div class="p-emergency__content--product">
                             <h2 class="p-emergency__heading--product">製品に関する重要なお知らせ</h2>
                             <ul class="p-emergency__list">
-                                <mt:Entries field:important_tag_support="1" sort_by="authored_on" sort_order="descend" category="サポート情報" lastn="2">
+                                <mt:Entries field:important_tag_support="1" include_sites="9" sort_by="authored_on" sort_order="descend" lastn="2">
                                     <li>
                                         <a href="<$mt:EntryPermalink$>" rel="bookmark">
                                             <div class="p-emergency__body">
@@ -267,7 +293,7 @@ Template Note : トップページ出力用
     <section class="l-outer">
         <div class="l-inner">
             <div class="c-heading">
-                <h2 class="c-heading__title" data-en="pick up">製品ピックアップ情報</h2>
+                <h2 class="c-heading__title" data-en="Selection">サービス＆機能セレクション</h2>
             </div>
             <!-- /.c-heading -->
 
@@ -377,7 +403,7 @@ Template Note : トップページ出力用
 
             <div class="p-archive">
                 <div class="p-archive__content">
-                    <mt:Entries include_sites="4" sort_by="modified_on" lastn="4">
+                    <mt:Entries include_sites="4" sort_by="authored_on" sort_order="descend" lastn="4">
                         <div class="p-archive__item">
                             <a href="<$mt:EntryPermalink$>" rel="bookmark">
                                 <div class="p-archive__detail">
@@ -543,21 +569,21 @@ Template Note : トップページ出力用
                         <p class="p-news__category--news">お知らせ</p>
                         <p class="p-news__category--product">製品ニュース</p>
                         -->
-                        <mt:Entries sort_by="authored_on" sort_order="descend" category="ニュース" lastn="5">
+                        <mt:Entries include_sites="7" sort_by="authored_on" sort_order="descend" lastn="5">
                             <mt:SetVarBlock name="cate_news"></mt:SetVarBlock>
                             <div class="p-news__item">
                                 <a href="<$mt:EntryLink$>">
                                     <div class="p-news__box">
                                         <p class="p-news__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
-                                        <mt:EntryAdditionalCategories setvar="entry_categories"><mt:CategoryBasename></mt:EntryAdditionalCategories>
+                                        <mt:EntryCategories setvar="entry_categories"><mt:CategoryBasename></mt:EntryCategories>
                                         <mt:If name="entry_categories">
-                                            <mt:SubCategories category="ニュース">
+                                            <mt:Categories include_sites="7">
                                                 <mt:setvarblock name="id_name_cate"><mt:CategoryID>_<mt:CategoryBasename></mt:setvarblock>
                                                 <mt:CategoryBasename setvar="name_cate">
                                                 <mt:if name="entry_categories" like="$name_cate">
                                                     <mt:SetVarBlock name="cate_news{$id_name_cate}"><mt:CategoryLabel></mt:SetVarBlock>
                                                 </mt:If>
-                                            </mt:SubCategories>
+                                            </mt:Categories>
                                             <mt:Loop name="cate_news" sort_by= "key numeric">
                                                 <mt:If name="__last__">
                                                     <mt:If name="__key__" like="info">
@@ -592,25 +618,25 @@ Template Note : トップページ出力用
                         <p class="p-news__category--seminar">セミナー</p>
                         <p class="p-news__category--online">オンライン</p>
                         -->
-                        <mt:Entries sort_by="authored_on" sort_order="descend" category="イベント・セミナー" lastn="5">
+                        <mt:Entries include_sites="8" sort_by="authored_on" sort_order="descend" lastn="5">
                             <mt:SetVarBlock name="cate_event"></mt:SetVarBlock>
                             <div class="p-news__item">
                                 <a href="<$mt:EntryLink$>">
                                     <div class="p-news__box">
                                         <p class="p-news__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
-                                        <mt:EntryAdditionalCategories setvar="entry_categories"><mt:CategoryBasename></mt:EntryAdditionalCategories>
+                                        <mt:EntryCategories setvar="entry_categories"><mt:CategoryBasename></mt:EntryCategories>
                                         <mt:If name="entry_categories">
-                                            <mt:SubCategories category="イベント・セミナー">
+                                            <mt:Categories include_sites="8">
                                                 <mt:setvarblock name="id_name_cate"><mt:CategoryID>_<mt:CategoryBasename></mt:setvarblock>
                                                 <mt:CategoryBasename setvar="name_cate">
                                                 <mt:if name="entry_categories" like="$name_cate">
                                                     <mt:SetVarBlock name="cate_event{$id_name_cate}"><mt:CategoryLabel></mt:SetVarBlock>
                                                 </mt:If>
-                                            </mt:SubCategories>
+                                            </mt:Categories>
 
                                             <mt:Loop name="cate_event" sort_by= "key numeric">
                                                 <mt:If name="__last__">
-                                                    <mt:If name="__key__" like="event-info">
+                                                    <mt:If name="__key__" like="event">
                                                         <p class="p-news__category--event"><mt:Var name="__value__"></p>
                                                     </mt:If>
                                                     <mt:If name="__key__" like="online">
@@ -652,21 +678,21 @@ Template Note : トップページ出力用
                         <p class="p-news__category--maintenance">メンテナンス情報</p>
                         <p class="p-news__category--failure">障害情報</p>
                         -->
-                        <mt:Entries sort_by="authored_on" sort_order="descend" category="サポート/サポート情報" lastn="5">
+                        <mt:Entries include_sites="9" category="サポート情報" sort_by="authored_on" sort_order="descend" lastn="5">
                             <mt:SetVarBlock name="cate_support"></mt:SetVarBlock>
                             <div class="p-news__item">
                                 <a href="<$mt:EntryLink$>">
                                     <div class="p-news__box">
                                         <p class="p-news__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
-                                        <mt:EntryAdditionalCategories setvar="entry_categories"><mt:If tag="CategoryBasename" ne="release"><$mt:CategoryBasename$></mt:If></mt:EntryAdditionalCategories>
+                                        <mt:EntryCategories setvar="entry_categories"><mt:If tag="CategoryBasename" ne="release"><$mt:CategoryBasename$></mt:If></mt:EntryCategories>
                                         <mt:If name="entry_categories">
-                                            <mt:SubCategories category="サポート/サポート情報">
+                                            <mt:Categories include_sites="9">
                                                 <mt:setvarblock name="id_name_cate"><mt:CategoryID>_<mt:CategoryBasename></mt:setvarblock>
                                                 <mt:CategoryBasename setvar="name_cate">
                                                 <mt:if name="entry_categories" like="$name_cate">
                                                     <mt:SetVarBlock name="cate_support{$id_name_cate}"><mt:CategoryLabel></mt:SetVarBlock>
                                                 </mt:If>
-                                            </mt:SubCategories>
+                                            </mt:Categories>
                                             <mt:Loop name="cate_support" sort_by= "key numeric">
                                                 <mt:If name="__last__">
                                                     <mt:If name="__key__" like="info">
@@ -736,72 +762,72 @@ Template Note : トップページ出力用
 <!-- /.p-contact -->
 
 <div class="p-aside">
-    <div class="p-aside__inner">
-        <div class="p-aside__menu">
-            <div class="p-aside__item">
-                <a href="" target="_blank" rel="noopener" class="js-toggle_png">
-                    <div class="p-aside__body">
-                        <div class="p-aside__image">
-                            <img src="/asset/img/common/icon_mail_01.png" alt="">
-                        </div>
-                        <!-- /.p-aside__image -->
-                        <div class="p-aside__content">
-                            <p class="p-aside__heading">メールマガジン登録</p>
-                            <div class="p-aside__copy">
-                                <p>毎月1回の定期配信で各種情報をお届けします。</p>
-                            </div>
-                            <!-- /.p-aside__copy -->
-                        </div>
-                        <!-- /.p-aside__content -->
-                    </div>
-                    <!-- /.p-aside__body -->
-                </a>
-            </div>
-            <!-- /.p-aside__item -->
-            <div class="p-aside__item">
-                <a href="/catalog/" target="_blank" rel="noopener" class="js-toggle_png">
-                    <div class="p-aside__body">
-                        <div class="p-aside__image">
-                            <img src="/asset/img/common/icon_pdf_01.png" alt="">
-                        </div>
-                        <!-- /.p-aside__image -->
-                        <div class="p-aside__content">
-                            <p class="p-aside__heading">カタログダウンロード</p>
-                            <div class="p-aside__copy">
-                                <p>最新のカタログをPDF形式でダウンロード可能です。</p>
-                            </div>
-                            <!-- /.p-aside__copy -->
-                        </div>
-                        <!-- /.p-aside__content -->
-                    </div>
-                    <!-- /.p-aside__body -->
-                </a>
-            </div>
-            <!-- /.p-aside__item -->
-            <div class="p-aside__item">
-                <a href="https://www.youtube.com/c/DLinkglobal/" target="_blank" rel="noopener" class="js-toggle_png">
-                    <div class="p-aside__body">
-                        <div class="p-aside__image">
-                            <img src="/asset/img/common/icon_youtube_01.png" alt="">
-                        </div>
-                        <!-- /.p-aside__image -->
-                        <div class="p-aside__content">
-                            <p class="p-aside__heading">D-Link公式Youtube</p>
-                            <div class="p-aside__copy">
-                                <p>概要説明が入ります。概要説明が入ります。</p>
-                            </div>
-                            <!-- /.p-aside__copy -->
-                        </div>
-                        <!-- /.p-aside__content -->
-                    </div>
-                    <!-- /.p-aside__body -->
-                </a>
-            </div>
-            <!-- /.p-aside__item -->
-        </div>
-        <!-- /.p-aside__menu -->
-    </div>
-    <!-- /.p-aside__inner -->
+<div class="p-aside__inner">
+<div class="p-aside__menu">
+<div class="p-aside__item">
+<a href="" target="_blank" rel="noopener" class="js-toggle_png">
+<div class="p-aside__body">
+<div class="p-aside__image">
+<img src="/asset/img/common/icon_mail_01.png" alt="">
+</div>
+<!-- /.p-aside__image -->
+<div class="p-aside__content">
+<p class="p-aside__heading">メールマガジン登録</p>
+<div class="p-aside__copy">
+<p>D-Linkの最新情報を中心に各種情報をお届けします。</p>
+</div>
+<!-- /.p-aside__copy -->
+</div>
+<!-- /.p-aside__content -->
+</div>
+<!-- /.p-aside__body -->
+</a>
+</div>
+<!-- /.p-aside__item -->
+<div class="p-aside__item">
+<a href="/catalog/" target="_blank" rel="noopener" class="js-toggle_png">
+<div class="p-aside__body">
+<div class="p-aside__image">
+<img src="/asset/img/common/icon_pdf_01.png" alt="">
+</div>
+<!-- /.p-aside__image -->
+<div class="p-aside__content">
+<p class="p-aside__heading">総合カタログダウンロード</p>
+<div class="p-aside__copy">
+<p>最新の総合カタログをPDF形式でダウンロード可能です。</p>
+</div>
+<!-- /.p-aside__copy -->
+</div>
+<!-- /.p-aside__content -->
+</div>
+<!-- /.p-aside__body -->
+</a>
+</div>
+<!-- /.p-aside__item -->
+<div class="p-aside__item">
+<a href="https://www.youtube.com/channel/UCjK7YgcQQKtLD8BvqPPlkyg" target="_blank" rel="noopener" class="js-toggle_png">
+<div class="p-aside__body">
+<div class="p-aside__image">
+<img src="/asset/img/common/icon_youtube_01.png" alt="">
+</div>
+<!-- /.p-aside__image -->
+<div class="p-aside__content">
+<p class="p-aside__heading">D-Link公式YouTube</p>
+<div class="p-aside__copy">
+<p>D-Link製品や最新技術を動画でご紹介しています。</p>
+</div>
+<!-- /.p-aside__copy -->
+</div>
+<!-- /.p-aside__content -->
+</div>
+<!-- /.p-aside__body -->
+</a>
+</div>
+<!-- /.p-aside__item -->
+</div>
+<!-- /.p-aside__menu -->
+</div>
+<!-- /.p-aside__inner -->
 </div>
 <!-- /.p-aside -->
 <mt:Include module="footer" parent="1" />

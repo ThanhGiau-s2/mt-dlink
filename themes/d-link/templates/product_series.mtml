@@ -74,16 +74,32 @@
                         </div>
                         <!-- /.l-container__box -->
 
+                        <mt:setvarblock name="sub_current_cate">製品情報/<mt:EntryTitle></mt:setvarblock>
                         <div class="l-container__box">
-                            <div class="c-content_heading">
-                                <h2 class="c-content_heading__text">シリーズ一覧</h2>
-                            </div>
-                            <!-- /.c-content_heading -->
+                            <mt:SubCategories category="$sub_current_cate">
+                                <mt:setvarblock name="sub_cate">製品情報/<mt:EntryTitle>/<mt:CategoryLabel></mt:setvarblock>
+                                <mt:entries category="$sub_cate">
+                                    <mt:SetVar name="depth" value="0">
+                                    <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                                    <mt:if name="depth" eq="2"><mt:setvar name="show_list" value="1"></mt:if>
+                                </mt:entries>
+                            </mt:SubCategories>
+                            <mt:If name="show_list" eq="1">
+                                <div class="c-content_heading">
+                                    <h2 class="c-content_heading__text">シリーズ一覧</h2>
+                                </div>
+                                <!-- /.c-content_heading -->
+                                <mt:setvar name="show_list" value="0">
+                            </mt:if>
                             <div class="l-container__box">
-                                <mt:setvarblock name="sub_current_cate">製品情報/<mt:EntryTitle></mt:setvarblock>
                                 <mt:SubCategories category="$sub_current_cate">
                                     <mt:setvarblock name="sub_cate">製品情報/<mt:EntryTitle>/<mt:CategoryLabel></mt:setvarblock>
-                                    <mt:If tag="CategoryCount">    
+                                    <mt:entries category="$sub_cate">
+                                        <mt:SetVar name="depth" value="0">
+                                        <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                                        <mt:if name="depth" eq="2"><mt:setvar name="has_series" value="1"></mt:if>
+                                    </mt:entries>
+                                    <mt:If name="has_series" eq="1">   
                                         <div class="c-middle_heading">
                                             <h3 id="category_01" class="c-middle_heading__text"><$mt:CategoryLabel$></h3>
                                         </div>
@@ -139,6 +155,7 @@
                                             <!-- /.p-product_list -->
                                         </div>
                                         <!-- /.l-container__slot -->
+                                        <mt:setvar name="has_series" value="0">
                                     </mt:if>
                                 </mt:SubCategories>
                             </div>
@@ -156,43 +173,7 @@
         <!-- /.l-inner -->
     </section>
 </main>
-<div class="p-contact">
-    <div class="p-contact__inner">
-        <div class="p-contact__read">
-            <p>購入前の、製品仕様・お見積もり・<br class="u-show_sp">購入方法など<br class="u-show_pc">営業的な<br class="u-show_sp">お問い合わせについてはこちらから</p>
-        </div>
-        <!-- /.p-contact__read -->
-        <div class="p-contact__bottom">
-            <div class="p-contact__button">
-                <a href="/contact/contact-before/">お問い合わせ</a>
-            </div>
-            <!-- /.p-contact__button -->
-        </div>
-        <!-- /.p-contact__bottom -->
-    </div>
-    <!-- /.p-contact__inner -->
-</div>
-<!-- /.p-contact -->
-<div class="p-local_nav">
-    <div class="p-local_nav__inner">
-        <p class="p-local_nav__heading">製品情報</p>
-        <ul class="p-local_nav__list js-local_nav_current">
-            <li><a href="/product/">製品情報TOP</a></li>
-            <li><a href="/product/switch/">スイッチ</a></li>
-            <li><a href="/product/wireless-lan/">無線LAN</a></li>
-            <li><a href="/product/router-firewall/">ルータ / ファイアーウォール</a></li>
-            <li><a href="/product/media-converter/">メディアコンバータ</a></li>
-            <li><a href="/product/network-camera/">ネットワークカメラ</a></li>
-            <li><a href="/product/software/">ネットワーク管理ソフトウェア</a></li>
-            <li><a href="/product/sfp-xf-others/">光トランシーバ / ケーブル</a></li>
-            <li><a href="/product/redundant/">リダンダント電源</a></li>
-            <li><a href="/product/other/">その他製品</a></li>
-            <li><a href="/product/compare/">製品比較</a></li>
-            <li><a href="/product/archive/">販売終了予定／販売終了製品</a></li>
-        </ul>
-    </div>
-    <!-- /.p-local_nav__inner -->
-</div>
-<!-- /.p-local_nav -->
+<mt:Include module="footer_contact" parent="1" />
+<mt:Include module="product_local_nav" parent="1" />
 <mt:Include module="footer" parent="1" />
 <mt:Include module="html_foot" parent="1" />

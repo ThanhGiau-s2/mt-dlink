@@ -1,0 +1,122 @@
+<mt:SetVars>
+  base_description=ディスクリプション
+  og_title=製品情報 | D-Link Japan
+  og_url=https://www.dlink-jp.com/product/
+  og_type=article
+</mt:SetVars>
+<mt:SetVarTemplate name="file_javascript">
+</mt:SetVarTemplate>
+<mt:Ignore>** 表示部分 **</mt:Ignore>
+<mt:Include module="html_head" parent="1" />
+<mt:Include module="header" parent="1" />
+<!-- ここからコンテンツ -->
+<main class="p-main">
+  <div class="c-breadcrumb">
+    <ul class="c-breadcrumb__list">
+      <li><a href="/">HOME</a></li>
+      <li><span>検索結果</span></li>
+    </ul>
+  </div>
+  <!-- /.c-breadcrumb -->
+
+  <section class="l-outer--lower">
+    <div class="l-inner">
+
+      <div class="c-title">
+        <h1 class="c-title__text">検索結果</h1>
+      </div>
+      <!-- /.c-title -->
+
+      <mt:SearchResults>
+        <mt:SearchResultsHeader>
+      <div class="p-news">
+        <div class="p-news__count">
+          <p>「<$mt:SearchString$>」の検索結果：<span class="u-fw_bold"><$mt:SearchResultCount$>件</span></p>
+        </div>
+
+        <div class="p-news__content">
+          <div class="p-news__block--show">
+        </mt:SearchResultsHeader>
+            <div class="p-news__item">
+              <a href="<$mt:EntryPermalink$>">
+                <div class="p-news__box">
+                  <mt:SetVarBlock name="category_name">
+                  <$mt:SiteName$>
+                  </mt:SetVarBlock>
+                  <mt:SiteHasChildSite>
+                    <mt:TopLevelParent>
+                      <mt:SetVarBlock name="category_name">
+                      <$mt:CategoryLabel$>
+                      </mt:SetVarBlock>
+                    </mt:TopLevelParent>
+                  <mt:Else>
+                    <mt:If name="category_name" like="製品ピックアップ情報">
+                    <$mt:SetVar name="category_name" value="製品情報"$>
+                    </mt:If>
+                  </mt:SiteHasChildSite>
+                  <p class="p-news__category--result"><$mt:Var name="category_name"$></p>
+                  <div class="p-news__body">
+                    <p class="p-news__title"><$mt:EntryTitle$></p>
+                  </div>
+                  <!-- /.p-news__body -->
+                </div>
+                <!-- /.p-news__box -->
+              </a>
+            </div>
+            <!-- /.p-news__item -->
+        <mt:SearchResultsFooter>
+          </div>
+          <!-- /.p-news__block -->
+
+          <!-- <$mt:CurrentPage$> -->
+          <ul class="c-pager">
+          <mt:IfPreviousResults>
+            <li class="c-pager__prev"><a href="<$mt:PreviousLink$>" rel="prev">前へ</a></li>
+          <mt:Else>
+            <li class="c-pager__prev"><span>前へ</span></li>
+          </mt:IfPreviousResults>
+          <mt:PagerBlock>
+            <mt:IfCurrentPage>
+              <li class="c-pager__number"><span><$mt:Var name="__value__"$></span></li>
+            <mt:Else>
+              <li class="c-pager__number"><a href="<$mt:PagerLink$>"><$mt:Var name="__value__"$></a></li>
+            </mt:IfCurrentPage>
+          </mt:PagerBlock>
+          <mt:IfMoreResults>
+            <li class="c-pager__next"><a href="<$mt:NextLink$>" rel="next">次へ</a></li>
+          <mt:Else>
+            <li class="c-pager__next"><span>次へ</span></li>
+          </mt:IfMoreResults>
+          </ul>
+        </div>
+        <!-- /.p-news__content -->
+      </div>
+      <!-- /.p-news -->
+        </mt:SearchResultsFooter>
+      </mt:SearchResults>
+
+      <mt:NoSearchResults>
+      <div class="p-news">
+        <div class="p-news__count">
+          <p>「<$mt:SearchString$>」に関連するページは見つかりませんでした。</p>
+        </div>
+      </div>
+      <!-- /.p-news -->
+      </mt:NoSearchResults>
+
+      <mt:NoSearch>
+      <div class="p-news">
+        <div class="p-news__count">
+          <p>検索キーワードを入力してください。</p>
+        </div>
+      </div>
+      <!-- /.p-news -->
+      </mt:NoSearch>
+
+    </div>
+    <!-- /.l-inner -->
+  </section>
+</main>
+
+<mt:Include module="footer" parent="1" />
+<mt:Include module="html_foot" parent="1" />

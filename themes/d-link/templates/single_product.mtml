@@ -14,8 +14,8 @@
             </mt:if>
         </mt:if>
     </mt:EntryAdditionalCategories>
-    base_description=ディスクリプション
-    og_title=<mt:EntryTitle>|<mt:getvar name="label">|<mt:getvar name="label_series">|製品情報 | D-Link Japan
+    base_description=<$mt:EntryExcerpt$>
+    og_title=<mt:EntryTitle>|<mt:getvar name="label_small">|<mt:getvar name="label_max">|製品情報 | D-Link Japan
     og_url=https://www.dlink-jp.com/product/switch/
     og_type=article
 </mt:SetVars>
@@ -51,14 +51,13 @@
                     <div class="p-product_main__title">
                         <h1 class="p-product_main__name"><mt:EntryTitle></h1>
                         <mt:If tag="EntryDataSeriesDetailSalestatus" like="(販売終了予定|販売終了)">
-                            <p class="p-product_list__status--close"><mt:EntryDataSeriesDetailSalestatus></p>
+                            <div class="p-product_main__status--close"><mt:EntryDataSeriesDetailSalestatus></div>
                         <mt:else>
                             <$mt:DateDiff tag="EntryDate" offset="90d" format="%Y%m%d%H%M%S" setvar="exp_date"$>
                             <$mt:Date format="%Y%m%d%H%M%S" setvar="current_date"$>
-                            <mt:If name="exp_date" gt="$current_date"><p class="p-product_list__status--new">NEW</p></mt:If>
+                            <mt:If name="exp_date" gt="$current_date"><div class="p-product_main__status--new">NEW</div></mt:If>
                         </mt:If>
-                        <!-- <div class="p-product_main__status--close">販売終了予定</div> -->
-                        </div>
+                    </div>
                     <!-- /.p-product_main__title -->
                     <div class="p-product_main__image">
                     <MTIfNonEmpty tag="EntryDataSeriesDetailMainImg">
@@ -300,10 +299,8 @@
                                 </div>
                                 <!-- /.p-icon -->
                             </mt:if>
-                            <div class="c-content_box u-mt10">
-                                <ul class="c-list--notice">
-                                    <li><mt:EntryDataSeriesDetailFunctionIcon></li>
-                                </ul>
+                            <div class="c-content_box u-mt10 u-color_notice">
+                                <p><mt:EntryDataSeriesDetailFunctionIcon></p>
                             </div>
 
                             <div class="p-button_2col">
@@ -933,26 +930,30 @@
                                                                                 </tr>
                                                                                 </mt:if>
                                                                             </tbody>
-                                                                            <tfoot>
-                                                                                <tr>
-                                                                                    <td colspan="2">
-                                                                                        <div class="c-content_box">
-                                                                                            <p><mt:EntryDataSwitchSeriesDetailHardwareTableInnerDescriptionText></p>
-                                                                                        </div>
-                                                                                        <!-- /.c-content_box -->
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </tfoot>
+                                                                            <mt:if tag="EntryDataSwitchSeriesDetailHardwareTableInnerDescriptionText">
+                                                                                <tfoot>
+                                                                                    <tr>
+                                                                                        <td colspan="2">
+                                                                                            <div class="c-content_box">
+                                                                                                <p><mt:EntryDataSwitchSeriesDetailHardwareTableInnerDescriptionText></p>
+                                                                                            </div>
+                                                                                            <!-- /.c-content_box -->
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tfoot>
+                                                                            </mt:if>
                                                                         </table>
                                                                     </div>
                                                                     <!-- /.p-feature__table -->
-                                                                    <div class="p-feature__supplement">
-                                                                        <div class="c-content_box">
-                                                                            <p><mt:EntryDataSwitchSeriesDetailHardwareTableOuterDescriptionText></p>
+                                                                    <mt:if tag="EntryDataSwitchSeriesDetailHardwareTableOuterDescriptionText">
+                                                                        <div class="p-feature__supplement">
+                                                                            <div class="c-content_box">
+                                                                                <p><mt:EntryDataSwitchSeriesDetailHardwareTableOuterDescriptionText></p>
+                                                                            </div>
+                                                                            <!-- /.c-content_box -->
                                                                         </div>
-                                                                        <!-- /.c-content_box -->
-                                                                    </div>
-                                                                    <!-- /.p-feature____supplement -->
+                                                                        <!-- /.p-feature____supplement -->
+                                                                    </mt:if>
                                                                 </mt:if>
                                                                 <mt:if name="basename_max" eq="wireless-lan">
                                                                     <div class="p-feature__table">
@@ -1207,26 +1208,30 @@
                                                                                 </tr>
                                                                                 </mt:if>
                                                                             </tbody>
-                                                                            <tfoot>
-                                                                                <tr>
-                                                                                    <td colspan="2">
-                                                                                        <div class="c-content_box">
-                                                                                            <p><mt:EntryDataWirelessLanSeriesDetailHardwareTableInnerDescriptionText></p>
-                                                                                        </div>
-                                                                                        <!-- /.c-content_box -->
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </tfoot>
+                                                                            <mt:if tag="EntryDataWirelessLanSeriesDetailHardwareTableInnerDescriptionText">
+                                                                                <tfoot>
+                                                                                    <tr>
+                                                                                        <td colspan="2">
+                                                                                            <div class="c-content_box">
+                                                                                                <p><mt:EntryDataWirelessLanSeriesDetailHardwareTableInnerDescriptionText></p>
+                                                                                            </div>
+                                                                                            <!-- /.c-content_box -->
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tfoot>
+                                                                            </mt:if>
                                                                         </table>
                                                                     </div>
                                                                     <!-- /.p-feature__table -->
-                                                                    <div class="p-feature__supplement">
-                                                                        <div class="c-content_box">
-                                                                            <p><mt:EntryDataWirelessLanSeriesDetailHardwareTableOuterDescriptionText></p>
+                                                                    <mt:if tag="EntryDataWirelessLanSeriesDetailHardwareTableOuterDescriptionText">
+                                                                        <div class="p-feature__supplement">
+                                                                            <div class="c-content_box">
+                                                                                <p><mt:EntryDataWirelessLanSeriesDetailHardwareTableOuterDescriptionText></p>
+                                                                            </div>
+                                                                            <!-- /.c-content_box -->
                                                                         </div>
-                                                                        <!-- /.c-content_box -->
-                                                                    </div>
-                                                                    <!-- /.p-feature____supplement -->
+                                                                        <!-- /.p-feature____supplement -->
+                                                                    </mt:if>
                                                                 </mt:if>
                                                                 <mt:if name="basename_max" eq="router-firewall">
                                                                     <div class="p-feature__table">
@@ -1384,26 +1389,30 @@
                                                                                 </tr>
                                                                                 </mt:if>
                                                                             </tbody>
-                                                                            <tfoot>
-                                                                                <tr>
-                                                                                    <td colspan="2">
-                                                                                        <div class="c-content_box">
-                                                                                            <p><mt:EntryDataRouterFirewallSeriesDetailHardwareTableInnerDescriptionText></p>
-                                                                                        </div>
-                                                                                        <!-- /.c-content_box -->
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </tfoot>
+                                                                            <mt:if tag="EntryDataRouterFirewallSeriesDetailHardwareTableInnerDescriptionText">
+                                                                                <tfoot>
+                                                                                    <tr>
+                                                                                        <td colspan="2">
+                                                                                            <div class="c-content_box">
+                                                                                                <p><mt:EntryDataRouterFirewallSeriesDetailHardwareTableInnerDescriptionText></p>
+                                                                                            </div>
+                                                                                            <!-- /.c-content_box -->
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tfoot>
+                                                                            </mt:if>
                                                                         </table>
                                                                     </div>
                                                                     <!-- /.p-feature__table -->
-                                                                    <div class="p-feature__supplement">
-                                                                        <div class="c-content_box">
-                                                                            <p><mt:EntryDataRouterFirewallSeriesDetailHardwareTableOuterDescriptionText></p>
+                                                                    <mt:if tag="EntryDataRouterFirewallSeriesDetailHardwareTableOuterDescriptionText">
+                                                                        <div class="p-feature__supplement">
+                                                                            <div class="c-content_box">
+                                                                                <p><mt:EntryDataRouterFirewallSeriesDetailHardwareTableOuterDescriptionText></p>
+                                                                            </div>
+                                                                            <!-- /.c-content_box -->
                                                                         </div>
-                                                                        <!-- /.c-content_box -->
-                                                                    </div>
-                                                                    <!-- /.p-feature____supplement -->
+                                                                        <!-- /.p-feature____supplement -->
+                                                                    </mt:if>
                                                                 </mt:if>
                                                                 <mt:if name="basename_max" eq="network-camera">
                                                                     <div class="p-feature__table">
@@ -1607,6 +1616,7 @@
                                                                                     </tr>
                                                                                 </mt:if>
                                                                             </tbody>
+                                                                            <mt:if tag="EntryDataNetworkCameraSeriesDetailHardwareTableInnerDescriptionText">
                                                                             <tfoot>
                                                                                 <tr>
                                                                                     <td colspan="2">
@@ -1617,9 +1627,11 @@
                                                                                     </td>
                                                                                 </tr>
                                                                             </tfoot>
+                                                                            </mt:if>
                                                                         </table>
                                                                     </div>
                                                                     <!-- /.p-feature__table -->
+                                                                    <mt:if tag="EntryDataNetworkCameraSeriesDetailHardwareTableOuterDescriptionText">
                                                                     <div class="p-feature__supplement">
                                                                         <div class="c-content_box">
                                                                             <p><mt:EntryDataNetworkCameraSeriesDetailHardwareTableOuterDescriptionText></p>
@@ -1627,6 +1639,7 @@
                                                                         <!-- /.c-content_box -->
                                                                     </div>
                                                                     <!-- /.p-feature____supplement -->
+                                                                    </mt:if>
                                                                 </mt:if>
                                                                 <mt:if name="basename_max" eq="media-converter">
                                                                     <div class="p-feature__table">
@@ -1942,26 +1955,30 @@
                                                                                 </tr>
                                                                                 </mt:if>
                                                                             </tbody>
-                                                                            <tfoot>
-                                                                                <tr>
-                                                                                    <td colspan="2">
-                                                                                        <div class="c-content_box">
-                                                                                            <p><mt:EntryDataMediaConverterSeriesDetailHardwareTableInnerDescriptionText></p>
-                                                                                        </div>
-                                                                                        <!-- /.c-content_box -->
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </tfoot>
+                                                                            <mt:if tag="EntryDataMediaConverterSeriesDetailHardwareTableInnerDescriptionText">
+                                                                                <tfoot>
+                                                                                    <tr>
+                                                                                        <td colspan="2">
+                                                                                            <div class="c-content_box">
+                                                                                                <p><mt:EntryDataMediaConverterSeriesDetailHardwareTableInnerDescriptionText></p>
+                                                                                            </div>
+                                                                                            <!-- /.c-content_box -->
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tfoot>
+                                                                            </mt:if>
                                                                         </table>
                                                                     </div>
                                                                     <!-- /.p-feature__table -->
-                                                                    <div class="p-feature__supplement">
-                                                                        <div class="c-content_box">
-                                                                            <p><mt:EntryDataMediaConverterSeriesDetailHardwareTableOuterDescriptionText></p>
+                                                                    <mt:if tag="EntryDataMediaConverterSeriesDetailHardwareTableOuterDescriptionText">
+                                                                        <div class="p-feature__supplement">
+                                                                            <div class="c-content_box">
+                                                                                <p><mt:EntryDataMediaConverterSeriesDetailHardwareTableOuterDescriptionText></p>
+                                                                            </div>
+                                                                            <!-- /.c-content_box -->
                                                                         </div>
-                                                                        <!-- /.c-content_box -->
-                                                                    </div>
-                                                                    <!-- /.p-feature____supplement -->
+                                                                        <!-- /.p-feature____supplement -->
+                                                                    </mt:if>
                                                                 </mt:if>
                                                                 <mt:if name="basename_max" eq="redundant">
                                                                     <div class="p-feature__table">
@@ -2301,26 +2318,30 @@
                                                                                 </tr>
                                                                                 </mt:if>
                                                                             </tbody>
-                                                                            <tfoot>
-                                                                                <tr>
-                                                                                    <td colspan="2">
-                                                                                        <div class="c-content_box">
-                                                                                            <p><mt:EntryDataSfpXfOthersSeriesDetailHardwareTableInnerDescriptionText></p>
-                                                                                        </div>
-                                                                                        <!-- /.c-content_box -->
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </tfoot>
+                                                                            <mt:if tag="EntryDataSfpXfOthersSeriesDetailHardwareTableInnerDescriptionText">
+                                                                                <tfoot>
+                                                                                    <tr>
+                                                                                        <td colspan="2">
+                                                                                            <div class="c-content_box">
+                                                                                                <p><mt:EntryDataSfpXfOthersSeriesDetailHardwareTableInnerDescriptionText></p>
+                                                                                            </div>
+                                                                                            <!-- /.c-content_box -->
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tfoot>
+                                                                            </mt:if>
                                                                         </table>
                                                                     </div>
                                                                     <!-- /.p-feature__table -->
-                                                                    <div class="p-feature__supplement">
-                                                                        <div class="c-content_box">
-                                                                            <p><mt:EntryDataSfpXfOthersSeriesDetailHardwareTableOuterDescriptionText></p>
+                                                                    <mt:if tag="EntryDataSfpXfOthersSeriesDetailHardwareTableOuterDescriptionText">
+                                                                        <div class="p-feature__supplement">
+                                                                            <div class="c-content_box">
+                                                                                <p><mt:EntryDataSfpXfOthersSeriesDetailHardwareTableOuterDescriptionText></p>
+                                                                            </div>
+                                                                            <!-- /.c-content_box -->
                                                                         </div>
-                                                                        <!-- /.c-content_box -->
-                                                                    </div>
-                                                                    <!-- /.p-feature____supplement -->
+                                                                        <!-- /.p-feature____supplement -->
+                                                                    </mt:if>
                                                                 </mt:if>
                                                                 <mt:if name="basename_max" eq="other">
                                                                     <div class="p-feature__table">
@@ -2598,26 +2619,30 @@
                                                                                 </tr>
                                                                                 </mt:if>
                                                                             </tbody>
-                                                                            <tfoot>
-                                                                                <tr>
-                                                                                    <td colspan="2">
-                                                                                        <div class="c-content_box">
-                                                                                            <p><mt:EntryDataOtherSeriesDetailHardwareTableInnerDescriptionText></p>
-                                                                                        </div>
-                                                                                        <!-- /.c-content_box -->
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </tfoot>
+                                                                            <mt:if tag="EntryDataOtherSeriesDetailHardwareTableInnerDescriptionText">
+                                                                                <tfoot>
+                                                                                    <tr>
+                                                                                        <td colspan="2">
+                                                                                            <div class="c-content_box">
+                                                                                                <p><mt:EntryDataOtherSeriesDetailHardwareTableInnerDescriptionText></p>
+                                                                                            </div>
+                                                                                            <!-- /.c-content_box -->
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tfoot>
+                                                                            </mt:if>
                                                                         </table>
                                                                     </div>
                                                                     <!-- /.p-feature__table -->
-                                                                    <div class="p-feature__supplement">
-                                                                        <div class="c-content_box">
-                                                                            <p><mt:EntryDataOtherSeriesDetailHardwareTableOuterDescriptionText></p>
+                                                                    <mt:if tag="EntryDataOtherSeriesDetailHardwareTableOuterDescriptionText">
+                                                                        <div class="p-feature__supplement">
+                                                                            <div class="c-content_box">
+                                                                                <p><mt:EntryDataOtherSeriesDetailHardwareTableOuterDescriptionText></p>
+                                                                            </div>
+                                                                            <!-- /.c-content_box -->
                                                                         </div>
-                                                                        <!-- /.c-content_box -->
-                                                                    </div>
-                                                                    <!-- /.p-feature____supplement -->
+                                                                        <!-- /.p-feature____supplement -->
+                                                                    </mt:if>
                                                                 </mt:if>
                                                             </div>
                                                             <!-- /.p-feature -->
@@ -3461,27 +3486,30 @@
                                                                                     </tr>
                                                                                 </mt:if>
                                                                             </tbody>
-                                                                            <tfoot>
-                                                                                <tr>
-                                                                                    <td colspan="2">
-                                                                                        <div class="c-content_box">
-                                                                                        <p><mt:EntryDataSwitchSeriesDetailSoftwareTableInnerDescriptionText></p>
-                                                                                        </div>
-                                                                                        <!-- /.c-content_box -->
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </tfoot>
+                                                                            <mt:if tag="EntryDataSwitchSeriesDetailSoftwareTableInnerDescriptionText">
+                                                                                <tfoot>
+                                                                                    <tr>
+                                                                                        <td colspan="2">
+                                                                                            <div class="c-content_box">
+                                                                                            <p><mt:EntryDataSwitchSeriesDetailSoftwareTableInnerDescriptionText></p>
+                                                                                            </div>
+                                                                                            <!-- /.c-content_box -->
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tfoot>
+                                                                            </mt:if>
                                                                         </table>
                                                                     </div>
                                                                     <!-- /.p-feature__table -->
-
-                                                                    <div class="p-feature__supplement">
-                                                                        <div class="c-content_box">
-                                                                            <p><mt:EntryDataSwitchSeriesDetailSoftwareTableOuterDescriptionText></p>
+                                                                    <mt:if tag="EntryDataSwitchSeriesDetailSoftwareTableOuterDescriptionText">
+                                                                        <div class="p-feature__supplement">
+                                                                            <div class="c-content_box">
+                                                                                <p><mt:EntryDataSwitchSeriesDetailSoftwareTableOuterDescriptionText></p>
+                                                                            </div>
+                                                                            <!-- /.c-content_box -->
                                                                         </div>
-                                                                        <!-- /.c-content_box -->
-                                                                    </div>
-                                                                    <!-- /.p-feature____supplement -->
+                                                                        <!-- /.p-feature____supplement -->
+                                                                    </mt:if>
                                                                 </mt:if>
                                                                 <mt:if name="basename_max" eq="wireless-lan">
                                                                     <div class="p-feature__table">
@@ -4290,27 +4318,30 @@
                                                                                 </tr>
                                                                                 </mt:if>
                                                                             </tbody>
-                                                                            <tfoot>
-                                                                                <tr>
-                                                                                    <td colspan="2">
-                                                                                        <div class="c-content_box">
-                                                                                            <p><mt:EntryDataWirelessLanSeriesDetailSoftwareTableInnerDescriptionText></p>
-                                                                                        </div>
-                                                                                        <!-- /.c-content_box -->
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </tfoot>
+                                                                            <mt:if tag="EntryDataWirelessLanSeriesDetailSoftwareTableInnerDescriptionText">
+                                                                                <tfoot>
+                                                                                    <tr>
+                                                                                        <td colspan="2">
+                                                                                            <div class="c-content_box">
+                                                                                                <p><mt:EntryDataWirelessLanSeriesDetailSoftwareTableInnerDescriptionText></p>
+                                                                                            </div>
+                                                                                            <!-- /.c-content_box -->
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tfoot>
+                                                                            </mt:if>
                                                                         </table>
                                                                     </div>
                                                                     <!-- /.p-feature__table -->
-
-                                                                    <div class="p-feature__supplement">
-                                                                        <div class="c-content_box">
-                                                                            <p><mt:EntryDataWirelessLanSeriesDetailSoftwareTableOuterDescriptionText></p>
+                                                                    <mt:if tag="EntryDataWirelessLanSeriesDetailSoftwareTableOuterDescriptionText">
+                                                                        <div class="p-feature__supplement">
+                                                                            <div class="c-content_box">
+                                                                                <p><mt:EntryDataWirelessLanSeriesDetailSoftwareTableOuterDescriptionText></p>
+                                                                            </div>
+                                                                            <!-- /.c-content_box -->
                                                                         </div>
-                                                                        <!-- /.c-content_box -->
-                                                                    </div>
-                                                                    <!-- /.p-feature____supplement -->
+                                                                        <!-- /.p-feature____supplement -->
+                                                                    </mt:if>
                                                                 </mt:if>
                                                                 <mt:if name="basename_max" eq="router-firewall">
                                                                     <div class="p-feature__table">
@@ -4942,27 +4973,30 @@
                                                                                 </tr>
                                                                                 </mt:if>
                                                                             </tbody>
-                                                                            <tfoot>
-                                                                                <tr>
-                                                                                    <td colspan="2">
-                                                                                        <div class="c-content_box">
-                                                                                            <p><mt:EntryDataRouterFirewallSeriesDetailSoftwareTableInnerDescriptionText></p>
-                                                                                        </div>
-                                                                                        <!-- /.c-content_box -->
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </tfoot>
+                                                                            <mt:if tag="EntryDataRouterFirewallSeriesDetailSoftwareTableInnerDescriptionText">
+                                                                                <tfoot>
+                                                                                    <tr>
+                                                                                        <td colspan="2">
+                                                                                            <div class="c-content_box">
+                                                                                                <p><mt:EntryDataRouterFirewallSeriesDetailSoftwareTableInnerDescriptionText></p>
+                                                                                            </div>
+                                                                                            <!-- /.c-content_box -->
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tfoot>
+                                                                            </mt:if>
                                                                         </table>
                                                                     </div>
                                                                     <!-- /.p-feature__table -->
-
-                                                                    <div class="p-feature__supplement">
-                                                                        <div class="c-content_box">
-                                                                            <p><mt:EntryDataRouterFirewallSeriesDetailSoftwareTableOuterDescriptionText></p>
+                                                                    <mt:if tag="EntryDataRouterFirewallSeriesDetailSoftwareTableOuterDescriptionText">
+                                                                        <div class="p-feature__supplement">
+                                                                            <div class="c-content_box">
+                                                                                <p><mt:EntryDataRouterFirewallSeriesDetailSoftwareTableOuterDescriptionText></p>
+                                                                            </div>
+                                                                            <!-- /.c-content_box -->
                                                                         </div>
-                                                                        <!-- /.c-content_box -->
-                                                                    </div>
-                                                                    <!-- /.p-feature____supplement -->
+                                                                        <!-- /.p-feature____supplement -->
+                                                                    </mt:if>
                                                                 </mt:if>
                                                                 <mt:if name="basename_max" eq="network-camera">
                                                                     <div class="p-feature__table">
@@ -5225,123 +5259,142 @@
                                                                                 </tr>
                                                                                 </mt:if>
                                                                             </tbody>
-                                                                            <tfoot>
-                                                                                <tr>
-                                                                                    <td colspan="2">
-                                                                                        <div class="c-content_box">
-                                                                                            <p><mt:EntryDataNetworkCameraSeriesDetailSoftwareTableInnerDescriptionText></p>
-                                                                                        </div>
-                                                                                        <!-- /.c-content_box -->
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </tfoot>
+                                                                            <mt:if tag="EntryDataNetworkCameraSeriesDetailSoftwareTableInnerDescriptionText">
+                                                                                <tfoot>
+                                                                                    <tr>
+                                                                                        <td colspan="2">
+                                                                                            <div class="c-content_box">
+                                                                                                <p><mt:EntryDataNetworkCameraSeriesDetailSoftwareTableInnerDescriptionText></p>
+                                                                                            </div>
+                                                                                            <!-- /.c-content_box -->
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tfoot>
+                                                                            </mt:if>
                                                                         </table>
                                                                     </div>
                                                                     <!-- /.p-feature__table -->
-
-                                                                    <div class="p-feature__supplement">
-                                                                        <div class="c-content_box">
-                                                                            <p><mt:EntryDataNetworkCameraSeriesDetailSoftwareTableOuterDescriptionText></p>
+                                                                    <mt:if tag="EntryDataNetworkCameraSeriesDetailSoftwareTableOuterDescriptionText">
+                                                                        <div class="p-feature__supplement">
+                                                                            <div class="c-content_box">
+                                                                                <p><mt:EntryDataNetworkCameraSeriesDetailSoftwareTableOuterDescriptionText></p>
+                                                                            </div>
+                                                                            <!-- /.c-content_box -->
                                                                         </div>
-                                                                        <!-- /.c-content_box -->
-                                                                    </div>
-                                                                    <!-- /.p-feature____supplement -->
+                                                                        <!-- /.p-feature____supplement -->
+                                                                    </mt:if>
                                                                 </mt:if>
                                                                 <mt:if name="basename_max" eq="media-converter">
-                                                                    <div class="p-feature__table">
-                                                                        <table>
-                                                                            <tfoot>
-                                                                                <tr>
-                                                                                    <td colspan="2">
-                                                                                        <div class="c-content_box">
-                                                                                            <p><mt:EntryDataMediaConverterSeriesDetailSoftwareTableInnerDescriptionText></p>
-                                                                                        </div>
-                                                                                        <!-- /.c-content_box -->
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </tfoot>
-                                                                        </table>
-                                                                    </div>
-                                                                    <!-- /.p-feature__table -->
-                                                                    <div class="p-feature__supplement">
-                                                                        <div class="c-content_box">
-                                                                            <p><mt:EntryDataMediaConverterSeriesDetailSoftwareTableOuterDescriptionText></p>
+                                                                    <mt:if tag="EntryDataMediaConverterSeriesDetailSoftwareTableInnerDescriptionText">
+                                                                        <div class="p-feature__table">
+                                                                            <table>
+                                                                                <tfoot>
+                                                                                    <tr>
+                                                                                        <td colspan="2">
+                                                                                            <div class="c-content_box">
+                                                                                                <p><mt:EntryDataMediaConverterSeriesDetailSoftwareTableInnerDescriptionText></p>
+                                                                                            </div>
+                                                                                            <!-- /.c-content_box -->
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tfoot>
+                                                                            </table>
                                                                         </div>
-                                                                        <!-- /.c-content_box -->
-                                                                    </div>
-                                                                    <!-- /.p-feature____supplement -->
+                                                                        <!-- /.p-feature__table -->
+                                                                    </mt:if>
+                                                                    <mt:if tag="EntryDataMediaConverterSeriesDetailSoftwareTableOuterDescriptionText">
+                                                                        <div class="p-feature__supplement">
+                                                                            <div class="c-content_box">
+                                                                                <p><mt:EntryDataMediaConverterSeriesDetailSoftwareTableOuterDescriptionText></p>
+                                                                            </div>
+                                                                            <!-- /.c-content_box -->
+                                                                        </div>
+                                                                        <!-- /.p-feature____supplement -->
+                                                                    </mt:if>
                                                                 </mt:if>
                                                                 <mt:if name="basename_max" eq="redundant">
-                                                                    <div class="p-feature__table">
-                                                                        <table>
-                                                                            <tfoot>
-                                                                                <tr>
-                                                                                    <td colspan="2">
-                                                                                        <div class="c-content_box">
-                                                                                            <p><mt:EntryDataRedundantSeriesDetailSoftwareTableInnerDescriptionText></p>
-                                                                                        </div>
-                                                                                        <!-- /.c-content_box -->
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </tfoot>
-                                                                        </table>
-                                                                    </div>
-                                                                    <!-- /.p-feature__table -->
-                                                                    <div class="p-feature__supplement">
-                                                                        <div class="c-content_box">
-                                                                            <p><mt:EntryDataRedundantSeriesDetailSoftwareTableOuterDescriptionText></p>
+                                                                    <mt:if tag="EntryDataRedundantSeriesDetailSoftwareTableInnerDescriptionText">
+                                                                        <div class="p-feature__table">
+                                                                            <table>
+                                                                                <tfoot>
+                                                                                    <tr>
+                                                                                        <td colspan="2">
+                                                                                            <div class="c-content_box">
+                                                                                                <p><mt:EntryDataRedundantSeriesDetailSoftwareTableInnerDescriptionText></p>
+                                                                                            </div>
+                                                                                            <!-- /.c-content_box -->
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tfoot>
+                                                                            </table>
                                                                         </div>
-                                                                        <!-- /.c-content_box -->
-                                                                    </div>
-                                                                    <!-- /.p-feature____supplement -->
+                                                                        <!-- /.p-feature__table -->
+                                                                    </mt:if>
+                                                                    <mt:if tag="EntryDataRedundantSeriesDetailSoftwareTableOuterDescriptionText">
+                                                                        <div class="p-feature__supplement">
+                                                                            <div class="c-content_box">
+                                                                                <p><mt:EntryDataRedundantSeriesDetailSoftwareTableOuterDescriptionText></p>
+                                                                            </div>
+                                                                            <!-- /.c-content_box -->
+                                                                        </div>
+                                                                        <!-- /.p-feature____supplement -->
+                                                                    </mt:if>
                                                                 </mt:if>
                                                                 <mt:if name="basename_max" eq="sfp-xf-others">
-                                                                    <div class="p-feature__table">
-                                                                        <table>
-                                                                            <tfoot>
-                                                                                <tr>
-                                                                                    <td colspan="2">
-                                                                                        <div class="c-content_box">
-                                                                                            <p><mt:EntryDataSfpXfOthersSeriesDetailSoftwareTableInnerDescriptionText></p>
-                                                                                        </div>
-                                                                                        <!-- /.c-content_box -->
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </tfoot>
-                                                                        </table>
-                                                                    </div>
-                                                                    <!-- /.p-feature__table -->
-                                                                    <div class="p-feature__supplement">
-                                                                        <div class="c-content_box">
-                                                                            <p><mt:EntryDataSfpXfOthersSeriesDetailSoftwareTableOuterDescriptionText></p>
+                                                                    <mt:if tag="EntryDataSfpXfOthersSeriesDetailSoftwareTableInnerDescriptionText">
+                                                                        <div class="p-feature__table">
+                                                                            <table>
+                                                                                <tfoot>
+                                                                                    <tr>
+                                                                                        <td colspan="2">
+                                                                                            <div class="c-content_box">
+                                                                                                <p><mt:EntryDataSfpXfOthersSeriesDetailSoftwareTableInnerDescriptionText></p>
+                                                                                            </div>
+                                                                                            <!-- /.c-content_box -->
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tfoot>
+                                                                            </table>
                                                                         </div>
-                                                                        <!-- /.c-content_box -->
-                                                                    </div>
-                                                                    <!-- /.p-feature____supplement -->
+                                                                        <!-- /.p-feature__table -->
+                                                                    </mt:if>
+                                                                    <mt:if tag="EntryDataSfpXfOthersSeriesDetailSoftwareTableOuterDescriptionText">
+                                                                        <div class="p-feature__supplement">
+                                                                            <div class="c-content_box">
+                                                                                <p><mt:EntryDataSfpXfOthersSeriesDetailSoftwareTableOuterDescriptionText></p>
+                                                                            </div>
+                                                                            <!-- /.c-content_box -->
+                                                                        </div>
+                                                                        <!-- /.p-feature____supplement -->
+                                                                    </mt:if>
                                                                 </mt:if>
                                                                 <mt:if name="basename_max" eq="other">
-                                                                    <div class="p-feature__table">
-                                                                        <table>
-                                                                            <tfoot>
-                                                                                <tr>
-                                                                                    <td colspan="2">
-                                                                                        <div class="c-content_box">
-                                                                                            <p><mt:EntryDataOtherSeriesDetailSoftwareTableInnerDescriptionText></p>
-                                                                                        </div>
-                                                                                        <!-- /.c-content_box -->
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </tfoot>
-                                                                        </table>
-                                                                    </div>
-                                                                    <!-- /.p-feature__table -->
-                                                                    <div class="p-feature__supplement">
-                                                                        <div class="c-content_box">
-                                                                            <p><mt:EntryDataOtherSeriesDetailSoftwareTableOuterDescriptionText></p>
+                                                                    <mt:if tag="EntryDataOtherSeriesDetailSoftwareTableInnerDescriptionText">
+                                                                        <div class="p-feature__table">
+                                                                            <table>
+                                                                                <tfoot>
+                                                                                    <tr>
+                                                                                        <td colspan="2">
+                                                                                            <div class="c-content_box">
+                                                                                                <p><mt:EntryDataOtherSeriesDetailSoftwareTableInnerDescriptionText></p>
+                                                                                            </div>
+                                                                                            <!-- /.c-content_box -->
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tfoot>
+                                                                            </table>
                                                                         </div>
-                                                                        <!-- /.c-content_box -->
-                                                                    </div>
-                                                                    <!-- /.p-feature____supplement -->
+                                                                        <!-- /.p-feature__table -->
+                                                                    </mt:if>
+                                                                    <mt:if tag="EntryDataOtherSeriesDetailSoftwareTableOuterDescriptionText">
+                                                                        <div class="p-feature__supplement">
+                                                                            <div class="c-content_box">
+                                                                                <p><mt:EntryDataOtherSeriesDetailSoftwareTableOuterDescriptionText></p>
+                                                                            </div>
+                                                                            <!-- /.c-content_box -->
+                                                                        </div>
+                                                                        <!-- /.p-feature____supplement -->
+                                                                    </mt:if>
                                                                 </mt:if>
                                                             </div>
                                                             <!-- /.p-feature -->
@@ -10151,44 +10204,8 @@
         <mt:Include module="compare_list" parent="1" />
     </section>
 </main>
-<div class="p-contact">
-    <div class="p-contact__inner">
-        <div class="p-contact__read">
-            <p>購入前の、製品仕様・お見積もり・<br class="u-show_sp">購入方法など<br class="u-show_pc">営業的な<br class="u-show_sp">お問い合わせについてはこちらから</p>
-        </div>
-        <!-- /.p-contact__read -->
-        <div class="p-contact__bottom">
-            <div class="p-contact__button">
-                <a href="/contact/contact-before/">お問い合わせ</a>
-            </div>
-            <!-- /.p-contact__button -->
-        </div>
-        <!-- /.p-contact__bottom -->
-    </div>
-    <!-- /.p-contact__inner -->
-</div>
-<!-- /.p-contact -->
-<div class="p-local_nav">
-    <div class="p-local_nav__inner">
-        <p class="p-local_nav__heading">製品情報</p>
-        <ul class="p-local_nav__list js-local_nav_current">
-            <li><a href="/product/">製品情報TOP</a></li>
-            <li><a href="/product/switch/">スイッチ</a></li>
-            <li><a href="/product/wireless-lan/">無線LAN</a></li>
-            <li><a href="/product/router-firewall/">ルータ / ファイアーウォール</a></li>
-            <li><a href="/product/media-converter/">メディアコンバータ</a></li>
-            <li><a href="/product/network-camera/">ネットワークカメラ</a></li>
-            <li><a href="/product/software/">ネットワーク管理ソフトウェア</a></li>
-            <li><a href="/product/sfp-xf-others/">光トランシーバ / ケーブル</a></li>
-            <li><a href="/product/redundant/">リダンダント電源</a></li>
-            <li><a href="/product/other/">その他製品</a></li>
-            <li><a href="/product/compare/">製品比較</a></li>
-            <li><a href="/product/archive/">販売終了予定／販売終了製品</a></li>
-        </ul>
-    </div>
-    <!-- /.p-local_nav__inner -->
-</div>
-<!-- /.p-local_nav -->
+<mt:Include module="footer_contact" parent="1" />
+<mt:Include module="product_local_nav" parent="1" />
 <mt:Include module="footer" parent="1" />
 <mt:Include module="html_foot" parent="1" />
 

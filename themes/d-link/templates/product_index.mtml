@@ -32,7 +32,7 @@
             <div class="l-container">
                 <div class="l-container__block">
                     <div class="c-content_heading">
-                        <h2 class="c-content_heading__text">製品ピックアップ情報</h2>
+                        <h2 class="c-content_heading__text">サービス＆機能セレクション</h2>
                     </div>
                     <!-- /.c-content_heading -->
                     <div class="l-container__box">
@@ -86,7 +86,7 @@
                         <div class="l-container__slot">
                             <div class="p-product_category">
                                 <div class="p-product_category__large">
-                                <mt:Entries>
+                                <mt:Entries category="製品情報">
                                     <mt:if tag="EntryTitle" eq="スイッチ">
                                         <div class="p-product_category__item">
                                             <a href="/product/switch/">
@@ -116,7 +116,7 @@
                                         <!-- /.p-product_category__item -->
                                     </mt:if>
                                 </mt:Entries>
-                                <mt:Entries>
+                                <mt:Entries category="製品情報">
                                     <mt:if tag="EntryTitle" eq="無線LAN">
                                         <div class="p-product_category__item">
                                             <a href="/product/wireless-lan/">
@@ -154,7 +154,7 @@
                                     <mt:Entries category="製品情報" sort_by="authored_on" sort_order="ascend">
                                         <mt:EntryCategories setvar="parent_cate"><$mt:CategoryLabel$></mt:EntryCategories>
                                         <mt:if name="parent_cate" eq="製品情報">
-                                            <mt:Unless tag="EntryTitle" like="(スイッチ|無線LAN)">
+                                            <mt:Unless tag="EntryTitle" like="(スイッチ|無線LAN|ネットワークカメラ)">
                                                 <div class="p-product_category__box">
                                                     <a href="/product/<mt:EntryBaseName>/">
                                                         <div class="p-product_category__row">
@@ -181,6 +181,21 @@
                                             </mt:unless>
                                         </mt:if>
                                     </mt:Entries>
+                                    <div class="p-product_category__box">
+                                        <a href="/product/compare/" class="p-product_category__other">
+                                            <div class="p-product_category__row--other">
+                                                <div class="p-product_category__comparison">
+                                                    <div class="p-product_category__icon">
+                                                        <img src="/asset/img/top/category_icon_01.png" alt="">
+                                                    </div>
+                                                    <!-- /.p-product_category__icon -->
+                                                    <p class="p-product_category__name--other">製品を比較する</p>
+                                                </div>
+                                            </div>
+                                            <!-- /.p-product_category__row -->
+                                        </a>
+                                    </div>
+                                    <!-- /.p-product_category__box -->
                                     <div class="p-product_category__box">
                                         <div class="p-product_category__align">
                                             <div class="p-product_category__link">
@@ -210,34 +225,6 @@
                                 <!-- /.p-product_category__small -->
                             </div>
                             <!-- /.p-product_category -->
-
-                            <div class="p-product_banner">
-                                <div class="p-product_banner__inner">
-                                    <a href="/product/compare/">
-                                        <div class="p-product_banner__content">
-                                            <div class="p-product_banner__body">
-                                                <div class="p-product_banner__column">
-                                                    <h3 class="p-product_banner__heading">製品を比較する</h3>
-                                                    <div class="p-product_banner__description">
-                                                        <p>スイッチ製品と無線LAN製品は、製品の仕様表を比較することができます</p>
-                                                    </div>
-                                                    <!-- /.p-product_banner__description -->
-                                                </div>
-                                                <!-- /.p-product_banner__column -->
-                                            </div>
-                                            <!-- /.p-product_banner__body -->
-
-                                            <div class="p-product_banner__icon">
-                                                <img src="/asset/img/product/icon_compare_01.png" alt="">
-                                            </div>
-                                            <!-- /.p-product_banner__icon -->
-                                        </div>
-                                        <!-- /.p-product_banner__content -->
-                                    </a>
-                                </div>
-                                <!-- /.p-product_banner__inner -->
-                            </div>
-                            <!-- /.p-product_banner -->
                         </div>
                         <!-- /.l-container__slot -->
                     </div>
@@ -268,7 +255,7 @@
                                                             <p>D-Linkの最新情報を中心に各種情報をお届けします。</p>
                                                         </div>
                                                         <!-- /.p-aside__copy -->
-                                                        </div>
+                                                    </div>
                                                     <!-- /.p-aside__content -->
                                                 </div>
                                                 <!-- /.p-aside__body -->
@@ -303,7 +290,7 @@
                                                     </div>
                                                     <!-- /.p-aside__image -->
                                                     <div class="p-aside__content">
-                                                        <p class="p-aside__heading">D-Link公式Youtube</p>
+                                                        <p class="p-aside__heading">D-Link公式YouTube</p>
                                                         <div class="p-aside__copy">
                                                             <p>D-Link製品や最新技術を動画でご紹介しています。</p>
                                                         </div>
@@ -442,43 +429,7 @@
         <!-- /.l-inner -->
     </section>
 </main>
-<div class="p-contact">
-    <div class="p-contact__inner">
-        <div class="p-contact__read">
-            <p>購入前の、製品仕様・お見積もり・<br class="u-show_sp">購入方法など<br class="u-show_pc">営業的な<br class="u-show_sp">お問い合わせについてはこちらから</p>
-        </div>
-        <!-- /.p-contact__read -->
-        <div class="p-contact__bottom">
-            <div class="p-contact__button">
-                <a href="/contact/contact-before/">お問い合わせ</a>
-            </div>
-            <!-- /.p-contact__button -->
-        </div>
-        <!-- /.p-contact__bottom -->
-    </div>
-    <!-- /.p-contact__inner -->
-</div>
-<!-- /.p-contact -->
-<div class="p-local_nav">
-    <div class="p-local_nav__inner">
-        <p class="p-local_nav__heading">製品情報</p>
-        <ul class="p-local_nav__list js-local_nav_current">
-            <li><a href="/product/">製品情報TOP</a></li>
-            <li><a href="/product/switch/">スイッチ</a></li>
-            <li><a href="/product/wireless-lan/">無線LAN</a></li>
-            <li><a href="/product/router-firewall/">ルータ / ファイアーウォール</a></li>
-            <li><a href="/product/media-converter/">メディアコンバータ</a></li>
-            <li><a href="/product/network-camera/">ネットワークカメラ</a></li>
-            <li><a href="/product/software/">ネットワーク管理ソフトウェア</a></li>
-            <li><a href="/product/sfp-xf-others/">光トランシーバ / ケーブル</a></li>
-            <li><a href="/product/redundant/">リダンダント電源</a></li>
-            <li><a href="/product/other/">その他製品</a></li>
-            <li><a href="/product/compare/">製品比較</a></li>
-            <li><a href="/product/archive/">販売終了予定／販売終了製品</a></li>
-        </ul>
-    </div>
-    <!-- /.p-local_nav__inner -->
-</div>
-<!-- /.p-local_nav -->
+<mt:Include module="footer_contact" parent="1" />
+<mt:Include module="product_local_nav" parent="1" />
 <mt:Include module="footer" parent="1" />
 <mt:Include module="html_foot" parent="1" />
