@@ -24,11 +24,6 @@ elements:
               category:
                 archive_type: Category
                 file_template: <mt:Include module="permalink_category">
-          monthly_entry_listing:
-            label: Monthly Entry Listing
-            mappings:
-              monthly:
-                archive_type: Monthly
           category_yearly_entry_listing:
             label: Category Yearly Entry Listing
             mappings:
@@ -39,11 +34,6 @@ elements:
             label: 'index.html'
             outfile: index.html
             rebuild_me: '1'
-          _format_template:
-            label: '_format_template.html'
-            outfile: _format_template.html
-            rebuild_me: '1'
-            build_type: '0'
           switch_json:
             label: 'switch_json'
             outfile: product/data/switch.json
@@ -56,6 +46,33 @@ elements:
           wireless_category_json:
             label: 'wireless_category_json'
             outfile: product/data/wireless_category.json
+          product_switch_index:
+            label: 'product_switch_index'
+            outfile: product/switch/index.html
+          product_wireless-lan_index:
+            label: 'product_wireless-lan_index'
+            outfile: product/wireless-lan/index.html
+          product_sfp-xf-others_index:
+            label: 'product_sfp-xf-others_index'
+            outfile: product/sfp-xf-others/index.html
+          product_redundant_index:
+            label: 'product_redundant_index'
+            outfile: product/redundant/index.html
+          product_other_index:
+            label: 'product_other_index'
+            outfile: product/other/index.html
+          product_software_index:
+            label: 'product_software_index'
+            outfile: product/software/index.html
+          product_network-camera_index:
+            label: 'product_network-camera_index'
+            outfile: product/network-camera/index.html
+          product_media-converter_index:
+            label: 'product_media-converter_index'
+            outfile: product/media-converter/index.html
+          product_router-firewall_index:
+            label: 'product_router-firewall_index'
+            outfile: product/router-firewall/index.html
           product_index:
             label: 'product_index'
             outfile: product/index.html
@@ -66,6 +83,13 @@ elements:
               entry_archive:
                 archive_type: Individual
                 file_template: <mt:Include module="permalink">
+        page:
+          page:
+            label: Page
+            mappings:
+              page_archive:
+                archive_type: Page
+                file_template: <mt:Include module="permalink_page">
         module:
           template_html_head:
             label: 'html_head'
@@ -87,20 +111,6 @@ elements:
             label: 'support_local_nav'
           template_company_local_nav:
             label: 'company_local_nav'
-          category_news:
-            label: 'category_news'
-          category_event:
-            label: 'category_event'
-          sub_cate_product:
-            label: 'sub_cate_product'
-          product_series_index:
-            label: 'product_series_index'
-          product_all_index:
-            label: 'product_all_index'
-          product_series:
-            label: 'product_series'
-          product_all:
-            label: 'product_all'
           page_switch_list:
             label: 'page_switch_list'
           page_switch_compare:
@@ -119,8 +129,6 @@ elements:
             label: 'product_archive_eos'
           product_archive_pog:
             label: 'product_archive_pog'
-          small_cate_product:
-            label: 'small_cate_product'
           single_product:
             label: 'single_product'
           switch_json:
@@ -133,16 +141,6 @@ elements:
             label: 'wireless_category_json'
           product_compare:
             label: 'product_compare'
-          category_yearly_news:
-            label: 'category_yearly_news'
-          category_yearly_event:
-            label: 'category_yearly_event'
-          single_news:
-            label: 'single_news'
-          single_event:
-            label: 'single_event'
-          single_support_release:
-            label: 'single_support_release'
           page_contact:
             label: 'page_contact'
           page_repair-form:
@@ -161,31 +159,12 @@ elements:
             label: 'page_contact-other'
           page_career: 
             label: 'page_career'
-          category_support_release:
-            label: 'category_support_release'
-          category_support_faq_list:
-            label: 'category_support_faq_list'
-          category_support_faq:
-            label: 'category_support_faq'
-          category_yearly_support_release:
-            label: 'category_yearly_support_release'
           permalink:
             label: permalink
           permalink_category:
             label: permalink_category
           permalink_page:
             label: permalink_page
-          redirect_faq:
-            label: redirect_faq
-          product_pickup:
-            label: 'product_pickup'
-        page:
-          page:
-            label: Page
-            mappings:
-              page_archive:
-                archive_type: Page
-                file_template: <mt:Include module="permalink_page">
         system:
           search_results:
             description_label: 'Displays results of a search.'
