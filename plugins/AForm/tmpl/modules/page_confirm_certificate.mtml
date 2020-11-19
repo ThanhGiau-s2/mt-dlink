@@ -1,5 +1,6 @@
 <mt:SetVars>
-  base_description=世界 71カ国、187 拠点を有する世界的なネットワーク機器メーカーD-Linkは、インターネット黎明期の1986年創業の老舗メーカーの1社です。エントリーレベルからハイエンドまでのスイッチ、無線LAN、ルータ、UTM、メディアコンバーター、IPカメラなど、ネットワーキングの全分野を網羅したネットワーク機器を、企画・製造・販売しております。D-Linkは 『 Building Networks for People 』 の理念の元、お客様と社会全体にネットワーク機器を通して貢献できる製品作りをグループ全体で行い、約670の製品を年間3,000万台以上世界各国に向けて出荷しています。日本では2005年7月にD-Linkブランド製品の販売を目的とした日本現地法人を設立。D-Link製品の中でも法人向け製品に特化して日本国内への浸透を図っています。
+  <mt:If tag="PageExcerpt">base_description=<$mt:PageExcerpt$></mt:If>
+  <mt:If tag="PageKeywords">base_keywords=<$mt:PageKeywords$></mt:If>
   og_title=ディーリンクジャパン株式会社 ｜ D-Link Japan ｜ Building Networks for People
   og_url=https://www.dlink-jp.com/
   og_type=website
@@ -9,8 +10,8 @@
 <script src="/asset/js/top.min.js" defer></script>
 </mt:SetVarTemplate>
 <mt:Ignore>** 表示部分 **</mt:Ignore>
-<mt:include name="modules/html_head.mtml" component="AForm">
-<mt:include name="modules/html_header.mtml" component="AForm">
+<mt:Include module="html_head" parent="1" />
+<mt:Include module="header" parent="1" />
 <main class="p-main">
   <div class="c-breadcrumb">
     <ul class="c-breadcrumb__list">
@@ -770,5 +771,5 @@
     <!-- /.l-inner -->
   </section>
 </main>
-<mt:include name="modules/html_footer.mtml" component="AForm">
-<mt:include name="modules/html_foot.mtml" component="AForm">
+<mt:Include module="footer" parent="1" />
+<mt:Include module="html_foot" parent="1" />

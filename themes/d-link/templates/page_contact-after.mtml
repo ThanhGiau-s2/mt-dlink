@@ -1,5 +1,6 @@
 <mt:SetVars>
-    base_description=ディスクリプション
+    <mt:If tag="PageExcerpt">base_description=<$mt:PageExcerpt$></mt:If>
+    <mt:If tag="PageKeywords">base_keywords=<$mt:PageKeywords$></mt:If>
     og_title=購入後の技術的なお問い合わせ | お問い合わせ | D-Link Japan
     og_url=https://www.dlink-jp.com/contact/contact-after/
     og_type=article
@@ -77,7 +78,16 @@
                         <div class="p-form_content__box">
                             <div class="p-form_class">
                                 <div class="p-form_class__inner">
-                                    <div class="mb30"><mt:AFormFieldInput aform_id="3" parts_id="bunrui"></div>
+                                    <div class="mb30">
+                                        <div id="about_contact_wrap" class="p-form_choice__flex w-unset" data-label="お問い合わせ内容分類">
+                                            <mt:AFormFieldInput aform_id="3" parts_id="bunrui"></mt:AFormFieldInput><span class="required">必須</span>
+                                        </div>
+                                        <!-- /.p-form_choice__flex -->
+                                        <div class="c-error js-error_check">
+                                            <p class="aform-error" id=""></p>
+                                        </div>
+                                        <!-- /.c-error -->
+                                    </div>
                                     <div class="p-form_class__nav">
                                         <div class="p-form_class__text">
                                             <p>以下の方は、こちらのお問い合わせでは受け付けておりませんので、該当するところへお問い合わせください。</p>
@@ -311,11 +321,15 @@
                                                 <div class="c-input__example">
                                                     <p><mt:AFormFieldInputExample aform_id="3" parts_id="zip_1"></p>
                                                 </div>
-                                                <div class="c-input">
+                                                <div class="c-input js-check-number-zip">
                                                     <!-- <input id="zip_1" class="aform-input aform-text zip_1 aform-validate" name="zip_1" type="text" size="40" title="郵便番号を入力してください"> -->
                                                     <mt:AFormFieldInput aform_id="3" parts_id="zip_1">
                                                 </div>
                                                 <!-- /.c-input -->
+                                                <div class="c-error js-error_check">
+                                                    <p class="aform-error" id=""></p>
+                                                </div>
+                                                <!-- /.c-error -->
                                             </div>
                                             <!-- /.p-form__col -->
                                         </div>
@@ -730,12 +744,13 @@
                                     <!-- /.p-form__table_cell -->
 
                                     <div class="p-form__cell">
-                                        <div class="c-textarea">
+                                        <div class="c-textarea js-form_check" data-label="本文">
                                             <!-- <textarea id="content" class="aform-input aform-textarea content aform-validate" name="content" cols="40" rows="6" title="本文を入力してください"></textarea> -->
                                             <mt:AFormFieldInput aform_id="3" parts_id="content">
                                         </div>
                                         <!-- /.c-textarea -->
-                                        <div class="c-error">
+                                        <div class="c-error js-error_check">
+                                            <p class="aform-error" id=""></p>
                                         </div>
                                         <!-- /.c-error -->
                                     </div>

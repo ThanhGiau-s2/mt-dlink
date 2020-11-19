@@ -1,5 +1,6 @@
 <mt:SetVars>
-    base_description=ディスクリプション
+    <mt:If tag="PageExcerpt">base_description=<$mt:PageExcerpt$></mt:If>
+    <mt:If tag="PageKeywords">base_keywords=<$mt:PageKeywords$></mt:If>
     og_title=無線LAN製品一覧 | 無線LAN | 製品情報 | D-Link Japan
     og_url=https://www.dlink-jp.com/product/switch/compare.html
     og_type=article
@@ -353,7 +354,7 @@
 <p :class="{'p-product_list__status--new': item.product_status === '1', 'p-product_list__status--close': item.product_status === '2'}">{{ set_product_status(item.product_status) }}</p>
 </template>
 <div class="p-product_list__description">
-<p>{{ item.product_description }}</p>
+<p v-html="item.product_description"></p>
 </div>
 <!-- /.p-product_list__description -->
 </div>

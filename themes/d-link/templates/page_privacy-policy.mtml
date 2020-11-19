@@ -1,5 +1,6 @@
 <mt:SetVars>
-    base_description=ディスクリプション
+    <mt:If tag="PageExcerpt">base_description=<$mt:PageExcerpt$></mt:If>
+    <mt:If tag="PageKeywords">base_keywords=<$mt:PageKeywords$></mt:If>
     og_title=個人情報保護についてお問い合わせ | お問い合わせ | D-Link Japan
     og_url=https://www.dlink-jp.com/contact/privacy-policy/
     og_type=article
@@ -27,7 +28,7 @@
     <section class="l-outer--lower">
         <div class="l-inner">
             <div class="c-title">
-                <h1 class="c-title__text">個人情報保護について<br class="u-show_sp">お問い合わせ</h1>
+                <h1 class="c-title__text">個人情報保護についての<br class="u-show_sp">お問い合わせ</h1>
             </div>
             <!-- /.c-title -->
             <form name="aform-form-5" id="aform-form-5" action="/contact/aform_engine.cgi" method="POST" novalidate="novalidate" enctype="multipart/form-data">
@@ -223,10 +224,14 @@
                                                 <div class="c-input__example">
                                                     <p><mt:AFormFieldInputExample aform_id="5" parts_id="zip_1"></p>
                                                 </div>
-                                                <div class="c-input">
+                                                <div class="c-input js-check-number-zip">
                                                     <mt:AFormFieldInput aform_id="5" parts_id="zip_1">
                                                 </div>
                                                 <!-- /.c-input -->
+                                                <div class="c-error js-error_check">
+                                                    <p class="aform-error" id=""></p>
+                                                </div>
+                                                <!-- /.c-error -->
                                             </div>
                                             <!-- /.p-form__col -->
                                         </div>

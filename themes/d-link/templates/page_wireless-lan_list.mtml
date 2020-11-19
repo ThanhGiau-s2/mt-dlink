@@ -1,5 +1,6 @@
 <mt:SetVars>
-    base_description=ディスクリプション
+    <mt:If tag="PageExcerpt">base_description=<$mt:PageExcerpt$></mt:If>
+    <mt:If tag="PageKeywords">base_keywords=<$mt:PageKeywords$></mt:If>
     og_title=無線LAN|製品情報 | D-Link Japan
     og_url=https://www.dlink-jp.com/product/wireless-lan/
     og_type=article

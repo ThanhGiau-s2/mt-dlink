@@ -1,8 +1,9 @@
 <mt:SetVars>
-    base_description=ディスクリプション
-    og_title=お問い合わせ | D-Link Japan
-    og_url=https://www.dlink-jp.com/contact/
-    og_type=article
+  <mt:If tag="PageExcerpt">base_description=<$mt:PageExcerpt$></mt:If>
+  <mt:If tag="PageKeywords">base_keywords=<$mt:PageKeywords$></mt:If>
+  og_title=お問い合わせ | D-Link Japan
+  og_url=https://www.dlink-jp.com/contact/
+  og_type=article
 </mt:SetVars>
 <mt:Ignore>** 表示部分 **</mt:Ignore>
 <mt:Include module="html_head" parent="1" />

@@ -6,7 +6,8 @@ Template Note : カテゴリ
 ========================================
 </mt:Ignore>
 <mt:SetVars>
-    base_description=ディスクリプション
+    <mt:If tag="EntryExcerpt">base_description=<$mt:EntryExcerpt$></mt:If>
+    <mt:If tag="EntryKeywords">base_keywords=<$mt:EntryKeywords$></mt:If>
     og_title=<$mt:EntryTitle$>| 最新ニュース | D-Link Japan
     og_url=<mt:EntryPermalink>
     og_type=article
@@ -106,7 +107,7 @@ Template Note : カテゴリ
                                     <mt:if tag="FLCFValue" field="yellow_green_icon_07"><li class="p-product_list__icon--04"><mt:FLCFValue field="yellow_green_icon_07"></li></mt:if>
                                     <mt:if tag="FLCFValue" field="yellow_green_icon_08"><li class="p-product_list__icon--04"><mt:FLCFValue field="yellow_green_icon_08"></li></mt:if>
                                     <mt:if tag="FLCFValue" field="yellow_green_icon_09"><li class="p-product_list__icon--04"><mt:FLCFValue field="yellow_green_icon_09"></li></mt:if>
-                                    <mt:if tag="FLCFValue" field="purple_icon_10"><li class="p-product_list__icon--05"><mt:FLCFValue field="purple_icon_10"></li></mt:if>
+                                    <mt:if tag="FLCFValue" field="yellow_green_icon_10"><li class="p-product_list__icon--04"><mt:FLCFValue field="yellow_green_icon_10"></li></mt:if>
                                     <mt:if tag="FLCFValue" field="purple_icon_01"><li class="p-product_list__icon--05"><mt:FLCFValue field="purple_icon_01"></li></mt:if>
                                     <mt:if tag="FLCFValue" field="purple_icon_02"><li class="p-product_list__icon--05"><mt:FLCFValue field="purple_icon_02"></li></mt:if>
                                     <mt:if tag="FLCFValue" field="purple_icon_03"><li class="p-product_list__icon--05"><mt:FLCFValue field="purple_icon_03"></li></mt:if>
@@ -157,46 +158,48 @@ Template Note : カテゴリ
                   <mt:FLCFIfUnitName name="heading">
                     <mt:FLCFOptions field="size">
                       <mt:FLCFIfOptionSelected>
-                        <!-- H2 -->
-                          <mt:if tag="FLCFOptionValue" eq="H2">
-                            <div class="c-content_heading">
-                              <h2 id="<mt:FLCFValue field="anchor">" class="c-content_heading__text"><mt:FLCFValue field="heading"></h2>
-                            </div>
-                            <!-- /.c-content_heading -->
-                          </mt:if>
-                        <!-- H2 -->
-                        <!-- H3 -->
-                          <mt:if tag="FLCFOptionValue" eq="H3">
-                            <div class="c-middle_heading">
-                              <h3 id="<mt:FLCFValue field="anchor">" class="c-middle_heading__text"><mt:FLCFValue field="heading"></h3>
-                            </div>
-                            <!-- /.c-middle_heading -->
-                          </mt:if>
-                        <!-- H3 -->
-                        <!-- H3（装飾なし）-->
-                          <mt:if tag="FLCFOptionValue" eq="H3_not_decoration">
-                            <div class="c-reading_heading">
-                              <h3 id="<mt:FLCFValue field="anchor">" class="c-reading_heading__text"><mt:FLCFValue field="heading"></h3>
-                            </div>
-                            <!-- /.c-reading_heading -->
-                          </mt:if>
-                        <!-- H3（装飾なし）-->
-                        <!-- H4 -->
-                          <mt:if tag="FLCFOptionValue" eq="H4">
-                            <div class="c-medium_heading">
-                              <h4 id="<mt:FLCFValue field="anchor">" class="c-medium_heading__text"><mt:FLCFValue field="heading"></h4>
-                            </div>
-                            <!-- /.c-medium_heading -->
-                          </mt:if>
-                        <!-- H4 -->
-                        <!-- H5 -->
-                          <mt:if tag="FLCFOptionValue" eq="H5">
-                            <div class="c-subheading">
-                              <h5 id="<mt:FLCFValue field="anchor">" class="c-subheading__text"><mt:FLCFValue field="heading"></h5>
-                            </div>
-                            <!-- /.c-subheading -->
-                          </mt:if>
-                        <!-- H5 -->
+                        <mt:if tag="FLCFValue" field="heading_many_lines">
+                          <!-- H2 -->
+                            <mt:if tag="FLCFOptionValue" eq="H2">
+                              <div class="c-content_heading">
+                                <h2 id="<mt:FLCFValue field="anchor">" class="c-content_heading__text"><mt:FLCFValue field="heading_many_lines"></h2>
+                              </div>
+                              <!-- /.c-content_heading -->
+                            </mt:if>
+                          <!-- H2 -->
+                          <!-- H3 -->
+                            <mt:if tag="FLCFOptionValue" eq="H3">
+                              <div class="c-middle_heading">
+                                <h3 id="<mt:FLCFValue field="anchor">" class="c-middle_heading__text"><mt:FLCFValue field="heading_many_lines"></h3>
+                              </div>
+                              <!-- /.c-middle_heading -->
+                            </mt:if>
+                          <!-- H3 -->
+                          <!-- H3（装飾なし）-->
+                            <mt:if tag="FLCFOptionValue" eq="H3_not_decoration">
+                              <div class="c-reading_heading">
+                                <h3 id="<mt:FLCFValue field="anchor">" class="c-reading_heading__text"><mt:FLCFValue field="heading_many_lines"></h3>
+                              </div>
+                              <!-- /.c-reading_heading -->
+                            </mt:if>
+                          <!-- H3（装飾なし）-->
+                          <!-- H4 -->
+                            <mt:if tag="FLCFOptionValue" eq="H4">
+                              <div class="c-medium_heading">
+                                <h4 id="<mt:FLCFValue field="anchor">" class="c-medium_heading__text"><mt:FLCFValue field="heading_many_lines"></h4>
+                              </div>
+                              <!-- /.c-medium_heading -->
+                            </mt:if>
+                          <!-- H4 -->
+                          <!-- H5 -->
+                            <mt:if tag="FLCFOptionValue" eq="H5">
+                              <div class="c-subheading">
+                                <h5 id="<mt:FLCFValue field="anchor">" class="c-subheading__text"><mt:FLCFValue field="heading_many_lines"></h5>
+                              </div>
+                              <!-- /.c-subheading -->
+                            </mt:if>
+                          <!-- H5 -->
+                        </mt:if>
                       </mt:FLCFIfOptionSelected>
                     </mt:FLCFOptions>
                   </mt:FLCFIfUnitName>
@@ -262,7 +265,7 @@ Template Note : カテゴリ
                             <mt:if tag="FLCFOptionValue" eq="gray_background">
                               <div class="l-container__slot">
                                 <div class="p-content_point--fill">
-                                  <p class="p-content_point__heading"><mt:FLCFValue field="heading"></p>
+                                  <div class="p-content_point__heading"><mt:FLCFValue field="heading_many_lines"></div>
                                   <div class="c-content_box">
                                     <div class="
                                     <mt:FLCFOptions field="position_in_box">
@@ -299,7 +302,7 @@ Template Note : カテゴリ
                             <mt:if tag="FLCFOptionValue" eq="line_box">
                               <div class="l-container__slot">
                                 <div class="p-content_point--full">
-                                  <p class="p-content_point__heading"><mt:FLCFValue field="heading"></p>
+                                  <div class="p-content_point__heading"><mt:FLCFValue field="heading_many_lines"></div>
                                   <div class="c-content_box">
                                     <p class="
                                     <mt:FLCFOptions field="position_in_box">
@@ -342,16 +345,16 @@ Template Note : カテゴリ
                     <mt:FLCFIfUnitName name="list">
                       <div class="l-container__slot">
                         <ul class="c-list">
-                          <mt:if tag="FLCFValue" field="sentence_01"><li><$mt:FLCFValue field="sentence_01"$></li></mt:if>
-                          <mt:if tag="FLCFValue" field="sentence_02"><li><$mt:FLCFValue field="sentence_02"$></li></mt:if>
-                          <mt:if tag="FLCFValue" field="sentence_03"><li><$mt:FLCFValue field="sentence_03"$></li></mt:if>
-                          <mt:if tag="FLCFValue" field="sentence_04"><li><$mt:FLCFValue field="sentence_04"$></li></mt:if>
-                          <mt:if tag="FLCFValue" field="sentence_05"><li><$mt:FLCFValue field="sentence_05"$></li></mt:if>
-                          <mt:if tag="FLCFValue" field="sentence_06"><li><$mt:FLCFValue field="sentence_06"$></li></mt:if>
-                          <mt:if tag="FLCFValue" field="sentence_07"><li><$mt:FLCFValue field="sentence_07"$></li></mt:if>
-                          <mt:if tag="FLCFValue" field="sentence_08"><li><$mt:FLCFValue field="sentence_08"$></li></mt:if>
-                          <mt:if tag="FLCFValue" field="sentence_09"><li><$mt:FLCFValue field="sentence_09"$></li></mt:if>
-                          <mt:if tag="FLCFValue" field="sentence_10"><li><$mt:FLCFValue field="sentence_10"$></li></mt:if>
+                          <mt:if tag="FLCFValue" field="sentence_01_many_lines"><li><$mt:FLCFValue field="sentence_01_many_lines"$></li></mt:if>
+                          <mt:if tag="FLCFValue" field="sentence_02_many_lines"><li><$mt:FLCFValue field="sentence_02_many_lines"$></li></mt:if>
+                          <mt:if tag="FLCFValue" field="sentence_03_many_lines"><li><$mt:FLCFValue field="sentence_03_many_lines"$></li></mt:if>
+                          <mt:if tag="FLCFValue" field="sentence_04_many_lines"><li><$mt:FLCFValue field="sentence_04_many_lines"$></li></mt:if>
+                          <mt:if tag="FLCFValue" field="sentence_05_many_lines"><li><$mt:FLCFValue field="sentence_05_many_lines"$></li></mt:if>
+                          <mt:if tag="FLCFValue" field="sentence_06_many_lines"><li><$mt:FLCFValue field="sentence_06_many_lines"$></li></mt:if>
+                          <mt:if tag="FLCFValue" field="sentence_07_many_lines"><li><$mt:FLCFValue field="sentence_07_many_lines"$></li></mt:if>
+                          <mt:if tag="FLCFValue" field="sentence_08_many_lines"><li><$mt:FLCFValue field="sentence_08_many_lines"$></li></mt:if>
+                          <mt:if tag="FLCFValue" field="sentence_09_many_lines"><li><$mt:FLCFValue field="sentence_09_many_lines"$></li></mt:if>
+                          <mt:if tag="FLCFValue" field="sentence_10_many_lines"><li><$mt:FLCFValue field="sentence_10_many_lines"$></li></mt:if>
                         </ul>
                       </div>
                       <!-- /.l-container__slot -->
@@ -361,16 +364,16 @@ Template Note : カテゴリ
                     <mt:FLCFIfUnitName name="list_serial_number">
                       <div class="l-container__slot">
                         <ol class="c-list--order" style="counter-reset: order 0;">
-                          <mt:if tag="FLCFValue" field="sentence_01"><li><$mt:FLCFValue field="sentence_01"$></li></mt:if>
-                          <mt:if tag="FLCFValue" field="sentence_02"><li><$mt:FLCFValue field="sentence_02"$></li></mt:if>
-                          <mt:if tag="FLCFValue" field="sentence_03"><li><$mt:FLCFValue field="sentence_03"$></li></mt:if>
-                          <mt:if tag="FLCFValue" field="sentence_04"><li><$mt:FLCFValue field="sentence_04"$></li></mt:if>
-                          <mt:if tag="FLCFValue" field="sentence_05"><li><$mt:FLCFValue field="sentence_05"$></li></mt:if>
-                          <mt:if tag="FLCFValue" field="sentence_06"><li><$mt:FLCFValue field="sentence_06"$></li></mt:if>
-                          <mt:if tag="FLCFValue" field="sentence_07"><li><$mt:FLCFValue field="sentence_07"$></li></mt:if>
-                          <mt:if tag="FLCFValue" field="sentence_08"><li><$mt:FLCFValue field="sentence_08"$></li></mt:if>
-                          <mt:if tag="FLCFValue" field="sentence_09"><li><$mt:FLCFValue field="sentence_09"$></li></mt:if>
-                          <mt:if tag="FLCFValue" field="sentence_10"><li><$mt:FLCFValue field="sentence_10"$></li></mt:if>
+                          <mt:if tag="FLCFValue" field="sentence_01_many_lines"><li><$mt:FLCFValue field="sentence_01_many_lines"$></li></mt:if>
+                          <mt:if tag="FLCFValue" field="sentence_02_many_lines"><li><$mt:FLCFValue field="sentence_02_many_lines"$></li></mt:if>
+                          <mt:if tag="FLCFValue" field="sentence_03_many_lines"><li><$mt:FLCFValue field="sentence_03_many_lines"$></li></mt:if>
+                          <mt:if tag="FLCFValue" field="sentence_04_many_lines"><li><$mt:FLCFValue field="sentence_04_many_lines"$></li></mt:if>
+                          <mt:if tag="FLCFValue" field="sentence_05_many_lines"><li><$mt:FLCFValue field="sentence_05_many_lines"$></li></mt:if>
+                          <mt:if tag="FLCFValue" field="sentence_06_many_lines"><li><$mt:FLCFValue field="sentence_06_many_lines"$></li></mt:if>
+                          <mt:if tag="FLCFValue" field="sentence_07_many_lines"><li><$mt:FLCFValue field="sentence_07_many_lines"$></li></mt:if>
+                          <mt:if tag="FLCFValue" field="sentence_08_many_lines"><li><$mt:FLCFValue field="sentence_08_many_lines"$></li></mt:if>
+                          <mt:if tag="FLCFValue" field="sentence_09_many_lines"><li><$mt:FLCFValue field="sentence_09_many_lines"$></li></mt:if>
+                          <mt:if tag="FLCFValue" field="sentence_10_many_lines"><li><$mt:FLCFValue field="sentence_10_many_lines"$></li></mt:if>
                         </ol>
                       </div>
                       <!-- /.l-container__slot -->
@@ -380,16 +383,16 @@ Template Note : カテゴリ
                     <mt:FLCFIfUnitName name="list_check_mark">
                       <div class="l-container__slot">
                         <ul class="c-list--check">
-                          <mt:if tag="FLCFValue" field="sentence_01"><li><$mt:FLCFValue field="sentence_01"$></li></mt:if>
-                          <mt:if tag="FLCFValue" field="sentence_02"><li><$mt:FLCFValue field="sentence_02"$></li></mt:if>
-                          <mt:if tag="FLCFValue" field="sentence_03"><li><$mt:FLCFValue field="sentence_03"$></li></mt:if>
-                          <mt:if tag="FLCFValue" field="sentence_04"><li><$mt:FLCFValue field="sentence_04"$></li></mt:if>
-                          <mt:if tag="FLCFValue" field="sentence_05"><li><$mt:FLCFValue field="sentence_05"$></li></mt:if>
-                          <mt:if tag="FLCFValue" field="sentence_06"><li><$mt:FLCFValue field="sentence_06"$></li></mt:if>
-                          <mt:if tag="FLCFValue" field="sentence_07"><li><$mt:FLCFValue field="sentence_07"$></li></mt:if>
-                          <mt:if tag="FLCFValue" field="sentence_08"><li><$mt:FLCFValue field="sentence_08"$></li></mt:if>
-                          <mt:if tag="FLCFValue" field="sentence_09"><li><$mt:FLCFValue field="sentence_09"$></li></mt:if>
-                          <mt:if tag="FLCFValue" field="sentence_10"><li><$mt:FLCFValue field="sentence_10"$></li></mt:if>
+                          <mt:if tag="FLCFValue" field="sentence_01_many_lines"><li><$mt:FLCFValue field="sentence_01_many_lines"$></li></mt:if>
+                          <mt:if tag="FLCFValue" field="sentence_02_many_lines"><li><$mt:FLCFValue field="sentence_02_many_lines"$></li></mt:if>
+                          <mt:if tag="FLCFValue" field="sentence_03_many_lines"><li><$mt:FLCFValue field="sentence_03_many_lines"$></li></mt:if>
+                          <mt:if tag="FLCFValue" field="sentence_04_many_lines"><li><$mt:FLCFValue field="sentence_04_many_lines"$></li></mt:if>
+                          <mt:if tag="FLCFValue" field="sentence_05_many_lines"><li><$mt:FLCFValue field="sentence_05_many_lines"$></li></mt:if>
+                          <mt:if tag="FLCFValue" field="sentence_06_many_lines"><li><$mt:FLCFValue field="sentence_06_many_lines"$></li></mt:if>
+                          <mt:if tag="FLCFValue" field="sentence_07_many_lines"><li><$mt:FLCFValue field="sentence_07_many_lines"$></li></mt:if>
+                          <mt:if tag="FLCFValue" field="sentence_08_many_lines"><li><$mt:FLCFValue field="sentence_08_many_lines"$></li></mt:if>
+                          <mt:if tag="FLCFValue" field="sentence_09_many_lines"><li><$mt:FLCFValue field="sentence_09_many_lines"$></li></mt:if>
+                          <mt:if tag="FLCFValue" field="sentence_10_many_lines"><li><$mt:FLCFValue field="sentence_10_many_lines"$></li></mt:if>
                         </ul>
                       </div>
                       <!-- /.l-container__slot -->
@@ -401,16 +404,16 @@ Template Note : カテゴリ
                     <mt:FLCFIfUnitName name="annotation">
                       <div class="l-container__slot">
                         <ul class="c-list--notice">
-                          <mt:if tag="FLCFValue" field="sentence_01"><li><span>※</span><$mt:FLCFValue field="sentence_01"$></mt:if></li>
-                          <mt:if tag="FLCFValue" field="sentence_02"><li><span>※</span><$mt:FLCFValue field="sentence_02"$></mt:if></li>
-                          <mt:if tag="FLCFValue" field="sentence_03"><li><span>※</span><$mt:FLCFValue field="sentence_03"$></mt:if></li>
-                          <mt:if tag="FLCFValue" field="sentence_04"><li><span>※</span><$mt:FLCFValue field="sentence_04"$></mt:if></li>
-                          <mt:if tag="FLCFValue" field="sentence_05"><li><span>※</span><$mt:FLCFValue field="sentence_05"$></mt:if></li>
-                          <mt:if tag="FLCFValue" field="sentence_06"><li><span>※</span><$mt:FLCFValue field="sentence_06"$></mt:if></li>
-                          <mt:if tag="FLCFValue" field="sentence_07"><li><span>※</span><$mt:FLCFValue field="sentence_07"$></mt:if></li>
-                          <mt:if tag="FLCFValue" field="sentence_08"><li><span>※</span><$mt:FLCFValue field="sentence_08"$></mt:if></li>
-                          <mt:if tag="FLCFValue" field="sentence_09"><li><span>※</span><$mt:FLCFValue field="sentence_09"$></mt:if></li>
-                          <mt:if tag="FLCFValue" field="sentence_10"><li><span>※</span><$mt:FLCFValue field="sentence_10"$></mt:if></li>
+                          <mt:if tag="FLCFValue" field="sentence_01_many_lines"><li><span>※</span><$mt:FLCFValue field="sentence_01_many_lines"$></mt:if></li>
+                          <mt:if tag="FLCFValue" field="sentence_02_many_lines"><li><span>※</span><$mt:FLCFValue field="sentence_02_many_lines"$></mt:if></li>
+                          <mt:if tag="FLCFValue" field="sentence_03_many_lines"><li><span>※</span><$mt:FLCFValue field="sentence_03_many_lines"$></mt:if></li>
+                          <mt:if tag="FLCFValue" field="sentence_04_many_lines"><li><span>※</span><$mt:FLCFValue field="sentence_04_many_lines"$></mt:if></li>
+                          <mt:if tag="FLCFValue" field="sentence_05_many_lines"><li><span>※</span><$mt:FLCFValue field="sentence_05_many_lines"$></mt:if></li>
+                          <mt:if tag="FLCFValue" field="sentence_06_many_lines"><li><span>※</span><$mt:FLCFValue field="sentence_06_many_lines"$></mt:if></li>
+                          <mt:if tag="FLCFValue" field="sentence_07_many_lines"><li><span>※</span><$mt:FLCFValue field="sentence_07_many_lines"$></mt:if></li>
+                          <mt:if tag="FLCFValue" field="sentence_08_many_lines"><li><span>※</span><$mt:FLCFValue field="sentence_08_many_lines"$></mt:if></li>
+                          <mt:if tag="FLCFValue" field="sentence_09_many_lines"><li><span>※</span><$mt:FLCFValue field="sentence_09_many_lines"$></mt:if></li>
+                          <mt:if tag="FLCFValue" field="sentence_10_many_lines"><li><span>※</span><$mt:FLCFValue field="sentence_10_many_lines"$></mt:if></li>
                         </ul>
                       </div>
                       <!-- /.l-container__slot -->
@@ -420,16 +423,16 @@ Template Note : カテゴリ
                   <mt:FLCFIfUnitName name="note_with_reference">
                     <div class="l-container__slot">
                       <ul class="c-list--notice">
-                        <mt:if tag="FLCFValue" field="sentence_01"><li><span>*<$mt:FLCFValue field="reference_number_01"$></span><$mt:FLCFValue field="sentence_01"$></mt:if></li>
-                        <mt:if tag="FLCFValue" field="sentence_02"><li><span>*<$mt:FLCFValue field="reference_number_02"$></span><$mt:FLCFValue field="sentence_02"$></mt:if></li>
-                        <mt:if tag="FLCFValue" field="sentence_03"><li><span>*<$mt:FLCFValue field="reference_number_03"$></span><$mt:FLCFValue field="sentence_03"$></mt:if></li>
-                        <mt:if tag="FLCFValue" field="sentence_04"><li><span>*<$mt:FLCFValue field="reference_number_04"$></span><$mt:FLCFValue field="sentence_04"$></mt:if></li>
-                        <mt:if tag="FLCFValue" field="sentence_05"><li><span>*<$mt:FLCFValue field="reference_number_05"$></span><$mt:FLCFValue field="sentence_05"$></mt:if></li>
-                        <mt:if tag="FLCFValue" field="sentence_06"><li><span>*<$mt:FLCFValue field="reference_number_06"$></span><$mt:FLCFValue field="sentence_06"$></mt:if></li>
-                        <mt:if tag="FLCFValue" field="sentence_07"><li><span>*<$mt:FLCFValue field="reference_number_07"$></span><$mt:FLCFValue field="sentence_07"$></mt:if></li>
-                        <mt:if tag="FLCFValue" field="sentence_08"><li><span>*<$mt:FLCFValue field="reference_number_08"$></span><$mt:FLCFValue field="sentence_08"$></mt:if></li>
-                        <mt:if tag="FLCFValue" field="sentence_09"><li><span>*<$mt:FLCFValue field="reference_number_09"$></span><$mt:FLCFValue field="sentence_09"$></mt:if></li>
-                        <mt:if tag="FLCFValue" field="sentence_10"><li><span>*<$mt:FLCFValue field="reference_number_10"$></span><$mt:FLCFValue field="sentence_10"$></mt:if></li>
+                        <mt:if tag="FLCFValue" field="sentence_01_many_lines"><li><span>*<$mt:FLCFValue field="reference_number_01"$></span><$mt:FLCFValue field="sentence_01_many_lines"$></mt:if></li>
+                        <mt:if tag="FLCFValue" field="sentence_02_many_lines"><li><span>*<$mt:FLCFValue field="reference_number_02"$></span><$mt:FLCFValue field="sentence_02_many_lines"$></mt:if></li>
+                        <mt:if tag="FLCFValue" field="sentence_03_many_lines"><li><span>*<$mt:FLCFValue field="reference_number_03"$></span><$mt:FLCFValue field="sentence_03_many_lines"$></mt:if></li>
+                        <mt:if tag="FLCFValue" field="sentence_04_many_lines"><li><span>*<$mt:FLCFValue field="reference_number_04"$></span><$mt:FLCFValue field="sentence_04_many_lines"$></mt:if></li>
+                        <mt:if tag="FLCFValue" field="sentence_05_many_lines"><li><span>*<$mt:FLCFValue field="reference_number_05"$></span><$mt:FLCFValue field="sentence_05_many_lines"$></mt:if></li>
+                        <mt:if tag="FLCFValue" field="sentence_06_many_lines"><li><span>*<$mt:FLCFValue field="reference_number_06"$></span><$mt:FLCFValue field="sentence_06_many_lines"$></mt:if></li>
+                        <mt:if tag="FLCFValue" field="sentence_07_many_lines"><li><span>*<$mt:FLCFValue field="reference_number_07"$></span><$mt:FLCFValue field="sentence_07_many_lines"$></mt:if></li>
+                        <mt:if tag="FLCFValue" field="sentence_08_many_lines"><li><span>*<$mt:FLCFValue field="reference_number_08"$></span><$mt:FLCFValue field="sentence_08_many_lines"$></mt:if></li>
+                        <mt:if tag="FLCFValue" field="sentence_09_many_lines"><li><span>*<$mt:FLCFValue field="reference_number_09"$></span><$mt:FLCFValue field="sentence_09_many_lines"$></mt:if></li>
+                        <mt:if tag="FLCFValue" field="sentence_10_many_lines"><li><span>*<$mt:FLCFValue field="reference_number_10"$></span><$mt:FLCFValue field="sentence_10_many_lines"$></mt:if></li>
                       </ul>
                     </div>
                     <!-- /.l-container__slot -->
@@ -443,74 +446,97 @@ Template Note : カテゴリ
                         <mt:if tag="FLCFValue" field="link_text_01">
                           <div class="p-link">
                             <ul class="p-link__list">
-                              <mt:if tag="FLCFValue" field="link_text_01">
+                              <mt:if tag="FLCFValue" field="link_text_01_many_lines">
                                 <mt:if tag="FLCFAsset" field="file_01">
-                                  <li><a href="<mt:FLCFAsset field="file_01"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" <mt:if tag="FLCFValue" field="open_in_another_tab_01">target="_blank"<mt:else>download</mt:if>><span><mt:FLCFValue field="link_text_01"><span class="js-link_showsize"></span></span></a></li>
+                                  <li>
+                                    <a href="<mt:FLCFAsset field="file_01"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" <mt:if tag="FLCFValue" field="open_in_another_tab_01">target="_blank"<mt:else>download</mt:if>>
+                                      <span><mt:FLCFValue field="link_text_01_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"><span class="js-link_showsize"></span></span>
+                                    </a>
+                                  </li>
                                 <mt:else>
-                                  <li><a href="<mt:FLCFValue field="url_01">" <mt:if tag="FLCFValue" field="open_in_another_tab_01">target="_blank" rel="noopener"</mt:if>><span><mt:FLCFValue field="link_text_01"></span></a></li>
+                                  <li><a href="<mt:FLCFValue field="url_01">" <mt:if tag="FLCFValue" field="open_in_another_tab_01">target="_blank" rel="noopener"</mt:if>>
+                                  <span><mt:FLCFValue field="link_text_01_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></span></a></li>
                                 </mt:if>
                               </mt:if>
-                              <mt:if tag="FLCFValue" field="link_text_02">
+                              <mt:if tag="FLCFValue" field="link_text_02_many_lines">
                                 <mt:if tag="FLCFAsset" field="file_02">
-                                  <li><a href="<mt:FLCFAsset field="file_02"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" <mt:if tag="FLCFValue" field="open_in_another_tab_02">target="_blank"<mt:else>download</mt:if>><span><mt:FLCFValue field="link_text_02"><span class="js-link_showsize"></span></span></a></li>
+                                  <li><a href="<mt:FLCFAsset field="file_02"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" <mt:if tag="FLCFValue" field="open_in_another_tab_02">target="_blank"<mt:else>download</mt:if>>
+                                  <span><mt:FLCFValue field="link_text_02_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"><span class="js-link_showsize"></span></span></a></li>
                                 <mt:else>
-                                  <li><a href="<mt:FLCFValue field="url_02">" <mt:if tag="FLCFValue" field="open_in_another_tab_02">target="_blank" rel="noopener"</mt:if>><span><mt:FLCFValue field="link_text_02"></span></a></li>
+                                  <li><a href="<mt:FLCFValue field="url_02">" <mt:if tag="FLCFValue" field="open_in_another_tab_02">target="_blank" rel="noopener"</mt:if>>
+                                  <span><mt:FLCFValue field="link_text_02_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></span></a></li>
                                 </mt:if>
                               </mt:if>
-                              <mt:if tag="FLCFValue" field="link_text_03">
+                              <mt:if tag="FLCFValue" field="link_text_03_many_lines">
                                 <mt:if tag="FLCFAsset" field="file_03">
-                                  <li><a href="<mt:FLCFAsset field="file_03"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" <mt:if tag="FLCFValue" field="open_in_another_tab_03">target="_blank"<mt:else>download</mt:if>><span><mt:FLCFValue field="link_text_03"><span class="js-link_showsize"></span></span></a></li>
+                                  <li><a href="<mt:FLCFAsset field="file_03"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" <mt:if tag="FLCFValue" field="open_in_another_tab_03">target="_blank"<mt:else>download</mt:if>>
+                                  <span><mt:FLCFValue field="link_text_03_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"><span class="js-link_showsize"></span></span></a></li>
                                 <mt:else>
-                                  <li><a href="<mt:FLCFValue field="url_03">" <mt:if tag="FLCFValue" field="open_in_another_tab_03">target="_blank" rel="noopener"</mt:if>><span><mt:FLCFValue field="link_text_03"></span></a></li>
+                                  <li><a href="<mt:FLCFValue field="url_03">" <mt:if tag="FLCFValue" field="open_in_another_tab_03">target="_blank" rel="noopener"</mt:if>>
+                                  <span><mt:FLCFValue field="link_text_03_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></span></a></li>
                                 </mt:if>
                               </mt:if>
-                              <mt:if tag="FLCFValue" field="link_text_04">
+                              <mt:if tag="FLCFValue" field="link_text_04_many_lines">
                                 <mt:if tag="FLCFAsset" field="file_04">
-                                  <li><a href="<mt:FLCFAsset field="file_04"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" <mt:if tag="FLCFValue" field="open_in_another_tab_04">target="_blank"<mt:else>download</mt:if>><span><mt:FLCFValue field="link_text_04"><span class="js-link_showsize"></span></span></a></li>
+                                  <li><a href="<mt:FLCFAsset field="file_04"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" <mt:if tag="FLCFValue" field="open_in_another_tab_04">target="_blank"<mt:else>download</mt:if>>
+                                  <span><mt:FLCFValue field="link_text_04_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"><span class="js-link_showsize"></span></span></a></li>
                                 <mt:else>
-                                  <li><a href="<mt:FLCFValue field="url_04">" <mt:if tag="FLCFValue" field="open_in_another_tab_04">target="_blank" rel="noopener"</mt:if>><span><mt:FLCFValue field="link_text_04"></span></a></li>
+                                  <li><a href="<mt:FLCFValue field="url_04">" <mt:if tag="FLCFValue" field="open_in_another_tab_04">target="_blank" rel="noopener"</mt:if>>
+                                  <span><mt:FLCFValue field="link_text_04_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></span></a></li>
                                 </mt:if>
                               </mt:if>
-                              <mt:if tag="FLCFValue" field="link_text_05">
+                              <mt:if tag="FLCFValue" field="link_text_05_many_lines">
                                 <mt:if tag="FLCFAsset" field="file_05">
-                                  <li><a href="<mt:FLCFAsset field="file_05"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" <mt:if tag="FLCFValue" field="open_in_another_tab_05">target="_blank"<mt:else>download</mt:if>><span><mt:FLCFValue field="link_text_05"><span class="js-link_showsize"></span></span></a></li>
+                                  <li><a href="<mt:FLCFAsset field="file_05"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" <mt:if tag="FLCFValue" field="open_in_another_tab_05">target="_blank"<mt:else>download</mt:if>>
+                                  <span><mt:FLCFValue field="link_text_05_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"><span class="js-link_showsize"></span></span></a></li>
                                 <mt:else>
-                                  <li><a href="<mt:FLCFValue field="url_05">" <mt:if tag="FLCFValue" field="open_in_another_tab_05">target="_blank" rel="noopener"</mt:if>><span><mt:FLCFValue field="link_text_05"></span></a></li>
+                                  <li><a href="<mt:FLCFValue field="url_05">" <mt:if tag="FLCFValue" field="open_in_another_tab_05">target="_blank" rel="noopener"</mt:if>>
+                                  <span><mt:FLCFValue field="link_text_05_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></span></a></li>
                                 </mt:if>
                               </mt:if>
-                              <mt:if tag="FLCFValue" field="link_text_06">
+                              <mt:if tag="FLCFValue" field="link_text_06_many_lines">
                                 <mt:if tag="FLCFAsset" field="file_06">
-                                  <li><a href="<mt:FLCFAsset field="file_06"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" <mt:if tag="FLCFValue" field="open_in_another_tab_06">target="_blank"<mt:else>download</mt:if>><span><mt:FLCFValue field="link_text_06"><span class="js-link_showsize"></span></span></a></li>
+                                  <li><a href="<mt:FLCFAsset field="file_06"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" <mt:if tag="FLCFValue" field="open_in_another_tab_06">target="_blank"<mt:else>download</mt:if>>
+                                  <span><mt:FLCFValue field="link_text_06_many_lines"><span class="js-link_showsize"></span></span></a></li>
                                 <mt:else>
-                                  <li><a href="<mt:FLCFValue field="url_06">" <mt:if tag="FLCFValue" field="open_in_another_tab_06">target="_blank" rel="noopener"</mt:if>><span><mt:FLCFValue field="link_text_06"></span></a></li>
+                                  <li><a href="<mt:FLCFValue field="url_06">" <mt:if tag="FLCFValue" field="open_in_another_tab_06">target="_blank" rel="noopener"</mt:if>>
+                                  <span><mt:FLCFValue field="link_text_06_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></span></a></li>
                                 </mt:if>
                               </mt:if>
-                              <mt:if tag="FLCFValue" field="link_text_07">
-                                <mt:if tag="FLCFAsset" field="file_07">
-                                  <li><a href="<mt:FLCFAsset field="file_07"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" <mt:if tag="FLCFValue" field="open_in_another_tab_07">target="_blank"<mt:else>download</mt:if>><span><mt:FLCFValue field="link_text_07"><span class="js-link_showsize"></span></span></a></li>
+                              <mt:if tag="FLCFValue" field="link_text_07_many_lines">
+                                <mt:if tag="FLCFAsset" field="file_07_many_lines">
+                                  <li><a href="<mt:FLCFAsset field="file_07"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" <mt:if tag="FLCFValue" field="open_in_another_tab_07">target="_blank"<mt:else>download</mt:if>>
+                                  <span><mt:FLCFValue field="link_text_07_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"><span class="js-link_showsize"></span></span></a></li>
                                 <mt:else>
-                                  <li><a href="<mt:FLCFValue field="url_07">" <mt:if tag="FLCFValue" field="open_in_another_tab_07">target="_blank" rel="noopener"</mt:if>><span><mt:FLCFValue field="link_text_07"></span></a></li>
+                                  <li><a href="<mt:FLCFValue field="url_07">" <mt:if tag="FLCFValue" field="open_in_another_tab_07">target="_blank" rel="noopener"</mt:if>>
+                                  <span><mt:FLCFValue field="link_text_07_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></span></a></li>
                                 </mt:if>
                               </mt:if>
-                              <mt:if tag="FLCFValue" field="link_text_08">
+                              <mt:if tag="FLCFValue" field="link_text_08_many_lines">
                                 <mt:if tag="FLCFAsset" field="file_08">
-                                  <li><a href="<mt:FLCFAsset field="file_08"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" <mt:if tag="FLCFValue" field="open_in_another_tab_08">target="_blank"<mt:else>download</mt:if>><span><mt:FLCFValue field="link_text_08"><span class="js-link_showsize"></span></span></a></li>
+                                  <li><a href="<mt:FLCFAsset field="file_08"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" <mt:if tag="FLCFValue" field="open_in_another_tab_08">target="_blank"<mt:else>download</mt:if>>
+                                  <span><mt:FLCFValue field="link_text_08" remove_html="1" convert_breaks="0" nl2br="xhtml"><span class="js-link_showsize"></span></span></a></li>
                                 <mt:else>
-                                  <li><a href="<mt:FLCFValue field="url_08">" <mt:if tag="FLCFValue" field="open_in_another_tab_08">target="_blank" rel="noopener"</mt:if>><span><mt:FLCFValue field="link_text_08"></span></a></li>
+                                  <li><a href="<mt:FLCFValue field="url_08">" <mt:if tag="FLCFValue" field="open_in_another_tab_08">target="_blank" rel="noopener"</mt:if>>
+                                  <span><mt:FLCFValue field="link_text_08" remove_html="1" convert_breaks="0" nl2br="xhtml"></span></a></li>
                                 </mt:if>
                               </mt:if>
-                              <mt:if tag="FLCFValue" field="link_text_09">
+                              <mt:if tag="FLCFValue" field="link_text_09_many_lines">
                                 <mt:if tag="FLCFAsset" field="file_09">
-                                  <li><a href="<mt:FLCFAsset field="file_09"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" <mt:if tag="FLCFValue" field="open_in_another_tab_09">target="_blank"<mt:else>download</mt:if>><span><mt:FLCFValue field="link_text_09"><span class="js-link_showsize"></span></span></a></li>
+                                  <li><a href="<mt:FLCFAsset field="file_09"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" <mt:if tag="FLCFValue" field="open_in_another_tab_09">target="_blank"<mt:else>download</mt:if>>
+                                  <span><mt:FLCFValue field="link_text_09_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"><span class="js-link_showsize"></span></span></a></li>
                                 <mt:else>
-                                  <li><a href="<mt:FLCFValue field="url_09">" <mt:if tag="FLCFValue" field="open_in_another_tab_09">target="_blank" rel="noopener"</mt:if>><span><mt:FLCFValue field="link_text_09"></span></a></li>
+                                  <li><a href="<mt:FLCFValue field="url_09">" <mt:if tag="FLCFValue" field="open_in_another_tab_09">target="_blank" rel="noopener"</mt:if>>
+                                  <span><mt:FLCFValue field="link_text_09_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></span></a></li>
                                 </mt:if>
                               </mt:if>
                               <mt:if tag="FLCFValue" field="link_text_10">
                                 <mt:if tag="FLCFAsset" field="file_10">
-                                  <li><a href="<mt:FLCFAsset field="file_10"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" <mt:if tag="FLCFValue" field="open_in_another_tab_10">target="_blank"<mt:else>download</mt:if>><span><mt:FLCFValue field="link_text_10"><span class="js-link_showsize"></span></span></a></li>
+                                  <li><a href="<mt:FLCFAsset field="file_10"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" <mt:if tag="FLCFValue" field="open_in_another_tab_10">target="_blank"<mt:else>download</mt:if>>
+                                  <span><mt:FLCFValue field="link_text_10" remove_html="1" convert_breaks="0" nl2br="xhtml"><span class="js-link_showsize"></span></span></a></li>
                                 <mt:else>
-                                  <li><a href="<mt:FLCFValue field="url_10">" <mt:if tag="FLCFValue" field="open_in_another_tab_10">target="_blank" rel="noopener"</mt:if>><span><mt:FLCFValue field="link_text_10"></span></a></li>
+                                  <li><a href="<mt:FLCFValue field="url_10">" <mt:if tag="FLCFValue" field="open_in_another_tab_10">target="_blank" rel="noopener"</mt:if>>
+                                  <span><mt:FLCFValue field="link_text_10" remove_html="1" convert_breaks="0" nl2br="xhtml"></span></a></li>
                                 </mt:if>
                               </mt:if>
                             </ul>
@@ -528,74 +554,74 @@ Template Note : カテゴリ
                           <div class="p-infomation_box">
                             <div class="p-infomation_box__content">
                               <ul class="p-link__list">
-                                <mt:if tag="FLCFValue" field="link_text_01">
+                                <mt:if tag="FLCFValue" field="link_text_01_many_lines">
                                   <mt:if tag="FLCFAsset" field="file_01">
-                                    <li><a href="<mt:FLCFAsset field="file_01"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" <mt:if tag="FLCFValue" field="open_in_another_tab_01">target="_blank"<mt:else>download</mt:if>><span><mt:FLCFValue field="link_text_01"><span class="js-link_showsize"></span></span></a></li>
+                                    <li><a href="<mt:FLCFAsset field="file_01"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" <mt:if tag="FLCFValue" field="open_in_another_tab_01">target="_blank"<mt:else>download</mt:if>><span><mt:FLCFValue field="link_text_01_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"><span class="js-link_showsize"></span></span></a></li>
                                   <mt:else>
-                                    <li><a href="<mt:FLCFValue field="url_01">" <mt:if tag="FLCFValue" field="open_in_another_tab_01">target="_blank" rel="noopener"</mt:if>><span><mt:FLCFValue field="link_text_01"></span></a></li>
+                                    <li><a href="<mt:FLCFValue field="url_01">" <mt:if tag="FLCFValue" field="open_in_another_tab_01">target="_blank" rel="noopener"</mt:if>><span><mt:FLCFValue field="link_text_01_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></span></a></li>
                                   </mt:if>
                                 </mt:if>
-                                <mt:if tag="FLCFValue" field="link_text_02">
+                                <mt:if tag="FLCFValue" field="link_text_02_many_lines">
                                   <mt:if tag="FLCFAsset" field="file_02">
-                                    <li><a href="<mt:FLCFAsset field="file_02"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" <mt:if tag="FLCFValue" field="open_in_another_tab_02">target="_blank"<mt:else>download</mt:if>><span><mt:FLCFValue field="link_text_02"><span class="js-link_showsize"></span></span></a></li>
+                                    <li><a href="<mt:FLCFAsset field="file_02"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" <mt:if tag="FLCFValue" field="open_in_another_tab_02">target="_blank"<mt:else>download</mt:if>><span><mt:FLCFValue field="link_text_02_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"><span class="js-link_showsize"></span></span></a></li>
                                   <mt:else>
-                                    <li><a href="<mt:FLCFValue field="url_02">" <mt:if tag="FLCFValue" field="open_in_another_tab_02">target="_blank" rel="noopener"</mt:if>><span><mt:FLCFValue field="link_text_02"></span></a></li>
+                                    <li><a href="<mt:FLCFValue field="url_02">" <mt:if tag="FLCFValue" field="open_in_another_tab_02">target="_blank" rel="noopener"</mt:if>><span><mt:FLCFValue field="link_text_02_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></span></a></li>
                                   </mt:if>
                                 </mt:if>
-                                <mt:if tag="FLCFValue" field="link_text_03">
+                                <mt:if tag="FLCFValue" field="link_text_03_many_lines">
                                   <mt:if tag="FLCFAsset" field="file_03">
-                                    <li><a href="<mt:FLCFAsset field="file_03"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" <mt:if tag="FLCFValue" field="open_in_another_tab_03">target="_blank"<mt:else>download</mt:if>><span><mt:FLCFValue field="link_text_03"><span class="js-link_showsize"></span></span></a></li>
+                                    <li><a href="<mt:FLCFAsset field="file_03"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" <mt:if tag="FLCFValue" field="open_in_another_tab_03">target="_blank"<mt:else>download</mt:if>><span><mt:FLCFValue field="link_text_03_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"><span class="js-link_showsize"></span></span></a></li>
                                   <mt:else>
-                                    <li><a href="<mt:FLCFValue field="url_03">" <mt:if tag="FLCFValue" field="open_in_another_tab_03">target="_blank" rel="noopener"</mt:if>><span><mt:FLCFValue field="link_text_03"></span></a></li>
+                                    <li><a href="<mt:FLCFValue field="url_03">" <mt:if tag="FLCFValue" field="open_in_another_tab_03">target="_blank" rel="noopener"</mt:if>><span><mt:FLCFValue field="link_text_03_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></span></a></li>
                                   </mt:if>
                                 </mt:if>
-                                <mt:if tag="FLCFValue" field="link_text_04">
+                                <mt:if tag="FLCFValue" field="link_text_04_many_lines">
                                   <mt:if tag="FLCFAsset" field="file_04">
-                                    <li><a href="<mt:FLCFAsset field="file_04"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" <mt:if tag="FLCFValue" field="open_in_another_tab_04">target="_blank"<mt:else>download</mt:if>><span><mt:FLCFValue field="link_text_04"><span class="js-link_showsize"></span></span></a></li>
+                                    <li><a href="<mt:FLCFAsset field="file_04"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" <mt:if tag="FLCFValue" field="open_in_another_tab_04">target="_blank"<mt:else>download</mt:if>><span><mt:FLCFValue field="link_text_04_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"><span class="js-link_showsize"></span></span></a></li>
                                   <mt:else>
-                                    <li><a href="<mt:FLCFValue field="url_04">" <mt:if tag="FLCFValue" field="open_in_another_tab_04">target="_blank" rel="noopener"</mt:if>><span><mt:FLCFValue field="link_text_04"></span></a></li>
+                                    <li><a href="<mt:FLCFValue field="url_04">" <mt:if tag="FLCFValue" field="open_in_another_tab_04">target="_blank" rel="noopener"</mt:if>><span><mt:FLCFValue field="link_text_04_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></span></a></li>
                                   </mt:if>
                                 </mt:if>
-                                <mt:if tag="FLCFValue" field="link_text_05">
+                                <mt:if tag="FLCFValue" field="link_text_05_many_lines">
                                   <mt:if tag="FLCFAsset" field="file_05">
-                                    <li><a href="<mt:FLCFAsset field="file_05"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" <mt:if tag="FLCFValue" field="open_in_another_tab_05">target="_blank"<mt:else>download</mt:if>><span><mt:FLCFValue field="link_text_05"><span class="js-link_showsize"></span></span></a></li>
+                                    <li><a href="<mt:FLCFAsset field="file_05"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" <mt:if tag="FLCFValue" field="open_in_another_tab_05">target="_blank"<mt:else>download</mt:if>><span><mt:FLCFValue field="link_text_05_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"><span class="js-link_showsize"></span></span></a></li>
                                   <mt:else>
-                                    <li><a href="<mt:FLCFValue field="url_05">" <mt:if tag="FLCFValue" field="open_in_another_tab_05">target="_blank" rel="noopener"</mt:if>><span><mt:FLCFValue field="link_text_05"></span></a></li>
+                                    <li><a href="<mt:FLCFValue field="url_05">" <mt:if tag="FLCFValue" field="open_in_another_tab_05">target="_blank" rel="noopener"</mt:if>><span><mt:FLCFValue field="link_text_05_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></span></a></li>
                                   </mt:if>
                                 </mt:if>
-                                <mt:if tag="FLCFValue" field="link_text_06">
+                                <mt:if tag="FLCFValue" field="link_text_06_many_lines">
                                   <mt:if tag="FLCFAsset" field="file_06">
-                                    <li><a href="<mt:FLCFAsset field="file_06"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" <mt:if tag="FLCFValue" field="open_in_another_tab_06">target="_blank"<mt:else>download</mt:if>><span><mt:FLCFValue field="link_text_06"><span class="js-link_showsize"></span></span></a></li>
+                                    <li><a href="<mt:FLCFAsset field="file_06"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" <mt:if tag="FLCFValue" field="open_in_another_tab_06">target="_blank"<mt:else>download</mt:if>><span><mt:FLCFValue field="link_text_06_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"><span class="js-link_showsize"></span></span></a></li>
                                   <mt:else>
-                                    <li><a href="<mt:FLCFValue field="url_06">" <mt:if tag="FLCFValue" field="open_in_another_tab_06">target="_blank" rel="noopener"</mt:if>><span><mt:FLCFValue field="link_text_06"></span></a></li>
+                                    <li><a href="<mt:FLCFValue field="url_06">" <mt:if tag="FLCFValue" field="open_in_another_tab_06">target="_blank" rel="noopener"</mt:if>><span><mt:FLCFValue field="link_text_06_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></span></a></li>
                                   </mt:if>
                                 </mt:if>
-                                <mt:if tag="FLCFValue" field="link_text_07">
+                                <mt:if tag="FLCFValue" field="link_text_07_many_lines">
                                   <mt:if tag="FLCFAsset" field="file_07">
-                                    <li><a href="<mt:FLCFAsset field="file_07"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" <mt:if tag="FLCFValue" field="open_in_another_tab_07">target="_blank"<mt:else>download</mt:if>><span><mt:FLCFValue field="link_text_07"><span class="js-link_showsize"></span></span></a></li>
+                                    <li><a href="<mt:FLCFAsset field="file_07"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" <mt:if tag="FLCFValue" field="open_in_another_tab_07">target="_blank"<mt:else>download</mt:if>><span><mt:FLCFValue field="link_text_07_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"><span class="js-link_showsize"></span></span></a></li>
                                   <mt:else>
-                                    <li><a href="<mt:FLCFValue field="url_07">" <mt:if tag="FLCFValue" field="open_in_another_tab_07">target="_blank" rel="noopener"</mt:if>><span><mt:FLCFValue field="link_text_07"></span></a></li>
+                                    <li><a href="<mt:FLCFValue field="url_07">" <mt:if tag="FLCFValue" field="open_in_another_tab_07">target="_blank" rel="noopener"</mt:if>><span><mt:FLCFValue field="link_text_07_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></span></a></li>
                                   </mt:if>
                                 </mt:if>
-                                <mt:if tag="FLCFValue" field="link_text_08">
+                                <mt:if tag="FLCFValue" field="link_text_08_many_lines">
                                   <mt:if tag="FLCFAsset" field="file_08">
-                                    <li><a href="<mt:FLCFAsset field="file_08"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" <mt:if tag="FLCFValue" field="open_in_another_tab_08">target="_blank"<mt:else>download</mt:if>><span><mt:FLCFValue field="link_text_08"><span class="js-link_showsize"></span></span></a></li>
+                                    <li><a href="<mt:FLCFAsset field="file_08"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" <mt:if tag="FLCFValue" field="open_in_another_tab_08">target="_blank"<mt:else>download</mt:if>><span><mt:FLCFValue field="link_text_08_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"><span class="js-link_showsize"></span></span></a></li>
                                   <mt:else>
-                                    <li><a href="<mt:FLCFValue field="url_08">" <mt:if tag="FLCFValue" field="open_in_another_tab_08">target="_blank" rel="noopener"</mt:if>><span><mt:FLCFValue field="link_text_08"></span></a></li>
+                                    <li><a href="<mt:FLCFValue field="url_08">" <mt:if tag="FLCFValue" field="open_in_another_tab_08">target="_blank" rel="noopener"</mt:if>><span><mt:FLCFValue field="link_text_08_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></span></a></li>
                                   </mt:if>
                                 </mt:if>
-                                <mt:if tag="FLCFValue" field="link_text_09">
+                                <mt:if tag="FLCFValue" field="link_text_09_many_lines">
                                   <mt:if tag="FLCFAsset" field="file_09">
-                                    <li><a href="<mt:FLCFAsset field="file_09"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" <mt:if tag="FLCFValue" field="open_in_another_tab_09">target="_blank"<mt:else>download</mt:if>><span><mt:FLCFValue field="link_text_09"><span class="js-link_showsize"></span></span></a></li>
+                                    <li><a href="<mt:FLCFAsset field="file_09"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" <mt:if tag="FLCFValue" field="open_in_another_tab_09">target="_blank"<mt:else>download</mt:if>><span><mt:FLCFValue field="link_text_09_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"><span class="js-link_showsize"></span></span></a></li>
                                   <mt:else>
-                                    <li><a href="<mt:FLCFValue field="url_09">" <mt:if tag="FLCFValue" field="open_in_another_tab_09">target="_blank" rel="noopener"</mt:if>><span><mt:FLCFValue field="link_text_09"></span></a></li>
+                                    <li><a href="<mt:FLCFValue field="url_09">" <mt:if tag="FLCFValue" field="open_in_another_tab_09">target="_blank" rel="noopener"</mt:if>><span><mt:FLCFValue field="link_text_09_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></span></a></li>
                                   </mt:if>
                                 </mt:if>
-                                <mt:if tag="FLCFValue" field="link_text_10">
+                                <mt:if tag="FLCFValue" field="link_text_10_many_lines">
                                   <mt:if tag="FLCFAsset" field="file_10">
-                                    <li><a href="<mt:FLCFAsset field="file_10"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" <mt:if tag="FLCFValue" field="open_in_another_tab_10">target="_blank"<mt:else>download</mt:if>><span><mt:FLCFValue field="link_text_10"><span class="js-link_showsize"></span></span></a></li>
+                                    <li><a href="<mt:FLCFAsset field="file_10"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" <mt:if tag="FLCFValue" field="open_in_another_tab_10">target="_blank"<mt:else>download</mt:if>><span><mt:FLCFValue field="link_text_10_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"><span class="js-link_showsize"></span></span></a></li>
                                   <mt:else>
-                                    <li><a href="<mt:FLCFValue field="url_10">" <mt:if tag="FLCFValue" field="open_in_another_tab_10">target="_blank" rel="noopener"</mt:if>><span><mt:FLCFValue field="link_text_10"></span></a></li>
+                                    <li><a href="<mt:FLCFValue field="url_10">" <mt:if tag="FLCFValue" field="open_in_another_tab_10">target="_blank" rel="noopener"</mt:if>><span><mt:FLCFValue field="link_text_10_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></span></a></li>
                                   </mt:if>
                                 </mt:if>
                               </ul>
@@ -741,62 +767,115 @@ Template Note : カテゴリ
                     <!-- /.l-container__slot -->
                   </mt:FLCFIfUnitName>
                 <!-- サムネイル画像付きボタン（補足テキストあり）-->
+                
                 <!-- サムネイル画像付きボタン（補足なし） -->
                   <mt:FLCFIfUnitName name="button_with_thumbnail_image_without_supplement">
                     <div class="l-container__slot">
                       <div class="p-related">
                         <!-- 01 -->
-                        <div class="p-related__item">
-                          <mt:if tag="FLCFAsset" field="file_01">
-                            <a href="<mt:FLCFAsset field="file_01"><$mt:AssetURL$></mt:FLCFAsset>" <mt:if tag="FLCFValue" field="open_in_another_tab_01"> target="_blank" rel="noopener"<mt:else>download</mt:if> class="js-file_get_size">
-                          <mt:else>
-                            <a href="<mt:FLCFValue field="url_01">" <mt:if tag="FLCFValue" field="open_in_another_tab_01"> target="_blank" rel="noopener"</mt:if>>
-                          </mt:if>
-                            <div class="p-related__block">
-                              <div class="p-related__img">
-                                <mt:FLCFAsset field="image_01">
-                                  <img src="<mt:AssetURL>" alt="">
-                                </mt:FLCFAsset>
+                        <mt:if tag="FLCFValue" field="link_text_01">
+                          <mt:if tag="FLCFAsset" field="image_01">
+                            <mt:if tag="FLCFAsset" field="file_01">
+                              <div class="p-related__item">
+                                <a href="<mt:FLCFAsset field="file_01"><$mt:AssetURL$></mt:FLCFAsset>" <mt:if tag="FLCFValue" field="open_in_another_tab_01"> target="_blank" rel="noopener"<mt:else>download</mt:if> class="js-file_get_size">
+                                  <div class="p-related__block">
+                                    <div class="p-related__img">
+                                      <mt:FLCFAsset field="image_01">
+                                        <img src="<mt:AssetURL>" alt="">
+                                      </mt:FLCFAsset>
+                                    </div>
+                                    <!-- /.p-related__img -->
+                                    <div class="p-related__content">
+                                      <div class="p-related__text">
+                                        <p><mt:FLCFValue field="link_text_01"></p>
+                                      </div>
+                                      <!-- /.p-related__text -->
+                                    </div>
+                                    <!-- /.p-related__content -->
+                                  </div>
+                                  <!-- /.p-related__block -->
+                                </a>
                               </div>
-                              <!-- /.p-related__img -->
-                              <div class="p-related__content">
-                                <div class="p-related__text">
-                                  <p><mt:FLCFValue field="link_text_01"></p>
+                              <!-- /.p-related__item -->
+                            <mt:else>
+                              <mt:if tag="FLCFValue" field="url_01">
+                                <div class="p-related__item">
+                                  <a href="<mt:FLCFValue field="url_01">" <mt:if tag="FLCFValue" field="open_in_another_tab_01"> target="_blank" rel="noopener"</mt:if>>
+                                    <div class="p-related__block">
+                                      <div class="p-related__img">
+                                        <mt:FLCFAsset field="image_01">
+                                          <img src="<mt:AssetURL>" alt="">
+                                        </mt:FLCFAsset>
+                                      </div>
+                                      <!-- /.p-related__img -->
+                                      <div class="p-related__content">
+                                        <div class="p-related__text">
+                                          <p><mt:FLCFValue field="link_text_01"></p>
+                                        </div>
+                                        <!-- /.p-related__text -->
+                                      </div>
+                                      <!-- /.p-related__content -->
+                                    </div>
+                                    <!-- /.p-related__block -->
+                                  </a>
                                 </div>
-                                <!-- /.p-related__text -->
-                              </div>
-                              <!-- /.p-related__content -->
-                            </div>
-                            <!-- /.p-related__block -->
-                          </a>
-                        </div>
-                        <!-- /.p-related__item -->
+                                <!-- /.p-related__item -->
+                              </mt:if>
+                            </mt:if>
+                          </mt:if>
+                        </mt:if>
                         <!-- 02 -->
-                        <div class="p-related__item">
-                          <mt:if tag="FLCFAsset" field="file_02">
-                            <a href="<mt:FLCFAsset field="file_02"><$mt:AssetURL$></mt:FLCFAsset>" <mt:if tag="FLCFValue" field="open_in_another_tab_02"> target="_blank" rel="noopener"<mt:else>download</mt:if> class="js-file_get_size">
-                          <mt:else>
-                            <a href="<mt:FLCFValue field="url_02">" <mt:if tag="FLCFValue" field="open_in_another_tab_02"> target="_blank" rel="noopener"</mt:if>>
-                          </mt:if>
-                            <div class="p-related__block">
-                              <div class="p-related__img">
-                                <mt:FLCFAsset field="image_02">
-                                  <img src="<mt:AssetURL>" alt="">
-                                </mt:FLCFAsset>
+                        <mt:if tag="FLCFValue" field="link_text_02">
+                          <mt:if tag="FLCFAsset" field="image_02">
+                            <mt:if tag="FLCFAsset" field="file_02">
+                              <div class="p-related__item">
+                                <a href="<mt:FLCFAsset field="file_02"><$mt:AssetURL$></mt:FLCFAsset>" <mt:if tag="FLCFValue" field="open_in_another_tab_02"> target="_blank" rel="noopener"<mt:else>download</mt:if> class="js-file_get_size">
+                                  <div class="p-related__block">
+                                    <div class="p-related__img">
+                                      <mt:FLCFAsset field="image_02">
+                                        <img src="<mt:AssetURL>" alt="">
+                                      </mt:FLCFAsset>
+                                    </div>
+                                    <!-- /.p-related__img -->
+                                    <div class="p-related__content">
+                                      <div class="p-related__text">
+                                        <p><mt:FLCFValue field="link_text_02"></p>
+                                      </div>
+                                      <!-- /.p-related__text -->
+                                    </div>
+                                    <!-- /.p-related__content -->
+                                  </div>
+                                  <!-- /.p-related__block -->
+                                </a>
                               </div>
-                              <!-- /.p-related__img -->
-                              <div class="p-related__content">
-                                <div class="p-related__text">
-                                  <p><mt:FLCFValue field="link_text_02"></p>
+                              <!-- /.p-related__item -->
+                            <mt:else>
+                              <mt:if tag="FLCFValue" field="url_02">
+                                <div class="p-related__item">
+                                  <a href="<mt:FLCFValue field="url_02">" <mt:if tag="FLCFValue" field="open_in_another_tab_02"> target="_blank" rel="noopener"</mt:if>>
+                                    <div class="p-related__block">
+                                      <div class="p-related__img">
+                                        <mt:FLCFAsset field="image_02">
+                                          <img src="<mt:AssetURL>" alt="">
+                                        </mt:FLCFAsset>
+                                      </div>
+                                      <!-- /.p-related__img -->
+                                      <div class="p-related__content">
+                                        <div class="p-related__text">
+                                          <p><mt:FLCFValue field="link_text_02"></p>
+                                        </div>
+                                        <!-- /.p-related__text -->
+                                      </div>
+                                      <!-- /.p-related__content -->
+                                    </div>
+                                    <!-- /.p-related__block -->
+                                  </a>
                                 </div>
-                                <!-- /.p-related__text -->
-                              </div>
-                              <!-- /.p-related__content -->
-                            </div>
-                            <!-- /.p-related__block -->
-                          </a>
-                        </div>
-                        <!-- /.p-related__item -->
+                                <!-- /.p-related__item -->
+                              </mt:if>
+                            </mt:if>
+                          </mt:if>
+                        </mt:if>
                       </div>
                       <!-- /.p-related -->
                     </div>
@@ -1048,7 +1127,7 @@ Template Note : カテゴリ
                                   <!-- /.p-photo__img -->
 
                                   <div class="p-photo__caption">
-                                    <p><mt:FLCFValue field="caption"></p>
+                                    <p><mt:FLCFValue field="caption_many_lines"></p>
                                     <mt:if tag="FLCFAsset" field="file">
                                       <p><a href="<mt:FLCFAsset field="file"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" download>拡大表示する</a></p>
                                     <mt:else>
@@ -1086,7 +1165,7 @@ Template Note : カテゴリ
                                   <!-- /.p-photo__img -->
 
                                   <div class="p-photo__caption">
-                                    <p><mt:FLCFValue field="caption"></p>
+                                    <p><mt:FLCFValue field="caption_many_lines"></p>
                                     <mt:if tag="FLCFAsset" field="file">
                                       <p><a href="<mt:FLCFAsset field="file"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" download>拡大表示する</a></p>
                                     <mt:else>
@@ -1124,7 +1203,7 @@ Template Note : カテゴリ
                                   <!-- /.p-photo__img -->
 
                                   <div class="p-photo__caption">
-                                    <p><mt:FLCFValue field="caption"></p>
+                                    <p><mt:FLCFValue field="caption_many_lines"></p>
                                     <mt:if tag="FLCFAsset" field="file">
                                       <p><a href="<mt:FLCFAsset field="file"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" download>拡大表示する</a></p>
                                     <mt:else>
@@ -1181,7 +1260,7 @@ Template Note : カテゴリ
                                   <!-- /.p-photo__img -->
 
                                   <div class="p-photo__caption">
-                                    <p><mt:FLCFValue field="caption"></p>
+                                    <p><mt:FLCFValue field="caption_many_lines"></p>
                                     <mt:if tag="FLCFAsset" field="file">
                                       <p><a href="<mt:FLCFAsset field="file"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" download>拡大表示する</a></p>
                                     <mt:else>
@@ -1219,7 +1298,7 @@ Template Note : カテゴリ
                                   <!-- /.p-photo__img -->
 
                                   <div class="p-photo__caption">
-                                    <p><mt:FLCFValue field="caption"></p>
+                                    <p><mt:FLCFValue field="caption_many_lines"></p>
                                     <mt:if tag="FLCFAsset" field="file">
                                       <p><a href="<mt:FLCFAsset field="file"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" download>拡大表示する</a></p>
                                     <mt:else>
@@ -1255,7 +1334,7 @@ Template Note : カテゴリ
                                   </div>
                                   <!-- /.p-photo__img -->
                                   <div class="p-photo__caption">
-                                    <p><mt:FLCFValue field="caption"></p>
+                                    <p><mt:FLCFValue field="caption_many_lines"></p>
                                     <mt:if tag="FLCFAsset" field="file">
                                       <p><a href="<mt:FLCFAsset field="file"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" download>拡大表示する</a></p>
                                     <mt:else>
@@ -1292,9 +1371,11 @@ Template Note : カテゴリ
                                     <mt:if tag="FLCFValue" field="url_01"><a href="<mt:FLCFValue field="url_01">"></mt:if>
                                       <div class="p-archive__detail">
                                         <div class="p-archive__header">
-                                          <h3 class="p-archive__title"><mt:FLCFValue field="headline_sentence_01"></h3>
+                                          <h3 class="p-archive__title">
+                                            <mt:FLCFValue field="headline_sentence_01_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml">
+                                          </h3>
                                           <div class="p-archive__description">
-                                            <p><mt:FLCFValue field="supplementary_text_01"></p>
+                                            <mt:FLCFValue field="supplementary_text_01">
                                           </div>
                                           <!-- /.p-archive__description -->
                                         </div>
@@ -1315,9 +1396,11 @@ Template Note : カテゴリ
                                     <mt:if tag="FLCFValue" field="url_02"><a href="<mt:FLCFValue field="url_02">"></mt:if>
                                       <div class="p-archive__detail">
                                         <div class="p-archive__header">
-                                          <h3 class="p-archive__title"><mt:FLCFValue field="headline_sentence_02"></h3>
+                                          <h3 class="p-archive__title">
+                                            <mt:FLCFValue field="headline_sentence_02_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml">
+                                          </h3>
                                           <div class="p-archive__description">
-                                            <p><mt:FLCFValue field="supplementary_text_02"></p>
+                                            <mt:FLCFValue field="supplementary_text_02">
                                           </div>
                                           <!-- /.p-archive__description -->
                                         </div>
@@ -1338,9 +1421,11 @@ Template Note : カテゴリ
                                     <mt:if tag="FLCFValue" field="url_03"><a href="<mt:FLCFValue field="url_03">"></mt:if>
                                       <div class="p-archive__detail">
                                         <div class="p-archive__header">
-                                          <h3 class="p-archive__title"><mt:FLCFValue field="headline_sentence_03"></h3>
+                                          <h3 class="p-archive__title">
+                                            <mt:FLCFValue field="headline_sentence_03_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml">
+                                          </h3>
                                           <div class="p-archive__description">
-                                            <p><mt:FLCFValue field="supplementary_text_03"></p>
+                                            <mt:FLCFValue field="supplementary_text_03">
                                           </div>
                                           <!-- /.p-archive__description -->
                                         </div>
@@ -1361,9 +1446,11 @@ Template Note : カテゴリ
                                     <mt:if tag="FLCFValue" field="url_04"><a href="<mt:FLCFValue field="url_04">"></mt:if>
                                       <div class="p-archive__detail">
                                         <div class="p-archive__header">
-                                          <h3 class="p-archive__title"><mt:FLCFValue field="headline_sentence_04"></h3>
+                                          <h3 class="p-archive__title">
+                                            <mt:FLCFValue field="headline_sentence_04_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml">
+                                          </h3>
                                           <div class="p-archive__description">
-                                            <p><mt:FLCFValue field="supplementary_text_04"></p>
+                                            <mt:FLCFValue field="supplementary_text_04">
                                           </div>
                                           <!-- /.p-archive__description -->
                                         </div>
@@ -1394,9 +1481,11 @@ Template Note : カテゴリ
                                     <mt:if tag="FLCFValue" field="url_01"><a href="<mt:FLCFValue field="url_01">"></mt:if>
                                       <div class="p-archive__detail">
                                         <div class="p-archive__header">
-                                          <h3 class="p-archive__title u-ta_center"><mt:FLCFValue field="headline_sentence_01"></h3>
+                                          <h3 class="p-archive__title u-ta_center">
+                                            <mt:FLCFValue field="headline_sentence_01_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml">
+                                          </h3>
                                           <div class="p-archive__description u-ta_center">
-                                            <p><mt:FLCFValue field="supplementary_text_01"></p>
+                                            <mt:FLCFValue field="supplementary_text_01">
                                           </div>
                                           <!-- /.p-archive__description -->
                                         </div>
@@ -1417,9 +1506,11 @@ Template Note : カテゴリ
                                     <mt:if tag="FLCFValue" field="url_02"><a href="<mt:FLCFValue field="url_02">"></mt:if>
                                       <div class="p-archive__detail">
                                         <div class="p-archive__header">
-                                          <h3 class="p-archive__title u-ta_center"><mt:FLCFValue field="headline_sentence_02"></h3>
+                                          <h3 class="p-archive__title u-ta_center">
+                                            <mt:FLCFValue field="headline_sentence_02_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml">
+                                          </h3>
                                           <div class="p-archive__description u-ta_center">
-                                            <p><mt:FLCFValue field="supplementary_text_02"></p>
+                                            <mt:FLCFValue field="supplementary_text_02">
                                           </div>
                                           <!-- /.p-archive__description -->
                                         </div>
@@ -1440,9 +1531,11 @@ Template Note : カテゴリ
                                     <mt:if tag="FLCFValue" field="url_03"><a href="<mt:FLCFValue field="url_03">"></mt:if>
                                       <div class="p-archive__detail">
                                         <div class="p-archive__header">
-                                          <h3 class="p-archive__title u-ta_center"><mt:FLCFValue field="headline_sentence_03"></h3>
+                                          <h3 class="p-archive__title u-ta_center">
+                                            <mt:FLCFValue field="headline_sentence_03_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml">
+                                          </h3>
                                           <div class="p-archive__description u-ta_center">
-                                            <p><mt:FLCFValue field="supplementary_text_03"></p>
+                                            <mt:FLCFValue field="supplementary_text_03">
                                           </div>
                                           <!-- /.p-archive__description -->
                                         </div>
@@ -1463,9 +1556,11 @@ Template Note : カテゴリ
                                     <mt:if tag="FLCFValue" field="url_04"><a href="<mt:FLCFValue field="url_04">"></mt:if>
                                       <div class="p-archive__detail">
                                         <div class="p-archive__header">
-                                          <h3 class="p-archive__title u-ta_center"><mt:FLCFValue field="headline_sentence_04"></h3>
+                                          <h3 class="p-archive__title u-ta_center">
+                                            <mt:FLCFValue field="headline_sentence_04_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml">
+                                          </h3>
                                           <div class="p-archive__description u-ta_center">
-                                            <p><mt:FLCFValue field="supplementary_text_04"></p>
+                                            <mt:FLCFValue field="supplementary_text_04">
                                           </div>
                                           <!-- /.p-archive__description -->
                                         </div>
@@ -1498,9 +1593,9 @@ Template Note : カテゴリ
                                     <mt:if tag="FLCFValue" field="url_01"><a href="<mt:FLCFValue field="url_01">" target="_blank" rel="noopener"></mt:if>
                                       <div class="p-media__detail">
                                         <div class="p-media__header">
-                                          <h3 class="p-media__title"><mt:FLCFValue field="headline_sentence_01"></h3>
+                                          <h3 class="p-media__title"><mt:FLCFValue field="headline_sentence_01_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></h3>
                                           <div class="p-media__description">
-                                            <p><mt:FLCFValue field="supplementary_text_01"></p>
+                                            <mt:FLCFValue field="supplementary_text_01">
                                           </div>
                                           <!-- /.p-media__description -->
                                         </div>
@@ -1521,9 +1616,9 @@ Template Note : カテゴリ
                                     <mt:if tag="FLCFValue" field="url_02"><a href="<mt:FLCFValue field="url_02">" target="_blank" rel="noopener"></mt:if>
                                       <div class="p-media__detail">
                                         <div class="p-media__header">
-                                          <h3 class="p-media__title"><mt:FLCFValue field="headline_sentence_02"></h3>
+                                          <h3 class="p-media__title"><mt:FLCFValue field="headline_sentence_02_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></h3>
                                           <div class="p-media__description">
-                                            <p><mt:FLCFValue field="supplementary_text_02"></p>
+                                            <mt:FLCFValue field="supplementary_text_02">
                                           </div>
                                           <!-- /.p-media__description -->
                                         </div>
@@ -1544,9 +1639,9 @@ Template Note : カテゴリ
                                     <mt:if tag="FLCFValue" field="url_03"><a href="<mt:FLCFValue field="url_03">" target="_blank" rel="noopener"></mt:if>
                                       <div class="p-media__detail">
                                         <div class="p-media__header">
-                                          <h3 class="p-media__title"><mt:FLCFValue field="headline_sentence_03"></h3>
+                                          <h3 class="p-media__title"><mt:FLCFValue field="headline_sentence_03_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></h3>
                                           <div class="p-media__description">
-                                            <p><mt:FLCFValue field="supplementary_text_03"></p>
+                                            <mt:FLCFValue field="supplementary_text_03">
                                           </div>
                                           <!-- /.p-media__description -->
                                         </div>
@@ -1567,9 +1662,9 @@ Template Note : カテゴリ
                                     <mt:if tag="FLCFValue" field="url_04"><a href="<mt:FLCFValue field="url_04">" target="_blank" rel="noopener"></mt:if>
                                       <div class="p-media__detail">
                                         <div class="p-media__header">
-                                          <h3 class="p-media__title"><mt:FLCFValue field="headline_sentence_04"></h3>
+                                          <h3 class="p-media__title"><mt:FLCFValue field="headline_sentence_04_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></h3>
                                           <div class="p-media__description">
-                                            <p><mt:FLCFValue field="supplementary_text_04"></p>
+                                            <mt:FLCFValue field="supplementary_text_04">
                                           </div>
                                           <!-- /.p-media__description -->
                                         </div>
@@ -1610,7 +1705,7 @@ Template Note : カテゴリ
                             </mt:if>
                               <div class="p-archive__detail">
                                 <div class="p-archive__header">
-                                  <h3 class="p-archive__title"><mt:FLCFValue field="headline_sentence_01"></h3>
+                                  <h3 class="p-archive__title"><mt:FLCFValue field="headline_sentence_01_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></h3>
                                 </div>
                                 <!-- /.p-archive__header -->
                                 <div class="p-archive__image">
@@ -1629,13 +1724,23 @@ Template Note : カテゴリ
 
                             <div class="p-link u-mt10">
                               <ul class="p-link__list">
-                                <li>
+                             
                                   <mt:if tag="FLCFAsset" field="file_01_02">
-                                    <a href="<mt:FLCFAsset field="file_01_02"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" target="_blank" rel="noopener"><span><mt:FLCFValue field="link_text_01"></span></a>
+                                    <li>
+                                      <a href="<mt:FLCFAsset field="file_01_02"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" target="_blank" rel="noopener">
+                                        <span><mt:FLCFValue field="link_text_01_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></span>
+                                      </a>
+                                    </li>
                                   <mt:else>
-                                    <mt:if tag="FLCFValue" field="url_01_02"><a href="<mt:FLCFValue field="url_01_02">" target="_blank" rel="noopener"><span><mt:FLCFValue field="link_text_01"></span></a></mt:if>
+                                    <mt:if tag="FLCFValue" field="url_01_02">
+                                      <li>
+                                        <a href="<mt:FLCFValue field="url_01_02">" target="_blank" rel="noopener">
+                                          <span><mt:FLCFValue field="link_text_01_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></span>
+                                        </a>
+                                      </li>
+                                    </mt:if>
                                   </mt:if>
-                                </li>
+                             
                               </ul>
                             </div>
                             <!-- /.p-link -->
@@ -1650,7 +1755,7 @@ Template Note : カテゴリ
                             </mt:if>
                               <div class="p-archive__detail">
                                 <div class="p-archive__header">
-                                  <h3 class="p-archive__title"><mt:FLCFValue field="headline_sentence_02"></h3>
+                                  <h3 class="p-archive__title"><mt:FLCFValue field="headline_sentence_02_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></h3>
                                 </div>
                                 <!-- /.p-archive__header -->
                                 <div class="p-archive__image">
@@ -1669,13 +1774,17 @@ Template Note : カテゴリ
 
                             <div class="p-link u-mt10">
                               <ul class="p-link__list">
-                                <li>
+                               
                                   <mt:if tag="FLCFAsset" field="file_02_02">
-                                    <a href="<mt:FLCFAsset field="file_02_02"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" target="_blank" rel="noopener"><span><mt:FLCFValue field="link_text_02"></span></a>
+                                    <li>
+                                      <a href="<mt:FLCFAsset field="file_02_02"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" target="_blank" rel="noopener">
+                                        <span><mt:FLCFValue field="link_text_02_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></span>
+                                      </a>
+                                    </li>
                                   <mt:else>
-                                    <mt:if tag="FLCFValue" field="url_02_02"><a href="<mt:FLCFValue field="url_02_02">" target="_blank" rel="noopener"><span><mt:FLCFValue field="link_text_02"></span></a></mt:if>
+                                    <mt:if tag="FLCFValue" field="url_02_02"><li><a href="<mt:FLCFValue field="url_02_02">" target="_blank" rel="noopener"><span><mt:FLCFValue field="link_text_02_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></span></a></li></mt:if>
                                   </mt:if>
-                                </li>
+                                
                               </ul>
                             </div>
                             <!-- /.p-link -->
@@ -1684,13 +1793,13 @@ Template Note : カテゴリ
 
                           <div class="p-archive__item">
                             <mt:if tag="FLCFAsset" field="file_03_01">
-                              <a href="<mt:FLCFAsset field="file_03_01"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" target="_blank" rel="noopener"></a>
+                              <a href="<mt:FLCFAsset field="file_03_01"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" target="_blank" rel="noopener">
                             <mt:else>
-                              <mt:if tag="FLCFValue" field="url_03_01"><a href="<mt:FLCFValue field="url_03_01">" target="_blank" rel="noopener"></a></mt:if>
+                              <mt:if tag="FLCFValue" field="url_03_01"><a href="<mt:FLCFValue field="url_03_01">" target="_blank" rel="noopener"></mt:if>
                             </mt:if>
                               <div class="p-archive__detail">
                                 <div class="p-archive__header">
-                                  <h3 class="p-archive__title"><mt:FLCFValue field="headline_sentence_03"></h3>
+                                  <h3 class="p-archive__title"><mt:FLCFValue field="headline_sentence_03_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></h3>
                                 </div>
                                 <!-- /.p-archive__header -->
                                 <div class="p-archive__image">
@@ -1709,11 +1818,13 @@ Template Note : カテゴリ
 
                             <div class="p-link u-mt10">
                               <ul class="p-link__list">
-                                <mt:if tag="FLCFAsset" field="file_03_02">
-                                  <a href="<mt:FLCFAsset field="file_03_02"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" target="_blank" rel="noopener"><span><mt:FLCFValue field="link_text_03"></span></a>
-                                <mt:else>
-                                  <mt:if tag="FLCFValue" field="url_03_02"><a href="<mt:FLCFValue field="url_03_02">" target="_blank" rel="noopener"><span><mt:FLCFValue field="link_text_03"></span></a></mt:if>
-                                </mt:if>
+                               
+                                  <mt:if tag="FLCFAsset" field="file_03_02">
+                                    <li><a href="<mt:FLCFAsset field="file_03_02"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" target="_blank" rel="noopener"><span><mt:FLCFValue field="link_text_03_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></span></a></li>
+                                  <mt:else>
+                                    <mt:if tag="FLCFValue" field="url_03_02"><li><a href="<mt:FLCFValue field="url_03_02">" target="_blank" rel="noopener"><span><mt:FLCFValue field="link_text_03_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></span></a></li></mt:if>
+                                  </mt:if>
+                               
                               </ul>
                             </div>
                             <!-- /.p-link -->
@@ -1722,13 +1833,13 @@ Template Note : カテゴリ
 
                           <div class="p-archive__item">
                             <mt:if tag="FLCFAsset" field="file_04_01">
-                              <a href="<mt:FLCFAsset field="file_04_01"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" target="_blank" rel="noopener"></a>
+                              <a href="<mt:FLCFAsset field="file_04_01"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" target="_blank" rel="noopener">
                             <mt:else>
-                              <mt:if tag="FLCFValue" field="url_04_01"><a href="<mt:FLCFValue field="url_04_01">" target="_blank" rel="noopener"></a></mt:if>
+                              <mt:if tag="FLCFValue" field="url_04_01"><a href="<mt:FLCFValue field="url_04_01">" target="_blank" rel="noopener"></mt:if>
                             </mt:if>
                               <div class="p-archive__detail">
                                 <div class="p-archive__header">
-                                  <h3 class="p-archive__title"><mt:FLCFValue field="headline_sentence_04"></h3>
+                                  <h3 class="p-archive__title"><mt:FLCFValue field="headline_sentence_04_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></h3>
                                 </div>
                                 <!-- /.p-archive__header -->
                                 <div class="p-archive__image">
@@ -1748,9 +1859,9 @@ Template Note : カテゴリ
                             <div class="p-link u-mt10">
                               <ul class="p-link__list">
                                 <mt:if tag="FLCFAsset" field="file_04_02">
-                                  <a href="<mt:FLCFAsset field="file_04_02"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" target="_blank" rel="noopener"><span><mt:FLCFValue field="link_text_04"></span></a>
+                                  <li><a href="<mt:FLCFAsset field="file_04_02"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" target="_blank" rel="noopener"><span><mt:FLCFValue field="link_text_04_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></span></a></li>
                                 <mt:else>
-                                  <mt:if tag="FLCFValue" field="url_04_02"><a href="<mt:FLCFValue field="url_04_02">" target="_blank" rel="noopener"><span><mt:FLCFValue field="link_text_04"></span></a></mt:if>
+                                  <mt:if tag="FLCFValue" field="url_04_02"><li><a href="<mt:FLCFValue field="url_04_02">" target="_blank" rel="noopener"><span><mt:FLCFValue field="link_text_04_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></span></a></li></mt:if>
                                 </mt:if>
                               </ul>
                             </div>
@@ -1769,15 +1880,15 @@ Template Note : カテゴリ
                   <mt:FLCFIfUnitName name="accordion_image_left_text">
                     <mt:FLCFOptions field="behavior_during_visit">
                       <mt:FLCFIfOptionSelected>
-                        <mt:if tag="FLCFAsset" field="image">
-                          <!-- PC・SP共に閉じている -->
-                            <mt:if tag="FLCFOptionValue" eq="both_PC_and_SP_are_closed">
-                              <div class="l-container__slot">
-                                <ul class="p-accordion_list">
-                                  <li>
-                                    <button class="js-accordion_list_toggle"><mt:FLCFValue field="title"></button>
-                                    <div class="p-accordion_list__child js-accordion_list_child">
-                                      <div class="p-accordion_list__content">
+                        <!-- PC・SP共に閉じている -->
+                          <mt:if tag="FLCFOptionValue" eq="both_PC_and_SP_are_closed">
+                            <div class="l-container__slot2">
+                              <ul class="p-accordion_list">
+                                <li>
+                                  <button class="js-accordion_list_toggle"><mt:FLCFValue field="title_many_lines"></button>
+                                  <div class="p-accordion_list__child js-accordion_list_child">
+                                    <div class="p-accordion_list__content">
+                                    <mt:if tag="FLCFAsset" field="image">
                                       <mt:FLCFOptions field="display_area_ratio_on_PC_accordion">
                                         <mt:FLCFIfOptionSelected>
                                           <!-- 文字領域：画像　1：1 -->
@@ -1785,7 +1896,7 @@ Template Note : カテゴリ
                                               <div class="p-content_2col">
                                                 <div class="p-content_2col__item">
                                                   <div class="c-content_box">
-                                                    <p><mt:FLCFValue field="sentence"></p>
+                                                    <p><mt:FLCFValue field="sentence_many_lines"></p>
                                                   </div>
                                                   <!-- /.c-content_box -->
                                                 </div>
@@ -1798,6 +1909,19 @@ Template Note : カテゴリ
                                                       </mt:FLCFAsset>
                                                     </div>
                                                     <!-- /.p-photo__img--100p -->
+                                                    <div class="p-photo__caption">
+                                                      <p><$mt:FLCFValue field="caption_many_lines"></p>
+                                                      <p>
+                                                        <mt:if tag="FLCFAsset" field="file">
+                                                          <p><a href="<mt:FLCFAsset field="file"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" target="_blank" rel="noopener">拡大表示する</a></p>
+                                                        <mt:else>
+                                                          <mt:if tag="FLCFValue" field="enlarged_display_image_URL">
+                                                            <p><a href="<mt:FLCFValue field="enlarged_display_image_URL">" target="_blank" rel="noopener">拡大表示する</a></li></p>
+                                                          </mt:if>
+                                                        </mt:if>
+                                                      </p>
+                                                    </div>
+                                                    <!-- /.p-photo__caption -->
                                                   </div>
                                                   <!-- /.p-photo -->
                                                 </div>
@@ -1810,7 +1934,7 @@ Template Note : カテゴリ
                                               <div class="p-content_media--large">
                                                 <div class="p-content_media__body">
                                                   <div class="c-content_box">
-                                                    <p><mt:FLCFValue field="sentence"></p>
+                                                    <p><mt:FLCFValue field="sentence_many_lines"></p>
                                                   </div>
                                                   <!-- /.c-content_box -->
                                                 </div>
@@ -1824,6 +1948,19 @@ Template Note : カテゴリ
                                                       </mt:FLCFAsset>
                                                     </div>
                                                     <!-- /.p-photo__img--100p -->
+                                                    <div class="p-photo__caption">
+                                                      <p><$mt:FLCFValue field="caption_many_lines"></p>
+                                                      <p>
+                                                        <mt:if tag="FLCFAsset" field="file">
+                                                          <p><a href="<mt:FLCFAsset field="file"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" target="_blank" rel="noopener">拡大表示する</a></p>
+                                                        <mt:else>
+                                                          <mt:if tag="FLCFValue" field="enlarged_display_image_URL">
+                                                            <p><a href="<mt:FLCFValue field="enlarged_display_image_URL">" target="_blank" rel="noopener">拡大表示する</a></li></p>
+                                                          </mt:if>
+                                                        </mt:if>
+                                                      </p>
+                                                    </div>
+                                                    <!-- /.p-photo__caption -->
                                                     
                                                   </div>
                                                   <!-- /.p-photo -->
@@ -1837,7 +1974,7 @@ Template Note : カテゴリ
                                               <div class="p-content_media">
                                                 <div class="p-content_media__body">
                                                   <div class="c-content_box">
-                                                    <p><mt:FLCFValue field="sentence"></p>
+                                                    <p><mt:FLCFValue field="sentence_many_lines"></p>
                                                   </div>
                                                   <!-- /.c-content_box -->
                                                 </div>
@@ -1851,6 +1988,19 @@ Template Note : カテゴリ
                                                       </mt:FLCFAsset>
                                                     </div>
                                                     <!-- /.p-photo__img--100p -->
+                                                    <div class="p-photo__caption">
+                                                      <p><$mt:FLCFValue field="caption_many_lines"></p>
+                                                      <p>
+                                                        <mt:if tag="FLCFAsset" field="file">
+                                                          <p><a href="<mt:FLCFAsset field="file"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" target="_blank" rel="noopener">拡大表示する</a></p>
+                                                        <mt:else>
+                                                          <mt:if tag="FLCFValue" field="enlarged_display_image_URL">
+                                                            <p><a href="<mt:FLCFValue field="enlarged_display_image_URL">" target="_blank" rel="noopener">拡大表示する</a></li></p>
+                                                          </mt:if>
+                                                        </mt:if>
+                                                      </p>
+                                                    </div>
+                                                    <!-- /.p-photo__caption -->
                                                     
                                                   </div>
                                                   <!-- /.p-photo -->
@@ -1861,235 +2011,328 @@ Template Note : カテゴリ
                                             </mt:if>
                                         </mt:FLCFIfOptionSelected>
                                       </mt:FLCFOptions>
+                                    <mt:else>
+                                      <div class="c-content_box">
+                                        <mt:FLCFValue field="sentence">
                                       </div>
-                                      <!-- /.p-accordion_list__content -->
+                                      <!-- /.c-content_box -->
+                                    </mt:if>
                                     </div>
-                                    <!-- /.p-accordion_list__child -->
-                                  </li>
-                                </ul>
-                              </div>
-                              <!-- /.l-container__slot -->
-                            </mt:if>
-                          <!-- PC・SP共に閉じている -->
-                          <!-- PC・SP共に開いている -->
-                            <mt:if tag="FLCFOptionValue" eq="both_PC_and_SP_are_opened">
-                              <div class="l-container__slot">
-                                <ul class="p-accordion_list">
-                                  <li>
-                                    <button class="js-accordion_list_toggle is-active"><mt:FLCFValue field="title"></button>
-                                    <div class="p-accordion_list__child is-show js-accordion_list_child">
-                                      <div class="p-accordion_list__content">
-                                        <mt:FLCFOptions field="display_area_ratio_on_PC_accordion">
-                                          <mt:FLCFIfOptionSelected>
-                                            <!-- 文字領域：画像　1：1 -->
-                                              <mt:if tag="FLCFOptionValue" eq="1_1">
-                                                <div class="p-content_2col">
-                                                  <div class="p-content_2col__item">
-                                                    <div class="c-content_box">
-                                                      <p><mt:FLCFValue field="sentence"></p>
-                                                    </div>
-                                                    <!-- /.c-content_box -->
-                                                  </div>
-                                                  <!-- /.p-content_2col__item -->
-                                                  <div class="p-content_2col__item">
-                                                    <div class="p-photo">
-                                                      <div class="p-photo__img--100p">
-                                                        <mt:FLCFAsset field="image">
-                                                          <img src="<mt:AssetURL>" alt="">
-                                                        </mt:FLCFAsset>
-                                                      </div>
-                                                      <!-- /.p-photo__img--100p -->
-                                                      
-                                                    </div>
-                                                    <!-- /.p-photo -->
-                                                  </div>
-                                                  <!-- /.p-content_2col__item -->
-                                                </div>
-                                                <!-- /.p-content_2col -->
-                                              </mt:if>
-                                            <!-- 文字領域：画像　1：1 -->
-                                            <!-- 文字領域：画像　2：1 -->
-                                              <mt:if tag="FLCFOptionValue" eq="2_1">
-                                                <div class="p-content_media--large">
-                                                  <div class="p-content_media__body">
-                                                    <div class="c-content_box">
-                                                      <p><mt:FLCFValue field="sentence"></p>
-                                                    </div>
-                                                    <!-- /.c-content_box -->
-                                                  </div>
-                                                  <!-- /.p-content_media__body -->
-
-                                                  <div class="p-content_media__figure">
-                                                    <div class="p-photo">
-                                                      <div class="p-photo__img--100p">
-                                                        <mt:FLCFAsset field="image">
-                                                          <img src="<mt:AssetURL>" alt="">
-                                                        </mt:FLCFAsset>
-                                                      </div>
-                                                      <!-- /.p-photo__img--100p -->
-                                                      
-                                                    </div>
-                                                    <!-- /.p-photo -->
-                                                  </div>
-                                                  <!-- /.p-content_media__figure -->
-                                                </div>
-                                                <!-- /.p-content_media--large -->
-                                              </mt:if>
-                                            <!-- 文字領域：画像　2：1 -->
-                                            <!-- 文字領域：画像　3：1 -->
-                                              <mt:if tag="FLCFOptionValue" eq="3_1">
-                                                <div class="p-content_media">
-                                                  <div class="p-content_media__body">
-                                                    <div class="c-content_box">
-                                                      <p><mt:FLCFValue field="sentence"></p>
-                                                    </div>
-                                                    <!-- /.c-content_box -->
-                                                  </div>
-                                                  <!-- /.p-content_media__body -->
-
-                                                  <div class="p-content_media__figure">
-                                                    <div class="p-photo">
-                                                      <div class="p-photo__img--100p">
-                                                        <mt:FLCFAsset field="image">
-                                                          <img src="<mt:AssetURL>" alt="">
-                                                        </mt:FLCFAsset>
-                                                      </div>
-                                                      <!-- /.p-photo__img--100p -->
-                                                      
-                                                    </div>
-                                                    <!-- /.p-photo -->
-                                                  </div>
-                                                  <!-- /.p-content_media__figure -->
-                                                </div>
-                                                <!-- /.p-content_media -->
-                                              </mt:if>
-                                            <!-- 文字領域：画像　3：1 -->
-                                          </mt:FLCFIfOptionSelected>
-                                        </mt:FLCFOptions>
-                                      </div>
-                                      <!-- /.p-accordion_list__content -->
-                                    </div>
-                                    <!-- /.p-accordion_list__child -->
-                                  </li>
-                                </ul>
-                              </div>
-                              <!-- /.l-container__slot -->
-                            </mt:if>
-                          <!-- PC・SP共に開いている -->
-                          <!-- PC開いている・SP閉じている -->
-                            <mt:if tag="FLCFOptionValue" eq="PC_opened_SP_closed">
-                              <div class="l-container__slot">
-                                <ul class="p-accordion_list">
-                                  <li>
-                                    <button class="js-accordion_list_toggle is-active_pc"><mt:FLCFValue field="title"></button>
-                                    <div class="p-accordion_list__child is-show_pc js-accordion_list_child">
-                                      <div class="p-accordion_list__content">
-                                        <mt:FLCFOptions field="display_area_ratio_on_PC_accordion">
-                                          <mt:FLCFIfOptionSelected>
-                                            <!-- 文字領域：画像　1：1 -->
-                                              <mt:if tag="FLCFOptionValue" eq="1_1">
-                                                <div class="p-content_2col">
-                                                  <div class="p-content_2col__item">
-                                                    <div class="c-content_box">
-                                                      <p><mt:FLCFValue field="sentence"></p>
-                                                    </div>
-                                                    <!-- /.c-content_box -->
-                                                  </div>
-                                                  <!-- /.p-content_2col__item -->
-                                                  <div class="p-content_2col__item">
-                                                    <div class="p-photo">
-                                                      <div class="p-photo__img--100p">
-                                                        <mt:FLCFAsset field="image">
-                                                          <img src="<mt:AssetURL>" alt="">
-                                                        </mt:FLCFAsset>
-                                                      </div>
-                                                      <!-- /.p-photo__img--100p -->
-                                                      
-                                                    </div>
-                                                    <!-- /.p-photo -->
-                                                  </div>
-                                                  <!-- /.p-content_2col__item -->
-                                                </div>
-                                                <!-- /.p-content_2col -->
-                                              </mt:if>
-                                            <!-- 文字領域：画像　1：1 -->
-                                            <!-- 文字領域：画像　2：1 -->
-                                              <mt:if tag="FLCFOptionValue" eq="2_1">
-                                                <div class="p-content_media--large">
-                                                  <div class="p-content_media__body">
-                                                    <div class="c-content_box">
-                                                      <p><mt:FLCFValue field="sentence"></p>
-                                                    </div>
-                                                    <!-- /.c-content_box -->
-                                                  </div>
-                                                  <!-- /.p-content_media__body -->
-
-                                                  <div class="p-content_media__figure">
-                                                    <div class="p-photo">
-                                                      <div class="p-photo__img--100p">
-                                                        <mt:FLCFAsset field="image">
-                                                          <img src="<mt:AssetURL>" alt="">
-                                                        </mt:FLCFAsset>
-                                                      </div>
-                                                      <!-- /.p-photo__img--100p -->
-                                                      
-                                                    </div>
-                                                    <!-- /.p-photo -->
-                                                  </div>
-                                                  <!-- /.p-content_media__figure -->
-                                                </div>
-                                                <!-- /.p-content_media--large -->
-                                              </mt:if>
-                                            <!-- 文字領域：画像　2：1 -->
-                                            <!-- 文字領域：画像　3：1 -->
-                                              <mt:if tag="FLCFOptionValue" eq="3_1">
-                                                <div class="p-content_media">
-                                                  <div class="p-content_media__body">
-                                                    <div class="c-content_box">
-                                                      <p><mt:FLCFValue field="sentence"></p>
-                                                    </div>
-                                                    <!-- /.c-content_box -->
-                                                  </div>
-                                                  <!-- /.p-content_media__body -->
-
-                                                  <div class="p-content_media__figure">
-                                                    <div class="p-photo">
-                                                      <div class="p-photo__img--100p">
-                                                        <mt:FLCFAsset field="image">
-                                                          <img src="<mt:AssetURL>" alt="">
-                                                        </mt:FLCFAsset>
-                                                      </div>
-                                                      <!-- /.p-photo__img--100p -->
-                                                      
-                                                    </div>
-                                                    <!-- /.p-photo -->
-                                                  </div>
-                                                  <!-- /.p-content_media__figure -->
-                                                </div>
-                                                <!-- /.p-content_media -->
-                                              </mt:if>
-                                            <!-- 文字領域：画像　3：1 -->
-                                          </mt:FLCFIfOptionSelected>
-                                        </mt:FLCFOptions>
-                                      </div>
-                                      <!-- /.p-accordion_list__content -->
-                                    </div>
-                                    <!-- /.p-accordion_list__child -->
-                                  </li>
-                                </ul>
-                              </div>
-                              <!-- /.l-container__slot -->
-                            </mt:if>
-                          <!-- PC開いている・SP閉じている -->
-                        </mt:if>
-                        <!-- 文字のみ -->
-                          <mt:unless tag="FLCFAsset" field="image">
-                            <div class="c-content_box">
-                              <p><mt:FLCFValue field="sentence"></p>
+                                    <!-- /.p-accordion_list__content -->
+                                  </div>
+                                  <!-- /.p-accordion_list__child -->
+                                </li>
+                              </ul>
                             </div>
-                            <!-- /.c-content_box -->
-                          </mt:unless>
-                        <!-- 文字のみ -->
+                            <!-- /.l-container__slot2 -->
+                          </mt:if>
+                        <!-- PC・SP共に閉じている -->
+                        <!-- PC・SP共に開いている -->
+                          <mt:if tag="FLCFOptionValue" eq="both_PC_and_SP_are_opened">
+                            <div class="l-container__slot2">
+                              <ul class="p-accordion_list">
+                                <li>
+                                  <button class="js-accordion_list_toggle is-active"><mt:FLCFValue field="title_many_lines"></button>
+                                  <div class="p-accordion_list__child is-show js-accordion_list_child">
+                                    <div class="p-accordion_list__content">
+                                    <mt:if tag="FLCFAsset" field="image">
+                                      <mt:FLCFOptions field="display_area_ratio_on_PC_accordion">
+                                        <mt:FLCFIfOptionSelected>
+                                          <!-- 文字領域：画像　1：1 -->
+                                            <mt:if tag="FLCFOptionValue" eq="1_1">
+                                              <div class="p-content_2col">
+                                                <div class="p-content_2col__item">
+                                                  <div class="c-content_box">
+                                                    <p><mt:FLCFValue field="sentence_many_lines"></p>
+                                                  </div>
+                                                  <!-- /.c-content_box -->
+                                                </div>
+                                                <!-- /.p-content_2col__item -->
+                                                <div class="p-content_2col__item">
+                                                  <div class="p-photo">
+                                                    <div class="p-photo__img--100p">
+                                                      <mt:FLCFAsset field="image">
+                                                        <img src="<mt:AssetURL>" alt="">
+                                                      </mt:FLCFAsset>
+                                                    </div>
+                                                    <!-- /.p-photo__img--100p -->
+                                                    <div class="p-photo__caption">
+                                                      <p><$mt:FLCFValue field="caption_many_lines"></p>
+                                                      <p>
+                                                        <mt:if tag="FLCFAsset" field="file">
+                                                          <p><a href="<mt:FLCFAsset field="file"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" target="_blank" rel="noopener">拡大表示する</a></p>
+                                                        <mt:else>
+                                                          <mt:if tag="FLCFValue" field="enlarged_display_image_URL">
+                                                            <p><a href="<mt:FLCFValue field="enlarged_display_image_URL">" target="_blank" rel="noopener">拡大表示する</a></li></p>
+                                                          </mt:if>
+                                                        </mt:if>
+                                                      </p>
+                                                    </div>
+                                                    <!-- /.p-photo__caption -->
+                                                    
+                                                  </div>
+                                                  <!-- /.p-photo -->
+                                                </div>
+                                                <!-- /.p-content_2col__item -->
+                                              </div>
+                                              <!-- /.p-content_2col -->
+                                            </mt:if>
+                                          <!-- 文字領域：画像　1：1 -->
+                                          <!-- 文字領域：画像　2：1 -->
+                                            <mt:if tag="FLCFOptionValue" eq="2_1">
+                                              <div class="p-content_media--large">
+                                                <div class="p-content_media__body">
+                                                  <div class="c-content_box">
+                                                    <p><mt:FLCFValue field="sentence_many_lines"></p>
+                                                  </div>
+                                                  <!-- /.c-content_box -->
+                                                </div>
+                                                <!-- /.p-content_media__body -->
+
+                                                <div class="p-content_media__figure">
+                                                  <div class="p-photo">
+                                                    <div class="p-photo__img--100p">
+                                                      <mt:FLCFAsset field="image">
+                                                        <img src="<mt:AssetURL>" alt="">
+                                                      </mt:FLCFAsset>
+                                                    </div>
+                                                    <!-- /.p-photo__img--100p -->
+                                                    <div class="p-photo__caption">
+                                                      <p><$mt:FLCFValue field="caption_many_lines"></p>
+                                                      <p>
+                                                        <mt:if tag="FLCFAsset" field="file">
+                                                          <p><a href="<mt:FLCFAsset field="file"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" target="_blank" rel="noopener">拡大表示する</a></p>
+                                                        <mt:else>
+                                                          <mt:if tag="FLCFValue" field="enlarged_display_image_URL">
+                                                            <p><a href="<mt:FLCFValue field="enlarged_display_image_URL">" target="_blank" rel="noopener">拡大表示する</a></li></p>
+                                                          </mt:if>
+                                                        </mt:if>
+                                                      </p>
+                                                    </div>
+                                                    <!-- /.p-photo__caption -->
+                                                    
+                                                  </div>
+                                                  <!-- /.p-photo -->
+                                                </div>
+                                                <!-- /.p-content_media__figure -->
+                                              </div>
+                                              <!-- /.p-content_media--large -->
+                                            </mt:if>
+                                          <!-- 文字領域：画像　2：1 -->
+                                          <!-- 文字領域：画像　3：1 -->
+                                            <mt:if tag="FLCFOptionValue" eq="3_1">
+                                              <div class="p-content_media">
+                                                <div class="p-content_media__body">
+                                                  <div class="c-content_box">
+                                                    <p><mt:FLCFValue field="sentence_many_lines"></p>
+                                                  </div>
+                                                  <!-- /.c-content_box -->
+                                                </div>
+                                                <!-- /.p-content_media__body -->
+
+                                                <div class="p-content_media__figure">
+                                                  <div class="p-photo">
+                                                    <div class="p-photo__img--100p">
+                                                      <mt:FLCFAsset field="image">
+                                                        <img src="<mt:AssetURL>" alt="">
+                                                      </mt:FLCFAsset>
+                                                    </div>
+                                                    <!-- /.p-photo__img--100p -->
+                                                    <div class="p-photo__caption">
+                                                      <p><$mt:FLCFValue field="caption_many_lines"></p>
+                                                      <p>
+                                                        <mt:if tag="FLCFAsset" field="file">
+                                                          <p><a href="<mt:FLCFAsset field="file"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" target="_blank" rel="noopener">拡大表示する</a></p>
+                                                        <mt:else>
+                                                          <mt:if tag="FLCFValue" field="enlarged_display_image_URL">
+                                                            <p><a href="<mt:FLCFValue field="enlarged_display_image_URL">" target="_blank" rel="noopener">拡大表示する</a></li></p>
+                                                          </mt:if>
+                                                        </mt:if>
+                                                      </p>
+                                                    </div>
+                                                    <!-- /.p-photo__caption -->
+                                                    
+                                                  </div>
+                                                  <!-- /.p-photo -->
+                                                </div>
+                                                <!-- /.p-content_media__figure -->
+                                              </div>
+                                              <!-- /.p-content_media -->
+                                            </mt:if>
+                                          <!-- 文字領域：画像　3：1 -->
+                                        </mt:FLCFIfOptionSelected>
+                                      </mt:FLCFOptions>
+                                    <mt:else>
+                                      <!-- 文字のみ -->
+                                        <div class="c-content_box">
+                                          <mt:FLCFValue field="sentence_many_lines">
+                                        </div>
+                                        <!-- /.c-content_box -->
+                                      <!-- 文字のみ -->
+                                    </mt:if>
+                                    </div>
+                                    <!-- /.p-accordion_list__content -->
+                                  </div>
+                                  <!-- /.p-accordion_list__child -->
+                                </li>
+                              </ul>
+                            </div>
+                            <!-- /.l-container__slot2 -->
+                          </mt:if>
+                        <!-- PC・SP共に開いている -->
+                        <!-- PC開いている・SP閉じている -->
+                          <mt:if tag="FLCFOptionValue" eq="PC_opened_SP_closed">
+                            <div class="l-container__slot2">
+                              <ul class="p-accordion_list">
+                                <li>
+                                  <button class="js-accordion_list_toggle is-active_pc"><mt:FLCFValue field="title_many_lines"></button>
+                                  <div class="p-accordion_list__child is-show_pc js-accordion_list_child">
+                                    <div class="p-accordion_list__content">
+                                    <mt:if tag="FLCFAsset" field="image">
+                                      <mt:FLCFOptions field="display_area_ratio_on_PC_accordion">
+                                        <mt:FLCFIfOptionSelected>
+                                          <!-- 文字領域：画像　1：1 -->
+                                            <mt:if tag="FLCFOptionValue" eq="1_1">
+                                              <div class="p-content_2col">
+                                                <div class="p-content_2col__item">
+                                                  <div class="c-content_box">
+                                                    <p><mt:FLCFValue field="sentence_many_lines"></p>
+                                                  </div>
+                                                  <!-- /.c-content_box -->
+                                                </div>
+                                                <!-- /.p-content_2col__item -->
+                                                <div class="p-content_2col__item">
+                                                  <div class="p-photo">
+                                                    <div class="p-photo__img--100p">
+                                                      <mt:FLCFAsset field="image">
+                                                        <img src="<mt:AssetURL>" alt="">
+                                                      </mt:FLCFAsset>
+                                                    </div>
+                                                    <!-- /.p-photo__img--100p -->
+                                                    <div class="p-photo__caption">
+                                                      <p><$mt:FLCFValue field="caption_many_lines"></p>
+                                                      <p>
+                                                        <mt:if tag="FLCFAsset" field="file">
+                                                          <p><a href="<mt:FLCFAsset field="file"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" target="_blank" rel="noopener">拡大表示する</a></p>
+                                                        <mt:else>
+                                                          <mt:if tag="FLCFValue" field="enlarged_display_image_URL">
+                                                            <p><a href="<mt:FLCFValue field="enlarged_display_image_URL">" target="_blank" rel="noopener">拡大表示する</a></li></p>
+                                                          </mt:if>
+                                                        </mt:if>
+                                                      </p>
+                                                    </div>
+                                                    <!-- /.p-photo__caption -->
+                                                    
+                                                  </div>
+                                                  <!-- /.p-photo -->
+                                                </div>
+                                                <!-- /.p-content_2col__item -->
+                                              </div>
+                                              <!-- /.p-content_2col -->
+                                            </mt:if>
+                                          <!-- 文字領域：画像　1：1 -->
+                                          <!-- 文字領域：画像　2：1 -->
+                                            <mt:if tag="FLCFOptionValue" eq="2_1">
+                                              <div class="p-content_media--large">
+                                                <div class="p-content_media__body">
+                                                  <div class="c-content_box">
+                                                    <p><mt:FLCFValue field="sentence_many_lines"></p>
+                                                  </div>
+                                                  <!-- /.c-content_box -->
+                                                </div>
+                                                <!-- /.p-content_media__body -->
+
+                                                <div class="p-content_media__figure">
+                                                  <div class="p-photo">
+                                                    <div class="p-photo__img--100p">
+                                                      <mt:FLCFAsset field="image">
+                                                        <img src="<mt:AssetURL>" alt="">
+                                                      </mt:FLCFAsset>
+                                                    </div>
+                                                    <!-- /.p-photo__img--100p -->
+                                                    <div class="p-photo__caption">
+                                                      <p><$mt:FLCFValue field="caption_many_lines"></p>
+                                                      <p>
+                                                        <mt:if tag="FLCFAsset" field="file">
+                                                          <p><a href="<mt:FLCFAsset field="file"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" target="_blank" rel="noopener">拡大表示する</a></p>
+                                                        <mt:else>
+                                                          <mt:if tag="FLCFValue" field="enlarged_display_image_URL">
+                                                            <p><a href="<mt:FLCFValue field="enlarged_display_image_URL">" target="_blank" rel="noopener">拡大表示する</a></li></p>
+                                                          </mt:if>
+                                                        </mt:if>
+                                                      </p>
+                                                    </div>
+                                                    <!-- /.p-photo__caption -->
+                                                    
+                                                  </div>
+                                                  <!-- /.p-photo -->
+                                                </div>
+                                                <!-- /.p-content_media__figure -->
+                                              </div>
+                                              <!-- /.p-content_media--large -->
+                                            </mt:if>
+                                          <!-- 文字領域：画像　2：1 -->
+                                          <!-- 文字領域：画像　3：1 -->
+                                            <mt:if tag="FLCFOptionValue" eq="3_1">
+                                              <div class="p-content_media">
+                                                <div class="p-content_media__body">
+                                                  <div class="c-content_box">
+                                                    <p><mt:FLCFValue field="sentence_many_lines"></p>
+                                                  </div>
+                                                  <!-- /.c-content_box -->
+                                                </div>
+                                                <!-- /.p-content_media__body -->
+
+                                                <div class="p-content_media__figure">
+                                                  <div class="p-photo">
+                                                    <div class="p-photo__img--100p">
+                                                      <mt:FLCFAsset field="image">
+                                                        <img src="<mt:AssetURL>" alt="">
+                                                      </mt:FLCFAsset>
+                                                    </div>
+                                                    <!-- /.p-photo__img--100p -->
+                                                    <div class="p-photo__caption">
+                                                      <p><$mt:FLCFValue field="caption_many_lines"></p>
+                                                      <p>
+                                                        <mt:if tag="FLCFAsset" field="file">
+                                                          <p><a href="<mt:FLCFAsset field="file"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" target="_blank" rel="noopener">拡大表示する</a></p>
+                                                        <mt:else>
+                                                          <mt:if tag="FLCFValue" field="enlarged_display_image_URL">
+                                                            <p><a href="<mt:FLCFValue field="enlarged_display_image_URL">" target="_blank" rel="noopener">拡大表示する</a></li></p>
+                                                          </mt:if>
+                                                        </mt:if>
+                                                      </p>
+                                                    </div>
+                                                    <!-- /.p-photo__caption -->
+                                                    
+                                                  </div>
+                                                  <!-- /.p-photo -->
+                                                </div>
+                                                <!-- /.p-content_media__figure -->
+                                              </div>
+                                              <!-- /.p-content_media -->
+                                            </mt:if>
+                                          <!-- 文字領域：画像　3：1 -->
+                                        </mt:FLCFIfOptionSelected>
+                                      </mt:FLCFOptions>
+                                    <mt:else>
+                                      <!-- 文字のみ -->
+                                        <div class="c-content_box">
+                                          <mt:FLCFValue field="sentence_many_lines">
+                                        </div>
+                                        <!-- /.c-content_box -->
+                                      <!-- 文字のみ -->
+                                    </mt:if>
+                                    </div>
+                                    <!-- /.p-accordion_list__content -->
+                                  </div>
+                                  <!-- /.p-accordion_list__child -->
+                                </li>
+                              </ul>
+                            </div>
+                            <!-- /.l-container__slot2 -->
+                          </mt:if>
+                        <!-- PC開いている・SP閉じている -->
                       </mt:FLCFIfOptionSelected>
                     </mt:FLCFOptions>
                   </mt:FLCFIfUnitName>
@@ -2133,12 +2376,12 @@ Template Note : カテゴリ
                                   </mt:FLCFAsset>
                                 </div>
                               </mt:if>
-                              <$mt:if tag="FLCFValue" field="caption">
+                              
                                 <div class="p-photo__caption">
-                                  <p><$mt:FLCFValue field="caption"></p>
+                                  <$mt:FLCFValue field="caption_many_lines">
                                   <p>
                                     <mt:if tag="FLCFAsset" field="file">
-                                      <p><a href="<mt:FLCFAsset field="file"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" download>拡大表示する</a></p>
+                                      <p><a href="<mt:FLCFAsset field="file"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" target="_blank" rel="noopener">拡大表示する</a></p>
                                     <mt:else>
                                       <mt:if tag="FLCFValue" field="enlarged_display_image_URL">
                                         <p><a href="<mt:FLCFValue field="enlarged_display_image_URL">" target="_blank" rel="noopener">拡大表示する</a></li></p>
@@ -2147,7 +2390,7 @@ Template Note : カテゴリ
                                   </p>
                                 </div>
                                 <!-- /.p-photo__caption -->
-                              </mt:if>
+                              
                             </div>
                             <!-- /.p-photo -->
                           </div>
@@ -2172,14 +2415,14 @@ Template Note : カテゴリ
                                         </mt:FLCFAsset>
                                       </div>
                                       <div class="p-photo__caption">
-                                        <p><mt:FLCFValue field="caption_01"></p>
+                                        <mt:FLCFValue field="caption_01_many_lines">
                                         <mt:if tag="FLCFValue" field="enlarged_display_image_URL_01">
                                           <p><a href="<mt:FLCFValue field="enlarged_display_image_URL_01">" target="_blank" rel="noopener">拡大表示する</a></p>
                                         </mt:if>
                                       </div>
                                       <!-- /.p-photo__caption -->
                                       <div class="p-photo__header">
-                                        <h3 class="p-photo__title"><mt:FLCFValue field="heading_01"></h3>
+                                        <h3 class="p-photo__title"><mt:FLCFValue field="heading_01_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></h3>
                                       </div>
                                       <!-- /.p-photo__header -->
                                     </div>
@@ -2194,14 +2437,14 @@ Template Note : カテゴリ
                                         </mt:FLCFAsset>
                                       </div>
                                       <div class="p-photo__caption">
-                                        <p><mt:FLCFValue field="caption_02"></p>
+                                        <mt:FLCFValue field="caption_02_many_lines">
                                         <mt:if tag="FLCFValue" field="enlarged_display_image_URL_02">
                                           <p><a href="<mt:FLCFValue field="enlarged_display_image_URL_02">" target="_blank" rel="noopener">拡大表示する</a></p>
                                         </mt:if>
                                       </div>
                                       <!-- /.p-photo__caption -->
                                       <div class="p-photo__header">
-                                        <h3 class="p-photo__title"><mt:FLCFValue field="heading_02"></h3>
+                                        <h3 class="p-photo__title"><mt:FLCFValue field="heading_02_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></h3>
                                       </div>
                                       <!-- /.p-photo__header -->
                                     </div>
@@ -2227,14 +2470,14 @@ Template Note : カテゴリ
                                         </mt:FLCFAsset>
                                       </div>
                                       <div class="p-photo__caption">
-                                        <p><mt:FLCFValue field="caption_01"></p>
+                                        <mt:FLCFValue field="caption_01_many_lines">
                                         <mt:if tag="FLCFValue" field="enlarged_display_image_URL_01">
                                           <p><a href="<mt:FLCFValue field="enlarged_display_image_URL_01">" target="_blank" rel="noopener">拡大表示する</a></p>
                                         </mt:if>
                                       </div>
                                       <!-- /.p-photo__caption -->
                                       <div class="p-photo__header">
-                                        <h3 class="p-photo__title"><mt:FLCFValue field="heading_01"></h3>
+                                        <h3 class="p-photo__title"><mt:FLCFValue field="heading_01_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></h3>
                                       </div>
                                       <!-- /.p-photo__header -->
                                     </div>
@@ -2250,12 +2493,12 @@ Template Note : カテゴリ
                                         </mt:FLCFAsset>
                                       </div>
                                       <div class="p-photo__caption">
-                                        <p><mt:FLCFValue field="caption_02"></p>
+                                        <mt:FLCFValue field="caption_02_many_lines">
                                         <mt:if tag="FLCFValue" field="enlarged_display_image_URL_02"><p><a href="<mt:FLCFValue field="enlarged_display_image_URL_02">" target="_blank" rel="noopener">拡大表示する</a></p></mt:if>
                                       </div>
                                       <!-- /.p-photo__caption -->
                                       <div class="p-photo__header">
-                                        <h3 class="p-photo__title"><mt:FLCFValue field="heading_02"></h3>
+                                        <h3 class="p-photo__title"><mt:FLCFValue field="heading_02_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></h3>
                                       </div>
                                       <!-- /.p-photo__header -->
                                     </div>
@@ -2271,12 +2514,12 @@ Template Note : カテゴリ
                                         </mt:FLCFAsset>
                                       </div>
                                       <div class="p-photo__caption">
-                                        <p><mt:FLCFValue field="caption_03"></p>
+                                        <mt:FLCFValue field="caption_03_many_lines">
                                         <mt:if tag="FLCFValue" field="enlarged_display_image_URL_03"><p><a href="<mt:FLCFValue field="enlarged_display_image_URL_03">" target="_blank" rel="noopener">拡大表示する</a></p></mt:if>
                                       </div>
                                       <!-- /.p-photo__caption -->
                                       <div class="p-photo__header">
-                                        <h3 class="p-photo__title"><mt:FLCFValue field="heading_03"></h3>
+                                        <h3 class="p-photo__title"><mt:FLCFValue field="heading_03_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></h3>
                                       </div>
                                       <!-- /.p-photo__header -->
                                     </div>
@@ -2302,12 +2545,12 @@ Template Note : カテゴリ
                                         </mt:FLCFAsset>
                                       </div>
                                       <div class="p-photo__caption">
-                                        <p><mt:FLCFValue field="caption_01"></p>
+                                        <mt:FLCFValue field="caption_01_many_lines">
                                         <mt:if tag="FLCFValue" field="enlarged_display_image_URL_01"><p><a href="<mt:FLCFValue field="enlarged_display_image_URL_01">" target="_blank" rel="noopener">拡大表示する</a></p></mt:if>
                                       </div>
                                       <!-- /.p-photo__caption -->
                                       <div class="p-photo__header">
-                                        <h3 class="p-photo__title"><mt:FLCFValue field="heading_01"></h3>
+                                        <h3 class="p-photo__title"><mt:FLCFValue field="heading_01_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></h3>
                                       </div>
                                       <!-- /.p-photo__header -->
                                     </div>
@@ -2323,12 +2566,12 @@ Template Note : カテゴリ
                                         </mt:FLCFAsset>
                                       </div>
                                       <div class="p-photo__caption">
-                                        <p><mt:FLCFValue field="caption_02"></p>
+                                        <mt:FLCFValue field="caption_02_many_lines">
                                         <mt:if tag="FLCFValue" field="enlarged_display_image_URL_02"><p><a href="<mt:FLCFValue field="enlarged_display_image_URL_02">" target="_blank" rel="noopener">拡大表示する</a></p></mt:if>
                                       </div>
                                       <!-- /.p-photo__caption -->
                                       <div class="p-photo__header">
-                                        <h3 class="p-photo__title"><mt:FLCFValue field="heading_02"></h3>
+                                        <h3 class="p-photo__title"><mt:FLCFValue field="heading_02_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></h3>
                                       </div>
                                       <!-- /.p-photo__header -->
                                     </div>
@@ -2344,12 +2587,12 @@ Template Note : カテゴリ
                                         </mt:FLCFAsset>
                                       </div>
                                       <div class="p-photo__caption">
-                                        <p><mt:FLCFValue field="caption_03"></p>
+                                        <mt:FLCFValue field="caption_03_many_lines">
                                         <mt:if tag="FLCFValue" field="enlarged_display_image_URL_03"><p><a href="<mt:FLCFValue field="enlarged_display_image_URL_03">" target="_blank" rel="noopener">拡大表示する</a></p></mt:if>
                                       </div>
                                       <!-- /.p-photo__caption -->
                                       <div class="p-photo__header">
-                                        <h3 class="p-photo__title"><mt:FLCFValue field="heading_03"></h3>
+                                        <h3 class="p-photo__title"><mt:FLCFValue field="heading_03_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></h3>
                                       </div>
                                       <!-- /.p-photo__header -->
                                     </div>
@@ -2365,12 +2608,12 @@ Template Note : カテゴリ
                                         </mt:FLCFAsset>
                                       </div>
                                       <div class="p-photo__caption">
-                                        <p><mt:FLCFValue field="caption_04"></p>
+                                        <mt:FLCFValue field="caption_04_many_lines">
                                         <mt:if tag="FLCFValue" field="enlarged_display_image_URL_04"><p><a href="<mt:FLCFValue field="enlarged_display_image_URL_04">" target="_blank" rel="noopener">拡大表示する</a></p></mt:if>
                                       </div>
                                       <!-- /.p-photo__caption -->
                                       <div class="p-photo__header">
-                                        <h3 class="p-photo__title"><mt:FLCFValue field="heading_04"></h3>
+                                        <h3 class="p-photo__title"><mt:FLCFValue field="heading_04_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></h3>
                                       </div>
                                       <!-- /.p-photo__header -->
                                     </div>
@@ -2395,7 +2638,7 @@ Template Note : カテゴリ
                         <!-- 01 -->
                         <div class="p-content_2col__item">
                           <div class="c-subheading">
-                            <h5 class="c-subheading__text"><mt:FLCFValue field="heading_01"></h5>
+                            <h5 class="c-subheading__text"><mt:FLCFValue field="heading_01_many_lines"></h5>
                           </div>
                           <!-- /.c-subheading -->
 
@@ -2412,7 +2655,7 @@ Template Note : カテゴリ
                             </div>
                             <!-- /.p-photo__img -->
                             <div class="p-photo__caption">
-                              <p><mt:FLCFValue field="caption_01"></p>
+                              <mt:FLCFValue field="caption_01_many_lines">
                               <p>
                                 <mt:if tag="FLCFAsset" field="file_01">
                                   <p><a href="<mt:FLCFAsset field="file_01"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" target="_blank">拡大表示する</a></p>
@@ -2431,7 +2674,7 @@ Template Note : カテゴリ
                         <!-- 02 -->
                         <div class="p-content_2col__item">
                           <div class="c-subheading">
-                            <h5 class="c-subheading__text"><mt:FLCFValue field="heading_02"></h5>
+                            <h5 class="c-subheading__text"><mt:FLCFValue field="heading_02_many_lines"></h5>
                           </div>
                           <!-- /.c-subheading -->
 
@@ -2448,14 +2691,14 @@ Template Note : カテゴリ
                             </div>
                             <!-- /.p-photo__img -->
                             <div class="p-photo__caption">
-                              <p><mt:FLCFValue field="caption_02"></p>
+                              <mt:FLCFValue field="caption_02_many_lines">
                               <p>
                                 <mt:if tag="FLCFAsset" field="file_02">
                                   <p><a href="<mt:FLCFAsset field="file_02"><$mt:AssetURL$></mt:FLCFAsset>" class="js-file_get_size" target="_blank">拡大表示する</a></p>
                                 <mt:else>
-                                <mt:if tag="FLCFValue" field="enlarged_display_image_URL">
-                                  <p><a href="<mt:FLCFValue field="enlarged_display_image_URL_02">" target="_blank" rel="noopener">拡大表示する</a></li></p>
-                                </mt:if>
+                                  <mt:if tag="FLCFValue" field="enlarged_display_image_URL_02">
+                                    <p><a href="<mt:FLCFValue field="enlarged_display_image_URL_02">" target="_blank" rel="noopener">拡大表示する</a></li></p>
+                                  </mt:if>
                                 </mt:if>
                               </p>
                             </div>
@@ -2623,7 +2866,7 @@ Template Note : カテゴリ
 
                                 <div class="p-content_2col__item">
                                   <div class="c-content_box">
-                                    <p><mt:FLCFValue field="sentence"></p>
+                                    <p><mt:FLCFValue field="sentence_google_maps"></p>
                                   </div>
                                   <!-- /.c-content_box -->
                                 </div>
@@ -2655,7 +2898,7 @@ Template Note : カテゴリ
 
                                 <div class="p-content__item">
                                   <div class="c-content_box">
-                                    <p><mt:FLCFValue field="sentence"></p>
+                                    <p><mt:FLCFValue field="sentence_google_maps"></p>
                                   </div>
                                   <!-- /.c-content_box -->
                                 </div>
@@ -2672,7 +2915,7 @@ Template Note : カテゴリ
                               <div class="p-content_2col">
                                 <div class="p-content_2col__item">
                                   <div class="c-content_box">
-                                    <p><mt:FLCFValue field="sentence"></p>
+                                    <p><mt:FLCFValue field="sentence_google_maps"></p>
                                   </div>
                                   <!-- /.c-content_box -->
                                 </div>
@@ -2835,18 +3078,18 @@ Template Note : カテゴリ
                   <mt:FLCFIfUnitName name="point">
                     <div class="l-container__slot">
                       <div class="p-content_point">
-                        <p class="p-content_point__heading"><$mt:FLCFValue field="heading"$></p>
+                        <div class="p-content_point__heading"><$mt:FLCFValue field="heading_many_lines"$></div>
                         <ol class="p-content_point__list--order">
-                          <mt:if tag="FLCFValue" field="sentence_01"><li><$mt:FLCFValue field="sentence_01"$></li></mt:if>
-                          <mt:if tag="FLCFValue" field="sentence_02"><li><$mt:FLCFValue field="sentence_02"$></li></mt:if>
-                          <mt:if tag="FLCFValue" field="sentence_03"><li><$mt:FLCFValue field="sentence_03"$></li></mt:if>
-                          <mt:if tag="FLCFValue" field="sentence_04"><li><$mt:FLCFValue field="sentence_04"$></li></mt:if>
-                          <mt:if tag="FLCFValue" field="sentence_05"><li><$mt:FLCFValue field="sentence_05"$></li></mt:if>
-                          <mt:if tag="FLCFValue" field="sentence_06"><li><$mt:FLCFValue field="sentence_06"$></li></mt:if>
-                          <mt:if tag="FLCFValue" field="sentence_07"><li><$mt:FLCFValue field="sentence_07"$></li></mt:if>
-                          <mt:if tag="FLCFValue" field="sentence_08"><li><$mt:FLCFValue field="sentence_08"$></li></mt:if>
-                          <mt:if tag="FLCFValue" field="sentence_09"><li><$mt:FLCFValue field="sentence_09"$></li></mt:if>
-                          <mt:if tag="FLCFValue" field="sentence_10"><li><$mt:FLCFValue field="sentence_10"$></li></mt:if>
+                          <mt:if tag="FLCFValue" field="sentence_01_many_lines"><li><$mt:FLCFValue field="sentence_01_many_lines"$></li></mt:if>
+                          <mt:if tag="FLCFValue" field="sentence_02_many_lines"><li><$mt:FLCFValue field="sentence_02_many_lines"$></li></mt:if>
+                          <mt:if tag="FLCFValue" field="sentence_03_many_lines"><li><$mt:FLCFValue field="sentence_03_many_lines"$></li></mt:if>
+                          <mt:if tag="FLCFValue" field="sentence_04_many_lines"><li><$mt:FLCFValue field="sentence_04_many_lines"$></li></mt:if>
+                          <mt:if tag="FLCFValue" field="sentence_05_many_lines"><li><$mt:FLCFValue field="sentence_05_many_lines"$></li></mt:if>
+                          <mt:if tag="FLCFValue" field="sentence_06_many_lines"><li><$mt:FLCFValue field="sentence_06_many_lines"$></li></mt:if>
+                          <mt:if tag="FLCFValue" field="sentence_07_many_lines"><li><$mt:FLCFValue field="sentence_07_many_lines"$></li></mt:if>
+                          <mt:if tag="FLCFValue" field="sentence_08_many_lines"><li><$mt:FLCFValue field="sentence_08_many_lines"$></li></mt:if>
+                          <mt:if tag="FLCFValue" field="sentence_09_many_lines"><li><$mt:FLCFValue field="sentence_09_many_lines"$></li></mt:if>
+                          <mt:if tag="FLCFValue" field="sentence_10_many_lines"><li><$mt:FLCFValue field="sentence_10_many_lines"$></li></mt:if>
                         </ol>
                       </div>
                       <!-- /.p-content_point -->
@@ -2966,96 +3209,274 @@ Template Note : カテゴリ
                     </mt:FLCFIfUnitName>
                   <!-- 単表 -->
                   <!-- 一覧表 -->
-                    <mt:FLCFIfUnitName name="table_requid_list">
-                      <div class="l-container__slot">
-                        <div class="p-feature">
-                          <div class="p-feature__table--fixed">
-                            <table>
-                              <thead>
-                                <tr>
-                                  <th scope="col"><mt:FLCFValue field="t_head_01"></th>
-                                  <th scope="col"><mt:FLCFValue field="t_head_02"></th>
-                                  <th scope="col"><mt:FLCFValue field="t_head_03"></th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                              <mt:FLCFTable field="table_requid_list">
-                                <tr>
-                                  <td><$mt:FLCFValue field="content_01"$></td>
-                                  <td><$mt:FLCFValue field="content_02"$></td>
-                                  <td><$mt:FLCFValue field="content_03"$></td>
-                                </tr>
-                              </mt:FLCFTable>
-                              </tbody>
-                            </table>
+                    <!-- 2 -->
+                      <mt:FLCFIfUnitName name="table_requid_list_2">
+                        <div class="l-container__slot">
+                          <div class="p-feature">
+                            <div class="p-feature__table--fixed">
+                              <table>
+                                <thead>
+                                  <tr>
+                                    <th scope="col"><mt:FLCFValue field="t_head_01"></th>
+                                    <th scope="col"><mt:FLCFValue field="t_head_02"></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                <mt:FLCFTable field="table_requid_list_2">
+                                  <tr>
+                                    <td><$mt:FLCFValue field="content_01"$></td>
+                                    <td><$mt:FLCFValue field="content_02"$></td>
+                                  </tr>
+                                </mt:FLCFTable>
+                                </tbody>
+                              </table>
+                            </div>
+                            <!-- /.p-feature__table -->
                           </div>
-                          <!-- /.p-feature__table -->
+                          <!-- /.p-feature -->
                         </div>
-                        <!-- /.p-feature -->
-                      </div>
-                      <!-- /.l-container__slot -->
-                    </mt:FLCFIfUnitName>
+                        <!-- /.l-container__slot -->
+                      </mt:FLCFIfUnitName>
+                    <!-- 2 -->
+                    <!-- 3 -->
+                      <mt:FLCFIfUnitName name="table_requid_list_3">
+                        <div class="l-container__slot">
+                          <div class="p-feature">
+                            <div class="p-feature__table--fixed">
+                              <table>
+                                <thead>
+                                  <tr>
+                                    <th scope="col"><mt:FLCFValue field="t_head_01"></th>
+                                    <th scope="col"><mt:FLCFValue field="t_head_02"></th>
+                                    <th scope="col"><mt:FLCFValue field="t_head_03"></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                <mt:FLCFTable field="table_requid_list_3">
+                                  <tr>
+                                    <td><$mt:FLCFValue field="content_01"$></td>
+                                    <td><$mt:FLCFValue field="content_02"$></td>
+                                    <td><$mt:FLCFValue field="content_03"$></td>
+                                  </tr>
+                                </mt:FLCFTable>
+                                </tbody>
+                              </table>
+                            </div>
+                            <!-- /.p-feature__table -->
+                          </div>
+                          <!-- /.p-feature -->
+                        </div>
+                        <!-- /.l-container__slot -->
+                      </mt:FLCFIfUnitName>
+                    <!-- 3 -->
                   <!-- 一覧表 -->
                   <!-- 複表 -->
-                    <mt:FLCFIfUnitName name="table_requid_complex">
-                      <div class="l-container__slot">
-                        <div class="p-feature">
-                          <div class="p-feature__table--fixed">
-                            <table>
-                              <thead>
-                                <tr>
-                                  <th scope="col"><mt:FLCFValue field="t_head_01"></th>
-                                  <th scope="col"><mt:FLCFValue field="t_head_02"></th>
-                                  <th scope="col"><mt:FLCFValue field="t_head_03"></th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                              <mt:FLCFTable field="table_requid_complex">
-                                <tr>
-                                  <th scope="row"><mt:FLCFValue field="title_01"></th>
-                                  <td><$mt:FLCFValue field="content_01"$></td>
-                                  <td><$mt:FLCFValue field="content_02"$></td>
-                                </tr>
-                              </mt:FLCFTable>
-                              </tbody>
-                            </table>
+                    <!-- 2 -->
+                      <mt:FLCFIfUnitName name="table_requid_complex_2">
+                        <div class="l-container__slot">
+                          <div class="p-feature">
+                            <div class="p-feature__table--fixed">
+                              <table>
+                                <thead>
+                                  <tr>
+                                    <th scope="col"><mt:FLCFValue field="t_head_01"></th>
+                                    <th scope="col"><mt:FLCFValue field="t_head_02"></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                <mt:FLCFTable field="table_requid_complex_2">
+                                  <tr>
+                                    <th scope="row"><mt:FLCFValue field="title_01"></th>
+                                    <td><$mt:FLCFValue field="content_01"$></td>
+                                  </tr>
+                                </mt:FLCFTable>
+                                </tbody>
+                              </table>
+                            </div>
+                            <!-- /.p-feature__table -->
                           </div>
-                          <!-- /.p-feature__table -->
+                          <!-- /.p-feature -->
                         </div>
-                        <!-- /.p-feature -->
-                      </div>
-                      <!-- /.l-container__slot -->
-                    </mt:FLCFIfUnitName>
+                        <!-- /.l-container__slot -->
+                      </mt:FLCFIfUnitName>
+                    <!-- 2 -->
+                    <!-- 3 -->
+                      <mt:FLCFIfUnitName name="table_requid_complex_3">
+                        <div class="l-container__slot">
+                          <div class="p-feature">
+                            <div class="p-feature__table--fixed">
+                              <table>
+                                <thead>
+                                  <tr>
+                                    <th scope="col"><mt:FLCFValue field="t_head_01"></th>
+                                    <th scope="col"><mt:FLCFValue field="t_head_02"></th>
+                                    <th scope="col"><mt:FLCFValue field="t_head_03"></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                <mt:FLCFTable field="table_requid_complex_3">
+                                  <tr>
+                                    <th scope="row"><mt:FLCFValue field="title_01"></th>
+                                    <td><$mt:FLCFValue field="content_01"$></td>
+                                    <td><$mt:FLCFValue field="content_02"$></td>
+                                  </tr>
+                                </mt:FLCFTable>
+                                </tbody>
+                              </table>
+                            </div>
+                            <!-- /.p-feature__table -->
+                          </div>
+                          <!-- /.p-feature -->
+                        </div>
+                        <!-- /.l-container__slot -->
+                      </mt:FLCFIfUnitName>
+                    <!-- 3 -->
                   <!-- 複表 -->
                 <!-- テーブル（リキッド型）-->
                 <!-- テーブル（スクロール型）-->
-                  <!-- 単表 -->
-                  <mt:FLCFIfUnitName name="table_scroll_single">
-                    <div class="l-container__slot">
-                      <div class="p-feature">
-                        <div class="p-feature__table--scroll_justify">
-                          <table>
-                            <tbody>
-                              <mt:FLCFTable field="table_scroll_single">
+                  <!-- 一覧表 -->
+                  <!-- 3 -->
+                    <mt:FLCFIfUnitName name="table_scroll_list_3">
+                      <div class="l-container__slot">
+                        <div class="p-feature">
+                          <div class="p-feature__table--scroll_justify">
+                            <table>
+                              <thead>
                                 <tr>
-                                  <th scope="row"><$mt:FLCFValue field="title"$></th>
+                                  <th scope="col"><mt:FLCFValue field="t_head_01"></th>
+                                  <th scope="col"><mt:FLCFValue field="t_head_02"></th>
+                                  <th scope="col"><mt:FLCFValue field="t_head_03"></th>
+                                  
+                                </tr>
+                              </thead>
+                              <tbody>
+                              <mt:FLCFTable field="table_scroll_list_3">
+                                <tr>
                                   <td><$mt:FLCFValue field="content_01"$></td>
                                   <td><$mt:FLCFValue field="content_02"$></td>
                                   <td><$mt:FLCFValue field="content_03"$></td>
+                                  
                                 </tr>
                               </mt:FLCFTable>
-                            </tbody>
-                          </table>
+                              </tbody>
+                            </table>
+                          </div>
+                          <!-- /.p-feature__table -->
                         </div>
-                        <!-- /.p-feature__table -->
+                        <!-- /.p-feature -->
                       </div>
-                      <!-- /.p-feature -->
-                    </div>
-                    <!-- /.l-container__slot -->
-                  </mt:FLCFIfUnitName>
-                  <!-- 単表 -->
+                      <!-- /.l-container__slot -->
+                    </mt:FLCFIfUnitName>
+                  <!-- 3 -->
+                  <!-- 4 -->
+                    <mt:FLCFIfUnitName name="table_scroll_list_4">
+                      <div class="l-container__slot">
+                        <div class="p-feature">
+                          <div class="p-feature__table--scroll_justify">
+                            <table>
+                              <thead>
+                                <tr>
+                                  <th scope="col"><mt:FLCFValue field="t_head_01"></th>
+                                  <th scope="col"><mt:FLCFValue field="t_head_02"></th>
+                                  <th scope="col"><mt:FLCFValue field="t_head_03"></th>
+                                  <th scope="col"><mt:FLCFValue field="t_head_04"></th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                              <mt:FLCFTable field="table_scroll_list_4">
+                                <tr>
+                                  <td><$mt:FLCFValue field="content_01"$></td>
+                                  <td><$mt:FLCFValue field="content_02"$></td>
+                                  <td><$mt:FLCFValue field="content_03"$></td>
+                                  <td><$mt:FLCFValue field="content_04"$></td>
+                                </tr>
+                              </mt:FLCFTable>
+                              </tbody>
+                            </table>
+                          </div>
+                          <!-- /.p-feature__table -->
+                        </div>
+                        <!-- /.p-feature -->
+                      </div>
+                      <!-- /.l-container__slot -->
+                    </mt:FLCFIfUnitName>
+                  <!-- 4 -->
+                  <!-- 5 -->
+                    <mt:FLCFIfUnitName name="table_scroll_list_5">
+                      <div class="l-container__slot">
+                        <div class="p-feature">
+                          <div class="p-feature__table--scroll_justify">
+                            <table>
+                              <thead>
+                                <tr>
+                                  <th scope="col"><mt:FLCFValue field="t_head_01"></th>
+                                  <th scope="col"><mt:FLCFValue field="t_head_02"></th>
+                                  <th scope="col"><mt:FLCFValue field="t_head_03"></th>
+                                  <th scope="col"><mt:FLCFValue field="t_head_04"></th>
+                                  <th scope="col"><mt:FLCFValue field="t_head_05"></th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                              <mt:FLCFTable field="table_scroll_list_5">
+                                <tr>
+                                  <td><$mt:FLCFValue field="content_01"$></td>
+                                  <td><$mt:FLCFValue field="content_02"$></td>
+                                  <td><$mt:FLCFValue field="content_03"$></td>
+                                  <td><$mt:FLCFValue field="content_04"$></td>
+                                  <td><$mt:FLCFValue field="content_05"$></td>
+                                </tr>
+                              </mt:FLCFTable>
+                              </tbody>
+                            </table>
+                          </div>
+                          <!-- /.p-feature__table -->
+                        </div>
+                        <!-- /.p-feature -->
+                      </div>
+                      <!-- /.l-container__slot -->
+                    </mt:FLCFIfUnitName>
+                  <!-- 5 -->
+                  <!-- 6 -->
+                    <mt:FLCFIfUnitName name="table_scroll_list_6">
+                      <div class="l-container__slot">
+                        <div class="p-feature">
+                          <div class="p-feature__table--scroll_justify">
+                            <table>
+                              <thead>
+                                <tr>
+                                  <th scope="col"><mt:FLCFValue field="t_head_01"></th>
+                                  <th scope="col"><mt:FLCFValue field="t_head_02"></th>
+                                  <th scope="col"><mt:FLCFValue field="t_head_03"></th>
+                                  <th scope="col"><mt:FLCFValue field="t_head_04"></th>
+                                  <th scope="col"><mt:FLCFValue field="t_head_05"></th>
+                                  <th scope="col"><mt:FLCFValue field="t_head_06"></th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                              <mt:FLCFTable field="table_scroll_list_6">
+                                <tr>
+                                  <td><$mt:FLCFValue field="content_01"$></td>
+                                  <td><$mt:FLCFValue field="content_02"$></td>
+                                  <td><$mt:FLCFValue field="content_03"$></td>
+                                  <td><$mt:FLCFValue field="content_04"$></td>
+                                  <td><$mt:FLCFValue field="content_05"$></td>
+                                  <td><$mt:FLCFValue field="content_06"$></td>
+                                </tr>
+                              </mt:FLCFTable>
+                              </tbody>
+                            </table>
+                          </div>
+                          <!-- /.p-feature__table -->
+                        </div>
+                        <!-- /.p-feature -->
+                      </div>
+                      <!-- /.l-container__slot -->
+                    </mt:FLCFIfUnitName>
+                  <!-- 6 -->
                   <!-- 一覧表 -->
-                  <mt:FLCFIfUnitName name="table_scroll_list">
+                  <!-- 複表 -->
+                  <!-- 3 -->
+                  <mt:FLCFIfUnitName name="table_scroll_complex_3">
                     <div class="l-container__slot">
                       <div class="p-feature">
                         <div class="p-feature__table--scroll_justify">
@@ -3065,16 +3486,16 @@ Template Note : カテゴリ
                                 <th scope="col"><mt:FLCFValue field="t_head_01"></th>
                                 <th scope="col"><mt:FLCFValue field="t_head_02"></th>
                                 <th scope="col"><mt:FLCFValue field="t_head_03"></th>
-                                <th scope="col"><mt:FLCFValue field="t_head_04"></th>
+                                
                               </tr>
                             </thead>
                             <tbody>
-                            <mt:FLCFTable field="table_scroll_list">
+                            <mt:FLCFTable field="table_scroll_complex_3">
                               <tr>
+                                <th scope="row"><mt:FLCFValue field="title_01"></th>
                                 <td><$mt:FLCFValue field="content_01"$></td>
                                 <td><$mt:FLCFValue field="content_02"$></td>
-                                <td><$mt:FLCFValue field="content_03"$></td>
-                                <td><$mt:FLCFValue field="content_04"$></td>
+                                
                               </tr>
                             </mt:FLCFTable>
                             </tbody>
@@ -3086,9 +3507,9 @@ Template Note : カテゴリ
                     </div>
                     <!-- /.l-container__slot -->
                   </mt:FLCFIfUnitName>
-                  <!-- 一覧表 -->
-                  <!-- 複表 -->
-                  <mt:FLCFIfUnitName name="table_scroll_complex">
+                  <!-- 3 -->
+                  <!-- 4 -->
+                  <mt:FLCFIfUnitName name="table_scroll_complex_4">
                     <div class="l-container__slot">
                       <div class="p-feature">
                         <div class="p-feature__table--scroll_justify">
@@ -3102,7 +3523,7 @@ Template Note : カテゴリ
                               </tr>
                             </thead>
                             <tbody>
-                            <mt:FLCFTable field="table_scroll_complex">
+                            <mt:FLCFTable field="table_scroll_complex_4">
                               <tr>
                                 <th scope="row"><mt:FLCFValue field="title_01"></th>
                                 <td><$mt:FLCFValue field="content_01"$></td>
@@ -3119,33 +3540,113 @@ Template Note : カテゴリ
                     </div>
                     <!-- /.l-container__slot -->
                   </mt:FLCFIfUnitName>
+                  <!-- 4 -->
+                  <!-- 5 -->
+                    <mt:FLCFIfUnitName name="table_scroll_complex_5">
+                      <div class="l-container__slot">
+                        <div class="p-feature">
+                          <div class="p-feature__table--scroll_justify">
+                            <table>
+                              <thead>
+                                <tr>
+                                  <th scope="col"><mt:FLCFValue field="t_head_01"></th>
+                                  <th scope="col"><mt:FLCFValue field="t_head_02"></th>
+                                  <th scope="col"><mt:FLCFValue field="t_head_03"></th>
+                                  <th scope="col"><mt:FLCFValue field="t_head_04"></th>
+                                  <th scope="col"><mt:FLCFValue field="t_head_05"></th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                              <mt:FLCFTable field="table_scroll_complex_5">
+                                <tr>
+                                  <th scope="row"><mt:FLCFValue field="title_01"></th>
+                                  <td><$mt:FLCFValue field="content_01"$></td>
+                                  <td><$mt:FLCFValue field="content_02"$></td>
+                                  <td><$mt:FLCFValue field="content_03"$></td>
+                                  <td><$mt:FLCFValue field="content_04"$></td>
+                                </tr>
+                              </mt:FLCFTable>
+                              </tbody>
+                            </table>
+                          </div>
+                          <!-- /.p-feature__table -->
+                        </div>
+                        <!-- /.p-feature -->
+                      </div>
+                      <!-- /.l-container__slot -->
+                    </mt:FLCFIfUnitName>
+                  <!-- 5 -->
+                  <!-- 6 -->
+                    <mt:FLCFIfUnitName name="table_scroll_complex_6">
+                      <div class="l-container__slot">
+                        <div class="p-feature">
+                          <div class="p-feature__table--scroll_justify">
+                            <table>
+                              <thead>
+                                <tr>
+                                  <th scope="col"><mt:FLCFValue field="t_head_01"></th>
+                                  <th scope="col"><mt:FLCFValue field="t_head_02"></th>
+                                  <th scope="col"><mt:FLCFValue field="t_head_03"></th>
+                                  <th scope="col"><mt:FLCFValue field="t_head_04"></th>
+                                  <th scope="col"><mt:FLCFValue field="t_head_05"></th>
+                                  <th scope="col"><mt:FLCFValue field="t_head_06"></th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                              <mt:FLCFTable field="table_scroll_complex_6">
+                                <tr>
+                                  <th scope="row"><mt:FLCFValue field="title_01"></th>
+                                  <td><$mt:FLCFValue field="content_01"$></td>
+                                  <td><$mt:FLCFValue field="content_02"$></td>
+                                  <td><$mt:FLCFValue field="content_03"$></td>
+                                  <td><$mt:FLCFValue field="content_04"$></td>
+                                  <td><$mt:FLCFValue field="content_05"$></td>
+                                </tr>
+                              </mt:FLCFTable>
+                              </tbody>
+                            </table>
+                          </div>
+                          <!-- /.p-feature__table -->
+                        </div>
+                        <!-- /.p-feature -->
+                      </div>
+                      <!-- /.l-container__slot -->
+                    </mt:FLCFIfUnitName>
+                  <!-- 6 -->
                   <!-- 複表 -->
                 <!-- テーブル（スクロール型）-->
                 <!-- テーブル（縦積み型）-->
                   <!-- 単表 -->
-                  <mt:FLCFIfUnitName name="table_vertical_single">
-                    <div class="l-container__slot">
-                      <div class="p-feature">
-                        <div class="p-feature__table_vertical">
-                          <table>
-                            <tbody>
-                              <mt:FLCFTable field="table_vertical_single">
-                                <tr>
-                                  <th scope="row"><$mt:FLCFValue field="title"$></th>
-                                  <td><$mt:FLCFValue field="content"$></td>
-                                </tr>
-                              </mt:FLCFTable>
-                            </tbody>
-                          </table>
+                    <mt:FLCFIfUnitName name="table_vertical_single">
+                      <div class="l-container__slot">
+                        <div class="p-feature">
+                          <div class="p-feature__table_vertical">
+                            <table>
+                              <tbody>
+                                <mt:FLCFTable field="table_vertical_single">
+                                  <tr>
+                                    <th scope="row"><$mt:FLCFValue field="title"$></th>
+                                    <td><$mt:FLCFValue field="content"$></td>
+                                  </tr>
+                                </mt:FLCFTable>
+                              </tbody>
+                            </table>
+                          </div>
+                          <!-- /.p-feature_table_vertical -->
                         </div>
-                        <!-- /.p-feature_table_vertical -->
+                        <!-- /.p-feature -->
                       </div>
-                      <!-- /.p-feature -->
-                    </div>
-                    <!-- /.l-container__slot -->
-                  </mt:FLCFIfUnitName>
+                      <!-- /.l-container__slot -->
+                    </mt:FLCFIfUnitName>
                   <!-- 単表 -->
                 <!-- テーブル（縦積み型）-->
+                <!-- HTML -->
+                  <mt:FLCFIfUnitName name="html">
+                    <div class="l-container__slot">
+                      <mt:FLCFValue field="html">
+                    </div>
+                  </mt:FLCFIfUnitName>
+                <!-- HTML -->
               </MTentrydatarepeatingfieldBlock>
             </div>
             <!-- /.l-container__box -->

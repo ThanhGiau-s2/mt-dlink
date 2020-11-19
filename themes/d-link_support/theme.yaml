@@ -3,7 +3,7 @@ id: d-link_support
 name: d-link_support
 version: '1.0'
 author_link: 
-author_name: yoyager
+author_name: MW
 class: 'blog'
 description: サポート
 thumbnail_file: 'thumb.png'
@@ -66,8 +66,6 @@ elements:
             label: permalink_category
           category_entry_listing:
             label: category_entry_listing
-          category_yearly_entry_listing:
-            label: category_yearly_entry_listing
           category_yearly_release:
             label: category_yearly_release
           category_release:

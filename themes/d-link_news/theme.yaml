@@ -3,7 +3,7 @@ id: d-link_news
 name: d-link_news
 version: '1.0'
 author_link: 
-author_name: yoyager
+author_name: MW
 class: 'blog'
 description: ニュース
 thumbnail_file: 'thumb.png'

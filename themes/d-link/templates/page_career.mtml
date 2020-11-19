@@ -1,5 +1,6 @@
 <mt:SetVars>
-  base_description=ディスクリプション
+  <mt:If tag="PageExcerpt">base_description=<$mt:PageExcerpt$></mt:If>
+  <mt:If tag="PageKeywords">base_keywords=<$mt:PageKeywords$></mt:If>
   og_title=採用応募フォーム | お問い合わせ | D-Link Japan
   og_url=https://www.dlink-jp.com/careers/entry.html
   og_type=article
@@ -60,7 +61,7 @@
             <!-- /.c-middle_heading -->
             <div class="p-form_privacy">
                 <div class="p-form_privacy__text">
-                  <p><a href="/privacy-policy/" target="_blank" rel="noopener">採用活動における方の個人情報の取り扱いについて</a>を応募される前によくお読み下さい。よろしければ「個人情報の取り扱いについて同意する」にチェックをして、内容を送信してください。</p>
+                  <p><a href="/privacy-policy/" target="_blank" rel="noopener">採用活動における方の個人情報の取り扱いについて</a>を応募される前によくお読みください。よろしければ「個人情報の取り扱いについて同意する」にチェックをして、内容を送信してください。</p>
                 </div>
                 <!-- /.p-form_privacy__text -->
                 <div class="p-form_privacy__check">
@@ -959,7 +960,7 @@
 
                     <div class="flex-box mb20">
                       <div class="p-form__col mbsp20">
-                        <div class="c-input d-flex js-form_check" data-label="年">
+                        <div id="end_workdate_year_1_wrap" class="c-input d-flex" data-label="年">
                           <mt:AFormFieldInput aform_id="7" parts_id="end_workdate_year_1">
                           <span class="label-center-mlr20"><mt:AFormFieldLabel aform_id="7" parts_id="end_workdate_year_1"></span>
                         </div>
@@ -969,7 +970,7 @@
                       </div>
 
                       <div class="p-form__col mbsp20">
-                        <div class="c-input d-flex js-form_check" data-label="月">
+                        <div id="end_workdate_month_1_wrap" class="c-input d-flex" data-label="月">
                           <mt:AFormFieldInput aform_id="7" parts_id="end_workdate_month_1">
                           <span class="label-center-mlr20"><mt:AFormFieldLabel aform_id="7" parts_id="end_workdate_month_1"></span>
                         </div>
@@ -979,7 +980,7 @@
                       </div>
 
                       <div class="p-form__col">
-                        <div class="c-input d-flex js-form_check" data-label="日">
+                        <div id="end_workdate_day_1_wrap" class="c-input d-flex" data-label="日">
                           <mt:AFormFieldInput aform_id="7" parts_id="end_workdate_day_1">
                           <span class="label-center-mlr20"><mt:AFormFieldLabel aform_id="7" parts_id="end_workdate_day_1"></span>
                         </div>
@@ -989,7 +990,7 @@
                       </div>
                     </div>
                     <ul>
-                      <li class="c-notice"><span class="c-notice__bullet">※</span>現在勤務中の場合、入社年月日のみをご記入下さい。</li>
+                      <li class="c-notice"><span class="c-notice__bullet">※</span>現在勤務中の場合、入社年月日のみをご記入ください。</li>
                     </ul>
                   </div>
                   <!-- /.p-form__table_cell -->
@@ -1135,7 +1136,7 @@
                   <!-- /.p-form__table_cell -->
 
                   <div class="p-form__cell">
-                    <div class="c-textarea js-form_check" data-label="主な担当領域（入力欄下部参照）">
+                    <div class="c-textarea js-form_check" data-label="主な担当領域">
                       <mt:AFormFieldInput aform_id="7" parts_id="areaincharge_1">
                     </div>
                     <ul>
@@ -1227,52 +1228,76 @@
                   <div class="p-form__cell">
                     <div class="flex-box mbpc20">
                       <div class="p-form__col mbsp20">
-                        <div class="c-input d-flex">
+                        <div id="start_workdate_year_2_wrap" class="c-input d-flex">
                           <mt:AFormFieldInput aform_id="7" parts_id="start_workdate_year_2">
                           <span class="label-center-mlr20"><mt:AFormFieldLabel aform_id="7" parts_id="start_workdate_year_2"></span>
                         </div>
+                        <div class="c-error js-error_check">
+                          <p class="aform-error" id=""></p>
+                        </div>
+                        <!-- /.c-error -->
                       </div>
 
                       <div class="p-form__col mbsp20">
-                        <div class="c-input d-flex">
+                        <div id="start_workdate_month_2_wrap" class="c-input d-flex">
                           <mt:AFormFieldInput aform_id="7" parts_id="start_workdate_month_2">
                           <span class="label-center-mlr20"><mt:AFormFieldLabel aform_id="7" parts_id="start_workdate_month_2"></span>
                         </div>
+                        <div class="c-error js-error_check">
+                          <p class="aform-error" id=""></p>
+                        </div>
+                        <!-- /.c-error -->
                       </div>
 
                       <div class="p-form__col mbsp20">
-                        <div class="c-input d-flex max-width-custom">
+                        <div id="start_workdate_day_2_wrap" class="c-input d-flex max-width-custom">
                           <mt:AFormFieldInput aform_id="7" parts_id="start_workdate_day_2">
                           <span class="label-center ml20"><mt:AFormFieldLabel aform_id="7" parts_id="start_workdate_day_2"></span>
                           <span class="label-center">～</span>
                         </div>
+                        <div class="c-error js-error_check">
+                          <p class="aform-error" id=""></p>
+                        </div>
+                        <!-- /.c-error -->
                       </div>
                     </div>
 
                     <div class="flex-box mb20">
                       <div class="p-form__col mbsp20">
-                        <div class="c-input d-flex">
+                        <div id="end_workdate_year_2_wrap" class="c-input d-flex">
                           <mt:AFormFieldInput aform_id="7" parts_id="end_workdate_year_2">
                           <span class="label-center-mlr20"><mt:AFormFieldLabel aform_id="7" parts_id="end_workdate_year_2"></span>
                         </div>
+                        <div class="c-error js-error_check">
+                          <p class="aform-error" id=""></p>
+                        </div>
+                        <!-- /.c-error -->
                       </div>
 
                       <div class="p-form__col mbsp20">
-                        <div class="c-input d-flex">
+                        <div id="end_workdate_month_2_wrap" class="c-input d-flex">
                           <mt:AFormFieldInput aform_id="7" parts_id="end_workdate_month_2">
                           <span class="label-center-mlr20"><mt:AFormFieldLabel aform_id="7" parts_id="end_workdate_month_2"></span>
                         </div>
+                        <div class="c-error js-error_check">
+                          <p class="aform-error" id=""></p>
+                        </div>
+                        <!-- /.c-error -->
                       </div>
 
                       <div class="p-form__col">
-                        <div class="c-input d-flex">
+                        <div id="end_workdate_day_2_wrap" class="c-input d-flex">
                           <mt:AFormFieldInput aform_id="7" parts_id="end_workdate_day_2">
                           <span class="label-center-mlr20"><mt:AFormFieldLabel aform_id="7" parts_id="end_workdate_day_2"></span>
                         </div>
+                        <div class="c-error js-error_check">
+                          <p class="aform-error" id=""></p>
+                        </div>
+                        <!-- /.c-error -->
                       </div>
                     </div>
                     <ul>
-                      <li class="c-notice"><span class="c-notice__bullet">※</span>現在勤務中の場合、入社年月日のみをご記入下さい。</li>
+                      <li class="c-notice"><span class="c-notice__bullet">※</span>現在勤務中の場合、入社年月日のみをご記入ください。</li>
                     </ul>
                   </div>
                   <!-- /.p-form__table_cell -->
@@ -1377,10 +1402,14 @@
                   <div class="p-form__cell">
                     <div class="d-flex">
                       <div class="inputw45">
-                        <div class="c-input" data-label="年収">
+                        <div id="annual_income_2_wrap" class="c-input" data-label="年収">
                           <mt:AFormFieldInput aform_id="7" parts_id="annual_income_2">
                           <span class="ml20">万円</span>
                         </div>
+                        <div class="c-error js-error_check">
+                          <p class="aform-error" id=""></p>
+                        </div>
+                        <!-- /.c-error -->
                       </div>
                     </div>
                     <div class="p-form__row">
@@ -1408,7 +1437,7 @@
                   <!-- /.p-form__table_cell -->
 
                   <div class="p-form__cell">
-                    <div class="c-textarea">
+                    <div id="areaincharge_2_wrap" class="c-textarea" data-label="主な担当領域">
                       <mt:AFormFieldInput aform_id="7" parts_id="areaincharge_2">
                     </div>
                     <ul>
@@ -1416,7 +1445,8 @@
                       <li class="c-notice"><span class="c-notice__bullet">※</span>全角1000文字以内で記入</li>
                     </ul>
                     <!-- /.c-textarea -->
-                    <div class="c-error js-error_check" data-label="主な担当領域（入力欄下部参照）">
+                    <div class="c-error js-error_check">
+                      <p class="aform-error" id=""></p>
                     </div>
                     <!-- /.c-error -->
                   </div>
@@ -1435,14 +1465,15 @@
                   <!-- /.p-form__table_cell -->
 
                   <div class="p-form__cell">
-                    <div class="c-textarea">
+                    <div id="duties_2_wrap" class="c-textarea" data-label="主な職務内容">
                       <mt:AFormFieldInput aform_id="7" parts_id="duties_2">
                     </div>
                     <ul>
                       <li class="c-notice"><span class="c-notice__bullet">※</span>全角1000文字以内で記入</li>
                     </ul>
                     <!-- /.c-textarea -->
-                    <div class="c-error js-error_check" data-label="主な職務内容">
+                    <div class="c-error js-error_check">
+                      <p class="aform-error" id=""></p>
                     </div>
                     <!-- /.c-error -->
                   </div>

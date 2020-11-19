@@ -1,5 +1,6 @@
 <mt:SetVars>
-    base_description=ディスクリプション
+    <mt:If tag="PageExcerpt">base_description=<$mt:PageExcerpt$></mt:If>
+    <mt:If tag="PageKeywords">base_keywords=<$mt:PageKeywords$></mt:If>
     og_title=故障・修理申請フォーム | お問い合わせ | D-Link Japan
     og_url=https://www.dlink-jp.com/contact/repair-form/
     og_type=article
@@ -60,7 +61,7 @@
                             <div class="p-form_class">
                             <div class="p-form_class__inner">
                             <div class="c-content_box">
-                            <p class="u-fw_bold u-fz_16">申請時には、下記をご用意下さい。</p>
+                            <p class="u-fw_bold u-fz_16">申請時には、下記をご用意ください。</p>
 
                             <ol>
                                 <li class="c-notice"><span class="c-notice__bullet">1. </span>製品シリアル番号</li>
@@ -116,7 +117,7 @@
                         <!-- /.c-middle_heading -->
 
                         <div class="p-form_content__box">
-                            <p>※弊社からご連絡させて頂く場合が御座いますので、ご連絡可能な情報の入力をお願い致します</p>
+                            <p>※弊社からご連絡させて頂く場合が御座いますので、ご連絡可能な情報の入力をお願いいたします</p>
                         </div>
 
                         <div class="p-form_content__box">
@@ -192,7 +193,7 @@
                                 <div class="p-form__table">
                                     <div class="p-form__cell">
                                         <div class="p-form__label">
-                                            <label for="email2" class="aform-label">E-MAIL（確認）<span class="required">必須</span></label>
+                                            <label for="mailaddress2" class="aform-label">E-MAIL（確認）<span class="required">必須</span></label>
                                         </div>
                                         <!-- /.p-form__label -->
                                     </div>
@@ -621,16 +622,16 @@
                         </div>
                         <!-- /.c-middle_heading -->
                         <div class="p-form_content__box">
-                            <b class="clrblue">【STEP1】⇒【STEP2】⇒【STEP3】の順番にお進み下さい</b>
+                            <b class="clrblue">【STEP1】⇒【STEP2】⇒【STEP3】の順番にお進みください</b>
                             <ul>
-                                <li>※複数機器をまとめず、ご記入頂いたシリアル番号ごとにご回答下さい</li>
+                                <li>※複数機器をまとめず、ご記入いただいたシリアル番号ごとにご回答ください</li>
                                 <li>※製品を発送する際は、本フォームの自動返信メールを印刷したものを同梱して発送願います</li>
                             </ul>
                         </div>
                         <!-- /.p-form_content__box -->
                         <div class="p-form_content__box">
                             <div class="c-medium_heading">
-                                <h4 class="c-medium_heading__text">【STEP1】 以下、該当箇所を選択下さい</h4>
+                                <h4 class="c-medium_heading__text">【STEP1】 以下、該当箇所を選択ください</h4>
                             </div>
                             <!-- /.c-medium_heading -->
 
@@ -649,7 +650,7 @@
                                     </div>
 
                                     <div class="p-form__example">
-                                        <p class="aform-input-example">※上記の不具合に該当しない場合は、STEP3 の詳細内容記入欄に事象内容を詳細に記載して下さい</p>
+                                        <p class="aform-input-example">※上記の不具合に該当しない場合は、STEP3 の詳細内容記入欄に事象内容を詳細に記載してください</p>
                                     </div>
                                 </div>
                                 <!-- /.p-form__cell -->
@@ -660,7 +661,7 @@
 
                         <div class="p-form_content__box">
                             <div class="c-medium_heading">
-                                <h4 class="c-medium_heading__text">【STEP2】 以下、STEP1 で選択した必要項目を回答下さい</h4>
+                                <h4 class="c-medium_heading__text">【STEP2】 以下、STEP1 で選択した必要項目を回答ください</h4>
                             </div>
                             <!-- /.c-medium_heading -->
 
@@ -1182,7 +1183,7 @@
                             <!-- /.p-form_content__box -->
                             <div class="p-form_content__box js-step2_item">
                                 <div class="c-subheading">
-                                    <h5 class="c-subheading__text">⑥無線不具合</h5>
+                                    <h5 class="c-subheading__text">⑥無線接続の不具合</h5>
                                 </div>
                                 <!-- /.c-subheading -->
 
@@ -1295,7 +1296,7 @@
                             <!-- /.p-form_content__box -->
                             <div class="p-form_content__box js-step2_item">
                                 <div class="c-subheading">
-                                    <h5 class="c-subheading__text">⑦リセット（初期化）不具合</h5>
+                                    <h5 class="c-subheading__text">⑦リセット（初期化）の不具合</h5>
                                 </div>
                                 <!-- /.c-subheading -->
 
@@ -1368,12 +1369,12 @@
                         <!-- /.p-form_content__box -->
                         <div class="p-form_content__box">
                             <div class="c-medium_heading">
-                                <h4 class="c-medium_heading__text">【STEP3】 可能な限り詳細に回答をお願い致します</h4>
+                                <h4 class="c-medium_heading__text">【STEP3】 可能な限り詳細に回答をお願いいたします</h4>
                             </div>
                             <!-- /.c-medium_heading -->
 
                             <div class="p-form_content__box">
-                                <p>STEP2で回答頂いた以外に、故障状況やご利用構成について可能な限り詳細に回答をお願い致します。</p>
+                                <p>STEP2で回答いただいた以外に、故障状況やご利用構成について可能な限り詳細に回答をお願いいたします。</p>
                             </div>
                             <!-- /.p-form_content__box -->
                             <div class="p-form__table">
@@ -1795,16 +1796,16 @@
                         </div>
                         <!-- /.c-middle_heading -->
                         <div class="p-form_content__box">
-                            <b class="clrblue">【STEP1】⇒【STEP2】⇒【STEP3】の順番にお進み下さい</b>
+                            <b class="clrblue">【STEP1】⇒【STEP2】⇒【STEP3】の順番にお進みください</b>
                             <ul>
-                                <li>※複数機器をまとめず、ご記入頂いたシリアル番号ごとにご回答下さい</li>
+                                <li>※複数機器をまとめず、ご記入いただいたシリアル番号ごとにご回答ください</li>
                                 <li>※製品を発送する際は、本フォームの自動返信メールを印刷したものを同梱して発送願います</li>
                             </ul>
                         </div>
                         <!-- /.p-form_content__box -->
                         <div class="p-form_content__box">
                             <div class="c-medium_heading">
-                                <h4 class="c-medium_heading__text">【STEP1】 以下、該当箇所を選択下さい</h4>
+                                <h4 class="c-medium_heading__text">【STEP1】 以下、該当箇所を選択ください</h4>
                             </div>
                             <!-- /.c-medium_heading -->
 
@@ -1823,7 +1824,7 @@
                                     </div>
 
                                     <div class="p-form__example">
-                                        <p class="aform-input-example">※上記の不具合に該当しない場合は、STEP3 の詳細内容記入欄に事象内容を詳細に記載して下さい</p>
+                                        <p class="aform-input-example">※上記の不具合に該当しない場合は、STEP3 の詳細内容記入欄に事象内容を詳細に記載してください</p>
                                     </div>
                                 </div>
                                 <!-- /.p-form__cell -->
@@ -1834,7 +1835,7 @@
 
                         <div class="p-form_content__box">
                             <div class="c-medium_heading">
-                                <h4 class="c-medium_heading__text">【STEP2】 以下、STEP1 で選択した必要項目を回答下さい</h4>
+                                <h4 class="c-medium_heading__text">【STEP2】 以下、STEP1 で選択した必要項目を回答ください</h4>
                             </div>
                             <!-- /.c-medium_heading -->
 
@@ -2356,7 +2357,7 @@
                             <!-- /.p-form_content__box -->
                             <div class="p-form_content__box js-step2_item">
                                 <div class="c-subheading">
-                                    <h5 class="c-subheading__text">⑥無線不具合</h5>
+                                    <h5 class="c-subheading__text">⑥無線接続の不具合</h5>
                                 </div>
                                 <!-- /.c-subheading -->
 
@@ -2469,7 +2470,7 @@
                             <!-- /.p-form_content__box -->
                             <div class="p-form_content__box js-step2_item">
                                 <div class="c-subheading">
-                                    <h5 class="c-subheading__text">⑦リセット（初期化）不具合</h5>
+                                    <h5 class="c-subheading__text">⑦リセット（初期化）の不具合</h5>
                                 </div>
                                 <!-- /.c-subheading -->
 
@@ -2542,12 +2543,12 @@
                         <!-- /.p-form_content__box -->
                         <div class="p-form_content__box">
                             <div class="c-medium_heading">
-                                <h4 class="c-medium_heading__text">【STEP3】 可能な限り詳細に回答をお願い致します</h4>
+                                <h4 class="c-medium_heading__text">【STEP3】 可能な限り詳細に回答をお願いいたします</h4>
                             </div>
                             <!-- /.c-medium_heading -->
 
                             <div class="p-form_content__box">
-                                <p>STEP2で回答頂いた以外に、故障状況やご利用構成について可能な限り詳細に回答をお願い致します。</p>
+                                <p>STEP2で回答いただいた以外に、故障状況やご利用構成について可能な限り詳細に回答をお願いいたします。</p>
                             </div>
                             <!-- /.p-form_content__box -->
                             <div class="p-form__table">
@@ -2969,16 +2970,16 @@
                         </div>
                         <!-- /.c-middle_heading -->
                         <div class="p-form_content__box">
-                            <b class="clrblue">【STEP1】⇒【STEP2】⇒【STEP3】の順番にお進み下さい</b>
+                            <b class="clrblue">【STEP1】⇒【STEP2】⇒【STEP3】の順番にお進みください</b>
                             <ul>
-                                <li>※複数機器をまとめず、ご記入頂いたシリアル番号ごとにご回答下さい</li>
+                                <li>※複数機器をまとめず、ご記入いただいたシリアル番号ごとにご回答ください</li>
                                 <li>※製品を発送する際は、本フォームの自動返信メールを印刷したものを同梱して発送願います</li>
                             </ul>
                         </div>
                         <!-- /.p-form_content__box -->
                         <div class="p-form_content__box">
                             <div class="c-medium_heading">
-                                <h4 class="c-medium_heading__text">【STEP1】 以下、該当箇所を選択下さい</h4>
+                                <h4 class="c-medium_heading__text">【STEP1】 以下、該当箇所を選択ください</h4>
                             </div>
                             <!-- /.c-medium_heading -->
 
@@ -2997,7 +2998,7 @@
                                     </div>
 
                                     <div class="p-form__example">
-                                        <p class="aform-input-example">※上記の不具合に該当しない場合は、STEP3 の詳細内容記入欄に事象内容を詳細に記載して下さい</p>
+                                        <p class="aform-input-example">※上記の不具合に該当しない場合は、STEP3 の詳細内容記入欄に事象内容を詳細に記載してください</p>
                                     </div>
                                 </div>
                                 <!-- /.p-form__cell -->
@@ -3008,7 +3009,7 @@
 
                         <div class="p-form_content__box">
                             <div class="c-medium_heading">
-                                <h4 class="c-medium_heading__text">【STEP2】 以下、STEP1 で選択した必要項目を回答下さい</h4>
+                                <h4 class="c-medium_heading__text">【STEP2】 以下、STEP1 で選択した必要項目を回答ください</h4>
                             </div>
                             <!-- /.c-medium_heading -->
 
@@ -3529,7 +3530,7 @@
                             <!-- /.p-form_content__box -->
                             <div class="p-form_content__box js-step2_item">
                                 <div class="c-subheading">
-                                    <h5 class="c-subheading__text">⑥無線不具合</h5>
+                                    <h5 class="c-subheading__text">⑥無線接続の不具合</h5>
                                 </div>
                                 <!-- /.c-subheading -->
 
@@ -3642,7 +3643,7 @@
                             <!-- /.p-form_content__box -->
                             <div class="p-form_content__box js-step2_item">
                                 <div class="c-subheading">
-                                    <h5 class="c-subheading__text">⑦リセット（初期化）不具合</h5>
+                                    <h5 class="c-subheading__text">⑦リセット（初期化）の不具合</h5>
                                 </div>
                                 <!-- /.c-subheading -->
 
@@ -3715,12 +3716,12 @@
                         <!-- /.p-form_content__box -->
                         <div class="p-form_content__box">
                             <div class="c-medium_heading">
-                                <h4 class="c-medium_heading__text">【STEP3】 可能な限り詳細に回答をお願い致します</h4>
+                                <h4 class="c-medium_heading__text">【STEP3】 可能な限り詳細に回答をお願いいたします</h4>
                             </div>
                             <!-- /.c-medium_heading -->
 
                             <div class="p-form_content__box">
-                                <p>STEP2で回答頂いた以外に、故障状況やご利用構成について可能な限り詳細に回答をお願い致します。</p>
+                                <p>STEP2で回答いただいた以外に、故障状況やご利用構成について可能な限り詳細に回答をお願いいたします。</p>
                             </div>
                             <!-- /.p-form_content__box -->
                             <div class="p-form__table">
@@ -4142,16 +4143,16 @@
                         </div>
                         <!-- /.c-middle_heading -->
                         <div class="p-form_content__box">
-                            <b class="clrblue">【STEP1】⇒【STEP2】⇒【STEP3】の順番にお進み下さい</b>
+                            <b class="clrblue">【STEP1】⇒【STEP2】⇒【STEP3】の順番にお進みください</b>
                             <ul>
-                                <li>※複数機器をまとめず、ご記入頂いたシリアル番号ごとにご回答下さい</li>
+                                <li>※複数機器をまとめず、ご記入いただいたシリアル番号ごとにご回答ください</li>
                                 <li>※製品を発送する際は、本フォームの自動返信メールを印刷したものを同梱して発送願います</li>
                             </ul>
                         </div>
                         <!-- /.p-form_content__box -->
                         <div class="p-form_content__box">
                             <div class="c-medium_heading">
-                                <h4 class="c-medium_heading__text">【STEP1】 以下、該当箇所を選択下さい</h4>
+                                <h4 class="c-medium_heading__text">【STEP1】 以下、該当箇所を選択ください</h4>
                             </div>
                             <!-- /.c-medium_heading -->
 
@@ -4170,7 +4171,7 @@
                                     </div>
 
                                     <div class="p-form__example">
-                                        <p class="aform-input-example">※上記の不具合に該当しない場合は、STEP3 の詳細内容記入欄に事象内容を詳細に記載して下さい</p>
+                                        <p class="aform-input-example">※上記の不具合に該当しない場合は、STEP3 の詳細内容記入欄に事象内容を詳細に記載してください</p>
                                     </div>
                                 </div>
                                 <!-- /.p-form__cell -->
@@ -4181,7 +4182,7 @@
 
                         <div class="p-form_content__box">
                             <div class="c-medium_heading">
-                                <h4 class="c-medium_heading__text">【STEP2】 以下、STEP1 で選択した必要項目を回答下さい</h4>
+                                <h4 class="c-medium_heading__text">【STEP2】 以下、STEP1 で選択した必要項目を回答ください</h4>
                             </div>
                             <!-- /.c-medium_heading -->
 
@@ -4702,7 +4703,7 @@
                             <!-- /.p-form_content__box -->
                             <div class="p-form_content__box js-step2_item">
                                 <div class="c-subheading">
-                                    <h5 class="c-subheading__text">⑥無線不具合</h5>
+                                    <h5 class="c-subheading__text">⑥無線接続の不具合</h5>
                                 </div>
                                 <!-- /.c-subheading -->
 
@@ -4815,7 +4816,7 @@
                             <!-- /.p-form_content__box -->
                             <div class="p-form_content__box js-step2_item">
                                 <div class="c-subheading">
-                                    <h5 class="c-subheading__text">⑦リセット（初期化）不具合</h5>
+                                    <h5 class="c-subheading__text">⑦リセット（初期化）の不具合</h5>
                                 </div>
                                 <!-- /.c-subheading -->
 
@@ -4888,12 +4889,12 @@
                         <!-- /.p-form_content__box -->
                         <div class="p-form_content__box">
                             <div class="c-medium_heading">
-                                <h4 class="c-medium_heading__text">【STEP3】 可能な限り詳細に回答をお願い致します</h4>
+                                <h4 class="c-medium_heading__text">【STEP3】 可能な限り詳細に回答をお願いいたします</h4>
                             </div>
                             <!-- /.c-medium_heading -->
 
                             <div class="p-form_content__box">
-                                <p>STEP2で回答頂いた以外に、故障状況やご利用構成について可能な限り詳細に回答をお願い致します。</p>
+                                <p>STEP2で回答いただいた以外に、故障状況やご利用構成について可能な限り詳細に回答をお願いいたします。</p>
                             </div>
                             <!-- /.p-form_content__box -->
                             <div class="p-form__table">
@@ -5315,16 +5316,16 @@
                         </div>
                         <!-- /.c-middle_heading -->
                         <div class="p-form_content__box">
-                            <b class="clrblue">【STEP1】⇒【STEP2】⇒【STEP3】の順番にお進み下さい</b>
+                            <b class="clrblue">【STEP1】⇒【STEP2】⇒【STEP3】の順番にお進みください</b>
                             <ul>
-                                <li>※複数機器をまとめず、ご記入頂いたシリアル番号ごとにご回答下さい</li>
+                                <li>※複数機器をまとめず、ご記入いただいたシリアル番号ごとにご回答ください</li>
                                 <li>※製品を発送する際は、本フォームの自動返信メールを印刷したものを同梱して発送願います</li>
                             </ul>
                         </div>
                         <!-- /.p-form_content__box -->
                         <div class="p-form_content__box">
                             <div class="c-medium_heading">
-                                <h4 class="c-medium_heading__text">【STEP1】 以下、該当箇所を選択下さい</h4>
+                                <h4 class="c-medium_heading__text">【STEP1】 以下、該当箇所を選択ください</h4>
                             </div>
                             <!-- /.c-medium_heading -->
 
@@ -5343,7 +5344,7 @@
                                     </div>
 
                                     <div class="p-form__example">
-                                        <p class="aform-input-example">※上記の不具合に該当しない場合は、STEP3 の詳細内容記入欄に事象内容を詳細に記載して下さい</p>
+                                        <p class="aform-input-example">※上記の不具合に該当しない場合は、STEP3 の詳細内容記入欄に事象内容を詳細に記載してください</p>
                                     </div>
                                 </div>
                                 <!-- /.p-form__cell -->
@@ -5354,7 +5355,7 @@
 
                         <div class="p-form_content__box">
                             <div class="c-medium_heading">
-                                <h4 class="c-medium_heading__text">【STEP2】 以下、STEP1 で選択した必要項目を回答下さい</h4>
+                                <h4 class="c-medium_heading__text">【STEP2】 以下、STEP1 で選択した必要項目を回答ください</h4>
                             </div>
                             <!-- /.c-medium_heading -->
 
@@ -5875,7 +5876,7 @@
                             <!-- /.p-form_content__box -->
                             <div class="p-form_content__box js-step2_item">
                                 <div class="c-subheading">
-                                    <h5 class="c-subheading__text">⑥無線不具合</h5>
+                                    <h5 class="c-subheading__text">⑥無線接続の不具合</h5>
                                 </div>
                                 <!-- /.c-subheading -->
 
@@ -5988,7 +5989,7 @@
                             <!-- /.p-form_content__box -->
                             <div class="p-form_content__box js-step2_item">
                                 <div class="c-subheading">
-                                    <h5 class="c-subheading__text">⑦リセット（初期化）不具合</h5>
+                                    <h5 class="c-subheading__text">⑦リセット（初期化）の不具合</h5>
                                 </div>
                                 <!-- /.c-subheading -->
 
@@ -6061,12 +6062,12 @@
                         <!-- /.p-form_content__box -->
                         <div class="p-form_content__box">
                             <div class="c-medium_heading">
-                                <h4 class="c-medium_heading__text">【STEP3】 可能な限り詳細に回答をお願い致します</h4>
+                                <h4 class="c-medium_heading__text">【STEP3】 可能な限り詳細に回答をお願いいたします</h4>
                             </div>
                             <!-- /.c-medium_heading -->
 
                             <div class="p-form_content__box">
-                                <p>STEP2で回答頂いた以外に、故障状況やご利用構成について可能な限り詳細に回答をお願い致します。</p>
+                                <p>STEP2で回答いただいた以外に、故障状況やご利用構成について可能な限り詳細に回答をお願いいたします。</p>
                             </div>
                             <!-- /.p-form_content__box -->
                             <div class="p-form__table">

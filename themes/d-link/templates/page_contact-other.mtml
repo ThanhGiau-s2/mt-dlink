@@ -1,6 +1,6 @@
 <mt:SetVars>
-    base_description=ディスクリプション
-    og_title=その他のお問合せ | お問い合わせ | D-Link Japan
+    <mt:If tag="PageExcerpt">base_description=<$mt:PageExcerpt$></mt:If>
+    <mt:If tag="PageKeywords">base_keywords=<$mt:PageKeywords$></mt:If>
     og_url=https://www.dlink-jp.com/contact/
     og_type=article
 </mt:SetVars>
@@ -50,18 +50,22 @@
                         <!-- /.c-content_box -->
                     </div>
                     <!-- /.p-form_content__block -->
-                    <!-- お客さま種別 -->
+                    <!-- お客様種別 -->
                     <div class="p-form_content__block">
                         <div class="c-middle_heading">
-                            <h3 class="c-middle_heading__text">お客さま種別</h3>
+                            <h3 class="c-middle_heading__text">お客様種別</h3>
                         </div>
                         <!-- /.c-middle_heading -->
                         <div class="p-form_content__box">
                             <div class="p-form_choice">
-                                <div class="p-form_choice__between">
-                                    <mt:AFormFieldInput aform_id="6" parts_id="customer_type">
+                                <div id="customer_type_wrap" class="p-form_choice__between p-between" data-label="お客様種別">
+                                    <mt:AFormFieldInput aform_id="6" parts_id="customer_type"><span class="required">必須</span>
                                 </div>
                                 <!-- /.p-form_choice__flex -->
+                                <div class="c-error js-error_check">
+                                    <p class="aform-error" id=""></p>
+                                </div>
+                                <!-- /.c-error -->
                             </div>
                             <!-- /.p-form_choice -->
                         </div>
@@ -75,10 +79,14 @@
                         </div>
                         <!-- /.c-middle_heading -->
                         <div class="p-form_choice">
-                            <div class="p-form_choice__between">
-                                <mt:AFormFieldInput aform_id="6" parts_id="contact_classification">
+                            <div id="contact_classification_wrap" class="p-form_choice__between p-between" data-label="お問い合わせ内容分類">
+                                <mt:AFormFieldInput aform_id="6" parts_id="contact_classification"><span class="required">必須</span>
                             </div>
                             <!-- /.p-form_choice__flex -->
+                            <div class="c-error js-error_check">
+                                <p class="aform-error" id=""></p>
+                            </div>
+                            <!-- /.c-error -->
                         </div>
                         <!-- /.p-form_choice -->
                     </div>
@@ -264,10 +272,14 @@
                                                 <div class="c-input__example">
                                                     <p><mt:AFormFieldInputExample aform_id="6" parts_id="zip_1"></p>
                                                 </div>
-                                                <div class="c-input">
+                                                <div class="c-input js-check-number-zip">
                                                     <mt:AFormFieldInput aform_id="6" parts_id="zip_1">
                                                 </div>
                                                 <!-- /.c-input -->
+                                                <div class="c-error js-error_check">
+                                                    <p class="aform-error" id=""></p>
+                                                </div>
+                                                <!-- /.c-error -->
                                             </div>
                                             <!-- /.p-form__col -->
                                         </div>

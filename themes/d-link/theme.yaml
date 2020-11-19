@@ -3,7 +3,7 @@ label: d-link
 name: d-link
 version: '1.0'
 author_link: 
-author_name: yoyager
+author_name: MW
 class: website
 description: Theme of D-Link website
 thumbnail_file: 'thumb.png'
@@ -24,11 +24,6 @@ elements:
               category:
                 archive_type: Category
                 file_template: <mt:Include module="permalink_category">
-          category_yearly_entry_listing:
-            label: Category Yearly Entry Listing
-            mappings:
-              entry_archive:
-                archive_type: Category-Yearly
         index:
           main_index:
             label: 'index.html'
@@ -46,6 +41,9 @@ elements:
           wireless_category_json:
             label: 'wireless_category_json'
             outfile: product/data/wireless_category.json
+          product_index:
+            label: 'product_index'
+            outfile: product/index.html
           product_switch_index:
             label: 'product_switch_index'
             outfile: product/switch/index.html
@@ -73,9 +71,6 @@ elements:
           product_router-firewall_index:
             label: 'product_router-firewall_index'
             outfile: product/router-firewall/index.html
-          product_index:
-            label: 'product_index'
-            outfile: product/index.html
         individual:
           entry:
             label: Entry
@@ -165,6 +160,8 @@ elements:
             label: permalink_category
           permalink_page:
             label: permalink_page
+          page_flcf:
+            label: 'page_flcf'
         system:
           search_results:
             description_label: 'Displays results of a search.'

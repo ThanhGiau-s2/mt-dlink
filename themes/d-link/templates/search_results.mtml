@@ -1,7 +1,7 @@
 <mt:SetVars>
   base_description=ディスクリプション
-  og_title=製品情報 | D-Link Japan
-  og_url=https://www.dlink-jp.com/product/
+  og_title=検索結果 | D-Link Japan
+  og_url=https://www.dlink-jp.com/
   og_type=article
 </mt:SetVars>
 <mt:SetVarTemplate name="file_javascript">
@@ -40,16 +40,13 @@
             <div class="p-news__item">
               <a href="<$mt:EntryPermalink$>">
                 <div class="p-news__box">
-                  <mt:SetVarBlock name="category_name">
-                  <$mt:SiteName$>
-                  </mt:SetVarBlock>
+                  <mt:SetVar name="category_name">
                   <mt:SiteHasChildSite>
                     <mt:TopLevelParent>
-                      <mt:SetVarBlock name="category_name">
-                      <$mt:CategoryLabel$>
-                      </mt:SetVarBlock>
+                      <mt:SetVarBlock name="category_name"><$mt:CategoryLabel$></mt:SetVarBlock>
                     </mt:TopLevelParent>
                   <mt:Else>
+                    <mt:SetVarBlock name="category_name"><$mt:SiteName$></mt:SetVarBlock>
                     <mt:If name="category_name" like="製品ピックアップ情報">
                     <$mt:SetVar name="category_name" value="製品情報"$>
                     </mt:If>

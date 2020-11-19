@@ -1,5 +1,6 @@
 <mt:SetVars>
-    base_description=ディスクリプション
+    <mt:If tag="PageExcerpt">base_description=<$mt:PageExcerpt$></mt:If>
+    <mt:If tag="PageKeywords">base_keywords=<$mt:PageKeywords$></mt:If>
     og_title=確認画面｜個人情報保護についてのお問い合わせ | お問い合わせ | D-Link Japan
     og_url=https://www.dlink-jp.com/contact/contact-other/
     og_type=article
@@ -9,8 +10,8 @@
 <script src="/asset/js/top.min.js" defer></script>
 </mt:SetVarTemplate>
 <mt:Ignore>** 表示部分 **</mt:Ignore>
-<mt:include name="modules/html_head.mtml" component="AForm">
-<mt:include name="modules/html_header.mtml" component="AForm">
+<mt:Include module="html_head" parent="1" />
+<mt:Include module="header" parent="1" />
 <!-- ここからコンテンツ -->
 <main class="p-main">
     <div class="c-breadcrumb">
@@ -366,5 +367,5 @@
         <!-- /.l-inner -->
     </section>
 </main>
-<mt:include name="modules/html_footer.mtml" component="AForm">
-<mt:include name="modules/html_foot.mtml" component="AForm">
+<mt:Include module="footer" parent="1" />
+<mt:Include module="html_foot" parent="1" />

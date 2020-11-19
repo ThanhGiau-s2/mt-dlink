@@ -5,69 +5,85 @@ Template Type : Page Template
 Template Note : 固定ページ出力用
 ========================================
 </mt:Ignore>
-<mt:IfFolder name="contact">
-    <mt:if tag="PageBasename" eq="repair-form">
-        <mt:Include module="page_repair-form"/>
-    </mt:if>
-    <mt:if tag="PageBasename" eq="contact-before">
-        <mt:Include module="page_contact-before"/>
-    </mt:if>
-    <mt:if tag="PageBasename" eq="contact-after">
-        <mt:Include module="page_contact-after"/>
-    </mt:if>
-    <mt:if tag="PageBasename" eq="privacy-policy">
-        <mt:Include module="page_privacy-policy"/>
-    </mt:if>
-    <mt:if tag="PageBasename" eq="contact-other">
-        <mt:Include module="page_contact-other"/>
-    </mt:if>
-    <mt:if tag="PageBasename" eq="certificate-of-non-applicability">
-        <mt:Include module="page_certificate"/>
-    </mt:if>
-</mt:IfFolder>
-<mt:IfFolder name="careers">
-    <mt:if tag="PageBasename" eq="entry">
-        <mt:Include module="page_career"/>
-    </mt:if>
-</mt:IfFolder>
-<mt:IfFolder name="switch">
-    <mt:if tag="PageBasename" eq="list">
-        <mt:Include module="page_switch_list"/>
-    </mt:if>
-</mt:IfFolder>
-<mt:IfFolder name="wireless-lan">
-    <mt:if tag="PageBasename" eq="list">
-        <mt:Include module="page_wireless-lan_list"/>
-    </mt:if>
-    <mt:if tag="PageBasename" eq="access_point">
-        <mt:Include module="page_wireless-lan_access_point"/>
-    </mt:if>
-    <mt:if tag="PageBasename" eq="controller">
-        <mt:Include module="page_wireless-lan_controller"/>
-    </mt:if>
-</mt:IfFolder>
-<mt:IfFolder name="product">
-    <mt:if tag="PageBasename" eq="archive">
-        <mt:Include module="product_archive"/>
-    </mt:if>
-    <mt:if tag="PageBasename" eq="compare">
-        <mt:Include module="product_compare"/>
-    </mt:if>
-</mt:IfFolder>
-<mt:IfFolder name="archive">
-    <mt:if tag="PageBasename" eq="pog">
-        <mt:Include module="product_archive_pog"/>
-    </mt:if>
-    <mt:if tag="PageBasename" eq="eos">
-        <mt:Include module="product_archive_eos"/>
-    </mt:if>
-</mt:IfFolder>
-<mt:HasParentFolder>
-    <mt:if tag="PageBasename" eq="thanks">
-        <mt:Include module="page_complete_form"/>
-    </mt:if>
-</mt:HasParentFolder>
-<mt:if tag="PageBasename" eq="contact">
-    <mt:Include module="page_contact"/>
+<mt:if tag="PageBasename" eq="index">
+    <mt:IfFolder>
+        <mt:ParentFolders setvar="list_folder"><$mt:FolderBasename$></mt:ParentFolders>
+        <mt:if name="list_folder" like="contactrepair-form">
+            <mt:Include module="page_repair-form"/>
+        </mt:if>
+        <mt:if name="list_folder" like="contactcontact-before">
+            <mt:Include module="page_contact-before"/>
+        </mt:if>
+        <mt:if name="list_folder" like="contactcontact-after">
+            <mt:Include module="page_contact-after"/>
+        </mt:if>
+        <mt:if name="list_folder" like="contactprivacy-policy">
+            <mt:Include module="page_privacy-policy"/>
+        </mt:if>
+        <mt:if name="list_folder" like="contactcontact-other">
+            <mt:Include module="page_contact-other"/>
+        </mt:if>
+        <mt:if name="list_folder" like="contactcertificate-of-non-applicability">
+            <mt:Include module="page_certificate"/>
+        </mt:if>
+        <mt:if name="list_folder" like="productarchive">
+            <mt:Include module="product_archive"/>
+        </mt:if>
+        <mt:if name="list_folder" like="productcompare">
+            <mt:Include module="product_compare"/>
+        </mt:if>
+        <mt:if tag="FolderBasename" eq="contact">
+            <mt:Include module="page_contact"/>
+        <mt:else>
+            <mt:Include module="page_flcf"/>
+        </mt:if>
+    </mt:IfFolder>
+<mt:else>
+    <mt:If tag="FolderLabel" eq="採用情報">
+        <mt:if tag="PageBasename" eq="entry">
+            <mt:Include module="page_career"/>
+        </mt:if>
+    <mt:else>
+        <mt:If tag="FolderLabel" eq="スイッチ">
+            <mt:if tag="PageBasename" eq="list">
+                <mt:Include module="page_switch_list"/>
+            </mt:if>
+            <mt:if tag="PageBasename" eq="compare">
+                <mt:Include module="page_switch_compare"/>
+            </mt:if>
+        <mt:else>
+            <mt:If tag="FolderLabel" eq="無線LAN">
+                <mt:if tag="PageBasename" eq="list">
+                    <mt:Include module="page_wireless-lan_list"/>
+                </mt:if>
+                <mt:if tag="PageBasename" eq="access_point">
+                    <mt:Include module="page_wireless-lan_access_point"/>
+                </mt:if>
+                <mt:if tag="PageBasename" eq="controller">
+                    <mt:Include module="page_wireless-lan_controller"/>
+                </mt:if>
+                <mt:if tag="PageBasename" eq="compare">
+                    <mt:Include module="page_wireless-lan_compare"/>
+                </mt:if>
+            <mt:else>
+                <mt:If tag="FolderLabel" eq="販売終了予定／販売終了製品">
+                    <mt:if tag="PageBasename" eq="pog">
+                        <mt:Include module="product_archive_pog"/>
+                    </mt:if>
+                    <mt:if tag="PageBasename" eq="eos">
+                        <mt:Include module="product_archive_eos"/>
+                    </mt:if>
+                <mt:else>
+                    <mt:HasParentFolder>
+                        <mt:if tag="PageBasename" eq="thanks">
+                            <mt:Include module="page_complete_form"/>
+                        </mt:if>
+                    <mt:else>
+                        <mt:Include module="page_flcf"/>
+                    </mt:HasParentFolder>
+                </mt:If>
+            </mt:If>
+        </mt:If>
+    </mt:If>
 </mt:if>
 <$mt:PageBody aform="1"$>

@@ -1,8 +1,9 @@
 <mt:SetVars>
     base_description=ディスクリプション
-    og_title=<mt:EntryTitle>|製品情報 | D-Link Japan
-    og_url=https://www.dlink-jp.com/product/<mt:EntryBasename>/
+    og_title=メディアコンバータ|製品情報 | D-Link Japan
+    og_url=https://www.dlink-jp.com/product/media-converter/
     og_type=article
+    <mt:BlogEntryCount blog_ids="11" setvar="total_entries_product">
 </mt:SetVars>
 <mt:Ignore>** 表示部分 **</mt:Ignore>
 <mt:Include module="html_head" parent="1" />
@@ -13,14 +14,14 @@
         <ul class="c-breadcrumb__list">
             <li><a href="/">HOME</a></li>
             <li><a href="/product/">製品情報</a></li>
-            <li><span><mt:EntryTitle></span></li>
+            <li><span>メディアコンバータ</span></li>
         </ul>
     </div>
     <!-- /.c-breadcrumb -->
     <section class="l-outer--lower">
         <div class="l-inner">
             <div class="c-title">
-                <h1 class="c-title__text"><mt:EntryTitle></h1>
+                <h1 class="c-title__text">メディアコンバータ</h1>
             </div>
             <!-- /.c-title -->
 
@@ -29,7 +30,8 @@
                     <div class="l-container__box">
                         <div class="l-container__box">
                             <div class="l-container__slot">
-                              
+                                <mt:Entries include_sites="11" sort_by="authored_on" sort_order="descend" lastn="$total_entries_product">
+                                    <mt:if tag="EntryTitle" eq="メディアコンバータ">
                                         <div class="p-content_center">
                                             <div class="p-content_center__figure">
                                                 <div class="p-photo">
@@ -56,6 +58,8 @@
                                             </div>
                                             <!-- /.p-content_center__body -->
                                         </div>
+                                    </mt:if>
+                                </mt:entries>
                             </div>
                             <!-- /.l-container__slot -->
                         </div>
@@ -63,15 +67,22 @@
 
                         <div class="l-container__box">
                             <div class="l-container__box">
-                                <mt:setvarblock name="sub_current_cate">製品情報/<mt:EntryTitle></mt:setvarblock>
+                                <mt:setvarblock name="sub_current_cate">製品情報/メディアコンバータ</mt:setvarblock>
                                 <mt:SubCategories category="$sub_current_cate">
-                                    <mt:setvarblock name="sub_cate">製品情報/<mt:EntryTitle>/<mt:CategoryLabel></mt:setvarblock>
-                                    <mt:If tag="CategoryCount">    
+                                    <mt:setvarblock name="sub_cate">製品情報/メディアコンバータ/<mt:CategoryLabel></mt:setvarblock>
+                                    <mt:entries include_sites="1" category="$sub_cate">
+                                        <mt:SetVar name="depth" value="0">
+                                        <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                                        <mt:if name="depth" eq="3">
+                                            <mt:SetVar name="has_entries" value="1">
+                                        </mt:if>
+                                    </mt:entries>
+                                    <mt:if name="has_entries" eq="1">
                                         <div class="c-content_heading">
                                             <h2 class="c-content_heading__text"><$mt:CategoryLabel$></h2>
                                         </div>
                                         <!-- /.c-content_heading -->
-                                    
+                                        
                                         <div class="l-container__slot">
                                             <div class="p-product_list">
                                                 <mt:entries category="$sub_cate">
@@ -127,6 +138,7 @@
                                             <!-- /.p-product_list -->
                                         </div>
                                         <!-- /.l-container__slot -->
+                                        <mt:SetVar name="has_entries" value="0">
                                     </mt:if>
                                 </mt:subcategories>
                             </div>

@@ -1,0 +1,64 @@
+label: d-link_product
+id: d-link_product
+name: d-link_product
+version: '1.0'
+author_link: 
+author_name: MW
+class: 'blog'
+description: 製品情報
+thumbnail_file: 'thumb.png'
+thumbnail_file_medium: 'thumb-medium.png'
+thumbnail_file_small: 'thumb-small.png'
+elements:
+  template_set:
+    component: core
+    importer: template_set
+    data:
+      base_path: templates
+      require: 1
+      templates:
+        archive:
+        index:
+          main_index:
+            label: 'index.html'
+            outfile: index.html
+            rebuild_me: '1'
+        individual:
+          entry:
+            label: Entry
+            mappings:
+              entry_archive:
+                archive_type: Individual
+                file_template: <mt:Include module="permalink">
+        page:
+          page:
+            label: Page
+            mappings:
+              page:
+                archive_type: Page
+                preferred: 1
+        module:
+          template_html_head:
+            label: 'html_head'
+          template_html_foot:
+            label: 'html_foot'
+          template_footer:
+            label: 'footer'
+          template_header:
+            label: 'header'
+          template_debug:
+            label: 'debug'
+          permalink:
+            label: permalink
+          product_series_index:
+            label: 'product_series_index'
+          product_series:
+            label: 'product_series'
+          product_all_index:
+            label: 'product_all_index'
+          product_all:
+            label: 'product_all'
+          small_cate_product:
+            label: 'small_cate_product'
+          template_product_local_nav:
+            label: 'product_local_nav'

@@ -1,0 +1,22 @@
+<div class="p-local_nav">
+  <div class="p-local_nav__inner">
+    <p class="p-local_nav__heading">企業情報</p>
+    <ul class="p-local_nav__list js-local_nav_current">
+      <li><a href="/company/">企業情報TOP</a></li>
+      <!--
+        <li><a href="/company/greeting/">トップメッセージ</a></li>
+        <li><a href="/company/brand/">ブランドコンセプト</a></li>
+        <li><a href="/company/profile/">会社概要</a></li>
+        <li><a href="/company/ww/">D-Linkグループについて</a></li>
+        <li><a href="/company/csr/">D-LinkのCSR</a></li>
+      -->
+      <mt:toplevelcategories>
+        <mt:if tag="CategoryCount" gt="0">
+          <li><a href="/company/<mt:CategoryBasename>"><mt:CategoryLabel></a></li>
+        </mt:if>
+      </mt:toplevelcategories>
+    </ul>
+  </div>
+  <!-- /.p-local_nav__inner -->
+</div>
+<!-- /.p-local_nav -->

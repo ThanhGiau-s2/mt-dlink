@@ -1,5 +1,6 @@
 <mt:SetVars>
-    base_description=ディスクリプション
+    <mt:If tag="PageExcerpt">base_description=<$mt:PageExcerpt$></mt:If>
+    <mt:If tag="PageKeywords">base_keywords=<$mt:PageKeywords$></mt:If>
     og_title=<mt:CategoryLabel>|製品情報 | D-Link Japan
     og_url=https://www.dlink-jp.com/product/<mt:CategoryBasename>/
     og_type=article
@@ -120,12 +121,12 @@
                                                     </mt:EntryAdditionalCategories>
                                                     <mt:if name="depth" eq="3">
                                                         <div class="p-product_list__item">
-                                                            <a href="">
+                                                            <a href="<$mt:EntryPermalink$>">
                                                                 <div class="p-product_list__main">
                                                                     <div class="p-product_list__row">
                                                                         <div class="p-product_list__header">
                                                                             <ul class="p-product_list__tag">
-                                                                                <mt:EntryDataSeriesListTagtext replace="$","<li>">
+                                                                                <mt:EntryDataSeriesDetailListTagtext replace="$","<li>">
                                                                             </ul>
                                                                             <div class="p-product_list__img">
                                                                                 <MTIfNonEmpty tag="EntryDataSeriesDetailMainImg">

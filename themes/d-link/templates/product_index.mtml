@@ -3,6 +3,7 @@
     og_title=製品情報 | D-Link Japan
     og_url=https://www.dlink-jp.com/product/
     og_type=article
+    <$mt:BlogEntryCount blog_ids="11" setvar="totalEntry"$>
 </mt:SetVars>
 <mt:SetVarTemplate name="file_javascript">
 <script src="/asset/js/slick.min.js"></script>
@@ -10,7 +11,7 @@
 </mt:SetVarTemplate>
 <mt:Ignore>** 表示部分 **</mt:Ignore>
 <mt:Include module="html_head" parent="1" />
-<mt:Include module="header" parent="1" />
+<mt:Include module="header"/>
 <!-- ここからコンテンツ -->
 <main class="p-main">
     <div class="c-breadcrumb">
@@ -86,7 +87,7 @@
                         <div class="l-container__slot">
                             <div class="p-product_category">
                                 <div class="p-product_category__large">
-                                <mt:Entries category="製品情報">
+                                <mt:Entries include_sites="11" sort_by="authored_on" sort_order="descend" lastn="$totalEntry">
                                     <mt:if tag="EntryTitle" eq="スイッチ">
                                         <div class="p-product_category__item">
                                             <a href="/product/switch/">
@@ -116,7 +117,7 @@
                                         <!-- /.p-product_category__item -->
                                     </mt:if>
                                 </mt:Entries>
-                                <mt:Entries category="製品情報">
+                                <mt:Entries include_sites="11" sort_by="authored_on" sort_order="descend" lastn="$totalEntry">
                                     <mt:if tag="EntryTitle" eq="無線LAN">
                                         <div class="p-product_category__item">
                                             <a href="/product/wireless-lan/">
@@ -150,10 +151,8 @@
                                 <!-- /.p-product_category__large -->
 
                                 <div class="p-product_category__small">
-                                
-                                    <mt:Entries category="製品情報" sort_by="authored_on" sort_order="ascend">
-                                        <mt:EntryCategories setvar="parent_cate"><$mt:CategoryLabel$></mt:EntryCategories>
-                                        <mt:if name="parent_cate" eq="製品情報">
+                                    <mt:Entries include_sites="11" sort_by="authored_on" sort_order="ascend" lastn="$totalEntry">
+                                        <mt:unless tag="EntryPrimaryCategory">
                                             <mt:Unless tag="EntryTitle" like="(スイッチ|無線LAN|ネットワークカメラ)">
                                                 <div class="p-product_category__box">
                                                     <a href="/product/<mt:EntryBaseName>/">
@@ -179,7 +178,7 @@
                                                 </div>
                                                 <!-- /.p-product_category__box -->
                                             </mt:unless>
-                                        </mt:if>
+                                        </mt:unless>
                                     </mt:Entries>
                                     <div class="p-product_category__box">
                                         <a href="/product/compare/" class="p-product_category__other">
@@ -430,6 +429,6 @@
     </section>
 </main>
 <mt:Include module="footer_contact" parent="1" />
-<mt:Include module="product_local_nav" parent="1" />
+<mt:Include module="product_local_nav"/>
 <mt:Include module="footer" parent="1" />
 <mt:Include module="html_foot" parent="1" />
