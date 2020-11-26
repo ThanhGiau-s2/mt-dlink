@@ -8,7 +8,12 @@
 </mt:SetVars>
 <mt:SetVarTemplate name="file_javascript">
 <script src="/asset/js/vue.min.js"></script>
+<mt:if name="basename" like="(switch)">
 <script src="/asset/js/product_switch_compare.min.js" defer></script>
+</mt:if>
+<mt:if name="basename" like="(wireless-lan)">
+<script src="/asset/js/product_wireless_compare.min.js" defer></script>
+</mt:if>
 </mt:SetVarTemplate>
 <mt:Ignore>** 表示部分 **</mt:Ignore>
 <mt:Include module="html_head" parent="1" />
@@ -34,7 +39,7 @@
                     </div>
                     <!-- /.p-product_main__title -->
                     <div class="p-product_main__image">
-                        <MTIfNonEmpty tag="EntryDataSeriesDetailMainImg">
+                        <MTIfNonEmpty tag="EntryDataSeriesImg">
                         <mt:EntryDataSeriesImgasset>
                             <img src="<mt:AssetURL>" alt="<mt:EntryTitle>">
                         </mt:EntryDataSeriesImgasset>

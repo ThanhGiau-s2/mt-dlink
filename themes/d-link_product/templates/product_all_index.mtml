@@ -8,8 +8,10 @@
 <mt:Include module="html_head" parent="1" />
 <mt:Include module="header" parent="1" />
 <!-- ここからコンテンツ -->
-<mt:ArchiveCategory setvar="current_category">
+<mt:CategoryLabel setvar="current_category">
 <mt:CategoryBasename setvar="current_category_basename">
+<mt:BlogEntryCount blog_ids="1" setvar="total_entries_product">
+<mt:BlogEntryCount blog_ids="11" setvar="total_entries_series">
 <main class="p-main">
     <div class="c-breadcrumb">
         <ul class="c-breadcrumb__list">
@@ -31,7 +33,7 @@
                     <div class="l-container__box">
                         <div class="l-container__box">
                             <div class="l-container__slot">
-                                <mt:Entries category="製品情報">
+                                <mt:Entries include_blogs="11" lastn="$total_entries_series">
                                     <mt:if tag="EntryTitle" eq="$current_category">
                                         <div class="p-content_center">
                                             <div class="p-content_center__figure">
@@ -71,7 +73,7 @@
                                 <mt:setvarblock name="sub_current_cate">製品情報/<mt:getvar name="current_category"></mt:setvarblock>
                                 <mt:SubCategories category="$sub_current_cate">
                                     <mt:setvarblock name="sub_cate">製品情報/<mt:getvar name="current_category">/<mt:CategoryLabel></mt:setvarblock>
-                                    <mt:entries category="$sub_cate">
+                                    <mt:entries include_blogs="1" sort_by="authored_on" sort_order="descend" lastn="$total_entries_product" category="$sub_cate">
                                         <mt:SetVar name="depth" value="0">
                                         <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
                                         <mt:if name="depth" eq="3">
@@ -86,7 +88,7 @@
                                         
                                         <div class="l-container__slot">
                                             <div class="p-product_list">
-                                                <mt:entries category="$sub_cate">
+                                                <mt:entries include_blogs="1" sort_by="authored_on" sort_order="descend" lastn="$total_entries_product" category="$sub_cate">
                                                     <mt:SetVar name="depth" value="0">
                                                     <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
                                                     <mt:if name="depth" eq="3">

@@ -6,7 +6,9 @@
           <mt:categories include_sites="1">
             <mt:if tag="CategoryLabel" eq="製品情報">
               <mt:subcategories  category="製品情報">
+                <mt:unless tag="CategoryLabel" like="ネットワークカメラ">
                   <li><a href="<$mt:CategoryArchiveLink$>"><$mt:CategoryLabel$></a></li>
+                </mt:unless>
               </mt:subcategories>
             </mt:if>
           </mt:categories>

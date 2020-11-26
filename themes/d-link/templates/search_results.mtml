@@ -38,18 +38,18 @@
           <div class="p-news__block--show">
         </mt:SearchResultsHeader>
             <div class="p-news__item">
+              <mt:If tag="EntryPermalink">
               <a href="<$mt:EntryPermalink$>">
+              <mt:Else>
+              <div class="p-news__outer">
+              </mt:If>
                 <div class="p-news__box">
                   <mt:SetVar name="category_name">
                   <mt:SiteHasChildSite>
-                    <mt:TopLevelParent>
-                      <mt:SetVarBlock name="category_name"><$mt:CategoryLabel$></mt:SetVarBlock>
-                    </mt:TopLevelParent>
+                    <mt:TopLevelParent><mt:SetVarBlock name="category_name"><$mt:CategoryLabel$></mt:SetVarBlock></mt:TopLevelParent>
                   <mt:Else>
                     <mt:SetVarBlock name="category_name"><$mt:SiteName$></mt:SetVarBlock>
-                    <mt:If name="category_name" like="製品ピックアップ情報">
-                    <$mt:SetVar name="category_name" value="製品情報"$>
-                    </mt:If>
+                    <mt:If name="category_name" like="(サービス＆機能セレクション|製品大カテゴリ・シリーズ)"><$mt:SetVar name="category_name" value="製品情報"$></mt:If>
                   </mt:SiteHasChildSite>
                   <p class="p-news__category--result"><$mt:Var name="category_name"$></p>
                   <div class="p-news__body">
@@ -58,7 +58,12 @@
                   <!-- /.p-news__body -->
                 </div>
                 <!-- /.p-news__box -->
+              <mt:If tag="EntryPermalink">
               </a>
+              <mt:Else>
+              </div>
+              <!-- /.p-news__outer -->
+              </mt:If>
             </div>
             <!-- /.p-news__item -->
         <mt:SearchResultsFooter>

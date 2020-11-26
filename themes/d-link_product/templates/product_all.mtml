@@ -4,6 +4,7 @@
     og_title=<mt:EntryTitle>|製品情報 | D-Link Japan
     og_url=https://www.dlink-jp.com/product/<mt:EntryBasename>/
     og_type=article
+    <mt:BlogEntryCount blog_ids="1" setvar="total_entries_product">
 </mt:SetVars>
 <mt:Ignore>** 表示部分 **</mt:Ignore>
 <mt:Include module="html_head" parent="1" />
@@ -35,6 +36,7 @@
                                             <div class="p-content_center__figure">
                                                 <div class="p-photo">
                                                     <div class="p-photo__img">
+                                                    <mt:Ignore>
                                                         <MTIfNonEmpty tag="EntryDataCattopSum">
                                                             <mt:EntryDataCattopSumAsset>
                                                                 <img src="<mt:AssetURL>" alt="<mt:EntryTitle>">
@@ -42,6 +44,7 @@
                                                         <mt:else>
                                                             <img src="/asset/img/product/alternative_image.jpg" alt="<mt:EntryTitle>">
                                                         </MTIfNonEmpty>
+                                                    </mt:Ignore>
                                                     </div>
                                                     <!-- /.p-photo__img -->
                                                 </div>
@@ -64,18 +67,26 @@
 
                         <div class="l-container__box">
                             <div class="l-container__box">
-                                <mt:setvarblock name="sub_current_cate">製品情報/<mt:EntryTitle></mt:setvarblock>
+                                <mt:setvarblock name="sub_current_cate"><mt:EntryTitle></mt:setvarblock>
                                 <mt:SubCategories category="$sub_current_cate">
                                     <mt:setvarblock name="sub_cate">製品情報/<mt:EntryTitle>/<mt:CategoryLabel></mt:setvarblock>
-                                    <mt:If tag="CategoryCount">    
+                                    <mt:entries include_blogs="1" sort_by="authored_on" sort_order="descend" lastn="$total_entries_product" category="$sub_cate">
+                                        <mt:SetVar name="depth" value="0">
+                                        <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
+                                        <mt:if name="depth" eq="3">
+                                        <mt:setvar name="has_product" value="1">
+                                        </mt:if>
+                                    </mt:entries>
+                                    <mt:if name="has_product" eq="1">
                                         <div class="c-content_heading">
                                             <h2 class="c-content_heading__text"><$mt:CategoryLabel$></h2>
                                         </div>
                                         <!-- /.c-content_heading -->
-                                    
+                                        <mt:setvar name="has_product" value="0">
+                                    </mt:if> 
                                         <div class="l-container__slot">
                                             <div class="p-product_list">
-                                                <mt:entries category="$sub_cate">
+                                                <mt:entries include_blogs="1" sort_by="authored_on" sort_order="descend" lastn="$total_entries_product" category="$sub_cate">
                                                     <mt:SetVar name="depth" value="0">
                                                     <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
                                                     <mt:if name="depth" eq="3">
@@ -137,7 +148,7 @@
                                             <!-- /.p-product_list -->
                                         </div>
                                         <!-- /.l-container__slot -->
-                                    </mt:if>
+                                    
                                 </mt:subcategories>
                             </div>
                             <!-- /.l-container__box -->
@@ -153,8 +164,9 @@
         <!-- /.l-inner -->
     </section>
 </main>
-
+<mt:Ignore>
 <mt:Include module="footer_contact" parent="1" />
+</mt:Ignore>
 <mt:Include module="product_local_nav"/>
 <mt:Include module="footer" parent="1" />
 <mt:Include module="html_foot" parent="1" />
