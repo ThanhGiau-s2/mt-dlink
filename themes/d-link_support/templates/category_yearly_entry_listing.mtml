@@ -16,7 +16,7 @@ Template Note : カテゴリ
 </mt:SetVarTemplate>
 <mt:Ignore>** 表示部分 **</mt:Ignore>
 <mt:Include module="html_head" parent="1" />
-<mt:Include module="header"/>
+<mt:Include module="header" parent="1" />
 <!-- ここからコンテンツ -->
 
 <main class="p-main">
@@ -45,7 +45,7 @@ Template Note : カテゴリ
                 </ul>
 
                 <ul class="p-news__type">
-                    <mt:ArchiveList archive_type="Yearly" sort_order="descend"> 
+                    <mt:ArchiveList archive_type="Category-Yearly"> 
                         <li class="widget-list-item"><a href="<$mt:ArchiveLink encode_html="1"$>" data-name="<mt:ArchiveDate format="%Y">"><$mt:ArchiveTitle$></a></li>
                     </mt:ArchiveList>
                 </ul>
@@ -57,7 +57,7 @@ Template Note : カテゴリ
 
                 <div class="p-news__select js-select_menu">
                     <ul class="p-news__select_list js-select_list">
-                        <mt:ArchiveList archive_type="Yearly" sort_order="descend">
+                        <mt:ArchiveList archive_type="Category-Yearly">
                             <li class="widget-list-item"><a href="<$mt:ArchiveLink encode_html="1"$>" data-name="<mt:ArchiveDate format="%Y">"><$mt:ArchiveTitle$></a></li>
                         </mt:ArchiveList>
                     </ul>
@@ -86,7 +86,6 @@ Template Note : カテゴリ
                                       <div class="p-news__box">
                                           <p class="p-news__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
                                           <mt:EntryAdditionalCategories setvar="entry_categories"><mt:CategoryBasename></mt:EntryAdditionalCategories>
-                                          <mt:SetVarBlock name="cate_support"></mt:SetVarBlock>
                                           <mt:SubCategories category="サポート情報">
                                               <mt:setvarblock name="id_name_cate"><mt:CategoryID>_<mt:CategoryBasename></mt:setvarblock>
                                               <mt:CategoryBasename setvar="name_cate">
@@ -159,6 +158,26 @@ Template Note : カテゴリ
         <!-- /.l-inner -->
     </section>
 </main>
-<mt:Include module="support_local_nav" parent="1" />
+<div class="p-local_nav">
+    <div class="p-local_nav__inner">
+        <p class="p-local_nav__heading">サポート</p>
+        <ul class="p-local_nav__list js-local_nav_current">
+            <li><a href="/support/">サポートTOP</a></li>
+            <li><a href="/support/release/">サポート情報一覧</a></li>
+            <li><a href="/support/award-certification/">D-linkの品質保証</a></li>
+            <li><a href="">サポート体制について</a></li>
+            <li><a href="/support/info/">無償保証について</a></li>
+            <li><a href="/support/info/product-assurance-provision.html">製品保証規定</a></li>
+            <li><a href="/support/info/target.html">保証対象製品と保証期間</a></li>
+            <li><a href="/support/faq/category/product-warranty.html">製品保証のQ&amp;A</a></li>
+            <li><a href="/contact/repair-form/">故障・修理申し込み</a></li>
+            <li><a href="/support/support-services/">有償保守サービスについて</a></li>
+            <li><a href="/support/support-services/support-info.html">約款 / 仕様 / お申し込み方法</a></li>
+            <li><a href="/support/faq/">よくあるご質問</a></li>
+        </ul>
+    </div>
+    <!-- /.p-local_nav__inner -->
+</div>
+<!-- /.p-local_nav -->
 <mt:Include module="footer" parent="1" />
 <mt:Include module="html_foot" parent="1" />

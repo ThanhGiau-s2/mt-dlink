@@ -11,7 +11,7 @@
 <mt:CategoryLabel setvar="current_category">
 <mt:CategoryBasename setvar="current_category_basename">
 <mt:BlogEntryCount blog_ids="1" setvar="total_entries_product">
-<mt:BlogEntryCount blog_ids="11" setvar="total_entries_series">
+<mt:BlogEntryCount setvar="total_entries_series">
 <main class="p-main">
     <div class="c-breadcrumb">
         <ul class="c-breadcrumb__list">
@@ -33,7 +33,7 @@
                     <div class="l-container__box">
                         <div class="l-container__box">
                             <div class="l-container__slot">
-                                <mt:Entries include_blogs="11" lastn="$total_entries_series">
+                                <mt:Entries lastn="$total_entries_series">
                                     <mt:if tag="EntryTitle" eq="$current_category">
                                         <div class="p-content_center">
                                             <div class="p-content_center__figure">

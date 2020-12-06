@@ -6,7 +6,12 @@ Template Note : トップページ出力用
 ========================================
 </mt:Ignore>
 <mt:SetVars>
-  base_description=多治見市教育委員会教育環境の充実化と災害発生時に備えた無線LAN整備機器として、D-Linkのクラウド管理型の無線アクセスポイントを採用 千代田電資株式会社フロアの配置換えを機にD-Linkの無線LANを導入。仕事の進め方や業務効率を大幅に改善し、お客様へのWi-Fi構築提案に経験を活用
+<mt:pages>
+  <mt:if tag="PageTitle" eq="導入事例">
+    <mt:If tag="PageExcerpt">base_description=<$mt:PageExcerpt$></mt:If>
+    <mt:If tag="PageKeywords">base_keywords=<$mt:PageKeywords$></mt:If>
+  </mt:if>
+</mt:pages>
   og_title=導入事例 | D-Link Japan
   og_url=https://www.dlink-jp.com/case-studies/
   og_type=article
@@ -115,321 +120,383 @@ Template Note : トップページ出力用
               <MTpagedataclientlistBlock>
                 <mt:FLCFOptions field="layout_image_text_panel_type">
                   <mt:FLCFIfOptionSelected>
-                    <div class="p-product_filter__introduction">
-                      <!-- 画像+テキスト（パネル型）-->
-                        <!-- SP時レイアウト変更なし -->
-                          <mt:if tag="FLCFOptionValue" eq="sentence_left_justified">
-                            <div class="l-container__slot">
-                              <div class="p-archive">
-                                <div class="p-archive__content">
-                                  <div class="p-archive__item">
-                                    <mt:if tag="FLCFValue" field="url_01"><a href="<mt:FLCFValue field="url_01">"></mt:if>
-                                      <div class="p-archive__detail">
-                                        <div class="p-archive__header">
-                                          <h3 class="p-archive__title"><mt:FLCFValue field="headline_sentence_01"></h3>
-                                          <div class="p-archive__description">
-                                            <p><mt:FLCFValue field="supplementary_text_01"></p>
-                                          </div>
-                                          <!-- /.p-archive__description -->
-                                        </div>
-                                        <!-- /.p-archive__header -->
-                                        <div class="p-archive__image">
-                                          <mt:FLCFAsset field="image_01">
-                                            <img src="<mt:AssetURL>" alt="">
-                                          </mt:FLCFAsset>
-                                        </div>
-                                        <!-- /.p-archive__image -->
+                    
+                      <mt:if tag="FLCFOptionValue" eq="sentence_left_justified">
+                        <div class="l-container__slot">
+                          <div class="p-archive">
+                            <div class="p-archive__content">
+                            <mt:setvarblock name="panel_1"><mt:if tag="FLCFAsset" field="image_01">has_image</mt:if><mt:FLCFValue field="headline_sentence_01_many_lines"></mt:setvarblock>
+                            <mt:if name="panel_1">
+                              <div class="p-archive__item">
+                                <mt:if tag="FLCFValue" field="url_01"><a href="<mt:FLCFValue field="url_01">" <mt:if tag="FLCFValue" field="open_in_another_tab_01">target="_blank" rel="noopener"</mt:if>></mt:if>
+                                  <div class="p-archive__detail">
+                                    <div class="p-archive__header">
+                                    <mt:if tag="FLCFValue" field="headline_sentence_01_many_lines">
+                                      <h3 class="p-archive__title">
+                                        <mt:FLCFValue field="headline_sentence_01_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml">
+                                      </h3>
+                                    </mt:if>
+                                      <div class="p-archive__description">
+                                        <mt:FLCFValue field="supplementary_text_01">
                                       </div>
-                                      <!-- /.p-archive__detail -->
-                                    <mt:if tag="FLCFValue" field="url_01"></a></mt:if>
+                                      <!-- /.p-archive__description -->
+                                    </div>
+                                    <!-- /.p-archive__header -->
+                                    <div class="p-archive__image">
+                                      <mt:FLCFAsset field="image_01">
+                                        <img src="<mt:AssetURL>" alt="">
+                                      </mt:FLCFAsset>
+                                    </div>
+                                    <!-- /.p-archive__image -->
                                   </div>
-                                  <!-- /.p-archive__item -->
-
-                                  <div class="p-archive__item">
-                                    <mt:if tag="FLCFValue" field="url_02"><a href="<mt:FLCFValue field="url_02">"></mt:if>
-                                      <div class="p-archive__detail">
-                                        <div class="p-archive__header">
-                                          <h3 class="p-archive__title"><mt:FLCFValue field="headline_sentence_02"></h3>
-                                          <div class="p-archive__description">
-                                            <p><mt:FLCFValue field="supplementary_text_02"></p>
-                                          </div>
-                                          <!-- /.p-archive__description -->
-                                        </div>
-                                        <!-- /.p-archive__header -->
-                                        <div class="p-archive__image">
-                                          <mt:FLCFAsset field="image_02">
-                                            <img src="<mt:AssetURL>" alt="">
-                                          </mt:FLCFAsset>
-                                        </div>
-                                        <!-- /.p-archive__image -->
-                                      </div>
-                                      <!-- /.p-archive__detail -->
-                                    <mt:if tag="FLCFValue" field="url_02"></a></mt:if>
-                                  </div>
-                                  <!-- /.p-archive__item -->
-
-                                  <div class="p-archive__item">
-                                    <mt:if tag="FLCFValue" field="url_03"><a href="<mt:FLCFValue field="url_03">"></mt:if>
-                                      <div class="p-archive__detail">
-                                        <div class="p-archive__header">
-                                          <h3 class="p-archive__title"><mt:FLCFValue field="headline_sentence_03"></h3>
-                                          <div class="p-archive__description">
-                                            <p><mt:FLCFValue field="supplementary_text_03"></p>
-                                          </div>
-                                          <!-- /.p-archive__description -->
-                                        </div>
-                                        <!-- /.p-archive__header -->
-                                        <div class="p-archive__image">
-                                          <mt:FLCFAsset field="image_03">
-                                            <img src="<mt:AssetURL>" alt="">
-                                          </mt:FLCFAsset>
-                                        </div>
-                                        <!-- /.p-archive__image -->
-                                      </div>
-                                      <!-- /.p-archive__detail -->
-                                    <mt:if tag="FLCFValue" field="url_03"></a></mt:if>
-                                  </div>
-                                  <!-- /.p-archive__item -->
-
-                                  <div class="p-archive__item">
-                                    <mt:if tag="FLCFValue" field="url_04"><a href="<mt:FLCFValue field="url_04">"></mt:if>
-                                      <div class="p-archive__detail">
-                                        <div class="p-archive__header">
-                                          <h3 class="p-archive__title"><mt:FLCFValue field="headline_sentence_04"></h3>
-                                          <div class="p-archive__description">
-                                            <p><mt:FLCFValue field="supplementary_text_04"></p>
-                                          </div>
-                                          <!-- /.p-archive__description -->
-                                        </div>
-                                        <!-- /.p-archive__header -->
-                                        <div class="p-archive__image">
-                                          <mt:FLCFAsset field="image_04">
-                                            <img src="<mt:AssetURL>" alt="">
-                                          </mt:FLCFAsset>
-                                        </div>
-                                        <!-- /.p-archive__image -->
-                                      </div>
-                                      <!-- /.p-archive__detail -->
-                                    <mt:if tag="FLCFValue" field="url_04"></a></mt:if>
-                                  </div>
-                                  <!-- /.p-archive__item -->
-                                </div>
-                                <!-- /.p-archive__content -->
+                                  <!-- /.p-archive__detail -->
+                                <mt:if tag="FLCFValue" field="url_01"></a></mt:if>
                               </div>
-                              <!-- /.p-archive -->
-                            </div>
-                            <!-- /.l-container__slot -->
-                          </mt:if>
-                          <mt:if tag="FLCFOptionValue" eq="sentence_center_justified">
-                            <div class="l-container__slot">
-                              <div class="p-archive">
-                                <div class="p-archive__content">
-                                  <div class="p-archive__item">
-                                    <mt:if tag="FLCFValue" field="url_01"><a href="<mt:FLCFValue field="url_01">"></mt:if>
-                                      <div class="p-archive__detail">
-                                        <div class="p-archive__header">
-                                          <h3 class="p-archive__title u-ta_center"><mt:FLCFValue field="headline_sentence_01"></h3>
-                                          <div class="p-archive__description u-ta_center">
-                                            <p><mt:FLCFValue field="supplementary_text_01"></p>
-                                          </div>
-                                          <!-- /.p-archive__description -->
+                              <!-- /.p-archive__item -->
+                              </mt:if>
+                              
+                              <mt:setvarblock name="panel_2"><mt:if tag="FLCFAsset" field="image_02">has_image</mt:if><mt:FLCFValue field="headline_sentence_02_many_lines"></mt:setvarblock>
+                              <mt:if name="panel_2">
+                                <div class="p-archive__item">
+                                  <mt:if tag="FLCFValue" field="url_02"><a href="<mt:FLCFValue field="url_02">" <mt:if tag="FLCFValue" field="open_in_another_tab_02">target="_blank" rel="noopener"</mt:if>></mt:if>
+                                    <div class="p-archive__detail">
+                                      <div class="p-archive__header">
+                                      <mt:if tag="FLCFValue" field="headline_sentence_02_many_lines">
+                                        <h3 class="p-archive__title">
+                                          <mt:FLCFValue field="headline_sentence_02_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml">
+                                        </h3>
+                                      </mt:if>
+                                        <div class="p-archive__description">
+                                          <mt:FLCFValue field="supplementary_text_02">
                                         </div>
-                                        <!-- /.p-archive__header -->
-                                        <div class="p-archive__image">
-                                          <mt:FLCFAsset field="image_01">
-                                            <img src="<mt:AssetURL>" alt="">
-                                          </mt:FLCFAsset>
-                                        </div>
-                                        <!-- /.p-archive__image -->
+                                        <!-- /.p-archive__description -->
                                       </div>
-                                      <!-- /.p-archive__detail -->
-                                    <mt:if tag="FLCFValue" field="url_01"></a></mt:if>
-                                  </div>
-                                  <!-- /.p-archive__item -->
-
-                                  <div class="p-archive__item">
-                                    <mt:if tag="FLCFValue" field="url_02"><a href="<mt:FLCFValue field="url_02">"></mt:if>
-                                      <div class="p-archive__detail">
-                                        <div class="p-archive__header">
-                                          <h3 class="p-archive__title u-ta_center"><mt:FLCFValue field="headline_sentence_02"></h3>
-                                          <div class="p-archive__description u-ta_center">
-                                            <p><mt:FLCFValue field="supplementary_text_02"></p>
-                                          </div>
-                                          <!-- /.p-archive__description -->
-                                        </div>
-                                        <!-- /.p-archive__header -->
-                                        <div class="p-archive__image">
-                                          <mt:FLCFAsset field="image_02">
-                                            <img src="<mt:AssetURL>" alt="">
-                                          </mt:FLCFAsset>
-                                        </div>
-                                        <!-- /.p-archive__image -->
+                                      <!-- /.p-archive__header -->
+                                      <div class="p-archive__image">
+                                        <mt:FLCFAsset field="image_02">
+                                          <img src="<mt:AssetURL>" alt="">
+                                        </mt:FLCFAsset>
                                       </div>
-                                      <!-- /.p-archive__detail -->
-                                    <mt:if tag="FLCFValue" field="url_02"></a></mt:if>
-                                  </div>
-                                  <!-- /.p-archive__item -->
-
-                                  <div class="p-archive__item">
-                                    <mt:if tag="FLCFValue" field="url_03"><a href="<mt:FLCFValue field="url_03">"></mt:if>
-                                      <div class="p-archive__detail">
-                                        <div class="p-archive__header">
-                                          <h3 class="p-archive__title u-ta_center"><mt:FLCFValue field="headline_sentence_03"></h3>
-                                          <div class="p-archive__description u-ta_center">
-                                            <p><mt:FLCFValue field="supplementary_text_03"></p>
-                                          </div>
-                                          <!-- /.p-archive__description -->
-                                        </div>
-                                        <!-- /.p-archive__header -->
-                                        <div class="p-archive__image">
-                                          <mt:FLCFAsset field="image_03">
-                                            <img src="<mt:AssetURL>" alt="">
-                                          </mt:FLCFAsset>
-                                        </div>
-                                        <!-- /.p-archive__image -->
-                                      </div>
-                                      <!-- /.p-archive__detail -->
-                                    <mt:if tag="FLCFValue" field="url_03"></a></mt:if>
-                                  </div>
-                                  <!-- /.p-archive__item -->
-
-                                  <div class="p-archive__item">
-                                    <mt:if tag="FLCFValue" field="url_04"><a href="<mt:FLCFValue field="url_04">"></mt:if>
-                                      <div class="p-archive__detail">
-                                        <div class="p-archive__header">
-                                          <h3 class="p-archive__title u-ta_center"><mt:FLCFValue field="headline_sentence_04"></h3>
-                                          <div class="p-archive__description u-ta_center">
-                                            <p><mt:FLCFValue field="supplementary_text_04"></p>
-                                          </div>
-                                          <!-- /.p-archive__description -->
-                                        </div>
-                                        <!-- /.p-archive__header -->
-                                        <div class="p-archive__image">
-                                          <mt:FLCFAsset field="image_04">
-                                            <img src="<mt:AssetURL>" alt="">
-                                          </mt:FLCFAsset>
-                                        </div>
-                                        <!-- /.p-archive__image -->
-                                      </div>
-                                      <!-- /.p-archive__detail -->
-                                    <mt:if tag="FLCFValue" field="url_04"></a></mt:if>
-                                  </div>
-                                  <!-- /.p-archive__item -->
+                                      <!-- /.p-archive__image -->
+                                    </div>
+                                    <!-- /.p-archive__detail -->
+                                  <mt:if tag="FLCFValue" field="url_02"></a></mt:if>
                                 </div>
-                                <!-- /.p-archive__content -->
-                              </div>
-                              <!-- /.p-archive -->
-                            </div>
-                            <!-- /.l-container__slot -->
-                          </mt:if>
-                        <!-- SP時レイアウト変更なし -->
-                        <!-- SP時画像左 -->
-                          <mt:if tag="FLCFOptionValue" eq="photo_left_at_SP">
-                            <div class="l-container__slot">
-                              <div class="p-media">
-                                <div class="p-media__content">
-                                  <div class="p-media__item">
-                                    <mt:if tag="FLCFValue" field="url_01"><a href="<mt:FLCFValue field="url_01">" target="_blank" rel="noopener"></mt:if>
-                                      <div class="p-media__detail">
-                                        <div class="p-media__header">
-                                          <h3 class="p-media__title"><mt:FLCFValue field="headline_sentence_01"></h3>
-                                          <div class="p-media__description">
-                                            <p><mt:FLCFValue field="supplementary_text_01"></p>
-                                          </div>
-                                          <!-- /.p-media__description -->
-                                        </div>
-                                        <!-- /.p-media__header -->
-                                        <div class="p-media__image">
-                                          <mt:FLCFAsset field="image_01">
-                                            <img src="<mt:AssetURL>" alt="">
-                                          </mt:FLCFAsset>
-                                        </div>
-                                        <!-- /.p-media__image -->
-                                      </div>
-                                      <!-- /.p-media__detail -->
-                                    <mt:if tag="FLCFValue" field="url_01"></a></mt:if>
-                                  </div>
-                                  <!-- /.p-media__item -->
+                                <!-- /.p-archive__item -->
+                              </mt:if>
 
-                                  <div class="p-media__item">
-                                    <mt:if tag="FLCFValue" field="url_02"><a href="<mt:FLCFValue field="url_02">" target="_blank" rel="noopener"></mt:if>
-                                      <div class="p-media__detail">
-                                        <div class="p-media__header">
-                                          <h3 class="p-media__title"><mt:FLCFValue field="headline_sentence_02"></h3>
-                                          <div class="p-media__description">
-                                            <p><mt:FLCFValue field="supplementary_text_02"></p>
-                                          </div>
-                                          <!-- /.p-media__description -->
+                              <mt:setvarblock name="panel_3"><mt:if tag="FLCFAsset" field="image_03">has_image</mt:if><mt:FLCFValue field="headline_sentence_03_many_lines"></mt:setvarblock>
+                              <mt:if name="panel_3">
+                                <div class="p-archive__item">
+                                  <mt:if tag="FLCFValue" field="url_03"><a href="<mt:FLCFValue field="url_03">" <mt:if tag="FLCFValue" field="open_in_another_tab_03">target="_blank" rel="noopener"</mt:if>></mt:if>
+                                    <div class="p-archive__detail">
+                                      <div class="p-archive__header">
+                                      <mt:if tag="FLCFValue" field="headline_sentence_03_many_lines">
+                                        <h3 class="p-archive__title">
+                                          <mt:FLCFValue field="headline_sentence_03_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml">
+                                        </h3>
+                                      </mt:if>
+                                        <div class="p-archive__description">
+                                          <mt:FLCFValue field="supplementary_text_03">
                                         </div>
-                                        <!-- /.p-media__header -->
-                                        <div class="p-media__image">
-                                          <mt:FLCFAsset field="image_02">
-                                            <img src="<mt:AssetURL>" alt="">
-                                          </mt:FLCFAsset>
-                                        </div>
-                                        <!-- /.p-media__image -->
+                                        <!-- /.p-archive__description -->
                                       </div>
-                                      <!-- /.p-media__detail -->
-                                    <mt:if tag="FLCFValue" field="url_02"></a></mt:if>
-                                  </div>
-                                  <!-- /.p-media__item -->
-
-                                  <div class="p-media__item">
-                                    <mt:if tag="FLCFValue" field="url_03"><a href="<mt:FLCFValue field="url_03">" target="_blank" rel="noopener"></mt:if>
-                                      <div class="p-media__detail">
-                                        <div class="p-media__header">
-                                          <h3 class="p-media__title"><mt:FLCFValue field="headline_sentence_03"></h3>
-                                          <div class="p-media__description">
-                                            <p><mt:FLCFValue field="supplementary_text_03"></p>
-                                          </div>
-                                          <!-- /.p-media__description -->
-                                        </div>
-                                        <!-- /.p-media__header -->
-                                        <div class="p-media__image">
-                                          <mt:FLCFAsset field="image_03">
-                                            <img src="<mt:AssetURL>" alt="">
-                                          </mt:FLCFAsset>
-                                        </div>
-                                        <!-- /.p-media__image -->
+                                      <!-- /.p-archive__header -->
+                                      <div class="p-archive__image">
+                                        <mt:FLCFAsset field="image_03">
+                                          <img src="<mt:AssetURL>" alt="">
+                                        </mt:FLCFAsset>
                                       </div>
-                                      <!-- /.p-media__detail -->
-                                    <mt:if tag="FLCFValue" field="url_03"></a></mt:if>
-                                  </div>
-                                  <!-- /.p-media__item -->
-
-                                  <div class="p-media__item">
-                                    <mt:if tag="FLCFValue" field="url_04"><a href="<mt:FLCFValue field="url_04">" target="_blank" rel="noopener"></mt:if>
-                                      <div class="p-media__detail">
-                                        <div class="p-media__header">
-                                          <h3 class="p-media__title"><mt:FLCFValue field="headline_sentence_04"></h3>
-                                          <div class="p-media__description">
-                                            <p><mt:FLCFValue field="supplementary_text_04"></p>
-                                          </div>
-                                          <!-- /.p-media__description -->
-                                        </div>
-                                        <!-- /.p-media__header -->
-                                        <div class="p-media__image">
-                                          <mt:FLCFAsset field="image_04">
-                                            <img src="<mt:AssetURL>" alt="">
-                                          </mt:FLCFAsset>
-                                        </div>
-                                        <!-- /.p-media__image -->
-                                      </div>
-                                      <!-- /.p-media__detail -->
-                                    <mt:if tag="FLCFValue" field="url_04"></a></mt:if>
-                                  </div>
-                                  <!-- /.p-media__item -->
+                                      <!-- /.p-archive__image -->
+                                    </div>
+                                    <!-- /.p-archive__detail -->
+                                  <mt:if tag="FLCFValue" field="url_03"></a></mt:if>
                                 </div>
-                                <!-- /.p-media__content -->
-                              </div>
-                              <!-- /.p-media -->
+                                <!-- /.p-archive__item -->
+                              </mt:if>
+
+                              <mt:setvarblock name="panel_4"><mt:if tag="FLCFAsset" field="image_04">has_image</mt:if><mt:FLCFValue field="headline_sentence_04_many_lines"></mt:setvarblock>
+                              <mt:if name="panel_4">
+                                <div class="p-archive__item">
+                                  <mt:if tag="FLCFValue" field="url_04"><a href="<mt:FLCFValue field="url_04">" <mt:if tag="FLCFValue" field="open_in_another_tab_04">target="_blank" rel="noopener"</mt:if>></mt:if>
+                                    <div class="p-archive__detail">
+                                      <div class="p-archive__header">
+                                      <mt:if tag="FLCFValue" field="headline_sentence_04_many_lines">
+                                        <h3 class="p-archive__title">
+                                          <mt:FLCFValue field="headline_sentence_04_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml">
+                                        </h3>
+                                      </mt:if>
+                                        <div class="p-archive__description">
+                                          <mt:FLCFValue field="supplementary_text_04">
+                                        </div>
+                                        <!-- /.p-archive__description -->
+                                      </div>
+                                      <!-- /.p-archive__header -->
+                                      <div class="p-archive__image">
+                                        <mt:FLCFAsset field="image_04">
+                                          <img src="<mt:AssetURL>" alt="">
+                                        </mt:FLCFAsset>
+                                      </div>
+                                      <!-- /.p-archive__image -->
+                                    </div>
+                                    <!-- /.p-archive__detail -->
+                                  <mt:if tag="FLCFValue" field="url_04"></a></mt:if>
+                                </div>
+                                <!-- /.p-archive__item -->
+                              </mt:if>
                             </div>
-                            <!-- /.l-container__slot -->
-                          </mt:if>
-                        <!-- SP時画像左 -->
-                      <!-- 画像+テキスト（パネル型）-->
-                    </div>
-                    <!-- /.l-container__box -->
+                            <!-- /.p-archive__content -->
+                          </div>
+                          <!-- /.p-archive -->
+                        </div>
+                        <!-- /.l-container__slot -->
+                      </mt:if>
+                      <mt:if tag="FLCFOptionValue" eq="sentence_center_justified">
+                        <div class="l-container__slot">
+                          <div class="p-archive">
+                            <div class="p-archive__content">
+                            <mt:setvarblock name="panel_1"><mt:if tag="FLCFAsset" field="image_01">has_image</mt:if><mt:FLCFValue field="headline_sentence_01_many_lines"></mt:setvarblock>
+                            <mt:if name="panel_1">
+                              <div class="p-archive__item">
+                                <mt:if tag="FLCFValue" field="url_01"><a href="<mt:FLCFValue field="url_01">" <mt:if tag="FLCFValue" field="open_in_another_tab_01">target="_blank" rel="noopener"</mt:if>></mt:if>
+                                  <div class="p-archive__detail">
+                                    <div class="p-archive__header">
+                                    <mt:if tag="FLCFValue" field="headline_sentence_01_many_lines">
+                                      <h3 class="p-archive__title u-ta_center">
+                                        <mt:FLCFValue field="headline_sentence_01_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml">
+                                      </h3>
+                                    </mt:if>
+                                      <div class="p-archive__description u-ta_center">
+                                        <mt:FLCFValue field="supplementary_text_01">
+                                      </div>
+                                      <!-- /.p-archive__description -->
+                                    </div>
+                                    <!-- /.p-archive__header -->
+                                    <div class="p-archive__image">
+                                      <mt:FLCFAsset field="image_01">
+                                        <img src="<mt:AssetURL>" alt="">
+                                      </mt:FLCFAsset>
+                                    </div>
+                                    <!-- /.p-archive__image -->
+                                  </div>
+                                  <!-- /.p-archive__detail -->
+                                <mt:if tag="FLCFValue" field="url_01"></a></mt:if>
+                              </div>
+                              <!-- /.p-archive__item -->
+                            </mt:if>
+
+                            <mt:setvarblock name="panel_2"><mt:if tag="FLCFAsset" field="image_02">has_image</mt:if><mt:FLCFValue field="headline_sentence_02_many_lines"></mt:setvarblock>
+                            <mt:if name="panel_2">
+                              <div class="p-archive__item">
+                                <mt:if tag="FLCFValue" field="url_02"><a href="<mt:FLCFValue field="url_02">" <mt:if tag="FLCFValue" field="open_in_another_tab_02">target="_blank" rel="noopener"</mt:if>></mt:if>
+                                  <div class="p-archive__detail">
+                                    <div class="p-archive__header">
+                                    <mt:if tag="FLCFValue" field="headline_sentence_02_many_lines">
+                                      <h3 class="p-archive__title u-ta_center">
+                                        <mt:FLCFValue field="headline_sentence_02_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml">
+                                      </h3>
+                                    </mt:if>
+                                      <div class="p-archive__description u-ta_center">
+                                        <mt:FLCFValue field="supplementary_text_02">
+                                      </div>
+                                      <!-- /.p-archive__description -->
+                                    </div>
+                                    <!-- /.p-archive__header -->
+                                    <div class="p-archive__image">
+                                      <mt:FLCFAsset field="image_02">
+                                        <img src="<mt:AssetURL>" alt="">
+                                      </mt:FLCFAsset>
+                                    </div>
+                                    <!-- /.p-archive__image -->
+                                  </div>
+                                  <!-- /.p-archive__detail -->
+                                <mt:if tag="FLCFValue" field="url_02"></a></mt:if>
+                              </div>
+                              <!-- /.p-archive__item -->
+                            </mt:if>
+
+                            <mt:setvarblock name="panel_3"><mt:if tag="FLCFAsset" field="image_03">has_image</mt:if><mt:FLCFValue field="headline_sentence_03_many_lines"></mt:setvarblock>
+                            <mt:if name="panel_3">  
+                              <div class="p-archive__item">
+                                <mt:if tag="FLCFValue" field="url_03"><a href="<mt:FLCFValue field="url_03">" <mt:if tag="FLCFValue" field="open_in_another_tab_03">target="_blank" rel="noopener"</mt:if>></mt:if>
+                                  <div class="p-archive__detail">
+                                    <div class="p-archive__header">
+                                    <mt:if tag="FLCFValue" field="headline_sentence_03_many_lines">
+                                      <h3 class="p-archive__title u-ta_center">
+                                        <mt:FLCFValue field="headline_sentence_03_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml">
+                                      </h3>
+                                    </mt:if>
+                                      <div class="p-archive__description u-ta_center">
+                                        <mt:FLCFValue field="supplementary_text_03">
+                                      </div>
+                                      <!-- /.p-archive__description -->
+                                    </div>
+                                    <!-- /.p-archive__header -->
+                                    <div class="p-archive__image">
+                                      <mt:FLCFAsset field="image_03">
+                                        <img src="<mt:AssetURL>" alt="">
+                                      </mt:FLCFAsset>
+                                    </div>
+                                    <!-- /.p-archive__image -->
+                                  </div>
+                                  <!-- /.p-archive__detail -->
+                                <mt:if tag="FLCFValue" field="url_03"></a></mt:if>
+                              </div>
+                              <!-- /.p-archive__item -->
+                            </mt:if>
+
+                            <mt:setvarblock name="panel_4"><mt:if tag="FLCFAsset" field="image_04">has_image</mt:if><mt:FLCFValue field="headline_sentence_04_many_lines"></mt:setvarblock>
+                            <mt:if name="panel_4">  
+                              <div class="p-archive__item">
+                                <mt:if tag="FLCFValue" field="url_04"><a href="<mt:FLCFValue field="url_04">" <mt:if tag="FLCFValue" field="open_in_another_tab_04">target="_blank" rel="noopener"</mt:if>></mt:if>
+                                  <div class="p-archive__detail">
+                                    <div class="p-archive__header">
+                                    <mt:if tag="FLCFValue" field="headline_sentence_04_many_lines">
+                                      <h3 class="p-archive__title u-ta_center">
+                                        <mt:FLCFValue field="headline_sentence_04_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml">
+                                      </h3>
+                                    </mt:if>
+                                      <div class="p-archive__description u-ta_center">
+                                        <mt:FLCFValue field="supplementary_text_04">
+                                      </div>
+                                      <!-- /.p-archive__description -->
+                                    </div>
+                                    <!-- /.p-archive__header -->
+                                    <div class="p-archive__image">
+                                      <mt:FLCFAsset field="image_04">
+                                        <img src="<mt:AssetURL>" alt="">
+                                      </mt:FLCFAsset>
+                                    </div>
+                                    <!-- /.p-archive__image -->
+                                  </div>
+                                  <!-- /.p-archive__detail -->
+                                <mt:if tag="FLCFValue" field="url_04"></a></mt:if>
+                              </div>
+                              <!-- /.p-archive__item -->
+                              </mt:if>
+                            </div>
+                            <!-- /.p-archive__content -->
+                          </div>
+                          <!-- /.p-archive -->
+                        </div>
+                        <!-- /.l-container__slot -->
+                      </mt:if>
+                    
+                      <mt:if tag="FLCFOptionValue" eq="photo_left_at_SP">
+                        <div class="l-container__slot">
+                          <div class="p-media">
+                            <div class="p-media__content">
+                            <mt:setvarblock name="panel_1"><mt:if tag="FLCFAsset" field="image_01">has_image</mt:if><mt:FLCFValue field="headline_sentence_01_many_lines"></mt:setvarblock>
+                            <mt:if name="panel_1">
+                              <div class="p-media__item">
+                                <mt:if tag="FLCFValue" field="url_01"><a href="<mt:FLCFValue field="url_01">" <mt:if tag="FLCFValue" field="open_in_another_tab_01">target="_blank" rel="noopener"</mt:if>></mt:if>
+                                  <div class="p-media__detail">
+                                    <div class="p-media__header">
+                                      <h3 class="p-media__title"><mt:FLCFValue field="headline_sentence_01_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></h3>
+                                      <div class="p-media__description">
+                                        <mt:FLCFValue field="supplementary_text_01">
+                                      </div>
+                                      <!-- /.p-media__description -->
+                                    </div>
+                                    <!-- /.p-media__header -->
+                                    <div class="p-media__image">
+                                      <mt:FLCFAsset field="image_01">
+                                        <img src="<mt:AssetURL>" alt="">
+                                      </mt:FLCFAsset>
+                                    </div>
+                                    <!-- /.p-media__image -->
+                                  </div>
+                                  <!-- /.p-media__detail -->
+                                <mt:if tag="FLCFValue" field="url_01"></a></mt:if>
+                              </div>
+                              <!-- /.p-media__item -->
+                            </mt:if>
+
+                            <mt:setvarblock name="panel_2"><mt:if tag="FLCFAsset" field="image_02">has_image</mt:if><mt:FLCFValue field="headline_sentence_02_many_lines"></mt:setvarblock>
+                            <mt:if name="panel_2">  
+                              <div class="p-media__item">
+                                <mt:if tag="FLCFValue" field="url_02"><a href="<mt:FLCFValue field="url_02">" <mt:if tag="FLCFValue" field="open_in_another_tab_02">target="_blank" rel="noopener"</mt:if>></mt:if>
+                                  <div class="p-media__detail">
+                                    <div class="p-media__header">
+                                      <h3 class="p-media__title"><mt:FLCFValue field="headline_sentence_02_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></h3>
+                                      <div class="p-media__description">
+                                        <mt:FLCFValue field="supplementary_text_02">
+                                      </div>
+                                      <!-- /.p-media__description -->
+                                    </div>
+                                    <!-- /.p-media__header -->
+                                    <div class="p-media__image">
+                                      <mt:FLCFAsset field="image_02">
+                                        <img src="<mt:AssetURL>" alt="">
+                                      </mt:FLCFAsset>
+                                    </div>
+                                    <!-- /.p-media__image -->
+                                  </div>
+                                  <!-- /.p-media__detail -->
+                                <mt:if tag="FLCFValue" field="url_02"></a></mt:if>
+                              </div>
+                              <!-- /.p-media__item -->
+                              </mt:if>
+
+                            <mt:setvarblock name="panel_3"><mt:if tag="FLCFAsset" field="image_03">has_image</mt:if><mt:FLCFValue field="headline_sentence_03_many_lines"></mt:setvarblock>
+                            <mt:if name="panel_3">
+                              <div class="p-media__item">
+                                <mt:if tag="FLCFValue" field="url_03"><a href="<mt:FLCFValue field="url_03">" <mt:if tag="FLCFValue" field="open_in_another_tab_03">target="_blank" rel="noopener"</mt:if>></mt:if>
+                                  <div class="p-media__detail">
+                                    <div class="p-media__header">
+                                      <h3 class="p-media__title"><mt:FLCFValue field="headline_sentence_03_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></h3>
+                                      <div class="p-media__description">
+                                        <mt:FLCFValue field="supplementary_text_03">
+                                      </div>
+                                      <!-- /.p-media__description -->
+                                    </div>
+                                    <!-- /.p-media__header -->
+                                    <div class="p-media__image">
+                                      <mt:FLCFAsset field="image_03">
+                                        <img src="<mt:AssetURL>" alt="">
+                                      </mt:FLCFAsset>
+                                    </div>
+                                    <!-- /.p-media__image -->
+                                  </div>
+                                  <!-- /.p-media__detail -->
+                                <mt:if tag="FLCFValue" field="url_03"></a></mt:if>
+                              </div>
+                              <!-- /.p-media__item -->
+                            </mt:if>
+
+                            <mt:setvarblock name="panel_4"><mt:if tag="FLCFAsset" field="image_04">has_image</mt:if><mt:FLCFValue field="headline_sentence_04_many_lines"></mt:setvarblock>
+                            <mt:if name="panel_4">  
+                              <div class="p-media__item">
+                                <mt:if tag="FLCFValue" field="url_04"><a href="<mt:FLCFValue field="url_04">" <mt:if tag="FLCFValue" field="open_in_another_tab_04">target="_blank" rel="noopener"</mt:if>></mt:if>
+                                  <div class="p-media__detail">
+                                    <div class="p-media__header">
+                                      <h3 class="p-media__title"><mt:FLCFValue field="headline_sentence_04_many_lines" remove_html="1" convert_breaks="0" nl2br="xhtml"></h3>
+                                      <div class="p-media__description">
+                                        <mt:FLCFValue field="supplementary_text_04">
+                                      </div>
+                                      <!-- /.p-media__description -->
+                                    </div>
+                                    <!-- /.p-media__header -->
+                                    <div class="p-media__image">
+                                      <mt:FLCFAsset field="image_04">
+                                        <img src="<mt:AssetURL>" alt="">
+                                      </mt:FLCFAsset>
+                                    </div>
+                                    <!-- /.p-media__image -->
+                                  </div>
+                                  <!-- /.p-media__detail -->
+                                <mt:if tag="FLCFValue" field="url_04"></a></mt:if>
+                              </div>
+                              <!-- /.p-media__item -->
+                            </mt:if>
+                            </div>
+                            <!-- /.p-media__content -->
+                          </div>
+                          <!-- /.p-media -->
+                        </div>
+                        <!-- /.l-container__slot -->
+                      </mt:if>
+                    
                   </mt:FLCFIfOptionSelected>
                 </mt:FLCFOptions>
               </MTpagedataclientlistBlock>

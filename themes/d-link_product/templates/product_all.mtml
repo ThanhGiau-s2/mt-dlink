@@ -36,7 +36,6 @@
                                             <div class="p-content_center__figure">
                                                 <div class="p-photo">
                                                     <div class="p-photo__img">
-                                                    <mt:Ignore>
                                                         <MTIfNonEmpty tag="EntryDataCattopSum">
                                                             <mt:EntryDataCattopSumAsset>
                                                                 <img src="<mt:AssetURL>" alt="<mt:EntryTitle>">
@@ -44,7 +43,6 @@
                                                         <mt:else>
                                                             <img src="/asset/img/product/alternative_image.jpg" alt="<mt:EntryTitle>">
                                                         </MTIfNonEmpty>
-                                                    </mt:Ignore>
                                                     </div>
                                                     <!-- /.p-photo__img -->
                                                 </div>
@@ -164,9 +162,8 @@
         <!-- /.l-inner -->
     </section>
 </main>
-<mt:Ignore>
+
 <mt:Include module="footer_contact" parent="1" />
-</mt:Ignore>
 <mt:Include module="product_local_nav"/>
 <mt:Include module="footer" parent="1" />
 <mt:Include module="html_foot" parent="1" />

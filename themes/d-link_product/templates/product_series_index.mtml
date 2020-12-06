@@ -3,7 +3,7 @@
     og_title=<mt:CategoryLabel>|製品情報 | D-Link Japan
     og_url=https://www.dlink-jp.com/product/<mt:CategoryBasename>/
     og_type=article
-    <mt:BlogEntryCount blog_ids="11" setvar="total_entries_series">
+    <mt:BlogEntryCount setvar="total_entries_series">
 </mt:SetVars>
 <mt:Ignore>** 表示部分 **</mt:Ignore>
 <mt:Include module="html_head" parent="1" />
@@ -28,7 +28,7 @@
                 <div class="l-container__block">
                     <div class="l-container__box">
                         <div class="l-container__box">
-                            <$mt:CategoryLabel setvar="current_category"$>
+                            <$mt:ArchiveCategory setvar="current_category"$>
                             <mt:CategoryBasename setvar="current_category_basename">
                             <mt:If name="current_category_basename" like="(switch|wireless-lan)">
                                 <div class="l-container__slot">
@@ -42,7 +42,7 @@
                                 <!-- /.l-container__slot -->
                             </mt:if>
                             <div class="l-container__slot">
-                                <mt:Entries include_blogs="11" lastn="$total_entries_series">
+                                <mt:Entries lastn="$total_entries_series">
                                     <mt:if tag="EntryTitle" eq="$current_category">
                                         <div class="p-content_center">
                                             <div class="p-content_center__figure">
@@ -82,7 +82,7 @@
                             <mt:setvarblock name="sub_current_cate"><mt:getvar name="current_category"></mt:setvarblock>
                             <mt:SubCategories category="$sub_current_cate">
                                 <mt:setvarblock name="sub_cate"><mt:getvar name="current_category">/<mt:CategoryLabel></mt:setvarblock>
-                                <mt:entries include_blogs="11" category="$sub_cate">
+                                <mt:entries category="$sub_cate">
                                     <mt:SetVar name="depth" value="0">
                                     <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
                                     <mt:if name="depth" eq="2"><mt:setvar name="show_list" value="1"></mt:if>
@@ -98,7 +98,7 @@
                             <div class="l-container__box">
                                 <mt:SubCategories category="$sub_current_cate">
                                     <mt:setvarblock name="sub_cate"><mt:getvar name="current_category">/<mt:CategoryLabel></mt:setvarblock>
-                                    <mt:entries include_blogs="11" category="$sub_cate">
+                                    <mt:entries category="$sub_cate">
                                         <mt:SetVar name="depth" value="0">
                                         <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
                                         <mt:if name="depth" eq="2"><mt:setvar name="has_series" value="1"></mt:if>

@@ -41,19 +41,26 @@ Template Note : 固定ページ出力用
     <mt:if tag="PageBasename" eq="thanks">  
         <mt:if name="list_folder" like="(contactrepair-form|contactcontact-before|contactcontact-after|contactprivacy-policy|contactcontact-other|contactcertificate-of-non-applicability|careers)">
             <mt:Include module="page_complete_form"/>
+        <mt:else>
+            <mt:Include module="page_flcf"/>
         </mt:if>
     <mt:else>
         <mt:If tag="FolderLabel" eq="採用情報">
             <mt:if tag="PageBasename" eq="entry">
                 <mt:Include module="page_career"/>
+            <mt:else>
+                <mt:Include module="page_flcf"/>
             </mt:if>
         <mt:else>
             <mt:If tag="FolderLabel" eq="スイッチ">
                 <mt:if tag="PageBasename" eq="list">
                     <mt:Include module="page_switch_list"/>
-                </mt:if>
-                <mt:if tag="PageBasename" eq="compare">
-                    <mt:Include module="page_switch_compare"/>
+                <mt:else>
+                    <mt:if tag="PageBasename" eq="compare">
+                        <mt:Include module="page_switch_compare"/>
+                    <mt:else>
+                        <mt:Include module="page_flcf"/>
+                    </mt:if>
                 </mt:if>
             <mt:else>
                 <mt:If tag="FolderLabel" eq="無線LAN">
@@ -69,13 +76,19 @@ Template Note : 固定ページ出力用
                     <mt:if tag="PageBasename" eq="compare">
                         <mt:Include module="page_wireless-lan_compare"/>
                     </mt:if>
+                    <mt:unless tag="PageBasename" like="(list|access_point|controller|compare)">
+                        <mt:Include module="page_flcf"/>
+                    </mt:unless>
                 <mt:else>
                     <mt:If tag="FolderLabel" eq="販売終了予定／販売終了製品">
                         <mt:if tag="PageBasename" eq="pog">
                             <mt:Include module="product_archive_pog"/>
-                        </mt:if>
-                        <mt:if tag="PageBasename" eq="eos">
-                            <mt:Include module="product_archive_eos"/>
+                        <mt:else>
+                            <mt:if tag="PageBasename" eq="eos">
+                                <mt:Include module="product_archive_eos"/>
+                            <mt:else>
+                                <mt:Include module="page_flcf"/>
+                            </mt:if>
                         </mt:if>
                     <mt:else>
                         <mt:Include module="page_flcf"/>

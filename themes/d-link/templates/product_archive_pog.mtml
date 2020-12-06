@@ -64,11 +64,11 @@
                                                             <mt:SetVar name="has_entries_product" value="1">
                                                         </mt:if>
                                                     </mt:if>
-                                                    <mt:if name="has_entries_product" eq="1">
-                                                        <li><a href="#<mt:CategoryBasename>" class="js-anchor"><mt:CategoryLabel></a></li>
-                                                        <mt:SetVar name="has_entries_product" value="0">
-                                                    </mt:if>
                                                 </mt:entries>
+                                                <mt:if name="has_entries_product" eq="1">
+                                                    <li><a href="#<mt:CategoryBasename>" class="js-anchor"><mt:CategoryLabel></a></li>
+                                                    <mt:SetVar name="has_entries_product" value="0">
+                                                </mt:if>
                                             </mt:subcategories>
                                             <!--
                                             <li><a href="#switch" class="js-anchor">スイッチ</a></li>
