@@ -1,9 +1,14 @@
 <mt:SetVars>
-    base_description=ディスクリプション
+    <mt:BlogEntryCount blog_ids="11" setvar="total_entries_product">
+    <mt:Entries lastn="$total_entries_product">
+        <mt:if tag="EntryTitle" eq="ルータ／ファイアウォール">
+            <mt:If tag="EntryExcerpt">base_description=<$mt:EntryExcerpt$></mt:If>
+            <mt:If tag="EntryKeywords">base_keywords=<$mt:EntryKeywords$></mt:If>
+        </mt:if>
+    </mt:Entries>
     og_title=ルータ／ファイアウォール|製品情報 | D-Link Japan
     og_url=https://www.dlink-jp.com/product/router-firewall/
     og_type=article
-    <mt:BlogEntryCount blog_ids="11" setvar="total_entries_product">
 </mt:SetVars>
 <mt:Ignore>** 表示部分 **</mt:Ignore>
 <mt:Include module="html_head" parent="1" />

@@ -1,5 +1,11 @@
 <mt:SetVars>
-    base_description=ディスクリプション
+    <mt:BlogEntryCount blog_ids="11" setvar="total_entries_product">
+    <mt:Entries lastn="$total_entries_product">
+        <mt:if tag="EntryTitle" eq="その他製品">
+            <mt:If tag="EntryExcerpt">base_description=<$mt:EntryExcerpt$></mt:If>
+            <mt:If tag="EntryKeywords">base_keywords=<$mt:EntryKeywords$></mt:If>
+        </mt:if>
+    </mt:Entries>
     og_title=その他製品|製品情報 | D-Link Japan
     og_url=https://www.dlink-jp.com/product/other/
     og_type=article
