@@ -75,13 +75,14 @@
                                         <div class="p-product_filter__footer">
                                             <div class="p-product_filter__footer_item">
                                                 <p class="p-product_filter__count">絞り込み：<span>
+                                                <mt:SetVar name="total_entries" value="0">
                                                 <mt:entries category="製品情報/無線LAN/コントローラー">
                                                     <mt:SetVar name="depth" value="0">
                                                     <mt:EntryAdditionalCategories>
                                                         <mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if>
                                                     </mt:EntryAdditionalCategories>
                                                     <mt:if name="depth" eq="3">
-                                                        <mt:EntriesCount setvar="total_entries">
+                                                        <mt:unless tag="EntryDataSeriesDetailSalestatus" eq="販売終了"><mt:SetVar name="total_entries" op="++"></mt:unless>
                                                     </mt:if>
                                                 </mt:entries><mt:getvar name="total_entries"></span>製品</p>
                                             </div>
@@ -152,7 +153,7 @@
                                                                                     <mt:If name="exp_date" gt="$current_date"><p class="p-product_list__status--new">NEW</p></mt:If>
                                                                                 </mt:If>
                                                                                 <div class="p-product_list__description">
-                                                                                    <p><mt:EntryDataSeriesDetailListText></p>
+                                                                                    <p><mt:EntryDataSeriesDetailListText nl2br="1"></p>
                                                                                 </div>
                                                                                 <!-- /.p-product_list__description -->
                                                                             </div>
