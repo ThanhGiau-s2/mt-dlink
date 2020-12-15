@@ -6,7 +6,7 @@
 </mt:SetVars>
 <mt:Ignore>** 表示部分 **</mt:Ignore>
 <mt:Include module="html_head" parent="1" />
-<mt:Include module="header" parent="1" />
+<mt:Include module="header"/>
 <!-- ここからコンテンツ -->
 <mt:CategoryLabel setvar="current_category">
 <mt:CategoryBasename setvar="current_category_basename">
@@ -55,7 +55,7 @@
 
                                             <div class="p-content_center__body">
                                                 <div class="c-content_box">
-                                                    <p><mt:EntryDataCattopText></p>
+                                                    <p><mt:EntryDataCattopText nl2br="1"></p>
                                                 </div>
                                                 <!-- /.c-content_box -->
                                             </div>
