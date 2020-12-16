@@ -243,7 +243,7 @@
                                     </div>
                                     <!-- /.p-information__name -->
                                     <div class="p-information__number">
-                                        <p>×<mt:EntryDataSeriesDetailPortRight02></p>
+                                        <p><mt:unless name="basename_max" eq="wireless-lan">×</mt:unless><mt:EntryDataSeriesDetailPortRight02></p>
                                     </div>
                                     <!-- /.p-information__number -->
                                 </div>
@@ -260,7 +260,7 @@
                                     </div>
                                     <!-- /.p-information__name -->
                                     <div class="p-information__number">
-                                        <p>×<mt:EntryDataSeriesDetailPortRight03></p>
+                                        <p><mt:unless name="basename_max" eq="wireless-lan">×</mt:unless><mt:EntryDataSeriesDetailPortRight03></p>
                                     </div>
                                     <!-- /.p-information__number -->
                                 </div>
@@ -277,7 +277,7 @@
                                     </div>
                                     <!-- /.p-information__name -->
                                     <div class="p-information__number">
-                                        <p>×<mt:EntryDataSeriesDetailPortRight04></p>
+                                        <p><mt:unless name="basename_max" eq="wireless-lan">×</mt:unless><mt:EntryDataSeriesDetailPortRight04></p>
                                     </div>
                                     <!-- /.p-information__number -->
                                 </div>
@@ -294,7 +294,7 @@
                                     </div>
                                     <!-- /.p-information__name -->
                                     <div class="p-information__number">
-                                        <p>×<mt:EntryDataSeriesDetailPortRight05></p>
+                                        <p><mt:unless name="basename_max" eq="wireless-lan">×</mt:unless><mt:EntryDataSeriesDetailPortRight05></p>
                                     </div>
                                     <!-- /.p-information__number -->
                                 </div>
@@ -311,7 +311,7 @@
                                     </div>
                                     <!-- /.p-information__name -->
                                     <div class="p-information__number">
-                                        <p>×<mt:EntryDataSeriesDetailPortRight06></p>
+                                        <p><mt:unless name="basename_max" eq="wireless-lan">×</mt:unless><mt:EntryDataSeriesDetailPortRight06></p>
                                     </div>
                                     <!-- /.p-information__number -->
                                 </div>
@@ -2783,7 +2783,7 @@
                                                                                         <tr>
                                                                                             <td colspan="2">
                                                                                                 <div class="c-content_box">
-                                                                                                    <p><mt:EntryDataSoftwareSeriesDetailHardwareTableInnerDescriptionText></p>
+                                                                                                    <p><mt:EntryDataSoftwareSeriesDetailHardwareTableInnerDescriptionText nl2br="1"></p>
                                                                                                 </div>
                                                                                                 <!-- /.c-content_box -->
                                                                                             </td>
@@ -3033,11 +3033,11 @@
                                                                                         <td><mt:EntryDataSwitchSeriesDetailSoftwareTableText29></td>
                                                                                     </tr>
                                                                                     </mt:if>
-                                                                                    <mt:setvarblock name="sw_switch_row5"><mt:EntryDataSwitchSeriesDetailSoftwareTableText30><mt:EntryDataSwitchSeriesDetailSoftwareTableText31><mt:EntryDataSwitchSeriesDetailSoftwareTableText32><mt:EntryDataSwitchSeriesDetailSoftwareTableText33><mt:EntryDataSwitchSeriesDetailSoftwareTableText34><mt:EntryDataSwitchSeriesDetailSoftwareTableText35><mt:EntryDataSwitchSeriesDetailSoftwareTableText36><mt:EntryDataSwitchSeriesDetailSoftwareTableText37><mt:EntryDataSwitchSeriesDetailSoftwareTableText38><mt:EntryDataSwitchSeriesDetailSoftwareTableText39><mt:EntryDataSwitchSeriesDetailSoftwareTableText40><mt:EntryDataSwitchSeriesDetailSoftwareTableText41><EntryDataSwitchSeriesDetailSoftwareTableText42><EntryDataSwitchSeriesDetailSoftwareTableText43><mt:EntryDataSwitchSeriesDetailSoftwareTableText44><EntryDataSwitchSeriesDetailSoftwareTableText45><EntryDataSwitchSeriesDetailSoftwareTableText46><EntryDataSwitchSeriesDetailSoftwareTableText47><mt:EntryDataSwitchSeriesDetailSoftwareTableText48></mt:setvarblock>
+                                                                                    <mt:setvarblock name="sw_switch_row5"><mt:EntryDataSwitchSeriesDetailSoftwareTableText30><mt:EntryDataSwitchSeriesDetailSoftwareTableText31><mt:EntryDataSwitchSeriesDetailSoftwareTableText32><mt:EntryDataSwitchSeriesDetailSoftwareTableText33><mt:EntryDataSwitchSeriesDetailSoftwareTableText34><mt:EntryDataSwitchSeriesDetailSoftwareTableText35><mt:EntryDataSwitchSeriesDetailSoftwareTableText36><mt:EntryDataSwitchSeriesDetailSoftwareTableText37><mt:EntryDataSwitchSeriesDetailSoftwareTableText38><mt:EntryDataSwitchSeriesDetailSoftwareTableText39><mt:EntryDataSwitchSeriesDetailSoftwareTableText40><mt:EntryDataSwitchSeriesDetailSoftwareTableText41><mt:EntryDataSwitchSeriesDetailSoftwareTableText42><mt:EntryDataSwitchSeriesDetailSoftwareTableText43><mt:EntryDataSwitchSeriesDetailSoftwareTableText44><mt:EntryDataSwitchSeriesDetailSoftwareTableText45><mt:EntryDataSwitchSeriesDetailSoftwareTableText46><mt:EntryDataSwitchSeriesDetailSoftwareTableText47><mt:EntryDataSwitchSeriesDetailSoftwareTableText48></mt:setvarblock>
                                                                                     <mt:if name="sw_switch_row5">
-                                                                                    <tr>
-                                                                                        <th colspan="2" scope="col">L3機能</th>
-                                                                                    </tr>
+                                                                                        <tr>
+                                                                                            <th colspan="2" scope="col">L3機能</th>
+                                                                                        </tr>
                                                                                     </mt:if>
                                                                                     <mt:if tag="EntryDataSwitchSeriesDetailSoftwareTableText30">
                                                                                     <tr>
