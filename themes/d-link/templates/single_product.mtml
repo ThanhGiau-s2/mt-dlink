@@ -583,9 +583,7 @@
                                     <!-- Maintenance -->
                                     
                                     <!-- License -->
-                                        <mtEntryDataProductDetailLicenseblock>
-                                            <mt:setvarblock name="has_data_license"><mt:FlCFValue field="detail_license_title"><mt:FlCFValue field="detail_license_description"></mt:setvarblock>
-                                        </mtEntryDataProductDetailLicenseblock>    
+                                        <mtEntryDataProductDetailLicenseblock><mt:setvarblock name="has_data_license"><mt:FlCFValue field="detail_license_title"><mt:FlCFValue field="detail_license_description"></mt:setvarblock></mtEntryDataProductDetailLicenseblock>    
                                         <mt:if name="has_data_license">
                                             <mt:SetVar name="tab" op="++">
                                             <li><a href="#license">ライセンス</a></li>
@@ -6823,8 +6821,8 @@
                                                 <div id="license" class="p-product_content__container js-product_container">
                                                     <div class="l-container">
                                                         <div class="l-container__block">
-                                        </mt:if>
                                                             <div class="l-container__box">
+                                        </mt:if>
                                                                 <mtEntryDataProductDetailLicenseblock>
                                                                     <mt:if tag="FlCFValue" field="detail_license_title">
                                                                         <div class="c-middle_heading">
@@ -6859,9 +6857,9 @@
                                                                         </div>
                                                                         <!-- /.l-container__slot -->
                                                                 </mtEntryDataProductDetailLicenseblock>
+                                        <mt:if name="has_data_license">
                                                             </div>
                                                             <!-- /.l-container__box -->
-                                        <mt:if name="has_data_license">
                                                         </div>
                                                         <!-- /.l-container__block -->
                                                     </div>
@@ -6881,64 +6879,61 @@
                                                     <div id="technical" class="p-product_content__container js-product_container">
                                                         <div class="l-container">
                                                             <div class="l-container__block">
-                                            </mt:if>
-                                        
-                                                                <mtEntryDataProductDetailTechnicalInforblock>
-                                                                    
-                                                                        <div class="l-container__box">
-                                                                            <mt:if tag="FlCFValue" field="detail_technical_infor_title">
-                                                                                <div class="c-middle_heading">
-                                                                                    <h3 class="c-middle_heading__text"><mt:FlCFValue field="detail_technical_infor_title"></h3>
+                                                                <div class="l-container__box">
+                                            </mt:if>   
+                                                                    <mtEntryDataProductDetailTechnicalInforblock>
+                                                                        <mt:if tag="FlCFValue" field="detail_technical_infor_title">
+                                                                            <div class="c-middle_heading">
+                                                                                <h3 class="c-middle_heading__text"><mt:FlCFValue field="detail_technical_infor_title"></h3>
+                                                                            </div>
+                                                                        </mt:if>
+                                                                        <div class="l-container__slot">
+                                                                            <mt:if tag="FlCFValue" field="detail_technical_infor_text">
+                                                                                <div class="c-content_box">
+                                                                                    <mt:FlCFValue field="detail_technical_infor_text" remove_html="1" convert_breaks="0" nl2br="xhtml">
                                                                                 </div>
                                                                             </mt:if>
-                                                                            <div class="l-container__slot">
-                                                                                <mt:if tag="FlCFValue" field="detail_technical_infor_text">
-                                                                                    <div class="c-content_box">
-                                                                                        <mt:FlCFValue field="detail_technical_infor_text" remove_html="1" convert_breaks="0" nl2br="xhtml">
-                                                                                    </div>
-                                                                                </mt:if>
-                                                                                <mt:setvarblock name="detail_technical_infor_has_data"><mt:FlCFValue field="detail_technical_infor_link_text"><mt:FlCFValue field="detail_technical_infor_moredescription"></mt:setvarblock>
-                                                                                <mt:if name="detail_technical_infor_has_data">
-                                                                                    <div class="p-link">
-                                                                                        <mt:if tag="FlCFValue" field="detail_technical_infor_link_text">
-                                                                                            <ul class="p-link__list">
-                                                                                                <li>
-                                                                                                    <mt:if tag="FlCFValue" field="detail_technical_infor_link">
-                                                                                                        <a href="<mt:FlCFValue field="detail_technical_infor_link">" <mt:if tag="FlCFValue" field="detail_technical_infor_link_window">target="_blank"</mt:if> class="js-file_get_size">
-                                                                                                            <span><mt:FlCFValue field="detail_technical_infor_link_text"><span class="js-link_showsize"></span></span>
-                                                                                                        </a>
-                                                                                                    <mt:else>
-                                                                                                        <span><mt:FlCFValue field="detail_technical_infor_link_text"></span>
-                                                                                                    </mt:if>
-                                                                                                </li>
-                                                                                            </ul>
-                                                                                        </mt:if>
-                                                                                        <mt:if tag="FlCFValue" field="detail_technical_infor_moredescription">
-                                                                                            <div class="p-link__notice">
-                                                                                                <mt:FlCFValue field="detail_technical_infor_moredescription" remove_html="1" convert_breaks="0" nl2br="xhtml">
-                                                                                            </div>
-                                                                                        </mt:if>
-                                                                                    </div>
-                                                                                </mt:if>
-                                                                                <mt:if tag="FlCFValue" field="detail_technical_infor_button_text">
-                                                                                    <div class="p-button_2col">
-                                                                                        <div class="p-button_2col__item">
-                                                                                            <div class="c-button--fill">
-                                                                                                <mt:if tag="FlCFValue" field="detail_technical_infor_button_link">
-                                                                                                    <a href="<mt:FlCFValue field="detail_technical_infor_button_link">"><mt:FlCFValue field="detail_technical_infor_button_text"></a>
+                                                                            <mt:setvarblock name="detail_technical_infor_has_data"><mt:FlCFValue field="detail_technical_infor_link_text"><mt:FlCFValue field="detail_technical_infor_moredescription"></mt:setvarblock>
+                                                                            <mt:if name="detail_technical_infor_has_data">
+                                                                                <div class="p-link">
+                                                                                    <mt:if tag="FlCFValue" field="detail_technical_infor_link_text">
+                                                                                        <ul class="p-link__list">
+                                                                                            <li>
+                                                                                                <mt:if tag="FlCFValue" field="detail_technical_infor_link">
+                                                                                                    <a href="<mt:FlCFValue field="detail_technical_infor_link">" <mt:if tag="FlCFValue" field="detail_technical_infor_link_window">target="_blank"</mt:if> class="js-file_get_size">
+                                                                                                        <span><mt:FlCFValue field="detail_technical_infor_link_text"><span class="js-link_showsize"></span></span>
+                                                                                                    </a>
                                                                                                 <mt:else>
-                                                                                                    <mt:FlCFValue field="detail_technical_infor_button_text">
+                                                                                                    <span><mt:FlCFValue field="detail_technical_infor_link_text"></span>
                                                                                                 </mt:if>
-                                                                                            </div>
+                                                                                            </li>
+                                                                                        </ul>
+                                                                                    </mt:if>
+                                                                                    <mt:if tag="FlCFValue" field="detail_technical_infor_moredescription">
+                                                                                        <div class="p-link__notice">
+                                                                                            <mt:FlCFValue field="detail_technical_infor_moredescription" remove_html="1" convert_breaks="0" nl2br="xhtml">
+                                                                                        </div>
+                                                                                    </mt:if>
+                                                                                </div>
+                                                                            </mt:if>
+                                                                            <mt:if tag="FlCFValue" field="detail_technical_infor_button_text">
+                                                                                <div class="p-button_2col">
+                                                                                    <div class="p-button_2col__item">
+                                                                                        <div class="c-button--fill">
+                                                                                            <mt:if tag="FlCFValue" field="detail_technical_infor_button_link">
+                                                                                                <a href="<mt:FlCFValue field="detail_technical_infor_button_link">"><mt:FlCFValue field="detail_technical_infor_button_text"></a>
+                                                                                            <mt:else>
+                                                                                                <mt:FlCFValue field="detail_technical_infor_button_text">
+                                                                                            </mt:if>
                                                                                         </div>
                                                                                     </div>
-                                                                                </mt:if>
-                                                                            </div>
+                                                                                </div>
+                                                                            </mt:if>
                                                                         </div>
-                                                                        <!-- /.l-container__box -->
-                                                                    
-                                                                </mtEntryDataProductDetailTechnicalInforblock>
+                                                                    </mtEntryDataProductDetailTechnicalInforblock>
                                             <mt:if name="has_data_technical">
+                                                                </div>
+                                                                <!-- /.l-container__box -->
                                                             </div>
                                                             <!-- /.l-container__block -->
                                                         </div>
@@ -6958,66 +6953,63 @@
                                                 <div id="related" class="p-product_content__container js-product_container">
                                                     <div class="l-container">
                                                         <div class="l-container__block">
+                                                            <div class="l-container__box">
                                         </mt:if>
-                                        
                                                                 <mtEntryDataProductDetailRelatedInforTabblock>
-                                                                    
-                                                                        <div class="l-container__box">
-                                                                            <mt:if tag="FlCFValue" field="detail_related_infor_title">
-                                                                                <div class="c-middle_heading">
-                                                                                    <h3 class="c-middle_heading__text"><mt:FlCFValue field="detail_related_infor_title"></h3>
+                                                                    <mt:if tag="FlCFValue" field="detail_related_infor_title">
+                                                                        <div class="c-middle_heading">
+                                                                            <h3 class="c-middle_heading__text"><mt:FlCFValue field="detail_related_infor_title"></h3>
+                                                                        </div>
+                                                                    </mt:if>
+                                                                    <div class="l-container__slot">
+                                                                        <mt:if tag="FlCFValue" field="detail_related_infor_text">
+                                                                            <div class="c-content_box">
+                                                                                <p><mt:FlCFValue field="detail_related_infor_text"></p>
+                                                                            </div>
+                                                                        </mt:if>
+                                                                        <div class="p-link">
+                                                                            <mt:if tag="FlCFValue" field="detail_related_infor_link_text">
+                                                                                <ul class="p-link__list">
+                                                                                    <li>
+                                                                                        <mt:if tag="FlCFValue" field=detail_related_infor_link>
+                                                                                            <a href="<mt:FlCFValue field="detail_related_infor_link">" <mt:if tag="FlCFValue" field="detail_related_infor_link_window">target="_blank"</mt:if> class="js-file_get_size">
+                                                                                                <span><mt:FlCFValue field="detail_related_infor_link_text"> <span class="js-link_showsize"></span></span>
+                                                                                            </a>
+                                                                                        <mt:else>
+                                                                                            <span><mt:FlCFValue field="detail_related_infor_link_text"></span>
+                                                                                        </mt:if>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </mt:if>
+                                                                            <mt:if tag="FlCFValue" field=detail_related_infor_moredescription>
+                                                                                <div class="p-link__notice">
+                                                                                    <p><mt:FlCFValue field=detail_related_infor_moredescription></p>
                                                                                 </div>
                                                                             </mt:if>
-                                                                            <div class="l-container__slot">
-                                                                                <mt:if tag="FlCFValue" field="detail_related_infor_text">
-                                                                                    <div class="c-content_box">
-                                                                                        <p><mt:FlCFValue field="detail_related_infor_text"></p>
-                                                                                    </div>
-                                                                                </mt:if>
-                                                                                <div class="p-link">
-                                                                                    <mt:if tag="FlCFValue" field="detail_related_infor_link_text">
-                                                                                        <ul class="p-link__list">
-                                                                                            <li>
-                                                                                                <mt:if tag="FlCFValue" field=detail_related_infor_link>
-                                                                                                    <a href="<mt:FlCFValue field="detail_related_infor_link">" <mt:if tag="FlCFValue" field="detail_related_infor_link_window">target="_blank"</mt:if> class="js-file_get_size">
-                                                                                                        <span><mt:FlCFValue field="detail_related_infor_link_text"> <span class="js-link_showsize"></span></span>
-                                                                                                    </a>
-                                                                                                <mt:else>
-                                                                                                    <span><mt:FlCFValue field="detail_related_infor_link_text"></span>
-                                                                                                </mt:if>
-                                                                                            </li>
-                                                                                        </ul>
-                                                                                    </mt:if>
-                                                                                    <mt:if tag="FlCFValue" field=detail_related_infor_moredescription>
-                                                                                        <div class="p-link__notice">
-                                                                                            <p><mt:FlCFValue field=detail_related_infor_moredescription></p>
-                                                                                        </div>
-                                                                                    </mt:if>
-                                                                                </div>
-                                                                                <mt:if tag="FlCFValue" field="detail_related_infor_button_link">
-                                                                                    <div class="p-button_2col">
-                                                                                        <div class="p-button_2col__item">
-                                                                                            <div class="c-button--fill">
-                                                                                                <a href="<mt:FlCFValue field="detail_related_infor_button_link">"><mt:FlCFValue field="detail_related_infor_button_text"></a>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </mt:if>
-                                                                            </div>
-                                                                            <!-- .l-container__slot -->
                                                                         </div>
-                                                                        <!-- .l-container__box -->
-                                                                    
+                                                                        <mt:if tag="FlCFValue" field="detail_related_infor_button_link">
+                                                                            <div class="p-button_2col">
+                                                                                <div class="p-button_2col__item">
+                                                                                    <div class="c-button--fill">
+                                                                                        <a href="<mt:FlCFValue field="detail_related_infor_button_link">"><mt:FlCFValue field="detail_related_infor_button_text"></a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </mt:if>
+                                                                    </div>
+                                                                    <!-- .l-container__slot -->
                                                                 </mtEntryDataProductDetailRelatedInforTabblock>
                                         <mt:if name="has_data_related">
                                                             </div>
-                                                            <!-- .l-container__block -->
+                                                            <!-- .l-container__box -->
                                                         </div>
-                                                        <!-- .l-container -->
+                                                        <!-- .l-container__block -->
                                                     </div>
-                                                    <!-- /.p-product_content__container -->
+                                                    <!-- .l-container -->
                                                 </div>
-                                                <!-- /.p-product_content__accordion -->
+                                                <!-- /.p-product_content__container -->
+                                            </div>
+                                            <!-- /.p-product_content__accordion -->
                                         </mt:if>
                                     <!-- #関連情報ここまで -->
                                 </mt:if>
@@ -7032,52 +7024,48 @@
                 
                 <div class="l-container__block">
                     <mtEntryDataProductDetailRelatedInforAreablock><mt:setvarblock name="has_data_related_info"><mt:FlCFValue field="detail_related_infor_area_text"></mt:setvarblock></mtEntryDataProductDetailRelatedInforAreablock>
-                        <mt:if name="has_data_related_info">
-                            <div class="c-content_heading">
-                                <h2 class="c-content_heading__text">関連情報</h2>
-                            </div>
-                            <!-- /.c-content_heading -->
-                        
-                    
-                    
-                            <div class="l-container__box">
-                                <div class="l-container__slot">
-                    
-                                    <div class="p-infomation_box">
-                                        <div class="p-infomation_box__content">
-                                            <ul class="p-link__list">
-                        </mt:if>
-                                                <mtEntryDataProductDetailRelatedInforAreablock>
-                                                    <mt:if tag="FlCFValue" field="detail_related_infor_area_text">
-                                                        <li>
-                                                            <mt:if tag="FlCFValue" field="detail_related_infor_area_link">
-                                                                <a href="<mt:FlCFValue field="detail_related_infor_area_link">" <mt:if tag="FlCFValue" field="detail_related_infor_area_window" target="_blank"></mt:if>>
-                                                                    <span><mt:FlCFValue field="detail_related_infor_area_text"></span>
-                                                                </a>
-                                                            <mt:else>
-                                                                <span><mt:FlCFValue field="detail_related_infor_area_text"></span>
-                                                            </mt:if>                    
-                                                        </li>
-                                                    </mt:if>
-                                                </mtEntryDataProductDetailRelatedInforAreablock>
                     <mt:if name="has_data_related_info">
-                                            </ul>
-                                        </div>
-                                        <!-- /.p-infomation_box__content -->
-                                    </div>
-                                    <!-- /.p-infomation_box -->
+                        <div class="c-content_heading">
+                            <h2 class="c-content_heading__text">関連情報</h2>
+                        </div>
+                        <!-- /.c-content_heading -->
                     </mt:if>
-                                    <ul class="c-pager">
-                                        <li class="c-pager__text"><a href="/product/<mt:getvar name="basename_max">/<mt:getvar name="basename_medium">/<mt:getvar name="basename_small">/">シリーズトップに戻る</a></li>
-                                    </ul>
-                                    
+                    <div class="l-container__box">
+                        <div class="l-container__slot">
+                            <mt:if name="has_data_related_info">
+                                <div class="p-infomation_box">
+                                    <div class="p-infomation_box__content">
+                                        <ul class="p-link__list">
+                            </mt:if>
+                                            <mtEntryDataProductDetailRelatedInforAreablock>
+                                                <mt:if tag="FlCFValue" field="detail_related_infor_area_text">
+                                                    <li>
+                                                        <mt:if tag="FlCFValue" field="detail_related_infor_area_link">
+                                                            <a href="<mt:FlCFValue field="detail_related_infor_area_link">" <mt:if tag="FlCFValue" field="detail_related_infor_area_window" target="_blank"></mt:if>>
+                                                                <span><mt:FlCFValue field="detail_related_infor_area_text"></span>
+                                                            </a>
+                                                        <mt:else>
+                                                            <span><mt:FlCFValue field="detail_related_infor_area_text"></span>
+                                                        </mt:if>                    
+                                                    </li>
+                                                </mt:if>
+                                            </mtEntryDataProductDetailRelatedInforAreablock>
+                <mt:if name="has_data_related_info">
+                                        </ul>
+                                    </div>
+                                    <!-- /.p-infomation_box__content -->
                                 </div>
-                                <!-- /.l-container__slot -->
-                            </div>
-                            <!-- /.l-container__box -->
+                                <!-- /.p-infomation_box -->
+                </mt:if>
+                            <ul class="c-pager">
+                                <li class="c-pager__text"><a href="/product/<mt:getvar name="basename_max">/<mt:getvar name="basename_medium">/<mt:getvar name="basename_small">/">シリーズトップに戻る</a></li>
+                            </ul>
+                        </div>
+                        <!-- /.l-container__slot -->
+                    </div>
+                    <!-- /.l-container__box -->
                 </div>
                 <!-- /.l-container__block -->
-                
             </div>
             <!-- /.l-container -->
 
