@@ -2,7 +2,7 @@
 <mt:SetVars>
 <mt:BlogEntryCount setvar="total_entries">
 <$mt:CategoryLabel setvar="current_category"$>
-<mt:entries>
+<mt:entries lastn="$total_entries">
   <mt:if tag="EntryTitle" eq="$current_category">
     <mt:If tag="EntryExcerpt">base_description=<$mt:EntryExcerpt$></mt:If>
     <mt:If tag="EntryKeywords">base_keywords=<$mt:EntryKeywords$></mt:If>
