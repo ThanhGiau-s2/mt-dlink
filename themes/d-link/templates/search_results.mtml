@@ -50,9 +50,28 @@
                   <mt:Else>
                     <mt:SetVarBlock name="category_name"><$mt:SiteName$></mt:SetVarBlock>
                     <mt:If name="category_name" like="(サービス＆機能セレクション|製品大カテゴリ・シリーズ)"><$mt:SetVar name="category_name" value="製品情報"$></mt:If>
+                    <mt:If tag="mt:CategoryLabel" eq="よくあるご質問"><mt:SetVarBlock name="category_name"><$mt:CategoryLabel$></mt:SetVarBlock></mt:If>
                   </mt:SiteHasChildSite>
                   <p class="p-news__category--result"><$mt:Var name="category_name"$></p>
                   <div class="p-news__body">
+                    <mt:If name="category_name" eq="よくあるご質問">
+                    <ul class="p-accordion_detail__tag">
+                      <mt:SubCategories category="よくあるご質問" sort_by="user_custom">
+                        <$mt:CategoryLabel setvar="name_cate"$>
+                        <mt:entrycategories>
+                          <$mt:CategoryLabel setvar="name_cate2"$>
+                          <mt:If name="name_cate" eq="$name_cate2"><mt:If tag="CategoryLabel" ne="目的別"><li><$mt:CategoryLabel$></li></mt:if></mt:If>
+                        </mt:entrycategories>
+                        <mt:SubCategories category="$name_cate" sort_by="user_custom">
+                          <$mt:CategoryLabel setvar="name_cate2"$>
+                          <mt:entrycategories>
+                            <$mt:CategoryLabel setvar="name_cate3"$>
+                            <mt:If name="name_cate2" eq="$name_cate3"><li><$mt:CategoryLabel$></li></mt:If>
+                          </mt:entrycategories>
+                        </mt:SubCategories>
+                      </mt:SubCategories>
+                    </ul>
+                    </mt:If>
                     <p class="p-news__title"><$mt:EntryTitle$></p>
                     <mt:if tag="EntryBody"><div class="c-content_box u-mt10 u-color_notice u-fz_13"><$MTEntryBody$></div></mt:if>
                   </div>
