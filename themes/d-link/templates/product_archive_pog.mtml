@@ -197,12 +197,35 @@
                                                                             <p><mt:if tag="EntryDataSeriesDetailSupportEnddate"><mt:EntryDataSeriesDetailSupportEnddate></mt:if> サポート終了</p>
                                                                             </td>
                                                                             <td>
-                                                                                <mt:if tag="EntryDataSeriesDetailSuccessormodelText01"><p><mt:EntryDataSeriesDetailSuccessormodelText01></p></mt:if>
-                                                                                <mt:if tag="EntryDataSeriesDetailSuccessormodelText02"><p><mt:EntryDataSeriesDetailSuccessormodelText02></p></mt:if>
-                                                                                <mt:if tag="EntryDataSeriesDetailSuccessormodelText03"><p><mt:EntryDataSeriesDetailSuccessormodelText03></p></mt:if>
+                                                                                <mt:if tag="EntryDataSeriesDetailSuccessormodelText01">
+                                                                                    <mt:if tag="EntryDataSeriesDetailSuccessormodelUrl01">
+                                                                                        <a href="<mt:EntryDataSeriesDetailSuccessormodelUrl01>">
+                                                                                            <mt:EntryDataSeriesDetailSuccessormodelText01>
+                                                                                        </a>
+                                                                                    <mt:else>
+                                                                                        <p><mt:EntryDataSeriesDetailSuccessormodelText01></p>
+                                                                                    </mt:if>
+                                                                                </mt:if>
+                                                                                <mt:if tag="EntryDataSeriesDetailSuccessormodelText02">
+                                                                                    <mt:if tag="EntryDataSeriesDetailSuccessormodelUrl02">
+                                                                                        <a href="<mt:EntryDataSeriesDetailSuccessormodelUrl02>">
+                                                                                            <mt:EntryDataSeriesDetailSuccessormodelText02>
+                                                                                        </a>
+                                                                                    <mt:else>
+                                                                                        <p><mt:EntryDataSeriesDetailSuccessormodelText02></p>
+                                                                                    </mt:if>
+                                                                                </mt:if>
+                                                                                <mt:if tag="EntryDataSeriesDetailSuccessormodelText03">
+                                                                                    <mt:if tag="EntryDataSeriesDetailSuccessormodelUrl03">
+                                                                                        <a href="<mt:EntryDataSeriesDetailSuccessormodelUrl03>">
+                                                                                            <mt:EntryDataSeriesDetailSuccessormodelText03>
+                                                                                        </a>
+                                                                                    <mt:else>
+                                                                                            <p><mt:EntryDataSeriesDetailSuccessormodelText03></p>
+                                                                                    </mt:if>
+                                                                                </mt:if>
                                                                                 <mt:setvarblock name="successormode"><mt:EntryDataSeriesDetailSuccessormodelText01><mt:EntryDataSeriesDetailSuccessormodelText02><mt:EntryDataSeriesDetailSuccessormodelText03></mt:SetVarBlock>
                                                                                 <mt:unless name="successormode">
-                                                                                    <p>販売終了</p>
                                                                                     <p>後継機種なし</p>
                                                                                 </mt:unless>
                                                                             </td>
