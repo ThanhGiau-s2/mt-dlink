@@ -45,7 +45,7 @@ Template Note : トップページ出力用
                 <ul class="p-news__type">
                     <li><a href="/news/" data-name="news">すべて</a></li>
                     <mt:toplevelcategories>
-                      <mt:if tag="CategoryCount" gt="0"><li><a href="./<$mt:CategoryBasename$>.html" data-name="<$mt:CategoryBasename$>"><$MTCategoryLabel$></a></li></mt:if>
+                      <mt:if tag="CategoryCount" gt="0"><li><a href="<$mt:CategoryBasename$>.html" data-name="<$mt:CategoryBasename$>"><$MTCategoryLabel$></a></li></mt:if>
                     </mt:toplevelcategories>
                 </ul>
 
@@ -58,7 +58,7 @@ Template Note : トップページ出力用
                     <ul class="p-news__select_list js-select_list">
                         <li><a href="/news/" data-name="news">すべて</a></li>
                         <mt:toplevelcategories>
-                          <mt:if tag="CategoryCount" gt="0"><li><a href="./<$mt:CategoryArchiveLink$>.html" data-name="<$mt:CategoryBasename$>"><$MTCategoryLabel$></a></li></mt:if>
+                          <mt:if tag="CategoryCount" gt="0"><li><a href="<$mt:CategoryArchiveLink$>.html" data-name="<$mt:CategoryBasename$>"><$MTCategoryLabel$></a></li></mt:if>
                         </mt:toplevelcategories>
                     </ul>
                 </div>
