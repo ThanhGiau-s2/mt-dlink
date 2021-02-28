@@ -62,6 +62,10 @@ elements:
             label: 'debug'
           permalink:
             label: permalink
+          single_support_release:
+            label: single_support_release
+          single_support_faq:
+            label: single_support_faq
           permalink_category:
             label: permalink_category
           category_entry_listing:
