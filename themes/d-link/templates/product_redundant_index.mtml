@@ -1,14 +1,10 @@
+<mt:ignore>
 <mt:SetVars>
-    <mt:BlogEntryCount blog_ids="11" setvar="total_entries_product">
-    <mt:Entries include_sites="11" lastn="$total_entries_product">
-        <mt:if tag="EntryTitle" eq="リダンダント電源">
-            <mt:If tag="EntryExcerpt">base_description=<$mt:EntryExcerpt$></mt:If>
-            <mt:If tag="EntryKeywords">base_keywords=<$mt:EntryKeywords$></mt:If>
-        </mt:if>
-    </mt:Entries>
+    base_description=ディスクリプション
     og_title=リダンダント電源|製品情報 | D-Link Japan
     og_url=https://www.dlink-jp.com/product/redundant/
     og_type=article
+    <mt:BlogEntryCount blog_ids="11" setvar="total_entries_product">
 </mt:SetVars>
 <mt:Ignore>** 表示部分 **</mt:Ignore>
 <mt:Include module="html_head" parent="1" />
@@ -57,7 +53,7 @@
 
                                             <div class="p-content_center__body">
                                                 <div class="c-content_box">
-                                                    <p><mt:EntryDataCattopText nl2br="1"></p>
+                                                    <p><mt:EntryDataCattopText></p>
                                                 </div>
                                                 <!-- /.c-content_box -->
                                             </div>
@@ -79,7 +75,7 @@
                                         <mt:SetVar name="depth" value="0">
                                         <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
                                         <mt:if name="depth" eq="3">
-                                            <mt:unless tag="EntryDataSeriesDetailSalestatus" eq="販売終了"><mt:SetVar name="has_entries" value="1"></mt:unless>
+                                            <mt:SetVar name="has_entries" value="1">
                                         </mt:if>
                                     </mt:entries>
                                     <mt:if name="has_entries" eq="1">
@@ -94,7 +90,6 @@
                                                     <mt:SetVar name="depth" value="0">
                                                     <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
                                                     <mt:if name="depth" eq="3">
-                                                    <mt:unless tag="EntryDataSeriesDetailSalestatus" eq="販売終了">
                                                         <div class="p-product_list__item">
                                                             <a href="<$mt:EntryPermalink$>" rel="bookmark">
                                                                 <div class="p-product_list__main">
@@ -126,7 +121,7 @@
                                                                                 <mt:If name="exp_date" gt="$current_date"><p class="p-product_list__status--new">NEW</p></mt:If>
                                                                             </mt:If>
                                                                             <div class="p-product_list__description">
-                                                                                <p><mt:EntryDataSeriesDetailListText nl2br="1"></p>
+                                                                                <p><mt:EntryDataSeriesDetailListText></p>
                                                                             </div>
                                                                             <!-- /.p-product_list__description -->
                                                                         </div>
@@ -138,7 +133,6 @@
                                                             </a>
                                                         </div>
                                                         <!-- /.p-product_list__item -->
-                                                    </mt:unless>
                                                     </mt:if>
                                                 </mt:entries>
                                             </div>
@@ -162,8 +156,8 @@
         <!-- /.l-inner -->
     </section>
 </main>
-
 <mt:Include module="footer_contact" parent="1" />
 <mt:Include module="product_local_nav" parent="1" />
 <mt:Include module="footer" parent="1" />
 <mt:Include module="html_foot" parent="1" />
+</mt:ignore>

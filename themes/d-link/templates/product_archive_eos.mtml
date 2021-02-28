@@ -173,6 +173,7 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
+                                                            <mt:ignore>
                                                             <mt:entries category="$sub_cate_switch">
                                                                 <mt:SetVar name="depth" value="0">
                                                                 <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
@@ -193,39 +194,16 @@
                                                                                 <mt:if tag="EntryDataSeriesDetailProduct03"><p>品番：<mt:EntryDataSeriesDetailProduct03></p></mt:if>
                                                                             </td>
                                                                             <td>
-                                                                            <mt:if tag="EntryDataSeriesDetailSaleEnddate"><p><mt:EntryDataSeriesDetailSaleEnddate> 製造終了</p></mt:if>
-                                                                            <mt:if tag="EntryDataSeriesDetailSupportEnddate"><p><mt:EntryDataSeriesDetailSupportEnddate> サポート終了</p></mt:if>
+                                                                            <p><mt:if tag="EntryDataSeriesDetailSaleEnddate"><mt:EntryDataSeriesDetailSaleEnddate></mt:if>製造終了</p>
+                                                                            <p><mt:if tag="EntryDataSeriesDetailSupportEnddate"><mt:EntryDataSeriesDetailSupportEnddate></mt:if> サポート終了</p>
                                                                             </td>
                                                                             <td>
-                                                                                <mt:if tag="EntryDataSeriesDetailSuccessormodelText01">
-                                                                                    <mt:if tag="EntryDataSeriesDetailSuccessormodelUrl01">
-                                                                                        <a href="<mt:EntryDataSeriesDetailSuccessormodelUrl01>">
-                                                                                            <mt:EntryDataSeriesDetailSuccessormodelText01>
-                                                                                        </a>
-                                                                                    <mt:else>
-                                                                                        <p><mt:EntryDataSeriesDetailSuccessormodelText01></p>
-                                                                                    </mt:if>
-                                                                                </mt:if>
-                                                                                <mt:if tag="EntryDataSeriesDetailSuccessormodelText02">
-                                                                                    <mt:if tag="EntryDataSeriesDetailSuccessormodelUrl02">
-                                                                                        <a href="<mt:EntryDataSeriesDetailSuccessormodelUrl02>">
-                                                                                            <mt:EntryDataSeriesDetailSuccessormodelText02>
-                                                                                        </a>
-                                                                                    <mt:else>
-                                                                                        <p><mt:EntryDataSeriesDetailSuccessormodelText02></p>
-                                                                                    </mt:if>
-                                                                                </mt:if>
-                                                                                <mt:if tag="EntryDataSeriesDetailSuccessormodelText03">
-                                                                                    <mt:if tag="EntryDataSeriesDetailSuccessormodelUrl03">
-                                                                                        <a href="<mt:EntryDataSeriesDetailSuccessormodelUrl03>">
-                                                                                            <mt:EntryDataSeriesDetailSuccessormodelText03>
-                                                                                        </a>
-                                                                                    <mt:else>
-                                                                                            <p><mt:EntryDataSeriesDetailSuccessormodelText03></p>
-                                                                                    </mt:if>
-                                                                                </mt:if>
+                                                                                <mt:if tag="EntryDataSeriesDetailSuccessormodelText01"><p><mt:EntryDataSeriesDetailSuccessormodelText01></p></mt:if>
+                                                                                <mt:if tag="EntryDataSeriesDetailSuccessormodelText02"><p><mt:EntryDataSeriesDetailSuccessormodelText02></p></mt:if>
+                                                                                <mt:if tag="EntryDataSeriesDetailSuccessormodelText03"><p><mt:EntryDataSeriesDetailSuccessormodelText03></p></mt:if>
                                                                                 <mt:setvarblock name="successormode"><mt:EntryDataSeriesDetailSuccessormodelText01><mt:EntryDataSeriesDetailSuccessormodelText02><mt:EntryDataSeriesDetailSuccessormodelText03></mt:SetVarBlock>
                                                                                 <mt:unless name="successormode">
+                                                                                    <p>販売終了</p>
                                                                                     <p>後継機種なし</p>
                                                                                 </mt:unless>
                                                                             </td>
@@ -233,6 +211,7 @@
                                                                     </mt:if>
                                                                 </mt:if>
                                                             </mt:entries>
+                                                            </mt:ignore>
                                                             </tbody>
                                                         </table>
                                                     </div>

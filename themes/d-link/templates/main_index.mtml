@@ -6,839 +6,654 @@ Template Note : トップページ出力用
 ========================================
 </mt:Ignore>
 <mt:SetVars>
-    base_description=D-Linkは、50ヶ国120拠点以上にグローバル展開する、スイッチや無線LAN、ルータなどのネットワーク機器の世界的なメーカーです。インターネット黎明期である1986年に台湾で創業され、エントリーレベルからハイエンドまでの幅広いネットワーク製品を30年以上に渡り、製造・販売してきています。日本では2005年7月にD-Linkブランド製品の販売を目的とした日本現地法人を設立。D-Link製品の中でも法人向け製品に特化して日本国内への浸透を図っています。
-    base_keywords=D-Link,ディーリンク,スイッチ,Wi-Fi,無線LAN,ルータ,ファイアウォール,ネットワーク,情報機器,HUB,ブロードバンド,デジタル
-    og_title=ディーリンクジャパン株式会社 ｜ D-Link Japan ｜ Building Networks for People
-    og_url=https://www.dlink-jp.com/
-    og_type=website
-    <mt:BlogEntryCount blog_ids="11" setvar="total_entries_product">
-    <mt:BlogEntryCount blog_ids="7" setvar="total_entries_news">
-    <mt:BlogEntryCount blog_ids="9" setvar="total_entries_support">
-    <mt:BlogPageCount setvar="total_pages">
+  base_description=世界 71カ国、187 拠点を有する世界的なネットワーク機器メーカーD-Linkは、インターネット黎明期の1986年創業の老舗メーカーの1社です。エントリーレベルからハイエンドまでのスイッチ、無線LAN、ルータ、UTM、メディアコンバーター、IPカメラなど、ネットワーキングの全分野を網羅したネットワーク機器を、企画・製造・販売しております。D-Linkは 『 Building Networks for People 』 の理念の元、お客様と社会全体にネットワーク機器を通して貢献できる製品作りをグループ全体で行い、約670の製品を年間3,000万台以上世界各国に向けて出荷しています。日本では2005年7月にD-Linkブランド製品の販売を目的とした日本現地法人を設立。D-Link製品の中でも法人向け製品に特化して日本国内への浸透を図っています。
+  base_keywords=
+  og_title=ディーリンクジャパン株式会社 ｜ D-Link Japan ｜ Building Networks for People
+  og_url=https://www.dlink-jp.com/
+  og_type=website
+  <mt:BlogEntryCount blog_ids="6" setvar="total_entries_product">
+  <mt:BlogEntryCount blog_ids="7" setvar="total_entries_news">
+  <mt:BlogEntryCount blog_ids="9" setvar="total_entries_support">
+  <mt:BlogPageCount setvar="total_pages">
 </mt:SetVars>
 <mt:SetVarTemplate name="file_javascript">
-<script src="/asset/js/slick.min.js"></script>
-<script src="/asset/js/top.min.js" defer></script>
+  <script src="/asset/js/slick.min.js"></script>
+  <script src="/asset/js/top.min.js" defer></script>
 </mt:SetVarTemplate>
 <mt:Ignore>** 表示部分 **</mt:Ignore>
 <mt:Include module="html_head" parent="1" />
 <mt:Include module="header" parent="1" />
 <main class="p-main">
-    <div class="p-mv js-mv_slider">
-    <mt:pages lastn="$total_pages">
-        <mt:if tag="PageTitle" eq="トップスライダー">
-            <mt:pagedatatopsliderBlock>
-                <$mt:FLCFValue field="another_tab" setvar="another_tab"$>
-                <$mt:FLCFValue field="link_url" setvar="link_url"$>
-                <div class="p-mv__item">
-                    <mt:if name="link_url">
-                        <a href="<$mt:FLCFValue field="link_url"$>" <mt:if name="another_tab">target="_blank"</mt:if>>
-                            <picture>
-                                <mt:FLCFAsset field="photo_sp">
-                                    <source srcset="<mt:AssetURL>" media="(max-width: 768px)">
-                                </mt:FLCFAsset>
-                                <mt:FLCFAsset field="photo_pc">
-                                    <img src="<mt:AssetURL>" alt="<$mt:FLCFValue field="alt_text"$>">
-                                </mt:FLCFAsset>
-                            </picture>
-                        </a>
-                    <mt:else>
-                        <picture>
-                            <mt:FLCFAsset field="photo_sp">
-                                <source srcset="<mt:AssetURL>" media="(max-width: 768px)">
-                            </mt:FLCFAsset>
-                            <mt:FLCFAsset field="photo_pc">
-                                <img src="<mt:AssetURL>" alt="<$mt:FLCFValue field="alt_text"$>">
-                            </mt:FLCFAsset>
-                        </picture>
-                    </mt:if>
-                </div>
-                <!-- /.p-mv__item -->
-            </mt:pagedatatopsliderBlock>
-        </mt:if>
-    </mt:pages>
+  <div class="p-mv js-mv_slider"><mt:pages lastn="$total_pages"><mt:if tag="PageTitle" eq="トップスライダー"><mt:pagedatatopsliderBlock><$mt:FLCFValue field="another_tab" setvar="another_tab"$><$mt:FLCFValue field="link_url" setvar="link_url"$>
+    <div class="p-mv__item"><mt:if name="link_url">
+      <a href="<$mt:FLCFValue field="link_url"$>" <mt:if name="another_tab">target="_blank"</mt:if>>
+        <picture>
+          <mt:FLCFAsset field="photo_sp"><source srcset="<mt:AssetURL>" media="(max-width: 768px)"></mt:FLCFAsset>
+          <mt:FLCFAsset field="photo_pc"><img src="<mt:AssetURL>" alt="<$mt:FLCFValue field="alt_text"$>"></mt:FLCFAsset>
+        </picture>
+      </a><mt:else>
+      <picture>
+        <mt:FLCFAsset field="photo_sp"><source srcset="<mt:AssetURL>" media="(max-width: 768px)"></mt:FLCFAsset>
+        <mt:FLCFAsset field="photo_pc"><img src="<mt:AssetURL>" alt="<$mt:FLCFValue field="alt_text"$>"></mt:FLCFAsset>
+      </picture></mt:if>
     </div>
-    <!-- /.p-mv -->
+    <!-- /.p-mv__item --></mt:pagedatatopsliderBlock></mt:if></mt:pages>
+  </div>
+  <!-- /.p-mv -->
+  <mt:Ignore>** 重要なお知らせ **</mt:Ignore>
+  <mt:Entries include_sites="2" sort_by="authored_on" sort_order="descend" lastn="$total_entries_news"><mt:If tag="EntryDataImportantTag"><mt:setvar name="have_article" value="true"></mt:If></mt:Entries><mt:If name="have_article" eq="true">
+  <div class="p-emergency">
+    <div class="p-emergency__inner">
+      <div class="p-emergency__content">
+        <h2 class="p-emergency__heading"><img src="/asset/img/common/icon_emergency_01.png" alt="">重要なお知らせ</h2>
+        <ul class="p-emergency__list"><mt:Entries field:important_tag="1" include_sites="2" sort_by="authored_on" sort_order="descend" lastn="2">
+          <li>
+            <a href="<$mt:EntryLink$>">
+              <div class="p-emergency__body">
+                <p class="p-emergency__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
+                <p class="p-emergency__title"><$mt:EntryTitle$></p>
+              </div>
+            </a>
+          </li></mt:Entries>
+        </ul>
+      </div>
+      <!-- /.p-emergency__content -->
+    </div>
+    <!-- /.p-emergency__inner -->
+  </div>
+  <!-- /.p-emergency --></mt:if>
+  <section class="l-outer--top">
+    <div class="l-inner">
+      <div class="c-heading">
+        <h2 class="c-heading__title" data-en="category">製品カテゴリ一覧</h2>
+      </div>
+      <!-- /.c-heading -->
 
-    <mt:Ignore>** 重要なお知らせ **</mt:Ignore>
-    <mt:Entries include_sites="7" sort_by="authored_on" sort_order="descend" lastn="$total_entries_news">
-        <mt:If tag="EntryDataImportantTag">
-            <mt:setvar name="have_article" value="true">
-        </mt:If>
-    </mt:Entries>
-    <mt:If name="have_article" eq="true">
-        <div class="p-emergency">
-            <div class="p-emergency__inner">
-                <div class="p-emergency__content">
-                    <h2 class="p-emergency__heading"><img src="/asset/img/common/icon_emergency_01.png" alt="">重要なお知らせ</h2>
-                    <ul class="p-emergency__list">
-                        <mt:Entries field:important_tag="1" include_sites="7" sort_by="authored_on" sort_order="descend" lastn="2">
-                            <li>
-                                <a href="<$mt:EntryLink$>">
-                                    <div class="p-emergency__body">
-                                        <p class="p-emergency__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
-                                        <p class="p-emergency__title"><$mt:EntryTitle$></p>
-                                    </div>
-                                </a>
-                            </li>
-                        </mt:Entries>
-                    </ul>
+      <div class="p-product_category">
+        <div class="p-product_category__large"><mt:Entries include_sites="6" lastn="$total_entries_product"><mt:unless tag="EntryPrimaryCategory"><mt:if tag="EntryTitle" eq="スイッチ">
+          <div class="p-product_category__item">
+            <a href="/product/switch/">
+              <div class="p-product_category__detail">
+                <div class="p-product_category__info">
+                  <h3 class="p-product_category__name"><mt:EntryTitle></h3>
+                  <div class="p-product_category__introduction">
+                    <p><mt:EntryDataAllprotopText></p>
+                  </div>
+                  <!-- /.p-product_category__introduction -->
                 </div>
-                <!-- /.p-emergency__content -->
-            </div>
-            <!-- /.p-emergency__inner -->
+                <!-- /.p-product_category__info -->
+                <div class="p-product_category__image">
+                  <picture><MTIfNonEmpty tag="EntryDataAlltopSumModeSP"><mt:EntryDataAlltopSumModeSPAsset>
+                    <source srcset="<mt:AssetURL>" media="(max-width: 768px)"></mt:EntryDataAlltopSumModeSPAsset><mt:else>
+                    <source srcset="/asset/img/product/alternative_image.jpg" media="(max-width: 768px)"></MTIfNonEmpty><MTIfNonEmpty tag="EntryDataAlltopSum"><mt:EntryDataAlltopSumAsset><img src="<mt:AssetURL>" alt="<mt:EntryTitle>"></mt:EntryDataAlltopSumAsset><mt:else>
+                    <img src="/asset/img/product/alternative_image.jpg" alt="<mt:EntryTitle>"></MTIfNonEmpty>
+                  </picture>
+                </div>
+                <!-- /.p-product_category__image -->
+              </div>
+              <!-- /.p-product_category__detail -->
+            </a>
+          </div>
+          <!-- /.p-product_category__item --></mt:if></mt:unless></mt:entries><mt:Entries include_sites="6" lastn="$total_entries_product"><mt:unless tag="EntryPrimaryCategory"><mt:if tag="EntryTitle" eq="無線LAN">
+          <div class="p-product_category__item">
+            <a href="/product/wireless-lan/">
+              <div class="p-product_category__detail">
+                <div class="p-product_category__info">
+                  <h3 class="p-product_category__name"><mt:EntryTitle></h3>
+                  <div class="p-product_category__introduction">
+                    <p><mt:EntryDataAllprotopText></p>
+                  </div>
+                  <!-- /.p-product_category__introduction -->
+                </div>
+                <!-- /.p-product_category__info -->
+                <div class="p-product_category__image">
+                  <picture><MTIfNonEmpty tag="EntryDataAlltopSumModeSP"><mt:EntryDataAlltopSumModeSPAsset>
+                    <source srcset="<mt:AssetURL>" media="(max-width: 768px)"></mt:EntryDataAlltopSumModeSPAsset><mt:else>
+                    <source srcset="/asset/img/product/alternative_image.jpg" media="(max-width: 768px)"></MTIfNonEmpty><MTIfNonEmpty tag="EntryDataAlltopSum"><mt:EntryDataAlltopSumAsset><img src="<mt:AssetURL>" alt="<mt:EntryTitle>"></mt:EntryDataAlltopSumAsset><mt:else>
+                    <img src="/asset/img/product/alternative_image.jpg" alt="<mt:EntryTitle>"></MTIfNonEmpty>
+                  </picture>
+                </div>
+                <!-- /.p-product_category__image -->
+              </div>
+              <!-- /.p-product_category__detail -->
+            </a>
+          </div>
+          <!-- /.p-product_category__item --></mt:if></mt:unless></mt:entries>
         </div>
-        <!-- /.p-emergency -->
-    </mt:if>
-    
-    <section class="l-outer--top">
-        <div class="l-inner">
-            <div class="c-heading">
-                <h2 class="c-heading__title" data-en="category">製品カテゴリ一覧</h2>
-            </div>
-            <!-- /.c-heading -->
+        <!-- /.p-product_category__large -->
 
-            <div class="p-product_category">
-                <div class="p-product_category__large">
-                    <mt:Entries include_sites="11" sort_by="authored_on" sort_order="descend" lastn="$total_entries_product">
-                        <mt:unless tag="EntryPrimaryCategory">
-                            <mt:if tag="EntryTitle" eq="スイッチ">
-                                <div class="p-product_category__item">
-                                    <a href="/product/switch/">
-                                        <div class="p-product_category__detail">
-                                            <div class="p-product_category__info">
-                                                <h3 class="p-product_category__name"><mt:EntryTitle></h3>
-                                                <div class="p-product_category__introduction">
-                                                    <p><mt:EntryDataAllprotopText nl2br="1"></p>
-                                                </div>
-                                                <!-- /.p-product_category__introduction -->
-                                            </div>
-                                            <!-- /.p-product_category__info -->
-                                            <div class="p-product_category__image">
-                                                <picture>
-                                                    <MTIfNonEmpty tag="EntryDataAlltopSumModeSP">
-                                                        <mt:EntryDataAlltopSumModeSPAsset>
-                                                            <source srcset="<mt:AssetURL>" media="(max-width: 768px)">
-                                                        </mt:EntryDataAlltopSumModeSPAsset>
-                                                    <mt:else>
-                                                        <source srcset="/asset/img/product/alternative_image.jpg" media="(max-width: 768px)">
-                                                    </MTIfNonEmpty>
-                                                    <MTIfNonEmpty tag="EntryDataAlltopSum">
-                                                        <mt:EntryDataAlltopSumAsset>
-                                                            <img src="<mt:AssetURL>" alt="<mt:EntryTitle>">
-                                                        </mt:EntryDataAlltopSumAsset>
-                                                    <mt:else>
-                                                        <img src="/asset/img/product/alternative_image.jpg" alt="<mt:EntryTitle>">
-                                                    </MTIfNonEmpty>
-                                                </picture>
-                                            </div>
-                                            <!-- /.p-product_category__image -->
-                                        </div>
-                                        <!-- /.p-product_category__detail -->
-                                    </a>
-                                </div>
-                                <!-- /.p-product_category__item -->
-                            </mt:if>
-                        </mt:unless>
-                    </mt:entries>
-                    <mt:Entries include_sites="11" sort_by="authored_on" sort_order="descend" lastn="$total_entries_product">
-                        <mt:unless tag="EntryPrimaryCategory">
-                            <mt:if tag="EntryTitle" eq="無線LAN">
-                                <div class="p-product_category__item">
-                                    <a href="/product/wireless-lan/">
-                                        <div class="p-product_category__detail">
-                                            <div class="p-product_category__info">
-                                                <h3 class="p-product_category__name"><mt:EntryTitle></h3>
-                                                <div class="p-product_category__introduction">
-                                                    <p><mt:EntryDataAllprotopText nl2br="1"></p>
-                                                </div>
-                                                <!-- /.p-product_category__introduction -->
-                                            </div>
-                                            <!-- /.p-product_category__info -->
-                                            <div class="p-product_category__image">
-                                                <picture>
-                                                    <MTIfNonEmpty tag="EntryDataAlltopSumModeSP">
-                                                        <mt:EntryDataAlltopSumModeSPAsset>
-                                                            <source srcset="<mt:AssetURL>" media="(max-width: 768px)">
-                                                        </mt:EntryDataAlltopSumModeSPAsset>
-                                                    <mt:else>
-                                                        <source srcset="/asset/img/product/alternative_image.jpg" media="(max-width: 768px)">
-                                                    </MTIfNonEmpty>
-                                                    <MTIfNonEmpty tag="EntryDataAlltopSum">
-                                                        <mt:EntryDataAlltopSumAsset>
-                                                            <img src="<mt:AssetURL>" alt="<mt:EntryTitle>">
-                                                        </mt:EntryDataAlltopSumAsset>
-                                                    <mt:else>
-                                                        <img src="/asset/img/product/alternative_image.jpg" alt="<mt:EntryTitle>">
-                                                    </MTIfNonEmpty>
-                                                </picture>
-                                            </div>
-                                            <!-- /.p-product_category__image -->
-                                        </div>
-                                        <!-- /.p-product_category__detail -->
-                                    </a>
-                                </div>
-                                <!-- /.p-product_category__item -->
-                            </mt:if>
-                        </mt:unless>
-                    </mt:entries>
+        <div class="p-product_category__small"><mt:Entries include_sites="6" sort_by="authored_on" sort_order="ascend" lastn="$total_entries_product"><mt:unless tag="EntryPrimaryCategory"><mt:Unless tag="EntryTitle" like="(スイッチ|無線LAN|ネットワークカメラ)">
+          <div class="p-product_category__box">
+            <a href="/product/<mt:EntryBaseName>/">
+              <div class="p-product_category__row">
+                <div class="p-product_category__info--small">
+                  <h3 class="p-product_category__name--small"><mt:EntryTitle></h3>
                 </div>
-                <!-- /.p-product_category__large -->
+                <!-- /.p-product_category__info--small -->
 
-                <div class="p-product_category__small">
-                    <mt:Entries include_sites="11" sort_by="authored_on" sort_order="ascend" lastn="$total_entries_product">
-                        
-                        <mt:unless tag="EntryPrimaryCategory">
-                            <mt:Unless tag="EntryTitle" like="(スイッチ|無線LAN|ネットワークカメラ)">
-                                <div class="p-product_category__box">
-                                    <a href="/product/<mt:EntryBaseName>/">
-                                        <div class="p-product_category__row">
-                                            <div class="p-product_category__info--small">
-                                                <h3 class="p-product_category__name--small"><mt:EntryTitle></h3>
-                                            </div>
-                                            <!-- /.p-product_category__info--small -->
-
-                                            <div class="p-product_category__image--small">
-                                                <MTIfNonEmpty tag="EntryDataProducttopSum">
-                                                    <mt:EntryDataProducttopSumAsset>
-                                                        <img src="<mt:AssetURL>" alt="<mt:EntryTitle>">
-                                                    </mt:EntryDataProducttopSumAsset>
-                                                <mt:else>
-                                                    <img src="/asset/img/product/alternative_image.jpg" alt="<mt:EntryTitle>">
-                                                </MTIfNonEmpty>
-                                            </div>
-                                            <!-- /.p-product_category__image--small -->
-                                        </div>
-                                        <!-- /.p-product_category__row -->
-                                    </a>
-                                </div>
-                                <!-- /.p-product_category__box -->
-                            </mt:unless>
-                        </mt:unless>
-                    </mt:Entries>
-                    <div class="p-product_category__box">
-                        <a href="/product/compare/" class="p-product_category__other">
-                            <div class="p-product_category__row--other">
-                                <div class="p-product_category__comparison">
-                                    <div class="p-product_category__icon">
-                                        <img src="/asset/img/top/category_icon_01.png" alt="">
-                                    </div>
-                                    <!-- /.p-product_category__icon -->
-                                    <p class="p-product_category__name--other">製品を比較する</p>
-                                </div>
-                                <!-- /.p-product_category__comparison -->
-                            </div>
-                            <!-- /.p-product_category__row -->
-                        </a>
-                    </div>
-                    <!-- /.p-product_category__box -->
-
-                    <div class="p-product_category__box">
-                        <div class="p-product_category__align">
-                            <div class="p-product_category__link">
-                                <a href="/product/archive/pog.html">
-                                    <div class="p-product_category__info--small">
-                                        <h3 class="p-product_category__name--small">販売終了予定製品</h3>
-                                    </div>
-                                    <!-- /.p-product_category__info--small -->
-                                </a>
-                            </div>
-                            <!-- /.p-product_category__link -->
-
-                            <div class="p-product_category__link">
-                                <a href="/product/archive/eos.html">
-                                    <div class="p-product_category__info--small">
-                                        <h3 class="p-product_category__name--small">販売終了製品</h3>
-                                    </div>
-                                    <!-- /.p-product_category__info--small -->
-                                </a>
-                            </div>
-                            <!-- /.p-product_category__link -->
-                        </div>
-                        <!-- /.p-product_category__align -->
-                    </div>
-                    <!-- /.p-product_category__box -->
+                <div class="p-product_category__image--small"><MTIfNonEmpty tag="EntryDataProducttopSum"><mt:EntryDataProducttopSumAsset>
+                  <img src="<mt:AssetURL>" alt="<mt:EntryTitle>"></mt:EntryDataProducttopSumAsset><mt:else>
+                  <img src="/asset/img/product/alternative_image.jpg" alt="<mt:EntryTitle>"></MTIfNonEmpty>
                 </div>
-                <!-- /.p-product_category__small -->
-            </div>
-            <!-- /.p-product_category -->
+                <!-- /.p-product_category__image--small -->
+              </div>
+              <!-- /.p-product_category__row -->
+            </a>
+          </div>
+          <!-- /.p-product_category__box --></mt:unless></mt:unless></mt:Entries>
+          <div class="p-product_category__box">
+            <a href="/product/compare/" class="p-product_category__other">
+              <div class="p-product_category__row--other">
+                <div class="p-product_category__comparison">
+                  <div class="p-product_category__icon">
+                    <img src="/asset/img/top/category_icon_01.png" alt="">
+                  </div>
+                  <!-- /.p-product_category__icon -->
+                  <p class="p-product_category__name--other">製品を比較する</p>
+                </div>
+                <!-- /.p-product_category__comparison -->
+              </div>
+              <!-- /.p-product_category__row -->
+            </a>
+          </div>
+          <!-- /.p-product_category__box -->
 
-            <mt:Ignore>** 製品に関する重要なお知らせ **</mt:Ignore>
-            <mt:Entries include_sites="9" sort_by="authored_on" sort_order="descend" lastn="$total_entries_support">
-                <mt:If tag="EntryDataImportantTagSupport">
-                    <mt:setvar name="have_article_support" value="true">
-                </mt:If>
+          <div class="p-product_category__box">
+            <div class="p-product_category__align">
+              <div class="p-product_category__link">
+                <a href="/product/archive/pog.html">
+                  <div class="p-product_category__info--small">
+                    <h3 class="p-product_category__name--small">販売終了予定製品</h3>
+                  </div>
+                  <!-- /.p-product_category__info--small -->
+                </a>
+              </div>
+              <!-- /.p-product_category__link -->
+
+              <div class="p-product_category__link">
+                <a href="/product/archive/eos.html">
+                  <div class="p-product_category__info--small">
+                    <h3 class="p-product_category__name--small">販売終了製品</h3>
+                  </div>
+                  <!-- /.p-product_category__info--small -->
+                </a>
+              </div>
+              <!-- /.p-product_category__link -->
+            </div>
+            <!-- /.p-product_category__align -->
+          </div>
+          <!-- /.p-product_category__box -->
+        </div>
+        <!-- /.p-product_category__small -->
+      </div>
+      <!-- /.p-product_category -->
+      <mt:Entries include_sites="3" sort_by="authored_on" sort_order="descend" lastn="$total_entries_support"><mt:If tag="EntryDataImportantTagSupport"><mt:setvar name="have_article_support" value="true"></mt:If></mt:Entries><mt:If name="have_article_support" eq="true">
+      <div class="p-emergency--product">
+        <div class="p-emergency__inner">
+          <div class="p-emergency__content--product">
+            <h2 class="p-emergency__heading--product">製品に関する重要なお知らせ</h2>
+            <ul class="p-emergency__list"><mt:Entries field:important_tag_support="1" include_sites="3" sort_by="authored_on" sort_order="descend" lastn="2">
+              <li>
+                <a href="<$mt:EntryPermalink$>" rel="bookmark">
+                  <div class="p-emergency__body">
+                    <p class="p-emergency__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
+                    <p class="p-emergency__title"><$mt:EntryTitle$></p>
+                  </div>
+                </a>
+              </li></mt:Entries>
+            </ul>
+          </div>
+          <!-- /.p-emergency__content -->
+        </div>
+        <!-- /.p-emergency__inner -->
+      </div>
+      <!-- /.p-emergency --></mt:If>
+      <div class="c-button">
+        <a href="/product/">製品情報を見る</a>
+      </div>
+    </div>
+    <!-- /.l-inner -->
+  </section>
+
+  <section class="l-outer">
+    <div class="l-inner">
+      <div class="c-heading">
+        <h2 class="c-heading__title" data-en="Selection">サービス＆機能セレクション</h2>
+      </div>
+      <!-- /.c-heading -->
+
+      <div class="p-product_category">
+        <div class="p-product_category__large"><mt:setvar name="count" value="0"><mt:Entries include_sites="7" sort_by="authored_on" sort_order="descend"><mt:If tag="EntryDataProductPickupDetailDisplayAllTop"><mt:SetVar name="count" op="++"><mt:if name="count" lt="5">
+          <div class="p-product_category__item">
+            <a href="<mt:EntryDataProductPickupDetailLink>" rel="bookmark">
+              <div class="p-product_category__detail">
+                <div class="p-product_category__info">
+                  <h3 class="p-product_category__name"><$mt:EntryTitle words="30"$></h3>
+                  <div class="p-product_category__introduction">
+                    <p><$mt:EntryDataProductPickupDetailDisplayTopDescription words="80"$></p>
+                  </div>
+                  <!-- /.p-product_category__introduction -->
+                </div>
+                <!-- /.p-product_category__info --><mt:Ignore>
+                <div class="p-product_category__image"><MTIfNonEmpty tag="EntryDataProductPickupDetailDisplayTopImage"><mt:EntryDataProductPickupDetailDisplayTopImageAsset>
+                  <img src="<mt:AssetURL>" alt="<mt:EntryTitle>"></mt:EntryDataProductPickupDetailDisplayTopImageAsset><mt:else>
+                  <img src="/asset/img/product/alternative_image.jpg" alt="<mt:EntryTitle>"></MTIfNonEmpty>
+                </div></mt:Ignore>
+                <!-- /.p-product_category__image -->
+              </div>
+              <!-- /.p-product_category__detail -->
+            </a>
+          </div>
+          <!-- /.p-product_category__item --></mt:if></mt:If></mt:Entries>
+        </div>
+        <!-- /.p-product_category__large -->
+      </div>
+      <!-- /.p-product_category -->
+
+      <div class="c-button--multiple">
+        <a href="/product/">サービス＆機能セレクションを見る</a>
+      </div>
+    </div>
+    <!-- /.l-inner -->
+  </section>
+
+  <section class="l-outer--gray">
+    <div class="l-inner">
+      <div class="c-heading">
+        <h2 class="c-heading__title" data-en="solution">ソリューションのご提案</h2>
+      </div>
+      <!-- /.c-heading -->
+
+      <div class="p-archive">
+        <div class="p-archive__content">
+            <mt:Entries include_sites="8" sort_by="authored_on" sort_order="descend" lastn="4">
+              <div class="p-archive__item">
+                <a href="<$mt:EntryPermalink$>" rel="bookmark">
+                  <div class="p-archive__detail">
+                    <div class="p-archive__header">
+                      <p class="p-archive__category--solution">
+                        <mt:EntryPrimaryCategory><$mt:CategoryLabel$></mt:EntryPrimaryCategory>
+                      </p>
+                      <h3 class="p-archive__title"><$mt:EntryTitle words="16"$></h3>
+                      <div class="p-archive__description">
+                        <mt:Ignore><p><mt:EntryDataSolutionDetailListText words="60"></p></mt:Ignore>
+                      </div>
+                    </div>
+                    <div class="p-archive__image"><mt:Ignore><MTIfNonEmpty tag="EntryDataSolutionDetailListImage"><mt:EntryDataSolutionDetailListImageAsset>
+                      <img src="<mt:AssetURL>" alt="<mt:EntryTitle>"></mt:EntryDataSolutionDetailListImageAsset><mt:else>
+                      <img src="/asset/img/product/alternative_image.jpg" alt="<mt:EntryTitle>"></MTIfNonEmpty></mt:Ignore>
+                    </div>
+                  </div>
+                </a>
+              </div>
             </mt:Entries>
-            <mt:If name="have_article_support" eq="true">
-                <div class="p-emergency--product">
-                    <div class="p-emergency__inner">
-                        <div class="p-emergency__content--product">
-                            <h2 class="p-emergency__heading--product">製品に関する重要なお知らせ</h2>
-                            <ul class="p-emergency__list">
-                                <mt:Entries field:important_tag_support="1" include_sites="9" sort_by="authored_on" sort_order="descend" lastn="2">
-                                    <li>
-                                        <a href="<$mt:EntryPermalink$>" rel="bookmark">
-                                            <div class="p-emergency__body">
-                                                <p class="p-emergency__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
-                                                <p class="p-emergency__title"><$mt:EntryTitle$></p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                </mt:Entries>
-                            </ul>
-                        </div>
-                        <!-- /.p-emergency__content -->
-                    </div>
-                    <!-- /.p-emergency__inner -->
+        </div>
+        <!-- /.p-archive__content -->
+      </div>
+      <!-- /.p-archive -->
+
+      <div class="c-button--multiple">
+        <a href="/solution/">すべてのソリューションの<br class="u-show_sp">ご提案を見る</a>
+      </div>
+    </div>
+    <!-- /.l-inner -->
+  </section>
+
+  <section class="l-outer">
+    <div class="l-inner">
+      <div class="c-heading">
+        <h2 class="c-heading__title" data-en="case">導入事例</h2>
+      </div>
+      <!-- /.c-heading -->
+
+      <div class="p-archive">
+        <div class="p-archive__content"><mt:Entries include_sites="4" sort_by="authored_on" sort_order="descend" lastn="4">
+          <div class="p-archive__item">
+            <a href="<$mt:EntryPermalink$>" rel="bookmark">
+              <div class="p-archive__detail">
+                <div class="p-archive__header">
+                  <p class="p-archive__category--case"><mt:EntryPrimaryCategory><$mt:CategoryLabel$></mt:EntryPrimaryCategory></p>
+                  <h3 class="p-archive__title"><$mt:EntryTitle words="16"$></h3>
+                  <div class="p-archive__description">
+                    <p><$mt:EntryBody words="60"$></p>
+                  </div>
                 </div>
-                <!-- /.p-emergency -->
-            </mt:If>
+                <div class="p-archive__image"><MTIfNonEmpty tag="EntryDataCaseStudiesDetailListImage"><mt:EntryDataCaseStudiesDetailListImageAsset>
+                  <img src="<mt:AssetURL>" alt="<mt:EntryTitle>"></mt:EntryDataCaseStudiesDetailListImageAsset><mt:else>
+                  <img src="/asset/img/product/alternative_image.jpg" alt="<mt:EntryTitle>"></MTIfNonEmpty>
+                </div>
+              </div>
+            </a>
+          </div></mt:Entries>
+        </div>
+        <!-- /.p-archive__content -->
+      </div>
+      <!-- /.p-archive -->
+
+      <div class="c-button">
+        <a href="/case-studies/">すべての導入事例を見る</a>
+      </div>
+    </div>
+    <!-- /.l-inner -->
+  </section>
+
+  <section class="l-outer--gray">
+    <div class="l-inner">
+      <div class="c-heading">
+        <h2 class="c-heading__title" data-en="support">D-Linkのサポート</h2>
+      </div>
+      <!-- /.c-heading -->
+
+      <div class="p-tile">
+        <ul class="p-tile__content">
+          <li class="p-tile__item">
+            <a href="/support/" class="js-toggle_png">
+              <div class="p-tile__box">
+                <div class="p-tile__icon">
+                  <img src="/asset/img/top/support_icon_01.png" alt="">
+                </div>
+                <!-- /.p-tile__icon -->
+                <div class="p-tile__name">
+                  <p>サポート</p>
+                </div>
+                <!-- /.p-tile__name -->
+              </div>
+              <!-- /.p-tile__box -->
+            </a>
+          </li>
+          <li class="p-tile__item">
+            <a href="/support/support-system/" class="js-toggle_png">
+              <div class="p-tile__box">
+                <div class="p-tile__icon">
+                  <img src="/asset/img/top/support_icon_02.png" alt="">
+                </div>
+                <!-- /.p-tile__icon -->
+                <div class="p-tile__name">
+                  <p>サポート体制<br>について</p>
+                </div>
+                <!-- /.p-tile__name -->
+              </div>
+              <!-- /.p-tile__box -->
+            </a>
+          </li>
+          <li class="p-tile__item">
+            <a href="/support/info/" class="js-toggle_png">
+              <div class="p-tile__box">
+                <div class="p-tile__icon">
+                  <img src="/asset/img/top/support_icon_03.png" alt="">
+                </div>
+                <!-- /.p-tile__icon -->
+                <div class="p-tile__name">
+                  <p>無償保証について</p>
+                </div>
+                <!-- /.p-tile__name -->
+              </div>
+              <!-- /.p-tile__box -->
+            </a>
+          </li>
+          <li class="p-tile__item">
+            <a href="/contact/repair-form/" class="js-toggle_png">
+              <div class="p-tile__box">
+                <div class="p-tile__icon">
+                  <img src="/asset/img/top/support_icon_04.png" alt="">
+                </div>
+                <!-- /.p-tile__icon -->
+                <div class="p-tile__name">
+                  <p>故障・修理申し込み</p>
+                </div>
+                <!-- /.p-tile__name -->
+              </div>
+              <!-- /.p-tile__box -->
+            </a>
+          </li>
+          <li class="p-tile__item">
+            <a href="/support/support-services/" class="js-toggle_png">
+              <div class="p-tile__box">
+                <div class="p-tile__icon">
+                  <img src="/asset/img/top/support_icon_05.png" alt="">
+                </div>
+                <!-- /.p-tile__icon -->
+                <div class="p-tile__name">
+                  <p>有償保守サービス<br>について</p>
+                </div>
+                <!-- /.p-tile__name -->
+              </div>
+              <!-- /.p-tile__box -->
+            </a>
+          </li>
+          <li class="p-tile__item">
+            <a href="/support/faq/" class="js-toggle_png">
+              <div class="p-tile__box">
+                <div class="p-tile__icon">
+                  <img src="/asset/img/top/support_icon_06.png" alt="">
+                </div>
+                <!-- /.p-tile__icon -->
+                <div class="p-tile__name">
+                  <p>よくあるご質問</p>
+                </div>
+                <!-- /.p-tile__name -->
+              </div>
+              <!-- /.p-tile__box -->
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- /.p-tile -->
+
+      <div class="c-button">
+        <a href="/support/">サポートページを見る</a>
+      </div>
+    </div>
+    <!-- /.l-inner -->
+  </section>
+
+  <section class="l-outer">
+    <div class="l-inner">
+
+      <div class="p-news">
+        <ul class="p-news__tab js-news_tab">
+          <li><a href="#news" class="p-news__toggle">ニュース</a></li>
+          <li><a href="#event" class="p-news__toggle">イベント・<br class="u-show_sp">セミナー</a></li>
+          <li><a href="#support" class="p-news__toggle">サポート</a></li>
+        </ul>
+
+        <div class="p-news__content">
+          <div id="news" class="p-news__block">
+            <!--
+            # カテゴリHTML
+            <p class="p-news__category--news">お知らせ</p>
+            <p class="p-news__category--product">製品ニュース</p>
+            -->
+            <mt:Entries include_sites="2" sort_by="authored_on" sort_order="descend" lastn="5"><mt:SetVarBlock name="cate_news"></mt:SetVarBlock>
+            <div class="p-news__item">
+              <a href="<$mt:EntryLink$>">
+                <div class="p-news__box">
+                  <p class="p-news__time"><$mt:EntryDate format="%Y/%m/%d"$></p><mt:EntryCategories setvar="entry_categories"><mt:CategoryBasename></mt:EntryCategories>
+                  <mt:If name="entry_categories"><mt:Categories include_sites="7"><mt:setvarblock name="id_name_cate"><mt:CategoryID>_<mt:CategoryBasename></mt:setvarblock><mt:CategoryBasename setvar="name_cate"><mt:if name="entry_categories" like="$name_cate"><mt:SetVarBlock name="cate_news{$id_name_cate}"><mt:CategoryLabel></mt:SetVarBlock></mt:If></mt:Categories>
+                  <mt:Loop name="cate_news" sort_by= "key numeric"><mt:If name="__last__"><mt:If name="__key__" like="info">
+                  <p class="p-news__category--news"><mt:Var name="__value__"></p></mt:If><mt:If name="__key__" like="product">
+                  <p class="p-news__category--product"><mt:Var name="__value__"></p></mt:If></mt:If></mt:Loop><mt:Else>
+                  <p class="p-news__category--news"></p></mt:If>
+                  <p class="p-news__title"><$mt:EntryTitle$></p>
+                </div>
+                <!-- /.p-news__box -->
+              </a>
+            </div>
+            <!-- /.p-news__item --></mt:Entries>
             <div class="c-button">
-                <a href="/product/">製品情報を見る</a>
+              <a href="./news/">すべてのニュースを見る</a>
             </div>
 
-        </div>
-        <!-- /.l-inner -->
-    </section>
+          </div>
+          <!-- /.p-news__block -->
 
-    <section class="l-outer">
-        <div class="l-inner">
-            <div class="c-heading">
-                <h2 class="c-heading__title" data-en="Selection">サービス＆機能セレクション</h2>
-            </div>
-            <!-- /.c-heading -->
-
-            <div class="p-product_category">
-                <div class="p-product_category__large">
-                    <mt:setvar name="count" value="0">
-                    <mt:Entries include_sites="6" sort_by="authored_on" sort_order="descend">
-                        <mt:If tag="EntryDataProductPickupDetailDisplayAllTop">
-                            <mt:SetVar name="count" op="++">
-                            <mt:if name="count" lt="5">
-                            <div class="p-product_category__item">
-                                <a href="<mt:EntryDataProductPickupDetailLink>" rel="bookmark">
-                                    <div class="p-product_category__detail">
-                                        <div class="p-product_category__info">
-                                            <h3 class="p-product_category__name"><$mt:EntryTitle words="30"$></h3>
-                                            <div class="p-product_category__introduction">
-                                                <p><$mt:EntryDataProductPickupDetailDisplayTopDescription words="80"$></p>
-                                            </div>
-                                            <!-- /.p-product_category__introduction -->
-                                        </div>
-                                        <!-- /.p-product_category__info -->
-                                        <div class="p-product_category__image">
-                                            <MTIfNonEmpty tag="EntryDataProductPickupDetailDisplayTopImage">
-                                                <mt:EntryDataProductPickupDetailDisplayTopImageAsset>
-                                                    <img src="<mt:AssetURL>" alt="<mt:EntryTitle>">
-                                                </mt:EntryDataProductPickupDetailDisplayTopImageAsset>
-                                            <mt:else>
-                                                <img src="/asset/img/product/alternative_image.jpg" alt="<mt:EntryTitle>">
-                                            </MTIfNonEmpty>
-                                        </div>
-                                        <!-- /.p-product_category__image -->
-                                    </div>
-                                    <!-- /.p-product_category__detail -->
-                                </a>
-                            </div>
-                            <!-- /.p-product_category__item -->
-                            </mt:if>
-                        </mt:If>
-                    </mt:Entries>
+          <div id="event" class="p-news__block">
+            <!--
+            # カテゴリHTML
+            <p class="p-news__category--event">イベント</p>
+            <p class="p-news__category--seminar">セミナー</p>
+            <p class="p-news__category--online">オンライン</p>
+            -->
+            <mt:Entries include_sites="9" sort_by="authored_on" sort_order="descend" lastn="5"><mt:SetVarBlock name="cate_event"></mt:SetVarBlock>
+            <div class="p-news__item">
+              <a href="<$mt:EntryLink$>">
+                <div class="p-news__box">
+                  <p class="p-news__time"><$mt:EntryDate format="%Y/%m/%d"$></p><mt:EntryCategories setvar="entry_categories"><mt:CategoryBasename></mt:EntryCategories><mt:If name="entry_categories">
+                    <mt:Categories include_sites="8"><mt:setvarblock name="id_name_cate"><mt:CategoryID>_<mt:CategoryBasename></mt:setvarblock><mt:CategoryBasename setvar="name_cate"><mt:if name="entry_categories" like="$name_cate"><mt:SetVarBlock name="cate_event{$id_name_cate}"><mt:CategoryLabel></mt:SetVarBlock></mt:If></mt:Categories>
+                    <mt:Loop name="cate_event" sort_by= "key numeric"><mt:If name="__last__"><mt:If name="__key__" like="event">
+                  <p class="p-news__category--event"><mt:Var name="__value__"></p></mt:If><mt:If name="__key__" like="online">
+                  <p class="p-news__category--online"><mt:Var name="__value__"></p></mt:If><mt:If name="__key__" like="seminar">
+                  <p class="p-news__category--seminar"><mt:Var name="__value__"></p></mt:If></mt:If></mt:Loop><mt:Else>
+                  <p class="p-news__category--event"></p></mt:If>
+                  <div class="p-news__body">
+                    <p class="p-news__title"><mt:EntryTitle></p>
+                    <p class="p-news__date">【日程】<mt:Ignore><mt:EntryDataEventDate></p></mt:Ignore>
+                    <p class="p-news__place">【会場】<mt:Ignore><mt:EntryDataEventHall></p></mt:Ignore>
+                  </div>
+                  <!-- /.p-news__body -->
                 </div>
-                <!-- /.p-product_category__large -->
+                <!-- /.p-news__box -->
+              </a>
             </div>
-            <!-- /.p-product_category -->
-
-            <div class="c-button--multiple">
-                <a href="/product/">サービス＆機能セレクションを見る</a>
-            </div>
-
-        </div>
-        <!-- /.l-inner -->
-    </section>
-
-    <section class="l-outer--gray">
-        <div class="l-inner">
-            <div class="c-heading">
-                <h2 class="c-heading__title" data-en="solution">ソリューションのご提案</h2>
-            </div>
-            <!-- /.c-heading -->
-
-            <div class="p-archive">
-                <div class="p-archive__content">
-                    <mt:Entries include_sites="5" sort_by="authored_on" sort_order="descend" lastn="4">
-                        <div class="p-archive__item">
-                            <a href="<$mt:EntryPermalink$>" rel="bookmark">
-                                <div class="p-archive__detail">
-                                    <div class="p-archive__header">
-                                        <p class="p-archive__category--solution">
-                                            <mt:EntryPrimaryCategory><$mt:CategoryLabel$></mt:EntryPrimaryCategory>
-                                        </p>
-                                        <h3 class="p-archive__title"><$mt:EntryTitle words="16"$></h3>
-                                        <div class="p-archive__description">
-                                            <p><mt:EntryDataSolutionDetailListText words="60"></p>
-                                        </div>
-                                    </div>
-                                    <div class="p-archive__image">
-                                        <MTIfNonEmpty tag="EntryDataSolutionDetailListImage">
-                                            <mt:EntryDataSolutionDetailListImageAsset>
-                                            <img src="<mt:AssetURL>" alt="<mt:EntryTitle>">
-                                            </mt:EntryDataSolutionDetailListImageAsset>
-                                        <mt:else>
-                                            <img src="/asset/img/product/alternative_image.jpg" alt="<mt:EntryTitle>">
-                                        </MTIfNonEmpty>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </mt:Entries>
-                </div>
-                <!-- /.p-archive__content -->
-            </div>
-            <!-- /.p-archive -->
-
-            <div class="c-button--multiple">
-                <a href="/solution/">すべてのソリューションの<br class="u-show_sp">ご提案を見る</a>
-            </div>
-
-        </div>
-        <!-- /.l-inner -->
-    </section>
-
-    <section class="l-outer">
-        <div class="l-inner">
-            <div class="c-heading">
-                <h2 class="c-heading__title" data-en="case">導入事例</h2>
-            </div>
-            <!-- /.c-heading -->
-
-            <div class="p-archive">
-                <div class="p-archive__content">
-                    <mt:Entries include_sites="4" sort_by="authored_on" sort_order="descend" lastn="4">
-                        <div class="p-archive__item">
-                            <a href="<$mt:EntryPermalink$>" rel="bookmark">
-                                <div class="p-archive__detail">
-                                    <div class="p-archive__header">
-                                        <p class="p-archive__category--case"><mt:EntryPrimaryCategory><$mt:CategoryLabel$></mt:EntryPrimaryCategory>
-                                        </p>
-                                        <h3 class="p-archive__title"><$mt:EntryTitle words="16"$></h3>
-                                        <div class="p-archive__description">
-                                            <p><$mt:EntryDataCaseStudiesDetailListText words="60"$></p>
-                                        </div>
-                                    </div>
-                                    <div class="p-archive__image">
-                                        <MTIfNonEmpty tag="EntryDataCaseStudiesDetailListImage">
-                                            <mt:EntryDataCaseStudiesDetailListImageAsset>
-                                            <img src="<mt:AssetURL>" alt="<mt:EntryTitle>">
-                                            </mt:EntryDataCaseStudiesDetailListImageAsset>
-                                        <mt:else>
-                                            <img src="/asset/img/product/alternative_image.jpg" alt="<mt:EntryTitle>">
-                                        </MTIfNonEmpty>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </mt:Entries>
-                </div>
-                <!-- /.p-archive__content -->
-            </div>
-            <!-- /.p-archive -->
-
+            <!-- /.p-news__item --></mt:Entries>
             <div class="c-button">
-                <a href="/case-studies/">すべての導入事例を見る</a>
+              <a href="/event/">すべてのイベント・セミナーを見る</a>
             </div>
+          </div>
+          <!-- /.p-news__block -->
 
-        </div>
-        <!-- /.l-inner -->
-    </section>
-
-    <section class="l-outer--gray">
-        <div class="l-inner">
-            <div class="c-heading">
-                <h2 class="c-heading__title" data-en="support">D-Linkのサポート</h2>
-            </div>
-            <!-- /.c-heading -->
-
-            <div class="p-tile">
-                <ul class="p-tile__content">
-                    <li class="p-tile__item">
-                        <a href="/support/" class="js-toggle_png">
-                            <div class="p-tile__box">
-                                <div class="p-tile__icon">
-                                    <img src="/asset/img/top/support_icon_01.png" alt="">
-                                </div>
-                                <!-- /.p-tile__icon -->
-                                <div class="p-tile__name">
-                                    <p>サポート</p>
-                                </div>
-                                <!-- /.p-tile__name -->
-                            </div>
-                            <!-- /.p-tile__box -->
-                        </a>
-                    </li>
-                    <li class="p-tile__item">
-                        <a href="/support/support-system/" class="js-toggle_png">
-                            <div class="p-tile__box">
-                                <div class="p-tile__icon">
-                                <img src="/asset/img/top/support_icon_02.png" alt="">
-                                </div>
-                                <!-- /.p-tile__icon -->
-                                <div class="p-tile__name">
-                                    <p>サポート体制<br>について</p>
-                                </div>
-                                <!-- /.p-tile__name -->
-                            </div>
-                            <!-- /.p-tile__box -->
-                        </a>
-                    </li>
-                    <li class="p-tile__item">
-                        <a href="/support/info/" class="js-toggle_png">
-                            <div class="p-tile__box">
-                                <div class="p-tile__icon">
-                                    <img src="/asset/img/top/support_icon_03.png" alt="">
-                                </div>
-                                <!-- /.p-tile__icon -->
-                                <div class="p-tile__name">
-                                    <p>無償保証について</p>
-                                </div>
-                                <!-- /.p-tile__name -->
-                            </div>
-                            <!-- /.p-tile__box -->
-                        </a>
-                    </li>
-                    <li class="p-tile__item">
-                        <a href="/contact/repair-form/" class="js-toggle_png">
-                            <div class="p-tile__box">
-                                <div class="p-tile__icon">
-                                    <img src="/asset/img/top/support_icon_04.png" alt="">
-                                </div>
-                                <!-- /.p-tile__icon -->
-                                <div class="p-tile__name">
-                                    <p>故障・修理申し込み</p>
-                                </div>
-                                <!-- /.p-tile__name -->
-                            </div>
-                            <!-- /.p-tile__box -->
-                        </a>
-                    </li>
-                    <li class="p-tile__item">
-                        <a href="/support/support-services/" class="js-toggle_png">
-                            <div class="p-tile__box">
-                                <div class="p-tile__icon">
-                                    <img src="/asset/img/top/support_icon_05.png" alt="">
-                                </div>
-                                <!-- /.p-tile__icon -->
-                                <div class="p-tile__name">
-                                    <p>有償保守サービス<br>について</p>
-                                </div>
-                                <!-- /.p-tile__name -->
-                            </div>
-                            <!-- /.p-tile__box -->
-                        </a>
-                    </li>
-                    <li class="p-tile__item">
-                        <a href="/support/faq/" class="js-toggle_png">
-                            <div class="p-tile__box">
-                                <div class="p-tile__icon">
-                                    <img src="/asset/img/top/support_icon_06.png" alt="">
-                                </div>
-                                <!-- /.p-tile__icon -->
-                                <div class="p-tile__name">
-                                    <p>よくあるご質問</p>
-                                </div>
-                                <!-- /.p-tile__name -->
-                            </div>
-                            <!-- /.p-tile__box -->
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.p-tile -->
-
-            <div class="c-button">
-                <a href="/support/">サポートページを見る</a>
-            </div>
-
-        </div>
-        <!-- /.l-inner -->
-    </section>
-
-    <section class="l-outer">
-        <div class="l-inner">
-
-            <div class="p-news">
-                <ul class="p-news__tab js-news_tab">
-                    <li><a href="#news" class="p-news__toggle">ニュース</a></li>
-                    <li><a href="#event" class="p-news__toggle">イベント・<br class="u-show_sp">セミナー</a></li>
-                    <li><a href="#support" class="p-news__toggle">サポート</a></li>
-                </ul>
-
-                <div class="p-news__content">
-                    <div id="news" class="p-news__block">
-                        <!--
-                        # カテゴリHTML
-                        <p class="p-news__category--news">お知らせ</p>
-                        <p class="p-news__category--product">製品ニュース</p>
-                        -->
-                        <mt:Entries include_sites="7" sort_by="authored_on" sort_order="descend" lastn="5">
-                            <mt:SetVarBlock name="cate_news"></mt:SetVarBlock>
-                            <div class="p-news__item">
-                                <a href="<$mt:EntryLink$>">
-                                    <div class="p-news__box">
-                                        <p class="p-news__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
-                                        <mt:EntryCategories setvar="entry_categories"><mt:CategoryBasename></mt:EntryCategories>
-                                        <mt:If name="entry_categories">
-                                            <mt:Categories include_sites="7">
-                                                <mt:setvarblock name="id_name_cate"><mt:CategoryID>_<mt:CategoryBasename></mt:setvarblock>
-                                                <mt:CategoryBasename setvar="name_cate">
-                                                <mt:if name="entry_categories" like="$name_cate">
-                                                    <mt:SetVarBlock name="cate_news{$id_name_cate}"><mt:CategoryLabel></mt:SetVarBlock>
-                                                </mt:If>
-                                            </mt:Categories>
-                                            <mt:Loop name="cate_news" sort_by= "key numeric">
-                                                <mt:If name="__last__">
-                                                    <mt:If name="__key__" like="info">
-                                                        <p class="p-news__category--news"><mt:Var name="__value__"></p>
-                                                    </mt:If>
-                                                    <mt:If name="__key__" like="product">
-                                                        <p class="p-news__category--product"><mt:Var name="__value__"></p>
-                                                    </mt:If>
-                                                </mt:If>
-                                            </mt:Loop>
-                                        <mt:Else>
-                                            <p class="p-news__category--news"></p>
-                                        </mt:If>
-                                        <p class="p-news__title"><$mt:EntryTitle$></p>
-                                    </div>
-                                    <!-- /.p-news__box -->
-                                </a>
-                            </div>
-                            <!-- /.p-news__item -->
-                        </mt:Entries>
-                        <div class="c-button">
-                            <a href="/news/">すべてのニュースを見る</a>
-                        </div>
-
+          <div id="support" class="p-news__block">
+            <!--
+            # カテゴリHTML
+            <p class="p-news__category--support">お知らせ</p>
+            <p class="p-news__category--firmware">ファームウェア</p>
+            <p class="p-news__category--security">セキュリティ情報</p>
+            <p class="p-news__category--maintenance">メンテナンス情報</p>
+            <p class="p-news__category--failure">障害情報</p>
+            -->
+            <mt:Entries include_sites="3" category="サポート情報" sort_by="authored_on" sort_order="descend" lastn="5"><mt:SetVarBlock name="cate_support"></mt:SetVarBlock>
+            <div class="p-news__item">
+              <a href="<$mt:EntryLink$>">
+                <div class="p-news__box">
+                  <p class="p-news__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
+                  <mt:EntryCategories setvar="entry_categories"><mt:If tag="CategoryBasename" ne="release"><$mt:CategoryBasename$></mt:If></mt:EntryCategories><mt:If name="entry_categories"><mt:Categories include_sites="9"><mt:setvarblock name="id_name_cate"><mt:CategoryID>_<mt:CategoryBasename></mt:setvarblock><mt:CategoryBasename setvar="name_cate"><mt:if name="entry_categories" like="$name_cate"><mt:SetVarBlock name="cate_support{$id_name_cate}"><mt:CategoryLabel></mt:SetVarBlock></mt:If></mt:Categories>
+                  <mt:Loop name="cate_support" sort_by= "key numeric"><mt:If name="__last__"><mt:If name="__key__" like="info">
+                    <p class="p-news__category--support"><mt:Var name="__value__"></p></mt:If><mt:If name="__key__" like="fault">
+                    <p class="p-news__category--failure"><mt:Var name="__value__"></p></mt:If><mt:If name="__key__" like="firmware">
+                    <p class="p-news__category--firmware"><mt:Var name="__value__"></p></mt:If><mt:If name="__key__" like="security">
+                    <p class="p-news__category--security"><mt:Var name="__value__"></p></mt:If><mt:If name="__key__" like="maintenance">
+                    <p class="p-news__category--maintenance"><mt:Var name="__value__"></p></mt:If></mt:If></mt:Loop><mt:Else>
+                    <p class="p-news__category--support"></p></mt:If>
+                    <div class="p-news__body">
+                      <p class="p-news__title"><$mt:EntryTitle$></p>
                     </div>
-                    <!-- /.p-news__block -->
-
-                    <div id="event" class="p-news__block">
-                        <!--
-                        # カテゴリHTML
-                        <p class="p-news__category--event">イベント</p>
-                        <p class="p-news__category--seminar">セミナー</p>
-                        <p class="p-news__category--online">オンライン</p>
-                        -->
-                        <mt:Entries include_sites="8" sort_by="authored_on" sort_order="descend" lastn="5">
-                            <mt:SetVarBlock name="cate_event"></mt:SetVarBlock>
-                            <div class="p-news__item">
-                                <a href="<$mt:EntryLink$>">
-                                    <div class="p-news__box">
-                                        <p class="p-news__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
-                                        <mt:EntryCategories setvar="entry_categories"><mt:CategoryBasename></mt:EntryCategories>
-                                        <mt:If name="entry_categories">
-                                            <mt:Categories include_sites="8">
-                                                <mt:setvarblock name="id_name_cate"><mt:CategoryID>_<mt:CategoryBasename></mt:setvarblock>
-                                                <mt:CategoryBasename setvar="name_cate">
-                                                <mt:if name="entry_categories" like="$name_cate">
-                                                    <mt:SetVarBlock name="cate_event{$id_name_cate}"><mt:CategoryLabel></mt:SetVarBlock>
-                                                </mt:If>
-                                            </mt:Categories>
-
-                                            <mt:Loop name="cate_event" sort_by= "key numeric">
-                                                <mt:If name="__last__">
-                                                    <mt:If name="__key__" like="event">
-                                                        <p class="p-news__category--event"><mt:Var name="__value__"></p>
-                                                    </mt:If>
-                                                    <mt:If name="__key__" like="online">
-                                                        <p class="p-news__category--online"><mt:Var name="__value__"></p>
-                                                    </mt:If>
-                                                    <mt:If name="__key__" like="seminar">
-                                                        <p class="p-news__category--seminar"><mt:Var name="__value__"></p>
-                                                    </mt:If>
-                                                </mt:If>
-                                            </mt:Loop>
-                                        <mt:Else>
-                                            <p class="p-news__category--event"></p>
-                                        </mt:If>
-                                        <div class="p-news__body">
-                                            <p class="p-news__title"><$mt:EntryTitle$></p>
-                                            <p class="p-news__date">【日程】<$mt:EntryDataEventDate$></p>
-                                            <p class="p-news__place">【会場】<$mt:EntryDataEventHall$></p>
-                                        </div>
-                                        <!-- /.p-news__body -->
-                                    </div>
-                                    <!-- /.p-news__box -->
-                                </a>
-                            </div>
-                            <!-- /.p-news__item -->
-                        </mt:Entries>
-                        <div class="c-button">
-                            <a href="/event/">すべてのイベント・セミナーを見る</a>
-                        </div>
-
-                    </div>
-                    <!-- /.p-news__block -->
-
-                    <div id="support" class="p-news__block">
-                        <!--
-                        # カテゴリHTML
-                        <p class="p-news__category--support">お知らせ</p>
-                        <p class="p-news__category--firmware">ファームウェア</p>
-                        <p class="p-news__category--security">セキュリティ情報</p>
-                        <p class="p-news__category--maintenance">メンテナンス情報</p>
-                        <p class="p-news__category--failure">障害情報</p>
-                        -->
-                        <mt:Entries include_sites="9" category="サポート情報" sort_by="authored_on" sort_order="descend" lastn="5">
-                            <mt:SetVarBlock name="cate_support"></mt:SetVarBlock>
-                            <div class="p-news__item">
-                                <a href="<$mt:EntryLink$>">
-                                    <div class="p-news__box">
-                                        <p class="p-news__time"><$mt:EntryDate format="%Y/%m/%d"$></p>
-                                        <mt:EntryCategories setvar="entry_categories"><mt:If tag="CategoryBasename" ne="release"><$mt:CategoryBasename$></mt:If></mt:EntryCategories>
-                                        <mt:If name="entry_categories">
-                                            <mt:Categories include_sites="9">
-                                                <mt:setvarblock name="id_name_cate"><mt:CategoryID>_<mt:CategoryBasename></mt:setvarblock>
-                                                <mt:CategoryBasename setvar="name_cate">
-                                                <mt:if name="entry_categories" like="$name_cate">
-                                                    <mt:SetVarBlock name="cate_support{$id_name_cate}"><mt:CategoryLabel></mt:SetVarBlock>
-                                                </mt:If>
-                                            </mt:Categories>
-                                            <mt:Loop name="cate_support" sort_by= "key numeric">
-                                                <mt:If name="__last__">
-                                                    <mt:If name="__key__" like="info">
-                                                        <p class="p-news__category--support"><mt:Var name="__value__"></p>
-                                                    </mt:If>
-                                                    <mt:If name="__key__" like="fault">
-                                                        <p class="p-news__category--failure"><mt:Var name="__value__"></p>
-                                                    </mt:If>
-                                                    <mt:If name="__key__" like="firmware">
-                                                        <p class="p-news__category--firmware"><mt:Var name="__value__"></p>
-                                                    </mt:If>
-                                                    <mt:If name="__key__" like="security">
-                                                        <p class="p-news__category--security"><mt:Var name="__value__"></p>
-                                                    </mt:If>
-                                                    <mt:If name="__key__" like="maintenance">
-                                                        <p class="p-news__category--maintenance"><mt:Var name="__value__"></p>
-                                                    </mt:If>
-                                                </mt:If>
-                                            </mt:Loop>
-                                        <mt:Else>
-                                            <p class="p-news__category--support"></p>
-                                        </mt:If>
-                                        <div class="p-news__body">
-                                            <p class="p-news__title"><$mt:EntryTitle$></p>
-                                        </div>
-                                        <!-- /.p-news__body -->
-                                    </div>
-                                    <!-- /.p-news__box -->
-                                </a>
-                            </div>
-                            <!-- /.p-news__item -->
-                        </mt:Entries>
-                        <div class="c-button">
-                            <a href="/support/release/">すべてのサポート情報を見る</a>
-                        </div>
-
-                    </div>
-                    <!-- /.p-news__block -->
+                    <!-- /.p-news__body -->
                 </div>
-                <!-- /.p-news__content -->
-
+                <!-- /.p-news__box -->
+              </a>
             </div>
-            <!-- /.p-news -->
-
+            <!-- /.p-news__item --></mt:Entries>
+            <div class="c-button">
+              <a href="/support/release/">すべてのサポート情報を見る</a>
+            </div>
+          </div>
+          <!-- /.p-news__block -->
         </div>
-        <!-- /.l-inner -->
-    </section>
+        <!-- /.p-news__content -->
+      </div>
+      <!-- /.p-news -->
+
+    </div>
+    <!-- /.l-inner -->
+  </section>
 
 </main>
 
 <div class="p-contact">
-    <div class="p-contact__inner">
-        <div class="p-contact__read">
-            <p>購入前の、製品仕様・お見積もり・<br class="u-show_sp">購入方法など<br class="u-show_pc">営業的な<br class="u-show_sp">お問い合わせについてはこちらから</p>
-        </div>
-        <!-- /.p-contact__read -->
-        <div class="p-contact__bottom">
-            <div class="p-contact__button">
-                <a href="/contact/">お問い合わせ</a>
-            </div>
-            <!-- /.p-contact__button -->
-        </div>
-        <!-- /.p-contact__bottom -->
+  <div class="p-contact__inner">
+    <div class="p-contact__read">
+      <p>購入前の、製品仕様・お見積もり・<br class="u-show_sp">購入方法など<br class="u-show_pc">営業的な<br class="u-show_sp">お問い合わせについてはこちらから</p>
     </div>
-    <!-- /.p-contact__inner -->
+    <!-- /.p-contact__read -->
+    <div class="p-contact__bottom">
+      <div class="p-contact__button">
+        <a href="/contact/">お問い合わせ</a>
+      </div>
+      <!-- /.p-contact__button -->
+    </div>
+    <!-- /.p-contact__bottom -->
+  </div>
+  <!-- /.p-contact__inner -->
 </div>
 <!-- /.p-contact -->
 
 <div class="p-aside">
-<div class="p-aside__inner">
-<div class="p-aside__menu">
-<div class="p-aside__item">
-<a href="https://go.dlink-jp.com/l/553122/2018-08-03/3rgd4k8" target="_blank" rel="noopener" class="js-toggle_png">
-<div class="p-aside__body">
-<div class="p-aside__image">
-<img src="/asset/img/common/icon_mail_01.png" alt="">
-</div>
-<!-- /.p-aside__image -->
-<div class="p-aside__content">
-<p class="p-aside__heading">メールマガジン登録</p>
-<div class="p-aside__copy">
-<p>D-Linkの最新情報を中心に各種情報をお届けします。</p>
-</div>
-<!-- /.p-aside__copy -->
-</div>
-<!-- /.p-aside__content -->
-</div>
-<!-- /.p-aside__body -->
-</a>
-</div>
-<!-- /.p-aside__item -->
-<div class="p-aside__item">
-<a href="https://go.dlink-jp.com/l/553122/2018-05-18/3nxnlgc" target="_blank" rel="noopener" class="js-toggle_png">
-<div class="p-aside__body">
-<div class="p-aside__image">
-<img src="/asset/img/common/icon_pdf_01.png" alt="">
-</div>
-<!-- /.p-aside__image -->
-<div class="p-aside__content">
-<p class="p-aside__heading">総合カタログダウンロード</p>
-<div class="p-aside__copy">
-<p>最新の総合カタログをPDF形式でダウンロード可能です。</p>
-</div>
-<!-- /.p-aside__copy -->
-</div>
-<!-- /.p-aside__content -->
-</div>
-<!-- /.p-aside__body -->
-</a>
-</div>
-<!-- /.p-aside__item -->
-<div class="p-aside__item">
-<a href="https://www.youtube.com/channel/UCjK7YgcQQKtLD8BvqPPlkyg" target="_blank" rel="noopener" class="js-toggle_png">
-<div class="p-aside__body">
-<div class="p-aside__image">
-<img src="/asset/img/common/icon_youtube_01.png" alt="">
-</div>
-<!-- /.p-aside__image -->
-<div class="p-aside__content">
-<p class="p-aside__heading">D-Link公式YouTube</p>
-<div class="p-aside__copy">
-<p>D-Link製品や最新技術を動画でご紹介しています。</p>
-</div>
-<!-- /.p-aside__copy -->
-</div>
-<!-- /.p-aside__content -->
-</div>
-<!-- /.p-aside__body -->
-</a>
-</div>
-<!-- /.p-aside__item -->
-</div>
-<!-- /.p-aside__menu -->
-</div>
-<!-- /.p-aside__inner -->
+  <div class="p-aside__inner">
+    <div class="p-aside__menu">
+      <div class="p-aside__item">
+        <a href="https://go.dlink-jp.com/l/553122/2018-08-03/3rgd4k8" target="_blank" rel="noopener" class="js-toggle_png">
+          <div class="p-aside__body">
+            <div class="p-aside__image">
+              <img src="/asset/img/common/icon_mail_01.png" alt="">
+            </div>
+            <!-- /.p-aside__image -->
+            <div class="p-aside__content">
+              <p class="p-aside__heading">メールマガジン登録</p>
+              <div class="p-aside__copy">
+                <p>D-Linkの最新情報を中心に各種情報をお届けします。</p>
+              </div>
+              <!-- /.p-aside__copy -->
+            </div>
+            <!-- /.p-aside__content -->
+          </div>
+          <!-- /.p-aside__body -->
+        </a>
+      </div>
+      <!-- /.p-aside__item -->
+      <div class="p-aside__item">
+        <a href="https://go.dlink-jp.com/l/553122/2018-05-18/3nxnlgc" target="_blank" rel="noopener" class="js-toggle_png">
+          <div class="p-aside__body">
+            <div class="p-aside__image">
+              <img src="/asset/img/common/icon_pdf_01.png" alt="">
+            </div>
+            <!-- /.p-aside__image -->
+            <div class="p-aside__content">
+              <p class="p-aside__heading">総合カタログダウンロード</p>
+              <div class="p-aside__copy">
+                <p>最新の総合カタログをPDF形式でダウンロード可能です。</p>
+              </div>
+              <!-- /.p-aside__copy -->
+            </div>
+            <!-- /.p-aside__content -->
+          </div>
+          <!-- /.p-aside__body -->
+        </a>
+      </div>
+      <!-- /.p-aside__item -->
+      <div class="p-aside__item">
+        <a href="https://www.youtube.com/channel/UCjK7YgcQQKtLD8BvqPPlkyg" target="_blank" rel="noopener" class="js-toggle_png">
+          <div class="p-aside__body">
+            <div class="p-aside__image">
+              <img src="/asset/img/common/icon_youtube_01.png" alt="">
+            </div>
+            <!-- /.p-aside__image -->
+            <div class="p-aside__content">
+              <p class="p-aside__heading">D-Link公式YouTube</p>
+              <div class="p-aside__copy">
+                <p>D-Link製品や最新技術を動画でご紹介しています。</p>
+              </div>
+              <!-- /.p-aside__copy -->
+            </div>
+            <!-- /.p-aside__content -->
+          </div>
+          <!-- /.p-aside__body -->
+        </a>
+      </div>
+      <!-- /.p-aside__item -->
+    </div>
+    <!-- /.p-aside__menu -->
+  </div>
+  <!-- /.p-aside__inner -->
 </div>
 <!-- /.p-aside -->
 <mt:Include module="footer" parent="1" />

@@ -26,365 +26,497 @@
 <!-- /.c-breadcrumb -->
 
 <section id="compare_app" class="l-outer--lower">
-  <div class="l-inner">
+<div class="l-inner">
 
-    <div class="c-title">
-      <h1 class="c-title__text">無線LAN製品比較</h1>
-    </div>
-    <!-- /.c-title -->
+<div class="c-title">
+<h1 class="c-title__text">無線LAN製品比較</h1>
+</div>
+<!-- /.c-title -->
 
-    <div class="l-container">
-      <div class="l-container__block">
-        <div class="l-container__slot" v-if="compare_result_colspan">
-          <div class="p-compare_list">
-            <div class="p-compare_list__overflow">
-              <div class="p-compare_list__content">
-                <table class="p-compare_list__table">
-                  <thead>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">製品</span></th>
-                      <th scope="col" v-for="(value, index) of compare_result_data.id">
-                        <a :href="compare_result_data.url[index]">
-                          <img :src="[compare_result_data.product_image[index] ? compare_result_data.product_image[index] : '/asset/img/product/product_default.jpg']" :alt="compare_result_data.product_name[index]">
-                          <p>{{ compare_result_data.product_name[index] }}</p>
-                        </a>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">品番</span></th>
-                      <td v-for="item of compare_result_data.product_number">
-                        <ul class="p-compare_list__value">
-                          <template v-for="val of item">
-                            <li v-if="val">{{ val }}</li>
-                          </template>
-                        </ul>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">標準価格（税別）</span></th>
-                      <td v-for="item of compare_result_data.product_price">
-                        <ul class="p-compare_list__value">
-                          <template v-for="val of item">
-                            <li v-if="val">{{ val }}</li>
-                          </template>
-                        </ul>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th class="p-compare_list__division"><span class="p-compare_list__value">無線LAN規格</span></th>
-                      <td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">2.4GHz</span></th>
-                      <td v-for="item of compare_result_data.standard_01"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">5GHz</span></th>
-                      <td v-for="item of compare_result_data.standard_02"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th class="p-compare_list__division"><span class="p-compare_list__value">アンテナ</span></th>
-                      <td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">送受信アンテナ本数（ストリーム数）</span></th>
-                      <td v-for="item of compare_result_data.antenna_01"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">アンテナ利得</span></th>
-                      <td v-for="item of compare_result_data.antenna_02"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">スマートアンテナ対応</span></th>
-                      <td v-for="item of compare_result_data.antenna_03"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th class="p-compare_list__division"><span class="p-compare_list__value">DFS</span></th>
-                      <td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">DFS対応</span></th>
-                      <td v-for="item of compare_result_data.dfs_01"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th class="p-compare_list__division"><span class="p-compare_list__value">同時利用</span></th>
-                      <td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">デュアルバンド対応（2.4GHz/5GHz）</span></th>
-                      <td v-for="item of compare_result_data.simultaneous_use_01"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">トライバンド対応（2.4GHz/5GHz/5GHz）</span></th>
-                      <td v-for="item of compare_result_data.simultaneous_use_02"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th class="p-compare_list__division"><span class="p-compare_list__value">電気的仕様</span></th>
-                      <td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">最大消費電力</span></th>
-                      <td v-for="item of compare_result_data.electrical_specifications_01"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">PoE受電規格</span></th>
-                      <td v-for="item of compare_result_data.electrical_specifications_02"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th class="p-compare_list__division"><span class="p-compare_list__value">環境仕様</span></th>
-                      <td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">温度（動作時/保管時）</span></th>
-                      <td v-for="item of compare_result_data.environmental_specifications"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th class="p-compare_list__division"><span class="p-compare_list__value">ネットワーク設定</span></th>
-                      <td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">DHCPサーバ</span></th>
-                      <td v-for="item of compare_result_data.network_settings_01"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">DHCPクライアント</span></th>
-                      <td v-for="item of compare_result_data.network_settings_02"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">固定IP 設定</span></th>
-                      <td v-for="item of compare_result_data.network_settings_03"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">リンクアグリゲーション</span></th>
-                      <td v-for="item of compare_result_data.network_settings_04"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th class="p-compare_list__division"><span class="p-compare_list__value">無線設定</span></th>
-                      <td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">自動チャネル調整</span></th>
-                      <td v-for="item of compare_result_data.wireless_settings_01"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">チャネル帯域</span></th>
-                      <td v-for="item of compare_result_data.wireless_settings_02"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">送信出力設定</span></th>
-                      <td v-for="item of compare_result_data.wireless_settings_03"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">ユーザ数制限</span></th>
-                      <td v-for="item of compare_result_data.wireless_settings_04"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">Airtime Fairness</span></th>
-                      <td v-for="item of compare_result_data.wireless_settings_05"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">5GHz 優先（バンドステアリング）</span></th>
-                      <td v-for="item of compare_result_data.wireless_settings_06"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th class="p-compare_list__division"><span class="p-compare_list__value">通信モード</span></th>
-                      <td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">アクセスポイント</span></th>
-                      <td v-for="item of compare_result_data.communication_mode_01"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">WDS</span></th>
-                      <td v-for="item of compare_result_data.communication_mode_02"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">WDS with AP</span></th>
-                      <td v-for="item of compare_result_data.communication_mode_03"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">APクライアント</span></th>
-                      <td v-for="item of compare_result_data.communication_mode_04"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">リピータ</span></th>
-                      <td v-for="item of compare_result_data.communication_mode_05"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th class="p-compare_list__division"><span class="p-compare_list__value">セキュリティ</span></th>
-                      <td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">マルチSSID</span></th>
-                      <td v-for="item of compare_result_data.security_01"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">SSIDステルス設定</span></th>
-                      <td v-for="item of compare_result_data.security_02"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">MACアドレスフィルタリング</span></th>
-                      <td v-for="item of compare_result_data.security_03"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">不正AP 検知</span></th>
-                      <td v-for="item of compare_result_data.security_04"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">IEEE 802.1Q VLAN</span></th>
-                      <td v-for="item of compare_result_data.security_05"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">ARPスプーフィング防止</span></th>
-                      <td v-for="item of compare_result_data.security_06"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">WLANクライアントパーティション</span></th>
-                      <td v-for="item of compare_result_data.security_07"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">Captive Portal（WEB認証）</span></th>
-                      <td v-for="item of compare_result_data.security_08"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">Webリダイレクト</span></th>
-                      <td v-for="item of compare_result_data.security_09"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">クリックスルー</span></th>
-                      <td v-for="item of compare_result_data.security_10"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">SMS認証</span></th>
-                      <td v-for="item of compare_result_data.security_11"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">SNS認証</span></th>
-                      <td v-for="item of compare_result_data.security_12"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">メール認証</span></th>
-                      <td v-for="item of compare_result_data.security_13"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">Wi-Fi 接続時間制御</span></th>
-                      <td v-for="item of compare_result_data.security_14"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">マルチプルRADIUS</span></th>
-                      <td v-for="item of compare_result_data.security_15"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">ゲストアクセスモード</span></th>
-                      <td v-for="item of compare_result_data.security_16"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">NATモード</span></th>
-                      <td v-for="item of compare_result_data.security_17"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">IPフィルタリング</span></th>
-                      <td v-for="item of compare_result_data.security_18"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">WEP</span></th>
-                      <td v-for="item of compare_result_data.security_19"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">WPA/WPA2</span></th>
-                      <td v-for="item of compare_result_data.security_20"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">WPA3</span></th>
-                      <td v-for="item of compare_result_data.security_21"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th class="p-compare_list__division"><span class="p-compare_list__value">無線アクセスポイントマネージメント</span></th>
-                      <td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">クラウド型無線LAN集中管理対応</span></th>
-                      <td v-for="item of compare_result_data.management_01"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">ソフトウェア無線LAN集中管理対応</span></th>
-                      <td v-for="item of compare_result_data.management_02"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">アプライアンス型無線LAN集中管理対応</span></th>
-                      <td v-for="item of compare_result_data.management_03"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">単体動作（スタンドアロン）</span></th>
-                      <td v-for="item of compare_result_data.management_04"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">Web ベースGUI</span></th>
-                      <td v-for="item of compare_result_data.management_05"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">Telnet</span></th>
-                      <td v-for="item of compare_result_data.management_06"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">SSL</span></th>
-                      <td v-for="item of compare_result_data.management_07"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">CLI</span></th>
-                      <td v-for="item of compare_result_data.management_08"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">イベントログ/アラート</span></th>
-                      <td v-for="item of compare_result_data.management_09"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">マップ機能<br>※Googleマップと連携した無線管理</span></th>
-                      <td v-for="item of compare_result_data.management_10"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">プロキシ対応</span></th>
-                      <td v-for="item of compare_result_data.management_11"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">SNMPv1/v2/v3</span></th>
-                      <td v-for="item of compare_result_data.management_12"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">SYSLOG</span></th>
-                      <td v-for="item of compare_result_data.management_13"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">トラップ設定</span></th>
-                      <td v-for="item of compare_result_data.management_14"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">スケジュール設定</span></th>
-                      <td v-for="item of compare_result_data.management_15"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">SNTPクライアント</span></th>
-                      <td v-for="item of compare_result_data.management_16"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.p-compare_list__content -->
-            </div>
-            <!-- /.p-compare_list__overflow -->
-          </div>
-          <!-- /.p-compare_list -->
-        </div>
-        <!-- /.l-container__slot -->
-      </div>
-      <!-- /.l-container__block -->
-    </div>
-    <!-- /.l-container -->
+<div class="l-container">
+<div class="l-container__block">
+<div class="l-container__slot" v-if="compare_result_colspan">
+<div class="p-compare_list">
+<div class="p-compare_list__overflow">
+<div class="p-compare_list__content">
+<table class="p-compare_list__table">
+<thead>
+<tr>
+<th scope="row"><span class="p-compare_list__value">製品</span></th>
+<template v-for="(value, index) of compare_result_data.id">
+<th scope="col">
+<a :href="compare_result_data.url[index]">
+<img :src="[compare_result_data.product_image[index] ? compare_result_data.product_image[index] : '/asset/img/product/product_default.jpg']" :alt="compare_result_data.product_name[index]">
+<p>{{ compare_result_data.product_name[index] }}</p>
+</a>
+</th>
+</template>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row"><span class="p-compare_list__value">品番</span></th>
+<template v-for="item of compare_result_data.product_number">
+<td>
+<ul class="p-compare_list__value">
+<template v-for="val of item">
+<li v-if="val">{{ val }}</li>
+</template>
+</ul>
+</td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">標準価格（税別）</span></th>
+<template v-for="item of compare_result_data.product_price">
+<td>
+<ul class="p-compare_list__value">
+<template v-for="val of item">
+<li v-if="val">{{ val }}</li>
+</template>
+</ul>
+</td>
+</template>
+</tr>
+<tr>
+<th class="p-compare_list__division"><span class="p-compare_list__value">無線LAN規格</span></th>
+<td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">2.4GHz</span></th>
+<template v-for="item of compare_result_data.standard_01">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">5GHz</span></th>
+<template v-for="item of compare_result_data.standard_02">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th class="p-compare_list__division"><span class="p-compare_list__value">アンテナ</span></th>
+<td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">送受信アンテナ本数（ストリーム数）</span></th>
+<template v-for="item of compare_result_data.antenna_01">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">アンテナ利得</span></th>
+<template v-for="item of compare_result_data.antenna_02">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">スマートアンテナ対応</span></th>
+<template v-for="item of compare_result_data.antenna_03">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th class="p-compare_list__division"><span class="p-compare_list__value">DFS</span></th>
+<td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">DFS対応</span></th>
+<template v-for="item of compare_result_data.dfs_01">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th class="p-compare_list__division"><span class="p-compare_list__value">同時利用</span></th>
+<td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">デュアルバンド対応（2.4GHz/5GHz）</span></th>
+<template v-for="item of compare_result_data.simultaneous_use_01">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">トライバンド対応（2.4GHz/5GHz/5GHz）</span></th>
+<template v-for="item of compare_result_data.simultaneous_use_02">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th class="p-compare_list__division"><span class="p-compare_list__value">電気的仕様</span></th>
+<td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">最大消費電力</span></th>
+<template v-for="item of compare_result_data.electrical_specifications_01">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">PoE受電規格</span></th>
+<template v-for="item of compare_result_data.electrical_specifications_02">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th class="p-compare_list__division"><span class="p-compare_list__value">環境仕様</span></th>
+<td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">温度（動作時/保管時）</span></th>
+<template v-for="item of compare_result_data.environmental_specifications">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th class="p-compare_list__division"><span class="p-compare_list__value">ネットワーク設定</span></th>
+<td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">DHCPサーバ</span></th>
+<template v-for="item of compare_result_data.network_settings_01">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">DHCPクライアント</span></th>
+<template v-for="item of compare_result_data.network_settings_02">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">固定IP 設定</span></th>
+<template v-for="item of compare_result_data.network_settings_03">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">リンクアグリゲーション</span></th>
+<template v-for="item of compare_result_data.network_settings_04">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th class="p-compare_list__division"><span class="p-compare_list__value">無線設定</span></th>
+<td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">自動チャネル調整</span></th>
+<template v-for="item of compare_result_data.wireless_settings_01">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">チャネル帯域</span></th>
+<template v-for="item of compare_result_data.wireless_settings_02">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">送信出力設定</span></th>
+<template v-for="item of compare_result_data.wireless_settings_03">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">ユーザ数制限</span></th>
+<template v-for="item of compare_result_data.wireless_settings_04">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">Airtime Fairness</span></th>
+<template v-for="item of compare_result_data.wireless_settings_05">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">5GHz 優先（バンドステアリング）</span></th>
+<template v-for="item of compare_result_data.wireless_settings_06">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th class="p-compare_list__division"><span class="p-compare_list__value">通信モード</span></th>
+<td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">アクセスポイント</span></th>
+<template v-for="item of compare_result_data.communication_mode_01">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">WDS</span></th>
+<template v-for="item of compare_result_data.communication_mode_02">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">WDS with AP</span></th>
+<template v-for="item of compare_result_data.communication_mode_03">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">APクライアント</span></th>
+<template v-for="item of compare_result_data.communication_mode_04">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">リピータ</span></th>
+<template v-for="item of compare_result_data.communication_mode_05">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th class="p-compare_list__division"><span class="p-compare_list__value">セキュリティ</span></th>
+<td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">マルチSSID</span></th>
+<template v-for="item of compare_result_data.security_01">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">SSIDステルス設定</span></th>
+<template v-for="item of compare_result_data.security_02">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">MACアドレスフィルタリング</span></th>
+<template v-for="item of compare_result_data.security_03">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">不正AP 検知</span></th>
+<template v-for="item of compare_result_data.security_04">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">IEEE 802.1Q VLAN</span></th>
+<template v-for="item of compare_result_data.security_05">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">ARPスプーフィング防止</span></th>
+<template v-for="item of compare_result_data.security_06">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">WLANクライアントパーティション</span></th>
+<template v-for="item of compare_result_data.security_07">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">Captive Portal（WEB認証）</span></th>
+<template v-for="item of compare_result_data.security_08">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">Webリダイレクト</span></th>
+<template v-for="item of compare_result_data.security_09">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">クリックスルー</span></th>
+<template v-for="item of compare_result_data.security_10">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">SMS認証</span></th>
+<template v-for="item of compare_result_data.security_11">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">SNS認証</span></th>
+<template v-for="item of compare_result_data.security_12">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">メール認証</span></th>
+<template v-for="item of compare_result_data.security_13">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">Wi-Fi 接続時間制御</span></th>
+<template v-for="item of compare_result_data.security_14">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">マルチプルRADIUS</span></th>
+<template v-for="item of compare_result_data.security_15">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">ゲストアクセスモード</span></th>
+<template v-for="item of compare_result_data.security_16">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">NATモード</span></th>
+<template v-for="item of compare_result_data.security_17">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">IPフィルタリング</span></th>
+<template v-for="item of compare_result_data.security_18">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">WEP</span></th>
+<template v-for="item of compare_result_data.security_19">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">WPA/WPA2</span></th>
+<template v-for="item of compare_result_data.security_20">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">WPA3</span></th>
+<template v-for="item of compare_result_data.security_21">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th class="p-compare_list__division"><span class="p-compare_list__value">無線アクセスポイントマネージメント</span></th>
+<td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">クラウド型無線LAN集中管理対応</span></th>
+<template v-for="item of compare_result_data.management_01">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">ソフトウェア無線LAN集中管理対応</span></th>
+<template v-for="item of compare_result_data.management_02">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">アプライアンス型無線LAN集中管理対応</span></th>
+<template v-for="item of compare_result_data.management_03">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">単体動作（スタンドアロン）</span></th>
+<template v-for="item of compare_result_data.management_04">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">Web ベースGUI</span></th>
+<template v-for="item of compare_result_data.management_05">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">Telnet</span></th>
+<template v-for="item of compare_result_data.management_06">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">SSL</span></th>
+<template v-for="item of compare_result_data.management_07">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">CLI</span></th>
+<template v-for="item of compare_result_data.management_08">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">イベントログ/アラート</span></th>
+<template v-for="item of compare_result_data.management_09">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">マップ機能<br>※Googleマップと連携した無線管理</span></th>
+<template v-for="item of compare_result_data.management_10">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">プロキシ対応</span></th>
+<template v-for="item of compare_result_data.management_11">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">SNMPv1/v2/v3</span></th>
+<template v-for="item of compare_result_data.management_12">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">SYSLOG</span></th>
+<template v-for="item of compare_result_data.management_13">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">トラップ設定</span></th>
+<template v-for="item of compare_result_data.management_14">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">スケジュール設定</span></th>
+<template v-for="item of compare_result_data.management_15">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">SNTPクライアント</span></th>
+<template v-for="item of compare_result_data.management_16">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- /.p-compare_list__content -->
+</div>
+<!-- /.p-compare_list__overflow -->
+</div>
+<!-- /.p-compare_list -->
+</div>
+<!-- /.l-container__slot -->
+</div>
+<!-- /.l-container__block -->
+</div>
+<!-- /.l-container -->
 
-  </div>
-  <!-- /.l-inner -->
+</div>
+<!-- /.l-inner -->
 </section>
 
 </main>

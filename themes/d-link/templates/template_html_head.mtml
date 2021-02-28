@@ -1,20 +1,11 @@
-<mt:Ignore>
-========================================
-Template Name : html_head
-Template Type : Layout / Site
-Template Note : Html_Head Template
-========================================
-</mt:Ignore>
-
-<mt:Ignore>** 表示部分 **</mt:Ignore>
 <!DOCTYPE html>
 <html lang="ja">
 
-<head>
+  <head>
     <meta charset="UTF-8">
     <title><mt:Var name='og_title' /></title>
     <meta name="description" content="<mt:Var name='base_description' />">
-    <meta name="keywords" content="<mt:Var name='base_keywords' />">
+    <meta name="keywords" content="<mt:Var name='base_keywords' />"><mt:Var name='metadata' />
     <meta property="og:title" content="<mt:Var name='og_title' />">
     <meta property="og:description" content="<mt:Var name='base_description' />">
     <meta property="og:keywords" content="<mt:Var name='base_keywords' />">
@@ -59,10 +50,10 @@ Template Note : Html_Head Template
     <!-- unique -->
     <$mt:Var name="file_javascript"$>
     <!-- /unique -->
-</head>
+  </head>
 
-<body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NFP8D7L" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-<div class="l-wrapper">
+  <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NFP8D7L" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div class="l-wrapper">

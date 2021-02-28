@@ -50,22 +50,14 @@ elements:
                 archive_type: Page
                 preferred: 1
         module:
-          template_html_head:
-            label: 'html_head'
-          template_html_foot:
-            label: 'html_foot'
-          template_footer:
-            label: 'footer'
-          template_header:
-            label: 'header'
-          template_debug:
-            label: 'debug'
           permalink:
             label: permalink
+          single_support_release:
+            label: single_support_release
+          single_support_faq:
+            label: single_support_faq
           permalink_category:
             label: permalink_category
-          category_entry_listing:
-            label: category_entry_listing
           category_yearly_release:
             label: category_yearly_release
           category_release:
@@ -76,3 +68,4 @@ elements:
             label: redirect_faq
           category_faq_list:
             label: category_faq_list
+            

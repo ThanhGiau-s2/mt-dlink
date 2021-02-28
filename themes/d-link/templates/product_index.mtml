@@ -1,6 +1,5 @@
 <mt:SetVars>
-    base_description=D-Linkのネットワーク製品のトップページです。スイッチ、無線アクセスポイント、VPNルータ、ファイアウォール、メディアコンバータなどの製品ラインナップや、ネットワーク統合管理ソフトウェアD-Viewなどをご紹介いたします。
-    base_keywords=D-Link,ディーリンク,Nuclias,D-Link Business Cloud,スイッチ,Wi-Fi,無線LAN,ルータ,VPNルータ,ファイアウォール,UTM,光トランシーバ,光モジュール,メディアコンバータ
+    base_description=ディスクリプション
     og_title=製品情報 | D-Link Japan
     og_url=https://www.dlink-jp.com/product/
     og_type=article
@@ -40,6 +39,7 @@
                     <div class="l-container__box">
                         <div class="p-product_slider">
                             <div class="p-product_slider__content js-product_slider">
+                            <mt:ignore>
                                 <mt:Entries include_sites="6" sort_by="authored_on" sort_order="descend">
                                     <div class="p-product_slider__item">
                                         <a href="<mt:EntryDataProductPickupDetailLink>" rel="bookmark">
@@ -69,6 +69,7 @@
                                     </div>
                                     <!-- /.p-product_slider__items -->
                                 </mt:Entries>
+                            </mt:ignore>
                             </div>
                             <!-- /.p-product_slider__content -->
                         </div>
@@ -88,6 +89,7 @@
                         <div class="l-container__slot">
                             <div class="p-product_category">
                                 <div class="p-product_category__large">
+                                <mt:ignore>
                                 <mt:Entries include_sites="11" sort_by="authored_on" sort_order="descend" lastn="$totalEntry">
                                     <mt:if tag="EntryTitle" eq="スイッチ">
                                         <div class="p-product_category__item">
@@ -96,7 +98,7 @@
                                                     <div class="p-product_category__info">
                                                         <h3 class="p-product_category__name"><mt:EntryTitle></h3>
                                                         <div class="p-product_category__introduction">
-                                                            <mt:EntryDataAllprotopText nl2br="1">
+                                                            <mt:EntryDataAllprotopText>
                                                         </div>
                                                         <!-- /.p-product_category__introduction -->
                                                     </div>
@@ -126,7 +128,7 @@
                                                     <div class="p-product_category__info">
                                                         <h3 class="p-product_category__name"><mt:EntryTitle></h3>
                                                         <div class="p-product_category__introduction">
-                                                            <mt:EntryDataAllprotopText nl2br="1">
+                                                            <mt:EntryDataAllprotopText>
                                                         </div>
                                                         <!-- /.p-product_category__introduction -->
                                                     </div>
@@ -148,10 +150,12 @@
                                         <!-- /.p-product_category__item -->
                                      </mt:if>
                                 </mt:Entries>
+                                </mt:ignore>
                                 </div>
                                 <!-- /.p-product_category__large -->
 
                                 <div class="p-product_category__small">
+                                  <mt:ignore>
                                     <mt:Entries include_sites="11" sort_by="authored_on" sort_order="ascend" lastn="$totalEntry">
                                         <mt:unless tag="EntryPrimaryCategory">
                                             <mt:Unless tag="EntryTitle" like="(スイッチ|無線LAN|ネットワークカメラ)">
@@ -181,6 +185,7 @@
                                             </mt:unless>
                                         </mt:unless>
                                     </mt:Entries>
+                                  </mt:ignore>
                                     <div class="p-product_category__box">
                                         <a href="/product/compare/" class="p-product_category__other">
                                             <div class="p-product_category__row--other">

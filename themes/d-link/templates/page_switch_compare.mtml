@@ -25,409 +25,553 @@
 <!-- /.c-breadcrumb -->
 
 <section id="compare_app" class="l-outer--lower">
-  <div class="l-inner">
+<div class="l-inner">
 
-    <div class="c-title">
-      <h1 class="c-title__text">スイッチ製品比較</h1>
-    </div>
-    <!-- /.c-title -->
+<div class="c-title">
+<h1 class="c-title__text">スイッチ製品比較</h1>
+</div>
+<!-- /.c-title -->
 
-    <div class="l-container">
-      <div class="l-container__block">
-        <div class="l-container__slot" v-if="compare_result_colspan">
-          <div class="p-compare_list">
-            <div class="p-compare_list__overflow">
-              <div class="p-compare_list__content">
-                <table class="p-compare_list__table">
-                  <thead>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">製品</span></th>
-                      <th scope="col" v-for="(value, index) of compare_result_data.id">
-                        <a :href="compare_result_data.url[index]">
-                          <img :src="[compare_result_data.product_image[index] ? compare_result_data.product_image[index] : '/asset/img/product/product_default.jpg']" :alt="compare_result_data.product_name[index]">
-                          <p>{{ compare_result_data.product_name[index] }}</p>
-                        </a>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">品番</span></th>
-                      <td v-for="item of compare_result_data.product_number">
-                        <ul class="p-compare_list__value">
-                          <template v-for="val of item">
-                            <li v-if="val">{{ val }}</li>
-                          </template>
-                        </ul>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">標準価格（税別）</span></th>
-                      <td v-for="item of compare_result_data.product_price">
-                        <ul class="p-compare_list__value">
-                          <template v-for="val of item">
-                            <li v-if="val">{{ val }}</li>
-                          </template>
-                        </ul>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th class="p-compare_list__division"><span class="p-compare_list__value">インターフェース</span></th>
-                      <td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">10/100BASE-TX</span></th>
-                      <td v-for="item of compare_result_data.interface_01"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">10/100/1000BASE-T</span></th>
-                      <td v-for="item of compare_result_data.interface_02"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">10/100/1000/2.5G BASE-T</span></th>
-                      <td v-for="item of compare_result_data.interface_03"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">100/1000/2.5G BASE-T</span></th>
-                      <td v-for="item of compare_result_data.interface_04"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">100/1000/10G BASE-T</span></th>
-                      <td v-for="item of compare_result_data.interface_05"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">1000/10G BASE-T</span></th>
-                      <td v-for="item of compare_result_data.interface_06"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">1G SFPスロット</span></th>
-                      <td v-for="item of compare_result_data.interface_07"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">10G SFP+スロット</span></th>
-                      <td v-for="item of compare_result_data.interface_08"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">25G SFP28 スロット</span></th>
-                      <td v-for="item of compare_result_data.interface_09"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">100G QSFP28スロット</span></th>
-                      <td v-for="item of compare_result_data.interface_10"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">拡張スロット</span></th>
-                      <td v-for="item of compare_result_data.interface_11"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">コンソールポート</span></th>
-                      <td v-for="item of compare_result_data.interface_12"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th class="p-compare_list__division"><span class="p-compare_list__value">スイッチ性能</span></th>
-                      <td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">スイッチファブリック</span></th>
-                      <td v-for="item of compare_result_data.switch_performance_01"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">パケットフォワーディングレート</span></th>
-                      <td v-for="item of compare_result_data.switch_performance_02"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">MACアドレステーブル</span></th>
-                      <td v-for="item of compare_result_data.switch_performance_03"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">ファン</span></th>
-                      <td v-for="item of compare_result_data.switch_performance_04"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th class="p-compare_list__division"><span class="p-compare_list__value">電気的仕様</span></th>
-                      <td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">PoE規格</span></th>
-                      <td v-for="item of compare_result_data.electrical_specifications_01"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">PoE給電可能電力</span></th>
-                      <td v-for="item of compare_result_data.electrical_specifications_02"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">電源内蔵</span></th>
-                      <td v-for="item of compare_result_data.electrical_specifications_03"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">リダンダント電源</span></th>
-                      <td v-for="item of compare_result_data.electrical_specifications_04"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th class="p-compare_list__division"><span class="p-compare_list__value">環境仕様</span></th>
-                      <td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">温度（動作時/保管時）</span></th>
-                      <td v-for="item of compare_result_data.environmental_specifications"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th class="p-compare_list__division"><span class="p-compare_list__value">サイズ</span></th>
-                      <td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">寸法</span></th>
-                      <td v-for="item of compare_result_data.size"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th class="p-compare_list__division"><span class="p-compare_list__value">取付</span></th>
-                      <td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">19インチラックマウント対応</span></th>
-                      <td v-for="item of compare_result_data.mounting_01"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">DINレール対応</span></th>
-                      <td v-for="item of compare_result_data.mounting_02"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th class="p-compare_list__division"><span class="p-compare_list__value">スタック</span></th>
-                      <td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">物理スタック</span></th>
-                      <td v-for="item of compare_result_data.physical_stack"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th class="p-compare_list__division"><span class="p-compare_list__value">L2機能</span></th>
-                      <td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">スパニングツリー IEEE 802.1d STP</span></th>
-                      <td v-for="item of compare_result_data.l2_function_01"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">スパニングツリー IEEE 802.1ｗ RSTP</span></th>
-                      <td v-for="item of compare_result_data.l2_function_02"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">スパニングツリー IEEE 802.1s MSTP</span></th>
-                      <td v-for="item of compare_result_data.l2_function_03"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">リングプロトコル ERPS（ITU-T G.8032）</span></th>
-                      <td v-for="item of compare_result_data.l2_function_04"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">IEEE 802.1ax/IEEE 802.3ad</span></th>
-                      <td v-for="item of compare_result_data.l2_function_05"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">ループバック検知<br>※ループ検知/遮断機能</span></th>
-                      <td v-for="item of compare_result_data.l2_function_06"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th class="p-compare_list__division"><span class="p-compare_list__value">L2マルチキャスト</span></th>
-                      <td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">IGMPスヌーピングv1/v2/v3</span></th>
-                      <td v-for="item of compare_result_data.l2_multicast_01"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">MLDスヌーピングv1/v2</span></th>
-                      <td v-for="item of compare_result_data.l2_multicast_02"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th class="p-compare_list__division"><span class="p-compare_list__value">VLAN</span></th>
-                      <td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">IEEE 802.1Q タグVLAN</span></th>
-                      <td v-for="item of compare_result_data.vlan_01"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">VLAN グループ数<br>（スタティック/ ダイナミック）</span></th>
-                      <td v-for="item of compare_result_data.vlan_02"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">VLAN ID数</span></th>
-                      <td v-for="item of compare_result_data.vlan_03"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">ポートベースVLAN</span></th>
-                      <td v-for="item of compare_result_data.vlan_04"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th class="p-compare_list__division"><span class="p-compare_list__value">L3機能</span></th>
-                      <td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">IPインタフェース数（IPv4）</span></th>
-                      <td v-for="item of compare_result_data.l3_function_01"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">VRRP</span></th>
-                      <td v-for="item of compare_result_data.l3_function_02"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">スタティックルーティングエントリ（IPv4）</span></th>
-                      <td v-for="item of compare_result_data.l3_function_03"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">ポリシーベースルーティング</span></th>
-                      <td v-for="item of compare_result_data.l3_function_04"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">RIPv1/v2</span></th>
-                      <td v-for="item of compare_result_data.l3_function_05"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">OSPFv2</span></th>
-                      <td v-for="item of compare_result_data.l3_function_06"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">OSPFv3</span></th>
-                      <td v-for="item of compare_result_data.l3_function_07"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">BGP4</span></th>
-                      <td v-for="item of compare_result_data.l3_function_08"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">BGP+</span></th>
-                      <td v-for="item of compare_result_data.l3_function_09"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th class="p-compare_list__division"><span class="p-compare_list__value">マルチキャスト</span></th>
-                      <td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">IGMPv1/v2/v3</span></th>
-                      <td v-for="item of compare_result_data.multicast_01"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">MLDv1/v2</span></th>
-                      <td v-for="item of compare_result_data.multicast_02"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th class="p-compare_list__division"><span class="p-compare_list__value">MPLS</span></th>
-                      <td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">MPLS</span></th>
-                      <td v-for="item of compare_result_data.mpls_01"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th class="p-compare_list__division"><span class="p-compare_list__value">アクセスコントールリスト（ACL）</span></th>
-                      <td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">Ingress ACL</span></th>
-                      <td v-for="item of compare_result_data.acl_01"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">Egress ACL</span></th>
-                      <td v-for="item of compare_result_data.acl_02"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">IEEE 802.1p</span></th>
-                      <td v-for="item of compare_result_data.acl_03"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th class="p-compare_list__division"><span class="p-compare_list__value">セキュリティ</span></th>
-                      <td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">VRF-Lite</span></th>
-                      <td v-for="item of compare_result_data.security_01"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">トラフィックセグメンテーション<br>※ポート間通信遮断機能</span></th>
-                      <td v-for="item of compare_result_data.security_02"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">ARPスプーフィング防止</span></th>
-                      <td v-for="item of compare_result_data.security_03"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">IEEE 802.1X 認証</span></th>
-                      <td v-for="item of compare_result_data.security_04"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">Web 認証</span></th>
-                      <td v-for="item of compare_result_data.security_05"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">MAC 認証</span></th>
-                      <td v-for="item of compare_result_data.security_06"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">Compound 認証<br>※同一ポート複数方式認証</span></th>
-                      <td v-for="item of compare_result_data.security_07"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th class="p-compare_list__division"><span class="p-compare_list__value">マネージメント</span></th>
-                      <td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">PDアライブ（PoEモデルのみ）<br>※PoE受電機器のオートリブート</span></th>
-                      <td v-for="item of compare_result_data.management_01"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">IEEE 802.3ah OAM</span></th>
-                      <td v-for="item of compare_result_data.management_02"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">NTPクライアント</span></th>
-                      <td v-for="item of compare_result_data.management_03"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">WebGUI</span></th>
-                      <td v-for="item of compare_result_data.management_04"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">CLI</span></th>
-                      <td v-for="item of compare_result_data.management_05"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">Telnetクライアント</span></th>
-                      <td v-for="item of compare_result_data.management_06"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">管理ソフトウェア/ツール</span></th>
-                      <td v-for="item of compare_result_data.management_07"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">SNMPv1/v2c/c3</span></th>
-                      <td v-for="item of compare_result_data.management_08"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">SNTPクライアント</span></th>
-                      <td v-for="item of compare_result_data.management_09"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><span class="p-compare_list__value">SYSLOG</span></th>
-                      <td v-for="item of compare_result_data.management_10"><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.p-compare_list__content -->
-            </div>
-            <!-- /.p-compare_list__overflow -->
-          </div>
-          <!-- /.p-compare_list -->
-        </div>
-        <!-- /.l-container__slot -->
-      </div>
-      <!-- /.l-container__block -->
-    </div>
-    <!-- /.l-container -->
+<div class="l-container">
+<div class="l-container__block">
+<div class="l-container__slot" v-if="compare_result_colspan">
+<div class="p-compare_list">
+<div class="p-compare_list__overflow">
+<div class="p-compare_list__content">
+<table class="p-compare_list__table">
+<thead>
+<tr>
+<th scope="row"><span class="p-compare_list__value">製品</span></th>
+<template v-for="(value, index) of compare_result_data.id">
+<th scope="col">
+<a :href="compare_result_data.url[index]">
+<img :src="[compare_result_data.product_image[index] ? compare_result_data.product_image[index] : '/asset/img/product/product_default.jpg']" :alt="compare_result_data.product_name[index]">
+<p>{{ compare_result_data.product_name[index] }}</p>
+</a>
+</th>
+</template>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row"><span class="p-compare_list__value">品番</span></th>
+<template v-for="item of compare_result_data.product_number">
+<td>
+<ul class="p-compare_list__value">
+<template v-for="val of item">
+<li v-if="val">{{ val }}</li>
+</template>
+</ul>
+</td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">標準価格（税別）</span></th>
+<template v-for="item of compare_result_data.product_price">
+<td>
+<ul class="p-compare_list__value">
+<template v-for="val of item">
+<li v-if="val">{{ val }}</li>
+</template>
+</ul>
+</td>
+</template>
+</tr>
+<tr>
+<th class="p-compare_list__division"><span class="p-compare_list__value">インターフェース</span></th>
+<td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">10/100BASE-TX</span></th>
+<template v-for="item of compare_result_data.interface_01">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">10/100/1000BASE-T</span></th>
+<template v-for="item of compare_result_data.interface_02">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">10/100/1000/2.5G BASE-T</span></th>
+<template v-for="item of compare_result_data.interface_03">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">100/1000/2.5G BASE-T</span></th>
+<template v-for="item of compare_result_data.interface_04">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">100/1000/10G BASE-T</span></th>
+<template v-for="item of compare_result_data.interface_05">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">1000/10G BASE-T</span></th>
+<template v-for="item of compare_result_data.interface_06">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">1G SFPスロット</span></th>
+<template v-for="item of compare_result_data.interface_07">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">10G SFP+スロット</span></th>
+<template v-for="item of compare_result_data.interface_08">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">25G SFP28 スロット</span></th>
+<template v-for="item of compare_result_data.interface_09">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">100G QSFP28スロット</span></th>
+<template v-for="item of compare_result_data.interface_10">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">拡張スロット</span></th>
+<template v-for="item of compare_result_data.interface_11">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">コンソールポート</span></th>
+<template v-for="item of compare_result_data.interface_12">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th class="p-compare_list__division"><span class="p-compare_list__value">スイッチ性能</span></th>
+<td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">スイッチファブリック</span></th>
+<template v-for="item of compare_result_data.switch_performance_01">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">パケットフォワーディングレート</span></th>
+<template v-for="item of compare_result_data.switch_performance_02">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">MACアドレステーブル</span></th>
+<template v-for="item of compare_result_data.switch_performance_03">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">ファン</span></th>
+<template v-for="item of compare_result_data.switch_performance_04">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th class="p-compare_list__division"><span class="p-compare_list__value">電気的仕様</span></th>
+<td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">PoE規格</span></th>
+<template v-for="item of compare_result_data.electrical_specifications_01">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">PoE給電可能電力</span></th>
+<template v-for="item of compare_result_data.electrical_specifications_02">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">電源内蔵</span></th>
+<template v-for="item of compare_result_data.electrical_specifications_03">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">リダンダント電源</span></th>
+<template v-for="item of compare_result_data.electrical_specifications_04">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th class="p-compare_list__division"><span class="p-compare_list__value">環境仕様</span></th>
+<td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">温度（動作時/保管時）</span></th>
+<template v-for="item of compare_result_data.environmental_specifications">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th class="p-compare_list__division"><span class="p-compare_list__value">サイズ</span></th>
+<td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">寸法</span></th>
+<template v-for="item of compare_result_data.size">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th class="p-compare_list__division"><span class="p-compare_list__value">取付</span></th>
+<td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">19インチラックマウント対応</span></th>
+<template v-for="item of compare_result_data.mounting_01">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">DINレール対応</span></th>
+<template v-for="item of compare_result_data.mounting_02">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th class="p-compare_list__division"><span class="p-compare_list__value">スタック</span></th>
+<td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">物理スタック</span></th>
+<template v-for="item of compare_result_data.physical_stack">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th class="p-compare_list__division"><span class="p-compare_list__value">L2機能</span></th>
+<td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">スパニングツリー IEEE 802.1d STP</span></th>
+<template v-for="item of compare_result_data.l2_function_01">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">スパニングツリー IEEE 802.1ｗ RSTP</span></th>
+<template v-for="item of compare_result_data.l2_function_02">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">スパニングツリー IEEE 802.1s MSTP</span></th>
+<template v-for="item of compare_result_data.l2_function_03">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">リングプロトコル ERPS（ITU-T G.8032）</span></th>
+<template v-for="item of compare_result_data.l2_function_04">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">IEEE 802.1ax/IEEE 802.3ad</span></th>
+<template v-for="item of compare_result_data.l2_function_05">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">ループバック検知<br>※ループ検知/遮断機能</span></th>
+<template v-for="item of compare_result_data.l2_function_06">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th class="p-compare_list__division"><span class="p-compare_list__value">L2マルチキャスト</span></th>
+<td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">IGMPスヌーピングv1/v2/v3</span></th>
+<template v-for="item of compare_result_data.l2_multicast_01">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">MLDスヌーピングv1/v2</span></th>
+<template v-for="item of compare_result_data.l2_multicast_02">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th class="p-compare_list__division"><span class="p-compare_list__value">VLAN</span></th>
+<td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">IEEE 802.1Q タグVLAN</span></th>
+<template v-for="item of compare_result_data.vlan_01">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">VLAN グループ数<br>（スタティック/ ダイナミック）</span></th>
+<template v-for="item of compare_result_data.vlan_02">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">VLAN ID数</span></th>
+<template v-for="item of compare_result_data.vlan_03">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">ポートベースVLAN</span></th>
+<template v-for="item of compare_result_data.vlan_04">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th class="p-compare_list__division"><span class="p-compare_list__value">L3機能</span></th>
+<td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">IPインタフェース数（IPv4）</span></th>
+<template v-for="item of compare_result_data.l3_function_01">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">VRRP</span></th>
+<template v-for="item of compare_result_data.l3_function_02">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">スタティックルーティングエントリ（IPv4）</span></th>
+<template v-for="item of compare_result_data.l3_function_03">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">ポリシーベースルーティング</span></th>
+<template v-for="item of compare_result_data.l3_function_04">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">RIPv1/v2</span></th>
+<template v-for="item of compare_result_data.l3_function_05">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">OSPFv2</span></th>
+<template v-for="item of compare_result_data.l3_function_06">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">OSPFv3</span></th>
+<template v-for="item of compare_result_data.l3_function_07">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">BGP4</span></th>
+<template v-for="item of compare_result_data.l3_function_08">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">BGP+</span></th>
+<template v-for="item of compare_result_data.l3_function_09">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th class="p-compare_list__division"><span class="p-compare_list__value">マルチキャスト</span></th>
+<td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">IGMPv1/v2/v3</span></th>
+<template v-for="item of compare_result_data.multicast_01">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">MLDv1/v2</span></th>
+<template v-for="item of compare_result_data.multicast_02">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th class="p-compare_list__division"><span class="p-compare_list__value">MPLS</span></th>
+<td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">MPLS</span></th>
+<template v-for="item of compare_result_data.mpls_01">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th class="p-compare_list__division"><span class="p-compare_list__value">アクセスコントールリスト（ACL）</span></th>
+<td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">Ingress ACL</span></th>
+<template v-for="item of compare_result_data.acl_01">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">Egress ACL</span></th>
+<template v-for="item of compare_result_data.acl_02">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">Egress ACL</span></th>
+<template v-for="item of compare_result_data.acl_03">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th class="p-compare_list__division"><span class="p-compare_list__value">セキュリティ</span></th>
+<td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">VRF-Lite</span></th>
+<template v-for="item of compare_result_data.security_01">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">トラフィックセグメンテーション<br>※ポート間通信遮断機能</span></th>
+<template v-for="item of compare_result_data.security_02">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">ARPスプーフィング防止</span></th>
+<template v-for="item of compare_result_data.security_03">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">IEEE 802.1X 認証</span></th>
+<template v-for="item of compare_result_data.security_04">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">Web 認証</span></th>
+<template v-for="item of compare_result_data.security_05">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">MAC 認証</span></th>
+<template v-for="item of compare_result_data.security_06">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">Compound 認証<br>※同一ポート複数方式認証</span></th>
+<template v-for="item of compare_result_data.security_07">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th class="p-compare_list__division"><span class="p-compare_list__value">マネージメント</span></th>
+<td class="p-compare_list__blank" :colspan="compare_result_colspan"></td>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">PDアライブ（PoEモデルのみ）<br>※PoE受電機器のオートリブート</span></th>
+<template v-for="item of compare_result_data.management_01">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">IEEE 802.3ah OAM</span></th>
+<template v-for="item of compare_result_data.management_02">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">NTPクライアント</span></th>
+<template v-for="item of compare_result_data.management_03">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">WebGUI</span></th>
+<template v-for="item of compare_result_data.management_04">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">CLI</span></th>
+<template v-for="item of compare_result_data.management_05">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">Telnetクライアント</span></th>
+<template v-for="item of compare_result_data.management_06">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">管理ソフトウェア/ツール</span></th>
+<template v-for="item of compare_result_data.management_07">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">SNMPv1/v2c/c3</span></th>
+<template v-for="item of compare_result_data.management_08">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">SNTPクライアント</span></th>
+<template v-for="item of compare_result_data.management_09">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+<tr>
+<th scope="row"><span class="p-compare_list__value">SYSLOG</span></th>
+<template v-for="item of compare_result_data.management_10">
+<td><span class="p-compare_list__value" v-html="item ? item : '-'"></span></td>
+</template>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- /.p-compare_list__content -->
+</div>
+<!-- /.p-compare_list__overflow -->
+</div>
+<!-- /.p-compare_list -->
+</div>
+<!-- /.l-container__slot -->
+</div>
+<!-- /.l-container__block -->
+</div>
+<!-- /.l-container -->
 
-  </div>
-  <!-- /.l-inner -->
+</div>
+<!-- /.l-inner -->
 </section>
 
 </main>

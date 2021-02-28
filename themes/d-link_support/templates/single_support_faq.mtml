@@ -6,7 +6,8 @@ Template Note : カテゴリ
 ========================================
 </mt:Ignore>
 <mt:SetVars>
-    base_description=ディスクリプション
+    base_description=D-Link製品についてよくあるご質問です。
+    base_keywords=FAQ,Q&A,D-Link FAQ,よくある質問
     og_title=<$mt:CategoryLabel$> | よくあるご質問 | サポート | D-Link Japan
     og_url=<$mt:CategoryArchiveLink$>
     og_type=article
@@ -16,7 +17,7 @@ Template Note : カテゴリ
 </mt:SetVarTemplate>
 <mt:Ignore>** 表示部分 **</mt:Ignore>
 <mt:Include module="html_head" parent="1" />
-<mt:Include module="header" parent="1" />
+<mt:Include module="header" parent="1"/>
 <!-- ここからコンテンツ -->
 <main class="p-main">
     <div class="c-breadcrumb">
@@ -43,9 +44,6 @@ Template Note : カテゴリ
             <!-- /.c-content_heading -->
 
             <ul class="p-accordion_detail">
-                <mt:PageContents count="20">
-                    <mt:SetVars>totalEntry=<$mt:BlogEntryCount$></mt:SetVars>
-                    <mt:Entries sort_by="modified_on" lastn="$totalEntry">
                         <li>
                             <button class="p-accordion_detail__header js-accordion_detail_toggle">
                                 <ul class="p-accordion_detail__tag">
@@ -79,32 +77,7 @@ Template Note : カテゴリ
                             </div>
                             <!-- /.p-accordion_detail__body -->
                         </li>
-                        <$mt:PageSeparator$>
-                    </mt:Entries>
-                </mt:PageContents>
             </ul>
-
-            <ul class="c-pager">
-                <mt:Ignore>** 表示部分 **</mt:Ignore>
-                <mt:Pagination>
-                    <mt:PaginationHeader>
-                        <mt:ifPaginationPrev>
-                            <li class="c-pager__prev"><a href="<mt:PaginationPrev>">&lt;前へ</a></li>
-                        </mt:ifPaginationPrev>
-                    </mt:PaginationHeader>
-                    <mt:ifPaginationCurrent>
-                        <li class="c-pager__number"><span><mt:PaginationLink element="number"></span></li>
-                    <mt:Else>
-                        <li class="c-pager__number"><a href="<mt:PaginationLink>"><mt:PaginationLink element="number"></a></li>
-                    </mt:ifPaginationCurrent>
-                    <mt:PaginationFooter>
-                        <mt:ifPaginationNext>
-                            <li class="c-pager__next"><a href="<mt:PaginationNext>">次へ</a></li>
-                        </mt:ifPaginationNext>
-                    </mt:PaginationFooter>
-                </mt:Pagination>
-            </ul>
-
         </div>
         <!-- /.l-inner -->
     </section>

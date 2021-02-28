@@ -1,13 +1,5 @@
-<mt:Ignore>
-========================================
-Template Name : index.html
-Template Type : Main Index Template
-Template Note : トップページ出力用
-========================================
-</mt:Ignore>
 <mt:SetVars>
-  <mt:BlogPageCount setvar="total_pages">
-  <mt:pages lastn="$total_pages">
+  <mt:pages>
     <mt:if tag="PageTitle" eq="企業情報">
       <mt:If tag="PageExcerpt">base_description=<$mt:PageExcerpt$></mt:If>
       <mt:If tag="PageKeywords">base_keywords=<$mt:PageKeywords$></mt:If>
@@ -21,30 +13,25 @@ Template Note : トップページ出力用
 <script src="/asset/js/slick.min.js"></script>
 <script src="/asset/js/top.min.js" defer></script>
 </mt:SetVarTemplate>
-<mt:Ignore>** 表示部分 **</mt:Ignore>
-<mt:Include module="html_head" parent="1"/>
-<mt:Include module="header"/>
+<mt:Include module="html_head" parent="1" />
+    <mt:Include module="header" parent="1"/>
 
-<main class="p-main">
-  <div class="c-breadcrumb">
-    <ul class="c-breadcrumb__list">
-      <li><a href="/">HOME</a></li>
-      <li><span>企業情報</span></li>
-    </ul>
-  </div>
-  <!-- /.c-breadcrumb -->
-
-  <section class="l-outer--lower">
-    <div class="l-inner">
-
-      <div class="c-title">
-        <h1 class="c-title__text">企業情報</h1>
+    <main class="p-main">
+      <div class="c-breadcrumb">
+        <ul class="c-breadcrumb__list">
+          <li><a href="/">HOME</a></li>
+          <li><span>企業情報</span></li>
+        </ul>
       </div>
-      <!-- /.c-title -->
+      <!-- /.c-breadcrumb -->
 
-      <mt:pages lastn="$total_pages">
-        <mt:if tag="PageTitle" eq="企業情報">
-            
+      <section class="l-outer--lower">
+        <div class="l-inner">
+          <div class="c-title">
+            <h1 class="c-title__text">企業情報</h1>
+          </div>
+          <!-- /.c-title -->
+          <mt:pages><mt:if tag="PageTitle" eq="企業情報">
           <div class="l-container">
             <div class="l-container__block">
               <div class="l-container__box">
@@ -1071,14 +1058,7 @@ Template Note : トップページ出力用
                         <div class="l-container__slot">
                           
                           <mt:if tag="FLCFOptionValue" eq="1_1">
-                            <div class="p-content_2col--reverse">
-                              <div class="p-content_2col__item">
-                                <div class="c-content_box">
-                                  <mt:FLCFValue field="sentence_image_left_text">
-                                </div>
-                                <!-- /.c-content_box -->
-                              </div>
-                              <!-- /.p-content_2col__item -->
+                            <div class="p-content_2col">
                               <div class="p-content_2col__item">
                                 <div class="p-photo">
                                   <div class="p-photo__img--100p">
@@ -1101,20 +1081,22 @@ Template Note : トップページ出力用
                                   <!-- /.p-photo__caption -->
                                 </div>
                                 <!-- /.p-photo -->
+                              </div>
+                              <!-- /.p-content_2col__item -->
+
+                              <div class="p-content_2col__item">
+                                <div class="c-content_box">
+                                  <mt:FLCFValue field="sentence_image_left_text">
+                                </div>
+                                <!-- /.c-content_box -->
                               </div>
                               <!-- /.p-content_2col__item -->
                             </div>
                             <!-- /.p-content_2col -->
                           </mt:if>
+                          
                           <mt:if tag="FLCFOptionValue" eq="1_2">
-                            <div class="p-content_media--large_reverse">
-                              <div class="p-content_media__body">
-                                <div class="c-content_box">
-                                  <mt:FLCFValue field="sentence_image_left_text">
-                                </div>
-                                <!-- /.c-content_box -->
-                              </div>
-                              <!-- /.p-content_media__body -->
+                            <div class="p-content_media--large">
                               <div class="p-content_media__figure">
                                 <div class="p-photo">
                                   <div class="p-photo__img--100p">
@@ -1139,19 +1121,20 @@ Template Note : トップページ出力用
                                 <!-- /.p-photo -->
                               </div>
                               <!-- /.p-content_media__figure -->
+
+                              <div class="p-content_media__body">
+                                <div class="c-content_box">
+                                  <mt:FLCFValue field="sentence_image_left_text">
+                                </div>
+                                <!-- /.c-content_box -->
+                              </div>
+                              <!-- /.p-content_media__body -->
                             </div>
                             <!-- /.p-content_media--large -->
                           </mt:if>
-
+                          
                           <mt:if tag="FLCFOptionValue" eq="1_3">
-                            <div class="p-content_media--reverse">
-                              <div class="p-content_media__body">
-                                <div class="c-content_box">
-                                  <mt:FLCFValue field="sentence_image_left_text">
-                                </div>
-                                <!-- /.c-content_box -->
-                              </div>
-                              <!-- /.p-content_media__body -->
+                            <div class="p-content_media">
                               <div class="p-content_media__figure">
                                 <div class="p-photo">
                                   <div class="p-photo__img--100p">
@@ -1177,6 +1160,13 @@ Template Note : トップページ出力用
                               </div>
                               <!-- /.p-content_media__figure -->
 
+                              <div class="p-content_media__body">
+                                <div class="c-content_box">
+                                  <mt:FLCFValue field="sentence_image_left_text">
+                                </div>
+                                <!-- /.c-content_box -->
+                              </div>
+                              <!-- /.p-content_media__body -->
                             </div>
                             <!-- /.p-content_media -->
                           </mt:if>
@@ -3268,7 +3258,7 @@ Template Note : トップページ出力用
                     </div>
                     <!-- /.l-container__slot -->
                   </mt:FLCFIfUnitName>
-              
+                  <mt:ignore>
                   <mt:FLCFIfUnitName name="table_requid_single">
                     <div class="l-container__slot">
                       <div class="p-feature">
@@ -3692,7 +3682,7 @@ Template Note : トップページ出力用
                     </div>
                     <!-- /.l-container__slot -->
                   </mt:FLCFIfUnitName>
-                
+                </mt:ignore>
                   <mt:FLCFIfUnitName name="html">
                     <div class="l-container__slot">
                       <mt:FLCFValue field="html">
@@ -3705,83 +3695,13 @@ Template Note : トップページ出力用
             <!-- /.l-container__block -->
           </div>
           <!-- /.l-container -->
-  
-        </mt:if>
-      </mt:pages>
-    </div>
-    <!-- /.l-inner -->
-  </section>
-</main>
+          </mt:if></mt:pages>
+        </div>
+        <!-- /.l-inner -->
+      </section>
+    </main>
 
-<div class="p-aside--footer">
-  <div class="p-aside__inner">
-    <div class="p-aside__menu">
-      <div class="p-aside__item">
-        <a href="https://go.dlink-jp.com/l/553122/2018-08-03/3rgd4k8" target="_blank" rel="noopener">
-          <div class="p-aside__body">
-            <div class="p-aside__image">
-              <img src="/asset/img/common/icon_mail_01.png" alt="">
-            </div>
-            <!-- /.p-aside__image -->
-            <div class="p-aside__content">
-              <p class="p-aside__heading">メールマガジン登録</p>
-              <div class="p-aside__copy">
-                <p>D-Linkの最新情報を中心に各種情報をお届けします。</p>
-              </div>
-              <!-- /.p-aside__copy -->
-            </div>
-            <!-- /.p-aside__content -->
-          </div>
-          <!-- /.p-aside__body -->
-        </a>
-      </div>
-      <!-- /.p-aside__item -->
-      <div class="p-aside__item">
-        <a href="https://go.dlink-jp.com/l/553122/2018-05-18/3nxnlgc" target="_blank" rel="noopener">
-          <div class="p-aside__body">
-            <div class="p-aside__image">
-              <img src="/asset/img/common/icon_pdf_01.png" alt="">
-            </div>
-            <!-- /.p-aside__image -->
-            <div class="p-aside__content">
-              <p class="p-aside__heading">総合カタログダウンロード</p>
-              <div class="p-aside__copy">
-                <p>最新の総合カタログをPDF形式でダウンロード可能です。</p>
-              </div>
-              <!-- /.p-aside__copy -->
-            </div>
-            <!-- /.p-aside__content -->
-          </div>
-          <!-- /.p-aside__body -->
-        </a>
-      </div>
-      <!-- /.p-aside__item -->
-      <div class="p-aside__item">
-        <a href="https://www.youtube.com/channel/UCjK7YgcQQKtLD8BvqPPlkyg" target="_blank" rel="noopener">
-          <div class="p-aside__body">
-            <div class="p-aside__image">
-              <img src="/asset/img/common/icon_youtube_01.png" alt="">
-            </div>
-            <!-- /.p-aside__image -->
-            <div class="p-aside__content">
-              <p class="p-aside__heading">D-Link公式YouTube</p>
-              <div class="p-aside__copy">
-                <p>D-Link製品や最新技術を動画でご紹介しています。</p>
-              </div>
-              <!-- /.p-aside__copy -->
-            </div>
-            <!-- /.p-aside__content -->
-          </div>
-          <!-- /.p-aside__body -->
-        </a>
-      </div>
-      <!-- /.p-aside__item -->
-    </div>
-    <!-- /.p-aside__menu -->
-  </div>
-  <!-- /.p-aside__inner -->
-</div>
-<!-- /.p-aside -->
-<mt:Include module="template_company_local_nav"/>
-<mt:Include module="footer" parent="1" />
+    <mt:Include module="template_aside_footer" parent="1" />
+    <mt:Include module="template_company_local_nav"/>
+    <mt:Include module="footer" parent="1" />
 <mt:Include module="html_foot" parent="1" />

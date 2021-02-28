@@ -6,8 +6,7 @@ Template Note : Yearly
 ========================================
 </mt:Ignore>
 <mt:SetVars>
-    base_description=D-Linkのお知らせや新製品の販売開始情報など、最新の情報をお知らせします。
-    base_keywords=ニュース,お知らせ,D-Link ニュース
+    base_description=ディスクリプション
     og_title=<mt:ArchiveDate format="%Y">年 | 最新ニュース | D-Link Japan
     og_url=<$mt:ArchiveLink encode_html="1"$>
     og_type=article
@@ -17,7 +16,7 @@ Template Note : Yearly
 </mt:SetVarTemplate>
 <mt:Ignore>** 表示部分 **</mt:Ignore>
 <mt:Include module="html_head" parent="1" />
-<mt:Include module="header"/>
+<mt:Include module="header" parent="1"/>
 <!-- ここからコンテンツ -->
 <main class="p-main">
     <div class="c-breadcrumb">

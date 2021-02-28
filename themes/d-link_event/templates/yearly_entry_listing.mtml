@@ -6,8 +6,7 @@ Template Note : カテゴリ
 ========================================
 </mt:Ignore>
 <mt:SetVars>
-    base_description=最新のセミナー開催情報や展示会出展情報をお知らせします。セミナーの予約もこちらから可能です。
-    base_keywords=セミナー,展示会,D-Link セミナー,D-Link 展示会
+    base_description=ディスクリプション
     og_title=<mt:ArchiveDate format="%Y">年 | イベント・セミナー | D-Link Japan
     og_url=<$mt:ArchiveLink encode_html="1"$>
     og_type=article
@@ -46,7 +45,7 @@ Template Note : カテゴリ
             <!-- /.c-title -->
 
             <div class="c-description">
-                <p>D-Linkの各種イベント・セミナー情報をご案内しています。詳細は下記よりご確認ください。</p>
+                <p>イベントの出展情報やD-Linkが開催するセミナー情報の告知などを掲載しています。<br>セミナーはお申込みが必要となりますので、詳細をご確認いただきご応募ください。（参加費は無料）</p>
             </div>
             <!-- /.c-description -->
 
@@ -115,19 +114,19 @@ Template Note : カテゴリ
                                                         <mt:If tag="EntryDataEventDate">
                                                             <div class="p-card__table">
                                                                 <dt>【日程】</dt>
-                                                                <dd><$mt:EntryDataEventDate$></dd>
+                                                                <mt:Ignore><dd><$mt:EntryDataEventDate$></dd></mt:Ignore>
                                                             </div>
                                                         </mt:If>
                                                         <mt:If tag="EntryDataEventHall">
                                                             <div class="p-card__table">
                                                                 <dt>【会場】</dt>
-                                                                <dd><$mt:EntryDataEventHall$></dd>
+                                                                <mt:Ignore><dd><$mt:EntryDataEventHall$></dd></mt:Ignore>
                                                             </div>
                                                         </mt:If>
                                                     </dl>
                                                 </div>
                                                 <!-- /.p-card__top -->
-                                                <div class="p-card__bottom">
+                                                <div class="p-card__bottom"><mt:Ignore>
                                                     <mt:If tag="EntryDataEndDateEvent">
                                                         <$mt:EntryDataEndDateEvent format="%Y%m%d%H%M%S" setvar="exp_date"$>
                                                         <$mt:Date format="%Y%m%d%H%M%S" setvar="current_date"$>
@@ -148,7 +147,7 @@ Template Note : カテゴリ
                                                         <mt:If tag="EntryDataEventStatus" eq="満員御礼">
                                                             <p class="p-card__status--full">満員御礼</p>
                                                         </mt:If>
-                                                    </mt:If>
+                                                    </mt:If></mt:ignore>
                                                 </div>
                                                 <!-- /.p-card__bottom -->
                                             </a>
@@ -192,7 +191,7 @@ Template Note : カテゴリ
                                         </div>
                                         <!-- /.p-entry__header -->
                                         <div class="p-entry__body">
-                                            <p>D-Linkの最新情報を中心に各種情報をお届けします。<br>新製品情報/イベント情報/サポート情報など、タイムリーにお知らせします。</p>
+                                            <p>D-Linkの最新情報を中心に各種情報をお届けします。<br>【内容】新製品情報（新製品販売開始のお知らせ）イベント情報（D-Link出展情報）<br>サポート情報（ファームウェア更新、その他）</p>
                                         </div>
                                         <!-- /.p-entry__body -->
                                     </div>

@@ -1,14 +1,10 @@
+<mt:ignore>
 <mt:SetVars>
-    <mt:BlogEntryCount blog_ids="11" setvar="total_entries_product">
-    <mt:Entries include_sites="11" lastn="$total_entries_product">
-        <mt:if tag="EntryTitle" eq="光トランシーバ／ケーブル">
-            <mt:If tag="EntryExcerpt">base_description=<$mt:EntryExcerpt$></mt:If>
-            <mt:If tag="EntryKeywords">base_keywords=<$mt:EntryKeywords$></mt:If>
-        </mt:if>
-    </mt:Entries>
+    base_description=ディスクリプション
     og_title=光トランシーバ／ケーブル|製品情報 | D-Link Japan
     og_url=https://www.dlink-jp.com/product/sfp-xf-others/
     og_type=article
+    <mt:BlogEntryCount blog_ids="11" setvar="total_entries_product">
 </mt:SetVars>
 <mt:Ignore>** 表示部分 **</mt:Ignore>
 <mt:Include module="html_head" parent="1" />
@@ -56,7 +52,7 @@
 
                                             <div class="p-content_center__body">
                                                 <div class="c-content_box">
-                                                    <p><mt:EntryDataCattopText nl2br="1"></p>
+                                                    <p><mt:EntryDataCattopText></p>
                                                 </div>
                                                 <!-- /.c-content_box -->
                                             </div>
@@ -166,3 +162,4 @@
 <mt:Include module="product_local_nav" parent="1" />
 <mt:Include module="footer" parent="1" />
 <mt:Include module="html_foot" parent="1" />
+</mt:ignore>

@@ -92,10 +92,10 @@ elements:
             label: 'html_foot'
           template_footer:
             label: 'footer'
+          template_aside_footer:
+            label: 'template_aside_footer'
           template_header:
             label: 'header'
-          template_debug:
-            label: 'debug'
           template_compare_list:
             label: 'compare_list'
           template_footer_contact:
@@ -104,8 +104,6 @@ elements:
             label: 'product_local_nav'
           template_support_local_nav:
             label: 'support_local_nav'
-          template_company_local_nav:
-            label: 'company_local_nav'
           page_switch_list:
             label: 'page_switch_list'
           page_switch_compare:

@@ -3,7 +3,6 @@
     og_title=製品情報 | D-Link Japan
     og_url=https://www.dlink-jp.com/product/
     og_type=article
-    <$mt:BlogEntryCount setvar="totalEntry"$>
 </mt:SetVars>
 <mt:SetVarTemplate name="file_javascript">
 <script src="/asset/js/slick.min.js"></script>
@@ -11,9 +10,8 @@
 </mt:SetVarTemplate>
 <mt:Ignore>** 表示部分 **</mt:Ignore>
 <mt:Include module="html_head" parent="1" />
-<mt:Include module="header" parent="1"/>
+<mt:Include module="header" parent="1" />
 <!-- ここからコンテンツ -->
-<mt:Ignore>
 <main class="p-main">
     <div class="c-breadcrumb">
         <ul class="c-breadcrumb__list">
@@ -88,7 +86,7 @@
                         <div class="l-container__slot">
                             <div class="p-product_category">
                                 <div class="p-product_category__large">
-                                <mt:Entries sort_by="authored_on" sort_order="descend" lastn="$totalEntry">
+                                <mt:Entries category="製品情報">
                                     <mt:if tag="EntryTitle" eq="スイッチ">
                                         <div class="p-product_category__item">
                                             <a href="/product/switch/">
@@ -118,7 +116,7 @@
                                         <!-- /.p-product_category__item -->
                                     </mt:if>
                                 </mt:Entries>
-                                <mt:Entries sort_by="authored_on" sort_order="descend" lastn="$totalEntry">
+                                <mt:Entries category="製品情報">
                                     <mt:if tag="EntryTitle" eq="無線LAN">
                                         <div class="p-product_category__item">
                                             <a href="/product/wireless-lan/">
@@ -152,8 +150,10 @@
                                 <!-- /.p-product_category__large -->
 
                                 <div class="p-product_category__small">
-                                    <mt:Entries sort_by="authored_on" sort_order="ascend" lastn="$totalEntry">
-                                        <mt:unless tag="EntryPrimaryCategory">
+                                
+                                    <mt:Entries category="製品情報" sort_by="authored_on" sort_order="ascend">
+                                        <mt:EntryCategories setvar="parent_cate"><$mt:CategoryLabel$></mt:EntryCategories>
+                                        <mt:if name="parent_cate" eq="製品情報">
                                             <mt:Unless tag="EntryTitle" like="(スイッチ|無線LAN|ネットワークカメラ)">
                                                 <div class="p-product_category__box">
                                                     <a href="/product/<mt:EntryBaseName>/">
@@ -179,7 +179,7 @@
                                                 </div>
                                                 <!-- /.p-product_category__box -->
                                             </mt:unless>
-                                        </mt:unless>
+                                        </mt:if>
                                     </mt:Entries>
                                     <div class="p-product_category__box">
                                         <a href="/product/compare/" class="p-product_category__other">
@@ -243,7 +243,7 @@
                                 <div class="p-aside__inner">
                                     <div class="p-aside__menu">
                                         <div class="p-aside__item">
-                                            <a href="https://go.dlink-jp.com/l/553122/2018-08-03/3rgd4k8" target="_blank" rel="noopener">
+                                            <a href="" target="_blank" rel="noopener">
                                                 <div class="p-aside__body">
                                                     <div class="p-aside__image">
                                                         <img src="/asset/img/common/icon_mail_01.png" alt="">
@@ -263,7 +263,7 @@
                                         </div>
                                         <!-- /.p-aside__item -->
                                         <div class="p-aside__item">
-                                            <a href="https://go.dlink-jp.com/l/553122/2018-05-18/3nxnlgc" target="_blank" rel="noopener">
+                                            <a href="/catalog/" target="_blank" rel="noopener">
                                                 <div class="p-aside__body">
                                                     <div class="p-aside__image">
                                                         <img src="/asset/img/common/icon_pdf_01.png" alt="">
@@ -429,7 +429,6 @@
         <!-- /.l-inner -->
     </section>
 </main>
-</mt:Ignore>
 <mt:Include module="footer_contact" parent="1" />
 <mt:Include module="product_local_nav"/>
 <mt:Include module="footer" parent="1" />

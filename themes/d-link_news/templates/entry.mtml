@@ -1,18 +1,19 @@
 <mt:SetVars>
   <mt:If tag="EntryExcerpt">base_description=<$mt:EntryExcerpt$></mt:If>
   <mt:If tag="EntryKeywords">base_keywords=<$mt:EntryKeywords$></mt:If>
+  <mt:If tag="EntryDataNoindex">noindex=yes</mt:If>
   og_title=<$mt:EntryTitle$>| 最新ニュース | D-Link Japan
   og_url=<mt:EntryPermalink>
   og_type=article
-</mt:SetVars>
-<mt:Ignore>** 表示部分 **</mt:Ignore>
+</mt:SetVars><mt:setvarblock name="metadata"><MTentrydatametadataBlock><mt:if tag="FLCFValue" field="meta_name"><mt:if tag="FLCFValue" field="meta_content">
+    <meta name="<$mt:FLCFValue field="meta_name"$>" content="<$mt:FLCFValue field="meta_content"$>"></mt:if></mt:if></MTentrydatametadataBlock></mt:setvarblock>
 <mt:Include module="html_head" parent="1"/>
 <style>
 .mr10 {
   margin-right: 10px;
 }
 </style>
-<mt:Include module="header"/>
+<mt:Include module="header" parent="1"/>
 <!-- ここからコンテンツ -->
 <main class="p-main">
   <div class="c-breadcrumb">
@@ -1067,14 +1068,7 @@
                     <div class="l-container__slot">
                       
                       <mt:if tag="FLCFOptionValue" eq="1_1">
-                        <div class="p-content_2col--reverse">
-                          <div class="p-content_2col__item">
-                            <div class="c-content_box">
-                              <mt:FLCFValue field="sentence_image_left_text">
-                            </div>
-                            <!-- /.c-content_box -->
-                          </div>
-                          <!-- /.p-content_2col__item -->
+                        <div class="p-content_2col">
                           <div class="p-content_2col__item">
                             <div class="p-photo">
                               <div class="p-photo__img--100p">
@@ -1097,22 +1091,22 @@
                               <!-- /.p-photo__caption -->
                             </div>
                             <!-- /.p-photo -->
+                          </div>
+                          <!-- /.p-content_2col__item -->
+
+                          <div class="p-content_2col__item">
+                            <div class="c-content_box">
+                              <mt:FLCFValue field="sentence_image_left_text">
+                            </div>
+                            <!-- /.c-content_box -->
                           </div>
                           <!-- /.p-content_2col__item -->
                         </div>
                         <!-- /.p-content_2col -->
                       </mt:if>
-
-                      <mt:if tag="FLCFOptionValue" eq="1_2">
-                        <div class="p-content_media--large_reverse">
-                          <div class="p-content_media__body">
-                            <div class="c-content_box">
-                              <mt:FLCFValue field="sentence_image_left_text">
-                            </div>
-                            <!-- /.c-content_box -->
-                          </div>
-                          <!-- /.p-content_media__body -->
                       
+                      <mt:if tag="FLCFOptionValue" eq="1_2">
+                        <div class="p-content_media--large">
                           <div class="p-content_media__figure">
                             <div class="p-photo">
                               <div class="p-photo__img--100p">
@@ -1137,19 +1131,20 @@
                             <!-- /.p-photo -->
                           </div>
                           <!-- /.p-content_media__figure -->
+
+                          <div class="p-content_media__body">
+                            <div class="c-content_box">
+                              <mt:FLCFValue field="sentence_image_left_text">
+                            </div>
+                            <!-- /.c-content_box -->
+                          </div>
+                          <!-- /.p-content_media__body -->
                         </div>
                         <!-- /.p-content_media--large -->
                       </mt:if>
-
+                      
                       <mt:if tag="FLCFOptionValue" eq="1_3">
-                        <div class="p-content_media--reverse">
-                          <div class="p-content_media__body">
-                            <div class="c-content_box">
-                              <mt:FLCFValue field="sentence_image_left_text">
-                            </div>
-                            <!-- /.c-content_box -->
-                          </div>
-                          <!-- /.p-content_media__body -->
+                        <div class="p-content_media">
                           <div class="p-content_media__figure">
                             <div class="p-photo">
                               <div class="p-photo__img--100p">
@@ -1175,6 +1170,13 @@
                           </div>
                           <!-- /.p-content_media__figure -->
 
+                          <div class="p-content_media__body">
+                            <div class="c-content_box">
+                              <mt:FLCFValue field="sentence_image_left_text">
+                            </div>
+                            <!-- /.c-content_box -->
+                          </div>
+                          <!-- /.p-content_media__body -->
                         </div>
                         <!-- /.p-content_media -->
                       </mt:if>
@@ -3266,7 +3268,7 @@
                 </div>
                 <!-- /.l-container__slot -->
               </mt:FLCFIfUnitName>
-          
+            <mt:ignore>
               <mt:FLCFIfUnitName name="table_requid_single">
                 <div class="l-container__slot">
                   <div class="p-feature">
@@ -3690,6 +3692,7 @@
                 </div>
                 <!-- /.l-container__slot -->
               </mt:FLCFIfUnitName>
+            </mt:ignore>
             
               <mt:FLCFIfUnitName name="html">
                 <div class="l-container__slot">
