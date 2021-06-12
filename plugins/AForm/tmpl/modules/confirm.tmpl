@@ -1,5 +1,105 @@
 <mt:Ignore>Copyright (c) 2008 ARK-Web Co.,Ltd.</mt:Ignore>
 <__trans_section component="AForm">
+<mt:if name="id" eq="1">
+  <mt:SetVars>
+      <mt:If tag="PageExcerpt">base_description=<$mt:PageExcerpt$></mt:If>
+      <mt:If tag="PageKeywords">base_keywords=<$mt:PageKeywords$></mt:If>
+      og_title=確認画面｜故障・修理申請フォーム | お問い合わせ | D-Link Japan
+      og_url=https://test.dlink-jp.com/contact/repair-form/
+      og_type=article
+  </mt:SetVars>
+  <mt:SetVarTemplate name="file_javascript">
+  <script src="/asset/js/slick.min.js"></script>
+  <script src="/asset/js/top.min.js" defer></script>
+  </mt:SetVarTemplate>
+</mt:if>
+<mt:if name="id" eq="2">
+  <mt:SetVars>
+      <mt:If tag="PageExcerpt">base_description=<$mt:PageExcerpt$></mt:If>
+      <mt:If tag="PageKeywords">base_keywords=<$mt:PageKeywords$></mt:If>
+      og_title=確認画面｜購入前のお問い合わせ | お問い合わせ | D-Link Japan
+      og_url=https://test.dlink-jp.com/contact/contact-before/
+      og_type=article
+  </mt:SetVars>
+  <mt:SetVarTemplate name="file_javascript">
+  <script src="/asset/js/slick.min.js"></script>
+  <script src="/asset/js/top.min.js" defer></script>
+  <script src="/asset/js/confirm-before.js" defer></script>
+  </mt:SetVarTemplate>
+</mt:if>
+<mt:if name="id" eq="3">
+  <mt:SetVars>
+      <mt:If tag="PageExcerpt">base_description=<$mt:PageExcerpt$></mt:If>
+      <mt:If tag="PageKeywords">base_keywords=<$mt:PageKeywords$></mt:If>
+      og_title=確認画面｜購入後の技術的なお問合わせ | お問い合わせ | D-Link Japan
+      og_url=https://test.dlink-jp.com/contact/contact-after/
+      og_type=article
+  </mt:SetVars>
+  <mt:SetVarTemplate name="file_javascript">
+  <script src="/asset/js/slick.min.js"></script>
+  <script src="/asset/js/top.min.js" defer></script>
+  <script src="/asset/js/confirm-after.js" defer></script>
+  </mt:SetVarTemplate>
+</mt:if>
+<mt:if name="id" eq="4">
+  <mt:SetVars>
+    <mt:If tag="PageExcerpt">base_description=<$mt:PageExcerpt$></mt:If>
+    <mt:If tag="PageKeywords">base_keywords=<$mt:PageKeywords$></mt:If>
+    og_title=確認画面｜非該当証明書発行依頼 | お問い合わせ | D-Link Japan
+    og_url=https://test.dlink-jp.com/contact/certificate-of-non-applicability/
+    og_type=article
+  </mt:SetVars>
+  <mt:SetVarTemplate name="file_javascript">
+  <script src="/asset/js/slick.min.js"></script>
+  <script src="/asset/js/top.min.js" defer></script>
+  </mt:SetVarTemplate>
+</mt:if>
+<mt:if name="id" eq="5">
+  <mt:SetVars>
+      <mt:If tag="PageExcerpt">base_description=<$mt:PageExcerpt$></mt:If>
+      <mt:If tag="PageKeywords">base_keywords=<$mt:PageKeywords$></mt:If>
+      og_title=確認画面｜個人情報保護についてのお問い合わせ | お問い合わせ | D-Link Japan
+      og_url=https://test.dlink-jp.com/contact/contact-other/
+      og_type=article
+  </mt:SetVars>
+  <mt:SetVarTemplate name="file_javascript">
+  <script src="/asset/js/slick.min.js"></script>
+  <script src="/asset/js/top.min.js" defer></script>
+  </mt:SetVarTemplate>
+</mt:if>
+<mt:if name="id" eq="6">
+  <mt:SetVars>
+      <mt:If tag="PageExcerpt">base_description=<$mt:PageExcerpt$></mt:If>
+      <mt:If tag="PageKeywords">base_keywords=<$mt:PageKeywords$></mt:If>
+      og_title=確認画面｜その他のお問合せ | お問い合わせ | D-Link Japan
+      og_url=https://test.dlink-jp.com/contact/contact-other/
+      og_type=article
+  </mt:SetVars>
+  <mt:SetVarTemplate name="file_javascript">
+  <script src="/asset/js/slick.min.js"></script>
+  <script src="/asset/js/top.min.js" defer></script>
+  </mt:SetVarTemplate>
+</mt:if>
+<mt:if name="id" eq="7">
+<mt:SetVars>
+  <mt:If tag="PageExcerpt">base_description=<$mt:PageExcerpt$></mt:If>
+  <mt:If tag="PageKeywords">base_keywords=<$mt:PageKeywords$></mt:If>
+      og_title=確認画面｜採用応募フォーム | お問い合わせ | D-Link Japan
+      og_url=https://test.dlink-jp.com/
+      og_type=website
+  </mt:SetVars>
+  <mt:SetVarTemplate name="file_javascript">
+  <script src="/asset/js/slick.min.js"></script>
+  <script src="/asset/js/top.min.js" defer></script>
+  <style>
+  .d-flex {
+      display: flex
+  }
+  </style>
+  </mt:SetVarTemplate>
+</mt:if>
+<mt:Ignore>** 表示部分 **</mt:Ignore>
+<mt:Include module="html_head" parent="1" />
 <script type="text/javascript">
 <!--
 aform = new Object;
@@ -12,6 +112,7 @@ var aform_confirm = new Object();
 aform_confirm.msg_success = '<__trans phrase="Send completed."><a href="<mt:var name="blog_top">"><__trans phrase="Back to Top page"></a>';
 //-->
 </script>
+<mt:Include module="header" parent="1" />
 <mt:if name="id" eq="1">
   <mt:include name="modules/page_confirm_form.mtml" component="AForm">
 </mt:if>
@@ -83,4 +184,6 @@ aform_confirm.msg_success = '<__trans phrase="Send completed."><a href="<mt:var 
   <div id="aform_result"></div>
   </div>
 </mt:if>
+<mt:Include module="footer" parent="1" />
+<mt:Include module="html_foot" parent="1" />
 </__trans_section>
