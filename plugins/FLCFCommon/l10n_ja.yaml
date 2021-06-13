@@ -1,0 +1,71 @@
+# config.yaml
+Hajime Fujimoto: '藤本 壱'
+Common module for FreeLayoutCustomField plugin and FreeLayoutContentField plugin.: 'FreeLayoutCustomFieldプラグインとFreeLayoutContentFieldプラグインの共通部分です。'
+
+# common
+Field definition: 'フィールドの定義'
+Layout HTML: 'レイアウト用HTML'
+Layout CSS: 'レイアウト用CSS'
+Custom JavaScript: 'カスタムJavaScript'
+Custom JavaScript (for initialize): 'カスタムJavaScript(初期化用)'
+Validator: '入力値チェック'
+
+# CMS.pm
+group: 'グループ'
+unit: 'ユニット'
+required: '必須'
+Malformed field definition YAML string.: 'フィールド定義YAML文字列の形式が正しくありません。'
+Malformed field definition YAML string. [_1]: 'フィールド定義YAML文字列の形式が正しくありません。[_1]'
+No field in field definition YAML string.: 'フィールド定義YAML文字列にフィールドが定義されていません。'
+Add group: 'グループを追加'
+Add unit: 'ユニットを追加'
+Add unit group: 'ユニットグループを追加'
+Change unit group: 'ユニットグループを変更'
+Add [_1]: '[_1]を追加'
+Add group of [_1]: '[_1]のグループを追加'
+Change to selected group: '選択したグループに変更'
+Delete group {{number}}: 'グループ {{number}} を削除'
+Delete unit {{number}}: 'ユニット {{number}}を削除'
+Delete [_1] {{number}}: '[_1] {{number}}を削除'
+Remove [_1]: '[_1]を削除'
+
+# Callback.pm
+If you change unit group, all data in this customfield will be lost.: 'グループを変更すると、このカスタムフィールド内のデータはすべて削除されます。'
+Are you ok ?: 'よろしいですか？'
+Delete [_1] ?: '{{_1}}を削除しますか？'
+Delete [_1]: '{{_1}}を削除'
+Open all fields: フィールドをすべて開く
+Fold all fields: フィールドをすべて折りたたむ
+
+# Common.pm
+'[_1] Field (ID = [_2]) definition YAML parse error. [_3]': '[_1]フィールド(ID = [_2])のYAMLの定義に構文エラーがありました。: [_3]'
+'[_1] Field definition YAML parse error. [_2]': '[_1]フィールドのYAMLの定義に構文エラーがありました。: [_2]'
+
+# Util.pm
+customfield: 'カスタムフィールド'
+contentfield: 'コンテンツフィールド'
+Field [_1] of [_3] [_2] is required.: '[_2][_3]の[_1]フィールドは入力必須です。'
+Field [_1] in [_3] [_2] [_4] of [_5] [_3] is required.: '[_3][_5]の[_3] [_2][_4]の[_1]フィールドは入力必須です。'
+Field [_1] of [_3] [_2] has invalid format.: '[_2][_3]の[_1]フィールドの入力形式が正しくありません。'
+Field [_1] in [_3] [_2] [_4] of [_5] [_3] has invalid format.: '[_3][_5]の[_3] [_2][_4]の[_1]フィールドの入力形式が正しくありません。'
+Field [_1] of [_4] [_2] must be greater or equal than [_3].: '[_2][_4]の[_1]フィールドの値は[_3]以上でなければなりません。'
+Field [_1] in [_3] [_2] [_4] of [_6] [_3] must be greater or equal than [_5].: '[_3][_6]の[_3] [_2][_4]の[_1]フィールドの値は[_5]以上でなければなりません。'
+Field [_1] of [_4] [_2] must be smaller or equal than [_3].: '[_2][_4]の[_1]フィールドの値は[_3]以下でなければなりません。'
+Field [_1] in [_3] [_2] [_4] of [_6] [_3] must be smaller or equal than [_5].: '[_3][_6]の[_3] [_2][_4]の[_1]フィールドの値は[_5]以下でなければなりません。'
+Field [_1] in [_3] [_2] [_4] of [_6] [_3] [_5].: '[_3][_6]の[_3] [_2][_4]の[_1]フィールドの値は[_5]。'
+Field [_1] of [_4] [_2] [_3].: '[_2][_4]の[_1]フィールドの値は[_3]。'
+Field [_1] in [_3] [_2] [_4] of [_6] must be shorter than [_5] character(s) string.: '[_3][_6]の[_3] [_2][_4]の[_1]フィールドの値は[_5]文字以内の文字列でなければなりません。'
+Field [_1] of [_4] [_2] must be shorter than [_3] character(s) string.: '[_2][_4]の[_1]フィールドの値は[_3]文字以内の文字列でなければなりません。'
+Field [_1] in [_3] [_2] [_4] of [_6] must be longer than [_5] character(s) string.: '[_3][_6]の[_3] [_2][_4]の[_1]フィールドの値は[_5]文字以上の文字列でなければなりません。'
+Field [_1] of [_4] [_2] must be longer than [_3] character(s) string.: '[_2][_4]の[_1]フィールドの値は[_3]文字以上の文字列でなければなりません。'
+Field [_1] in [_3] [_2] [_4] of [_7] [_3] must be [_5] interval from [_6].: '[_3][_7]の[_3] [_2][_4]の[_1]フィールドの値は[_6]を基準に[_5]間隔の数値でなければなりません。'
+Field [_1] of [_5] [_2] must [_3] be interval from [_4].: '[_2][_5]の[_1]フィールドの値は[_4]を基準に[_3]間隔の数値でなければなりません。'
+has illegal format: '入力形式が正しくありません'
+
+# ContextHandlers.pm
+Field definition YAML parse error. [_1]: 'フィールド定義YAMLにエラーがあります。[_1]'
+Decode JSON error. [_1]: 'JSONの読み込みに失敗しました。 [_1]'
+Not in FreeLayoutCustomField / FreeLayoutContentField block.: FreeLayoutCustomField / FreeLayoutContentFieldのコンテキストではありません。
+Please specify name modifier.: nameモディファイアを指定してください。
+Can't use FLCFValidate tag in general template.: '一般のテンプレートではFLCFValidateタグを使うことはできません。'
+Can't use FLCFSetValue tag in general template.: '一般のテンプレートではFLCFSetValueタグを使うことはできません。'

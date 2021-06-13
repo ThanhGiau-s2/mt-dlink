@@ -1,0 +1,202 @@
+# CSVDataImExporter
+#
+# Release 1.00 (Mar 01, 2011)
+# Release 1.01 (Mar 29, 2011) add overwrite condition.
+# Release 1.02 (Nov 10, 2011) fix bug.
+# Release 1.03 (Dec 11, 2011) fix encoding bug.
+# Release 1.04 (Jan 07, 2012) fix bug.
+# Release 1.05 (Jun 16, 2012) fix datetime bug.
+# Release 1.06 (Jul 25, 2012) fix category bug.
+# Release 1.07 (Dec 12, 2012) security update.
+# Release 1.08 (Jan 15, 2013) for 5.2 and localized.
+# Release 1.09 (Dec 16, 2013) fix bug for '.jpg'.
+# Release 2.00 (Dec 16, 2013) for CF Asset.
+# Release 2.01 (Feb 08, 2014) for system customfield.
+# Release 2.02 (Apr 18, 2014) fix bug.
+# Release 2.03 (Aug 27, 2014) fix bug.
+# Release 3.00 (Mar 13, 2016) the improvement of performance.
+# Release 3.01 (Mar 14, 2016) fix bug.
+# Release 3.02 (Mar 27, 2016) fix bug.
+# Release 4.00 (Jan 23, 2017) for Character encoding and author changing.
+# Release 4.01 (Mar 10, 2017) fix bug.
+# Release 4.02 (Mar 17, 2017) add character encoding for system and category sort and supported BOM.
+# Release 5.00b1 (Apr 11, 2018) for ContentType.
+# Release 5.00b2 (Apr 13, 2018) add category and asset and contenttype.
+# Release 5.00 (Apr 17, 2018) add label of select and checkbox and radio-button, and entry import/export.
+# Release 5.01 (Apr 18, 2018) fix bug for label and add localize.
+# Release 5.02 (Apr 19, 2018) fix bug for upgrade error and change field.
+# Release 5.03 (May 18, 2018) add contenttypeID and change localize.
+# Release 5.04 (May 21, 2018) fix bug.
+# Release 5.05 (Jun 14, 2018) fix export category process for MT7.0 product version.
+# Release 5.06 (Jun 15, 2018) add identifier field.
+# Release 5.07 (Jul 13, 2018) fix bug.
+# Release 5.08 (Jul 25, 2018) fix bug for unpublished_on field.
+# Release 5.09 (Aug 10, 2018) fix bug for psgi environment.
+# Release 5.10 (Aug 13, 2018) fix bug for category set when import.
+# Release 5.11 (Aug 18, 2018) fix bug for tag.
+# Release 5.111(Aug 20, 2018) fix bug.
+# Release 5.12 (Oct 12, 2018) for Mac.
+# Release 5.13 (Oct 23, 2018) fix bug for mt-search.cgi
+# Release 5.14 (Dec 12, 2018) fix bug for cgi.
+# Release 5.15 (Dec 21, 2018) fix bug for empty date and time.
+# Release 5.16 (Dec 28, 2018) fix bug for category search.
+# Release 5.17 (Jan 08, 2019) fix bug for delete column and permission.
+# Release 5.18 (Jan 16, 2019) fix bug for asset.
+# Release 5.19 (Mar 31, 2019) fix bug for group.
+# Release 5.20 (Apr 01, 2019) add asset path selector.
+# Release 5.21 (May 22, 2019) fix bug for data_label of contenttype.
+# Release 5.22 (Jul 22, 2019) add revision function.
+# Release 5.23 (Jul 22, 2019) fix bug for duplicate content type name.
+# Release 5.25 (Oct 08, 2019) fix bug for label.
+# Release 5.26 (Mar 09, 2020) add selecting by content data. 
+# Release 5.27 (Mar 17, 2020) add checking type of number content data.
+# Release 5.28 (Jul 15, 2020) fix bug for empty number.
+# Release 5.29 (Jul 20, 2020) add checking date.
+# Release 5.30 (Aug 19, 2020) fix bug for unpublished_on.
+# Release 5.31 (Sep 03, 2020) fix bug for jQuery and css for entry.
+#
+# Copyright (c) 2004-2020 Yujiro Araki
+
+id: CSVDataImExporter
+name: CSVDataImExporter
+version: 5.31
+description: '<__trans phrase="Import and export MT CSV into MT.">'
+author_name: Yujiro Araki
+author_link: http://www.koikikukan.com/
+l10n_lexicon:
+    ja: l10n_ja.yaml
+system_config_template: system_config.tmpl
+blog_config_template: blog_config.tmpl
+settings:
+    imexport_character_system:
+        scope: system
+        default: 'cp932'
+    imexport_character:
+        scope: blog
+        default: 'system'
+    line_feed_code_system:
+        scope: system
+        default: 0
+    line_feed_code:
+        scope: blog
+        default: 2
+    asset_upload_system:
+        scope: system
+        default: 1
+    asset_upload:
+        scope: blog
+        default: 'system'
+    is_revision_system:
+        scope: system
+        default: 0
+    is_revision:
+        scope: blog
+        default: 'system'
+    is_cloud:
+        scope: system
+        default: 0
+    select_box_value_system:
+        scope: system
+        default: 1
+    select_box_value:
+        scope: blog
+        default: 2
+    checkboxes_value_system:
+        scope: system
+        default: 1
+    checkboxes_value:
+        scope: blog
+        default: 2
+    radio_button_value_system:
+        scope: system
+        default: 1
+    radio_button_value:
+        scope: blog
+        default: 2
+applications:
+    cms:
+        menus:
+            entry:start_export_with_excel:
+                label: Export CSV
+                order: 10010
+                mode: start_export_with_excel
+                view:
+                    - blog
+                    - website
+                    - system
+                permission: administer_site
+                condition: |
+                    sub {
+                        return 1 if MT->version_number >= 5.1;
+                        return 0;
+                    }
+        list_actions:
+            entry:
+                export_entries_with_csv:
+                    label: Export Entries with CSV
+                    order: 100
+                    handler: $CSVDataImExporter::CSVDataImExporter::Export::export_entries_with_csv
+                    permission: administer_site
+                    condition: >
+                        sub {
+                            my $app = MT->app;
+                            return 0 if !$app->blog;
+                            return 1;
+                        }
+            page:
+                export_pages_with_csv:
+                    label: Export Pages with CSV
+                    order: 100
+                    handler: $CSVDataImExporter::CSVDataImExporter::Export::export_entries_with_csv
+                    permission: administer_site
+                    condition: >
+                        sub {
+                            my $app = MT->app;
+                            return 0 if !$app->blog;
+                            return 1;
+                        }
+            content_data:
+                export_content_data_with_csv:
+                    label: Export Content Data with CSV
+                    order: 100
+                    handler: $CSVDataImExporter::CSVDataImExporter::Export::export_entries_with_csv
+                    permission: administer_site
+                    condition: >
+                        sub {
+                            my $app = MT->app;
+                            return 0 if !$app->blog;
+                            return 1;
+                        }
+import_formats:
+    import_csv:
+        handler: CSVDataImExporter::ImportExport::import_contents
+        label: "CSV"
+        options:
+            - same_id_process
+            - no_id_process
+            - null_id_process
+        options_param: CSVDataImExporter::ImportExport::get_param
+        options_template: options.tmpl
+        type: CSVDataImExporter::ImportExport
+    import_csv_cd:
+        handler: CSVDataImExporter::ImportExport::import_contents_cd
+#        label: "CSV cd"
+#        options:
+#            - same_id_process
+#            - no_id_process
+#            - null_id_process
+#        options_param: CSVDataImExporter::ImportExport::get_param
+#        options_template: options.tmpl
+        type: CSVDataImExporter::ImportExport
+methods:
+    start_export_with_excel: $CSVDataImExporter::CSVDataImExporter::Export::start_export_with_excel
+    start_export_with_excel_cd: $CSVDataImExporter::CSVDataImExporter::Export::start_export_with_excel_cd
+    do_excel_export: $CSVDataImExporter::CSVDataImExporter::Export::do_excel_export
+    import_contents_cd: CSVDataImExporter::ImportExport::start_import_with_excel_cd
+    do_excel_import_cd: CSVDataImExporter::Import::do_excel_import_cd
+callbacks:
+    MT::App::CMS::template_source.import: $CSVDataImExporter::CSVDataImExporter::CMS::add_script
+    MT::App::CMS::template_param.import: $CSVDataImExporter::CSVDataImExporter::CMS::add_param
+    init_request:
+        code: $CSVDataImExporter::CSVDataImExporter::CMS::init_request
+        priority: 11

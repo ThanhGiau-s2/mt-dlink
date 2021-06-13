@@ -1,0 +1,10 @@
+<div class="form-group">
+  <div class="custom-control custom-checkbox">
+    <input type="checkbox" id="<mt:var name="field_name">_fjgmcf_showmap" name="<mt:var name="field_name">_fjgmcf_showmap" value="1" class="custom-control-input"<mt:if name="fjgmcf_showmap"> checked="checked"</mt:if> />
+    <label class="custom-control-label" for="<mt:var name="field_name">_fjgmcf_showmap"><__trans phrase="Show map"></label>
+  </div>
+  <div id="<mt:var name="field_name">_fjgmcf_gmap_main"<mt:unless name="fjgmcf_showmap"> style="position : absolute; top : -<mt:var name="fjgmcf_map_height_hide">px;"</mt:unless>>
+    <div id="<mt:var name="field_name">_fjgmcf_gmap" style="width : <mt:var name="fjgmcf_map_width">px; height : <mt:var name="fjgmcf_map_height">px; border : 1px solid #cccccc;"><__trans phrase="Now loading Google Maps..."></div>
+    <__trans phrase="Address"> <input type="text" id="<mt:var name="field_name">_fjgmcf_search" name="<mt:var name="field_name">_fjgmcf_search" size="30" class="form-control text" style="width : 300px; display: inline;" /> <input type="button" name="<mt:var name="field_name">_fjgmcf_search_btn" id="<mt:var name="field_name">_fjgmcf_search_btn" value="<__trans phrase="Search location by address">" />
+    <input type="hidden" name="<mt:var name="field_name">" id="<mt:var name="field_id">" value="<mt:var name="field_value">" class="full-width" autocomplete="off" mt:watch-change="1" />
+</div>

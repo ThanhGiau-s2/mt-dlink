@@ -1,0 +1,12 @@
+name: DateDiff
+id: DateDiff
+author_name: <__trans phrase="Hajime Fujimoto">
+author_link: http://www.h-fj.com/blog/
+description: <__trans phrase="Caculate date difference from date of template tag.">
+plugin_link: http://www.h-fj.com/blog/mtplgdoc/datediff.php
+doc_link: http://www.h-fj.com/blog/mtplgdoc/datediff.php
+version: 1.00
+l10n_class: DateDiff::L10N
+tags:
+  function:
+    DateDiff: $DateDiff::DateDiff::Plugin::date_diff

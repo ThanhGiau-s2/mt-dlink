@@ -1,0 +1,49 @@
+name: FLCFExtension
+id: FLCFExtension
+author_name: <__trans phrase="Hajime Fujimoto">
+author_link: http://www.h-fj.com/blog/
+description: <__trans phrase="Extension pack for FreeLayoutCustomField plugin.">
+plugin_link: http://www.h-fj.com/blog/mt5plgdoc/flcfextension.php
+doc_link: http://www.h-fj.com/blog/mt5plgdoc/flcfextension.php
+l10n_lexicon:
+  ja: l10n_ja.yaml
+version: 2.00
+applications:
+  cms:
+    callbacks:
+      template_param.cfg_prefs: $FLCFExtension::FLCFExtension::CMS::setup_editor_param
+      template_param.edit_entry: $FLCFExtension::FLCFExtension::CMS::edit_entry
+      template_param.edit_category: $FLCFExtension::FLCFExtension::CMS::setup_editor_param
+      template_param.edit_folder: $FLCFExtension::FLCFExtension::CMS::setup_editor_param
+      template_param.edit_author: $FLCFExtension::FLCFExtension::CMS::setup_editor_param
+      template_param.edit_asset: $FLCFExtension::FLCFExtension::CMS::setup_editor_param
+      template_param.edit_comment: $FLCFExtension::FLCFExtension::CMS::setup_editor_param
+      template_param.edit_template: $FLCFExtension::FLCFExtension::CMS::setup_editor_param
+      template_param.edit_content_data: $FLCFExtension::FLCFExtension::CMS::edit_content_data
+      template_param.asset_insert: $FLCFExtension::FLCFExtension::CMS::asset_insert
+flcf_types: $FLCFExtension::FLCFExtension::CMS::flcf_types
+flcfext_richtext_addjs:
+  category: category
+  folder: category
+  asset: asset
+  blog: blog
+  website: blog
+  author: author
+  comment: comment
+  template: template
+flcf_ext_js: >
+  sub {
+    require FLCFExtension::CMS;
+    return FLCFExtension::CMS::ext_js(@_);
+  }
+flcf_ext_css: >
+  sub {
+    require FLCFExtension::CMS;
+    return FLCFExtension::CMS::ext_css(@_);
+  }
+tags:
+  block:
+    FLCFTable: $FLCFExtension::FLCFExtension::ContextHandlers::flcf_table
+    FLCFSelectedOptions: $FLCFExtension::FLCFExtension::ContextHandlers::flcf_selected_options
+  function:
+    FLCFSelectedOptionCount: $FLCFExtension::FLCFExtension::ContextHandlers::flcf_selected_option_count

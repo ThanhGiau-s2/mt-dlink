@@ -1,0 +1,83 @@
+name: GoogleMaps Custom Fields
+id: GoogleMapsCustomFields
+author_name: <__trans phrase="Hajime Fujimoto">
+author_link: http://www.h-fj.com/blog/
+description: <__trans phrase="This plugin adds Google Maps custom fields.">
+plugin_link: http://www.h-fj.com/blog/mt5plgdoc/googlemapscustomfields.php
+doc_link: http://www.h-fj.com/blog/mt5plgdoc/googlemapscustomfield.php
+version: 1.40
+l10n_class: GoogleMapsCustomFields::L10N
+system_config_template: system_config.tmpl
+blog_config_template: system_config.tmpl
+settings:
+  fjgmcf_api_key:
+    Default: ''
+acf_field_types: $GoogleMapsCustomFields::GoogleMapsCustomFields::ACF::load_acf_field_types
+flcf_types: $GoogleMapsCustomFields::GoogleMapsCustomFields::FLCF::flcf_types
+customfield_types:
+  googlemaps:
+    label: Google Maps
+    field_html: |
+      <div class="form-group">
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" id="<mt:var name="field_name">_fjgmcf_showmap" name="<mt:var name="field_name">_fjgmcf_showmap" value="1" class="custom-control-input"<mt:if name="fjgmcf_showmap"> checked="checked"</mt:if> />
+          <label class="custom-control-label" for="<mt:var name="field_name">_fjgmcf_showmap"><mt:var name="fjgmcf_showmap_msg"></label>
+        </div>
+        <div id="<mt:var name="field_name">_fjgmcf_gmap_main"<mt:unless name="fjgmcf_showmap"> style="position : absolute; top : -<mt:var name="fjgmcf_map_height_hide">px;"</mt:unless>>
+        <div id="<mt:var name="field_name">_fjgmcf_gmap" style="width : <mt:var name="fjgmcf_map_width">px; height : <mt:var name="fjgmcf_map_height">px; border : 1px solid #cccccc;"><mt:var name="fjgmcf_div_msg"></div>
+        <mt:var name="fjgmcf_address_msg"> <input type="text" id="<mt:var name="field_name">_fjgmcf_search" name="<mt:var name="field_name">_fjgmcf_search" size="30" class="form-control text" style="width : 300px; display: inline;" /> <input type="button" name="<mt:var name="field_name">_fjgmcf_search_btn" id="<mt:var name="field_name">_fjgmcf_search_btn" value="<mt:var name="fjgmcf_button_msg">" />
+        <input type="hidden" name="<mt:var name="field_name">" id="<mt:var name="field_id">" value="<mt:var name="field_value">" class="full-width" autocomplete="off" mt:watch-change="1" />
+        </div>
+      </div>
+    field_html_params: >
+      sub {
+        my $meth = MT->handler_to_coderef('$GoogleMapsCustomFields::GoogleMapsCustomFields::Callback::field_html_params');
+        $meth->(@_);
+      }
+    order: 750
+    column_def: vchar_idx
+    default_value: 1|35.681886|139.766042|15
+    options_field : |
+      <input type="text" name="options" value="<mt:var name="options" escape="html">" id="options" class="form-control text" />
+      <p class="hint"><mt:var name="fjgmcf_default_msg"></p>
+    options_delimiter: ','
+content_field_types: $GoogleMapsCustomFields::GoogleMapsCustomFields::ContentField::gmcf_registry
+applications:
+  cms:
+    callbacks:
+      template_param.footer: $GoogleMapsCustomFields::GoogleMapsCustomFields::Callback::footer
+      template_param.edit_entry: $GoogleMapsCustomFields::GoogleMapsCustomFields::Callback::add_js
+      template_param.cfg_prefs: $GoogleMapsCustomFields::GoogleMapsCustomFields::Callback::add_js
+      template_param.edit_blog: $GoogleMapsCustomFields::GoogleMapsCustomFields::Callback::add_js
+      template_param.edit_website: $GoogleMapsCustomFields::GoogleMapsCustomFields::Callback::add_js
+      template_param.edit_category: $GoogleMapsCustomFields::GoogleMapsCustomFields::Callback::add_js
+      template_param.edit_folder: $GoogleMapsCustomFields::GoogleMapsCustomFields::Callback::add_js
+      template_param.edit_author: $GoogleMapsCustomFields::GoogleMapsCustomFields::Callback::add_js
+      template_param.edit_asset: $GoogleMapsCustomFields::GoogleMapsCustomFields::Callback::add_js
+      template_param.edit_comment: $GoogleMapsCustomFields::GoogleMapsCustomFields::Callback::add_js
+      template_param.edit_template: $GoogleMapsCustomFields::GoogleMapsCustomFields::Callback::add_js
+      template_param.edit_content_type: $GoogleMapsCustomFields::GoogleMapsCustomFields::Callback::add_js
+      template_param.edit_content_data: $GoogleMapsCustomFields::GoogleMapsCustomFields::Callback::add_js
+      template_param.asset_insert: $GoogleMapsCustomFields::GoogleMapsCustomFields::Callback::add_js
+      template_param.edit_field: $GoogleMapsCustomFields::GoogleMapsCustomFields::Callback::add_js
+      template_param.set_cf_default: $GoogleMapsCustomFields::GoogleMapsCustomFields::Callback::add_js
+      customfields.list_properties: $GoogleMapsCustomFields::GoogleMapsCustomFields::Callback::list_properties
+callbacks:
+  init_app: $GoogleMapsCustomFields::GoogleMapsCustomFields::Callback::install_tags
+tags:
+  block:
+    FLCFGMap: $GoogleMapsCustomFields::GoogleMapsCustomFields::ContextHandlers::flcf_gmap
+  function:
+    GMapCFStaticURL: $GoogleMapsCustomFields::GoogleMapsCustomFields::ContextHandlers::gmap_static
+    GMapCFStatic: $GoogleMapsCustomFields::GoogleMapsCustomFields::ContextHandlers::gmap_static
+    GMapCFURL: $GoogleMapsCustomFields::GoogleMapsCustomFields::ContextHandlers::gmap_url
+    GMapCFWebElements:  $GoogleMapsCustomFields::GoogleMapsCustomFields::ContextHandlers::gmap_web_elements
+    GMapCFEmbed:  $GoogleMapsCustomFields::GoogleMapsCustomFields::ContextHandlers::gmap_web_elements
+    GMapCFEmbed2:  $GoogleMapsCustomFields::GoogleMapsCustomFields::ContextHandlers::gmap_web_elements
+    GMapCFLatitude: $GoogleMapsCustomFields::GoogleMapsCustomFields::ContextHandlers::gmap_info
+    GMapCFLongitude: $GoogleMapsCustomFields::GoogleMapsCustomFields::ContextHandlers::gmap_info
+    GMapCFAddress: $GoogleMapsCustomFields::GoogleMapsCustomFields::ContextHandlers::gmap_info
+    GMapCFAddressRaw: $GoogleMapsCustomFields::GoogleMapsCustomFields::ContextHandlers::gmap_info
+    GMapCFZoom: $GoogleMapsCustomFields::GoogleMapsCustomFields::ContextHandlers::gmap_info
+    GMapCFWidth: $GoogleMapsCustomFields::GoogleMapsCustomFields::ContextHandlers::gmap_info
+    GMapCFHeight: $GoogleMapsCustomFields::GoogleMapsCustomFields::ContextHandlers::gmap_info

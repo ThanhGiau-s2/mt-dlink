@@ -1,0 +1,70 @@
+<mt:app:ContentFieldOptionGroup
+   type="gmap">
+
+  <mtapp:ContentFieldOption
+     id="gmap-admin_width"
+     label="<__trans phrase="Map width on admin screen">">
+    <input ref="admin_width" type="number" name="admin_width" id="gmcf-admin_width" class="form-control w-25" min="0" value={ options.admin_width }>
+  </mtapp:ContentFieldOption>
+
+  <mtapp:ContentFieldOption
+     id="gmap-admin_height"
+     label="<__trans phrase="Map height on admin screen">">
+    <input ref="admin_height" type="number" name="admin_height" id="gmcf-admin_height" class="form-control w-25" min="0" value={ options.admin_height }>
+  </mtapp:ContentFieldOption>
+
+  <mtapp:ContentFieldOption
+     id="gmap-site_width"
+     label="<__trans phrase="Map width on site">">
+    <input ref="site_width" type="number" name="site_width" id="gmcf-site_width" class="form-control w-25" min="0" value={ options.site_width }>
+  </mtapp:ContentFieldOption>
+
+  <mtapp:ContentFieldOption
+     id="gmap-site_height"
+     label="<__trans phrase="Map height on site">">
+    <input ref="site_height" type="number" name="site_height" id="gmcf-site_height" class="form-control w-25" min="0" value={ options.site_height }>
+  </mtapp:ContentFieldOption>
+
+  <mtapp:ContentFieldOption
+     id="gmap-initial_value"
+     label="<__trans phrase="Initial Value">">
+    <input ref="initial_value" type="hidden" name="initial_value" id="gmap-initial_value" class="form-control" value={ options.initial_value }>
+    <div class="custom-control custom-checkbox">
+      <input type="checkbox" id="gmap-initial_value_fjgmcf_showmap" name="gmap-initial_value_fjgmcf_showmap" value="1" class="custom-control-input" /> <label for="gmap-initial_value_fjgmcf_showmap" class="custom-control-label"><__trans phrase="Show map"></label>
+    </div>
+    <div id="gmap-initial_value_fjgmcf_gmap_main">
+      <div id="gmap-initial_value_fjgmcf_gmap" style="border : 1px solid #cccccc;"><__trans phrase="Now loading Google Maps..."></div>
+      <__trans phrase="Address"> <input type="text" id="gmap-initial_value_fjgmcf_search" name="gmap-initial_value_fjgmcf_search" size="30" class="form-control text" style="width : 300px; display: inline;" /> <input type="button" name="gmap-initial_value_fjgmcf_search_btn" id="gmap-initial_value_fjgmcf_search_btn" value="<__trans phrase="Search location by address">" />
+    </div>
+  </mtapp:ContentFieldOption>
+
+  <mtapp:ContentFieldOptionScript>
+    var fElm, aElm, thisId;
+    var isFirstOpen = true;
+    this.on('mount', function() {
+        FJGoogleMapsCustomFieldsContentFieldInit(this.id, this.options);
+        thisId = this.id;
+        fElm = jQuery('#content-field-block-' + this.fieldId);
+        aElm = fElm.find('a[href=#' + this.id + ']');
+        aElm.on('click', function() {
+            var oldHeight = -1;
+            var t = setInterval(function() {
+                var height = fElm.height();
+                if (height != oldHeight) {
+                    oldHeight = height;
+                }
+                else {
+                    clearInterval(t);
+                    if (aElm.attr('aria-expanded') == 'true' && isFirstOpen) {
+                        var map = FJGoogleMapsCustomFieldsMapList[thisId].map;
+                        var marker = FJGoogleMapsCustomFieldsMapList[thisId].marker;
+                        google.maps.event.trigger(map, 'resize');
+                        map.setCenter(marker.getPosition());
+                        isFirstOpen = false;
+                    }
+                }
+            }, 100);
+        });
+    });
+  </mtapp:ContentFieldOptionScript>
+</mt:app:ContentFieldOptionGroup>

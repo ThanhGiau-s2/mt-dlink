@@ -1,0 +1,81 @@
+<mt:setvarblock name="page_title"><__trans phrase="Export Blog Entries"></mt:setvarblock>
+<$mt:setvar name="position_actions_bottom" value="1"$>
+<mt:setvar name="export" value="1">
+
+<mt:setvarblock name="form_header">
+<form method="post" enctype="multipart/form-data" action="<mt:var name="script_url">" onsubmit="return validate(this)">
+<input type="hidden" name="__mode" value="do_excel_export" />
+<mt:if name="blog_id">
+  <input type="hidden" name="blog_id" value="<mt:var name="blog_id">" />
+<mt:else>
+  <input type="hidden" id="export_blog_id" name="blog_id" value="" />
+</mt:if>
+  <input type="hidden" name="magic_token" value="<mt:var name="magic_token">" />
+<mt:if name="content_type_id">
+  <input type="hidden" id="content_type_id" name="content_type_id" value="<mt:var name="content_type_id">" />
+</mt:if>
+</mt:setvarblock>
+
+<mt:setvarblock name="page_content">
+  <fieldset>
+
+<mtapp:setting
+    id="export_blog_id_field"
+    label="<__trans phrase="Blog to Export">"
+    hint="<__trans phrase="Select a blog for exporting.">"
+    content_class="field-content-text">
+    <mt:if name="blog_id">
+        <div><mt:var name="blog_name" escape="html"> (<mt:var name="blog_id">)</div>
+    </mt:if>
+    <mt:ignore><a href="<mt:var name="script_url">?__mode=dialog_select_weblog&amp;multi=0&amp;return_args=__mode%3Dstart_export_with_excel" class="mt-open-dialog"><mt:if name="blog_id"><__trans phrase="Change blog"><mt:else><__trans phrase="Select blog"></mt:if></a></mt:ignore>
+</mtapp:setting>
+
+<mt:unless name="content_type_id">
+<mtapp:setting
+    id="export_entry_class"
+    label="<__trans phrase="Class to Export">"
+    hint="<__trans phrase="Select entry class for exporting.">"
+    content_class="field-content-text">
+<p>
+<mt:if tag="version" ge="6">
+<input type="radio" id="export_class_entry" name="export_class" value="entry" checked="checked" /> <label for="export_class_entry"><__trans phrase="Entry"></label><br />
+<mt:elseif name="is_blog">
+<input type="radio" id="export_class_entry" name="export_class" value="entry" checked="checked" /> <label for="export_class_entry"><__trans phrase="Entry"></label><br />
+</mt:if>
+<input type="radio" id="export_class_page" name="export_class" value="page"<mt:if name="is_blog"><mt:else><mt:if tag="version" lt="6"> checked="checked"</mt:if></mt:if> /> <label for="export_class_page"><__trans phrase="Page"></label><br />
+<mt:if tag="version" ge="6">
+<input type="radio" id="export_class_page" name="export_class" value="*" /> <label for="export_class_page"><__trans phrase="Both"></label>
+<mt:elseif name="is_blog">
+<input type="radio" id="export_class_page" name="export_class" value="*" /> <label for="export_class_page"><__trans phrase="Both"></label>
+</mt:if>
+</p>
+</mtapp:setting>
+</mt:unless>
+
+<mtapp:setting
+    id="export_character"
+    label="<__trans phrase="Character Encoding">"
+    content_class="field-content-text">
+<div><mt:var name="imexport_character"></div>
+</mtapp:setting>
+
+<input type="hidden" id="export_type_csv" name="export_type" value="0" />
+
+  <mt:SetVarBlock name="action_buttons">
+<button type="submit" accesskey="s" title="<__trans phrase="Export Entries">" class="create action primary button btn btn-primary"><__trans phrase="Export Entries"></button>
+  </mt:SetVarBlock>
+<mt:include name="include/actions_bar.tmpl" bar_position="bottom" hide_pager="1" settings_bar="1">
+  </fieldset>
+
+<div style="margin-top:20px">
+<mt:var name="rest_day">
+</div>
+
+</mt:setvarblock>
+
+<mt:setvarblock name="form_footer">
+</form>
+</mt:setvarblock>
+
+<mt:include name="layout/default.tmpl">
+<mt:var name="layout">

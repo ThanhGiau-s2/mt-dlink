@@ -1,0 +1,210 @@
+name: FreeLayoutCustomField
+id: FreeLayoutCustomField
+author_name: '<__trans phrase="Hajime Fujimoto">'
+author_link: http://www.h-fj.com/blog/
+description: '<__trans phrase="Add free layout custom field.">'
+plugin_link: http://www.h-fj.com/blog/mt5plgdoc/freelayoutcustomfield.php
+doc_link: http://www.h-fj.com/blog/mt5plgdoc/freelayoutcustomfield.php
+l10n_lexicon:
+  ja: l10n_ja.yaml
+version: 2.00.1
+callbacks:
+  init_app: $FreeLayoutCustomField::FreeLayoutCustomField::ContextHandlers::install_tags
+  restore: $FreeLayoutCustomField::FreeLayoutCustomField::BackupRestore::restore
+applications:
+  cms:
+    callbacks:
+      template_param.edit_field: $FreeLayoutCustomField::FreeLayoutCustomField::Callback::edit_field
+      template_param.edit_entry: $FreeLayoutCustomField::FreeLayoutCustomField::Callback::edit_entry
+#      template_param.header: $FreeLayoutCustomField::FreeLayoutCustomField::Callback::add_header
+#      template_param.footer: $FreeLayoutCustomField::FreeLayoutCustomField::Callback::add_footer
+#      template_param.asset_insert:
+#        handler: $FreeLayoutCustomField::FreeLayoutCustomField::Callback::asset_insert
+#        priority: 9
+      cms_save_filter.entry: $FreeLayoutCustomField::FreeLayoutCustomField::CMS::save_filter_entry
+      cms_save_filter.page: $FreeLayoutCustomField::FreeLayoutCustomField::CMS::save_filter_page
+      cms_save_filter.category: $FreeLayoutCustomField::FreeLayoutCustomField::CMS::save_filter_category
+      cms_save_filter.folder: $FreeLayoutCustomField::FreeLayoutCustomField::CMS::save_filter_folder
+      cms_save_filter.comment: $FreeLayoutCustomField::FreeLayoutCustomField::CMS::save_filter_comment
+      cms_save_filter.asset: $FreeLayoutCustomField::FreeLayoutCustomField::CMS::save_filter_asset
+      cms_save_filter.template: $FreeLayoutCustomField::FreeLayoutCustomField::CMS::save_filter_template
+      cms_save_filter.blog: $FreeLayoutCustomField::FreeLayoutCustomField::CMS::save_filter_blog
+      cms_save_filter.website: $FreeLayoutCustomField::FreeLayoutCustomField::CMS::save_filter_website
+      cms_save_filter.author: $FreeLayoutCustomField::FreeLayoutCustomField::CMS::save_filter_author
+      cms_pre_save.entry: $FreeLayoutCustomField::FreeLayoutCustomField::CMS::pre_save_entry
+      cms_pre_save.page: $FreeLayoutCustomField::FreeLayoutCustomField::CMS::pre_save_page
+      cms_pre_save.category: $FreeLayoutCustomField::FreeLayoutCustomField::CMS::pre_save_category
+      cms_pre_save.folder: $FreeLayoutCustomField::FreeLayoutCustomField::CMS::pre_save_folder
+      cms_pre_save.comment: $FreeLayoutCustomField::FreeLayoutCustomField::CMS::pre_save_comment
+      cms_pre_save.asset: $FreeLayoutCustomField::FreeLayoutCustomField::CMS::pre_save_asset
+      cms_pre_save.template: $FreeLayoutCustomField::FreeLayoutCustomField::CMS::pre_save_template
+      cms_pre_save.blog: $FreeLayoutCustomField::FreeLayoutCustomField::CMS::pre_save_blog
+      cms_pre_save.website: $FreeLayoutCustomField::FreeLayoutCustomField::CMS::pre_save_website
+      cms_pre_save.author: $FreeLayoutCustomField::FreeLayoutCustomField::CMS::pre_save_author
+      cms_pre_save.field: $FreeLayoutCustomField::FreeLayoutCustomField::Callback::pre_save_field
+customfield_types:
+  flcf:
+    label: Free Layout
+    field_html: |
+      <input type="hidden" id="<mt:var name="field_id">" name="<mt:var name="field_name" escape="html">" value="<mt:var name="field_value" escape="html">" />
+      <input type="hidden" id="<mt:var name="field_id">_order" name="<mt:var name="field_name" escape="html">_order" value="<mt:var name="field_order">" />
+      <div class="flcf flcf-container flcf-<mt:var name="field_name" replace="customfield_","" escape="html">-container" id="<mt:var name="field_flcf_id">"><mt:var name="field_flcf_html"></div>
+      <mt:if name="field_flcf_units">
+        <mt:if name="field_flcf_addable">
+          <p class="flcf_add_button<mt:var name="field_flcf_button_class">">
+            <select name="<mt:var name="field_name">_unit_select" id="<mt:var name="field_name">_unit_select" class="flcf-select-unit">
+            <mt:loop name="field_flcf_units">
+              <option value="<mt:var name="name">"><mt:var name="label"></option>
+            </mt:loop>
+            </select>
+            <button name="<mt:var name="field_name">_add_button" id="<mt:var name="field_name">_add_button" type="button" class="flcf-add-one"><mt:var name="field_button_label"></button>
+            <mt:if name="field_flcf_unit_groups">
+              <select name="<mt:var name="field_name">_unit_group_select" id="<mt:var name="field_name">_unit_group_select" class="flcf-select-unit-group">
+              <mt:loop name="field_flcf_unit_groups">
+                <option value="<mt:var name="name">"><mt:var name="label"></option>
+              </mt:loop>
+              </select>
+              <button name="<mt:var name="field_name">_add_group_button" id="<mt:var name="field_name">_add_group_button" type="button" class="flcf-add-group"><mt:var name="field_add_group_button_label"></button>
+              <button name="<mt:var name="field_name">_change_group_button" id="<mt:var name="field_name">_change_group_button" type="button" class="flcf-change-group"><mt:var name="field_change_group_button_label"></button>
+            </mt:if>
+          </p>
+        </mt:if>
+      <mt:else name="field_flcf_addable">
+        <p class="flcf_add_button<mt:var name="field_flcf_button_class">">
+          <button name="<mt:var name="field_name">_add_button" id="<mt:var name="field_name">_add_button" type="button" class="flcf-add-one"><mt:var name="field_button_label"></button>
+        </p>
+      </mt:if>
+    field_html_params: $FreeLayoutCustomField::FreeLayoutCustomField::CMS::field_html_params
+    order: 2000
+    column_def: vclob
+flcf_form_names:
+  entry: "jQuery('#entry_form')"
+  page: "jQuery('#entry_form')"
+  category: "jQuery('.actions-bar').closest('form')"
+  folder: "jQuery('.actions-bar').closest('form')"
+  comment: "jQuery('.actions-bar').closest('form')"
+  asset: "jQuery('#edit_asset')"
+  template: "jQuery('#template-listing-form')"
+  blog: "jQuery('#cfg_form')"
+  website: "jQuery('#cfg_form')"
+  author: "jQuery('#profile')"
+flcf_restore_classes:
+  entry:
+    - entry
+    - page
+  category:
+    - category
+    - folder
+  comment:
+    - comment
+  asset:
+    - file
+    - image
+    - video
+    - audio
+  template:
+    - template
+  blog:
+    - blog
+    - website
+  author:
+    - author
+upgrade_functions:
+  add_used_ctrls:
+    version_limit: 1.01
+    priority: 9.1
+    updater:
+      type: field
+      label: 'Updating used field information.'
+      code: $FreeLayoutCustomField::FreeLayoutCustomField::Upgrade::add_used_ctrls
+  update_entry_flcf:
+    version_limit: 1.01
+    priority: 9.2
+    updater:
+      type: entry
+      label: 'Updating entry FLCF fields'
+      code: $FreeLayoutCustomField::FreeLayoutCustomField::Upgrade::update_flcf_objects
+  update_page_flcf:
+    version_limit: 1.01
+    priority: 9.2
+    updater:
+      type: page
+      label: 'Updating page FLCF fields'
+      code: $FreeLayoutCustomField::FreeLayoutCustomField::Upgrade::update_flcf_objects
+  update_category_flcf:
+    version_limit: 1.01
+    priority: 9.2
+    updater:
+      type: category
+      label: 'Updating category FLCF fields'
+      code: $FreeLayoutCustomField::FreeLayoutCustomField::Upgrade::update_flcf_objects
+  update_folder_flcf:
+    version_limit: 1.01
+    priority: 9.2
+    updater:
+      type: folder
+      label: 'Updating folder FLCF fields'
+      code: $FreeLayoutCustomField::FreeLayoutCustomField::Upgrade::update_flcf_objects
+  update_asset_flcf:
+    version_limit: 1.01
+    priority: 9.2
+    updater:
+      type: asset
+      label: 'Updating asset FLCF fields'
+      code: $FreeLayoutCustomField::FreeLayoutCustomField::Upgrade::update_flcf_objects
+  update_image_flcf:
+    version_limit: 1.01
+    priority: 9.2
+    updater:
+      type: image
+      label: 'Updating image FLCF fields'
+      code: $FreeLayoutCustomField::FreeLayoutCustomField::Upgrade::update_flcf_objects
+  update_video_flcf:
+    version_limit: 1.01
+    priority: 9.2
+    updater:
+      type: video
+      label: 'Updating video FLCF fields'
+      code: $FreeLayoutCustomField::FreeLayoutCustomField::Upgrade::update_flcf_objects
+  update_audio_flcf:
+    version_limit: 1.01
+    priority: 9.2
+    updater:
+      type: audio
+      label: 'Updating audio FLCF fields'
+      code: $FreeLayoutCustomField::FreeLayoutCustomField::Upgrade::update_flcf_objects
+  update_comment_flcf:
+    version_limit: 1.01
+    priority: 9.2
+    updater:
+      type: comment
+      label: 'Updating comment FLCF fields'
+      code: $FreeLayoutCustomField::FreeLayoutCustomField::Upgrade::update_flcf_objects
+  update_template_flcf:
+    version_limit: 1.01
+    priority: 9.2
+    updater:
+      type: template
+      label: 'Updating template FLCF fields'
+      code: $FreeLayoutCustomField::FreeLayoutCustomField::Upgrade::update_flcf_objects
+  update_blog_flcf:
+    version_limit: 1.01
+    priority: 9.2
+    updater:
+      type: blog
+      label: 'Updating blog FLCF fields'
+      code: $FreeLayoutCustomField::FreeLayoutCustomField::Upgrade::update_flcf_objects
+  update_website_flcf:
+    version_limit: 1.01
+    priority: 9.2
+    updater:
+      type: website
+      label: 'Updating website FLCF fields'
+      code: $FreeLayoutCustomField::FreeLayoutCustomField::Upgrade::update_flcf_objects
+  update_author_flcf:
+    version_limit: 1.01
+    priority: 9.2
+    updater:
+      type: author
+      label: 'Updating author FLCF fields'
+      code: $FreeLayoutCustomField::FreeLayoutCustomField::Upgrade::update_flcf_objects

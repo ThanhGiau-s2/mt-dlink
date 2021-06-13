@@ -1,0 +1,65 @@
+name: FLCFCommon
+id: FLCFCommon
+author_name: '<__trans phrase="Hajime Fujimoto">'
+author_link: http://www.h-fj.com/blog/
+description: '<__trans phrase="Common module for FreeLayoutCustomField plugin and FreeLayoutContentField plugin.">'
+plugin_link: http://www.h-fj.com/blog/mt7plgdoc/flcfcommon.php
+doc_link: http://www.h-fj.com/blog/mt7plgdoc/flcfcommon.php
+l10n_lexicon:
+  ja: l10n_ja.yaml
+version: 1.00.1
+schema_version: 1.01
+object_types:
+  field:
+    flcf_def:
+      type: text
+      label: Field definition
+    flcf_html:
+      type: text
+      label: Layout HTML
+    flcf_css:
+      type: text
+      label: Layout CSS
+    flcf_init_js:
+      type: text
+      label: JavaScript for initialize
+    flcf_js:
+      type: text
+      label: JavaScript for field
+    flcf_validator:
+      type: text
+      label: Validator for field
+    flcf_used_ctrls:
+      type: text
+    flcf_unused_ctrls:
+      type: text
+applications:
+  cms:
+    callbacks:
+      template_param.header: $FLCFCommon::FLCFCommon::Callback::add_header
+      template_param.footer: $FLCFCommon::FLCFCommon::Callback::add_footer
+      template_param.asset_insert:
+        handler: $FLCFCommon::FLCFCommon::Callback::asset_insert
+        priority: 9
+tags:
+  function:
+    FLCFValue: $FLCFCommon::FLCFCommon::ContextHandlers::flcf_value
+    FLCFType: $FLCFCommon::FLCFCommon::ContextHandlers::flcf_type
+    FLCFRawValue: $FLCFCommon::FLCFCommon::ContextHandlers::flcf_value
+    FLCFUnitName: $FLCFCommon::FLCFCommon::ContextHandlers::flcf_value
+    FLCFCount: $FLCFCommon::FLCFCommon::ContextHandlers::flcf_count
+    FLCFOptionLabel: $FLCFCommon::FLCFCommon::ContextHandlers::flcf_option_label
+    FLCFOptionValue: $FLCFCommon::FLCFCommon::ContextHandlers::flcf_option_value
+    FLCFOptionGroup: $FLCFCommon::FLCFCommon::ContextHandlers::flcf_option_group
+    FLCFOptionCount: $FLCFCommon::FLCFCommon::ContextHandlers::flcf_option_count
+  block:
+    FLCFAsset: $FLCFCommon::FLCFCommon::ContextHandlers::flcf_value
+    FLCFIfUnitName: $FLCFCommon::FLCFCommon::ContextHandlers::flcf_if_unit_name
+    FLCFOptions: $FLCFCommon::FLCFCommon::ContextHandlers::flcf_options
+    FLCFIfOptionSelected: $FLCFCommon::FLCFCommon::ContextHandlers::flcf_if_option_selected
+    FLCFValidate: $FLCFCommon::FLCFCommon::ContextHandlers::flcf_validate
+    FLCFIfValue: $FLCFCommon::FLCFCommon::ContextHandlers::flcf_if_value
+    FLCFUnlessValue: $FLCFCommon::FLCFCommon::ContextHandlers::flcf_if_value
+    FLCFValidateError: $FLCFCommon::FLCFCommon::ContextHandlers::flcf_validate_error
+    FLCFSetValue: $FLCFCommon::FLCFCommon::ContextHandlers::flcf_set_value
+flcf_types: $FLCFCommon::FLCFCommon::CMS::flcf_types

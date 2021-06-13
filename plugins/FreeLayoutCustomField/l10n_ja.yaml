@@ -1,0 +1,87 @@
+# config.yaml
+Hajime Fujimoto: '藤本 壱'
+Add free layout custom field.: 'フリーレイアウトのカスタムフィールドを追加します。'
+Free Layout: 'フリーレイアウト'
+
+# Callback.pm
+Can't find customfield.: 'カスタムフィールドが見つかりませんでした。'
+#Field definition: 'フィールドの定義'
+#Layout HTML: 'レイアウト用HTML'
+#Layout CSS: 'レイアウト用CSS'
+#Custom JavaScript: 'カスタムJavaScript'
+#Custom JavaScript (for initialize): 'カスタムJavaScript(初期化用)'
+#If you change unit group, all data in this customfield will be lost.: 'グループを変更すると、このカスタムフィールド内のデータはすべて削除されます。'
+#Are you ok ?: 'よろしいですか？'
+#Delete [_1] ?: '{{_1}}を削除しますか？'
+#Validator: '入力値チェック'
+#Open all fields: フィールドをすべて開く
+#Fold all fields: フィールドをすべて折りたたむ
+#'[_1] Field (ID = [_2]) definition YAML parse error. [_3]': '[_1]フィールド(ID = [_2])のYAMLの定義に構文エラーがありました。: [_3]'
+
+# CMS.pm
+Group: 'グループ'
+#group: 'グループ'
+Unit: 'ユニット'
+#unit: 'ユニット'
+#Add group: 'グループを追加'
+#Add unit: 'ユニットを追加'
+#Add unit group: 'ユニットグループを追加'
+#Change unit group: 'ユニットグループを変更'
+#Add [_1]: '[_1]を追加'
+#Add group of [_1]: '[_1]のグループを追加'
+#Change to selected group: '選択したグループに変更'
+#Delete group {{number}}: 'グループ {{number}} を削除'
+#Delete unit {{number}}: 'ユニット {{number}}を削除'
+#Delete [_1] {{number}}: '[_1] {{number}}を削除'
+#Malformed field definition YAML string.: 'フィールド定義YAML文字列の形式が正しくありません。'
+#No field in field definition YAML string.: 'フィールド定義YAML文字列にフィールドが定義されていません。'
+#Field [_1] of customfield [_2] is required.: '[_2]カスタムフィールドの[_1]フィールドは入力必須です。'
+#Field [_1] in [_3] [_2] [_4] of customfield [_3] is required.: '[_3]カスタムフィールドの[_3] [_2][_4]の[_1]フィールドは入力必須です。'
+#Field [_1] of customfield [_2] has invalid format.: '[_2]カスタムフィールドの[_1]フィールドの入力形式が正しくありません。'
+#Field [_1] in [_3] [_2] [_4]of customfield [_3] has invalid format.: '[_3]カスタムフィールドの[_3] [_2][_4]の[_1]フィールドの入力形式が正しくありません。'
+#Field [_1] of customfield [_2] must be greater or equal than [_3].: '[_2]カスタムフィールドの[_1]フィールドの値は[_3]以上でなければなりません。'
+#Field [_1] in [_3] [_2] [_4] of customfield [_3] must be greater or equal than [_5].: '[_3]カスタムフィールドの[_3] [_2][_4]の[_1]フィールドの値は[_5]以上でなければなりません。'
+#Field [_1] of customfield [_2] must be smaller or equal than [_3].: '[_2]カスタムフィールドの[_1]フィールドの値は[_3]以下でなければなりません。'
+#Field [_1] in [_3] [_2] [_4] of customfield [_3] must be smaller or equal than [_5].: '[_3]カスタムフィールドの[_3] [_2][_4]の[_1]フィールドの値は[_5]以下でなければなりません。'
+#Field [_1] in [_3] [_2] [_4] of customfield [_3] [_5].: '[_3]カスタムフィールドの[_3] [_2][_4]の[_1]フィールドの値は[_5]。'
+#Field [_1] of customfield [_2] [_3].: '[_2]カスタムフィールドの[_1]フィールドの値は[_3]。'
+#Field [_1] in [_3] [_2] [_4] of customfield must be shorter than [_5] character(s) string.: '[_3]カスタムフィールドの[_3] [_2][_4]の[_1]フィールドの値は[_5]文字以内の文字列でなければなりません。'
+#Field [_1] of customfield [_2] must be shorter than [_3] character(s) string.: '[_2]カスタムフィールドの[_1]フィールドの値は[_3]文字以内の文字列でなければなりません。'
+#Field [_1] in [_3] [_2] [_4] of customfield must be longer than [_5] character(s) string.: '[_3]カスタムフィールドの[_3] [_2][_4]の[_1]フィールドの値は[_5]文字以上の文字列でなければなりません。'
+#Field [_1] of customfield [_2] must be longer than [_3] character(s) string.: '[_2]カスタムフィールドの[_1]フィールドの値は[_3]文字以上の文字列でなければなりません。'
+#Field [_1] in [_3] [_2] [_4] of customfield [_3] must be [_5] interval from [_6].: '[_3]カスタムフィールドの[_3] [_2][_4]の[_1]フィールドの値は[_6]を基準に[_5]間隔の数値でなければなりません。'
+#Field [_1] of customfield [_2] must [_3] be interval from [_4].: '[_2]カスタムフィールドの[_1]フィールドの値は[_4]を基準に[_3]間隔の数値でなければなりません。'
+#has illegal format: '入力形式が正しくありません'
+
+# ContextHandlers.pm
+Not in [_1] context.: '[_1]のコンテキストではありません。'
+#Decode JSON error. [_1]: 'JSONの読み込みに失敗しました。 [_1]'
+#Field definition YAML parse error. [_1]: 'フィールド定義YAML文字列の読み込みに失敗しました。 [_1]'
+#Not in FreeLayoutCustomField block.: FreeLayoutCustomFieldのコンテキストではありません。
+#Please specify name modifier.: nameモディファイアを指定してください。
+Can't find field related to [_1] tag.: '[_1]タグをつけたフィールドが見つかりません。'
+#Can't use FLCFValidate tag in general template.: '一般のテンプレートではFLCFValidateタグを使うことはできません。'
+#Can't use FLCFSetValue tag in general template.: '一般のテンプレートではFLCFSetValueタグを使うことはできません。'
+
+# BackupRestore.pm
+Restoring item field of [_1]: '[_1]のアイテムのフィールドを復元しています。'
+Restored [_1] (ID = [_2]): '[_1](ID = [_2])を復元しました。'
+
+# Util.pm
+
+# Upgrade.pm
+Updating used field information.: '使用しているフィールドの情報を更新しています。'
+Can't set used field information.: '使用しているフィールドの情報を更新できませんでした。'
+Updating entry FLCF fields: '記事のFLCFフィールドを更新しています。'
+Updating page FLCF fields: 'ウェブページのFLCFフィールドを更新しています。'
+Updating category FLCF fields: 'カテゴリのFLCFフィールドを更新しています。'
+Updating folder FLCF fields: 'フォルダのFLCFフィールドを更新しています。'
+Updating asset FLCF fields: 'アイテムのFLCFフィールドを更新しています。'
+Updating image FLCF fields: '画像のFLCFフィールドを更新しています。'
+Updating video FLCF fields: 'ビデオのFLCFフィールドを更新しています。'
+Updating audio FLCF fields: 'オーディオのFLCFフィールドを更新しています。'
+Updating comment FLCF fields: 'コメントのFLCFフィールドを更新しています。'
+Updating template FLCF fields: 'テンプレートのFLCFフィールドを更新しています。'
+Updating blog FLCF fields: 'ブログのFLCFフィールドを更新しています。'
+Updating website FLCF fields: 'ウェブサイトのFLCFフィールドを更新しています。'
+Updating author FLCF fields: 'ユーザーのFLCFフィールドを更新しています。'

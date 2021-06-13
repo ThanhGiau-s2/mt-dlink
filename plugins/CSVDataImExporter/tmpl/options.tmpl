@@ -1,0 +1,33 @@
+<h3>記事ID指定時の処理</h3>
+
+
+<mtapp:setting
+    id="same_id_process"
+    label="<__trans phrase="same_id_process">">
+<p><input type="radio" id="same_id_process_0" name="same_id_process" value="0" checked="checked" /> <label class="" for="same_id_process_0"><__trans phrase="overwrite"></label><br />
+   <input type="radio" id="same_id_process_1" name="same_id_process" value="1" /> <label class="" for="same_id_process_1"><__trans phrase="skip"></label></p>
+</mtapp:setting>
+<mtapp:setting
+    id="no_id_process"
+    label="<__trans phrase="no_id_process">">
+<p><input type="radio" id="no_id_process_1" name="no_id_process" value="1" /> <label class="" for="no_id_process_1"><__trans phrase="new"></label><br />
+   <input type="radio" id="no_id_process_0" name="no_id_process" value="0" checked="checked" /> <label class="" for="no_id_process_0"><__trans phrase="skip"></label></p>
+</mtapp:setting>
+
+<h3>記事ID指定なしの処理</h3>
+
+<mtapp:setting
+    id="null_id_process"
+    label="<__trans phrase="null_id_process">">
+<p><input type="radio" id="null_id_process_0" name="null_id_process" value="0" checked="checked" /> <label class="" for="null_id_process"><__trans phrase="new"></label><br />
+   <input type="radio" id="null_id_process_1" name="null_id_process" value="1" /> <label class="" for="null_id_process"><__trans phrase="same_basename"></label><br />
+   <input type="radio" id="null_id_process_2" name="null_id_process" value="2" /> <label class="" for="null_id_process"><__trans phrase="same_title"></label></p>
+</mtapp:setting>
+
+<h3>インポートする文字コード</h3>
+
+<mtapp:setting
+    id="imexport_character"
+    label="">
+<p><mt:var name="imexport_character"></p>
+</mtapp:setting>

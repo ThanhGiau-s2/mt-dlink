@@ -1,0 +1,138 @@
+Importing Movable Type: Movable Typeにインポートします。
+Import entries from CSV data.: CSV形式の記事をインポートします。
+description: 記事をCSV形式でエクスポートします。
+Import and export excel data.: 記事（CSV形式）のインポートとエクスポートを行います。
+Import CSV: CSVデータのインポート
+Website webpage: ウェブサイトのウェブページ
+
+Blog to Export: エクスポートするサイト
+Change blog: サイトを変更
+
+Export CSV: CSVデータのｴｸｽﾎﾟｰﾄ
+Export Blog Entries: CSVデータのエクスポート
+Export Entries: CSVデータのエクスポート
+Class to Export: エクスポート対象
+Type to Export: ファイルフォーマット
+
+Export Entries with CSV: 記事のエクスポート（CSV）
+Export Entries with XML: 記事のエクスポート（XML）
+Export Pages with CSV: ウェブページのエクスポート（CSV）
+Export Pages with XML: ウェブページのエクスポート（XML）
+Export Content Data with CSV: コンテンツデータのエクスポート（CSV）
+
+Category separator: カテゴリ・フォルダの区切り文字
+
+use_id: 記事ID
+use_id_for_overwrite: 記事IDを指定する
+same_id_process: 指定記事IDがある場合
+no_id_process: 指定記事IDがない場合
+null_id_process: インポート方法
+null_id_process_only_new: インポート方法（新規作成のみ）
+skip: インポートしない
+overwrite: 同一記事IDの記事を上書き
+new: 新規作成
+same_basename: 同一ベースネームの記事を上書き
+same_title: 同一タイトルの記事を上書き
+same_unique_id: 同一出力ファイル名のコンテンツデータを上書き
+same_label: 同一データ識別ラベルのコンテンツデータを上書き
+display: 表示
+
+Import CSV Data: CSVデータのインポート
+Upload import file: インポートファイル
+Import data type: インポートするデータ形式
+Import CSV Data (s): CSVデータのインポート
+Import File Separator: CSV形式のセパレータ
+Both: 両方
+CSV: CSV形式
+XML: XML形式（XMLスプレッドシート）
+TAB: タブ
+CAMMA: カンマ
+SEMICOLON: セミコロン
+SPACE: 半角スペース
+
+Importing...: CSVデータのインポートを開始します...
+All data imported successfully!: すべてのCSVデータをインポートしました。
+
+start as csv file.: CSVファイルとして処理を開始します。
+select csv file.: 拡張子が.csvのファイルを選択してください。
+wrong class specification ([_1]): 行目:classの指定([_1])が誤っています。
+character([_1]) which is not a number is specified as id.: 行目:idに数字以外の文字([_1])が指定されています。
+user who specified it as author([_1]) is not registered.: 行目:authorに指定したユーザー([_1])が登録されていません。
+wrong value([_1]) of status.: 行目:statusの値([_1])が誤っています。
+wrong value([_1]) of authored_on.: 行目:authored_onの指定([_1])が誤っています。
+wrong value([_1]) of modified_on.: 行目:modified_onの指定([_1])が誤っています。
+wrong value([_1]) of convert_breaks.: 行目:convert_breaksの指定([_1])が誤っています。
+Can not guess: プラグインの文字コード設定が誤っています。
+Content type is different.: 該当のコンテンツタイプ名がありません。
+No author_id.: author_idが設定されていません。
+The check of the number of CSV columns is started...: CSVデータのカラム数チェック開始...
+The number of items of CSV data([_1]) does not suit the number of items of a header([_2]). This error is outputted also when there is no data in the last column.: 行目のCSVデータの項目数([_1])がヘッダの項目数([_2])と不一致です。このエラーは最後のカラムにデータがない場合も出力されます。
+Import is stopped because CSV data has an error.: CSVデータにエラーがあるためインポートを中止します。
+continue?: 続けますか？
+The check of CSV data was completed normally.: CSVデータのチェックが正常に終了しました。
+Import of CSV data is started...: CSVデータのインポート開始...
+Processing is skipped because there is no applicable entry.: 該当する記事がないため、処理をスキップします。
+Update is skipped because there is applicable entry.: 該当する記事があるため、処理をスキップします。
+Skipped because value([_1]) is not numeric.: 数値型のフィールドに数値以外の文字([_1])が設定されているため、処理をスキップします。
+Import is stopped because the user([_1]) is not registered.: 該当のユーザー([_1])が登録されていないのでインポートを中止します。
+Import is stopped because blog_id([_1]) is not registered.: 該当のサイトID([_1])が登録されていないのでインポートを中止します。
+Added [_1](ID:[_2]): '[_1](ID:[_2])を追加しました。'
+Updated [_1](ID:[_2]): '[_1](ID:[_2])を更新しました。'
+Import of CSV data is completed.: CSVデータのインポートが終了しました。
+\[_1]([_2]) is created.: '[_1]([_2])を作成しました。'
+sub [_1]([_2]) is created.: 'サブ[_1]([_2])を作成しました。'
+Entry([_1]) and [_2]([_3]) are associated.: 記事(ID:[_1])と[_2]([_3])の関連付けを設定しました。
+Association of Entry([_1]) and [_2]([_3]) is skipped.: 記事(ID:[_1])と[_2](ID:[_3])の関連付けは設定されているのでスキップします。
+Association of Entry([_1]) and Catgory([_2]) is canceled.: 記事(ID:[_1])とカテゴリ(ID:[_2])の関連付けを解除しました。
+Entry([_1]) and Asset([_2]) are associated.: 記事(ID:[_1])とアイテム(ID:[_2])の関連付けを設定しました。
+Entry([_1]) and CF Asset([_2]) are associated.: 記事(ID:[_1])のアイテム(ID:[_2])をカスタムフィールドアイテムに関連付けしました。
+Registration failure of Asset([_1]).: アイテム([_1])の登録に失敗しました。
+Asset([_1]) is registered.: アイテム([_1])を登録しました。
+Association of Entry([_1]) and Asset([_2]) is skipped.: 記事(ID:[_1])とアイテム(ID:[_2])の関連付けは設定されているのでスキップします。
+Blog to Export: エクスポートするサイト
+set category [_1]: 　　カテゴリ"[_1]"を設定しました。
+set subcategory [_1] parent category[_2]: 　　サブカテゴリ"[_1]"を設定しました。上位のカテゴリ："[_2]"
+Created [_1](ID:[_2]): '[_1](ID:[_2])を作成しました。'
+
+Import and export MT CSV into MT.: 記事データをCSV形式でインポート/エクスポートします。
+Imexport character: CSVファイルの文字コード
+Character Encoding: CSVデータの文字コード
+cp932: Shift_JIS(CP932)
+shiftjis: Shift_JIS（CP932）
+utf8: UTF-8
+euc: EUC-JP
+system: システムの設定値に依存
+
+Is Cloud: 利用環境
+no cloud: 非クラウド
+cloud: クラウド（AWSなど）
+label: ラベル
+value: 値
+Select box type: セレクトボックスのデータ
+Checkbox type: チェックボックスのデータ
+Radio button type: ラジオボタンのデータ
+Line feed code: 改行コード
+windows: CR+LF(Windows)
+mac: CR(Mac)
+
+Asset Upload: アイテムのアップロード
+no upload: アップロードしない（現在のファイルをそのまま利用）
+upload: アップロードする
+
+Is revision: 更新履歴
+no revision: 保存しない
+do revision: 保存する
+for csv: CSVによるインポート
+
+ContentData: コンテンツデータ
+ContentData([_1]) and [_2]([_3]) are associated.: コンテンツデータ(ID:[_1])と[_2]([_3])の関連付けを設定しました。
+\[_1]([_2]) is created to [_3].: '[_1]([_2])を[_3]に作成しました。'
+sub [_1]([_2]) is created to [_3].: 'サブ[_1]([_2])を[_3]に作成しました。'
+Association of ContentData([_1]) and Catgory([_2]) is canceled.: コンテンツデータ(ID:[_1])とカテゴリ(ID:[_2])の関連付けを解除しました。
+Association of ContentData([_1]) and Asset([_2]) is canceled.: コンテンツデータID:[_1])とアイテム(ID:[_2])の関連付けを解除しました。
+Categoryset [_1]([_2]) is created.: カテゴリセット"[_1]([_2])"を作成しました
+Export [_1]: '[_1]をエクスポート'
+Import [_1]: '[_1]をインポート'
+
+can use [_1]: 評価版の利用期間：残り [_1] 日
+expiration of a term.: 評価版は期限切れです。引き続きご利用になる場合は製品版をご購入ください。
