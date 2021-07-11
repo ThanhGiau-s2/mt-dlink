@@ -1,0 +1,171 @@
+<mt:SetVars>
+    <mt:BlogEntryCount setvar="total_entries_product">
+    <mt:Entries lastn="$total_entries_product">
+        <mt:if tag="EntryTitle" eq="光トランシーバ／ケーブル">
+            <mt:If tag="EntryExcerpt">base_description=<$mt:EntryExcerpt$></mt:If>
+            <mt:If tag="EntryKeywords">base_keywords=<$mt:EntryKeywords$></mt:If>
+        </mt:if>
+    </mt:Entries>
+    og_title=光トランシーバ／ケーブル|製品情報 | D-Link Japan
+    og_url=https://www.dlink-jp.com/product/sfp-xf-others/
+    og_type=article
+</mt:SetVars>
+<mt:Include module="html_head" parent="1" />
+<mt:Include module="header" parent="1" />
+<!-- ここからコンテンツ -->
+<main class="p-main">
+    <div class="c-breadcrumb">
+        <ul class="c-breadcrumb__list">
+            <li><a href="/">HOME</a></li>
+            <li><a href="/product/">製品情報</a></li>
+            <li><span>光トランシーバ／ケーブル</span></li>
+        </ul>
+    </div>
+    <!-- /.c-breadcrumb -->
+    <section class="l-outer--lower">
+        <div class="l-inner">
+            <div class="c-title">
+                <h1 class="c-title__text">光トランシーバ／ケーブル</h1>
+            </div>
+            <!-- /.c-title -->
+            <div class="l-container">
+                <div class="l-container__block">
+                    <div class="l-container__box">
+                        <div class="l-container__box">
+                            <div class="l-container__slot">
+                           
+                                <mt:Entries sort_by="authored_on" sort_order="descend" lastn="$total_entries_product">
+                                    <mt:if tag="EntryTitle" eq="光トランシーバ／ケーブル">
+                                        <div class="p-content_center">
+                                            <div class="p-content_center__figure">
+                                                <div class="p-photo">
+                                                    <div class="p-photo__img">
+                                                        <MTIfNonEmpty tag="EntryDataCattopSum">
+                                                            <mt:EntryDataCattopSumAsset>
+                                                                <img src="<mt:AssetURL>" alt="<mt:EntryTitle>">
+                                                            </mt:EntryDataCattopSumAsset>
+                                                        <mt:else>
+                                                            <img src="/asset/img/product/alternative_image.jpg" alt="<mt:EntryTitle>">
+                                                        </MTIfNonEmpty>
+                                                    </div>
+                                                    <!-- /.p-photo__img -->
+                                                </div>
+                                                <!-- /.p-photo -->
+                                            </div>
+                                            <!-- /.p-content_center__figure -->
+
+                                            <div class="p-content_center__body">
+                                                <div class="c-content_box">
+                                                    <p><mt:EntryDataCattopText nl2br="1"></p>
+                                                </div>
+                                                <!-- /.c-content_box -->
+                                            </div>
+                                            <!-- /.p-content_center__body -->
+                                        </div>
+                                        <!-- /.p-content_center -->
+                                    </mt:if>
+                                </mt:entries>
+                           
+                            </div>
+                            <!-- /.l-container__slot -->
+                        </div>
+                        <!-- /.l-container__box -->
+
+                        <div class="l-container__box">
+                            <mt:SubCategories category="光トランシーバ／ケーブル">
+                                <mt:setvarblock name="sub_cate">光トランシーバ／ケーブル/<mt:CategoryLabel></mt:setvarblock>
+                                <mt:entries category="$sub_cate">
+                                    <mt:SetVar name="depth" value="0">
+                                    <mt:EntryCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryCategories>
+                                    <mt:if name="depth" eq="2"><mt:setvar name="show_list" value="1"></mt:if>
+                                </mt:entries>
+                            </mt:SubCategories>
+                            <mt:If name="show_list" eq="1">
+                                <div class="c-content_heading">
+                                    <h2 class="c-content_heading__text">シリーズ一覧</h2>
+                                </div>
+                                <!-- /.c-content_heading -->
+                                <mt:setvar name="show_list" value="0">
+                            </mt:if>
+                            <div class="l-container__box">
+                           
+                                <mt:SubCategories category="光トランシーバ／ケーブル">
+                                    <mt:setvarblock name="sub_cate">光トランシーバ／ケーブル/<mt:CategoryLabel></mt:setvarblock>
+                                    <mt:entries category="$sub_cate">
+                                        <mt:SetVar name="depth" value="0">
+                                        <mt:EntryCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryCategories>
+                                        <mt:if name="depth" eq="2"><mt:setvar name="has_series" value="1"></mt:if>
+                                    </mt:entries>
+                                    <mt:If name="has_series" eq="1">    
+                                        <div class="c-middle_heading">
+                                            <h3 id="category_01" class="c-middle_heading__text"><$mt:CategoryLabel$></h3>
+                                        </div>
+                                        <!-- /.c-middle_heading -->
+                                        <div class="l-container__slot">
+                                            <div class="p-product_list">
+                                                <mt:entries category="$sub_cate">
+                                                    <mt:SetVar name="depth" value="0">
+                                                    <mt:EntryCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryCategories>
+                                                    <mt:if name="depth" eq="2">
+                                                        <div class="p-product_list__item">
+                                                            <a href="<$mt:EntryPermalink$>" rel="bookmark">
+                                                                <div class="p-product_list__main">
+                                                                    <div class="p-product_list__row">
+                                                                        <div class="p-product_list__header">
+                                                                            <ul class="p-product_list__tag">
+                                                                                <mt:EntryDataSeriesListTagtext replace="$","<li>">
+                                                                            </ul>
+                                                                            <div class="p-product_list__img">
+                                                                                <MTIfNonEmpty tag="EntryDataSeriesImg">
+                                                                                    <mt:EntryDataSeriesImgAsset>
+                                                                                        <img src="<mt:AssetURL>" alt="<mt:EntryTitle>">
+                                                                                    </mt:EntryDataSeriesImgAsset>
+                                                                                <mt:else>
+                                                                                    <img src="/asset/img/product/alternative_image.jpg" alt="<mt:EntryTitle>">
+                                                                                </MTIfNonEmpty>
+                                                                            </div>
+                                                                            <!-- /.p-product_list__img -->
+                                                                        </div>
+                                                                        <!-- /.p-product_list__header -->
+
+                                                                        <div class="p-product_list__body">
+                                                                            <p class="p-product_list__copy"><mt:EntryDataSeriesMiddlecatText></p>
+                                                                            <h4 class="p-product_list__name"><mt:EntryTitle></h4>
+                                                                        </div>
+                                                                        <!-- /.p-product_list__body -->
+                                                                    </div>
+                                                                    <!-- /.p-product_list__row -->
+                                                                </div>
+                                                                <!-- /.p-product_list__main -->
+                                                            </a>
+                                                        </div>
+                                                        <!-- /.p-product_list__item -->
+                                                    </mt:if>
+                                                </mt:entries>
+                                            </div>
+                                            <!-- /.p-product_list -->
+                                        </div>
+                                        <!-- /.l-container__slot -->
+                                        <mt:setvar name="has_series" value="0">
+                                    </mt:if>
+                                </mt:SubCategories>
+                            
+                            </div>
+                            <!-- /.l-container__box -->
+                        </div>
+                        <!-- /.l-container__box -->
+                    </div>
+                    <!-- /.l-container__box -->
+                </div>
+                <!-- /.l-container__block -->
+
+            </div>
+            <!-- /.l-container -->
+        </div>
+        <!-- /.l-inner -->
+    </section>
+</main>
+<mt:Include module="footer_contact" parent="1" />
+<mt:Include module="product_local_nav" parent="1" />
+<mt:Include module="footer" parent="1" />
+<mt:Include module="html_foot" parent="1" />

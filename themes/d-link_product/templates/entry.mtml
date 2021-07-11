@@ -2,11 +2,4 @@
 <mt:EntryCategories>
   <mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if>
 </mt:EntryCategories>
-<mt:if name="depth" eq="0">
-  <mt:if tag="EntryBasename" like="(switch|wireless-lan|sfp-xf-others)">
-    <mt:Include module="product_series"/>
-  <mt:else>
-    <mt:Include module="product_all"/>
-  </mt:if>
-</mt:if>
 <mt:if name="depth" eq="2"><mt:Include module="small_cate_product"/></mt:if>
