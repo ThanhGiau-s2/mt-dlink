@@ -9,13 +9,12 @@ Template Note : カテゴリ
     base_description=最新のセミナー開催情報や展示会出展情報をお知らせします。セミナーの予約もこちらから可能です。
     base_keywords=セミナー,展示会,D-Link セミナー,D-Link 展示会
     og_title=イベント・セミナー | D-Link Japan
-    og_url=https://www.dlink-jp.com/event/
+    og_url=https://test.dlink-jp.com/event/
     og_type=article
 </mt:SetVars>
 <mt:SetVarTemplate name="file_javascript">
 <script src="/asset/js/category.js" defer></script>
 </mt:SetVarTemplate>
-<mt:Ignore>** 表示部分 **</mt:Ignore>
 <mt:Include module="html_head" parent="1"/>
 <style>
 .mr10 {
@@ -25,7 +24,7 @@ Template Note : カテゴリ
     margin-top: 10px;
 }
 </style>
-<mt:Include module="header"/>
+<mt:Include module="header" parent="1"/>
 <!-- ここからコンテンツ -->
 <main class="p-main">
     <div class="c-breadcrumb">
