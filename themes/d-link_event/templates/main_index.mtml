@@ -15,7 +15,6 @@ Template Note : カテゴリ
 <mt:SetVarTemplate name="file_javascript">
 <script src="/asset/js/category.js" defer></script>
 </mt:SetVarTemplate>
-<mt:Ignore>** 表示部分 **</mt:Ignore>
 <mt:Include module="html_head" parent="1"/>
 <style>
 .mr10 {
@@ -25,7 +24,7 @@ Template Note : カテゴリ
     margin-top: 10px;
 }
 </style>
-<mt:Include module="header"/>
+<mt:Include module="header" parent="1"/>
 <!-- ここからコンテンツ -->
 <main class="p-main">
     <div class="c-breadcrumb">

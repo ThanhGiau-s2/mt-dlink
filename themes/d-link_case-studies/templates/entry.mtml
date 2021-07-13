@@ -12,9 +12,8 @@
 <script src="/asset/js/slick.min.js"></script>
 <script src="/asset/js/top.min.js" defer></script>
 </mt:SetVarTemplate>
-<mt:Ignore>** 表示部分 **</mt:Ignore>
 <mt:Include module="html_head" parent="1" />
-<mt:Include module="header"/>
+<mt:Include module="header" parent="1"/>
 <main class="p-main">
   <div class="c-breadcrumb">
     <ul class="c-breadcrumb__list">
@@ -3780,5 +3779,5 @@
   <!-- /.p-contact__inner -->
 </div>
 <!-- /.p-contact -->
-<mt:Include module="footer"/>
-<mt:Include module="html_foot"/>
+<mt:Include module="footer" parent="1"/>
+<mt:Include module="html_foot" parent="1"/>
