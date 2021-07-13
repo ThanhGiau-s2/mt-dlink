@@ -2,12 +2,11 @@
     <mt:If tag="EntryExcerpt">base_description=<$mt:EntryExcerpt$></mt:If>
     <mt:If tag="EntryKeywords">base_keywords=<$mt:EntryKeywords$></mt:If>
     og_title=<mt:EntryTitle>|製品情報 | D-Link Japan
-    og_url=https://www.dlink-jp.com/product/<mt:EntryBasename>/
+    og_url=https://test.dlink-jp.com/product/<mt:EntryBasename>/
     og_type=article
 </mt:SetVars>
-<mt:Ignore>** 表示部分 **</mt:Ignore>
 <mt:Include module="html_head" parent="1" />
-<mt:Include module="header"/>
+<mt:Include module="header" parent="1" />
 <!-- ここからコンテンツ -->
 <main class="p-main">
     <div class="c-breadcrumb">
@@ -41,35 +40,33 @@
                                 <!-- /.l-container__slot -->
                             </mt:if>
                             <div class="l-container__slot">
-                                
-                                        <div class="p-content_center">
-                                            <div class="p-content_center__figure">
-                                                <div class="p-photo">
-                                                    <div class="p-photo__img">
-                                                        <MTIfNonEmpty tag="EntryDataCattopSum">
-                                                            <mt:EntryDataCattopSumAsset>
-                                                                <img src="<mt:AssetURL>" alt="<mt:EntryTitle>">
-                                                            </mt:EntryDataCattopSumAsset>
-                                                        <mt:else>
-                                                            <img src="/asset/img/product/alternative_image.jpg" alt="<mt:EntryTitle>">
-                                                        </MTIfNonEmpty>
-                                                    </div>
-                                                    <!-- /.p-photo__img -->
-                                                </div>
-                                                <!-- /.p-photo -->
+                                <div class="p-content_center">
+                                    <div class="p-content_center__figure">
+                                        <div class="p-photo">
+                                            <div class="p-photo__img">
+                                                <MTIfNonEmpty tag="EntryDataCattopSum">
+                                                    <mt:EntryDataCattopSumAsset>
+                                                        <img src="<mt:AssetURL>" alt="<mt:EntryTitle>">
+                                                    </mt:EntryDataCattopSumAsset>
+                                                <mt:else>
+                                                    <img src="/asset/img/product/alternative_image.jpg" alt="<mt:EntryTitle>">
+                                                </MTIfNonEmpty>
                                             </div>
-                                            <!-- /.p-content_center__figure -->
-
-                                            <div class="p-content_center__body">
-                                                <div class="c-content_box">
-                                                    <p><mt:EntryDataCattopText nl2br="1"></p>
-                                                </div>
-                                                <!-- /.c-content_box -->
-                                            </div>
-                                            <!-- /.p-content_center__body -->
+                                            <!-- /.p-photo__img -->
                                         </div>
-                                        <!-- /.p-content_center -->
-                                 
+                                        <!-- /.p-photo -->
+                                    </div>
+                                    <!-- /.p-content_center__figure -->
+
+                                    <div class="p-content_center__body">
+                                        <div class="c-content_box">
+                                            <p><mt:EntryDataCattopText nl2br="1"></p>
+                                        </div>
+                                        <!-- /.c-content_box -->
+                                    </div>
+                                    <!-- /.p-content_center__body -->
+                                </div>
+                                <!-- /.p-content_center -->
                             </div>
                             <!-- /.l-container__slot -->
                         </div>
@@ -167,7 +164,6 @@
                     <!-- /.l-container__box -->
                 </div>
                 <!-- /.l-container__block -->
-
             </div>
             <!-- /.l-container -->
         </div>
@@ -175,6 +171,6 @@
     </section>
 </main>
 <mt:Include module="footer_contact" parent="1" />
-<mt:Include module="product_local_nav"/>
+<mt:Include module="product_local_nav" parent="1"/>
 <mt:Include module="footer" parent="1" />
 <mt:Include module="html_foot" parent="1" />
