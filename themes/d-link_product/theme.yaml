@@ -22,33 +22,6 @@ elements:
             label: 'index.html'
             outfile: index.html
             rebuild_me: '1'
-          product_switch_index:
-            label: 'product_switch_index'
-            outfile: switch/index.html
-          product_wireless-lan_index:
-            label: 'product_wireless-lan_index'
-            outfile: wireless-lan/index.html
-          product_sfp-xf-others_index:
-            label: 'product_sfp-xf-others_index'
-            outfile: sfp-xf-others/index.html
-          product_redundant_index:
-            label: 'product_redundant_index'
-            outfile: redundant/index.html
-          product_other_index:
-            label: 'product_other_index'
-            outfile: other/index.html
-          product_software_index:
-            label: 'product_software_index'
-            outfile: software/index.html
-          product_network-camera_index:
-            label: 'product_network-camera_index'
-            outfile: network-camera/index.html
-          product_media-converter_index:
-            label: 'product_media-converter_index'
-            outfile: media-converter/index.html
-          product_router-firewall_index:
-            label: 'product_router-firewall_index'
-            outfile: router-firewall/index.html
         individual:
           entry:
             label: Entry
@@ -67,4 +40,8 @@ elements:
           permalink:
             label: permalink
           small_cate_product:
-            label: 'small_cate_product'
+            label: small_cate_product
+          product_series:
+            label: product_series
+          product_all:
+            label: product_all

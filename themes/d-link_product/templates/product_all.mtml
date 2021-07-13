@@ -2,13 +2,12 @@
     <mt:If tag="EntryExcerpt">base_description=<$mt:EntryExcerpt$></mt:If>
     <mt:If tag="EntryKeywords">base_keywords=<$mt:EntryKeywords$></mt:If>
     og_title=<mt:EntryTitle>|製品情報 | D-Link Japan
-    og_url=https://www.dlink-jp.com/product/<mt:EntryBasename>/
+    og_url=https://test.dlink-jp.com/product/<mt:EntryBasename>/
     og_type=article
-    <mt:BlogEntryCount blog_ids="1" setvar="total_entries_product">
+    <mt:BlogEntryCount include_sites="1" setvar="total_entries_product">
 </mt:SetVars>
-<mt:Ignore>** 表示部分 **</mt:Ignore>
 <mt:Include module="html_head" parent="1" />
-<mt:Include module="header"/>
+<mt:Include module="header" parent="1"/>
 <!-- ここからコンテンツ -->
 <main class="p-main">
     <div class="c-breadcrumb">
@@ -31,33 +30,32 @@
                     <div class="l-container__box">
                         <div class="l-container__box">
                             <div class="l-container__slot">
-                              
-                                        <div class="p-content_center">
-                                            <div class="p-content_center__figure">
-                                                <div class="p-photo">
-                                                    <div class="p-photo__img">
-                                                        <MTIfNonEmpty tag="EntryDataCattopSum">
-                                                            <mt:EntryDataCattopSumAsset>
-                                                                <img src="<mt:AssetURL>" alt="<mt:EntryTitle>">
-                                                            </mt:EntryDataCattopSumAsset>
-                                                        <mt:else>
-                                                            <img src="/asset/img/product/alternative_image.jpg" alt="<mt:EntryTitle>">
-                                                        </MTIfNonEmpty>
-                                                    </div>
-                                                    <!-- /.p-photo__img -->
-                                                </div>
-                                                <!-- /.p-photo -->
+                                <div class="p-content_center">
+                                    <div class="p-content_center__figure">
+                                        <div class="p-photo">
+                                            <div class="p-photo__img">
+                                                <MTIfNonEmpty tag="EntryDataCattopSum">
+                                                    <mt:EntryDataCattopSumAsset>
+                                                        <img src="<mt:AssetURL>" alt="<mt:EntryTitle>">
+                                                    </mt:EntryDataCattopSumAsset>
+                                                <mt:else>
+                                                    <img src="/asset/img/product/alternative_image.jpg" alt="<mt:EntryTitle>">
+                                                </MTIfNonEmpty>
                                             </div>
-                                            <!-- /.p-content_center__figure -->
-
-                                            <div class="p-content_center__body">
-                                                <div class="c-content_box">
-                                                    <p><mt:EntryDataCattopText nl2br="1"></p>
-                                                </div>
-                                                <!-- /.c-content_box -->
-                                            </div>
-                                            <!-- /.p-content_center__body -->
+                                            <!-- /.p-photo__img -->
                                         </div>
+                                        <!-- /.p-photo -->
+                                    </div>
+                                    <!-- /.p-content_center__figure -->
+
+                                    <div class="p-content_center__body">
+                                        <div class="c-content_box">
+                                            <p><mt:EntryDataCattopText nl2br="1"></p>
+                                        </div>
+                                        <!-- /.c-content_box -->
+                                    </div>
+                                    <!-- /.p-content_center__body -->
+                                </div>
                             </div>
                             <!-- /.l-container__slot -->
                         </div>
@@ -68,7 +66,7 @@
                                 <mt:setvarblock name="sub_current_cate"><mt:EntryTitle></mt:setvarblock>
                                 <mt:SubCategories category="$sub_current_cate">
                                     <mt:setvarblock name="sub_cate">製品情報/<mt:EntryTitle>/<mt:CategoryLabel></mt:setvarblock>
-                                    <mt:entries include_blogs="1" sort_by="authored_on" sort_order="descend" lastn="$total_entries_product" category="$sub_cate">
+                                    <mt:entries include_sites="1" sort_by="authored_on" sort_order="descend" lastn="$total_entries_product" category="$sub_cate">
                                         <mt:SetVar name="depth" value="0">
                                         <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
                                         <mt:if name="depth" eq="3">
@@ -80,11 +78,10 @@
                                             <h2 class="c-content_heading__text"><$mt:CategoryLabel$></h2>
                                         </div>
                                         <!-- /.c-content_heading -->
-                                        <mt:setvar name="has_product" value="0">
-                                    </mt:if> 
+                                        
                                         <div class="l-container__slot">
                                             <div class="p-product_list">
-                                                <mt:entries include_blogs="1" sort_by="authored_on" sort_order="descend" lastn="$total_entries_product" category="$sub_cate">
+                                                <mt:entries include_sites="1" sort_by="authored_on" sort_order="descend" lastn="$total_entries_product" category="$sub_cate">
                                                     <mt:SetVar name="depth" value="0">
                                                     <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
                                                     <mt:if name="depth" eq="3">
@@ -148,7 +145,8 @@
                                             <!-- /.p-product_list -->
                                         </div>
                                         <!-- /.l-container__slot -->
-                                    
+                                        <mt:setvar name="has_product" value="0">
+                                    </mt:if> 
                                 </mt:subcategories>
                             </div>
                             <!-- /.l-container__box -->
@@ -164,8 +162,7 @@
         <!-- /.l-inner -->
     </section>
 </main>
-
 <mt:Include module="footer_contact" parent="1" />
-<mt:Include module="product_local_nav"/>
+<mt:Include module="product_local_nav" parent="1"/>
 <mt:Include module="footer" parent="1" />
 <mt:Include module="html_foot" parent="1" />

@@ -1,14 +1,12 @@
-<mt:IfArchiveTypeEnabled archive_type="Category">
-    <mt:If tag="EntryCategories">
-        <mt:SetVar name="depth" value="0">
-        <mt:EntryPrimaryCategory>
-            <mt:CategoryBasename setvar="name_parent">
-        </mt:EntryPrimaryCategory>
-        <mt:EntryAdditionalCategories>
-            <mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if>
-        </mt:EntryAdditionalCategories>
-        <mt:if name="name_parent" eq="product">
-            <mt:if name="depth" eq="3"><mt:Include module="single_product" parent="1" /></mt:if>
-        </mt:if>
-    </mt:If>
-</mt:IfArchiveTypeEnabled>
+<mt:If tag="EntryCategories">
+    <mt:SetVar name="depth" value="0">
+    <mt:EntryPrimaryCategory>
+        <mt:CategoryBasename setvar="name_parent">
+    </mt:EntryPrimaryCategory>
+    <mt:EntryAdditionalCategories>
+        <mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if>
+    </mt:EntryAdditionalCategories>
+    <mt:if name="name_parent" eq="product">
+        <mt:if name="depth" eq="3"><mt:Include module="single_product" parent="1" /></mt:if>
+    </mt:if>
+</mt:If>
