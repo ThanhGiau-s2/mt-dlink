@@ -5,15 +5,16 @@
   <mt:If tag="EntryExcerpt">base_description=<$mt:EntryExcerpt$></mt:If>
   <mt:If tag="EntryKeywords">base_keywords=<$mt:EntryKeywords$></mt:If>
   og_title=<mt:EntryTitle> | ネットワークソリューション | D-Link Japan
-  og_url=https://www.dlink-jp.com/solution/
+  og_url=https://test.dlink-jp.com/solution/
   og_type=article
 </mt:SetVars>
 <mt:SetVarTemplate name="file_javascript">
 <script src="/asset/js/slick.min.js"></script>
 <script src="/asset/js/top.min.js" defer></script>
 </mt:SetVarTemplate>
+<mt:Ignore>** 表示部分 **</mt:Ignore>
 <mt:Include module="html_head" parent="1" />
-<mt:Include module="header" parent="1"/>
+<mt:Include module="header"/>
 <!-- ここからコンテンツ -->
 <main class="p-main">
   <div class="c-breadcrumb">
