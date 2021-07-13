@@ -7,7 +7,7 @@
         </mt:if>
     </mt:Entries>
     og_title=その他製品|製品情報 | D-Link Japan
-    og_url=https://www.dlink-jp.com/product/other/
+    og_url=https://test.dlink-jp.com/product/other/
     og_type=article
 </mt:SetVars>
 <mt:Include module="html_head" parent="1" />
@@ -71,7 +71,6 @@
 
                         <div class="l-container__box">
                             <div class="l-container__box">
-                            
                                 <mt:setvarblock name="sub_current_cate">その他製品</mt:setvarblock>
                                 <mt:SubCategories category="$sub_current_cate">
                                     <mt:setvarblock name="sub_cate">製品情報/その他製品/<mt:CategoryLabel></mt:setvarblock>
@@ -104,7 +103,6 @@
                                                                                 <mt:EntryDataSeriesDetailListTagtext replace="$","<li>">
                                                                             </ul>
                                                                             <div class="p-product_list__img">
-                                                                            
                                                                                 <MTIfNonEmpty tag="EntryDataSeriesDetailMainImg">
                                                                                     <mt:EntryDataSeriesDetailMainImgAsset>
                                                                                         <img src="<mt:AssetURL>" alt="<mt:EntryTitle>">
@@ -149,7 +147,6 @@
                                         <mt:SetVar name="has_entries" value="0">
                                     </mt:if>
                                 </mt:subcategories>
-                            
                             </div>
                             <!-- /.l-container__box -->
                         </div>

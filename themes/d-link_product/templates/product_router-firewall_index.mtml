@@ -1,13 +1,13 @@
 <mt:SetVars>
     <mt:BlogEntryCount setvar="total_entries_product">
     <mt:Entries lastn="$total_entries_product">
-        <mt:if tag="EntryTitle" eq="ルータ／ファイアウォール">
+        <mt:if tag="EntryTitle" eq="VPNルータ">
             <mt:If tag="EntryExcerpt">base_description=<$mt:EntryExcerpt$></mt:If>
             <mt:If tag="EntryKeywords">base_keywords=<$mt:EntryKeywords$></mt:If>
         </mt:if>
     </mt:Entries>
-    og_title=ルータ／ファイアウォール|製品情報 | D-Link Japan
-    og_url=https://www.dlink-jp.com/product/router-firewall/
+    og_title=VPNルータ|製品情報 | D-Link Japan
+    og_url=https://test.dlink-jp.com/product/router-firewall/
     og_type=article
 </mt:SetVars>
 <mt:Include module="html_head" parent="1" />
@@ -18,14 +18,14 @@
         <ul class="c-breadcrumb__list">
             <li><a href="/">HOME</a></li>
             <li><a href="/product/">製品情報</a></li>
-            <li><span>ルータ／ファイアウォール</span></li>
+            <li><span>VPNルータ</span></li>
         </ul>
     </div>
     <!-- /.c-breadcrumb -->
     <section class="l-outer--lower">
         <div class="l-inner">
             <div class="c-title">
-                <h1 class="c-title__text">ルータ／ファイアウォール</h1>
+                <h1 class="c-title__text">VPNルータ</h1>
             </div>
             <!-- /.c-title -->
 
@@ -34,9 +34,8 @@
                     <div class="l-container__box">
                         <div class="l-container__box">
                             <div class="l-container__slot">
-                           
                                 <mt:Entries sort_by="authored_on" sort_order="descend" lastn="$total_entries_product">
-                                    <mt:if tag="EntryTitle" eq="ルータ／ファイアウォール">
+                                    <mt:if tag="EntryTitle" eq="VPNルータ">
                                         <div class="p-content_center">
                                             <div class="p-content_center__figure">
                                                 <div class="p-photo">
@@ -65,7 +64,6 @@
                                         </div>
                                     </mt:if>
                                 </mt:entries>
-                          
                             </div>
                             <!-- /.l-container__slot -->
                         </div>
@@ -73,10 +71,9 @@
 
                         <div class="l-container__box">
                             <div class="l-container__box">
-                           
-                                <mt:setvarblock name="sub_current_cate">ルータ／ファイアウォール</mt:setvarblock>
+                                <mt:setvarblock name="sub_current_cate">VPNルータ</mt:setvarblock>
                                 <mt:SubCategories category="$sub_current_cate">
-                                    <mt:setvarblock name="sub_cate">製品情報/ルータ／ファイアウォール/<mt:CategoryLabel></mt:setvarblock>
+                                    <mt:setvarblock name="sub_cate">製品情報/VPNルータ/<mt:CategoryLabel></mt:setvarblock>
                                     <mt:entries include_sites="1" category="$sub_cate">
                                         <mt:SetVar name="depth" value="0">
                                         <mt:EntryAdditionalCategories><mt:if tag="CategoryBasename"><mt:SetVar name="depth" op="++"></mt:if></mt:EntryAdditionalCategories>
@@ -150,7 +147,6 @@
                                         <mt:SetVar name="has_entries" value="0">
                                     </mt:if>
                                 </mt:subcategories>
-                           
                             </div>
                             <!-- /.l-container__box -->
                         </div>

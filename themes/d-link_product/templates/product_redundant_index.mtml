@@ -7,7 +7,7 @@
         </mt:if>
     </mt:Entries>
     og_title=リダンダント電源|製品情報 | D-Link Japan
-    og_url=https://www.dlink-jp.com/product/redundant/
+    og_url=https://test.dlink-jp.com/product/redundant/
     og_type=article
 </mt:SetVars>
 <mt:Include module="html_head" parent="1" />
@@ -34,7 +34,6 @@
                     <div class="l-container__box">
                         <div class="l-container__box">
                             <div class="l-container__slot">
-                            
                                 <mt:Entries sort_by="authored_on" sort_order="descend" lastn="$total_entries_product">
                                     <mt:if tag="EntryTitle" eq="リダンダント電源">
                                         <div class="p-content_center">
@@ -65,7 +64,6 @@
                                         </div>
                                     </mt:if>
                                 </mt:entries>
-                           
                             </div>
                             <!-- /.l-container__slot -->
                         </div>
@@ -73,7 +71,6 @@
 
                         <div class="l-container__box">
                             <div class="l-container__box">
-                            
                                 <mt:setvarblock name="sub_current_cate">リダンダント電源</mt:setvarblock>
                                 <mt:SubCategories category="$sub_current_cate">
                                     <mt:setvarblock name="sub_cate">製品情報/リダンダント電源/<mt:CategoryLabel></mt:setvarblock>
@@ -106,7 +103,6 @@
                                                                                 <mt:EntryDataSeriesDetailListTagtext replace="$","<li>">
                                                                             </ul>
                                                                             <div class="p-product_list__img">
-                                                                            
                                                                                 <MTIfNonEmpty tag="EntryDataSeriesDetailMainImg">
                                                                                     <mt:EntryDataSeriesDetailMainImgAsset>
                                                                                         <img src="<mt:AssetURL>" alt="<mt:EntryTitle>">
@@ -114,7 +110,6 @@
                                                                                 <mt:else>
                                                                                     <img src="/asset/img/product/alternative_image.jpg" alt="<mt:EntryTitle>">
                                                                                 </MTIfNonEmpty>
-                                                                            
                                                                             </div>
                                                                             <!-- /.p-product_list__img -->
                                                                         </div>
@@ -122,7 +117,6 @@
 
                                                                         <div class="p-product_list__body">
                                                                             <h3 class="p-product_list__name"><mt:EntryTitle></h3>
-                                                                            
                                                                             <mt:If tag="EntryDataSeriesDetailSalestatus" like="(販売終了予定|販売終了)">
                                                                                 <p class="p-product_list__status--close"><mt:EntryDataSeriesDetailSalestatus></p>
                                                                             <mt:else>
@@ -134,7 +128,6 @@
                                                                                 <p><mt:EntryDataSeriesDetailListText nl2br="1"></p>
                                                                             </div>
                                                                             <!-- /.p-product_list__description -->
-                                                                            
                                                                         </div>
                                                                         <!-- /.p-product_list__body -->
                                                                     </div>
@@ -154,7 +147,6 @@
                                         <mt:SetVar name="has_entries" value="0">
                                     </mt:if>
                                 </mt:subcategories>
-                          
                             </div>
                             <!-- /.l-container__box -->
                         </div>
